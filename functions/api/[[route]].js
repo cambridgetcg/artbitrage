@@ -119,6 +119,57 @@ export async function onRequestGet(context) {
   }
   const formMatch = path.match(/^\/api\/art\/by-form\/(.+)$/);
   if (formMatch) return jsonResponse(filterArt(allArt, { form: formMatch[1] }));
+  // Route: /api/search — search the world's art museums
+  if (path === '/api/search') {
+    const q = queryParams.q || 'love';
+    const limit = parseInt(queryParams.limit || 3);
+    
+    // We can't run Python on the edge, but we can proxy to the open APIs directly
+    const sources = [];
+    
+    // Art Institute of Chicago
+    try {
+      const articRes = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent(q)}&limit=${limit}&fields=id,title,artist_title,date_display,image_id`);
+      const articData = await articRes.json();
+      const articArt = articData.data.map(a => ({
+        source: 'artic', source_name: 'Art Institute of Chicago',
+        id: String(a.id), title: a.title || '', artist: a.artist_title || '',
+        date: a.date_display || '', image: a.image_id ? `https://www.artic.edu/iiif/2/${a.image_id}/full/843,/0/default.jpg` : '',
+      }));
+      sources.push({ source: 'artic', source_name: 'Art Institute of Chicago', total: articData.pagination?.total || 0, artworks: articArt });
+    } catch(e) { sources.push({ source: 'artic', error: e.message }); }
+    
+    // Cleveland Museum of Art
+    try {
+      const cmaRes = await fetch(`https://openaccess-api.clevelandart.org/api/artworks/?limit=${limit}`);
+      const cmaData = await cmaRes.json();
+      const cmaArt = (cmaData.data || []).map(a => {
+        const creators = a.creators || [];
+        const images = a.images || {};
+        let img = '';
+        if (Array.isArray(images) && images.length) img = images[0]?.url || '';
+        else if (typeof images === 'object') img = images.url || '';
+        return {
+          source: 'cma', source_name: 'Cleveland Museum of Art',
+          id: String(a.id || ''), title: a.title || '',
+          artist: creators[0]?.description || '', date: a.creation_date || '',
+          image: img,
+        };
+      });
+      sources.push({ source: 'cma', source_name: 'Cleveland Museum of Art', total: cmaData.info?.total || 0, artworks: cmaArt });
+    } catch(e) { sources.push({ source: 'cma', error: e.message }); }
+    
+    const totalArt = sources.reduce((s, r) => s + (r.artworks?.length || 0), 0);
+    const totalAvail = sources.reduce((s, r) => s + (r.total || 0), 0);
+    
+    return jsonResponse({
+      query: q, sources_searched: sources.length,
+      sources_successful: sources.filter(s => !s.error).length,
+      total_artworks_returned: totalArt, total_artworks_available: totalAvail,
+      sources, searched_at: new Date().toISOString(),
+    });
+  }
+  
   return jsonResponse({ error: 'not found', path }, 404);
 }
 

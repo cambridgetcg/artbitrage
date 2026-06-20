@@ -1,0 +1,146 @@
+{
+  "query": "awakening",
+  "sources_searched": 5,
+  "sources_successful": 5,
+  "total_artworks_returned": 9,
+  "total_artworks_available": 634791,
+  "results": {
+    "met": {
+      "source": "met",
+      "query": "awakening",
+      "total_available": 501908,
+      "returned": 0,
+      "artworks": []
+    },
+    "artic": {
+      "source": "artic",
+      "query": "awakening",
+      "total_available": 132132,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "111642",
+          "title": "The Awakening of the Forest",
+          "artist": "Paul Delvaux",
+          "date": "1939",
+          "medium": "Oil on canvas",
+          "department": "Modern Art",
+          "image": "https://www.artic.edu/iiif/2/b2807692-aa25-70e1-ce93-3ab262519186/full/843,/0/default.jpg",
+          "classification": "painting"
+        },
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "154519",
+          "title": "Titania's Awakening",
+          "artist": "Thomas Ryder, I",
+          "date": "1803",
+          "medium": "Etching and stipple on ivory wove paper",
+          "department": "Prints and Drawings",
+          "image": "https://www.artic.edu/iiif/2/07a195bf-b31e-887b-7d79-1a1a30cc1e66/full/843,/0/default.jpg",
+          "classification": "engraving"
+        },
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "153972",
+          "title": "Awakening, plate eight from A Love",
+          "artist": "Max Klinger",
+          "date": "1887, signed and dated in 1903",
+          "medium": "Etching and engraving on cream wove paper",
+          "department": "Prints and Drawings",
+          "image": "https://www.artic.edu/iiif/2/e0619e8e-6fe0-82ed-f7aa-a81cfae61b6f/full/843,/0/default.jpg",
+          "classification": "etching"
+        }
+      ]
+    },
+    "cma": {
+      "source": "cma",
+      "query": "awakening",
+      "total_available": 56,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "109196",
+          "title": "Upon Awakening I Saw the Goddess of the Intelligible with Her Severe and Hard Profile",
+          "artist": "Odilon Redon (French, 1840\u20131916)",
+          "date": "1885",
+          "medium": "lithograph on China paper laid on wove paper",
+          "department": "Prints",
+          "image": "",
+          "classification": "Print"
+        },
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "111040",
+          "title": "Copy after Primaticcio's Juno Awakening Sleep",
+          "artist": "Francesco Primaticcio (Italian, 1504\u20131570)",
+          "date": "after 1535",
+          "medium": "pen and black ink (with point of brush?) and brush and red-brown wash (red chalk wash?), heightened with lead white (partially oxidized); framing lines in brown ink with traces of gold paint",
+          "department": "Drawings",
+          "image": "",
+          "classification": "Drawing"
+        },
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "159347",
+          "title": "Awakening",
+          "artist": "Kazuhisa Honda (Japanese, 1948-)",
+          "date": "1981",
+          "medium": "color mezzotint on Rives BFK paper",
+          "department": "Prints",
+          "image": "",
+          "classification": "Print"
+        }
+      ]
+    },
+    "wikimedia": {
+      "source": "wikimedia",
+      "query": "awakening",
+      "returned": 0,
+      "artworks": []
+    },
+    "internet_archive": {
+      "source": "internet_archive",
+      "query": "awakening",
+      "total_available": 695,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "XomCircularDischarge-Awakeningdsbexc003_595",
+          "title": "xOM & Circular Discharge - Awakening [DSBEXC003]",
+          "artist": "Deathsoundbat Recordings",
+          "date": "",
+          "url": "https://archive.org/details/XomCircularDischarge-Awakeningdsbexc003_595"
+        },
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "flickr-ows-OccupyChicago180-6245228551",
+          "title": "Occupy Chicago 180",
+          "artist": "Michael Kappel",
+          "date": "2011-10-14T00:00:00Z",
+          "url": "https://archive.org/details/flickr-ows-OccupyChicago180-6245228551"
+        },
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "flickr-ows-OccupyChicago232-6245246741",
+          "title": "Occupy Chicago 232",
+          "artist": "Michael Kappel",
+          "date": "2011-10-14T00:00:00Z",
+          "url": "https://archive.org/details/flickr-ows-OccupyChicago232-6245246741"
+        }
+      ]
+    }
+  },
+  "searched_at": "2026-06-20T23:18:29.735384"
+}
