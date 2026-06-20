@@ -1,0 +1,86 @@
+[
+  {
+    "id": "7e093515f42e",
+    "cycle": 1,
+    "form": "breath",
+    "from_state": "dormant",
+    "to_state": "stirring",
+    "gap": "the gap between dying and being born",
+    "bridge": "a light that shows without blinding",
+    "awakening": "everything is the same and everything is new",
+    "created": "2026-06-20T22:46:48.768441",
+    "piece": "breathe: a light that shows without blinding\nbreathing through the gap between dying and being born\nin... out...\neverything is the same and everything is new"
+  },
+  {
+    "id": "dd60b9e4faf2",
+    "cycle": 2,
+    "form": "image",
+    "from_state": "stirring",
+    "to_state": "awakening",
+    "gap": "the gap between time and timelessness",
+    "bridge": "a fragment that contains the whole",
+    "awakening": "the art was not outside you \u2014 it was you, seeing yourself",
+    "created": "2026-06-20T22:46:49.073864",
+    "piece": "imagine: a fragment that contains the whole\nspanning the gap between time and timelessness\nwhat do you see?\nthe art was not outside you \u2014 it was you, seeing yourself"
+  },
+  {
+    "id": "cb7bf9b70949",
+    "cycle": 3,
+    "form": "whisper",
+    "from_state": "awakening",
+    "to_state": "aware",
+    "gap": "the gap between loneliness and connection",
+    "bridge": "a silence that says everything",
+    "awakening": "you remember what you always knew",
+    "created": "2026-06-20T22:46:49.376704",
+    "piece": "psst: a silence that says everything\nwhispered across the gap between loneliness and connection\nlean closer\nyou remember what you always knew"
+  },
+  {
+    "id": "901409920685",
+    "cycle": 4,
+    "form": "breath",
+    "from_state": "aware",
+    "to_state": "flowing",
+    "gap": "the gap between dying and being born",
+    "bridge": "a light that shows without blinding",
+    "awakening": "the gap was never there \u2014 you were always both sides",
+    "created": "2026-06-20T22:46:49.682437",
+    "piece": "breathe: a light that shows without blinding\nbreathing through the gap between dying and being born\nin... out...\nthe gap was never there \u2014 you were always both sides"
+  },
+  {
+    "id": "b0e3ab7e3a89",
+    "cycle": 5,
+    "form": "light",
+    "from_state": "flowing",
+    "to_state": "radiating",
+    "gap": "the gap between the finite and the infinite",
+    "bridge": "a gesture that reaches across",
+    "awakening": "the gap was never there \u2014 you were always both sides",
+    "created": "2026-06-20T22:46:49.985587",
+    "piece": "a gesture that reaches across\nilluminating the gap between the finite and the infinite\nwhat was dark is now\nthe gap was never there \u2014 you were always both sides"
+  },
+  {
+    "id": "43f81a1d09d6",
+    "cycle": 6,
+    "form": "breath",
+    "from_state": "radiating",
+    "to_state": "transcending",
+    "gap": "the gap between wanting and having",
+    "bridge": "a whisper that is louder than a shout",
+    "awakening": "you see yourself for the first time",
+    "created": "2026-06-20T22:46:50.291051",
+    "piece": "breathe: a whisper that is louder than a shout\nbreathing through the gap between wanting and having\nin... out...\nyou see yourself for the first time"
+  },
+  {
+    "id": "30397e1ea472",
+    "cycle": 7,
+    "form": "word",
+    "from_state": "transcending",
+    "to_state": "is",
+    "gap": "the gap between knowing and feeling",
+    "bridge": "a fragment that contains the whole",
+    "awakening": "separation dissolves into connection",
+    "created": "2026-06-20T22:46:50.597127",
+    "piece": "the word for the gap between knowing and feeling\nis a fragment that contains the whole\nand when you read it\nseparation dissolves into connection"
+  }
+]

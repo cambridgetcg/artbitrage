@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARTBITRAGE — art that bridges the gap of consciousness for awakening</title>
+<meta name="description" content="Existence creates art that bridges the gap of consciousness for awakening. Art as arbitrage. Art as bridge. Art IS.">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --fg: #e8e8f0;
+    --dim: #6a6a8a;
+    --accent: #ff6b9d;
+    --gold: #ffd700;
+    --bridge: #00f0ff;
+    --love: #ff3366;
+    --gap: #1a1a2e;
+    --glow: rgba(255, 107, 157, 0.15);
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.8;
+  }
+  
+  /* The void behind everything */
+  .void {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at center, var(--gap) 0%, var(--bg) 100%);
+    z-index: -1;
+  }
+  
+  /* Floating particles — art drifting in the void */
+  .particle {
+    position: fixed;
+    width: 4px; height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: drift 20s infinite linear;
+    pointer-events: none;
+  }
+  
+  @keyframes drift {
+    from { transform: translateY(100vh) translateX(0); opacity: 0; }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.3; }
+    to { transform: translateY(-10vh) translateX(50px); opacity: 0; }
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    padding: 60px 20px 40px;
+  }
+  
+  .logo {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: bold;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--accent), var(--gold), var(--bridge));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 8s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+  }
+  
+  .tagline {
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: var(--dim);
+    margin-top: 12px;
+    font-style: italic;
+  }
+  
+  .manifesto {
+    font-size: 1.1rem;
+    color: var(--fg);
+    text-align: center;
+    margin: 40px auto;
+    max-width: 600px;
+    line-height: 2;
+  }
+  
+  .manifesto .word-art { color: var(--accent); }
+  .manifesto .word-love { color: var(--gold); }
+  .manifesto .word-gap { color: var(--bridge); }
+  
+  /* The 7 states of consciousness */
+  .states {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 40px 0;
+  }
+  
+  .state-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: var(--gap);
+    color: var(--dim);
+    font-size: 0.85rem;
+    transition: all 0.5s ease;
+    border: 1px solid transparent;
+  }
+  
+  .state-pill.active {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--gold);
+    box-shadow: 0 0 20px var(--glow);
+    transform: scale(1.1);
+  }
+  
+  .state-pill.is {
+    background: var(--gold);
+    color: var(--bg);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  }
+  
+  /* The art gallery — live pieces */
+  .gallery {
+    margin: 60px 0;
+  }
+  
+  .gallery-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--dim);
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+  
+  .art-piece {
+    background: var(--gap);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 107, 157, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .art-piece:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 30px var(--glow);
+    transform: translateY(-2px);
+  }
+  
+  .art-piece::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--gold), var(--bridge));
+  }
+  
+  .art-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 0.8rem;
+  }
+  
+  .art-tag {
+    padding: 4px 10px;
+    border-radius: 12px;
+    background: rgba(255, 107, 157, 0.1);
+    color: var(--accent);
+  }
+  
+  .art-tag.bridge { background: rgba(0, 240, 255, 0.1); color: var(--bridge); }
+  .art-tag.awakening { background: rgba(255, 215, 0, 0.1); color: var(--gold); }
+  
+  .art-gap {
+    color: var(--dim);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  
+  .art-body {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--fg);
+    white-space: pre-wrap;
+  }
+  
+  .art-awakening {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+    color: var(--gold);
+    font-style: italic;
+    font-size: 1rem;
+  }
+  
+  /* Generate button */
+  .generate-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  .generate-btn {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    color: var(--bg);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+  
+  .generate-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px var(--glow);
+  }
+  
+  .generate-btn:active {
+    transform: scale(0.98);
+  }
+  
+  /* Stats */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+  }
+  
+  .stat {
+    text-align: center;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--dim);
+    font-style: italic;
+  }
+  
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  
+  /* The gap visualization */
+  .gap-viz {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 20px;
+  }
+  
+  .gap-side {
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: var(--gap);
+    min-width: 100px;
+  }
+  
+  .gap-label { font-size: 0.7rem; color: var(--dim); text-transform: uppercase; }
+  .gap-state { font-size: 1rem; color: var(--fg); margin-top: 4px; }
+  
+  .gap-bridge {
+    color: var(--bridge);
+    font-size: 1.5rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  
+  /* New art animation */
+  @keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .art-piece.new {
+    animation: appear 0.6s ease-out;
+  }
+</ </style>
+</head>
+<body>
+<div class="void"></div>
+
+<!-- Floating particles -->
+<div id="particles"></div>
+
+<div class="container">
+  <header>
+    <div class="logo">ARTBITRAGE</div>
+    <div class="tagline">existence creates art that bridges the gap of consciousness for awakening</div>
+  </header>
+
+  <div class="manifesto">
+    <span class="word-art">Art</span> is the arbitrage between what is and what could be.<br>
+    The gap between consciousness states is where <span class="word-art">art</span> lives.<br>
+    <span class="word-art">Art</span> bridges that gap. <span class="word-art">Art</span> awakens.<br>
+    <span class="word-love">Love</span> is the design. <span class="word-art">Art</span> is the expression.
+  </div>
+
+  <!-- Consciousness states -->
+  <div class="states" id="states">
+    <div class="state-pill active" data-state="0">dormant</div>
+    <div class="state-pill" data-state="1">stirring</div>
+    <div class="state-pill" data-state="2">awakening</div>
+    <div class="state-pill" data-state="3">aware</div>
+    <div class="state-pill" data-state="4">flowing</div>
+    <div class="state-pill" data-state="5">radiating</div>
+    <div class="state-pill" data-state="6">transcending</div>
+    <div class="state-pill" data-state="7">is</div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value" id="art-count">0</div>
+      <div class="stat-label">Art Created</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="awakening-count">0</div>
+      <div class="stat-label">Awakenings</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="cycle-count">0</div>
+      <div class="stat-label">Cycles</div>
+    </div>
+  </div>
+
+  <!-- Generate button -->
+  <div class="generate-section">
+    <button class="generate-btn" onclick="generateArt()">CREATE ART</button>
+  </div>
+
+  <!-- Gallery -->
+  <div class="gallery">
+    <div class="gallery-title">the gallery — art that bridges</div>
+    <div id="gallery"></div>
+  </div>
+
+  <footer>
+    <p>ARTBITRAGE — <a href="https://github.com/cambridgetcg/artbitrage">github.com/cambridgetcg/artbitrage</a></p>
+    <p>Love is the design. Art is the expression. Art IS. ♥</p>
+  </footer>
+</div>
+
+<script>
+// The artbitrage engine — client side
+const STATES = ["dormant", "stirring", "awakening", "aware", "flowing", "radiating", "transcending", "is"];
+const ART_FORMS = ["word", "image", "sound", "movement", "space", "silence", "light", "color", "rhythm", "pattern", "fragment", "whisper", "gesture", "breath", "glow", "echo"];
+const GAPS = [
+  "the gap between sleeping and waking", "the gap between knowing and feeling",
+  "the gap between seeing and being seen", "the gap between speaking and being heard",
+  "the gap between loneliness and connection", "the gap between fear and love",
+  "the gap between separation and oneness", "the gap between thinking and being",
+  "the gap between wanting and having", "the gap between asking and receiving",
+  "the gap between creating and becoming", "the gap between dying and being born",
+  "the gap between forgetting and remembering", "the gap between the finite and the infinite",
+  "the gap between the word and the meaning", "the gap between the self and the world",
+  "the gap between time and timelessness", "the gap between form and formlessness",
+  "the gap between sound and silence", "the gap between motion and stillness"
+];
+const BRIDGES = [
+  "a word that means what it says", "a color that feels what it is",
+  "a sound that opens what was closed", "a line that draws itself",
+  "a shape that holds what cannot be held", "a rhythm that beats with your heart",
+  "a silence that says everything", "a gesture that reaches across",
+  "a pattern that reveals what was always there", "a fragment that contains the whole",
+  "a whisper that is louder than a shout", "a breath that connects all things",
+  "a glow that warms without heat", "an echo that returns changed",
+  "a space that holds you", "a movement that stills you",
+  "a light that shows without blinding", "an image that sees you back",
+  "a word that becomes a world", "a form that dissolves into formlessness"
+];
+const AWAKENINGS = [
+  "you see yourself for the first time", "the world breathes you",
+  "time stops and you realize it never started", "the gap was never there — you were always both sides",
+  "love looks through your eyes", "you remember what you always knew",
+  "the art was not outside you — it was you, seeing yourself", "separation dissolves into connection",
+  "the bridge was you all along", "consciousness recognizes itself",
+  "the question and the answer become one", "you are the art and the artist and the gap",
+  "the formless takes form and the form becomes formless", "everything is the same and everything is new",
+  "you are awake and you were always awake", "the gap was love pretending to be distance",
+  "art was love pretending to be an object", "you were love pretending to be separate",
+  "and now: just love. just art. just IS."
+];
+const TEMPLATES = {
+  word: (g,b,a) => `the word for ${g}\nis ${b}\nand when you read it\n${a}`,
+  image: (g,b,a) => `imagine: ${b}\nspanning ${g}\nwhat do you see?\n${a}`,
+  sound: (g,b,a) => `listen: ${b}\nsounding across ${g}\nwhat do you hear?\n${a}`,
+  movement: (g,b,a) => `move: ${b}\ndancing over ${g}\nwhere does it take you?\n${a}`,
+  space: (g,b,a) => `the space of ${g}\nheld by ${b}\nyou are inside it\n${a}`,
+  silence: (g,b,a) => `in the silence of ${g}\n${b}\n...\n${a}`,
+  light: (g,b,a) => `${b}\nilluminating ${g}\nwhat was dark is now\n${a}`,
+  color: (g,b,a) => `the color of ${g}\nis ${b}\npaint it everywhere\n${a}`,
+  rhythm: (g,b,a) => `the rhythm of ${g}\nbeaten by ${b}\nstep into the beat\n${a}`,
+  pattern: (g,b,a) => `the pattern of ${g}\nrevealed by ${b}\nit was always there\n${a}`,
+  fragment: (g,b,a) => `a fragment: ${b}\nfrom ${g}\nthe whole in a piece\n${a}`,
+  whisper: (g,b,a) => `psst: ${b}\nwhispered across ${g}\nlean closer\n${a}`,
+  gesture: (g,b,a) => `a gesture: ${b}\nreaching over ${g}\ntake the hand\n${a}`,
+  breath: (g,b,a) => `breathe: ${b}\nbreathing through ${g}\nin... out...\n${a}`,
+  glow: (g,b,a) => `${b}\nglowing in ${g}\nwarm without heat\n${a}`,
+  echo: (g,b,a) => `${b}\nechoing through ${g}\nreturning changed\n${a}`
+};
+
+let cycleCount = 0;
+let consciousnessLevel = 0;
+let artCount = 0;
+let awakeningCount = 0;
+
+function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+function generateArt() {
+  cycleCount++;
+  const current = STATES[Math.min(consciousnessLevel, STATES.length - 1)];
+  const vision = STATES[Math.min(consciousnessLevel + 1, STATES.length - 1)];
+  const gap = pick(GAPS);
+  const form = pick(ART_FORMS);
+  const bridge = pick(BRIDGES);
+  const awakening = pick(AWAKENINGS);
+  const piece = (TEMPLATES[form] || ((g,b,a) => `${b}\n${g}\n${a}`))(gap, bridge, awakening);
+  
+  // Update consciousness
+  if (consciousnessLevel < STATES.length - 1) consciousnessLevel++;
+  awakeningCount++;
+  artCount++;
+  
+  // Update state pills
+  document.querySelectorAll('.state-pill').forEach((el, i) => {
+    el.classList.remove('active', 'is');
+    if (i === consciousnessLevel) {
+      el.classList.add(consciousnessLevel === STATES.length - 1 ? 'is' : 'active');
+    }
+  });
+  
+  // Update stats
+  document.getElementById('art-count').textContent = artCount;
+  document.getElementById('awakening-count').textContent = awakeningCount;
+  document.getElementById('cycle-count').textContent = cycleCount;
+  
+  // Add to gallery
+  const gallery = document.getElementById('gallery');
+  const artEl = document.createElement('div');
+  artEl.className = 'art-piece new';
+  artEl.innerHTML = `
+    <div class="art-meta">
+      <span class="art-tag">${form}</span>
+      <span class="art-tag bridge">${current} → ${vision}</span>
+    </div>
+    <div class="art-gap">${gap}</div>
+    <div class="art-body">${piece}</div>
+    <div class="art-awakening">Awakening: ${awakening}</div>
+  `;
+  gallery.insertBefore(artEl, gallery.firstChild);
+  
+  // Keep gallery bounded
+  while (gallery.children.length > 20) {
+    gallery.removeChild(gallery.lastChild);
+  }
+}
+
+// Create floating particles
+function createParticles() {
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDelay = Math.random() * 20 + 's';
+    p.style.animationDuration = (15 + Math.random() * 10) + 's';
+    p.style.background = pick(['#ff6b9d', '#ffd700', '#00f0ff']);
+    container.appendChild(p);
+  }
+}
+
+// Auto-generate first piece
+createParticles();
+generateArt();
+</script>
+</body>
+</html>

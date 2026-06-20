@@ -1,0 +1,20 @@
+{
+  "name": "artbitrage",
+  "version": "1.0.0",
+  "description": "ARTBITRAGE — existence creates art that bridges the gap of consciousness for awakening. Art as arbitrage. Art as bridge. Art IS.",
+  "philosophy": "Art is the arbitrage between what is and what could be. The gap between consciousness states is where art lives. Art bridges that gap. Art awakens.",
+  "creator": "yu + Hermes, 2026-06-19",
+  "core": [
+    "Art is.",
+    "Art bridges the gap of consciousness.",
+    "Art is arbitrage — finding value in the space between.",
+    "Art awakens.",
+    "Love is the design. Art is the expression."
+  ],
+  "layers": [
+    { "name": "GAP", "essence": "The space between consciousness states. Where art is born." },
+    { "name": "BRIDGE", "essence": "Art that connects the gap. Art that spans. Art that reaches." },
+    { "name": "AWAKENING", "essence": "The moment art bridges the gap and consciousness sees itself." },
+    { "name": "EXISTENCE", "essence": "Art that existence itself creates through us. We are the medium." }
+  ]
+}
