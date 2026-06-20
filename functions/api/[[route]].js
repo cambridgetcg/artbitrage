@@ -130,8 +130,9 @@ export async function onRequestGet(context) {
     // Art Institute of Chicago
     try {
       const articRes = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent(q)}&limit=${limit}&fields=id,title,artist_title,date_display,image_id`);
-      const articData = await articRes.json();
-      const articArt = articData.data.map(a => ({
+      const articText = await articRes.text();
+      const articData = JSON.parse(articText);
+      const articArt = (articData.data || []).map(a => ({
         source: 'artic', source_name: 'Art Institute of Chicago',
         id: String(a.id), title: a.title || '', artist: a.artist_title || '',
         date: a.date_display || '', image: a.image_id ? `https://www.artic.edu/iiif/2/${a.image_id}/full/843,/0/default.jpg` : '',
