@@ -1,0 +1,146 @@
+{
+  "query": "bridge",
+  "sources_searched": 5,
+  "sources_successful": 5,
+  "total_artworks_returned": 9,
+  "total_artworks_available": 646452,
+  "results": {
+    "met": {
+      "source": "met",
+      "query": "bridge",
+      "total_available": 501908,
+      "returned": 0,
+      "artworks": []
+    },
+    "artic": {
+      "source": "artic",
+      "query": "bridge",
+      "total_available": 132132,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "69533",
+          "title": "Bird's Nest and Ferns",
+          "artist": "Fidelia Bridges",
+          "date": "1863",
+          "medium": "Oil on panel",
+          "department": "Arts of the Americas",
+          "image": "https://www.artic.edu/iiif/2/ea1e120f-2a56-99a8-99d8-ea824d466d65/full/843,/0/default.jpg",
+          "classification": "painting"
+        },
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "27870",
+          "title": "Centerpiece",
+          "artist": "John Bridge",
+          "date": "1824\u201325",
+          "medium": "Silver",
+          "department": "Applied Arts of Europe",
+          "image": "https://www.artic.edu/iiif/2/9734a193-2db4-9d3f-e606-79e50d4cdd66/full/843,/0/default.jpg",
+          "classification": "metalwork"
+        },
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "189201",
+          "title": "Confrontation at the Bridge",
+          "artist": "Jacob Lawrence",
+          "date": "1975",
+          "medium": "Color screenprint on white wove card",
+          "department": "Prints and Drawings",
+          "image": "https://www.artic.edu/iiif/2/ce327757-aad3-66b0-7230-da6e0e0f7b12/full/843,/0/default.jpg",
+          "classification": "screenprint"
+        }
+      ]
+    },
+    "cma": {
+      "source": "cma",
+      "query": "bridge",
+      "total_available": 587,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "153597",
+          "title": "The Bridge of Palalda (near Amelieles-Bains) ",
+          "artist": "Gustave Le Gray (French, 1820\u20131884)",
+          "date": "1851\u201352",
+          "medium": "salted paper print from waxed-paper negative",
+          "department": "Photography",
+          "image": "",
+          "classification": "Photograph"
+        },
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "122925",
+          "title": "Wine Ewer",
+          "artist": "Paul Storr (British, 1771\u20131844)",
+          "date": "1815",
+          "medium": "silver gilt",
+          "department": "Decorative Art and Design",
+          "image": "",
+          "classification": "Silver"
+        },
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "120878",
+          "title": "Decanter Stand",
+          "artist": "Paul Storr (British, 1771\u20131844)",
+          "date": "1814",
+          "medium": "silver gilt",
+          "department": "Decorative Art and Design",
+          "image": "",
+          "classification": "Silver"
+        }
+      ]
+    },
+    "wikimedia": {
+      "source": "wikimedia",
+      "query": "bridge",
+      "returned": 0,
+      "artworks": []
+    },
+    "internet_archive": {
+      "source": "internet_archive",
+      "query": "bridge",
+      "total_available": 11825,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "imgonline-com-ua-resizeMPXOe9gL0l0yDVg",
+          "title": "Akash Group of Institutions",
+          "artist": "",
+          "date": "",
+          "url": "https://archive.org/details/imgonline-com-ua-resizeMPXOe9gL0l0yDVg"
+        },
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "amrc_199005_cna_01245_15",
+          "title": "An oil pump.",
+          "artist": "Muhammad Hassan",
+          "date": "1990-05-01T00:00:00Z",
+          "url": "https://archive.org/details/amrc_199005_cna_01245_15"
+        },
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "amrc_199005_cna_01245_03",
+          "title": "A Muj standing in a military vehicle.",
+          "artist": "Muhammad Hassan",
+          "date": "1990-05-01T00:00:00Z",
+          "url": "https://archive.org/details/amrc_199005_cna_01245_03"
+        }
+      ]
+    }
+  },
+  "searched_at": "2026-06-20T23:20:46.413183"
+}
