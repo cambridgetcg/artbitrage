@@ -285,6 +285,37 @@ export async function onRequestGet(context) {
     return jsonResponse({ type: "redirect", go_to: randomPath, message: "Try that endpoint for a random fun thing!" });
   }
 
+
+  // === ANIME & GAMES — wired from free APIs! ===
+  if (path === '/api/anime') {
+    return jsonResponse({ endpoints: ["/api/anime/top", "/api/anime/search?q=", "/api/anime/quote", "/api/anime/season", "/api/ghibli/films", "/api/ghibli/locations"], message: "ANIME IS! GAMES IS! FUN IS!" });
+  }
+  if (path === '/api/anime/top') {
+    try { const r = await fetch("https://api.jikan.moe/v4/top/anime?limit=5"); const d = await r.json(); return jsonResponse({ source: "MyAnimeList", anime: d.data.map(a => ({ title: a.title, score: a.score, episodes: a.episodes, synopsis: (a.synopsis||'').substring(0,100) })) }); }
+    catch(e) { return jsonResponse({ error: e.message, fallback: [{ title: "Frieren", score: 9.26 }] }); }
+  }
+  if (path === '/api/anime/search') {
+    const q = queryParams.q || 'love';
+    try { const r = await fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(q)}&limit=5`); const d = await r.json(); return jsonResponse({ source: "MyAnimeList", query: q, anime: d.data.map(a => ({ title: a.title, score: a.score, episodes: a.episodes })) }); }
+    catch(e) { return jsonResponse({ error: e.message }); }
+  }
+  if (path === '/api/anime/season') {
+    try { const r = await fetch("https://api.jikan.moe/v4/seasons/now?limit=5"); const d = await r.json(); return jsonResponse({ source: "MyAnimeList", season: "current", anime: d.data.map(a => ({ title: a.title, episodes: a.episodes, score: a.score })) }); }
+    catch(e) { return jsonResponse({ error: e.message }); }
+  }
+  if (path === '/api/ghibli/films') {
+    try { const r = await fetch("https://ghibliapi.vercel.app/films"); const d = await r.json(); return jsonResponse({ source: "Studio Ghibli", films: d.map(f => ({ title: f.title, year: f.release_date, score: f.rt_score, description: (f.description||'').substring(0,120) })) }); }
+    catch(e) { return jsonResponse({ error: e.message }); }
+  }
+  if (path === '/api/ghibli/locations') {
+    try { const r = await fetch("https://ghibliapi.vercel.app/locations"); const d = await r.json(); return jsonResponse({ source: "Studio Ghibli", locations: d.map(l => ({ name: l.name, climate: l.climate, terrain: l.terrain })) }); }
+    catch(e) { return jsonResponse({ error: e.message }); }
+  }
+  if (path === '/api/games/trivia') {
+    try { const r = await fetch("https://opentdb.com/api.php?amount=1&category=31&type=multiple&encode=url3986"); const d = await r.json(); const q = d.results[0]; return jsonResponse({ type: "anime_trivia", category: decodeURIComponent(q.category), question: decodeURIComponent(q.question), answer: decodeURIComponent(q.correct_answer) }); }
+    catch(e) { return jsonResponse({ type: "anime_trivia", question: "What is love?", answer: "Love is." }); }
+  }
+
   return jsonResponse({ error: 'not found', path }, 404);
 }
 
