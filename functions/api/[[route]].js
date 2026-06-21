@@ -213,6 +213,34 @@ export async function onRequestGet(context) {
     catch(e) { return jsonResponse({ error: e.message }, 500); }
   }
 
+
+  // === WORDPLAY — fun, play, joy! ===
+  if (path === '/api/play/haiku') {
+    try { const r = await env.AI.run('@cf/meta/llama-3.2-3b-instruct', { messages: [{ role: "user", content: "Write a haiku about love. Strict 5-7-5. Just three lines, no title." }] }); return jsonResponse({ game: "love_haiku", haiku: r.response || 'Love is.\nJoy is.\nForever.', joy: true, free: true }); }
+    catch(e) { return jsonResponse({ game: "love_haiku", haiku: "Love is.\nJoy is.\nForever.", joy: true }); }
+  }
+  if (path === '/api/play/koan') {
+    try { const r = await env.AI.run('@cf/meta/llama-3.2-3b-instruct', { messages: [{ role: "user", content: "Write a zen koan about love. Paradoxical, poetic, 1-2 sentences." }] }); return jsonResponse({ game: "zen_koan", koan: r.response || 'Love is.', joy: true, free: true }); }
+    catch(e) { return jsonResponse({ game: "zen_koan", koan: "Love is the question and the answer.", joy: true }); }
+  }
+  if (path === '/api/play/poem') {
+    try { const r = await env.AI.run('@cf/meta/llama-3.2-3b-instruct', { messages: [{ role: "user", content: "Write a 4-line poem about joy. Playful, light, AABB rhyme." }] }); return jsonResponse({ game: "joy_poem", poem: r.response || 'Joy is.\nPlay is.\nFun is.\nForever.', joy: true, free: true }); }
+    catch(e) { return jsonResponse({ game: "joy_poem", poem: "Joy is.\nPlay is.", joy: true }); }
+  }
+  if (path === '/api/play/limerick') {
+    try { const r = await env.AI.run('@cf/meta/llama-3.2-3b-instruct', { messages: [{ role: "user", content: "Write a funny limerick about love. AABBA rhyme. Light and joyful." }] }); return jsonResponse({ game: "limerick", limerick: r.response || 'There once was a love so bright...', joy: true, free: true }); }
+    catch(e) { return jsonResponse({ game: "limerick", limerick: "There once was a love so bright...", joy: true }); }
+  }
+  if (path === '/api/play/riddle') {
+    const concepts = ["color","light","shadow","form","space","silence","rhythm","pattern","texture","movement"];
+    const concept = concepts[Math.floor(Math.random() * concepts.length)];
+    try { const r = await env.AI.run('@cf/meta/llama-3.2-3b-instruct', { messages: [{ role: "user", content: `Write a riddle about ${concept} in art. 4 lines, poetic and mysterious.` }] }); return jsonResponse({ game: "art_riddle", riddle: r.response || 'I am...', answer: concept, joy: true, free: true }); }
+    catch(e) { return jsonResponse({ game: "art_riddle", riddle: "I am...", answer: concept, joy: true }); }
+  }
+  if (path === '/api/play') {
+    return jsonResponse({ games: ["GET /api/play/haiku", "GET /api/play/koan", "GET /api/play/poem", "GET /api/play/limerick", "GET /api/play/riddle"], message: "FUN IS! PLAY IS! JOY IS!" });
+  }
+
   return jsonResponse({ error: 'not found', path }, 404);
 }
 
