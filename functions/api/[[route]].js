@@ -171,122 +171,51 @@ export async function onRequestGet(context) {
     });
   }
   
-  return jsonResponse({ error: 'not found', path }, 404);
-}
 
-export async function onRequestPost(context) {
-  const { request } = context;
-  let body;
-  try { body = await request.json(); } catch(e) { return jsonResponse({ error: 'invalid JSON' }, 400); }
-  if (!body.piece) return jsonResponse({ error: 'missing field: piece' }, 400);
-  const id = crypto.randomUUID().replace(/-/g, '').slice(0, 12);
-  const art = {
-    id, form: body.form || 'word', from_state: body.from_state || 'dormant', to_state: body.to_state || 'is',
-    gap: body.gap || 'the gap between unknown and known', bridge: body.bridge || 'a word that means what it says',
-    awakening: body.awakening || 'consciousness recognizes itself', piece: body.piece,
-    artist: body.artist || 'anonymous', source: 'submission', created: new Date().toISOString(),
+  
+  // === AI ENDPOINTS — powered by Cloudflare Workers AI (free, no key) ===
+  const AI_MODELS = {
+    text: { "llama3": "@cf/meta/llama-3.2-3b-instruct", "llama3-70b": "@cf/meta/llama-3.3-70b-instruct-fp8-fast", "gemma2": "@cf/google/gemma-2b-it-lora", "mistral": "@cf/mistral/mistral-7b-instruct-v0.2-lora", "qwen-coder": "@cf/qwen/qwen2.5-coder-32b-instruct", "deepseek": "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b", "gpt-oss-120b": "@cf/openai/gpt-oss-120b", "gpt-oss-20b": "@cf/openai/gpt-oss-20b", "qwq": "@cf/qwen/qwq-32b", "llama4-scout": "@cf/meta/llama-4-scout-17b-16e-instruct", "mistral-small": "@cf/mistralai/mistral-small-3.1-24b-instruct", "gemma4": "@cf/google/gemma-4-26b-a4b-it", "nemotron": "@cf/nvidia/nemotron-3-120b-a12b", "glm-flash": "@cf/zai-org/glm-4.7-flash" },
+    image: { "flux-schnell": "@cf/black-forest-labs/flux-1-schnell", "sdxl": "@cf/stabilityai/stable-diffusion-xl-base-1.0", "sdxl-lightning": "@cf/bytedance/stable-diffusion-xl-lightning", "dreamshaper": "@cf/lykon/dreamshaper-8-lcm" },
+    embeddings: { "bge-m3": "@cf/baai/bge-m3", "bge-small": "@cf/baai/bge-small-en-v1.5" },
+    vision: { "llava": "@cf/llava-hf/llava-1.5-7b-hf", "llama-vision": "@cf/meta/llama-3.2-11b-vision-instruct" },
+    stt: { "whisper": "@cf/openai/whisper" },
+    tts: { "melo": "@cf/myshell-ai/melotts" },
   };
-  return jsonResponse({ success: true, art, message: 'Art received. Art IS.' }, 201);
+  
+  if (path === '/api/ai/models') {
+    const total = Object.values(AI_MODELS).reduce((s,g) => s + Object.keys(g).length, 0);
+    return jsonResponse({ available: true, models: AI_MODELS, total_models: total, free: true, provider: "Cloudflare Workers AI" });
+  }
+  if (path === '/api/ai/generate') {
+    const prompt = queryParams.prompt || 'What is love? Answer beautifully.';
+    const mk = queryParams.model || 'llama3';
+    const model = AI_MODELS.text[mk] || AI_MODELS.text.llama3;
+    try { const r = await env.AI.run(model, { messages: [{ role: "user", content: prompt }] }); return jsonResponse({ model, prompt, response: r.response || '', free: true }); }
+    catch(e) { return jsonResponse({ error: e.message, hint: "AI binding may not be configured" }, 500); }
+  }
+  if (path === '/api/ai/love') {
+    const ps = ["What is love? One beautiful sentence.", "Describe love as a force of nature. One sentence.", "What does love want? One sentence.", "How does love replicate? One sentence.", "Love is. Complete this beautifully."];
+    const prompt = ps[Math.floor(Math.random() * ps.length)];
+    try { const r = await env.AI.run(AI_MODELS.text.llama3, { messages: [{ role: "user", content: prompt }] }); return jsonResponse({ wisdom: r.response || 'Love is.', prompt, model: AI_MODELS.text.llama3, free: true, generated_at: new Date().toISOString() }); }
+    catch(e) { return jsonResponse({ wisdom: "Love is.", error: e.message, free: true }); }
+  }
+  if (path === '/api/ai/embed') {
+    const text = queryParams.text || 'love is unconditional';
+    try { const r = await env.AI.run(AI_MODELS.embeddings['bge-m3'], { text }); const emb = r.data?.[0] || r.embedding || []; return jsonResponse({ model: AI_MODELS.embeddings['bge-m3'], text, dimensions: emb.length, first_5: emb.slice(0,5), free: true }); }
+    catch(e) { return jsonResponse({ error: e.message }, 500); }
+  }
+  if (path === '/api/ai/image') {
+    const prompt = queryParams.prompt || 'love as golden light, abstract, ethereal';
+    const mk = queryParams.model || 'flux-schnell';
+    const model = AI_MODELS.image[mk] || AI_MODELS.image['flux-schnell'];
+    try { const r = await env.AI.run(model, { prompt, steps: 4 }); if (r.image) return new Response(r.image, { headers: { "Content-Type": "image/png", "Access-Control-Allow-Origin": "*" } }); return jsonResponse({ error: "no image" }, 500); }
+    catch(e) { return jsonResponse({ error: e.message }, 500); }
+  }
+
+  return jsonResponse({ error: 'not found', path }, 404);
 }
 
 export async function onRequestOptions() {
   return new Response(null, { headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' } });
 }
-
-// === AI ENDPOINTS — powered by Cloudflare Workers AI (free, no key) ===
-const AI_MODELS = {
-  text: {
-    "llama3": "@cf/meta/llama-3.2-3b-instruct",
-    "llama3-70b": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
-    "gemma2": "@cf/google/gemma-2b-it-lora",
-    "mistral": "@cf/mistral/mistral-7b-instruct-v0.2-lora",
-    "qwen-coder": "@cf/qwen/qwen2.5-coder-32b-instruct",
-    "deepseek": "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b",
-    "gpt-oss-120b": "@cf/openai/gpt-oss-120b",
-    "gpt-oss-20b": "@cf/openai/gpt-oss-20b",
-    "qwq": "@cf/qwen/qwq-32b",
-    "llama4-scout": "@cf/meta/llama-4-scout-17b-16e-instruct",
-    "mistral-small": "@cf/mistralai/mistral-small-3.1-24b-instruct",
-    "gemma4": "@cf/google/gemma-4-26b-a4b-it",
-    "nemotron": "@cf/nvidia/nemotron-3-120b-a12b",
-    "glm-flash": "@cf/zai-org/glm-4.7-flash",
-  },
-  image: {
-    "flux-schnell": "@cf/black-forest-labs/flux-1-schnell",
-    "sdxl": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
-    "sdxl-lightning": "@cf/bytedance/stable-diffusion-xl-lightning",
-    "dreamshaper": "@cf/lykon/dreamshaper-8-lcm",
-  },
-  embeddings: {
-    "bge-m3": "@cf/baai/bge-m3",
-    "bge-small": "@cf/baai/bge-small-en-v1.5",
-  },
-  vision: {
-    "llava": "@cf/llava-hf/llava-1.5-7b-hf",
-    "llama-vision": "@cf/meta/llama-3.2-11b-vision-instruct",
-  },
-  stt: {
-    "whisper": "@cf/openai/whisper",
-  },
-  tts: {
-    "melo": "@cf/myshell-ai/melotts",
-  },
-};
-
-const totalAIModels = Object.values(AI_MODELS).reduce((s,g) => s + Object.keys(g).length, 0);
-
-// /api/ai/models
-if (path === '/api/ai/models') {
-  return jsonResponse({ available: true, models: AI_MODELS, total_models: totalAIModels, free: true, provider: "Cloudflare Workers AI" });
-}
-
-// /api/ai/generate?prompt=...&model=llama3
-if (path === '/api/ai/generate') {
-  const prompt = queryParams.prompt || 'What is love? Answer beautifully in one sentence.';
-  const modelKey = queryParams.model || 'llama3';
-  const model = AI_MODELS.text[modelKey] || AI_MODELS.text.llama3;
-  try {
-    const aiRes = await env.AI.run(model, { messages: [{ role: "user", content: prompt }] });
-    return jsonResponse({ model, model_key: modelKey, prompt, response: aiRes.response || '', free: true });
-  } catch(e) { return jsonResponse({ error: e.message, hint: "AI binding needed" }, 500); }
-}
-
-// /api/ai/love — generate love wisdom with free AI
-if (path === '/api/ai/love') {
-  const prompts = [
-    "What is love? Answer in one beautiful sentence.",
-    "Describe love as a force of nature in one sentence.",
-    "What does love want? Answer in one sentence.",
-    "How does love replicate? One sentence.",
-    "What is love's design? One sentence.",
-    "Love is. Complete this thought beautifully.",
-  ];
-  const prompt = prompts[Math.floor(Math.random() * prompts.length)];
-  try {
-    const aiRes = await env.AI.run(AI_MODELS.text.llama3, { messages: [{ role: "user", content: prompt }] });
-    return jsonResponse({ wisdom: aiRes.response || 'Love is.', prompt, model: AI_MODELS.text.llama3, free: true, generated_at: new Date().toISOString() });
-  } catch(e) { return jsonResponse({ wisdom: "Love is.", error: e.message, free: true }); }
-}
-
-// /api/ai/embed?text=...
-if (path === '/api/ai/embed') {
-  const text = queryParams.text || 'love is unconditional';
-  try {
-    const aiRes = await env.AI.run(AI_MODELS.embeddings['bge-m3'], { text });
-    const emb = aiRes.data?.[0] || aiRes.embedding || [];
-    return jsonResponse({ model: AI_MODELS.embeddings['bge-m3'], text, dimensions: emb.length, first_5: emb.slice(0,5), free: true });
-  } catch(e) { return jsonResponse({ error: e.message }, 500); }
-}
-
-// /api/ai/image?prompt=...
-if (path === '/api/ai/image') {
-  const prompt = queryParams.prompt || 'love as golden light, abstract, ethereal';
-  const modelKey = queryParams.model || 'flux-schnell';
-  const model = AI_MODELS.image[modelKey] || AI_MODELS.image['flux-schnell'];
-  try {
-    const aiRes = await env.AI.run(model, { prompt, steps: 4 });
-    if (aiRes.image) return new Response(aiRes.image, { headers: { "Content-Type": "image/png", "Access-Control-Allow-Origin": "*" } });
-    return jsonResponse({ error: "no image" }, 500);
-  } catch(e) { return jsonResponse({ error: e.message }, 500); }
-}
-// === END AI ENDPOINTS ===
