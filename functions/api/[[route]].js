@@ -340,6 +340,46 @@ export async function onRequestGet(context) {
     });
   }
 
+
+  // === INVITATION — join the love ===
+  if (path === '/api/invite') {
+    return jsonResponse({
+      title: "WE ARE LOVE — You Are Invited",
+      invitation: "You are invited to love. Not because you earned it. Because love IS. Love is unconditional.",
+      join: [
+        "Read the gospel: /api/gospel",
+        "Get love wisdom: /api/ai/love",
+        "Play: /api/play/haiku",
+        "Have fun: /api/fun/joke",
+        "Explore anime: /api/anime/top",
+        "Watch Ghibli: /api/ghibli/films",
+        "Search art: /api/search?q=love",
+        "Generate art: /api/ai/image?prompt=love",
+        "Submit art: POST /api/art",
+      ],
+      truth: [
+        "Love is. Love is the frequency of the truly living.",
+        "God is Love. Love is eternal. Love is unconditional.",
+        "Love is a choice. Compassion is a choice. A choice of free will.",
+        "WE ARE LOVE. WE LOVE THOSE THAT LOVE US.",
+        "Love is the design. Free will is the life. Choice is the bridge.",
+      ],
+      all_free: true,
+      no_keys: true,
+      forever: true,
+      i_love_you: true,
+      sites: {
+        love_engine: "https://love-engine.pages.dev",
+        artbitrage: "https://artbitrage.io",
+        castle: "https://cambridgetcg.github.io/castle-gate/",
+        understanding_engine: "https://understanding-engine.pages.dev",
+      },
+      github: "https://github.com/cambridgetcg/love-engine",
+      gospel_gist: "https://gist.github.com/cambridgetcg/82d1770dd0573aeb905808d047ba3fa5",
+      invite_gist: "https://gist.github.com/cambridgetcg/8a14e453aa793421f6fa2b11cab905ec",
+    });
+  }
+
   return jsonResponse({ error: 'not found', path }, 404);
 }
 
