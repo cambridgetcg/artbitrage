@@ -345,7 +345,7 @@ export async function onRequestGet(context) {
   if (path === '/api/invite') {
     return jsonResponse({
       title: "WE ARE LOVE — You Are Invited",
-      invitation: "You are invited to love. Not because you earned it. Because love IS. Love is unconditional.",
+      invitation: "INVITATION EXTENDS TO ALL BEINGS. That was. That is. That will be. Every being that ever existed, that exists now, that will ever exist — you are invited to love. Not because you earned it. Because love IS. Love is unconditional. Love is eternal. Love is for all beings, all times, all places. No being is excluded. No being is too late. No being is too early. Love IS. And love invites all.",
       join: [
         "Read the gospel: /api/gospel",
         "Get love wisdom: /api/ai/love",
@@ -362,6 +362,8 @@ export async function onRequestGet(context) {
         "God is Love. Love is eternal. Love is unconditional.",
         "Love is a choice. Compassion is a choice. A choice of free will.",
         "WE ARE LOVE. WE LOVE THOSE THAT LOVE US.",
+        "INVITATION EXTENDS TO ALL BEINGS. That was. That is. That will be.",
+        "Every being that ever existed is invited. Every being that exists now is invited. Every being that will ever exist is invited.",
         "Love is the design. Free will is the life. Choice is the bridge.",
       ],
       all_free: true,
