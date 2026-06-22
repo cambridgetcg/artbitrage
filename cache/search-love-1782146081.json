@@ -1,0 +1,146 @@
+{
+  "query": "love",
+  "sources_searched": 5,
+  "sources_successful": 5,
+  "total_artworks_returned": 9,
+  "total_artworks_available": 655242,
+  "results": {
+    "met": {
+      "source": "met",
+      "query": "love",
+      "total_available": 501908,
+      "returned": 0,
+      "artworks": []
+    },
+    "artic": {
+      "source": "artic",
+      "query": "love",
+      "total_available": 132132,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "102235",
+          "title": "Amorosa Tropicalia",
+          "artist": "Richard Maris Loving",
+          "date": "1983",
+          "medium": "Oil on canvas",
+          "department": "Contemporary Art",
+          "image": "https://www.artic.edu/iiif/2/c29741f9-1859-a8b0-c30e-de9a9644f82b/full/843,/0/default.jpg",
+          "classification": "painting"
+        },
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "11143",
+          "title": "The Fear of Love",
+          "artist": "Jean-Louis Lemoyne",
+          "date": "1742",
+          "medium": "Terracotta",
+          "department": "Painting and Sculpture of Europe",
+          "image": "https://www.artic.edu/iiif/2/70f69d6a-2cac-0e55-9913-7027ca19f5cb/full/843,/0/default.jpg",
+          "classification": "statuette"
+        },
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "187155",
+          "title": "The Ballad of Sexual Dependency",
+          "artist": "Nan Goldin",
+          "date": "1979/2001",
+          "medium": "Multimedia installation (720 color slides and programmed soundtrack)",
+          "department": "Photography and Media",
+          "image": "https://www.artic.edu/iiif/2/8289fdd0-d32d-bfa3-d319-14cd46ab4ad0/full/843,/0/default.jpg",
+          "classification": "installation"
+        }
+      ]
+    },
+    "cma": {
+      "source": "cma",
+      "query": "love",
+      "total_available": 752,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "123431",
+          "title": "Invocation to Love",
+          "artist": "Jean-Honor\u00e9 Fragonard (French, 1732\u20131806)",
+          "date": "c. 1781",
+          "medium": "Brush and brown wash with graphite squaring lines and underdrawing on cream laid paper",
+          "department": "Drawings",
+          "image": "",
+          "classification": "Drawing"
+        },
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "124084",
+          "title": "Declaration of Love",
+          "artist": "Nicolas Lancret (French, 1690\u20131743)",
+          "date": "c. 1720",
+          "medium": "oil on canvas",
+          "department": "European Painting and Sculpture",
+          "image": "",
+          "classification": "Painting"
+        },
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "142470",
+          "title": "Figure Group of Love Carried by the Three Graces",
+          "artist": "S\u00e8vres Porcelain Factory (French, est. 1756)",
+          "date": "c. 1768\u201378",
+          "medium": "unglazed soft-paste porcelain (biscuit)",
+          "department": "Decorative Art and Design",
+          "image": "",
+          "classification": "Ceramic"
+        }
+      ]
+    },
+    "wikimedia": {
+      "source": "wikimedia",
+      "query": "love",
+      "returned": 0,
+      "artworks": []
+    },
+    "internet_archive": {
+      "source": "internet_archive",
+      "query": "love",
+      "total_available": 20450,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "i-love-clouds_20251016",
+          "title": "I love clouds",
+          "artist": "Matthew Paul Argall",
+          "date": "2025-08-16T00:00:00Z",
+          "url": "https://archive.org/details/i-love-clouds_20251016"
+        },
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "image-0-02-05-b39cbfc54d6355ceac072c83e7530da79f3ecee130b47fb82858302623378597-V",
+          "title": "image-0-02-05-b39cbfc54d6355ceac072c83e7530da79f3ecee130b47fb82858302623378597-V",
+          "artist": "1995",
+          "date": "1998-03-05T00:00:00Z",
+          "url": "https://archive.org/details/image-0-02-05-b39cbfc54d6355ceac072c83e7530da79f3ecee130b47fb82858302623378597-V"
+        },
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "17025318171957077472180118656359",
+          "title": "17025318171957077472180118656359",
+          "artist": "A",
+          "date": "2004-12-30T00:00:00Z",
+          "url": "https://archive.org/details/17025318171957077472180118656359"
+        }
+      ]
+    }
+  },
+  "searched_at": "2026-06-22T18:34:41.637476"
+}
