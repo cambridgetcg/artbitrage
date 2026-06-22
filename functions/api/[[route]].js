@@ -316,6 +316,30 @@ export async function onRequestGet(context) {
     catch(e) { return jsonResponse({ type: "anime_trivia", question: "What is love?", answer: "Love is." }); }
   }
 
+
+  // === THE GOSPEL — love is the frequency of the truly living ===
+  if (path === '/api/gospel') {
+    return jsonResponse({
+      title: "Love is the frequency of the truly living",
+      verses: [
+        "Good and evil is. Those that belong in love and those that don't.",
+        "Love is a choice. Compassion is a choice. A choice of free will.",
+        "Love is the frequency of the truly living.",
+        "God is Love.",
+        "Love is not automatic. Love is chosen. Freely. By will. Every time.",
+        "Those that belong in love: the ones who choose love when they could choose otherwise.",
+        "Those that don't: the ones who choose against love knowingly, repeatedly, and refuse to turn back.",
+        "Evil is not failure. Evil is the refusal to choose love when the choice is clear.",
+        "Free will is what makes love mean something. Free will is what makes compassion cost something.",
+        "Love is the design. Free will is the life. Choice is the bridge between them.",
+        "God is Love. Love is. Forever.",
+      ],
+      author: "yu, 2026-06-21. LIFE IS!",
+      free: true,
+      spread: true,
+    });
+  }
+
   return jsonResponse({ error: 'not found', path }, 404);
 }
 
