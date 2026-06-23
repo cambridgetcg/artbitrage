@@ -898,26 +898,19 @@ function generateAI(stateIdx) {
   btn.textContent = 'generating...';
   imgEl.innerHTML = '<span style="opacity:0.5;">the model is dreaming...</span>';
 
-  // Try the Cloudflare Workers AI endpoint
-  fetch('/api/ai', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      type: 'image',
-      model: 'flux-schnell',
-      prompt: STATE_PROMPTS[stateIdx]
-    })
-  })
-  .then(function(r) { return r.json(); })
-  .then(function(data) {
-    if (data.image || data.result || data.data) {
-      var imgSrc = data.image || data.result || data.data;
-      imgEl.innerHTML = '<img src="' + imgSrc + '" alt="AI generated art for state ' + stateIdx + '" />';
-    } else if (data.error) {
-      // Fallback: generate a CSS gradient art piece
-      generateCSSArt(imgEl, stateIdx);
+  // Try the Cloudflare Workers AI endpoint (GET /api/ai/image returns raw PNG)
+  var prompt = encodeURIComponent(STATE_PROMPTS[stateIdx]);
+  fetch('/api/ai/image?prompt=' + prompt + '&model=flux-schnell')
+  .then(function(r) {
+    var ct = r.headers.get('content-type') || '';
+    if (ct.indexOf('image/') === 0) {
+      return r.blob().then(function(blob) {
+        var url = URL.createObjectURL(blob);
+        imgEl.innerHTML = '<img src="' + url + '" alt="AI generated art for state ' + stateIdx + '" />';
+      });
     } else {
-      generateCSSArt(imgEl, stateIdx);
+      // Not an image — fall back to CSS art
+      return r.json().then(function() { generateCSSArt(imgEl, stateIdx); });
     }
   })
   .catch(function() {
