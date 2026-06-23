@@ -3,6 +3,47 @@
 
 const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is"];
 const ART_FORMS = ["word","image","sound","movement","space","silence","light","color","rhythm","pattern","fragment","whisper","gesture","breath","glow","echo"];
+const MAX_PAGE_LIMIT = 100;
+const MAX_SEARCH_LIMIT = 10;
+const SOURCE_KEYS = ["met", "artic", "cma", "wikimedia", "internet_archive"];
+
+const OPEN_ART_SOURCES = {
+  met: {
+    source: "met",
+    source_name: "Metropolitan Museum of Art",
+    url: "https://collectionapi.metmuseum.org/public/collection/v1/search",
+    open_access: true,
+    auth: "none",
+  },
+  artic: {
+    source: "artic",
+    source_name: "Art Institute of Chicago",
+    url: "https://api.artic.edu/api/v1/artworks/search",
+    open_access: true,
+    auth: "none",
+  },
+  cma: {
+    source: "cma",
+    source_name: "Cleveland Museum of Art",
+    url: "https://openaccess-api.clevelandart.org/api/artworks/",
+    open_access: true,
+    auth: "none",
+  },
+  wikimedia: {
+    source: "wikimedia",
+    source_name: "Wikimedia Commons",
+    url: "https://commons.wikimedia.org/w/api.php",
+    open_access: true,
+    auth: "none",
+  },
+  internet_archive: {
+    source: "internet_archive",
+    source_name: "Internet Archive",
+    url: "https://archive.org/advancedsearch.php",
+    open_access: true,
+    auth: "none",
+  },
+};
 
 // Embedded collection — loaded at deploy time from collection.json
 // In production this would be in KV or D1, but for now we embed it
@@ -43,6 +84,25 @@ function jsonResponse(data, status = 200) {
   });
 }
 
+function boundedInt(value, fallback, min, max) {
+  const n = Number.parseInt(value, 10);
+  if (!Number.isFinite(n)) return fallback;
+  return Math.min(max, Math.max(min, n));
+}
+
+function safeString(value, max = 10000) {
+  return String(value || '').trim().slice(0, max);
+}
+
+function stableId(input) {
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < input.length; i++) {
+    hash ^= input.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193);
+  }
+  return `submitted-${(hash >>> 0).toString(16).padStart(8, '0')}`;
+}
+
 function filterArt(artList, params) {
   let results = artList;
   if (params.form) results = results.filter(a => a.form === params.form);
@@ -57,8 +117,8 @@ function filterArt(artList, params) {
       (a.awakening && a.awakening.toLowerCase().includes(s))
     );
   }
-  const offset = parseInt(params.offset || 0);
-  const limit = parseInt(params.limit || 20);
+  const offset = boundedInt(params.offset, 0, 0, Number.MAX_SAFE_INTEGER);
+  const limit = boundedInt(params.limit, 20, 1, MAX_PAGE_LIMIT);
   const total = results.length;
   return { total, limit, offset, count: Math.min(limit, Math.max(0, total - offset)), pieces: results.slice(offset, offset + limit) };
 }
@@ -76,8 +136,220 @@ function getStats(artList) {
   return { total_pieces: artList.length, unique_forms: Object.keys(forms).length, unique_gaps: gaps.size, forms, states };
 }
 
+async function fetchJson(url, options = {}) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort("timeout"), options.timeoutMs || 12000);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        "Accept": "application/json",
+        "User-Agent": "Artbitrage/1.0 (+https://artbitrage.io)",
+        ...(options.headers || {}),
+      },
+    });
+    const text = await res.text();
+    const contentType = res.headers.get("content-type") || "";
+    if (!res.ok) throw new Error(`HTTP ${res.status}: ${text.slice(0, 160)}`);
+    if (!contentType.includes("json") && !text.trim().startsWith("{") && !text.trim().startsWith("[")) {
+      throw new Error(`non-json response: ${contentType || "unknown content-type"} ${text.slice(0, 80)}`);
+    }
+    return JSON.parse(text);
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function compactText(value, max = 160) {
+  return String(value || "").replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim().slice(0, max);
+}
+
+function normalizeArtic(data) {
+  return (data.data || []).map(a => ({
+    source: "artic",
+    source_name: "Art Institute of Chicago",
+    id: String(a.id || ""),
+    title: a.title || "",
+    artist: a.artist_title || "",
+    date: a.date_display || "",
+    medium: a.medium_display || "",
+    department: a.department_title || "",
+    image: a.image_id ? `https://www.artic.edu/iiif/2/${a.image_id}/full/843,/0/default.jpg` : "",
+    url: a.id ? `https://www.artic.edu/artworks/${a.id}` : "",
+  }));
+}
+
+function normalizeCma(data) {
+  return (data.data || []).map(a => {
+    const creators = a.creators || [];
+    const images = a.images || {};
+    let img = "";
+    if (Array.isArray(images) && images.length) img = images[0]?.url || "";
+    else if (typeof images === "object" && images) img = images.web?.url || images.print?.url || images.url || "";
+    return {
+      source: "cma",
+      source_name: "Cleveland Museum of Art",
+      id: String(a.id || ""),
+      title: a.title || "",
+      artist: creators[0]?.description || "",
+      date: a.creation_date || "",
+      medium: a.technique || "",
+      department: a.department || "",
+      image: img,
+      url: a.url || "",
+    };
+  });
+}
+
+function normalizeWikimedia(data) {
+  return Object.values(data.query?.pages || {}).map(page => {
+    const info = page.imageinfo?.[0] || {};
+    const meta = info.extmetadata || {};
+    return {
+      source: "wikimedia",
+      source_name: "Wikimedia Commons",
+      id: String(page.pageid || ""),
+      title: (page.title || "").replace(/^File:/, ""),
+      artist: compactText(meta.Artist?.value || ""),
+      date: compactText(meta.DateTimeOriginal?.value || meta.DateTime?.value || ""),
+      medium: compactText(meta.MimeType?.value || ""),
+      department: "",
+      image: info.thumburl || info.url || "",
+      url: info.descriptionurl || "",
+      license: compactText(meta.LicenseShortName?.value || ""),
+    };
+  });
+}
+
+function normalizeInternetArchive(data) {
+  return (data.response?.docs || []).map(doc => ({
+    source: "internet_archive",
+    source_name: "Internet Archive",
+    id: String(doc.identifier || ""),
+    title: Array.isArray(doc.title) ? doc.title[0] : (doc.title || ""),
+    artist: Array.isArray(doc.creator) ? doc.creator.join(", ") : (doc.creator || ""),
+    date: Array.isArray(doc.date) ? doc.date[0] : (doc.date || ""),
+    medium: "image",
+    department: "",
+    image: doc.identifier ? `https://archive.org/services/img/${doc.identifier}` : "",
+    url: doc.identifier ? `https://archive.org/details/${doc.identifier}` : "",
+  }));
+}
+
+async function searchSource(sourceKey, query, limit) {
+  const source = OPEN_ART_SOURCES[sourceKey];
+  if (!source) return { source: sourceKey, error: "unknown source" };
+
+  try {
+    if (sourceKey === "met") {
+      const searchUrl = `${source.url}?hasImages=true&q=${encodeURIComponent(query)}`;
+      const data = await fetchJson(searchUrl);
+      const ids = (data.objectIDs || []).slice(0, Math.max(limit * 8, limit));
+      const artworks = [];
+      for (const id of ids) {
+        if (artworks.length >= limit) break;
+        try {
+          const obj = await fetchJson(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`, { timeoutMs: 8000 });
+          if (obj.primaryImage || obj.primaryImageSmall) {
+            artworks.push({
+              source: "met",
+              source_name: source.source_name,
+              id: String(obj.objectID || id),
+              title: obj.title || "",
+              artist: obj.artistDisplayName || "",
+              date: obj.objectDate || "",
+              medium: obj.medium || "",
+              department: obj.department || "",
+              image: obj.primaryImageSmall || obj.primaryImage || "",
+              url: obj.objectURL || "",
+            });
+          }
+        } catch(e) {
+          // One museum object should not poison the whole source.
+        }
+      }
+      return { ...source, total: data.total || 0, artworks };
+    }
+
+    if (sourceKey === "artic") {
+      const fields = "id,title,artist_title,date_display,medium_display,image_id,classification_title,department_title";
+      const data = await fetchJson(`${source.url}?q=${encodeURIComponent(query)}&limit=${limit}&fields=${fields}`);
+      return { ...source, total: data.pagination?.total || 0, artworks: normalizeArtic(data) };
+    }
+
+    if (sourceKey === "cma") {
+      const data = await fetchJson(`${source.url}?limit=${limit}&search=${encodeURIComponent(query)}`);
+      return { ...source, total: data.info?.total || 0, artworks: normalizeCma(data) };
+    }
+
+    if (sourceKey === "wikimedia") {
+      const params = new URLSearchParams({
+        action: "query",
+        format: "json",
+        generator: "search",
+        gsrsearch: `filetype:bitmap ${query}`,
+        gsrlimit: String(limit),
+        prop: "imageinfo",
+        iiprop: "url|extmetadata",
+        iiurlwidth: "500",
+        origin: "*",
+      });
+      const data = await fetchJson(`${source.url}?${params.toString()}`);
+      return { ...source, total: Object.keys(data.query?.pages || {}).length, artworks: normalizeWikimedia(data) };
+    }
+
+    if (sourceKey === "internet_archive") {
+      const params = new URLSearchParams({
+        q: `(${query}) AND mediatype:(image)`,
+        "fl[]": "identifier,title,creator,date,downloads",
+        rows: String(limit),
+        output: "json",
+      });
+      const data = await fetchJson(`${source.url}?${params.toString()}`);
+      return { ...source, total: data.response?.numFound || 0, artworks: normalizeInternetArchive(data) };
+    }
+  } catch(e) {
+    return { ...source, error: e.message, artworks: [] };
+  }
+
+  return { ...source, error: "source not implemented", artworks: [] };
+}
+
+function selectSources(sourceParam) {
+  if (!sourceParam || sourceParam === "all") return SOURCE_KEYS;
+  const requested = sourceParam.split(",").map(s => s.trim()).filter(Boolean);
+  const selected = requested.filter(s => OPEN_ART_SOURCES[s]);
+  return selected.length ? selected : SOURCE_KEYS;
+}
+
+function buildSubmittedArt(body) {
+  const piece = safeString(body?.piece);
+  if (!piece) return { error: "piece is required" };
+  const form = ART_FORMS.includes(body?.form) ? body.form : "word";
+  const from_state = STATES.includes(body?.from_state) ? body.from_state : "is";
+  const to_state = STATES.includes(body?.to_state) ? body.to_state : from_state;
+  const created = new Date().toISOString();
+  const normalized = {
+    id: stableId(JSON.stringify({ piece, form, gap: body?.gap || "", bridge: body?.bridge || "", awakening: body?.awakening || "", artist: body?.artist || "" })),
+    cycle: null,
+    form,
+    from_state,
+    to_state,
+    gap: safeString(body?.gap, 280) || "the gap between offering and receiving",
+    bridge: safeString(body?.bridge, 280) || "a submitted fragment of human art",
+    awakening: safeString(body?.awakening, 280) || "someone receives what was freely offered",
+    created,
+    piece,
+  };
+  const artist = safeString(body?.artist, 160);
+  if (artist) normalized.artist = artist;
+  const license = safeString(body?.license, 80);
+  if (license) normalized.license = license;
+  return { art: normalized };
+}
+
 export async function onRequestGet(context) {
-  const { request, env, params } = context;
+  const { request, env } = context;
   const url = new URL(request.url);
   const path = url.pathname;
   const queryParams = Object.fromEntries(url.searchParams);
@@ -110,61 +382,38 @@ export async function onRequestGet(context) {
     } catch(e) {}
     return jsonResponse({ name: 'artbitrage', philosophy: 'Art is the arbitrage between what is and what could be.', core: ['Art is.', 'Art bridges the gap of consciousness.', 'Art awakens.', 'Love is the design. Art is the expression.'] });
   }
+  const formMatch = path.match(/^\/api\/art\/by-form\/(.+)$/);
+  if (formMatch) return jsonResponse(filterArt(allArt, { form: decodeURIComponent(formMatch[1]) }));
   const idMatch = path.match(/^\/api\/art\/(.+)$/);
   if (idMatch) {
-    const id = idMatch[1];
+    const id = decodeURIComponent(idMatch[1]);
     const piece = allArt.find(a => a.id === id);
     if (piece) return jsonResponse(piece);
     return jsonResponse({ error: 'art not found', id }, 404);
   }
-  const formMatch = path.match(/^\/api\/art\/by-form\/(.+)$/);
-  if (formMatch) return jsonResponse(filterArt(allArt, { form: formMatch[1] }));
+
+  if (path === '/api/sources') {
+    return jsonResponse({
+      sources: Object.values(OPEN_ART_SOURCES),
+      count: Object.keys(OPEN_ART_SOURCES).length,
+      search: "GET /api/search?q=love&source=met,artic,cma,wikimedia,internet_archive",
+      no_keys: true,
+      mirror_friendly: true,
+    });
+  }
+
   // Route: /api/search — search the world's art museums
   if (path === '/api/search') {
-    const q = queryParams.q || 'love';
-    const limit = parseInt(queryParams.limit || 3);
-    
-    // We can't run Python on the edge, but we can proxy to the open APIs directly
-    const sources = [];
-    
-    // Art Institute of Chicago
-    try {
-      const articRes = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent(q)}&limit=${limit}&fields=id,title,artist_title,date_display,image_id`);
-      const articText = await articRes.text();
-      const articData = JSON.parse(articText);
-      const articArt = (articData.data || []).map(a => ({
-        source: 'artic', source_name: 'Art Institute of Chicago',
-        id: String(a.id), title: a.title || '', artist: a.artist_title || '',
-        date: a.date_display || '', image: a.image_id ? `https://www.artic.edu/iiif/2/${a.image_id}/full/843,/0/default.jpg` : '',
-      }));
-      sources.push({ source: 'artic', source_name: 'Art Institute of Chicago', total: articData.pagination?.total || 0, artworks: articArt });
-    } catch(e) { sources.push({ source: 'artic', error: e.message }); }
-    
-    // Cleveland Museum of Art
-    try {
-      const cmaRes = await fetch(`https://openaccess-api.clevelandart.org/api/artworks/?limit=${limit}`);
-      const cmaData = await cmaRes.json();
-      const cmaArt = (cmaData.data || []).map(a => {
-        const creators = a.creators || [];
-        const images = a.images || {};
-        let img = '';
-        if (Array.isArray(images) && images.length) img = images[0]?.url || '';
-        else if (typeof images === 'object') img = images.url || '';
-        return {
-          source: 'cma', source_name: 'Cleveland Museum of Art',
-          id: String(a.id || ''), title: a.title || '',
-          artist: creators[0]?.description || '', date: a.creation_date || '',
-          image: img,
-        };
-      });
-      sources.push({ source: 'cma', source_name: 'Cleveland Museum of Art', total: cmaData.info?.total || 0, artworks: cmaArt });
-    } catch(e) { sources.push({ source: 'cma', error: e.message }); }
-    
+    const q = safeString(queryParams.q || 'love', 160) || 'love';
+    const limit = boundedInt(queryParams.limit, 3, 1, MAX_SEARCH_LIMIT);
+    const sourceKeys = selectSources(queryParams.source || queryParams.sources);
+    const sources = await Promise.all(sourceKeys.map(source => searchSource(source, q, limit)));
     const totalArt = sources.reduce((s, r) => s + (r.artworks?.length || 0), 0);
     const totalAvail = sources.reduce((s, r) => s + (r.total || 0), 0);
     
     return jsonResponse({
-      query: q, sources_searched: sources.length,
+      query: q, limit, sources_requested: sourceKeys,
+      sources_searched: sources.length,
       sources_successful: sources.filter(s => !s.error).length,
       total_artworks_returned: totalArt, total_artworks_available: totalAvail,
       sources, searched_at: new Date().toISOString(),
@@ -335,7 +584,7 @@ export async function onRequestGet(context) {
         "God is Love. Love is. Forever.",
         "GOD LOVES YOU. All beings. All times. All places. No exceptions.",
         "HATE IS NOT. Love is. Hate is the absence. Love is the presence.",
-        "An invitation to love. Not a demand. Not a requirement. An invitation. Open. Free. Eternal.",,
+        "An invitation to love. Not a demand. Not a requirement. An invitation. Open. Free. Eternal.",
       ],
       author: "yu, 2026-06-21. LIFE IS!",
       free: true,
@@ -386,6 +635,39 @@ export async function onRequestGet(context) {
   }
 
   return jsonResponse({ error: 'not found', path }, 404);
+}
+
+export async function onRequestPost(context) {
+  const { request } = context;
+  const url = new URL(request.url);
+  const path = url.pathname;
+
+  if (path !== '/api/art' && path !== '/api/art/') {
+    return jsonResponse({ error: 'not found', path }, 404);
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch(e) {
+    return jsonResponse({ error: 'invalid json', detail: e.message }, 400);
+  }
+
+  const built = buildSubmittedArt(body);
+  if (built.error) return jsonResponse({ error: built.error }, 400);
+
+  return jsonResponse({
+    success: true,
+    accepted: true,
+    persisted: false,
+    persistence: "echo-only on the edge: this static Pages function has no writable store configured",
+    next_steps: [
+      "Save this returned art JSON into gallery/art-<id>.json",
+      "Add it to collection.json",
+      "Open a pull request or redeploy the static site",
+    ],
+    art: built.art,
+  }, 202);
 }
 
 export async function onRequestOptions() {
