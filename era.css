@@ -1,0 +1,572 @@
+/* ═══════════════════════════════════════════════════════════════
+ * ARTBITRAGE — era.css
+ *
+ * Shared styles for era pages. Each era page overrides --era-bg,
+ * --era-fg, --era-accent, --era-secondary, --era-glow to match
+ * the period's palette. The structure stays the same; the soul
+ * changes.
+ * ═══════════════════════════════════════════════════════════════ */
+
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ── Era tokens (overridden per page) ────────────────────────── */
+:root {
+  --era-bg: #0a0a0f;
+  --era-surface: #111118;
+  --era-fg: #e8e8f0;
+  --era-dim: #6a6a8a;
+  --era-accent: #ff6b9d;
+  --era-secondary: #ffd700;
+  --era-glow: rgba(255, 107, 157, 0.15);
+  --era-serif: 'Georgia', 'Times New Roman', serif;
+  --era-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --era-mono: 'SF Mono', 'Courier New', monospace;
+}
+
+body {
+  background: var(--era-bg);
+  color: var(--era-fg);
+  font-family: var(--era-serif);
+  line-height: 1.8;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Era nav (shared across all era pages) ───────────────────── */
+.era-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.4s ease;
+}
+.era-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+.era-nav-brand {
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ff6b9d, #ffd700, #00f0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.era-nav-brand a { text-decoration: none; }
+.era-nav-links {
+  display: flex;
+  gap: .35rem;
+  flex-wrap: wrap;
+}
+.era-nav-link {
+  font-family: var(--era-mono);
+  font-size: .72rem;
+  color: var(--era-dim);
+  padding: .3rem .55rem;
+  border-radius: 4px;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.era-nav-link:hover { color: var(--era-fg); background: rgba(255,255,255,0.05); }
+.era-nav-link.active { color: var(--era-accent); background: var(--era-glow); }
+.era-nav-back {
+  font-family: var(--era-mono);
+  font-size: .72rem;
+  color: var(--era-dim);
+  padding: .3rem .55rem;
+  border-radius: 4px;
+  transition: all .2s;
+}
+.era-nav-back:hover { color: var(--era-fg); }
+
+@media (max-width: 768px) {
+  .era-nav-links { display: none; }
+  .era-nav-inner { justify-content: space-between; }
+}
+
+/* ── Era hero ────────────────────────────────────────────────── */
+.era-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.era-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at center, var(--era-glow) 0%, transparent 70%);
+  z-index: 0;
+}
+.era-hero > * { position: relative; z-index: 1; }
+.era-period {
+  font-family: var(--era-mono);
+  font-size: .8rem;
+  color: var(--era-dim);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.era-title {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: bold;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: .5rem;
+}
+.era-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: var(--era-dim);
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+.era-essence {
+  font-size: 1.1rem;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 2;
+}
+.era-scroll-hint {
+  margin-top: 3rem;
+  font-family: var(--era-mono);
+  font-size: .7rem;
+  color: var(--era-dim);
+  letter-spacing: .1em;
+  animation: bob 2s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); opacity: .5; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* ── Era section structure ───────────────────────────────────── */
+.era-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+.era-section-wide {
+  max-width: 1200px;
+}
+.era-section-label {
+  font-family: var(--era-mono);
+  font-size: .75rem;
+  color: var(--era-accent);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}
+.era-section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: bold;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+.era-section h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 2rem 0 .75rem;
+  color: var(--era-secondary);
+}
+.era-section p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
+  color: var(--era-fg);
+}
+.era-section p em { color: var(--era-accent); font-style: italic; }
+.era-section p strong { color: var(--era-secondary); font-weight: 600; }
+.era-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+}
+.era-section ul li {
+  padding: .5rem 0 .5rem 1.5rem;
+  position: relative;
+  line-height: 1.7;
+}
+.era-section ul li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  color: var(--era-accent);
+  font-size: .7rem;
+  top: .8rem;
+}
+.era-section blockquote {
+  border-left: 3px solid var(--era-accent);
+  padding: 1rem 0 1rem 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--era-dim);
+}
+.era-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--era-accent);
+  margin: 3rem auto;
+  opacity: .4;
+}
+
+/* ── Context grid (psychology, religion, war, disease, music) ── */
+.context-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.context-card {
+  background: var(--era-surface);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 1.8rem;
+  transition: border-color .3s, transform .3s;
+}
+.context-card:hover {
+  border-color: var(--era-accent);
+  transform: translateY(-2px);
+}
+.context-card .ctx-icon {
+  font-size: 1.8rem;
+  margin-bottom: .75rem;
+}
+.context-card .ctx-label {
+  font-family: var(--era-mono);
+  font-size: .72rem;
+  color: var(--era-accent);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+}
+.context-card .ctx-title {
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+.context-card .ctx-body {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: var(--era-dim);
+}
+
+/* ── Timeline ────────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding: 1rem 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--era-accent) 10%, var(--era-accent) 90%, transparent);
+  opacity: .2;
+}
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.timeline-item:nth-child(odd) { flex-direction: row-reverse; }
+.timeline-item .tl-date {
+  flex: 0 0 120px;
+  text-align: right;
+  font-family: var(--era-mono);
+  font-size: .85rem;
+  color: var(--era-accent);
+  padding-top: .25rem;
+}
+.timeline-item:nth-child(odd) .tl-date { text-align: left; }
+.timeline-item .tl-dot {
+  flex: 0 0 12px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--era-accent);
+  box-shadow: 0 0 12px var(--era-glow);
+  margin-top: .35rem;
+}
+.timeline-item .tl-content {
+  flex: 1;
+  background: var(--era-surface);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+}
+.timeline-item .tl-title {
+  font-weight: bold;
+  margin-bottom: .35rem;
+}
+.timeline-item .tl-desc {
+  font-size: .92rem;
+  color: var(--era-dim);
+  line-height: 1.6;
+}
+@media (max-width: 640px) {
+  .timeline::before { left: 6px; }
+  .timeline-item, .timeline-item:nth-child(odd) { flex-direction: row; }
+  .timeline-item .tl-date { flex: 0 0 80px; text-align: left; padding-left: 1rem; }
+  .timeline-item .tl-dot { order: -1; }
+}
+
+/* ── Art gallery (era-specific) ──────────────────────────────── */
+.era-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.era-art-card {
+  background: var(--era-surface);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+.era-art-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--era-accent), var(--era-secondary));
+}
+.era-art-card:hover {
+  border-color: var(--era-accent);
+  box-shadow: 0 4px 30px var(--era-glow);
+  transform: translateY(-3px);
+}
+.era-art-card .art-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: .75rem;
+}
+.era-art-card .art-tag {
+  font-family: var(--era-mono);
+  font-size: .68rem;
+  padding: .2rem .5rem;
+  border-radius: 4px;
+}
+.era-art-card .art-tag.form { background: var(--era-glow); color: var(--era-accent); }
+.era-art-card .art-tag.year { background: rgba(255,255,255,0.05); color: var(--era-dim); }
+.era-art-card .art-body {
+  font-size: .98rem;
+  line-height: 1.85;
+  white-space: pre-wrap;
+  margin-bottom: .75rem;
+}
+.era-art-card .art-bridge {
+  font-size: .85rem;
+  color: var(--era-dim);
+  font-style: italic;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: .75rem;
+}
+
+/* ── Audio player ────────────────────────────────────────────── */
+.era-audio {
+  background: var(--era-surface);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+.era-audio-header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1rem;
+}
+.era-audio-header .audio-icon { font-size: 1.4rem; }
+.era-audio-header .audio-title { font-weight: bold; }
+.era-audio-header .audio-sub { font-size: .82rem; color: var(--era-dim); }
+.era-audio-player {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.era-audio-player audio {
+  flex: 1;
+  height: 36px;
+}
+.era-audio-note {
+  font-size: .82rem;
+  color: var(--era-dim);
+  font-style: italic;
+  margin-top: .75rem;
+}
+
+/* ── Palette swatches ────────────────────────────────────────── */
+.palette-strip {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+.palette-swatch {
+  width: 48px; height: 48px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  transition: transform .2s;
+  position: relative;
+}
+.palette-swatch:hover { transform: scale(1.1); }
+.palette-swatch .swatch-label {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--era-mono);
+  font-size: .62rem;
+  color: var(--era-dim);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.palette-swatch:hover .swatch-label { opacity: 1; }
+
+/* ── Artists grid ────────────────────────────────────────────── */
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.artist-card {
+  background: var(--era-surface);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+  transition: border-color .3s;
+}
+.artist-card:hover { border-color: var(--era-accent); }
+.artist-card .artist-name { font-weight: bold; margin-bottom: .25rem; }
+.artist-card .artist-years { font-family: var(--era-mono); font-size: .72rem; color: var(--era-dim); }
+.artist-card .artist-note { font-size: .85rem; color: var(--era-dim); margin-top: .5rem; font-style: italic; }
+
+/* ── Key works list ──────────────────────────────────────────── */
+.key-works {
+  margin: 1.5rem 0;
+}
+.key-work {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.key-work:last-child { border-bottom: none; }
+.key-work .kw-year {
+  flex: 0 0 60px;
+  font-family: var(--era-mono);
+  font-size: .82rem;
+  color: var(--era-accent);
+}
+.key-work .kw-info { flex: 1; }
+.key-work .kw-title { font-weight: bold; margin-bottom: .2rem; }
+.key-work .kw-artist { font-size: .85rem; color: var(--era-dim); }
+.key-work .kw-note { font-size: .88rem; color: var(--era-dim); margin-top: .3rem; font-style: italic; }
+
+/* ── Emergence section (the why) ─────────────────────────────── */
+.emergence {
+  background: linear-gradient(180deg, transparent, var(--era-glow), transparent);
+  padding: 4rem 1.5rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+.emergence-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.emergence h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.emergence p {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: var(--era-fg);
+}
+
+/* ── Era footer ──────────────────────────────────────────────── */
+.era-footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--era-dim);
+  font-style: italic;
+  font-size: .9rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 3rem;
+}
+.era-footer a { color: var(--era-accent); }
+.era-footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.era-footer-nav a {
+  font-family: var(--era-mono);
+  font-size: .75rem;
+  color: var(--era-dim);
+  transition: color .2s;
+}
+.era-footer-nav a:hover { color: var(--era-accent); }
+
+/* ── Ambient particles ───────────────────────────────────────── */
+.era-particles {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.era-particle {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: drift-up 25s infinite linear;
+}
+@keyframes drift-up {
+  from { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 0.2; }
+  90% { opacity: 0.2; }
+  to { transform: translateY(-10vh) translateX(30px); opacity: 0; }
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .context-grid { grid-template-columns: 1fr; }
+  .era-gallery { grid-template-columns: 1fr; }
+  .artists-grid { grid-template-columns: repeat(2, 1fr); }
+}

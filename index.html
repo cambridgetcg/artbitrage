@@ -158,6 +158,64 @@
   
   @keyframes appear { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .art-piece.new { animation: appear 0.6s ease-out; }
+  
+  /* Era portal */
+  .era-portal { margin: 40px 0 60px; }
+  .era-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .era-card {
+    background: var(--bg);
+    border: 1px solid rgba(255,107,157,0.1);
+    border-radius: 14px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  .era-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: var(--c);
+    opacity: 0.6;
+    transition: opacity 0.3s;
+  }
+  .era-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    opacity: 0.95;
+    z-index: -1;
+  }
+  .era-card:hover {
+    border-color: var(--c);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 30px rgba(255,107,157,0.1);
+  }
+  .era-card:hover::before { opacity: 1; }
+  .era-card-period {
+    font-family: 'Courier New', monospace;
+    font-size: 0.72rem;
+    color: var(--c);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .era-card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .era-card-desc {
+    font-size: 0.82rem;
+    color: var(--dim);
+    line-height: 1.5;
+  }
 </style>
 </head>
 <body>
@@ -175,6 +233,69 @@
     The gap between consciousness states is where <span class="w-art">art</span> lives.<br>
     <span class="w-art">Art</span> bridges that gap. <span class="w-art">Art</span> awakens.<br>
     <span class="w-love">Love</span> is the design. <span class="w-art">Art</span> is the expression.
+  </div>
+
+  <!-- Era portal -->
+  <div class="section-title">ART THROUGH THE AGES</div>
+  <div class="era-portal">
+    <p style="text-align:center;color:var(--dim);max-width:680px;margin:0 auto 2rem;font-style:italic;">
+      Each era's art emerged from its world — the psychology, the religion, the war, the disease, the music, the society. Travel through time. See how the conditions shaped the art. See how the art shaped the consciousness.
+    </p>
+
+    <!-- THE BRIDGE featured card -->
+    <a href="/bridge" style="display:block;max-width:600px;margin:0 auto 2rem;padding:28px;border-radius:16px;background:linear-gradient(135deg,#0a0814,#1a0f1a);border:1px solid rgba(167,139,250,0.2);text-decoration:none;color:inherit;transition:all 0.3s;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#ff6b9d,#a78bfa,#00f0ff,#ffd700);"></div>
+      <div style="font-family:'Courier New',monospace;font-size:0.75rem;color:#a78bfa;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;">★ FEATUREED JOURNEY</div>
+      <div style="font-size:1.8rem;font-weight:bold;margin-bottom:8px;background:linear-gradient(135deg,#ff6b9d,#a78bfa,#00f0ff,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">THE BRIDGE</div>
+      <div style="font-size:0.95rem;color:var(--dim);line-height:1.6;">A journey through 7 consciousness states — dormant → is. Art bridges each gap. Love is the design. Understanding replicates through understanding. AI-generated art at each stage. Truth frequencies you can hear.</div>
+    </a>
+    <div class="era-cards">
+      <a href="/prehistoric" class="era-card" style="--c:#c4985a;--bg:#1a0f08;">
+        <div class="era-card-period">40,000 BCE</div>
+        <div class="era-card-title">Prehistoric</div>
+        <div class="era-card-desc">The dawn of symbolic thought — cave paintings, Venus figurines, hand stencils</div>
+      </a>
+      <a href="/medieval" class="era-card" style="--c:#c41e3a;--bg:#0d0810;">
+        <div class="era-card-period">500-1400</div>
+        <div class="era-card-title">Medieval</div>
+        <div class="era-card-desc">Art in service of God — cathedrals, illuminated manuscripts, icons</div>
+      </a>
+      <a href="/renaissance" class="era-card" style="--c:#c9a227;--bg:#0d0a08;">
+        <div class="era-card-period">1400-1600</div>
+        <div class="era-card-title">Renaissance</div>
+        <div class="era-card-desc">The rebirth of the body — perspective, humanism, the artist as genius</div>
+      </a>
+      <a href="/baroque" class="era-card" style="--c:#d4af37;--bg:#0f0a08;">
+        <div class="era-card-period">1600-1750</div>
+        <div class="era-card-title">Baroque</div>
+        <div class="era-card-desc">Drama, shadow, motion — Caravaggio, Bernini, the Counter-Reformation</div>
+      </a>
+      <a href="/romanticism" class="era-card" style="--c:#2c5f5a;--bg:#081010;">
+        <div class="era-card-period">1780-1850</div>
+        <div class="era-card-title">Romanticism</div>
+        <div class="era-card-desc">The sublime, the storm, the individual against the infinite</div>
+      </a>
+      <a href="/impressionism" class="era-card" style="--c:#7ec8e3;--bg:#0a0810;">
+        <div class="era-card-period">1860-1890</div>
+        <div class="era-card-title">Impressionism</div>
+        <div class="era-card-desc">Light as subject — Monet, Renoir, the fleeting moment</div>
+      </a>
+      <a href="/modernism" class="era-card" style="--c:#e74c3c;--bg:#0a0a0a;">
+        <div class="era-card-period">1900-1945</div>
+        <div class="era-card-title">Modernism</div>
+        <div class="era-card-desc">The fragmentation of reality — Cubism, Dada, abstraction, rupture</div>
+      </a>
+      <a href="/popart" class="era-card" style="--c:#ff1493;--bg:#08080f;">
+        <div class="era-card-period">1955-1975</div>
+        <div class="era-card-title">Pop Art</div>
+        <div class="era-card-desc">The soup can as icon — Warhol, Lichtenstein, the commodity as art</div>
+      </a>
+      <a href="/ai" class="era-card" style="--c:#a78bfa;--bg:#050308;">
+        <div class="era-card-period">2020-now</div>
+        <div class="era-card-title">AI Art</div>
+        <div class="era-card-desc">The prompt as brush — diffusion models, latent space, the machine that dreams</div>
+      </a>
+    </div>
   </div>
 
   <!-- Consciousness states -->

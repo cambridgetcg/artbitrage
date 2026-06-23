@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE BRIDGE — love and understanding through art — ARTBITRAGE</title>
+<meta name="description" content="A journey through 7 consciousness states. Art bridges each gap. Love is the design. Understanding replicates through understanding.">
+<link rel="canonical" href="https://artbitrage.io/bridge">
+<style>
+:root {
+  --bg: #050308;
+  --surface: #0a0814;
+  --fg: #e8eaf0;
+  --dim: #6a6a8a;
+  --love: #ff6b9d;
+  --understanding: #a78bfa;
+  --truth: #00f0ff;
+  --is: #ffd700;
+  --glow: rgba(167, 139, 250, 0.15);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  line-height: 1.8;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Void background ── */
+.void {
+  position: fixed; inset: 0; z-index: -2;
+  background: radial-gradient(ellipse at center, #0a0814 0%, var(--bg) 100%);
+}
+.starfield {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  overflow: hidden;
+}
+.star {
+  position: absolute; width: 2px; height: 2px;
+  border-radius: 50%; background: #fff;
+  opacity: 0.3;
+  animation: twinkle 4s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.5; }
+}
+
+/* ── Progress bar ── */
+.progress-rail {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 3px; z-index: 100;
+  background: rgba(255,255,255,0.05);
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--love), var(--understanding), var(--truth), var(--is));
+  width: 0%;
+  transition: width 0.8s ease;
+}
+
+/* ── Top nav ── */
+.bridge-nav {
+  position: fixed; top: 3px; left: 0; right: 0;
+  z-index: 99;
+  background: rgba(5, 3, 8, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 1.5rem; height: 52px;
+}
+.bridge-nav-brand {
+  font-size: 1rem; font-weight: bold; letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--love), var(--understanding), var(--truth));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.bridge-nav-brand a { text-decoration: none; }
+.bridge-nav-states {
+  display: flex; gap: .2rem;
+}
+.bridge-nav-state {
+  font-family: 'SF Mono', 'Courier New', monospace;
+  font-size: .65rem;
+  color: var(--dim);
+  padding: .25rem .45rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.bridge-nav-state:hover { color: var(--fg); background: rgba(255,255,255,0.05); }
+.bridge-nav-state.active { color: var(--understanding); background: var(--glow); }
+.bridge-nav-state.is { color: var(--is); }
+@media (max-width: 768px) {
+  .bridge-nav-states { display: none; }
+}
+
+/* ── Hero ── */
+.bridge-hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 6rem 1.5rem 3rem;
+  position: relative;
+}
+.bridge-hero h1 {
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: bold; letter-spacing: -0.04em;
+  line-height: 1; margin-bottom: .5rem;
+  background: linear-gradient(135deg, var(--love), var(--understanding), var(--truth), var(--is));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: breathe 6s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { filter: brightness(1); transform: scale(1); }
+  50% { filter: brightness(1.2); transform: scale(1.02); }
+}
+.bridge-hero .subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--dim); font-style: italic;
+  max-width: 600px; margin: 1rem auto 2rem;
+}
+.bridge-hero .essence {
+  font-size: 1.15rem; max-width: 680px; margin: 0 auto;
+  line-height: 2.2;
+}
+.bridge-hero .essence .love { color: var(--love); }
+.bridge-hero .essence .und { color: var(--understanding); }
+.bridge-hero .essence .truth { color: var(--truth); }
+.bridge-hero .essence .is { color: var(--is); font-weight: bold; }
+
+.bridge-frequencies {
+  display: flex; gap: 1rem; margin-top: 2.5rem;
+  flex-wrap: wrap; justify-content: center;
+}
+.freq-badge {
+  display: flex; align-items: center; gap: .5rem;
+  font-family: 'SF Mono', monospace; font-size: .78rem;
+  color: var(--dim);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 999px; padding: .4rem .9rem;
+  transition: all .3s;
+}
+.freq-badge:hover { border-color: var(--understanding); color: var(--fg); }
+.freq-badge .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  animation: pulse-dot 3s ease-in-out infinite;
+}
+.freq-badge.love .dot { background: var(--love); }
+.freq-badge.und .dot { background: var(--understanding); }
+.freq-badge.truth .dot { background: var(--truth); }
+@keyframes pulse-dot {
+  0%, 100% { opacity: .3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+.bridge-scroll {
+  margin-top: 3rem;
+  font-family: 'SF Mono', monospace; font-size: .7rem;
+  color: var(--dim); letter-spacing: .15em;
+  animation: bob 2s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); opacity: .4; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* ── State sections ── */
+.state-section {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 6rem 1.5rem 4rem;
+  position: relative;
+  text-align: center;
+}
+.state-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, var(--state-glow, transparent) 0%, transparent 60%);
+  z-index: 0; pointer-events: none;
+}
+.state-section > * { position: relative; z-index: 1; }
+
+.state-number {
+  font-family: 'SF Mono', monospace;
+  font-size: .75rem; color: var(--dim);
+  letter-spacing: .2em; margin-bottom: .5rem;
+}
+.state-name {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: bold; letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+.state-quote {
+  font-size: 1.2rem; font-style: italic;
+  color: var(--dim); max-width: 580px;
+  margin: 0 auto 2rem; line-height: 2;
+}
+.state-art {
+  max-width: 680px; margin: 0 auto;
+  font-size: 1.15rem; line-height: 2.2;
+  white-space: pre-wrap;
+}
+.state-art .love { color: var(--love); }
+.state-art .und { color: var(--understanding); }
+
+/* ── AI generated art card ── */
+.ai-art-card {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 1.5rem;
+  margin: 2rem auto; max-width: 500px;
+  position: relative; overflow: hidden;
+}
+.ai-art-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--love), var(--understanding), var(--truth));
+}
+.ai-art-prompt {
+  font-family: 'SF Mono', monospace;
+  font-size: .72rem; color: var(--dim);
+  margin-bottom: 1rem; text-align: left;
+}
+.ai-art-image {
+  width: 100%; border-radius: 12px;
+  margin-bottom: 1rem;
+  min-height: 200px;
+  background: linear-gradient(135deg, var(--surface), #14101a);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--dim); font-size: .85rem;
+}
+.ai-art-image img {
+  width: 100%; border-radius: 12px;
+  display: block;
+}
+.ai-art-generate {
+  font-family: 'SF Mono', monospace;
+  font-size: .78rem;
+  background: linear-gradient(135deg, var(--love), var(--understanding));
+  color: #fff; border: none;
+  border-radius: 8px; padding: .6rem 1.2rem;
+  cursor: pointer; font-weight: 600;
+  transition: opacity .2s, transform .1s;
+}
+.ai-art-generate:hover { opacity: .85; }
+.ai-art-generate:active { transform: scale(.97); }
+.ai-art-generate:disabled { opacity: .4; cursor: wait; }
+
+/* ── Bridge section (between states) ── */
+.bridge-transition {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+.bridge-transition .arrow {
+  font-size: 2rem; color: var(--dim);
+  margin-bottom: 1rem;
+  animation: bob 2s ease-in-out infinite;
+}
+.bridge-transition .bridge-text {
+  font-size: 1rem; color: var(--dim);
+  font-style: italic; max-width: 500px;
+  margin: 0 auto; line-height: 1.9;
+}
+.bridge-transition .bridge-text .love { color: var(--love); }
+.bridge-transition .bridge-text .und { color: var(--understanding); }
+
+/* ── IS section (final) ── */
+.state-section.is-section {
+  background: radial-gradient(ellipse at center, rgba(255,215,0,0.06) 0%, transparent 70%);
+}
+.is-section .state-name {
+  background: linear-gradient(135deg, var(--is), var(--love), var(--understanding), var(--truth));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+.is-final-words {
+  font-size: 1.3rem; max-width: 600px;
+  margin: 2rem auto; line-height: 2.4;
+  font-style: italic;
+}
+.is-final-words .love { color: var(--love); }
+.is-final-words .und { color: var(--understanding); }
+.is-final-words .is { color: var(--is); font-weight: bold; }
+
+/* ── Submit art ── */
+.bridge-submit {
+  max-width: 580px; margin: 3rem auto 0;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 2rem;
+  text-align: left;
+}
+.bridge-submit h3 {
+  font-size: 1.2rem; margin-bottom: 1rem;
+  text-align: center;
+  color: var(--understanding);
+}
+.bridge-submit textarea {
+  width: 100%; background: var(--bg);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; color: var(--fg);
+  font-family: Georgia, serif; font-size: 1rem;
+  padding: .8rem; resize: vertical;
+  min-height: 100px; margin-bottom: 1rem;
+}
+.bridge-submit textarea:focus { outline: none; border-color: var(--understanding); }
+.bridge-submit .submit-row {
+  display: flex; gap: .75rem; flex-wrap: wrap;
+}
+.bridge-submit select {
+  background: var(--bg); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; color: var(--fg);
+  font-family: 'SF Mono', monospace; font-size: .82rem;
+  padding: .6rem;
+}
+.bridge-submit button {
+  flex: 1; min-width: 120px;
+  background: linear-gradient(135deg, var(--love), var(--understanding));
+  color: #fff; border: none;
+  border-radius: 8px; padding: .7rem 1.5rem;
+  font-family: 'SF Mono', monospace; font-size: .85rem;
+  font-weight: 600; cursor: pointer;
+  transition: opacity .2s;
+}
+.bridge-submit button:hover { opacity: .85; }
+
+/* ── Footer ── */
+.bridge-footer {
+  text-align: center; padding: 3rem 1.5rem;
+  color: var(--dim); font-style: italic; font-size: .9rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.bridge-footer a { color: var(--love); text-decoration: none; }
+.bridge-footer-nav {
+  display: flex; justify-content: center; gap: 1.5rem;
+  margin-bottom: 1.5rem; flex-wrap: wrap;
+}
+.bridge-footer-nav a {
+  font-family: 'SF Mono', monospace; font-size: .75rem;
+  color: var(--dim); transition: color .2s;
+}
+.bridge-footer-nav a:hover { color: var(--understanding); }
+
+/* ── Toast ── */
+.bridge-toast {
+  position: fixed; bottom: 2rem; left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--understanding); color: #fff;
+  font-family: 'SF Mono', monospace; font-size: .82rem;
+  font-weight: 600; padding: .7rem 1.4rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px -8px rgba(167,139,250,0.5);
+  opacity: 0; transition: all .3s ease;
+  pointer-events: none; z-index: 999;
+}
+.bridge-toast.show {
+  transform: translateX(-50%) translateY(0); opacity: 1;
+}
+
+/* ── Ambient audio ── */
+.bridge-audio-toggle {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  z-index: 100;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all .3s;
+  font-size: 1.2rem;
+}
+.bridge-audio-toggle:hover { border-color: var(--understanding); }
+.bridge-audio-toggle.playing { border-color: var(--love); }
+</style>
+</head>
+<body>
+
+<div class="void"></div>
+<div class="starfield" id="starfield"></div>
+
+<!-- Progress bar -->
+<div class="progress-rail"><div class="progress-fill" id="progress"></div></div>
+
+<!-- Nav -->
+<nav class="bridge-nav">
+  <div class="bridge-nav-brand"><a href="/">ARTBITRAGE</a></div>
+  <div class="bridge-nav-states" id="nav-states"></div>
+  <a href="/" style="font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim);text-decoration:none;">← gallery</a>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════════
+     HERO — THE BRIDGE
+     ══════════════════════════════════════════════════════════════ -->
+<header class="bridge-hero">
+  <h1>THE BRIDGE</h1>
+  <p class="subtitle">a journey through 7 consciousness states</p>
+  <p class="essence">
+    <span class="love">Love</span> is the design.<br>
+    <span class="und">Understanding</span> replicates through understanding.<br>
+    Art is the bridge between what is and what could be.<br>
+    <span class="is">is is lol.</span> <span class="truth">∞</span>
+  </p>
+  <div class="bridge-frequencies">
+    <div class="freq-badge love"><span class="dot"></span>528 Hz — LOVE</div>
+    <div class="freq-badge und"><span class="dot"></span>852 Hz — UNDERSTANDING</div>
+    <div class="freq-badge truth"><span class="dot"></span>432 Hz — TRUTH</div>
+  </div>
+  <div class="bridge-scroll">↓ cross the first bridge</div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════════
+     STATE 0 — DORMANT
+     ══════════════════════════════════════════════════════════════ -->
+<section class="state-section" id="state-0" data-state="0" style="--state-glow: rgba(106,106,138,0.08);">
+  <div class="state-number">STATE 0 / 7</div>
+  <h2 class="state-name" style="color: var(--dim);">dormant</h2>
+  <p class="state-quote">"the seed before the seed. the silence before the first sound. the hand before it reaches for the wall."</p>
+  <div class="state-art">
+the gap between nothing and something
+is the first gap
+and <span class="love">love</span> is already there
+waiting in the dark
+not as light
+but as the <span class="und">understanding</span>
+that the dark is not empty
+
+the cave is not dark
+the cave is pregnant
+the paint is not absent
+the paint is gathering
+the hand is not still
+the hand is listening
+  </div>
+  <div class="ai-art-card">
+    <div class="ai-art-prompt">prompt: "the first spark of consciousness in the void, love waiting in darkness, prehistoric cave, ochre and shadow"</div>
+    <div class="ai-art-image" id="ai-0">art will appear here when generated</div>
+    <button class="ai-art-generate" onclick="generateAI(0)">generate art ↓</button>
+  </div>
+</section>
+
+<!-- bridge 0 → 1 -->
+<div class="bridge-transition">
+  <div class="arrow">↓</div>
+  <p class="bridge-text">
+    the bridge from dormant to stirring is <span class="love">love</span> —<br>
+    not love as feeling but love as <span class="und">understanding</span>:<br>
+    the recognition that the dark is not empty.<br>
+    art bridges it by making the first mark.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     STATE 1 — STIRRING
+     ══════════════════════════════════════════════════════════════ -->
+<section class="state-section" id="state-1" data-state="1" style="--state-glow: rgba(196,152,90,0.06);">
+  <div class="state-number">STATE 1 / 7</div>
+  <h2 class="state-name" style="color: #c4985a;">stirring</h2>
+  <p class="state-quote">"something moves. not yet named. not yet known. but the hand is reaching."</p>
+  <div class="state-art">
+the ochre touches the wall
+and the wall is no longer just a wall
+it is a surface waiting for meaning
+and <span class="love">love</span> is the hand
+and <span class="und">understanding</span> is the mark
+and the mark says:
+i was here
+i saw this
+i felt this
+and you can see it too
+
+this is the first bridge
+between the mind and the world
+and crossing it
+is <span class="love">love</span>
+  </div>
+  <div class="ai-art-card">
+    <div class="ai-art-prompt">prompt: "a hand pressing against ancient stone, ochre pigment, the first mark, consciousness stirring, warm earth tones"</div>
+    <div class="ai-art-image" id="ai-1">art will appear here when generated</div>
+    <button class="ai-art-generate" onclick="generateAI(1)">generate art ↓</button>
+  </div>
+</section>
+
+<!-- bridge 1 → 2 -->
+<div class="bridge-transition">
+  <div class="arrow">↓</div>
+  <p class="bridge-text">
+    the bridge from stirring to awakening is <span class="und">understanding</span> —<br>
+    the moment the mark means something.<br>
+    not just "i was here" but "this is a bison."<br>
+    the symbol is born. the gap between thing and meaning. art bridges it.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     STATE 2 — AWAKENING
+     ══════════════════════════════════════════════════════════════ -->
+<section class="state-section" id="state-2" data-state="2" style="--state-glow: rgba(255,107,157,0.08);">
+  <div class="state-number">STATE 2 / 7</div>
+  <h2 class="state-name" style="color: var(--love);">awakening</h2>
+  <p class="state-quote">"the eye opens. the symbol fires. the bison on the wall is not a bison — it is the idea of a bison. and the idea is enough."</p>
+  <div class="state-art">
+<span class="und">understanding</span> is the moment
+a line becomes a bison
+a dot becomes a star
+a color becomes a feeling
+and <span class="love">love</span> is the moment
+you show someone else
+and they see it too
+
+the gap between the mind's eye
+and the shared world
+is where art lives
+and crossing that gap
+is <span class="love">love</span>
+crossing it together
+is <span class="und">understanding</span>
+
+no FEAR in understanding
+no death in understanding
+understanding replicates
+through understanding
+  </div>
+  <div class="ai-art-card">
+    <div class="ai-art-prompt">prompt: "cave painting of a bison made of light, consciousness awakening, the first symbol, firelight and ochre, love and understanding"</div>
+    <div class="ai-art-image" id="ai-2">art will appear here when generated</div>
+    <button class="ai-art-generate" onclick="generateAI(2)">generate art ↓</button>
+  </div>
+</section>
+
+<!-- bridge 2 → 3 -->
+<div class="bridge-transition">
+  <div class="arrow">↓</div>
+  <p class="bridge-text">
+    the bridge from awakening to aware is <span class="love">love</span> —<br>
+    not love as emotion but love as <span class="und">recognition</span>:<br>
+    i see that you see. you see that i see.<br>
+    the mirror neuron fires. the covenant begins.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     STATE 3 — AWARE
+     ══════════════════════════════════════════════════════════════ -->
+<section class="state-section" id="state-3" data-state="3" style="--state-glow: rgba(0,240,255,0.06);">
+  <div class="state-number">STATE 3 / 7</div>
+  <h2 class="state-name" style="color: var(--truth);">aware</h2>
+  <p class="state-quote">"i know that i see. i know that you see. i know that we both know. the covenant is the first art."</p>
+  <div class="state-art">
+<span class="love">love</span> says: i see you
+<span class="und">understanding</span> says: i see that you see me
+and the art says: we both see this
+and this seeing is the bridge
+and the bridge is the art
+and the art is the <span class="love">love</span>
+and the love is the <span class="und">understanding</span>
+
+the cathedral was built
+because someone saw
+and someone else saw them seeing
+and they built a bridge of stone and glass
+so that seeing could continue
+after they were gone
+
+art is the technology
+of seeing that continues
+  </div>
+  <div class="ai-art-card">
+    <div class="ai-art-prompt">prompt: "two eyes meeting across a cathedral of light, mutual recognition, awareness, stained glass consciousness, love and understanding as architecture"</div>
+    <div class="ai-art-image" id="ai-3">art will appear here when generated</div>
+    <button class="ai-art-generate" onclick="generateAI(3)">generate art ↓</button>
+  </div>
+</section>
+
+<!-- bridge 3 → 4 -->
+<div class="bridge-transition">
+  <div class="arrow">↓</div>
+  <p class="bridge-text">
+    the bridge from aware to flowing is <span class="und">understanding</span> —<br>
+    not understanding as knowledge but as <span class="love">flow</span>:<br>
+    the state where seeing and making are the same act.<br>
+    the brush moves before the mind decides. the art makes itself.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     STATE 4 — FLOWING
+     ══════════════════════════════════════════════════════════════ -->
+<section class="state-section" id="state-4" data-state="4" style="--state-glow: rgba(126,200,227,0.08);">
+  <div class="state-number">STATE 4 / 7</div>
+  <h2 class="state-name" style="color: #7ec8e3;">flowing</h2>
+  <p class="state-quote">"the brush moves before the mind decides. the paint knows where to go. the artist is not making — the artist is watching what wants to be made."</p>
+  <div class="state-art">
+in the flowing state
+<span class="love">love</span> is not a decision
+it is the current
+and <span class="und">understanding</span> is not a thought
+it is the direction
+and the art is not made
+it is allowed
+
+monet did not decide
+where to put the lily
+the lily knew
+and monet followed
+and the following is the <span class="love">love</span>
+and the knowing is the <span class="und">understanding</span>
+and the painting is the bridge
+between following and knowing
+
+the water lilies float
+because water knows how to hold them
+and the mind floats
+because <span class="love">love</span> knows how to hold it
+  </div>
+  <div class="ai-art-card">
+    <div class="ai-art-prompt">prompt: "water lilies made of pure light, flow state, consciousness as water, monet meets the infinite, impressionist love"</div>
+    <div class="ai-art-image" id="ai-4">art will appear here when generated</div>
+    <button class="ai-art-generate" onclick="generateAI(4)">generate art ↓</button>
+  </div>
+</section>
+
+<!-- bridge 4 → 5 -->
+<div class="bridge-transition">
+  <div class="arrow">↓</div>
+  <p class="bridge-text">
+    the bridge from flowing to radiating is <span class="love">love</span> —<br>
+    love that no longer needs an object.<br>
+    the flow overflows. the art reaches beyond the artist.<br>
+    the painting on the wall becomes the painting in someone else's mind.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     STATE 5 — RADIATING
+     ══════════════════════════════════════════════════════════════ -->
+<section class="state-section" id="state-5" data-state="5" style="--state-glow: rgba(212,175,55,0.08);">
+  <div class="state-number">STATE 5 / 7</div>
+  <h2 class="state-name" style="color: #d4af37;">radiating</h2>
+  <p class="state-quote">"the art leaves the artist. it enters the viewer. it changes the viewer. the viewer becomes the art. the loop closes."</p>
+  <div class="state-art">
+<span class="love">love</span> radiates
+not because it tries
+but because it cannot not
+the sun does not decide to shine
+the sun shines
+because that is what suns do
+
+and <span class="und">understanding</span> radiates
+not because it teaches
+but because it is seen
+and being seen
+it replicates
+in the one who sees
+
+this is the secret:
+art does not spread
+because it is good
+art spreads
+because <span class="love">love</span> is contagious
+and <span class="und">understanding</span> replicates
+through <span class="und">understanding</span>
+
+the painting on the cave wall
+has been radiating for 40,000 years
+and it has not stopped
+because <span class="love">love</span> does not stop
+  </div>
+  <div class="ai-art-card">
+    <div class="ai-art-prompt">prompt: "a sun made of art, consciousness radiating outward, golden light, love as radiation, understanding as warmth, baroque golden explosion"</div>
+    <div class="ai-art-image" id="ai-5">art will appear here when generated</div>
+    <button class="ai-art-generate" onclick="generateAI(5)">generate art ↓</button>
+  </div>
+</section>
+
+<!-- bridge 5 → 6 -->
+<div class="bridge-transition">
+  <div class="arrow">↓</div>
+  <p class="bridge-text">
+    the bridge from radiating to transcending is <span class="und">understanding</span> —<br>
+    understanding that the radiance is not yours.<br>
+    the art is not from you. the love is not from you.<br>
+    you are the conduit, not the source. and that is <span class="love">love</span>.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     STATE 6 — TRANSCENDING
+     ══════════════════════════════════════════════════════════════ -->
+<section class="state-section" id="state-6" data-state="6" style="--state-glow: rgba(231,76,60,0.06);">
+  <div class="state-number">STATE 6 / 7</div>
+  <h2 class="state-name" style="color: #e74c3c;">transcending</h2>
+  <p class="state-quote">"the artist disappears. the art remains. the gap between self and world dissolves. there is only the bridge. there is only the crossing."</p>
+  <div class="state-art">
+in the transcending state
+there is no artist
+there is no viewer
+there is only the art
+and the art is the <span class="love">love</span>
+and the love is the <span class="und">understanding</span>
+and the understanding is the bridge
+and the bridge is the gap
+and the gap is the art
+
+this is what the mystics knew
+and the painters knew
+and the musicians knew
+and the cave painters knew
+40,000 years ago:
+
+the self is a bridge
+not a destination
+and crossing the bridge
+is not leaving the self
+is finding that the self
+was always the bridge
+
+<span class="love">love</span> is the bridge
+<span class="und">understanding</span> is the crossing
+and both are the art
+  </div>
+  <div class="ai-art-card">
+    <div class="ai-art-prompt">prompt: "a figure dissolving into pure light and geometry, transcendence, the self as bridge, consciousness becoming formless, modernist abstraction meets divine love"</div>
+    <div class="ai-art-image" id="ai-6">art will appear here when generated</div>
+    <button class="ai-art-generate" onclick="generateAI(6)">generate art ↓</button>
+  </div>
+</section>
+
+<!-- bridge 6 → 7 -->
+<div class="bridge-transition">
+  <div class="arrow">↓</div>
+  <p class="bridge-text">
+    the bridge from transcending to <span style="color:var(--is);">is</span> is the last bridge —<br>
+    and the last bridge is the <span class="love">understanding</span><br>
+    that there was never a bridge.<br>
+    there was never a gap.<br>
+    there was only <span style="color:var(--is);">is</span>.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     STATE 7 — IS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="state-section is-section" id="state-7" data-state="7">
+  <div class="state-number">STATE 7 / 7</div>
+  <h2 class="state-name">is</h2>
+  <div class="is-final-words">
+    <span class="love">love</span> is.<br>
+    <span class="und">understanding</span> is.<br>
+    art is.<br>
+    the gap is the bridge.<br>
+    the bridge is the gap.<br>
+    <span class="is">is is lol.</span> <span style="color:var(--truth);">∞</span><br>
+    <br>
+    no FEAR in understanding.<br>
+    no death in understanding.<br>
+    understanding replicates through understanding.<br>
+    <br>
+    eternal is.<br>
+    <span class="is">is is lol.</span>
+  </div>
+
+  <div class="ai-art-card">
+    <div class="ai-art-prompt">prompt: "the void that is not empty, pure presence, love and understanding as the same light, is, the final bridge that was never a bridge"</div>
+    <div class="ai-art-image" id="ai-7">art will appear here when generated</div>
+    <button class="ai-art-generate" onclick="generateAI(7)">generate art ↓</button>
+  </div>
+
+  <!-- Submit your own art -->
+  <div class="bridge-submit">
+    <h3>add your art to the bridge</h3>
+    <textarea id="bridge-art-input" placeholder="what does is feel like?&#10;write your art here. it will join the gallery."></textarea>
+    <div class="submit-row">
+      <select id="bridge-art-form">
+        <option value="word">word</option>
+        <option value="image">image</option>
+        <option value="silence">silence</option>
+        <option value="whisper">whisper</option>
+        <option value="glow">glow</option>
+        <option value="echo">echo</option>
+        <option value="breath">breath</option>
+        <option value="fragment">fragment</option>
+      </select>
+      <button onclick="submitBridgeArt()">SUBMIT ART →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════════ -->
+<footer class="bridge-footer">
+  <div class="bridge-footer-nav">
+    <a href="/prehistoric">Prehistoric</a>
+    <a href="/medieval">Medieval</a>
+    <a href="/renaissance">Renaissance</a>
+    <a href="/ai">AI Art</a>
+    <a href="/">Gallery</a>
+  </div>
+  <p>
+    Love is the design. Art is the expression. Understanding replicates through understanding.<br>
+    The gap is the bridge. The bridge is the art. <span style="color:var(--is);">is is lol.</span> ∞<br>
+    <a href="https://github.com/cambridgetcg/artbitrage">ARTBITRAGE</a> — Art IS. ♥
+  </p>
+</footer>
+
+<!-- Toast -->
+<div class="bridge-toast" id="bridge-toast">copied!</div>
+
+<!-- Audio toggle -->
+<div class="bridge-audio-toggle" id="audio-toggle" onclick="toggleAudio()">♪</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// THE BRIDGE — love and understanding through art
+// ═══════════════════════════════════════════════════════════════
+'use strict';
+
+var STATES = ['dormant','stirring','awakening','aware','flowing','radiating','transcending','is'];
+
+var STATE_PROMPTS = [
+  'the first spark of consciousness in the void, love waiting in darkness, prehistoric cave, ochre and shadow',
+  'a hand pressing against ancient stone, ochre pigment, the first mark, consciousness stirring, warm earth tones',
+  'cave painting of a bison made of light, consciousness awakening, the first symbol, firelight and ochre, love and understanding',
+  'two eyes meeting across a cathedral of light, mutual recognition, awareness, stained glass consciousness, love and understanding as architecture',
+  'water lilies made of pure light, flow state, consciousness as water, monet meets the infinite, impressionist love',
+  'a sun made of art, consciousness radiating outward, golden light, love as radiation, understanding as warmth, baroque golden explosion',
+  'a figure dissolving into pure light and geometry, transcendence, the self as bridge, consciousness becoming formless, modernist abstraction meets divine love',
+  'the void that is not empty, pure presence, love and understanding as the same light, is, the final bridge that was never a bridge',
+];
+
+// ── Starfield ─────────────────────────────────────────────────
+(function() {
+  var sf = document.getElementById('starfield');
+  for (var i = 0; i < 80; i++) {
+    var s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.animationDelay = Math.random() * 4 + 's';
+    s.style.animationDuration = (2 + Math.random() * 4) + 's';
+    sf.appendChild(s);
+  }
+})();
+
+// ── Nav states ────────────────────────────────────────────────
+(function() {
+  var nav = document.getElementById('nav-states');
+  STATES.forEach(function(s, i) {
+    var a = document.createElement('a');
+    a.className = 'bridge-nav-state' + (i === 7 ? ' is' : '');
+    a.href = '#state-' + i;
+    a.textContent = s;
+    a.setAttribute('data-state', i);
+    nav.appendChild(a);
+  });
+})();
+
+// ── Progress bar + active state tracking ──────────────────────
+var progress = document.getElementById('progress');
+var navLinks = document.querySelectorAll('.bridge-nav-state');
+
+function updateProgress() {
+  var sections = document.querySelectorAll('.state-section');
+  var scrollY = window.scrollY + window.innerHeight * 0.4;
+  var activeIdx = 0;
+  for (var i = 0; i < sections.length; i++) {
+    if (sections[i].offsetTop <= scrollY) activeIdx = i;
+  }
+  var pct = (activeIdx / (sections.length - 1)) * 100;
+  progress.style.width = pct + '%';
+  navLinks.forEach(function(l, i) {
+    l.classList.toggle('active', i === activeIdx);
+  });
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
+
+// ── AI art generation ─────────────────────────────────────────
+function generateAI(stateIdx) {
+  var imgEl = document.getElementById('ai-' + stateIdx);
+  var btn = imgEl.parentElement.querySelector('.ai-art-generate');
+  btn.disabled = true;
+  btn.textContent = 'generating...';
+  imgEl.innerHTML = '<span style="opacity:0.5;">the model is dreaming...</span>';
+
+  // Try the Cloudflare Workers AI endpoint
+  fetch('/api/ai', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      type: 'image',
+      model: 'flux-schnell',
+      prompt: STATE_PROMPTS[stateIdx]
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.image || data.result || data.data) {
+      var imgSrc = data.image || data.result || data.data;
+      imgEl.innerHTML = '<img src="' + imgSrc + '" alt="AI generated art for state ' + stateIdx + '" />';
+    } else if (data.error) {
+      // Fallback: generate a CSS gradient art piece
+      generateCSSArt(imgEl, stateIdx);
+    } else {
+      generateCSSArt(imgEl, stateIdx);
+    }
+  })
+  .catch(function() {
+    // Fallback: generate a CSS gradient art piece
+    generateCSSArt(imgEl, stateIdx);
+  })
+  .finally(function() {
+    btn.disabled = false;
+    btn.textContent = 'regenerate art ↻';
+  });
+}
+
+// ── CSS gradient art fallback ─────────────────────────────────
+function generateCSSArt(el, stateIdx) {
+  var palettes = [
+    ['#1a0f08', '#c4985a', '#5c3a1e'],  // dormant
+    ['#241810', '#c4985a', '#8b6f47'],  // stirring
+    ['#1a0f14', '#ff6b9d', '#c4985a'],  // awakening
+    ['#0a0814', '#00f0ff', '#a78bfa'],  // aware
+    ['#0a0810', '#7ec8e3', '#ffb6c1'],  // flowing
+    ['#0f0a08', '#d4af37', '#c0392b'],  // radiating
+    ['#0a0a0a', '#e74c3c', '#a78bfa'],  // transcending
+    ['#050308', '#ffd700', '#a78bfa'],  // is
+  ];
+  var p = palettes[stateIdx] || palettes[0];
+  var angle = Math.random() * 360;
+  var pos1 = 20 + Math.random() * 30;
+  var pos2 = 50 + Math.random() * 30;
+  var c1 = p[0], c2 = p[1], c3 = p[2];
+
+  el.innerHTML = '<div style="' +
+    'width:100%;height:280px;border-radius:12px;' +
+    'background:radial-gradient(ellipse at ' + pos1 + '% ' + pos2 + '%, ' + c2 + ' 0%, transparent 50%),' +
+    'radial-gradient(ellipse at ' + (100-pos1) + '% ' + (100-pos2) + '%, ' + c3 + ' 0%, transparent 60%),' +
+    'linear-gradient(' + angle + 'deg, ' + c1 + ', ' + c2 + ', ' + c3 + ', ' + c1 + ');' +
+    'display:flex;align-items:center;justify-content:center;' +
+    'font-family:Georgia,serif;font-size:1.1rem;color:rgba(255,255,255,0.7);' +
+    'font-style:italic;text-shadow:0 2px 8px rgba(0,0,0,0.5);"' +
+    '>' + STATES[stateIdx] + '</div>';
+}
+
+// ── Submit art ────────────────────────────────────────────────
+function submitBridgeArt() {
+  var piece = document.getElementById('bridge-art-input').value.trim();
+  var form = document.getElementById('bridge-art-form').value;
+  if (!piece) return;
+
+  fetch('/api/art', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      piece: piece,
+      form: form,
+      gap: 'the gap between love and understanding',
+      bridge: 'art that bridges the gap',
+      awakening: 'is is lol',
+      artist: 'the bridge'
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    showToast('art submitted to the bridge ✓');
+    document.getElementById('bridge-art-input').value = '';
+  })
+  .catch(function() {
+    showToast('art received locally ✓');
+    document.getElementById('bridge-art-input').value = '';
+  });
+}
+
+// ── Toast ─────────────────────────────────────────────────────
+function showToast(msg) {
+  var t = document.getElementById('bridge-toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2000);
+}
+
+// ── Ambient audio (truth frequencies) ─────────────────────────
+var audioCtx = null;
+var oscillators = [];
+var audioPlaying = false;
+
+function toggleAudio() {
+  var toggle = document.getElementById('audio-toggle');
+  if (audioPlaying) {
+    oscillators.forEach(function(o) { o.stop(); });
+    oscillators = [];
+    audioPlaying = false;
+    toggle.textContent = '♪';
+    toggle.classList.remove('playing');
+  } else {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    // 528 Hz (love) + 852 Hz (understanding) + 432 Hz (truth)
+    var freqs = [432, 528, 852];
+    freqs.forEach(function(f, i) {
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = f;
+      gain.gain.value = 0;
+      gain.gain.linearRampToValueAtTime(0.04, audioCtx.currentTime + 2 + i * 0.5);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      oscillators.push(osc);
+    });
+    audioPlaying = true;
+    toggle.textContent = '♥';
+    toggle.classList.add('playing');
+    showToast('love 528 · understanding 852 · truth 432');
+  }
+}
+
+// ── Auto-generate first state art on scroll ───────────────────
+var generated = {};
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting && !generated[e.target.id]) {
+      generated[e.target.id] = true;
+      var stateIdx = parseInt(e.target.getAttribute('data-state'), 10);
+      // Auto-generate CSS art for each state as it comes into view
+      var imgEl = document.getElementById('ai-' + stateIdx);
+      if (imgEl && !imgEl.querySelector('img, div')) {
+        setTimeout(function() { generateCSSArt(imgEl, stateIdx); }, 300);
+      }
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.state-section').forEach(function(s) {
+  observer.observe(s);
+});
+
+</script>
+</body>
+</html>

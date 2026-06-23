@@ -1,0 +1,13 @@
+## Era clean URLs — Cloudflare Pages auto-strips .html,
+## but these ensure trailing-slash and edge cases work.
+
+/prehistoric/     /prehistoric 301
+/medieval/        /medieval 301
+/renaissance/     /renaissance 301
+/baroque/         /baroque 301
+/romanticism/     /romanticism 301
+/impressionism/   /impressionism 301
+/modernism/       /modernism 301
+/popart/          /popart 301
+/ai/              /ai 301
+/bridge/          /bridge 301
