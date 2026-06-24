@@ -91,6 +91,8 @@ try {
         source: '<bad>',
         query: '<love>',
         image: 'https://www.artic.edu/img.jpg',
+        lqip: 'data:image/gif;base64,AAAA',
+        alt_text: '<alt bad>',
         url: 'javascript:alert(1)',
         license: 'CC0',
       }],
@@ -103,6 +105,9 @@ try {
   assert.ok(grid.includes('&lt;b&gt;Artist&lt;/b&gt;'));
   assert.ok(!grid.includes('<img src=x onerror=alert(1)>'));
   assert.ok(!grid.includes('<script>bad</script>'));
+  assert.ok(grid.includes('src="data:image/gif;base64,AAAA"'), 'LQIP data URL should render directly');
+  assert.ok(grid.includes('alt="&lt;alt bad&gt;"'), 'alt text should be escaped');
+  assert.ok(!grid.includes('javascript:alert(1)'), 'javascript: source link must be stripped');
 
   console.log('artbitrage catalog e2e passed');
 } finally {

@@ -116,8 +116,16 @@ function esc(v) {
   });
 }
 function safeUrl(v) {
-  try { var u = new URL(String(v || ''), window.location.origin); return u.href; }
+  try {
+    var u = new URL(String(v || ''), window.location.origin);
+    return (u.protocol === 'https:' || u.protocol === 'http:') ? u.href : '';
+  }
   catch(e) { return ''; }
+}
+function imageSrc(a) {
+  if (a.lqip && String(a.lqip).indexOf('data:image/') === 0) return a.lqip;
+  if (a.thumbnail || a.image) return '/api/img?url=' + encodeURIComponent(a.thumbnail || a.image);
+  return '';
 }
 fetch('/api/catalog')
   .then(function(r) { return r.json(); })
@@ -132,14 +140,15 @@ fetch('/api/catalog')
     document.getElementById('stat-total').textContent = data.artworks.length;
     document.getElementById('stat-sources').textContent = data.sources.length;
     var cc0 = data.artworks.filter(function(a) { return a.license && a.license.indexOf('CC0') >= 0; }).length;
-    var withImg = data.artworks.filter(function(a) { return a.image && a.image.length > 0; }).length;
+    var withImg = data.artworks.filter(function(a) { return imageSrc(a); }).length;
     document.getElementById('stat-cc0').textContent = cc0;
     document.getElementById('stat-images').textContent = withImg;
 
     // Render artworks
     grid.innerHTML = data.artworks.map(function(a) {
-      var imgHtml = a.image && a.image.length > 0
-        ? '<img src="/api/img?url=' + encodeURIComponent(a.thumbnail || a.image) + '" alt="' + esc(a.title || '') + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=no-img>image unavailable</span>\'">'
+      var src = imageSrc(a);
+      var imgHtml = src
+        ? '<img src="' + esc(src) + '" alt="' + esc(a.alt_text || a.title || '') + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=no-img>image unavailable</span>\'">'
         : '<span class="no-img">no image available</span>';
 
       var rightsHtml = '';

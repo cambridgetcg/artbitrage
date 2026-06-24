@@ -6,7 +6,7 @@
     "Cleveland Museum of Art",
     "Art Institute of Chicago"
   ],
-  "generated_at": "2026-06-24T10:30:57Z",
+  "generated_at": "2026-06-24T14:07:40Z",
   "artworks": [
     {
       "source": "artic",
@@ -22,7 +22,9 @@
       "thumbnail": "https://www.artic.edu/iiif/2/c29741f9-1859-a8b0-c30e-de9a9644f82b/full/200,/0/default.jpg",
       "url": "https://www.artic.edu/artworks/102235",
       "license": "CC0 / Art Institute of Chicago Open Access",
-      "query": "love"
+      "query": "love",
+      "lqip": "data:image/gif;base64,R0lGODlhBwAFAPUAAFUyPGcnI2k5J305OmlBUZcRDo0XEqodDqkbGbscEZgoFY0/HJMxFpk2Hbc+HYE+L5Q9IJQ+Jp4/LIwxNYs9PKktJKgtLrkuK5RRH6BBHY1QLq1DI65AKahTL7BDMr5JMYRDRZNLQZNfUgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAHAAUAAAYhQIGhUPlcOAANZhCiSAIQBQH06CwYh4kossk0HAhPwhIEADs=",
+      "alt_text": "A work made of oil on canvas."
     },
     {
       "source": "artic",
@@ -38,7 +40,9 @@
       "thumbnail": "https://www.artic.edu/iiif/2/70f69d6a-2cac-0e55-9913-7027ca19f5cb/full/200,/0/default.jpg",
       "url": "https://www.artic.edu/artworks/11143",
       "license": "CC0 / Art Institute of Chicago Open Access",
-      "query": "love"
+      "query": "love",
+      "lqip": "data:image/gif;base64,R0lGODlhAwAFAPMAAH1jTYhtWZN8bKOcmKijoaikpLKrprqzrru2sb27usa4rcC5ssvGw9bPyeXi4gAAACH5BAAAAAAALAAAAAADAAUAAAQLsAyShDkBMbCcahEAOw==",
+      "alt_text": "Terracotta sculpture of a standing woman. Her right arm clutches fabric as a Cupid on her right pulls the fabric at her waist."
     },
     {
       "source": "artic",
@@ -54,7 +58,9 @@
       "thumbnail": "https://www.artic.edu/iiif/2/a4db604f-3c38-e566-ecfe-1c894fc9e4b8/full/200,/0/default.jpg",
       "url": "https://www.artic.edu/artworks/117256",
       "license": "CC0 / Art Institute of Chicago Open Access",
-      "query": "love"
+      "query": "love",
+      "lqip": "data:image/gif;base64,R0lGODlhCQAFAPUAADs6Ng4pXBY0UyI0SD5HSjVQXzNVZyJhdU9UT0dSWUNfXkVuX1lmXWJeY1Boe2N4bHt6bzFWgjpwhkh8nWCBg2KEgmuMjGOQnXCRnnuXnECHqGeNoW6Ws3mjr3iktoaEi4eMlommrIumr4arrIqstZaus5Ctt6S+uJO0wp28wrLKxbLIz8bWzgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAJAAUAAAYqQMqItXosAgVL5ULyKA6ExCZzSkUmGgYCIuioTCgOaABwYEoh0adhkAQBADs=",
+      "alt_text": "A work made of enamel and copper on wood."
     },
     {
       "source": "artic",
@@ -70,7 +76,9 @@
       "thumbnail": "https://www.artic.edu/iiif/2/4636b051-f02a-9057-176e-9f6da433a1ec/full/200,/0/default.jpg",
       "url": "https://www.artic.edu/artworks/194434",
       "license": "CC0 / Art Institute of Chicago Open Access",
-      "query": "joy"
+      "query": "joy",
+      "lqip": "data:image/gif;base64,R0lGODlhBgAFAPQAABcYGxobHhocHxweIikqLDAtLDEuLSwtMEo+N09OT1lUTVZXWGNgX3ljU3tqWVlbYFtfZWdmZXp1b391b3R2enh7fpR0Y5CPlY6Rl6+djrilmb6xocW4qc/FugAAAAAAACH5BAAAAAAALAAAAAAGAAUAAAUYoDAURgAQE7dJR5J1mrVASuMgD0YxUXWFADs=",
+      "alt_text": "A work made of ceramic and pigment."
     },
     {
       "source": "artic",
@@ -86,7 +94,9 @@
       "thumbnail": "https://www.artic.edu/iiif/2/50e2dcd6-501b-fa0a-8f7c-9ddd718ab33b/full/200,/0/default.jpg",
       "url": "https://www.artic.edu/artworks/188767",
       "license": "CC0 / Art Institute of Chicago Open Access",
-      "query": "joy"
+      "query": "joy",
+      "lqip": "data:image/gif;base64,R0lGODlhBAAFAPQAAFFNUFhUV1xXW11ZXF9ZXGNeYWdjZn14epCMjZGMjpKNjpeTk6Kfnqunpq6qqbOvrb25ttLQytXTzeXj3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAEAAUAAAUR4BRB0pM0jHMshkIUAyIAQQgAOw==",
+      "alt_text": "A work made of gelatin silver print."
     },
     {
       "source": "artic",
@@ -102,7 +112,9 @@
       "thumbnail": "https://www.artic.edu/iiif/2/cfd95445-0b72-914f-e111-58e30e1ea1c2/full/200,/0/default.jpg",
       "url": "https://www.artic.edu/artworks/188762",
       "license": "CC0 / Art Institute of Chicago Open Access",
-      "query": "joy"
+      "query": "joy",
+      "lqip": "data:image/gif;base64,R0lGODlhBAAFAPQAAAoNChcaFxcbGRshITI1MjI2NDM4Njc8O0RKSEhNTWFlY2dsampwbmxxb21ycHB1c3h8e4qOjI6Sj6CkogAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAEAAUAAAURIKQEQiQRADM1hfE4y5AgRwgAOw==",
+      "alt_text": "A work made of gelatin silver print."
     },
     {
       "source": "cma",
