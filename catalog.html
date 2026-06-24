@@ -130,7 +130,7 @@ fetch('/api/catalog')
     // Render artworks
     grid.innerHTML = data.artworks.map(function(a) {
       var imgHtml = a.image && a.image.length > 0
-        ? '<img src="' + a.image + '" alt="' + (a.title||'') + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=no-img>image unavailable</span>\'">'
+        ? '<img src="/api/img?url=' + encodeURIComponent(a.thumbnail || a.image) + '" alt="' + (a.title||'') + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=no-img>image unavailable</span>\'">'
         : '<span class="no-img">no image available</span>';
 
       var rightsHtml = '';
