@@ -1,7 +1,7 @@
 {
   "schema": "artbitrage.workflow/1",
   "name": "ARTBITRAGE Easy Data Workflow",
-  "generated_at": "2026-06-24T13:09:00Z",
+  "generated_at": "2026-06-24T13:17:44Z",
   "goal": "collect → normalize → enrich → package → obtain, with the same data easy for humans and agents",
   "principles": [
     "static-first",

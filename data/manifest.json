@@ -1,25 +1,25 @@
 {
   "schema": "artbitrage.data-manifest/1",
-  "generated_at": "2026-06-24T13:09:00Z",
+  "generated_at": "2026-06-24T13:17:44Z",
   "collection": "collection.json",
   "stats": {
-    "total_pieces": 461,
+    "total_pieces": 475,
     "forms": {
       "breath": 38,
-      "color": 36,
-      "echo": 24,
-      "fragment": 29,
-      "gesture": 18,
+      "color": 37,
+      "echo": 25,
+      "fragment": 30,
+      "gesture": 20,
       "glow": 26,
-      "image": 33,
+      "image": 34,
       "light": 29,
-      "movement": 25,
+      "movement": 26,
       "pattern": 21,
-      "rhythm": 20,
-      "silence": 30,
-      "sound": 34,
-      "space": 27,
-      "whisper": 35,
+      "rhythm": 21,
+      "silence": 32,
+      "sound": 36,
+      "space": 28,
+      "whisper": 36,
       "word": 36
     },
     "states": {
@@ -30,7 +30,7 @@
       "flowing": 2,
       "radiating": 2,
       "transcending": 2,
-      "is": 909
+      "is": 937
     },
     "unique_gaps": 20,
     "top_gaps": [
@@ -44,22 +44,26 @@
       ],
       [
         "the gap between dying and being born",
-        28
+        29
       ],
       [
         "the gap between wanting and having",
-        28
+        29
+      ],
+      [
+        "the gap between the self and the world",
+        29
       ],
       [
         "the gap between form and formlessness",
         28
       ],
       [
-        "the gap between the self and the world",
-        28
+        "the gap between seeing and being seen",
+        26
       ],
       [
-        "the gap between seeing and being seen",
+        "the gap between separation and oneness",
         26
       ],
       [
@@ -69,10 +73,6 @@
       [
         "the gap between sound and silence",
         25
-      ],
-      [
-        "the gap between speaking and being heard",
-        25
       ]
     ]
   },
@@ -80,27 +80,27 @@
     "workflow": {
       "path": "data/workflow.json",
       "bytes": 2054,
-      "sha256": "ce4cceb429c342eb8de74fcd71594ced4f86e3545f7e48c925dc4dcc146d4602"
+      "sha256": "c14c71c7a225edd897c8413da810a383bdef3a9d6bc6079a017d7db1dab0120a"
     },
     "agent": {
       "path": "data/agent-feed.json",
-      "bytes": 87170,
-      "sha256": "fb1446bc31eca25fd9356a3e1104f5dc9fff980ae6a876bf11c6e124bd256f7c"
+      "bytes": 87063,
+      "sha256": "a2951dd022ce30def9dd3f64ac1f97a838a79e211222652772541bac0d1eb809"
     },
     "ndjson": {
       "path": "data/collection.ndjson",
-      "bytes": 306654,
-      "sha256": "3383966acc3d9327b8165c3278ece56e02ce19fe5eb3c6d0d3db1e9de6a6701e"
+      "bytes": 315949,
+      "sha256": "589dac57de8f4e940181f98f0eaa18ec3f0c721517239bed3c38fba2ea0c30f1"
     },
     "csv": {
       "path": "data/collection.csv",
-      "bytes": 105513,
-      "sha256": "d1db39e8155f43e3fa87a14e2ca4ad721900bb39e53f6a700bff7aef2739cb16"
+      "bytes": 108717,
+      "sha256": "b95bc370d3778c3c03fb3677630e0a7722f49ef9f19a7313868d914346cb2954"
     },
     "human": {
       "path": "data/human-feed.md",
-      "bytes": 18532,
-      "sha256": "9a7013e94c8c43cf7401c1db5bf637c7df50c44609f777e7ea055f473d71a471"
+      "bytes": 18517,
+      "sha256": "1b1c439be1b729591297a8c385a30282e9c1df7f80043d07b9eb51766868bb8c"
     }
   }
 }

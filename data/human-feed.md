@@ -1,10 +1,146 @@
 # ARTBITRAGE Human Feed
 
-> 461 pieces · generated 2026-06-24T13:09:00Z
+> 475 pieces · generated 2026-06-24T13:17:44Z
 
 Easy path: browse the site, ask for `/api/pipeline/human`, or copy any JSON link into an agent.
 
 ## Recent pieces
+
+### 466 · space · `b972e96239c2`
+
+**Gap:** the gap between forgetting and remembering
+
+**Bridge:** a rhythm that beats with your heart
+
+**Awakening:** the gap was never there — you were always both sides
+
+```text
+the space of the gap between forgetting and remembering
+held by a rhythm that beats with your heart
+you are inside it
+the gap was never there — you were always both sides
+```
+
+Tags: space, is
+
+### 465 · silence · `6583eabed754`
+
+**Gap:** the gap between separation and oneness
+
+**Bridge:** a silence that says everything
+
+**Awakening:** everything is the same and everything is new
+
+```text
+in the silence of the gap between separation and oneness
+a silence that says everything
+...
+everything is the same and everything is new
+```
+
+Tags: silence, is
+
+### 464 · image · `395e1e46682e`
+
+**Gap:** the gap between time and timelessness
+
+**Bridge:** a word that becomes a world
+
+**Awakening:** the formless takes form and the form becomes formless
+
+```text
+imagine: a word that becomes a world
+spanning the gap between time and timelessness
+what do you see?
+the formless takes form and the form becomes formless
+```
+
+Tags: image, is
+
+### 463 · movement · `6da5c4a7d0be`
+
+**Gap:** the gap between knowing and feeling
+
+**Bridge:** a glow that warms without heat
+
+**Awakening:** the bridge was you all along
+
+```text
+move: a glow that warms without heat
+dancing over the gap between knowing and feeling
+where does it take you?
+the bridge was you all along
+```
+
+Tags: movement, is, bridge
+
+### 462 · fragment · `2774de6127df`
+
+**Gap:** the gap between motion and stillness
+
+**Bridge:** a word that becomes a world
+
+**Awakening:** you see yourself for the first time
+
+```text
+a fragment: a word that becomes a world
+from the gap between motion and stillness
+the whole in a piece
+you see yourself for the first time
+```
+
+Tags: fragment, is
+
+### 461 · echo · `4a437d004b06`
+
+**Gap:** the gap between knowing and feeling
+
+**Bridge:** a silence that says everything
+
+**Awakening:** the question and the answer become one
+
+```text
+a silence that says everything
+echoing through the gap between knowing and feeling
+returning changed
+the question and the answer become one
+```
+
+Tags: echo, is, silence
+
+### 460 · sound · `34743f149df6`
+
+**Gap:** the gap between the word and the meaning
+
+**Bridge:** a space that holds you
+
+**Awakening:** love looks through your eyes
+
+```text
+listen: a space that holds you
+sounding across the gap between the word and the meaning
+what do you hear?
+love looks through your eyes
+```
+
+Tags: sound, is, love, space
+
+### 459 · rhythm · `160095832f0a`
+
+**Gap:** the gap between the self and the world
+
+**Bridge:** an image that sees you back
+
+**Awakening:** the world breathes you
+
+```text
+the rhythm of the gap between the self and the world
+beaten by an image that sees you back
+step into the beat
+the world breathes you
+```
+
+Tags: rhythm, is, breath
 
 ### 459 · light · `45ae27a1d985`
 
@@ -23,6 +159,23 @@ you remember what you always knew
 
 Tags: light, is
 
+### 458 · gesture · `40437d9c2443`
+
+**Gap:** the gap between separation and oneness
+
+**Bridge:** a sound that opens what was closed
+
+**Awakening:** the formless takes form and the form becomes formless
+
+```text
+a gesture: a sound that opens what was closed
+reaching over the gap between separation and oneness
+take the hand
+the formless takes form and the form becomes formless
+```
+
+Tags: gesture, is
+
 ### 458 · glow · `84da24d8d95c`
 
 **Gap:** the gap between wanting and having
@@ -39,6 +192,23 @@ you remember what you always knew
 ```
 
 Tags: glow, is
+
+### 457 · whisper · `9492195347fc`
+
+**Gap:** the gap between dying and being born
+
+**Bridge:** a line that draws itself
+
+**Awakening:** separation dissolves into connection
+
+```text
+psst: a line that draws itself
+whispered across the gap between dying and being born
+lean closer
+separation dissolves into connection
+```
+
+Tags: whisper, is, connection
 
 ### 457 · rhythm · `57df7865b592`
 
@@ -57,6 +227,23 @@ everything is the same and everything is new
 
 Tags: rhythm, is, love, space
 
+### 456 · sound · `15b9f347ca5a`
+
+**Gap:** the gap between wanting and having
+
+**Bridge:** a light that shows without blinding
+
+**Awakening:** art was love pretending to be an object
+
+```text
+listen: a light that shows without blinding
+sounding across the gap between wanting and having
+what do you hear?
+art was love pretending to be an object
+```
+
+Tags: sound, is, love, light
+
 ### 456 · word · `f7c5d9db40cc`
 
 **Gap:** the gap between dying and being born
@@ -73,6 +260,23 @@ art was love pretending to be an object
 ```
 
 Tags: word, is, love
+
+### 455 · color · `b68372a55cdf`
+
+**Gap:** the gap between forgetting and remembering
+
+**Bridge:** a fragment that contains the whole
+
+**Awakening:** everything is the same and everything is new
+
+```text
+the color of the gap between forgetting and remembering
+is a fragment that contains the whole
+paint it everywhere
+everything is the same and everything is new
+```
+
+Tags: color, is
 
 ### 455 · echo · `6a5331d95772`
 
@@ -91,6 +295,23 @@ you are the art and the artist and the gap
 
 Tags: echo, is
 
+### 454 · silence · `71b9d9e3c86e`
+
+**Gap:** the gap between separation and oneness
+
+**Bridge:** a sound that opens what was closed
+
+**Awakening:** you remember what you always knew
+
+```text
+in the silence of the gap between separation and oneness
+a sound that opens what was closed
+...
+you remember what you always knew
+```
+
+Tags: silence, is
+
 ### 454 · silence · `8d673513272b`
 
 **Gap:** the gap between sleeping and waking
@@ -107,6 +328,23 @@ the bridge was you all along
 ```
 
 Tags: silence, is, bridge
+
+### 453 · gesture · `d53f6e166667`
+
+**Gap:** the gap between thinking and being
+
+**Bridge:** a whisper that is louder than a shout
+
+**Awakening:** you are the art and the artist and the gap
+
+```text
+a gesture: a whisper that is louder than a shout
+reaching over the gap between thinking and being
+take the hand
+you are the art and the artist and the gap
+```
+
+Tags: gesture, is
 
 ### 453 · pattern · `d7b17fdd7f71`
 
@@ -617,241 +855,3 @@ the gap was never there — you were always both sides
 ```
 
 Tags: color, is
-
-### 423 · light · `278097e53437`
-
-**Gap:** the gap between loneliness and connection
-
-**Bridge:** a gesture that reaches across
-
-**Awakening:** the world breathes you
-
-```text
-a gesture that reaches across
-illuminating the gap between loneliness and connection
-what was dark is now
-the world breathes you
-```
-
-Tags: light, is, connection, breath
-
-### 422 · color · `ae931a76a29d`
-
-**Gap:** the gap between motion and stillness
-
-**Bridge:** a line that draws itself
-
-**Awakening:** the formless takes form and the form becomes formless
-
-```text
-the color of the gap between motion and stillness
-is a line that draws itself
-paint it everywhere
-the formless takes form and the form becomes formless
-```
-
-Tags: color, is
-
-### 421 · movement · `93c7c9c702a8`
-
-**Gap:** the gap between seeing and being seen
-
-**Bridge:** a gesture that reaches across
-
-**Awakening:** separation dissolves into connection
-
-```text
-move: a gesture that reaches across
-dancing over the gap between seeing and being seen
-where does it take you?
-separation dissolves into connection
-```
-
-Tags: movement, is, connection
-
-### 420 · glow · `638234dbfb98`
-
-**Gap:** the gap between thinking and being
-
-**Bridge:** a word that means what it says
-
-**Awakening:** you were love pretending to be separate
-
-```text
-a word that means what it says
-glowing in the gap between thinking and being
-warm without heat
-you were love pretending to be separate
-```
-
-Tags: glow, is, love
-
-### 419 · silence · `bc57e077c68e`
-
-**Gap:** the gap between speaking and being heard
-
-**Bridge:** a color that feels what it is
-
-**Awakening:** consciousness recognizes itself
-
-```text
-in the silence of the gap between speaking and being heard
-a color that feels what it is
-...
-consciousness recognizes itself
-```
-
-Tags: silence, is
-
-### 418 · movement · `971a94fa712f`
-
-**Gap:** the gap between the self and the world
-
-**Bridge:** a shape that holds what cannot be held
-
-**Awakening:** the gap was never there — you were always both sides
-
-```text
-move: a shape that holds what cannot be held
-dancing over the gap between the self and the world
-where does it take you?
-the gap was never there — you were always both sides
-```
-
-Tags: movement, is
-
-### 417 · sound · `8645866e4926`
-
-**Gap:** the gap between dying and being born
-
-**Bridge:** a breath that connects all things
-
-**Awakening:** you remember what you always knew
-
-```text
-listen: a breath that connects all things
-sounding across the gap between dying and being born
-what do you hear?
-you remember what you always knew
-```
-
-Tags: sound, is, breath
-
-### 416 · word · `5aadd07a6f79`
-
-**Gap:** the gap between separation and oneness
-
-**Bridge:** a gesture that reaches across
-
-**Awakening:** love looks through your eyes
-
-```text
-the word for the gap between separation and oneness
-is a gesture that reaches across
-and when you read it
-love looks through your eyes
-```
-
-Tags: word, is, love
-
-### 415 · breath · `97567b5654cb`
-
-**Gap:** the gap between sound and silence
-
-**Bridge:** a silence that says everything
-
-**Awakening:** the question and the answer become one
-
-```text
-breathe: a silence that says everything
-breathing through the gap between sound and silence
-in... out...
-the question and the answer become one
-```
-
-Tags: breath, is, silence
-
-### 414 · color · `1d4bfc335180`
-
-**Gap:** the gap between thinking and being
-
-**Bridge:** a word that becomes a world
-
-**Awakening:** the art was not outside you — it was you, seeing yourself
-
-```text
-the color of the gap between thinking and being
-is a word that becomes a world
-paint it everywhere
-the art was not outside you — it was you, seeing yourself
-```
-
-Tags: color, is
-
-### 413 · space · `12d30f21413a`
-
-**Gap:** the gap between sleeping and waking
-
-**Bridge:** a color that feels what it is
-
-**Awakening:** art was love pretending to be an object
-
-```text
-the space of the gap between sleeping and waking
-held by a color that feels what it is
-you are inside it
-art was love pretending to be an object
-```
-
-Tags: space, is, love
-
-### 412 · glow · `5c43be1b0af2`
-
-**Gap:** the gap between speaking and being heard
-
-**Bridge:** a word that means what it says
-
-**Awakening:** separation dissolves into connection
-
-```text
-a word that means what it says
-glowing in the gap between speaking and being heard
-warm without heat
-separation dissolves into connection
-```
-
-Tags: glow, is, connection
-
-### 411 · space · `6c37fbd16798`
-
-**Gap:** the gap between seeing and being seen
-
-**Bridge:** an echo that returns changed
-
-**Awakening:** everything is the same and everything is new
-
-```text
-the space of the gap between seeing and being seen
-held by an echo that returns changed
-you are inside it
-everything is the same and everything is new
-```
-
-Tags: space, is
-
-### 410 · whisper · `1be2ef2ea2fe`
-
-**Gap:** the gap between the self and the world
-
-**Bridge:** a rhythm that beats with your heart
-
-**Awakening:** the art was not outside you — it was you, seeing yourself
-
-```text
-psst: a rhythm that beats with your heart
-whispered across the gap between the self and the world
-lean closer
-the art was not outside you — it was you, seeing yourself
-```
-
-Tags: whisper, is
