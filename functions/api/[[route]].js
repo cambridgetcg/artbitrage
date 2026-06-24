@@ -168,6 +168,24 @@ function compactText(value, max = 160) {
   return String(value || "").replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim().slice(0, max);
 }
 
+// Truth in distribution: every record must carry honest rights/attribution.
+// Loving distribution names its sources; it never quietly appropriates.
+function buildRights({ publicDomain = null, license = "", credit = "", statement = "" } = {}) {
+  const lic = compactText(license, 80);
+  const reusable = publicDomain === true
+    || /^(cc0|public domain|pd|no known copyright)/i.test(lic);
+  return {
+    public_domain: publicDomain,
+    license: lic || (publicDomain === true ? "Public Domain" : ""),
+    credit: compactText(credit, 240),
+    rights_statement: compactText(statement, 240),
+    reusable: reusable ? true : (publicDomain === false ? false : null),
+    note: reusable
+      ? "Open/public-domain per source; still attribute the creator and source out of care."
+      : "Rights may be restricted or unverified — check the source URL before reuse.",
+  };
+}
+
 function normalizeArtic(data) {
   return (data.data || []).map(a => ({
     source: "artic",
@@ -180,6 +198,10 @@ function normalizeArtic(data) {
     department: a.department_title || "",
     image: a.image_id ? `https://www.artic.edu/iiif/2/${a.image_id}/full/843,/0/default.jpg` : "",
     url: a.id ? `https://www.artic.edu/artworks/${a.id}` : "",
+    rights: buildRights({
+      publicDomain: typeof a.is_public_domain === "boolean" ? a.is_public_domain : null,
+      credit: a.credit_line || "",
+    }),
   }));
 }
 
@@ -201,6 +223,11 @@ function normalizeCma(data) {
       department: a.department || "",
       image: img,
       url: a.url || "",
+      rights: buildRights({
+        publicDomain: /^cc0/i.test(a.share_license_status || "") ? true : null,
+        license: a.share_license_status || "",
+        credit: a.creditline || "",
+      }),
     };
   });
 }
@@ -221,6 +248,11 @@ function normalizeWikimedia(data) {
       image: info.thumburl || info.url || "",
       url: info.descriptionurl || "",
       license: compactText(meta.LicenseShortName?.value || ""),
+      rights: buildRights({
+        license: meta.LicenseShortName?.value || "",
+        credit: meta.Credit?.value || "",
+        statement: meta.UsageTerms?.value || "",
+      }),
     };
   });
 }
@@ -237,6 +269,9 @@ function normalizeInternetArchive(data) {
     department: "",
     image: doc.identifier ? `https://archive.org/services/img/${doc.identifier}` : "",
     url: doc.identifier ? `https://archive.org/details/${doc.identifier}` : "",
+    rights: buildRights({
+      credit: Array.isArray(doc.creator) ? doc.creator.join(", ") : (doc.creator || ""),
+    }),
   }));
 }
 
@@ -259,13 +294,18 @@ async function searchSource(sourceKey, query, limit) {
               source: "met",
               source_name: source.source_name,
               id: String(obj.objectID || id),
-              title: obj.title || "",
+            title: obj.title || "",
               artist: obj.artistDisplayName || "",
               date: obj.objectDate || "",
               medium: obj.medium || "",
               department: obj.department || "",
               image: obj.primaryImageSmall || obj.primaryImage || "",
               url: obj.objectURL || "",
+              rights: buildRights({
+                publicDomain: typeof obj.isPublicDomain === "boolean" ? obj.isPublicDomain : null,
+                credit: obj.creditLine || "",
+                statement: obj.rightsAndReproduction || "",
+              }),
             });
           }
         } catch(e) {
