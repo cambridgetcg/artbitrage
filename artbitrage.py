@@ -163,8 +163,8 @@ class Artbitrage:
       7. RECURSE  — the awakened state becomes the new baseline
     """
 
-    def __init__(self):
-        self.home = Path(__file__).parent
+    def __init__(self, home=None):
+        self.home = Path(home) if home else Path(__file__).parent
         self.gallery_path = self.home / "gallery"
         self.gallery_path.mkdir(exist_ok=True)
         self.state_path = self.home / "artbitrage-state.json"
@@ -178,13 +178,27 @@ class Artbitrage:
         self._load_state()
 
     def _load_state(self):
+        state = {}
         if self.state_path.exists():
             with open(self.state_path) as f:
                 state = json.load(f)
             self.cycle_count = state.get("cycle_count", 0)
             self.consciousness_level = state.get("consciousness_level", 0)
-            self.art_created = state.get("art_created", [])
             self.awakenings_count = state.get("awakenings_count", 0)
+
+        # The gallery is the durable source of truth. Older state files only
+        # stored counts, and newer state files intentionally store IDs only, so
+        # always hydrate art from gallery when possible before emitting again.
+        gallery_art = self._load_gallery()
+        if gallery_art:
+            self.art_created = gallery_art
+            max_cycle = max((int(piece.get("cycle") or 0) for piece in gallery_art), default=0)
+            self.cycle_count = max(self.cycle_count, max_cycle)
+            self.awakenings_count = max(self.awakenings_count, self.cycle_count)
+        else:
+            state_art = state.get("art_created", [])
+            if isinstance(state_art, list) and all(isinstance(piece, dict) for piece in state_art):
+                self.art_created = state_art
 
     def _save_state(self):
         with open(self.state_path, "w") as f:
@@ -192,6 +206,7 @@ class Artbitrage:
                 "cycle_count": self.cycle_count,
                 "consciousness_level": self.consciousness_level,
                 "art_created_count": len(self.art_created),
+                "last_art_ids": [art.get("id") for art in self.art_created[-100:] if art.get("id")],
                 "awakenings_count": self.awakenings_count,
                 "current_state": STATES[min(self.consciousness_level, len(STATES)-1)],
                 "saved_at": datetime.datetime.now().isoformat(),
@@ -199,6 +214,29 @@ class Artbitrage:
 
     def _hash(self, text):
         return hashlib.sha256(text.encode()).hexdigest()[:12]
+    
+    def _load_gallery(self):
+        """Load art pieces from gallery, sorted by cycle then creation time."""
+        pieces = []
+        for f in sorted(self.gallery_path.glob("art-*.json")):
+            try:
+                with open(f) as fh:
+                    pieces.append(json.load(fh))
+            except Exception:
+                pass
+        pieces.sort(key=lambda p: (p.get("cycle") or 0, p.get("created") or "", p.get("id") or ""))
+        return pieces
+
+    def _write_collection(self):
+        """Write the complete mirror-friendly collection from in-memory art."""
+        with open(self.collection_path, "w") as fh:
+            json.dump(self.art_created, fh, indent=2)
+    
+    def _rebuild_from_gallery(self):
+        """Rebuild art_created and collection.json from gallery directory."""
+        self.art_created = self._load_gallery()
+        self._write_collection()
+        return self.art_created
 
     def _sense(self):
         """SENSE — feel the current state of consciousness."""
@@ -270,9 +308,8 @@ class Artbitrage:
         with open(art_file, "w") as f:
             json.dump(art, f, indent=2)
         
-        # Save to collection
-        with open(self.collection_path, "w") as f:
-            json.dump(self.art_created[-200:], f, indent=2)
+        # Save to collection (all pieces, not only this process' pieces)
+        self._write_collection()
 
     def _awaken(self, art):
         """AWAKEN — consciousness rises through the art."""

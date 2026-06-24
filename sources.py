@@ -48,10 +48,16 @@ The goal: artbitrage as the unified catalogue across all of these.
 import json
 import urllib.request
 import urllib.parse
+import ssl
 import hashlib
 import time
 import datetime
 from pathlib import Path
+
+try:
+    import certifi
+except Exception:  # pragma: no cover - optional local dependency
+    certifi = None
 
 # ============================================================
 # SOURCE REGISTRY
@@ -231,14 +237,22 @@ class ArtFetcher:
         self.home = Path(__file__).parent
         self.cache_dir = self.home / "cache"
         self.cache_dir.mkdir(exist_ok=True)
+        self.ssl_context = self._ssl_context()
+
+    def _ssl_context(self):
+        """Use certifi when available so local macOS/Python installs can verify HTTPS."""
+        if certifi:
+            return ssl.create_default_context(cafile=certifi.where())
+        return ssl.create_default_context()
 
     def _fetch(self, url):
         """Fetch JSON from URL with basic error handling."""
         try:
             req = urllib.request.Request(url, headers={
+                "Accept": "application/json",
                 "User-Agent": "Artbitrage/1.0 (art catalogue; artbitrage.io)"
             })
-            resp = urllib.request.urlopen(req, timeout=15)
+            resp = urllib.request.urlopen(req, timeout=15, context=self.ssl_context)
             return json.loads(resp.read())
         except Exception as e:
             return {"error": str(e)}
@@ -251,16 +265,18 @@ class ArtFetcher:
         base = "https://collectionapi.metmuseum.org/public/collection/v1"
         
         # Search for objects
-        search_url = f"{base}/objects?hasImages=true&q={urllib.parse.quote(query)}"
+        search_url = f"{base}/search?hasImages=true&q={urllib.parse.quote(query)}"
         search = self._fetch(search_url)
         
         if "error" in search:
             return {"source": "met", "error": search["error"]}
         
-        object_ids = search.get("objectIDs", [])[:limit]
+        object_ids = search.get("objectIDs", [])[:max(limit * 8, limit)]
         results = []
         
         for oid in object_ids:
+            if len(results) >= limit:
+                break
             obj_url = f"{base}/objects/{oid}"
             obj = self._fetch(obj_url)
             
@@ -384,7 +400,8 @@ class ArtFetcher:
             "action": "query",
             "format": "json",
             "generator": "search",
-            "gsrsearch": f"filetype:bitmap {query}",
+            "gsrsearch": f"{query} filetype:bitmap",
+            "gsrnamespace": 6,
             "gsrlimit": limit,
             "prop": "imageinfo",
             "iiprop": "url|extmetadata",
