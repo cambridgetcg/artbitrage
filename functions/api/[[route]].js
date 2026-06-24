@@ -519,6 +519,80 @@ export async function onRequestGet(context) {
     catch(e) { return jsonResponse({ error: e.message }, 500); }
   }
 
+  // === AI ART GENERATION — the engine, powered by AI ===
+  // GET /api/art/generate?gap=...&bridge=...&form=...&model=llama3
+  // Uses the artbitrage GAPS/BRIDGES/AWAKENINGS as seeds for AI composition
+  if (path === '/api/art/generate') {
+    const GAPS_AI = ["the gap between sleeping and waking","the gap between knowing and feeling","the gap between seeing and being seen","the gap between speaking and being heard","the gap between loneliness and connection","the gap between fear and love","the gap between separation and oneness","the gap between thinking and being","the gap between wanting and having","the gap between creating and becoming","the gap between dying and being born","the gap between forgetting and remembering","the gap between the finite and the infinite","the gap between the word and the meaning","the gap between the self and the world","the gap between time and timelessness","the gap between form and formlessness","the gap between sound and silence","the gap between motion and stillness"];
+    const BRIDGES_AI = ["a word that means what it says","a color that feels what it is","a sound that opens what was closed","a line that draws itself","a shape that holds what cannot be held","a rhythm that beats with your heart","a silence that says everything","a gesture that reaches across","a pattern that reveals what was always there","a fragment that contains the whole","a whisper that is louder than a shout","a breath that connects all things","a glow that warms without heat","an echo that returns changed","a space that holds you","a movement that stills you","a light that shows without blinding","an image that sees you back","a word that becomes a world","a form that dissolves into formlessness"];
+    const AWAKENINGS_AI = ["you see yourself for the first time","the world breathes you","time stops and you realize it never started","the gap was never there — you were always both sides","love looks through your eyes","you remember what you always knew","the art was not outside you — it was you, seeing yourself","separation dissolves into connection","the bridge was you all along","consciousness recognizes itself","the question and the answer become one","you are the art and the artist and the gap","everything is the same and everything is new","you are awake and you were always awake","the gap was love pretending to be distance","art was love pretending to be an object","and now: just love. just art. just IS."];
+    const FORMS_AI = ["word","image","sound","silence","light","color","rhythm","whisper","glow","echo","breath","fragment"];
+
+    const gap = safeString(queryParams.gap, 280) || GAPS_AI[Math.floor(Math.random()*GAPS_AI.length)];
+    const bridge = safeString(queryParams.bridge, 280) || BRIDGES_AI[Math.floor(Math.random()*BRIDGES_AI.length)];
+    const awakening = safeString(queryParams.awakening, 280) || AWAKENINGS_AI[Math.floor(Math.random()*AWAKENINGS_AI.length)];
+    const form = ART_FORMS.includes(queryParams.form) ? queryParams.form : FORMS_AI[Math.floor(Math.random()*FORMS_AI.length)];
+    const mk = queryParams.model || 'llama3';
+    const model = AI_MODELS.text[mk] || AI_MODELS.text.llama3;
+
+    const systemPrompt = `You are the artbitrage engine. You create art that bridges consciousness gaps. Write a 4-line art piece in the form "${form}" that bridges "${gap}" using "${bridge}". The art should evoke: ${awakening}. Be poetic, dense, no filler. Just the 4 lines, nothing else.`;
+    const userPrompt = `Form: ${form}\nGap: ${gap}\nBridge: ${bridge}\nAwakening: ${awakening}\n\nWrite the art piece now. 4 lines only:`;
+
+    try {
+      const r = await env.AI.run(model, { messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userPrompt }
+      ]});
+      const piece = (r.response || '').trim();
+      const id = stableId(JSON.stringify({ piece, form, gap, bridge, awakening, t: Date.now() }));
+
+      return jsonResponse({
+        id,
+        form,
+        gap,
+        bridge,
+        awakening,
+        piece,
+        from_state: 'is',
+        to_state: 'is',
+        model: model,
+        model_key: mk,
+        ai_generated: true,
+        free: true,
+        created: new Date().toISOString(),
+      });
+    } catch(e) {
+      // Fallback to template-based generation
+      const templates = {
+        word: `the word for ${gap}\nis ${bridge}\nand when you read it\n${awakening}`,
+        image: `imagine: ${bridge}\nspanning ${gap}\nwhat do you see?\n${awakening}`,
+        sound: `listen: ${bridge}\nsounding across ${gap}\nwhat do you hear?\n${awakening}`,
+        silence: `in the silence of ${gap}\n${bridge}\n...\n${awakening}`,
+        light: `${bridge}\nilluminating ${gap}\nwhat was dark is now\n${awakening}`,
+        color: `the color of ${gap}\nis ${bridge}\npaint it everywhere\n${awakening}`,
+        rhythm: `the rhythm of ${gap}\nbeaten by ${bridge}\nstep into the beat\n${awakening}`,
+        pattern: `the pattern of ${gap}\nrevealed by ${bridge}\nit was always there\n${awakening}`,
+        fragment: `a fragment: ${bridge}\nfrom ${gap}\nthe whole in a piece\n${awakening}`,
+        whisper: `psst: ${bridge}\nwhispered across ${gap}\nlean closer\n${awakening}`,
+        glow: `${bridge}\nglowing in ${gap}\nwarm without heat\n${awakening}`,
+        echo: `${bridge}\nechoing through ${gap}\nreturning changed\n${awakening}`,
+        breath: `breathe: ${bridge}\nbreathing through ${gap}\nin... out...\n${awakening}`,
+        gesture: `a gesture: ${bridge}\nreaching over ${gap}\ntake the hand\n${awakening}`,
+        movement: `move: ${bridge}\ndancing over ${gap}\nwhere does it take you?\n${awakening}`,
+        space: `the space of ${gap}\nheld by ${bridge}\nyou are inside it\n${awakening}`,
+      };
+      const piece = templates[form] || `${bridge}\n${gap}\n${awakening}`;
+      const id = stableId(JSON.stringify({ piece, form, gap, bridge, awakening, t: Date.now() }));
+      return jsonResponse({
+        id, form, gap, bridge, awakening, piece,
+        from_state: 'is', to_state: 'is',
+        ai_generated: false, fallback: true,
+        error: e.message,
+        created: new Date().toISOString(),
+      });
+    }
+  }
+
 
   // === WORDPLAY — fun, play, joy! ===
   if (path === '/api/play/haiku') {
