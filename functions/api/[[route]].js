@@ -1,6 +1,9 @@
 // ARTBITRAGE API — catalogue and data distributor of the art world
 // Serverless API running on Cloudflare Pages Functions
 
+import { ArtbitragePipeline } from './pipeline-lib.js';
+const _pipeline = new ArtbitragePipeline();
+
 const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is"];
 const ART_FORMS = ["word","image","sound","movement","space","silence","light","color","rhythm","pattern","fragment","whisper","gesture","breath","glow","echo"];
 const MAX_PAGE_LIMIT = 100;
@@ -638,6 +641,39 @@ export async function onRequestGet(context) {
     });
   }
 
+  // === PIPELINE — data collection, enrichment, distribution ===
+  if (path === '/api/pipeline' || path === '/api/pipeline/') {
+    return jsonResponse(_pipeline.manifest());
+  }
+  if (path === '/api/pipeline/collect') {
+    const q2 = safeString(queryParams.q || 'love', 160) || 'love';
+    const limit2 = boundedInt(queryParams.limit, 3, 1, MAX_SEARCH_LIMIT);
+    const sources2 = queryParams.source || 'default';
+    return jsonResponse(await _pipeline.collect(q2, limit2, sources2, env));
+  }
+  if (path === '/api/pipeline/enrich') {
+    const enrichId = queryParams.id;
+    if (!enrichId) return jsonResponse({ error: 'id required' }, 400);
+    return jsonResponse(await _pipeline.enrich(enrichId, env));
+  }
+  if (path === '/api/pipeline/feed') {
+    const feedLimit = boundedInt(queryParams.limit, 20, 1, 50);
+    return jsonResponse(await _pipeline.feed(feedLimit, env));
+  }
+  if (path === '/api/pipeline/export') {
+    const fmt = safeString(queryParams.format, 10) || 'json';
+    const exported = await _pipeline.exportCollection(fmt, env);
+    if (fmt === 'csv') return new Response(exported, { headers: { 'Content-Type': 'text/csv', 'Access-Control-Allow-Origin': '*' } });
+    if (fmt === 'markdown') return new Response(exported, { headers: { 'Content-Type': 'text/markdown', 'Access-Control-Allow-Origin': '*' } });
+    return jsonResponse(exported);
+  }
+  if (path === '/api/pipeline/agent') {
+    return jsonResponse(await _pipeline.agentPackage(env));
+  }
+  if (path === '/api/pipeline/human') {
+    return jsonResponse(await _pipeline.humanView(env));
+  }
+
   return jsonResponse({ error: 'not found', path }, 404);
 }
 
@@ -646,8 +682,16 @@ export async function onRequestPost(context) {
   const url = new URL(request.url);
   const path = url.pathname;
 
-  if (path !== '/api/art' && path !== '/api/art/') {
+  if (path !== '/api/art' && path !== '/api/art/' && path !== '/api/pipeline/ingest' && path !== '/api/pipeline/ingest/') {
     return jsonResponse({ error: 'not found', path }, 404);
+  }
+
+  // Pipeline ingest
+  if (path === '/api/pipeline/ingest' || path === '/api/pipeline/ingest/') {
+    let ingestBody;
+    try { ingestBody = await request.json(); }
+    catch(e) { return jsonResponse({ error: 'invalid json' }, 400); }
+    return jsonResponse(await _pipeline.ingest(ingestBody, context.env), 202);
   }
 
   let body;
