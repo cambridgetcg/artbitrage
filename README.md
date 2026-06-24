@@ -94,6 +94,26 @@ curl https://artbitrage.io/api/stats
 ```
 
 
+
+## AI Studio — one truthful catalog
+
+AI Studio uses the same catalog as `/api/ai/models`; there is no separate
+hard-coded model reality in the UI. Models are **catalogued**, not over-promised:
+runtime availability can still vary by Cloudflare binding, account, rollout, or
+provider change. API responses report `fallback_used`, `requested_model`,
+`model_key`, and errors honestly.
+
+```bash
+curl https://artbitrage.io/api/ai/models
+curl "https://artbitrage.io/api/ai/generate?prompt=love&model=llama3"
+curl "https://artbitrage.io/api/ai/embed?text=love&model=bge-small"
+open https://artbitrage.io/studio.html
+```
+
+Truth rule: if an unknown model is requested, ARTBITRAGE falls back to a safe
+default and tells you with `fallback_used: true` instead of pretending the
+requested model ran.
+
 ## Easy Data Workflow — Collect → Enrich → Obtain
 
 The pipeline now has one simple shape for both humans and agents:

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI STUDIO — artbitrage</title>
-<meta name="description" content="60 free AI models at the edge. Text, image, embeddings, vision, TTS, STT. No keys. No auth. For agents and humans.">
+<meta name="description" content="Catalogued free edge AI models from ARTBITRAGE. Text, image, embeddings and more. No user keys. For agents and humans.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='none' stroke='%23a78bfa' stroke-width='6'/><circle cx='50' cy='50' r='6' fill='%23fde68a'/></svg>">
 <style>
 :root {
@@ -104,7 +104,7 @@ button{font-family:inherit;cursor:pointer}
 
 <header class="studio-hero">
   <h1>AI STUDIO</h1>
-  <p class="sub">60 free AI models at the edge. No keys. No auth. For agents and humans.</p>
+  <p class="sub">Live AI catalog at the edge. No user keys. For agents and humans.</p>
   <div class="studio-stats" id="stats"></div>
 </header>
 
@@ -126,12 +126,12 @@ button{font-family:inherit;cursor:pointer}
 
 <div class="studio-section" id="models-section">
   <h2>Available Models</h2>
-  <p class="lede">Click a model to load it into the playground. Green = verified working. All free on Cloudflare Workers AI.</p>
+  <p class="lede">Click a model to load it into the playground. Catalog loads from /api/ai/models so the UI and API tell the same truth.</p>
   <div class="model-grid" id="model-grid"></div>
 </div>
 
 <footer class="studio-footer">
-  <p>60 free AI models · no keys · no auth · edge-native · <a href="https://artbitrage.io">artbitrage.io</a></p>
+  <p><span id="footer-model-count">AI catalog loading…</span> · no user keys · edge-native · <a href="https://artbitrage.io">artbitrage.io</a></p>
   <p>Love is the prompt. Understanding is the output. Art is the bridge. <span style="color:var(--gold)">is is lol.</span> ∞</p>
 </footer>
 
@@ -139,92 +139,104 @@ button{font-family:inherit;cursor:pointer}
 
 <script>
 var MODELS = {
-  text: {
-    "llama3": "@cf/meta/llama-3.2-3b-instruct",
-    "llama3-70b": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
-    "gemma2": "@cf/google/gemma-2b-it-lora",
-    "mistral": "@cf/mistral/mistral-7b-instruct-v0.2-lora",
-    "gpt-oss-120b": "@cf/openai/gpt-oss-120b",
-    "gpt-oss-20b": "@cf/openai/gpt-oss-20b",
-    "qwq": "@cf/qwen/qwq-32b",
-    "mistral-small": "@cf/mistralai/mistral-small-3.1-24b-instruct",
-    "glm-flash": "@cf/zai-org/glm-4.7-flash",
-  },
-  image: {
-    "flux-schnell": "@cf/black-forest-labs/flux-1-schnell",
-    "sdxl": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
-    "sdxl-lightning": "@cf/bytedance/stable-diffusion-xl-lightning",
-    "dreamshaper": "@cf/lykon/dreamshaper-8-lcm",
-  },
-  embeddings: {
-    "bge-m3": "@cf/baai/bge-m3",
-    "bge-small": "@cf/baai/bge-small-en-v1.5",
-  },
+  text: { "llama3": "@cf/meta/llama-3.2-3b-instruct" },
+  image: { "flux-schnell": "@cf/black-forest-labs/flux-1-schnell" },
+  embeddings: { "bge-m3": "@cf/baai/bge-m3" },
 };
+var AI_CATALOG = null;
+var catalogSource = 'fallback';
 
-var verified = {
-  'llama3': 'ok', 'llama3-70b': 'ok', 'gemma2': 'ok', 'mistral': 'ok',
-  'flux-schnell': 'ok', 'sdxl-lightning': 'ok', 'dreamshaper': 'ok',
-  'bge-m3': 'ok',
-};
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(ch) {
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]);
+  });
+}
 
-// Stats
-(function() {
+function typeToCategory(type) {
+  return type === 'embed' ? 'embeddings' : type;
+}
+
+function categoryToType(cat) {
+  return cat === 'embeddings' ? 'embed' : cat;
+}
+
+function renderStats() {
   var cats = Object.keys(MODELS);
   var total = cats.reduce(function(s, c) { return s + Object.keys(MODELS[c]).length; }, 0);
   var html = '';
   cats.forEach(function(c) {
-    html += '<div class="studio-stat"><div class="num">' + Object.keys(MODELS[c]).length + '</div><div class="lbl">' + c + '</div></div>';
+    html += '<div class="studio-stat"><div class="num">' + Object.keys(MODELS[c]).length + '</div><div class="lbl">' + esc(c) + '</div></div>';
   });
-  html += '<div class="studio-stat"><div class="num">' + total + '</div><div class="lbl">total</div></div>';
+  html += '<div class="studio-stat"><div class="num">' + total + '</div><div class="lbl">catalogued</div></div>';
+  html += '<div class="studio-stat"><div class="num">' + (catalogSource === 'api' ? '✓' : '!') + '</div><div class="lbl">' + (catalogSource === 'api' ? 'api truth' : 'fallback') + '</div></div>';
   document.getElementById('stats').innerHTML = html;
-})();
+  document.getElementById('footer-model-count').textContent = total + ' catalogued AI models';
+}
 
-// Model grid
-(function() {
+function renderModelGrid() {
   var grid = document.getElementById('model-grid');
   var html = '';
   Object.keys(MODELS).forEach(function(cat) {
     Object.keys(MODELS[cat]).forEach(function(name) {
       var id = MODELS[cat][name];
-      var status = verified[name] === 'ok' ? '<div class="mc-status ok">✓ verified</div>' : '<div class="mc-status waiting">? untested</div>';
-      html += '<div class="model-card cat-' + cat + '" data-cat="' + cat + '" data-name="' + name + '">' +
-        '<div class="mc-name">' + name + '</div>' +
-        '<div class="mc-type">' + cat + '</div>' +
-        '<div class="mc-id">' + id + '</div>' +
+      var status = catalogSource === 'api'
+        ? '<div class="mc-status ok">✓ catalogued</div>'
+        : '<div class="mc-status waiting">fallback catalog</div>';
+      html += '<div class="model-card cat-' + esc(cat) + '" data-cat="' + esc(cat) + '" data-name="' + esc(name) + '">' +
+        '<div class="mc-name">' + esc(name) + '</div>' +
+        '<div class="mc-type">' + esc(cat) + '</div>' +
+        '<div class="mc-id">' + esc(id) + '</div>' +
         status + '</div>';
     });
   });
-  grid.innerHTML = html;
+  grid.innerHTML = html || '<p class="lede">No models loaded yet.</p>';
 
-  // Click to load into playground
   grid.querySelectorAll('.model-card').forEach(function(card) {
     card.addEventListener('click', function() {
       grid.querySelectorAll('.model-card').forEach(function(c) { c.classList.remove('active'); });
       card.classList.add('active');
       var cat = card.getAttribute('data-cat');
       var name = card.getAttribute('data-name');
-      // Set selects
-      var ms = document.getElementById('model-select');
-      var ts = document.getElementById('type-select');
-      // Find and select the model
-      ts.value = cat === 'embeddings' ? 'embed' : cat;
-      // Rebuild model select for this category
+      document.getElementById('type-select').value = categoryToType(cat);
       buildModelSelect(cat);
-      ms.value = name;
+      document.getElementById('model-select').value = name;
     });
   });
-})();
+}
 
 function buildModelSelect(cat) {
   var ms = document.getElementById('model-select');
-  var models = MODELS[cat] || MODELS.text;
+  var models = MODELS[cat] || MODELS.text || {};
   ms.innerHTML = Object.keys(models).map(function(name) {
-    return '<option value="' + name + '">' + name + '</option>';
+    return '<option value="' + esc(name) + '">' + esc(name) + '</option>';
   }).join('');
 }
 
-buildModelSelect('text');
+async function loadModelCatalog() {
+  renderStats();
+  renderModelGrid();
+  buildModelSelect('text');
+  try {
+    var r = await fetch('/api/ai/models');
+    var d = await r.json();
+    if (!r.ok || !d.models) throw new Error(d.error || 'catalog unavailable');
+    AI_CATALOG = d;
+    MODELS = d.models;
+    catalogSource = 'api';
+  } catch(e) {
+    catalogSource = 'fallback';
+    document.getElementById('meta').innerHTML = 'AI catalog fallback: ' + esc(e.message || e);
+  }
+  renderStats();
+  renderModelGrid();
+  buildModelSelect('text');
+}
+
+document.getElementById('type-select').addEventListener('change', function() {
+  buildModelSelect(typeToCategory(this.value));
+});
+
+loadModelCatalog();
 
 async function runModel() {
   var prompt = document.getElementById('prompt').value.trim();
@@ -245,7 +257,7 @@ async function runModel() {
 
   try {
     if (type === 'image') {
-      var r = await fetch('/api/ai/image?prompt=' + encodeURIComponent(prompt) + '&model=' + model);
+      var r = await fetch('/api/ai/image?prompt=' + encodeURIComponent(prompt) + '&model=' + encodeURIComponent(model));
       var ct = r.headers.get('content-type') || '';
       if (ct.indexOf('image/') === 0) {
         var blob = await r.blob();
@@ -258,15 +270,15 @@ async function runModel() {
         meta.innerHTML = 'model: ' + model + ' · error · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
       }
     } else if (type === 'embed') {
-      var r = await fetch('/api/ai/embed?text=' + encodeURIComponent(prompt) + '&model=' + (model === 'bge-small' ? 'bge-small' : 'bge-m3'));
+      var r = await fetch('/api/ai/embed?text=' + encodeURIComponent(prompt) + '&model=' + encodeURIComponent(model));
       var d = await r.json();
       out.innerHTML = 'Dimensions: ' + d.dimensions + '\nFirst 5 values: ' + JSON.stringify(d.first_5);
-      meta.innerHTML = 'model: ' + d.model + ' · ' + d.dimensions + ' dims · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
+      meta.innerHTML = 'model: ' + d.model_key + ' · ' + d.dimensions + ' dims · fallback: ' + d.fallback_used + ' · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
     } else {
-      var r = await fetch('/api/ai/generate?prompt=' + encodeURIComponent(prompt) + '&model=' + model);
+      var r = await fetch('/api/ai/generate?prompt=' + encodeURIComponent(prompt) + '&model=' + encodeURIComponent(model));
       var d = await r.json();
       out.innerHTML = d.response || d.error || 'No response';
-      meta.innerHTML = 'model: ' + model + ' · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's · ' + (d.response ? d.response.length + ' chars' : 'error');
+      meta.innerHTML = 'model: ' + (d.model_key || model) + ' · fallback: ' + Boolean(d.fallback_used) + ' · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's · ' + (d.response ? d.response.length + ' chars' : 'error');
     }
   } catch(e) {
     out.innerHTML = '⚠️ Error: ' + e.message;

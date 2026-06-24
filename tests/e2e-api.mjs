@@ -20,7 +20,11 @@ const env = {
     },
   },
   AI: {
-    async run() { return { response: 'Love is tested care.' }; },
+    async run(model, input) {
+      if (input?.text) return { data: [[0.1, 0.2, 0.3, 0.4, 0.5]] };
+      if (input?.prompt) return { image: new Uint8Array([137, 80, 78, 71]) };
+      return { response: 'Love is tested care.' };
+    },
   },
 };
 
@@ -89,6 +93,36 @@ try {
   assert.equal(out.res.status, 200);
   assert.equal(out.json.count, 5);
   assert.ok(out.json.sources.every(source => source.auth === 'none'));
+
+  out = await get('/api/ai/models');
+  assert.equal(out.res.status, 200);
+  assert.equal(out.json.schema, 'artbitrage.ai-catalog/1');
+  const catalogCount = Object.values(out.json.models).reduce((sum, group) => sum + Object.keys(group).length, 0);
+  assert.equal(out.json.total_models, catalogCount);
+  assert.equal(out.json.total_models, 24);
+  assert.equal(out.json.defaults.text, 'llama3');
+  assert.match(out.json.truth_note, /Runtime availability/);
+
+  out = await get('/api/ai/generate?prompt=truth&model=not-a-real-model');
+  assert.equal(out.res.status, 200);
+  assert.equal(out.json.requested_model, 'not-a-real-model');
+  assert.equal(out.json.model_key, 'llama3');
+  assert.equal(out.json.fallback_used, true);
+  assert.equal(out.json.response, 'Love is tested care.');
+
+  out = await get('/api/ai/embed?text=truth&model=bge-small');
+  assert.equal(out.res.status, 200);
+  assert.equal(out.json.model_key, 'bge-small');
+  assert.equal(out.json.fallback_used, false);
+  assert.equal(out.json.dimensions, 5);
+
+  out = await get('/api/art/generate?gap=test-gap&bridge=test-bridge&awakening=test-awakening&form=word&model=bad-key');
+  assert.equal(out.res.status, 200);
+  assert.ok(out.json.id);
+  assert.equal(out.json.form, 'word');
+  assert.equal(out.json.model_key, 'llama3');
+  assert.equal(out.json.fallback_used, true);
+  assert.notEqual(out.json.error, 'art not found');
 
   out = await get('/api/pipeline/workflow');
   assert.equal(out.res.status, 200);
