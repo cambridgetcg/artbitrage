@@ -334,6 +334,8 @@
       <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/art?state=is</span><span class="desc">filter by consciousness state</span></div>
       <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/art?q=love</span><span class="desc">search art pieces</span></div>
       <div class="api-endpoint"><span class="method POST">POST</span><span class="path">/api/art</span><span class="desc">submit new art</span></div>
+      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/search?q=love</span><span class="desc">search open art sources</span></div>
+      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/sources</span><span class="desc">no-key source registry</span></div>
       <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/stats</span><span class="desc">catalogue statistics</span></div>
       <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/forms</span><span class="desc">all art forms</span></div>
       <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/states</span><span class="desc">all consciousness states</span></div>
@@ -355,6 +357,7 @@
   <!-- Submit -->
   <div class="submit-section">
     <div class="section-title">Submit Art</div>
+    <p style="text-align:center;color:#888;margin-bottom:20px">Static-first: submissions are validated and echoed back as JSON so they can be saved into the gallery or sent as a pull request.</p>
     <form class="submit-form" onsubmit="submitArt(event)">
       <div class="form-group">
         <label>Art Piece *</label>
@@ -513,7 +516,7 @@ async function submitArt(e){
     const res=await fetch('/api/art',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     const data=await res.json();
     if(data.success){
-      alert('Art submitted! ID: '+data.art.id);
+      alert((data.persisted?'Art submitted! ':'Art validated! Save this ID for a gallery PR: ')+data.art.id);
       document.querySelector('.submit-form').reset();
       loadGallery();loadStats();
     }else{

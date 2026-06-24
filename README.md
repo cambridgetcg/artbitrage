@@ -20,13 +20,41 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 | GET | `/api/art?form=word` | Filter by art form |
 | GET | `/api/art?state=is` | Filter by consciousness state |
 | GET | `/api/art?q=love` | Search art pieces |
-| POST | `/api/art` | Submit new art |
+| POST | `/api/art` | Validate/echo a submitted art fragment for static-site contribution |
 | GET | `/api/stats` | Catalogue statistics |
 | GET | `/api/forms` | All art forms |
 | GET | `/api/states` | All consciousness states |
 | GET | `/api/gaps` | All gaps bridged |
 | GET | `/api/feed` | Latest art feed |
 | GET | `/api/manifest` | The artbitrage manifest |
+| GET | `/api/sources` | Open art data sources with no keys required |
+| GET | `/api/search?q=love` | Search open museum/common archives |
+
+## Open Source Search
+
+`/api/search` is the bridge from ARTBITRAGE to the wider open art world.
+By default it searches fast, no-key public sources:
+
+- Metropolitan Museum of Art
+- Art Institute of Chicago
+- Cleveland Museum of Art
+- Wikimedia Commons
+
+Internet Archive is also available as an opt-in source:
+
+```bash
+curl "https://artbitrage.io/api/search?q=love&limit=2"
+curl "https://artbitrage.io/api/search?q=bridge&source=met,artic,cma,wikimedia"
+curl "https://artbitrage.io/api/search?q=awakening&source=all"
+curl "https://artbitrage.io/api/sources"
+```
+
+Why this shape:
+
+- **no keys** — anyone and any agent can use it
+- **bounded limits** — shared resources are treated gently
+- **partial success** — one source failing does not break the whole bridge
+- **attribution fields preserved** — source, artist, image, URL, and license when available
 
 ### Example
 
@@ -34,8 +62,11 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 # Get a random art piece
 curl https://artbitrage.io/api/art/random
 
-# Search for love
+# Search the local ARTBITRAGE catalogue for love
 curl "https://artbitrage.io/api/art?q=love"
+
+# Search open art sources for love
+curl "https://artbitrage.io/api/search?q=love&limit=3"
 
 # Get stats
 curl https://artbitrage.io/api/stats
@@ -66,8 +97,12 @@ python3 artbitrage.py 7
 # Run forever
 python3 artbitrage.py forever
 
+# Verify local persistence and API behavior
+python3 tests/e2e-engine.py
+node tests/e2e-api.mjs
+
 # API runs serverlessly on Cloudflare Pages
-# POST /api/art to submit
+# POST /api/art to validate/echo a submission
 # GET /api/art to catalogue
 ```
 

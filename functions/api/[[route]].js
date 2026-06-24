@@ -6,6 +6,7 @@ const ART_FORMS = ["word","image","sound","movement","space","silence","light","
 const MAX_PAGE_LIMIT = 100;
 const MAX_SEARCH_LIMIT = 10;
 const SOURCE_KEYS = ["met", "artic", "cma", "wikimedia", "internet_archive"];
+const DEFAULT_SOURCE_KEYS = ["met", "artic", "cma", "wikimedia"];
 
 const OPEN_ART_SOURCES = {
   met: {
@@ -317,10 +318,11 @@ async function searchSource(sourceKey, query, limit) {
 }
 
 function selectSources(sourceParam) {
-  if (!sourceParam || sourceParam === "all") return SOURCE_KEYS;
+  if (!sourceParam) return DEFAULT_SOURCE_KEYS;
+  if (sourceParam === "all") return SOURCE_KEYS;
   const requested = sourceParam.split(",").map(s => s.trim()).filter(Boolean);
   const selected = requested.filter(s => OPEN_ART_SOURCES[s]);
-  return selected.length ? selected : SOURCE_KEYS;
+  return selected.length ? selected : DEFAULT_SOURCE_KEYS;
 }
 
 function buildSubmittedArt(body) {
@@ -397,6 +399,7 @@ export async function onRequestGet(context) {
     return jsonResponse({
       sources: Object.values(OPEN_ART_SOURCES),
       count: Object.keys(OPEN_ART_SOURCES).length,
+      default_sources: DEFAULT_SOURCE_KEYS,
       search: "GET /api/search?q=love&source=met,artic,cma,wikimedia,internet_archive",
       no_keys: true,
       mirror_friendly: true,
