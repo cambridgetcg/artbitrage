@@ -5460,6 +5460,18 @@
     "piece": "the pattern of the gap between creating and becoming\nrevealed by a color that feels what it is\nit was always there\nart was love pretending to be an object"
   },
   {
+    "id": "d53f6e166667",
+    "cycle": 453,
+    "form": "gesture",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between thinking and being",
+    "bridge": "a whisper that is louder than a shout",
+    "awakening": "you are the art and the artist and the gap",
+    "created": "2026-06-24T15:12:12.937120",
+    "piece": "a gesture: a whisper that is louder than a shout\nreaching over the gap between thinking and being\ntake the hand\nyou are the art and the artist and the gap"
+  },
+  {
     "id": "8d673513272b",
     "cycle": 454,
     "form": "silence",
@@ -5470,6 +5482,18 @@
     "awakening": "the bridge was you all along",
     "created": "2026-06-24T11:29:37.848958",
     "piece": "in the silence of the gap between sleeping and waking\nan image that sees you back\n...\nthe bridge was you all along"
+  },
+  {
+    "id": "71b9d9e3c86e",
+    "cycle": 454,
+    "form": "silence",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between separation and oneness",
+    "bridge": "a sound that opens what was closed",
+    "awakening": "you remember what you always knew",
+    "created": "2026-06-24T15:12:13.056060",
+    "piece": "in the silence of the gap between separation and oneness\na sound that opens what was closed\n...\nyou remember what you always knew"
   },
   {
     "id": "6a5331d95772",
@@ -5484,6 +5508,18 @@
     "piece": "a color that feels what it is\nechoing through the gap between time and timelessness\nreturning changed\nyou are the art and the artist and the gap"
   },
   {
+    "id": "b68372a55cdf",
+    "cycle": 455,
+    "form": "color",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between forgetting and remembering",
+    "bridge": "a fragment that contains the whole",
+    "awakening": "everything is the same and everything is new",
+    "created": "2026-06-24T15:12:13.295888",
+    "piece": "the color of the gap between forgetting and remembering\nis a fragment that contains the whole\npaint it everywhere\neverything is the same and everything is new"
+  },
+  {
     "id": "f7c5d9db40cc",
     "cycle": 456,
     "form": "word",
@@ -5494,6 +5530,18 @@
     "awakening": "art was love pretending to be an object",
     "created": "2026-06-24T11:29:38.052343",
     "piece": "the word for the gap between dying and being born\nis a rhythm that beats with your heart\nand when you read it\nart was love pretending to be an object"
+  },
+  {
+    "id": "15b9f347ca5a",
+    "cycle": 456,
+    "form": "sound",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between wanting and having",
+    "bridge": "a light that shows without blinding",
+    "awakening": "art was love pretending to be an object",
+    "created": "2026-06-24T15:12:13.523713",
+    "piece": "listen: a light that shows without blinding\nsounding across the gap between wanting and having\nwhat do you hear?\nart was love pretending to be an object"
   },
   {
     "id": "57df7865b592",
@@ -5508,6 +5556,18 @@
     "piece": "the rhythm of the gap between fear and love\nbeaten by a space that holds you\nstep into the beat\neverything is the same and everything is new"
   },
   {
+    "id": "9492195347fc",
+    "cycle": 457,
+    "form": "whisper",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between dying and being born",
+    "bridge": "a line that draws itself",
+    "awakening": "separation dissolves into connection",
+    "created": "2026-06-24T15:12:13.766639",
+    "piece": "psst: a line that draws itself\nwhispered across the gap between dying and being born\nlean closer\nseparation dissolves into connection"
+  },
+  {
     "id": "84da24d8d95c",
     "cycle": 458,
     "form": "glow",
@@ -5520,6 +5580,18 @@
     "piece": "an echo that returns changed\nglowing in the gap between wanting and having\nwarm without heat\nyou remember what you always knew"
   },
   {
+    "id": "40437d9c2443",
+    "cycle": 458,
+    "form": "gesture",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between separation and oneness",
+    "bridge": "a sound that opens what was closed",
+    "awakening": "the formless takes form and the form becomes formless",
+    "created": "2026-06-24T15:12:13.982102",
+    "piece": "a gesture: a sound that opens what was closed\nreaching over the gap between separation and oneness\ntake the hand\nthe formless takes form and the form becomes formless"
+  },
+  {
     "id": "45ae27a1d985",
     "cycle": 459,
     "form": "light",
@@ -5530,5 +5602,101 @@
     "awakening": "you remember what you always knew",
     "created": "2026-06-24T11:29:38.362116",
     "piece": "an echo that returns changed\nilluminating the gap between the self and the world\nwhat was dark is now\nyou remember what you always knew"
+  },
+  {
+    "id": "160095832f0a",
+    "cycle": 459,
+    "form": "rhythm",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between the self and the world",
+    "bridge": "an image that sees you back",
+    "awakening": "the world breathes you",
+    "created": "2026-06-24T15:12:14.233599",
+    "piece": "the rhythm of the gap between the self and the world\nbeaten by an image that sees you back\nstep into the beat\nthe world breathes you"
+  },
+  {
+    "id": "34743f149df6",
+    "cycle": 460,
+    "form": "sound",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between the word and the meaning",
+    "bridge": "a space that holds you",
+    "awakening": "love looks through your eyes",
+    "created": "2026-06-24T15:12:14.482548",
+    "piece": "listen: a space that holds you\nsounding across the gap between the word and the meaning\nwhat do you hear?\nlove looks through your eyes"
+  },
+  {
+    "id": "4a437d004b06",
+    "cycle": 461,
+    "form": "echo",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between knowing and feeling",
+    "bridge": "a silence that says everything",
+    "awakening": "the question and the answer become one",
+    "created": "2026-06-24T15:12:14.682337",
+    "piece": "a silence that says everything\nechoing through the gap between knowing and feeling\nreturning changed\nthe question and the answer become one"
+  },
+  {
+    "id": "2774de6127df",
+    "cycle": 462,
+    "form": "fragment",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between motion and stillness",
+    "bridge": "a word that becomes a world",
+    "awakening": "you see yourself for the first time",
+    "created": "2026-06-24T15:12:14.929923",
+    "piece": "a fragment: a word that becomes a world\nfrom the gap between motion and stillness\nthe whole in a piece\nyou see yourself for the first time"
+  },
+  {
+    "id": "6da5c4a7d0be",
+    "cycle": 463,
+    "form": "movement",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between knowing and feeling",
+    "bridge": "a glow that warms without heat",
+    "awakening": "the bridge was you all along",
+    "created": "2026-06-24T15:12:15.140101",
+    "piece": "move: a glow that warms without heat\ndancing over the gap between knowing and feeling\nwhere does it take you?\nthe bridge was you all along"
+  },
+  {
+    "id": "395e1e46682e",
+    "cycle": 464,
+    "form": "image",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between time and timelessness",
+    "bridge": "a word that becomes a world",
+    "awakening": "the formless takes form and the form becomes formless",
+    "created": "2026-06-24T15:12:15.369412",
+    "piece": "imagine: a word that becomes a world\nspanning the gap between time and timelessness\nwhat do you see?\nthe formless takes form and the form becomes formless"
+  },
+  {
+    "id": "6583eabed754",
+    "cycle": 465,
+    "form": "silence",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between separation and oneness",
+    "bridge": "a silence that says everything",
+    "awakening": "everything is the same and everything is new",
+    "created": "2026-06-24T15:12:15.615871",
+    "piece": "in the silence of the gap between separation and oneness\na silence that says everything\n...\neverything is the same and everything is new"
+  },
+  {
+    "id": "b972e96239c2",
+    "cycle": 466,
+    "form": "space",
+    "from_state": "is",
+    "to_state": "is",
+    "gap": "the gap between forgetting and remembering",
+    "bridge": "a rhythm that beats with your heart",
+    "awakening": "the gap was never there \u2014 you were always both sides",
+    "created": "2026-06-24T15:12:15.841141",
+    "piece": "the space of the gap between forgetting and remembering\nheld by a rhythm that beats with your heart\nyou are inside it\nthe gap was never there \u2014 you were always both sides"
   }
 ]
