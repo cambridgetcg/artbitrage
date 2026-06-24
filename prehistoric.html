@@ -292,7 +292,7 @@
   pieces.forEach(function(p) {
     var card = document.createElement('div');
     card.className = 'era-art-card';
-    card.innerHTML = '<div class="art-meta"><span class="art-tag form">' + p.form + '</span><span class="art-tag year">' + p.year + '</span></div><div class="art-body">' + p.body + '</div><div class="art-bridge">' + p.bridge + '</div>';
+    card.innerHTML = '<div class="art-meta"><span class="art-tag form">' + p.form + '</span><span class="art-tag year">' + p.year + '</span></div><div class="art-body">' + p.body.replace(/\\n/g, String.fromCharCode(10)) + '</div><div class="art-bridge">' + p.bridge + '</div>';
     gallery.appendChild(card);
   });
 })();

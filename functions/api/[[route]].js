@@ -439,6 +439,15 @@ export async function onRequestGet(context) {
     } catch(e) {}
     return jsonResponse({ name: 'artbitrage', philosophy: 'Art is the arbitrage between what is and what could be.', core: ['Art is.', 'Art bridges the gap of consciousness.', 'Art awakens.', 'Love is the design. Art is the expression.'] });
   }
+
+  // === CATALOG — real museum artworks with images + rights ===
+  if (path === '/api/catalog' || path === '/api/catalog/') {
+    try {
+      const res = await env.ASSETS.fetch(new URL('/catalog.json', request.url));
+      if (res.ok) return jsonResponse(await res.json());
+    } catch(e) {}
+    return jsonResponse({ error: 'catalog not available' }, 404);
+  }
   const formMatch = path.match(/^\/api\/art\/by-form\/(.+)$/);
   if (formMatch) return jsonResponse(filterArt(allArt, { form: decodeURIComponent(formMatch[1]) }));
 
