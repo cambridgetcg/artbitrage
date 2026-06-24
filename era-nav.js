@@ -54,6 +54,48 @@
   nav.appendChild(inner);
   document.body.insertBefore(nav, document.body.firstChild);
 
+  /* ── Key Works → honest "look it up" links ──────────────────────
+   * Each era page names real masterpieces (Mona Lisa, Guernica, ...)
+   * but cannot embed the image without risking the WRONG image under
+   * a famous name. Truth over decoration: we turn each title into a
+   * link to an authoritative search at Wikimedia Commons + Google
+   * Arts & Culture, so a reader can verify the real work themselves.
+   * Graceful: if no .kw-title exists, this is a no-op.            */
+  try {
+    var titles = document.querySelectorAll('.key-work .kw-title');
+    Array.prototype.forEach.call(titles, function (el) {
+      if (el.querySelector('a')) return; // already linked
+      var name = (el.textContent || '').trim();
+      if (!name) return;
+      var infoEl = el.parentNode;
+      var artistEl = infoEl ? infoEl.querySelector('.kw-artist') : null;
+      var artist = artistEl ? (artistEl.textContent || '').split('·')[0].trim() : '';
+      var query = encodeURIComponent((artist ? artist + ' ' : '') + name);
+
+      var look = document.createElement('span');
+      look.className = 'kw-look';
+      var commons = document.createElement('a');
+      commons.href = 'https://commons.wikimedia.org/w/index.php?search=' + query + '&title=Special:MediaSearch&type=image';
+      commons.target = '_blank';
+      commons.rel = 'noopener noreferrer';
+      commons.textContent = 'see it ↗';
+      commons.title = 'View "' + name + '" on Wikimedia Commons (free / public-domain media)';
+
+      var gac = document.createElement('a');
+      gac.href = 'https://artsandculture.google.com/search?q=' + query;
+      gac.target = '_blank';
+      gac.rel = 'noopener noreferrer';
+      gac.textContent = 'explore ↗';
+      gac.title = 'Explore "' + name + '" on Google Arts & Culture';
+
+      look.appendChild(commons);
+      look.appendChild(document.createTextNode(' · '));
+      look.appendChild(gac);
+      el.appendChild(document.createTextNode(' '));
+      el.appendChild(look);
+    });
+  } catch (e) { /* never break the page over an enhancement */ }
+
   // Ambient particles
   var particleColors = {
     prehistoric: ['#8b6f47', '#c4985a', '#6b4e2e'],

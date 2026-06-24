@@ -494,6 +494,9 @@ body {
 .key-work .kw-title { font-weight: bold; margin-bottom: .2rem; }
 .key-work .kw-artist { font-size: .85rem; color: var(--era-dim); }
 .key-work .kw-note { font-size: .88rem; color: var(--era-dim); margin-top: .3rem; font-style: italic; }
+.key-work .kw-look { font-size: .72rem; font-weight: normal; white-space: nowrap; margin-left: .5rem; }
+.key-work .kw-look a { color: var(--era-accent); text-decoration: none; border-bottom: 1px dotted var(--era-accent); opacity: .85; }
+.key-work .kw-look a:hover { opacity: 1; }
 
 /* ── Emergence section (the why) ─────────────────────────────── */
 .emergence {
