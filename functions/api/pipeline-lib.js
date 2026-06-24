@@ -64,7 +64,8 @@ export class ArtbitragePipeline {
         "no keys for default collection sources",
         "bounded limits",
         "partial success",
-        "source and attribution fields preserved",
+        "rights and attribution preserved on every record (public_domain, license, credit, reusable)",
+        "truthful reuse guidance: love distributes freely but never appropriates",
       ],
       steps: [
         {
@@ -155,6 +156,15 @@ export class ArtbitragePipeline {
       return true;
     });
 
+    // Rights rollup — truth at a glance for anyone reusing the collection.
+    const rights_summary = { reusable: 0, restricted: 0, unverified: 0 };
+    for (const a of deduped) {
+      const r = a.rights?.reusable;
+      if (r === true) rights_summary.reusable++;
+      else if (r === false) rights_summary.restricted++;
+      else rights_summary.unverified++;
+    }
+
     return {
       pipeline: "collect",
       query,
@@ -163,9 +173,10 @@ export class ArtbitragePipeline {
       sources_successful: sources.filter(s => !s.error).length,
       artworks_collected: deduped.length,
       artworks_available: sources.reduce((s, r) => s + (r.total || 0), 0),
+      rights_summary,
       artworks: deduped,
       human_summary: `Collected ${deduped.length} artwork records for "${query}" from ${sources.filter(s => !s.error).length} source(s).`,
-      agent_next: ["dedupe by source+id", "preserve url/license/artist", "optionally ingest selected records"],
+      agent_next: ["dedupe by source+id", "preserve rights/url/credit/artist", "check rights.reusable before reuse", "optionally ingest selected records"],
       collected_at: new Date().toISOString(),
     };
   }
@@ -479,6 +490,33 @@ export class ArtbitragePipeline {
     return (hash >>> 0).toString(16).padStart(8, '0');
   }
 
+  // Truth in distribution: carry honest rights/attribution on every record.
+  buildRights({ publicDomain = null, license = "", credit = "", statement = "" } = {}) {
+    const clean = v => String(v || "").replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+    const lic = clean(license).slice(0, 80);
+    const freelyReusable = publicDomain === true || /^(cc0|public domain|pd|no known copyright)/i.test(lic);
+    const ccAttribution = /cc[ -]?by/i.test(lic);
+    let note;
+    if (freelyReusable) {
+      note = "Open/public-domain per source; still attribute the creator and source out of care.";
+    } else if (ccAttribution) {
+      note = `Reusable under ${lic} with attribution (and share-alike if noted); credit the creator and source.`;
+    } else if (publicDomain === false) {
+      note = "Rights restricted per source — do not reuse without permission; link to the source instead.";
+    } else {
+      note = "Rights unverified — check the source URL before reuse.";
+    }
+    return {
+      public_domain: publicDomain,
+      license: lic || (publicDomain === true ? "Public Domain" : ""),
+      credit: clean(credit).slice(0, 240),
+      rights_statement: clean(statement).slice(0, 240),
+      reusable: freelyReusable ? true : (publicDomain === false ? false : null),
+      reuse_with_attribution: ccAttribution || freelyReusable,
+      note,
+    };
+  }
+
   async searchSource(sourceKey, query, limit) {
     const source = OPEN_ART_SOURCES[sourceKey];
     if (!source) return { source: sourceKey, error: "unknown source" };
@@ -499,8 +537,13 @@ export class ArtbitragePipeline {
                 id: String(obj.objectID || id), title: obj.title || "",
                 artist: obj.artistDisplayName || "", date: obj.objectDate || "",
                 medium: obj.medium || "", department: obj.department || "",
-                image: obj.primaryImageSmall || obj.primaryImage || "",
+              image: obj.primaryImageSmall || obj.primaryImage || "",
                 url: obj.objectURL || "",
+                rights: this.buildRights({
+                  publicDomain: typeof obj.isPublicDomain === "boolean" ? obj.isPublicDomain : null,
+                  credit: obj.creditLine || "",
+                  statement: obj.rightsAndReproduction || "",
+                }),
               });
             }
           } catch(e) {}
@@ -509,7 +552,7 @@ export class ArtbitragePipeline {
       }
 
       if (sourceKey === "artic") {
-        const fields = "id,title,artist_title,date_display,medium_display,image_id,classification_title,department_title";
+        const fields = "id,title,artist_title,date_display,medium_display,image_id,classification_title,department_title,is_public_domain,credit_line";
         const data = await this.fetchJson(`${source.url}?q=${encodeURIComponent(query)}&limit=${limit}&fields=${fields}`);
         return { ...source, total: data.pagination?.total || 0, artworks: (data.data || []).map(a => ({
           source: "artic", source_name: source.source_name,
@@ -517,6 +560,10 @@ export class ArtbitragePipeline {
           date: a.date_display || "", medium: a.medium_display || "",
           image: a.image_id ? `https://www.artic.edu/iiif/2/${a.image_id}/full/843,/0/default.jpg` : "",
           url: a.id ? `https://www.artic.edu/artworks/${a.id}` : "",
+          rights: this.buildRights({
+            publicDomain: typeof a.is_public_domain === "boolean" ? a.is_public_domain : null,
+            credit: a.credit_line || "",
+          }),
         })) };
       }
 
@@ -533,6 +580,11 @@ export class ArtbitragePipeline {
             id: String(a.id || ""), title: a.title || "",
             artist: creators[0]?.description || "", date: a.creation_date || "",
             medium: a.technique || "", image: img, url: a.url || "",
+            rights: this.buildRights({
+              publicDomain: /^cc0/i.test(a.share_license_status || "") ? true : null,
+              license: a.share_license_status || "",
+              credit: a.creditline || "",
+            }),
           };
         }) };
       }
@@ -554,6 +606,11 @@ export class ArtbitragePipeline {
               id: String(page.pageid||""), title: (page.title||"").replace(/^File:/,""),
               artist: compact(meta.Artist?.value||""), image: info.thumburl||info.url||"",
               url: info.descriptionurl||"", license: compact(meta.LicenseShortName?.value||""),
+              rights: this.buildRights({
+                license: meta.LicenseShortName?.value || "",
+                credit: meta.Credit?.value || "",
+                statement: meta.UsageTerms?.value || "",
+              }),
             };
           })
         };
@@ -573,6 +630,9 @@ export class ArtbitragePipeline {
             date: Array.isArray(doc.date)?doc.date[0]:(doc.date||""),
             image: doc.identifier ? `https://archive.org/services/img/${doc.identifier}` : "",
             url: doc.identifier ? `https://archive.org/details/${doc.identifier}` : "",
+            rights: this.buildRights({
+              credit: Array.isArray(doc.creator) ? doc.creator.join(", ") : (doc.creator || ""),
+            }),
           }))
         };
       }

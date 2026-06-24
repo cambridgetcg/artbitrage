@@ -54,7 +54,28 @@ Why this shape:
 - **no keys** — anyone and any agent can use it
 - **bounded limits** — shared resources are treated gently
 - **partial success** — one source failing does not break the whole bridge
-- **attribution fields preserved** — source, artist, image, URL, and license when available
+- **rights preserved** — every record carries a `rights` object: `public_domain`, `license`, `credit`, `reusable`, `reuse_with_attribution`, and a plain-language `note`
+
+### Truth in distribution
+
+Free distribution stays loving only when it stays honest about provenance. Every
+search/collect record now includes a `rights` object pulled straight from the
+source (MET `isPublicDomain`/`creditLine`, ARTIC `is_public_domain`/`credit_line`,
+CMA `share_license_status`/`creditline`, Wikimedia license/usage terms):
+
+```json
+"rights": {
+  "public_domain": true,
+  "license": "CC0",
+  "credit": "Grace Rainey Rogers Fund",
+  "reusable": true,
+  "reuse_with_attribution": true,
+  "note": "Open/public-domain per source; still attribute the creator and source out of care."
+}
+```
+
+`/api/pipeline/collect` also returns a `rights_summary` rollup
+(`reusable` / `restricted` / `unverified`) so reusers see the truth at a glance.
 
 ### Example
 

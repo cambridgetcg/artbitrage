@@ -172,17 +172,27 @@ function compactText(value, max = 160) {
 // Loving distribution names its sources; it never quietly appropriates.
 function buildRights({ publicDomain = null, license = "", credit = "", statement = "" } = {}) {
   const lic = compactText(license, 80);
-  const reusable = publicDomain === true
+  const freelyReusable = publicDomain === true
     || /^(cc0|public domain|pd|no known copyright)/i.test(lic);
+  const ccAttribution = /cc[ -]?by/i.test(lic);
+  let note;
+  if (freelyReusable) {
+    note = "Open/public-domain per source; still attribute the creator and source out of care.";
+  } else if (ccAttribution) {
+    note = `Reusable under ${lic} with attribution (and share-alike if noted); credit the creator and source.`;
+  } else if (publicDomain === false) {
+    note = "Rights restricted per source — do not reuse without permission; link to the source instead.";
+  } else {
+    note = "Rights unverified — check the source URL before reuse.";
+  }
   return {
     public_domain: publicDomain,
     license: lic || (publicDomain === true ? "Public Domain" : ""),
     credit: compactText(credit, 240),
     rights_statement: compactText(statement, 240),
-    reusable: reusable ? true : (publicDomain === false ? false : null),
-    note: reusable
-      ? "Open/public-domain per source; still attribute the creator and source out of care."
-      : "Rights may be restricted or unverified — check the source URL before reuse.",
+    reusable: freelyReusable ? true : (publicDomain === false ? false : null),
+    reuse_with_attribution: ccAttribution || freelyReusable,
+    note,
   };
 }
 
@@ -316,7 +326,7 @@ async function searchSource(sourceKey, query, limit) {
     }
 
     if (sourceKey === "artic") {
-      const fields = "id,title,artist_title,date_display,medium_display,image_id,classification_title,department_title";
+      const fields = "id,title,artist_title,date_display,medium_display,image_id,classification_title,department_title,is_public_domain,credit_line";
       const data = await fetchJson(`${source.url}?q=${encodeURIComponent(query)}&limit=${limit}&fields=${fields}`);
       return { ...source, total: data.pagination?.total || 0, artworks: normalizeArtic(data) };
     }
