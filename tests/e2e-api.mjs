@@ -90,6 +90,26 @@ try {
   assert.equal(out.json.count, 5);
   assert.ok(out.json.sources.every(source => source.auth === 'none'));
 
+  out = await get('/api/pipeline/workflow');
+  assert.equal(out.res.status, 200);
+  assert.equal(out.json.schema, 'artbitrage.workflow/1');
+  assert.ok(out.json.quickstart.agent.includes('GET /data/agent-feed.json'));
+
+  out = await get('/api/pipeline/agent');
+  assert.equal(out.res.status, 200);
+  assert.equal(out.json.schema.i, 'id');
+  assert.ok(out.json.endpoints.static_ndjson.includes('/data/collection.ndjson'));
+
+  out = await get('/api/pipeline/human');
+  assert.equal(out.res.status, 200);
+  assert.ok(out.json.explore.some(link => link.url === '/data/human-feed.md'));
+
+  const ndjsonRes = await onRequestGet({ request: new Request('https://artbitrage.test/api/pipeline/export?format=ndjson'), env });
+  assert.equal(ndjsonRes.status, 200);
+  assert.match(ndjsonRes.headers.get('Content-Type'), /application\/x-ndjson/);
+  const ndjsonText = await ndjsonRes.text();
+  assert.ok(ndjsonText.trim().split('\n').length > 1);
+
   installSearchMock();
   out = await get('/api/search?q=love&limit=2&source=artic,cma');
   assert.equal(out.res.status, 200);
@@ -99,6 +119,12 @@ try {
   assert.equal(out.json.total_artworks_returned, 4);
   assert.equal(out.json.sources[0].artworks[0].source, 'artic');
   assert.equal(out.json.sources[1].artworks[0].source, 'cma');
+
+  out = await get('/api/pipeline/collect?q=love&limit=2&source=artic,cma');
+  assert.equal(out.res.status, 200);
+  assert.equal(out.json.pipeline, 'collect');
+  assert.equal(out.json.artworks_collected, 4);
+  assert.match(out.json.human_summary, /Collected 4 artwork records/);
 
   out = await post('/api/art', { piece: 'a tiny bridge of tested love', form: 'word', artist: 'e2e' });
   assert.equal(out.res.status, 202);

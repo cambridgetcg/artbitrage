@@ -72,6 +72,61 @@ curl "https://artbitrage.io/api/search?q=love&limit=3"
 curl https://artbitrage.io/api/stats
 ```
 
+
+## Easy Data Workflow — Collect → Enrich → Obtain
+
+The pipeline now has one simple shape for both humans and agents:
+
+```text
+collect open art → normalize fields → enrich metadata → package as human + agent data → publish static files
+```
+
+### Obtain data quickly
+
+For humans:
+
+```bash
+curl https://artbitrage.io/api/pipeline/human
+curl https://artbitrage.io/data/human-feed.md
+```
+
+For agents:
+
+```bash
+curl https://artbitrage.io/api/pipeline/agent
+curl https://artbitrage.io/data/agent-feed.json
+curl https://artbitrage.io/data/collection.ndjson
+curl https://artbitrage.io/data/manifest.json
+```
+
+For maintainers / mirrors:
+
+```bash
+python3 tools/build_data_packs.py
+python3 tools/build_data_packs.py verify
+```
+
+Useful API steps:
+
+| Step | Endpoint | Use |
+|------|----------|-----|
+| Workflow | `/api/pipeline/workflow` | Copy-paste recipe for humans and agents |
+| Collect | `/api/pipeline/collect?q=love&limit=3` | Pull no-key open art source records |
+| Enrich | `/api/pipeline/enrich?id=ART_ID` | Add title/tags/emotional metadata when AI is available |
+| Feed | `/api/pipeline/feed?limit=20` | Lightweight enriched catalogue feed |
+| Agent pack | `/api/pipeline/agent` | Compact self-describing JSON |
+| Human pack | `/api/pipeline/human` | Friendly summary view |
+| Export | `/api/pipeline/export?format=json` | Full JSON export |
+| Export | `/api/pipeline/export?format=ndjson` | Stream-friendly NDJSON export |
+
+Why this works:
+
+- **humans** get readable Markdown and friendly summaries
+- **agents** get compact JSON, NDJSON, schemas, and hashes
+- **mirrors** only need static files
+- **collectors** can use no-key APIs with bounded limits
+- **enrichment** is optional and graceful when AI is unavailable
+
 ## The Engine
 
 Artbitrage generates art through a 7-cycle process:

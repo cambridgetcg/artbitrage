@@ -1,0 +1,64 @@
+{
+  "schema": "artbitrage.workflow/1",
+  "name": "ARTBITRAGE Easy Data Workflow",
+  "generated_at": "2026-06-24T13:09:00Z",
+  "goal": "collect → normalize → enrich → package → obtain, with the same data easy for humans and agents",
+  "principles": [
+    "static-first",
+    "no login",
+    "no keys for default sources",
+    "bounded collection",
+    "partial success over all-or-nothing failure",
+    "attribution and source URLs preserved when available",
+    "agent JSON and human Markdown both published"
+  ],
+  "steps": [
+    {
+      "step": "collect",
+      "human": "Search no-key public art sources with a small limit.",
+      "agent": "GET /api/pipeline/collect?q=love&limit=3",
+      "output": "normalized source records"
+    },
+    {
+      "step": "normalize",
+      "human": "Each item keeps title, artist, date, image, source, URL, license if available.",
+      "agent": "Use source + id as the stable external key.",
+      "output": "consistent art objects"
+    },
+    {
+      "step": "enrich",
+      "human": "Add tags, preview, counts, and optional AI interpretation.",
+      "agent": "GET /api/pipeline/enrich?id=ART_ID or use data/agent-feed.json for lightweight enrichment.",
+      "output": "searchable, sortable, explainable metadata"
+    },
+    {
+      "step": "package",
+      "human": "Open Markdown or the site UI.",
+      "agent": "Fetch JSON/NDJSON packs.",
+      "output": "data/agent-feed.json, data/human-feed.md, data/collection.ndjson"
+    },
+    {
+      "step": "publish",
+      "human": "Commit generated data/ files and deploy static Pages.",
+      "agent": "Verify data/manifest.json hashes before reuse.",
+      "output": "mirrorable artifacts"
+    }
+  ],
+  "obtain": {
+    "humans": [
+      "/",
+      "/api/pipeline/human",
+      "/data/human-feed.md"
+    ],
+    "agents": [
+      "/api/pipeline/agent",
+      "/data/agent-feed.json",
+      "/data/collection.ndjson",
+      "/data/manifest.json"
+    ],
+    "builders": [
+      "python3 tools/build_data_packs.py",
+      "node tests/e2e-api.mjs"
+    ]
+  }
+}

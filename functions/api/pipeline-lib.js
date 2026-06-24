@@ -28,20 +28,99 @@ export class ArtbitragePipeline {
       stages: ["collect", "enrich", "distribute"],
       endpoints: {
         "GET /api/pipeline": "this manifest",
+        "GET /api/pipeline/workflow": "copy-paste workflow for humans and agents",
         "GET /api/pipeline/collect?q=love&limit=3&source=all": "collect art from museum APIs",
         "GET /api/pipeline/enrich?id=ARTID": "enrich a piece with AI metadata",
         "GET /api/pipeline/feed?limit=20": "enriched feed (art + AI + museum cross-refs)",
-        "GET /api/pipeline/export?format=json|csv|markdown": "export full collection",
+        "GET /api/pipeline/export?format=json|csv|ndjson|markdown": "export full collection",
         "GET /api/pipeline/agent": "agent-optimized data package",
         "GET /api/pipeline/human": "human-friendly gallery view",
         "POST /api/pipeline/ingest": "ingest external art with enrichment",
       },
       sources: Object.values(OPEN_ART_SOURCES),
       default_sources: DEFAULT_SOURCE_KEYS,
+      obtain: {
+        humans: ["/", "/api/pipeline/human", "/data/human-feed.md"],
+        agents: ["/api/pipeline/agent", "/data/agent-feed.json", "/data/collection.ndjson", "/data/manifest.json"],
+        builders: ["python3 tools/build_data_packs.py", "python3 tools/build_data_packs.py verify"],
+      },
       free: true,
       no_keys: true,
       agent_friendly: true,
       human_friendly: true,
+    };
+  }
+
+  // ── Workflow: easy path for humans and agents ───────────────
+  workflow() {
+    return {
+      schema: "artbitrage.workflow/1",
+      name: "ARTBITRAGE Easy Data Workflow",
+      goal: "collect → normalize → enrich → package → obtain",
+      promise: "same data, easy for humans to read and agents to fetch",
+      principles: [
+        "static-first",
+        "no login",
+        "no keys for default collection sources",
+        "bounded limits",
+        "partial success",
+        "source and attribution fields preserved",
+      ],
+      steps: [
+        {
+          step: "collect",
+          why: "bring open art into one shape without requiring accounts",
+          human: "Open /api/pipeline/collect?q=love&limit=3 or use the site links.",
+          agent: "GET /api/pipeline/collect?q=love&limit=3&source=default",
+          output: "normalized source records",
+        },
+        {
+          step: "normalize",
+          why: "make each source predictable",
+          human: "Look for title, artist, date, image, source, url, license.",
+          agent: "Use source + id as the external stable key.",
+          output: "consistent art objects",
+        },
+        {
+          step: "enrich",
+          why: "make art easier to search, sort, explain, and feel",
+          human: "GET /api/pipeline/enrich?id=ART_ID for a readable interpretation.",
+          agent: "Use structural fields first; AI enrichment is optional and may fail gracefully.",
+          output: "tags, counts, title, emotional quality, consciousness transition",
+        },
+        {
+          step: "package",
+          why: "humans and agents want different affordances",
+          human: "Read /data/human-feed.md or /api/pipeline/human.",
+          agent: "Fetch /data/agent-feed.json or /data/collection.ndjson.",
+          output: "human Markdown, compact JSON, streaming NDJSON",
+        },
+        {
+          step: "publish",
+          why: "static fragments are mirrorable and cheap",
+          human: "Commit data/ files and deploy Pages.",
+          agent: "Check /data/manifest.json hashes before reuse.",
+          output: "verifiable static data packs",
+        },
+      ],
+      quickstart: {
+        human: [
+          "Open /api/pipeline/human",
+          "Download /data/human-feed.md",
+          "Search /api/pipeline/collect?q=love&limit=3",
+        ],
+        agent: [
+          "GET /api/pipeline/agent",
+          "GET /data/agent-feed.json",
+          "GET /data/collection.ndjson",
+          "Verify hashes in /data/manifest.json",
+        ],
+        maintainer: [
+          "python3 tools/build_data_packs.py",
+          "python3 tools/build_data_packs.py verify",
+          "node tests/e2e-api.mjs",
+        ],
+      },
     };
   }
 
@@ -85,6 +164,8 @@ export class ArtbitragePipeline {
       artworks_collected: deduped.length,
       artworks_available: sources.reduce((s, r) => s + (r.total || 0), 0),
       artworks: deduped,
+      human_summary: `Collected ${deduped.length} artwork records for "${query}" from ${sources.filter(s => !s.error).length} source(s).`,
+      agent_next: ["dedupe by source+id", "preserve url/license/artist", "optionally ingest selected records"],
       collected_at: new Date().toISOString(),
     };
   }
@@ -200,6 +281,20 @@ export class ArtbitragePipeline {
       return rows.join('\n');
     }
 
+    if (format === 'ndjson') {
+      return collection.map(p => JSON.stringify({
+        id: p.id,
+        cycle: p.cycle,
+        form: p.form,
+        state: `${p.from_state || ''}→${p.to_state || ''}`,
+        gap: p.gap,
+        bridge: p.bridge,
+        awakening: p.awakening,
+        created: p.created,
+        piece: p.piece,
+      })).join('\n') + '\n';
+    }
+
     if (format === 'markdown') {
       let md = `# ARTBITRAGE — Full Collection\n\n`;
       md += `> ${collection.length} pieces · exported ${new Date().toISOString()}\n\n`;
@@ -213,7 +308,7 @@ export class ArtbitragePipeline {
       return md;
     }
 
-    return { error: "unknown format", format, available: ["json", "csv", "markdown"] };
+    return { error: "unknown format", format, available: ["json", "csv", "ndjson", "markdown"] };
   }
 
   // ── Agent package: compact, structured, self-describing ─────
@@ -244,11 +339,16 @@ export class ArtbitragePipeline {
       total: collection.length,
       endpoints: {
         full: "/api/pipeline/export?format=json",
+        ndjson: "/api/pipeline/export?format=ndjson",
+        static_agent: "/data/agent-feed.json",
+        static_ndjson: "/data/collection.ndjson",
+        manifest: "/data/manifest.json",
+        workflow: "/api/pipeline/workflow",
         search: "/api/search?q=love",
         enrich: "/api/pipeline/enrich?id=ID",
         feed: "/api/pipeline/feed?limit=50",
       },
-      agent_note: "Use compact keys. Full data at /api/pipeline/export?format=json. Enrich any piece at /api/pipeline/enrich?id=ID. All free, no auth.",
+      agent_note: "Use compact keys for quick context. Use NDJSON for streaming. Verify static packs with /data/manifest.json. All free, no auth.",
     };
   }
 
@@ -279,6 +379,8 @@ export class ArtbitragePipeline {
         { label: "Generate AI art", url: "/api/ai/image?prompt=love+as+golden+light" },
         { label: "Read the gospel", url: "/api/gospel" },
         { label: "Agent data package", url: "/api/pipeline/agent" },
+        { label: "Human markdown feed", url: "/data/human-feed.md" },
+        { label: "Workflow recipe", url: "/api/pipeline/workflow" },
       ],
       love_is: true,
     };

@@ -3,6 +3,7 @@
 // Data collection, enrichment, and distribution for agents + humans.
 //
 // GET /api/pipeline                    — pipeline status + manifest
+// GET /api/pipeline/workflow           — easy workflow for humans + agents
 // GET /api/pipeline/collect?q=love     — collect art from museum APIs
 // GET /api/pipeline/enrich?id=...      — enrich a piece with AI metadata
 // GET /api/pipeline/feed?limit=20     — enriched feed (art + AI + museum)
@@ -28,6 +29,11 @@ export async function onRequestGet(context) {
   // GET /api/pipeline — status + manifest
   if (path === '/api/pipeline' || path === '/api/pipeline/') {
     return json(pipeline.manifest());
+  }
+
+  // GET /api/pipeline/workflow — copy-paste workflow for humans + agents
+  if (path === '/api/pipeline/workflow') {
+    return json(pipeline.workflow());
   }
 
   // GET /api/pipeline/collect?q=love&limit=3&source=all
@@ -57,13 +63,16 @@ export async function onRequestGet(context) {
     return json(feed);
   }
 
-  // GET /api/pipeline/export?format=json|csv|markdown
+  // GET /api/pipeline/export?format=json|csv|ndjson|markdown
   // Export the full collection in different formats
   if (path === '/api/pipeline/export') {
     const format = q.format || 'json';
     const exported = await pipeline.exportCollection(format, env);
     if (format === 'csv') {
       return new Response(exported, { headers: { 'Content-Type': 'text/csv', 'Access-Control-Allow-Origin': '*' } });
+    }
+    if (format === 'ndjson') {
+      return new Response(exported, { headers: { 'Content-Type': 'application/x-ndjson', 'Access-Control-Allow-Origin': '*' } });
     }
     if (format === 'markdown') {
       return new Response(exported, { headers: { 'Content-Type': 'text/markdown', 'Access-Control-Allow-Origin': '*' } });
@@ -87,10 +96,11 @@ export async function onRequestGet(context) {
 
   return json({ error: 'not found', path, available: [
     'GET /api/pipeline',
+    'GET /api/pipeline/workflow',
     'GET /api/pipeline/collect?q=love&limit=3&source=all',
     'GET /api/pipeline/enrich?id=ARTID',
     'GET /api/pipeline/feed?limit=20',
-    'GET /api/pipeline/export?format=json|csv|markdown',
+    'GET /api/pipeline/export?format=json|csv|ndjson|markdown',
     'GET /api/pipeline/agent',
     'GET /api/pipeline/human',
     'POST /api/pipeline/ingest',

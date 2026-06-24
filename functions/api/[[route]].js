@@ -645,6 +645,9 @@ export async function onRequestGet(context) {
   if (path === '/api/pipeline' || path === '/api/pipeline/') {
     return jsonResponse(_pipeline.manifest());
   }
+  if (path === '/api/pipeline/workflow') {
+    return jsonResponse(_pipeline.workflow());
+  }
   if (path === '/api/pipeline/collect') {
     const q2 = safeString(queryParams.q || 'love', 160) || 'love';
     const limit2 = boundedInt(queryParams.limit, 3, 1, MAX_SEARCH_LIMIT);
@@ -664,6 +667,7 @@ export async function onRequestGet(context) {
     const fmt = safeString(queryParams.format, 10) || 'json';
     const exported = await _pipeline.exportCollection(fmt, env);
     if (fmt === 'csv') return new Response(exported, { headers: { 'Content-Type': 'text/csv', 'Access-Control-Allow-Origin': '*' } });
+    if (fmt === 'ndjson') return new Response(exported, { headers: { 'Content-Type': 'application/x-ndjson', 'Access-Control-Allow-Origin': '*' } });
     if (fmt === 'markdown') return new Response(exported, { headers: { 'Content-Type': 'text/markdown', 'Access-Control-Allow-Origin': '*' } });
     return jsonResponse(exported);
   }

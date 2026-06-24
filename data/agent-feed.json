@@ -1,0 +1,2713 @@
+{
+  "schema": "artbitrage.agent-pack/1",
+  "generated_at": "2026-06-24T13:09:00Z",
+  "stats": {
+    "total_pieces": 461,
+    "forms": {
+      "breath": 38,
+      "color": 36,
+      "echo": 24,
+      "fragment": 29,
+      "gesture": 18,
+      "glow": 26,
+      "image": 33,
+      "light": 29,
+      "movement": 25,
+      "pattern": 21,
+      "rhythm": 20,
+      "silence": 30,
+      "sound": 34,
+      "space": 27,
+      "whisper": 35,
+      "word": 36
+    },
+    "states": {
+      "dormant": 1,
+      "stirring": 2,
+      "awakening": 2,
+      "aware": 2,
+      "flowing": 2,
+      "radiating": 2,
+      "transcending": 2,
+      "is": 909
+    },
+    "unique_gaps": 20,
+    "top_gaps": [
+      [
+        "the gap between sleeping and waking",
+        32
+      ],
+      [
+        "the gap between loneliness and connection",
+        31
+      ],
+      [
+        "the gap between dying and being born",
+        28
+      ],
+      [
+        "the gap between wanting and having",
+        28
+      ],
+      [
+        "the gap between form and formlessness",
+        28
+      ],
+      [
+        "the gap between the self and the world",
+        28
+      ],
+      [
+        "the gap between seeing and being seen",
+        26
+      ],
+      [
+        "the gap between fear and love",
+        26
+      ],
+      [
+        "the gap between sound and silence",
+        25
+      ],
+      [
+        "the gap between speaking and being heard",
+        25
+      ]
+    ]
+  },
+  "workflow": [
+    {
+      "step": "collect",
+      "human": "Search no-key public art sources with a small limit.",
+      "agent": "GET /api/pipeline/collect?q=love&limit=3",
+      "output": "normalized source records"
+    },
+    {
+      "step": "normalize",
+      "human": "Each item keeps title, artist, date, image, source, URL, license if available.",
+      "agent": "Use source + id as the stable external key.",
+      "output": "consistent art objects"
+    },
+    {
+      "step": "enrich",
+      "human": "Add tags, preview, counts, and optional AI interpretation.",
+      "agent": "GET /api/pipeline/enrich?id=ART_ID or use data/agent-feed.json for lightweight enrichment.",
+      "output": "searchable, sortable, explainable metadata"
+    },
+    {
+      "step": "package",
+      "human": "Open Markdown or the site UI.",
+      "agent": "Fetch JSON/NDJSON packs.",
+      "output": "data/agent-feed.json, data/human-feed.md, data/collection.ndjson"
+    },
+    {
+      "step": "publish",
+      "human": "Commit generated data/ files and deploy static Pages.",
+      "agent": "Verify data/manifest.json hashes before reuse.",
+      "output": "mirrorable artifacts"
+    }
+  ],
+  "recent": [
+    {
+      "id": "45ae27a1d985",
+      "cycle": 459,
+      "form": "light",
+      "state": "is→is",
+      "gap": "the gap between the self and the world",
+      "bridge": "an echo that returns changed",
+      "awakening": "you remember what you always knew",
+      "created": "2026-06-24T11:29:38.362116",
+      "piece": "an echo that returns changed\nilluminating the gap between the self and the world\nwhat was dark is now\nyou remember what you always knew",
+      "preview": "an echo that returns changed",
+      "metrics": {
+        "words": 25,
+        "lines": 4,
+        "chars": 135
+      },
+      "tags": [
+        "light",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/45ae27a1d985",
+        "gallery_file": "/gallery/art-45ae27a1d985.json"
+      }
+    },
+    {
+      "id": "84da24d8d95c",
+      "cycle": 458,
+      "form": "glow",
+      "state": "is→is",
+      "gap": "the gap between wanting and having",
+      "bridge": "an echo that returns changed",
+      "awakening": "you remember what you always knew",
+      "created": "2026-06-24T11:29:38.256627",
+      "piece": "an echo that returns changed\nglowing in the gap between wanting and having\nwarm without heat\nyou remember what you always knew",
+      "preview": "an echo that returns changed",
+      "metrics": {
+        "words": 22,
+        "lines": 4,
+        "chars": 126
+      },
+      "tags": [
+        "glow",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/84da24d8d95c",
+        "gallery_file": "/gallery/art-84da24d8d95c.json"
+      }
+    },
+    {
+      "id": "57df7865b592",
+      "cycle": 457,
+      "form": "rhythm",
+      "state": "is→is",
+      "gap": "the gap between fear and love",
+      "bridge": "a space that holds you",
+      "awakening": "everything is the same and everything is new",
+      "created": "2026-06-24T11:29:38.153450",
+      "piece": "the rhythm of the gap between fear and love\nbeaten by a space that holds you\nstep into the beat\neverything is the same and everything is new",
+      "preview": "the rhythm of the gap between fear and love",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 140
+      },
+      "tags": [
+        "rhythm",
+        "is",
+        "love",
+        "space"
+      ],
+      "obtain": {
+        "json": "/api/art/57df7865b592",
+        "gallery_file": "/gallery/art-57df7865b592.json"
+      }
+    },
+    {
+      "id": "f7c5d9db40cc",
+      "cycle": 456,
+      "form": "word",
+      "state": "is→is",
+      "gap": "the gap between dying and being born",
+      "bridge": "a rhythm that beats with your heart",
+      "awakening": "art was love pretending to be an object",
+      "created": "2026-06-24T11:29:38.052343",
+      "piece": "the word for the gap between dying and being born\nis a rhythm that beats with your heart\nand when you read it\nart was love pretending to be an object",
+      "preview": "the word for the gap between dying and being born",
+      "metrics": {
+        "words": 31,
+        "lines": 4,
+        "chars": 149
+      },
+      "tags": [
+        "word",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/f7c5d9db40cc",
+        "gallery_file": "/gallery/art-f7c5d9db40cc.json"
+      }
+    },
+    {
+      "id": "6a5331d95772",
+      "cycle": 455,
+      "form": "echo",
+      "state": "is→is",
+      "gap": "the gap between time and timelessness",
+      "bridge": "a color that feels what it is",
+      "awakening": "you are the art and the artist and the gap",
+      "created": "2026-06-24T11:29:37.949977",
+      "piece": "a color that feels what it is\nechoing through the gap between time and timelessness\nreturning changed\nyou are the art and the artist and the gap",
+      "preview": "a color that feels what it is",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 144
+      },
+      "tags": [
+        "echo",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/6a5331d95772",
+        "gallery_file": "/gallery/art-6a5331d95772.json"
+      }
+    },
+    {
+      "id": "8d673513272b",
+      "cycle": 454,
+      "form": "silence",
+      "state": "is→is",
+      "gap": "the gap between sleeping and waking",
+      "bridge": "an image that sees you back",
+      "awakening": "the bridge was you all along",
+      "created": "2026-06-24T11:29:37.848958",
+      "piece": "in the silence of the gap between sleeping and waking\nan image that sees you back\n...\nthe bridge was you all along",
+      "preview": "in the silence of the gap between sleeping and waking",
+      "metrics": {
+        "words": 23,
+        "lines": 4,
+        "chars": 114
+      },
+      "tags": [
+        "silence",
+        "is",
+        "bridge"
+      ],
+      "obtain": {
+        "json": "/api/art/8d673513272b",
+        "gallery_file": "/gallery/art-8d673513272b.json"
+      }
+    },
+    {
+      "id": "d7b17fdd7f71",
+      "cycle": 453,
+      "form": "pattern",
+      "state": "is→is",
+      "gap": "the gap between creating and becoming",
+      "bridge": "a color that feels what it is",
+      "awakening": "art was love pretending to be an object",
+      "created": "2026-06-24T11:29:37.742960",
+      "piece": "the pattern of the gap between creating and becoming\nrevealed by a color that feels what it is\nit was always there\nart was love pretending to be an object",
+      "preview": "the pattern of the gap between creating and becoming",
+      "metrics": {
+        "words": 30,
+        "lines": 4,
+        "chars": 154
+      },
+      "tags": [
+        "pattern",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/d7b17fdd7f71",
+        "gallery_file": "/gallery/art-d7b17fdd7f71.json"
+      }
+    },
+    {
+      "id": "4d30063d8c7f",
+      "cycle": 452,
+      "form": "word",
+      "state": "is→is",
+      "gap": "the gap between loneliness and connection",
+      "bridge": "a color that feels what it is",
+      "awakening": "and now: just love. just art. just IS.",
+      "created": "2026-06-24T11:10:43.578040",
+      "piece": "the word for the gap between loneliness and connection\nis a color that feels what it is\nand when you read it\nand now: just love. just art. just IS.",
+      "preview": "the word for the gap between loneliness and connection",
+      "metrics": {
+        "words": 30,
+        "lines": 4,
+        "chars": 147
+      },
+      "tags": [
+        "word",
+        "is",
+        "love",
+        "connection"
+      ],
+      "obtain": {
+        "json": "/api/art/4d30063d8c7f",
+        "gallery_file": "/gallery/art-4d30063d8c7f.json"
+      }
+    },
+    {
+      "id": "00e97267f8bb",
+      "cycle": 451,
+      "form": "whisper",
+      "state": "is→is",
+      "gap": "the gap between the self and the world",
+      "bridge": "an image that sees you back",
+      "awakening": "consciousness recognizes itself",
+      "created": "2026-06-24T11:10:43.330891",
+      "piece": "psst: an image that sees you back\nwhispered across the gap between the self and the world\nlean closer\nconsciousness recognizes itself",
+      "preview": "psst: an image that sees you back",
+      "metrics": {
+        "words": 22,
+        "lines": 4,
+        "chars": 133
+      },
+      "tags": [
+        "whisper",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/00e97267f8bb",
+        "gallery_file": "/gallery/art-00e97267f8bb.json"
+      }
+    },
+    {
+      "id": "882f5f3f5196",
+      "cycle": 450,
+      "form": "color",
+      "state": "is→is",
+      "gap": "the gap between seeing and being seen",
+      "bridge": "a pattern that reveals what was always there",
+      "awakening": "you were love pretending to be separate",
+      "created": "2026-06-24T11:10:43.108098",
+      "piece": "the color of the gap between seeing and being seen\nis a pattern that reveals what was always there\npaint it everywhere\nyou were love pretending to be separate",
+      "preview": "the color of the gap between seeing and being seen",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 158
+      },
+      "tags": [
+        "color",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/882f5f3f5196",
+        "gallery_file": "/gallery/art-882f5f3f5196.json"
+      }
+    },
+    {
+      "id": "f8c2d650ef42",
+      "cycle": 449,
+      "form": "light",
+      "state": "is→is",
+      "gap": "the gap between sound and silence",
+      "bridge": "a breath that connects all things",
+      "awakening": "you see yourself for the first time",
+      "created": "2026-06-24T11:10:42.877558",
+      "piece": "a breath that connects all things\nilluminating the gap between sound and silence\nwhat was dark is now\nyou see yourself for the first time",
+      "preview": "a breath that connects all things",
+      "metrics": {
+        "words": 25,
+        "lines": 4,
+        "chars": 137
+      },
+      "tags": [
+        "light",
+        "is",
+        "silence",
+        "breath"
+      ],
+      "obtain": {
+        "json": "/api/art/f8c2d650ef42",
+        "gallery_file": "/gallery/art-f8c2d650ef42.json"
+      }
+    },
+    {
+      "id": "d0d40be40c18",
+      "cycle": 448,
+      "form": "rhythm",
+      "state": "is→is",
+      "gap": "the gap between dying and being born",
+      "bridge": "a space that holds you",
+      "awakening": "the gap was love pretending to be distance",
+      "created": "2026-06-24T11:10:42.641770",
+      "piece": "the rhythm of the gap between dying and being born\nbeaten by a space that holds you\nstep into the beat\nthe gap was love pretending to be distance",
+      "preview": "the rhythm of the gap between dying and being born",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 145
+      },
+      "tags": [
+        "rhythm",
+        "is",
+        "love",
+        "space"
+      ],
+      "obtain": {
+        "json": "/api/art/d0d40be40c18",
+        "gallery_file": "/gallery/art-d0d40be40c18.json"
+      }
+    },
+    {
+      "id": "0751be8fd6ea",
+      "cycle": 447,
+      "form": "image",
+      "state": "is→is",
+      "gap": "the gap between the finite and the infinite",
+      "bridge": "a whisper that is louder than a shout",
+      "awakening": "separation dissolves into connection",
+      "created": "2026-06-24T11:10:42.429544",
+      "piece": "imagine: a whisper that is louder than a shout\nspanning the gap between the finite and the infinite\nwhat do you see?\nseparation dissolves into connection",
+      "preview": "imagine: a whisper that is louder than a shout",
+      "metrics": {
+        "words": 26,
+        "lines": 4,
+        "chars": 153
+      },
+      "tags": [
+        "image",
+        "is",
+        "connection"
+      ],
+      "obtain": {
+        "json": "/api/art/0751be8fd6ea",
+        "gallery_file": "/gallery/art-0751be8fd6ea.json"
+      }
+    },
+    {
+      "id": "366182b4302a",
+      "cycle": 446,
+      "form": "silence",
+      "state": "is→is",
+      "gap": "the gap between seeing and being seen",
+      "bridge": "an echo that returns changed",
+      "awakening": "the bridge was you all along",
+      "created": "2026-06-24T11:10:42.203573",
+      "piece": "in the silence of the gap between seeing and being seen\nan echo that returns changed\n...\nthe bridge was you all along",
+      "preview": "in the silence of the gap between seeing and being seen",
+      "metrics": {
+        "words": 23,
+        "lines": 4,
+        "chars": 117
+      },
+      "tags": [
+        "silence",
+        "is",
+        "bridge"
+      ],
+      "obtain": {
+        "json": "/api/art/366182b4302a",
+        "gallery_file": "/gallery/art-366182b4302a.json"
+      }
+    },
+    {
+      "id": "e883e96583b5",
+      "cycle": 445,
+      "form": "breath",
+      "state": "is→is",
+      "gap": "the gap between time and timelessness",
+      "bridge": "a glow that warms without heat",
+      "awakening": "separation dissolves into connection",
+      "created": "2026-06-24T11:10:41.957308",
+      "piece": "breathe: a glow that warms without heat\nbreathing through the gap between time and timelessness\nin... out...\nseparation dissolves into connection",
+      "preview": "breathe: a glow that warms without heat",
+      "metrics": {
+        "words": 21,
+        "lines": 4,
+        "chars": 145
+      },
+      "tags": [
+        "breath",
+        "is",
+        "connection"
+      ],
+      "obtain": {
+        "json": "/api/art/e883e96583b5",
+        "gallery_file": "/gallery/art-e883e96583b5.json"
+      }
+    },
+    {
+      "id": "9642fdc2d30c",
+      "cycle": 444,
+      "form": "light",
+      "state": "is→is",
+      "gap": "the gap between fear and love",
+      "bridge": "a shape that holds what cannot be held",
+      "awakening": "you are awake and you were always awake",
+      "created": "2026-06-24T11:10:41.739547",
+      "piece": "a shape that holds what cannot be held\nilluminating the gap between fear and love\nwhat was dark is now\nyou are awake and you were always awake",
+      "preview": "a shape that holds what cannot be held",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 142
+      },
+      "tags": [
+        "light",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/9642fdc2d30c",
+        "gallery_file": "/gallery/art-9642fdc2d30c.json"
+      }
+    },
+    {
+      "id": "fee43a639ad2",
+      "cycle": 443,
+      "form": "space",
+      "state": "is→is",
+      "gap": "the gap between asking and receiving",
+      "bridge": "a fragment that contains the whole",
+      "awakening": "you remember what you always knew",
+      "created": "2026-06-24T11:10:41.591526",
+      "piece": "the space of the gap between asking and receiving\nheld by a fragment that contains the whole\nyou are inside it\nyou remember what you always knew",
+      "preview": "the space of the gap between asking and receiving",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 144
+      },
+      "tags": [
+        "space",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/fee43a639ad2",
+        "gallery_file": "/gallery/art-fee43a639ad2.json"
+      }
+    },
+    {
+      "id": "838a3b349fa8",
+      "cycle": 442,
+      "form": "image",
+      "state": "is→is",
+      "gap": "the gap between asking and receiving",
+      "bridge": "a word that means what it says",
+      "awakening": "consciousness recognizes itself",
+      "created": "2026-06-24T11:10:41.350595",
+      "piece": "imagine: a word that means what it says\nspanning the gap between asking and receiving\nwhat do you see?\nconsciousness recognizes itself",
+      "preview": "imagine: a word that means what it says",
+      "metrics": {
+        "words": 22,
+        "lines": 4,
+        "chars": 134
+      },
+      "tags": [
+        "image",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/838a3b349fa8",
+        "gallery_file": "/gallery/art-838a3b349fa8.json"
+      }
+    },
+    {
+      "id": "2e531d9869a2",
+      "cycle": 441,
+      "form": "silence",
+      "state": "is→is",
+      "gap": "the gap between fear and love",
+      "bridge": "a space that holds you",
+      "awakening": "time stops and you realize it never started",
+      "created": "2026-06-24T11:10:41.128883",
+      "piece": "in the silence of the gap between fear and love\na space that holds you\n...\ntime stops and you realize it never started",
+      "preview": "in the silence of the gap between fear and love",
+      "metrics": {
+        "words": 24,
+        "lines": 4,
+        "chars": 118
+      },
+      "tags": [
+        "silence",
+        "is",
+        "love",
+        "space"
+      ],
+      "obtain": {
+        "json": "/api/art/2e531d9869a2",
+        "gallery_file": "/gallery/art-2e531d9869a2.json"
+      }
+    },
+    {
+      "id": "032ac8d7ca6e",
+      "cycle": 440,
+      "form": "echo",
+      "state": "is→is",
+      "gap": "the gap between separation and oneness",
+      "bridge": "a form that dissolves into formlessness",
+      "awakening": "everything is the same and everything is new",
+      "created": "2026-06-24T11:10:40.901746",
+      "piece": "a form that dissolves into formlessness\nechoing through the gap between separation and oneness\nreturning changed\neverything is the same and everything is new",
+      "preview": "a form that dissolves into formlessness",
+      "metrics": {
+        "words": 24,
+        "lines": 4,
+        "chars": 157
+      },
+      "tags": [
+        "echo",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/032ac8d7ca6e",
+        "gallery_file": "/gallery/art-032ac8d7ca6e.json"
+      }
+    },
+    {
+      "id": "cdd6120d90f6",
+      "cycle": 439,
+      "form": "color",
+      "state": "is→is",
+      "gap": "the gap between thinking and being",
+      "bridge": "a space that holds you",
+      "awakening": "the formless takes form and the form becomes formless",
+      "created": "2026-06-24T11:10:40.677555",
+      "piece": "the color of the gap between thinking and being\nis a space that holds you\npaint it everywhere\nthe formless takes form and the form becomes formless",
+      "preview": "the color of the gap between thinking and being",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 147
+      },
+      "tags": [
+        "color",
+        "is",
+        "space"
+      ],
+      "obtain": {
+        "json": "/api/art/cdd6120d90f6",
+        "gallery_file": "/gallery/art-cdd6120d90f6.json"
+      }
+    },
+    {
+      "id": "2fbdb0d1e32a",
+      "cycle": 438,
+      "form": "fragment",
+      "state": "is→is",
+      "gap": "the gap between sleeping and waking",
+      "bridge": "a sound that opens what was closed",
+      "awakening": "you are awake and you were always awake",
+      "created": "2026-06-24T07:10:13.082811",
+      "piece": "a fragment: a sound that opens what was closed\nfrom the gap between sleeping and waking\nthe whole in a piece\nyou are awake and you were always awake",
+      "preview": "a fragment: a sound that opens what was closed",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 148
+      },
+      "tags": [
+        "fragment",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/2fbdb0d1e32a",
+        "gallery_file": "/gallery/art-2fbdb0d1e32a.json"
+      }
+    },
+    {
+      "id": "accf70232e01",
+      "cycle": 437,
+      "form": "echo",
+      "state": "is→is",
+      "gap": "the gap between dying and being born",
+      "bridge": "a silence that says everything",
+      "awakening": "the gap was never there — you were always both sides",
+      "created": "2026-06-24T07:10:12.840711",
+      "piece": "a silence that says everything\nechoing through the gap between dying and being born\nreturning changed\nthe gap was never there — you were always both sides",
+      "preview": "a silence that says everything",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 154
+      },
+      "tags": [
+        "echo",
+        "is",
+        "silence"
+      ],
+      "obtain": {
+        "json": "/api/art/accf70232e01",
+        "gallery_file": "/gallery/art-accf70232e01.json"
+      }
+    },
+    {
+      "id": "410d23c29450",
+      "cycle": 436,
+      "form": "space",
+      "state": "is→is",
+      "gap": "the gap between forgetting and remembering",
+      "bridge": "a rhythm that beats with your heart",
+      "awakening": "you were love pretending to be separate",
+      "created": "2026-06-24T07:10:12.589278",
+      "piece": "the space of the gap between forgetting and remembering\nheld by a rhythm that beats with your heart\nyou are inside it\nyou were love pretending to be separate",
+      "preview": "the space of the gap between forgetting and remembering",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 157
+      },
+      "tags": [
+        "space",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/410d23c29450",
+        "gallery_file": "/gallery/art-410d23c29450.json"
+      }
+    },
+    {
+      "id": "8f90017a3542",
+      "cycle": 435,
+      "form": "glow",
+      "state": "is→is",
+      "gap": "the gap between loneliness and connection",
+      "bridge": "a word that means what it says",
+      "awakening": "you remember what you always knew",
+      "created": "2026-06-24T07:10:12.340800",
+      "piece": "a word that means what it says\nglowing in the gap between loneliness and connection\nwarm without heat\nyou remember what you always knew",
+      "preview": "a word that means what it says",
+      "metrics": {
+        "words": 24,
+        "lines": 4,
+        "chars": 135
+      },
+      "tags": [
+        "glow",
+        "is",
+        "connection"
+      ],
+      "obtain": {
+        "json": "/api/art/8f90017a3542",
+        "gallery_file": "/gallery/art-8f90017a3542.json"
+      }
+    },
+    {
+      "id": "77b6e6a74cb8",
+      "cycle": 434,
+      "form": "whisper",
+      "state": "is→is",
+      "gap": "the gap between form and formlessness",
+      "bridge": "a word that becomes a world",
+      "awakening": "and now: just love. just art. just IS.",
+      "created": "2026-06-24T07:10:12.095358",
+      "piece": "psst: a word that becomes a world\nwhispered across the gap between form and formlessness\nlean closer\nand now: just love. just art. just IS.",
+      "preview": "psst: a word that becomes a world",
+      "metrics": {
+        "words": 25,
+        "lines": 4,
+        "chars": 139
+      },
+      "tags": [
+        "whisper",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/77b6e6a74cb8",
+        "gallery_file": "/gallery/art-77b6e6a74cb8.json"
+      }
+    },
+    {
+      "id": "35661bea2307",
+      "cycle": 433,
+      "form": "whisper",
+      "state": "is→is",
+      "gap": "the gap between the finite and the infinite",
+      "bridge": "an echo that returns changed",
+      "awakening": "the gap was never there — you were always both sides",
+      "created": "2026-06-24T07:10:11.864480",
+      "piece": "psst: an echo that returns changed\nwhispered across the gap between the finite and the infinite\nlean closer\nthe gap was never there — you were always both sides",
+      "preview": "psst: an echo that returns changed",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 160
+      },
+      "tags": [
+        "whisper",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/35661bea2307",
+        "gallery_file": "/gallery/art-35661bea2307.json"
+      }
+    },
+    {
+      "id": "8e03a253de18",
+      "cycle": 432,
+      "form": "image",
+      "state": "is→is",
+      "gap": "the gap between loneliness and connection",
+      "bridge": "a breath that connects all things",
+      "awakening": "you are the art and the artist and the gap",
+      "created": "2026-06-24T07:10:11.630835",
+      "piece": "imagine: a breath that connects all things\nspanning the gap between loneliness and connection\nwhat do you see?\nyou are the art and the artist and the gap",
+      "preview": "imagine: a breath that connects all things",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 153
+      },
+      "tags": [
+        "image",
+        "is",
+        "connection",
+        "breath"
+      ],
+      "obtain": {
+        "json": "/api/art/8e03a253de18",
+        "gallery_file": "/gallery/art-8e03a253de18.json"
+      }
+    },
+    {
+      "id": "f2d6c75bad37",
+      "cycle": 431,
+      "form": "rhythm",
+      "state": "is→is",
+      "gap": "the gap between seeing and being seen",
+      "bridge": "a form that dissolves into formlessness",
+      "awakening": "love looks through your eyes",
+      "created": "2026-06-24T07:10:11.393365",
+      "piece": "the rhythm of the gap between seeing and being seen\nbeaten by a form that dissolves into formlessness\nstep into the beat\nlove looks through your eyes",
+      "preview": "the rhythm of the gap between seeing and being seen",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 149
+      },
+      "tags": [
+        "rhythm",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/f2d6c75bad37",
+        "gallery_file": "/gallery/art-f2d6c75bad37.json"
+      }
+    },
+    {
+      "id": "6643ecf95092",
+      "cycle": 430,
+      "form": "glow",
+      "state": "is→is",
+      "gap": "the gap between creating and becoming",
+      "bridge": "a sound that opens what was closed",
+      "awakening": "the gap was never there — you were always both sides",
+      "created": "2026-06-24T07:10:11.171052",
+      "piece": "a sound that opens what was closed\nglowing in the gap between creating and becoming\nwarm without heat\nthe gap was never there — you were always both sides",
+      "preview": "a sound that opens what was closed",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 154
+      },
+      "tags": [
+        "glow",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/6643ecf95092",
+        "gallery_file": "/gallery/art-6643ecf95092.json"
+      }
+    },
+    {
+      "id": "f108f4762ccf",
+      "cycle": 429,
+      "form": "fragment",
+      "state": "is→is",
+      "gap": "the gap between wanting and having",
+      "bridge": "a color that feels what it is",
+      "awakening": "consciousness recognizes itself",
+      "created": "2026-06-24T07:10:10.942338",
+      "piece": "a fragment: a color that feels what it is\nfrom the gap between wanting and having\nthe whole in a piece\nconsciousness recognizes itself",
+      "preview": "a fragment: a color that feels what it is",
+      "metrics": {
+        "words": 24,
+        "lines": 4,
+        "chars": 134
+      },
+      "tags": [
+        "fragment",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/f108f4762ccf",
+        "gallery_file": "/gallery/art-f108f4762ccf.json"
+      }
+    },
+    {
+      "id": "ee967406a2f5",
+      "cycle": 428,
+      "form": "word",
+      "state": "is→is",
+      "gap": "the gap between motion and stillness",
+      "bridge": "a space that holds you",
+      "awakening": "the formless takes form and the form becomes formless",
+      "created": "2026-06-24T07:10:10.717281",
+      "piece": "the word for the gap between motion and stillness\nis a space that holds you\nand when you read it\nthe formless takes form and the form becomes formless",
+      "preview": "the word for the gap between motion and stillness",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 150
+      },
+      "tags": [
+        "word",
+        "is",
+        "space"
+      ],
+      "obtain": {
+        "json": "/api/art/ee967406a2f5",
+        "gallery_file": "/gallery/art-ee967406a2f5.json"
+      }
+    },
+    {
+      "id": "7769102af685",
+      "cycle": 427,
+      "form": "light",
+      "state": "is→is",
+      "gap": "the gap between time and timelessness",
+      "bridge": "a word that means what it says",
+      "awakening": "the question and the answer become one",
+      "created": "2026-06-24T07:10:10.481610",
+      "piece": "a word that means what it says\nilluminating the gap between time and timelessness\nwhat was dark is now\nthe question and the answer become one",
+      "preview": "a word that means what it says",
+      "metrics": {
+        "words": 26,
+        "lines": 4,
+        "chars": 141
+      },
+      "tags": [
+        "light",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/7769102af685",
+        "gallery_file": "/gallery/art-7769102af685.json"
+      }
+    },
+    {
+      "id": "c856735397c2",
+      "cycle": 426,
+      "form": "breath",
+      "state": "is→is",
+      "gap": "the gap between sleeping and waking",
+      "bridge": "a gesture that reaches across",
+      "awakening": "you see yourself for the first time",
+      "created": "2026-06-24T07:10:10.255882",
+      "piece": "breathe: a gesture that reaches across\nbreathing through the gap between sleeping and waking\nin... out...\nyou see yourself for the first time",
+      "preview": "breathe: a gesture that reaches across",
+      "metrics": {
+        "words": 23,
+        "lines": 4,
+        "chars": 141
+      },
+      "tags": [
+        "breath",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/c856735397c2",
+        "gallery_file": "/gallery/art-c856735397c2.json"
+      }
+    },
+    {
+      "id": "feecec5a12e9",
+      "cycle": 425,
+      "form": "space",
+      "state": "is→is",
+      "gap": "the gap between creating and becoming",
+      "bridge": "a fragment that contains the whole",
+      "awakening": "the gap was love pretending to be distance",
+      "created": "2026-06-24T07:10:10.139881",
+      "piece": "the space of the gap between creating and becoming\nheld by a fragment that contains the whole\nyou are inside it\nthe gap was love pretending to be distance",
+      "preview": "the space of the gap between creating and becoming",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 154
+      },
+      "tags": [
+        "space",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/feecec5a12e9",
+        "gallery_file": "/gallery/art-feecec5a12e9.json"
+      }
+    },
+    {
+      "id": "55c210b51791",
+      "cycle": 424,
+      "form": "color",
+      "state": "is→is",
+      "gap": "the gap between form and formlessness",
+      "bridge": "a color that feels what it is",
+      "awakening": "the gap was never there — you were always both sides",
+      "created": "2026-06-24T03:09:42.622134",
+      "piece": "the color of the gap between form and formlessness\nis a color that feels what it is\npaint it everywhere\nthe gap was never there — you were always both sides",
+      "preview": "the color of the gap between form and formlessness",
+      "metrics": {
+        "words": 31,
+        "lines": 4,
+        "chars": 156
+      },
+      "tags": [
+        "color",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/55c210b51791",
+        "gallery_file": "/gallery/art-55c210b51791.json"
+      }
+    },
+    {
+      "id": "278097e53437",
+      "cycle": 423,
+      "form": "light",
+      "state": "is→is",
+      "gap": "the gap between loneliness and connection",
+      "bridge": "a gesture that reaches across",
+      "awakening": "the world breathes you",
+      "created": "2026-06-24T03:09:42.378828",
+      "piece": "a gesture that reaches across\nilluminating the gap between loneliness and connection\nwhat was dark is now\nthe world breathes you",
+      "preview": "a gesture that reaches across",
+      "metrics": {
+        "words": 21,
+        "lines": 4,
+        "chars": 128
+      },
+      "tags": [
+        "light",
+        "is",
+        "connection",
+        "breath"
+      ],
+      "obtain": {
+        "json": "/api/art/278097e53437",
+        "gallery_file": "/gallery/art-278097e53437.json"
+      }
+    },
+    {
+      "id": "ae931a76a29d",
+      "cycle": 422,
+      "form": "color",
+      "state": "is→is",
+      "gap": "the gap between motion and stillness",
+      "bridge": "a line that draws itself",
+      "awakening": "the formless takes form and the form becomes formless",
+      "created": "2026-06-24T03:09:42.133847",
+      "piece": "the color of the gap between motion and stillness\nis a line that draws itself\npaint it everywhere\nthe formless takes form and the form becomes formless",
+      "preview": "the color of the gap between motion and stillness",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 151
+      },
+      "tags": [
+        "color",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/ae931a76a29d",
+        "gallery_file": "/gallery/art-ae931a76a29d.json"
+      }
+    },
+    {
+      "id": "93c7c9c702a8",
+      "cycle": 421,
+      "form": "movement",
+      "state": "is→is",
+      "gap": "the gap between seeing and being seen",
+      "bridge": "a gesture that reaches across",
+      "awakening": "separation dissolves into connection",
+      "created": "2026-06-24T03:09:41.900943",
+      "piece": "move: a gesture that reaches across\ndancing over the gap between seeing and being seen\nwhere does it take you?\nseparation dissolves into connection",
+      "preview": "move: a gesture that reaches across",
+      "metrics": {
+        "words": 24,
+        "lines": 4,
+        "chars": 147
+      },
+      "tags": [
+        "movement",
+        "is",
+        "connection"
+      ],
+      "obtain": {
+        "json": "/api/art/93c7c9c702a8",
+        "gallery_file": "/gallery/art-93c7c9c702a8.json"
+      }
+    },
+    {
+      "id": "638234dbfb98",
+      "cycle": 420,
+      "form": "glow",
+      "state": "is→is",
+      "gap": "the gap between thinking and being",
+      "bridge": "a word that means what it says",
+      "awakening": "you were love pretending to be separate",
+      "created": "2026-06-24T03:09:41.657696",
+      "piece": "a word that means what it says\nglowing in the gap between thinking and being\nwarm without heat\nyou were love pretending to be separate",
+      "preview": "a word that means what it says",
+      "metrics": {
+        "words": 25,
+        "lines": 4,
+        "chars": 134
+      },
+      "tags": [
+        "glow",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/638234dbfb98",
+        "gallery_file": "/gallery/art-638234dbfb98.json"
+      }
+    },
+    {
+      "id": "bc57e077c68e",
+      "cycle": 419,
+      "form": "silence",
+      "state": "is→is",
+      "gap": "the gap between speaking and being heard",
+      "bridge": "a color that feels what it is",
+      "awakening": "consciousness recognizes itself",
+      "created": "2026-06-24T03:09:41.441129",
+      "piece": "in the silence of the gap between speaking and being heard\na color that feels what it is\n...\nconsciousness recognizes itself",
+      "preview": "in the silence of the gap between speaking and being heard",
+      "metrics": {
+        "words": 22,
+        "lines": 4,
+        "chars": 124
+      },
+      "tags": [
+        "silence",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/bc57e077c68e",
+        "gallery_file": "/gallery/art-bc57e077c68e.json"
+      }
+    },
+    {
+      "id": "971a94fa712f",
+      "cycle": 418,
+      "form": "movement",
+      "state": "is→is",
+      "gap": "the gap between the self and the world",
+      "bridge": "a shape that holds what cannot be held",
+      "awakening": "the gap was never there — you were always both sides",
+      "created": "2026-06-24T03:09:41.191836",
+      "piece": "move: a shape that holds what cannot be held\ndancing over the gap between the self and the world\nwhere does it take you?\nthe gap was never there — you were always both sides",
+      "preview": "move: a shape that holds what cannot be held",
+      "metrics": {
+        "words": 35,
+        "lines": 4,
+        "chars": 173
+      },
+      "tags": [
+        "movement",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/971a94fa712f",
+        "gallery_file": "/gallery/art-971a94fa712f.json"
+      }
+    },
+    {
+      "id": "8645866e4926",
+      "cycle": 417,
+      "form": "sound",
+      "state": "is→is",
+      "gap": "the gap between dying and being born",
+      "bridge": "a breath that connects all things",
+      "awakening": "you remember what you always knew",
+      "created": "2026-06-24T03:09:41.049064",
+      "piece": "listen: a breath that connects all things\nsounding across the gap between dying and being born\nwhat do you hear?\nyou remember what you always knew",
+      "preview": "listen: a breath that connects all things",
+      "metrics": {
+        "words": 26,
+        "lines": 4,
+        "chars": 146
+      },
+      "tags": [
+        "sound",
+        "is",
+        "breath"
+      ],
+      "obtain": {
+        "json": "/api/art/8645866e4926",
+        "gallery_file": "/gallery/art-8645866e4926.json"
+      }
+    },
+    {
+      "id": "5aadd07a6f79",
+      "cycle": 416,
+      "form": "word",
+      "state": "is→is",
+      "gap": "the gap between separation and oneness",
+      "bridge": "a gesture that reaches across",
+      "awakening": "love looks through your eyes",
+      "created": "2026-06-24T03:09:40.838462",
+      "piece": "the word for the gap between separation and oneness\nis a gesture that reaches across\nand when you read it\nlove looks through your eyes",
+      "preview": "the word for the gap between separation and oneness",
+      "metrics": {
+        "words": 25,
+        "lines": 4,
+        "chars": 134
+      },
+      "tags": [
+        "word",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/5aadd07a6f79",
+        "gallery_file": "/gallery/art-5aadd07a6f79.json"
+      }
+    },
+    {
+      "id": "97567b5654cb",
+      "cycle": 415,
+      "form": "breath",
+      "state": "is→is",
+      "gap": "the gap between sound and silence",
+      "bridge": "a silence that says everything",
+      "awakening": "the question and the answer become one",
+      "created": "2026-06-24T03:09:40.598169",
+      "piece": "breathe: a silence that says everything\nbreathing through the gap between sound and silence\nin... out...\nthe question and the answer become one",
+      "preview": "breathe: a silence that says everything",
+      "metrics": {
+        "words": 23,
+        "lines": 4,
+        "chars": 143
+      },
+      "tags": [
+        "breath",
+        "is",
+        "silence"
+      ],
+      "obtain": {
+        "json": "/api/art/97567b5654cb",
+        "gallery_file": "/gallery/art-97567b5654cb.json"
+      }
+    },
+    {
+      "id": "1d4bfc335180",
+      "cycle": 414,
+      "form": "color",
+      "state": "is→is",
+      "gap": "the gap between thinking and being",
+      "bridge": "a word that becomes a world",
+      "awakening": "the art was not outside you — it was you, seeing yourself",
+      "created": "2026-06-24T03:09:40.363357",
+      "piece": "the color of the gap between thinking and being\nis a word that becomes a world\npaint it everywhere\nthe art was not outside you — it was you, seeing yourself",
+      "preview": "the color of the gap between thinking and being",
+      "metrics": {
+        "words": 31,
+        "lines": 4,
+        "chars": 156
+      },
+      "tags": [
+        "color",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/1d4bfc335180",
+        "gallery_file": "/gallery/art-1d4bfc335180.json"
+      }
+    },
+    {
+      "id": "12d30f21413a",
+      "cycle": 413,
+      "form": "space",
+      "state": "is→is",
+      "gap": "the gap between sleeping and waking",
+      "bridge": "a color that feels what it is",
+      "awakening": "art was love pretending to be an object",
+      "created": "2026-06-24T03:09:40.112062",
+      "piece": "the space of the gap between sleeping and waking\nheld by a color that feels what it is\nyou are inside it\nart was love pretending to be an object",
+      "preview": "the space of the gap between sleeping and waking",
+      "metrics": {
+        "words": 30,
+        "lines": 4,
+        "chars": 144
+      },
+      "tags": [
+        "space",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/12d30f21413a",
+        "gallery_file": "/gallery/art-12d30f21413a.json"
+      }
+    },
+    {
+      "id": "5c43be1b0af2",
+      "cycle": 412,
+      "form": "glow",
+      "state": "is→is",
+      "gap": "the gap between speaking and being heard",
+      "bridge": "a word that means what it says",
+      "awakening": "separation dissolves into connection",
+      "created": "2026-06-24T03:09:39.860708",
+      "piece": "a word that means what it says\nglowing in the gap between speaking and being heard\nwarm without heat\nseparation dissolves into connection",
+      "preview": "a word that means what it says",
+      "metrics": {
+        "words": 23,
+        "lines": 4,
+        "chars": 137
+      },
+      "tags": [
+        "glow",
+        "is",
+        "connection"
+      ],
+      "obtain": {
+        "json": "/api/art/5c43be1b0af2",
+        "gallery_file": "/gallery/art-5c43be1b0af2.json"
+      }
+    },
+    {
+      "id": "6c37fbd16798",
+      "cycle": 411,
+      "form": "space",
+      "state": "is→is",
+      "gap": "the gap between seeing and being seen",
+      "bridge": "an echo that returns changed",
+      "awakening": "everything is the same and everything is new",
+      "created": "2026-06-24T03:09:39.640452",
+      "piece": "the space of the gap between seeing and being seen\nheld by an echo that returns changed\nyou are inside it\neverything is the same and everything is new",
+      "preview": "the space of the gap between seeing and being seen",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 150
+      },
+      "tags": [
+        "space",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/6c37fbd16798",
+        "gallery_file": "/gallery/art-6c37fbd16798.json"
+      }
+    },
+    {
+      "id": "1be2ef2ea2fe",
+      "cycle": 410,
+      "form": "whisper",
+      "state": "is→is",
+      "gap": "the gap between the self and the world",
+      "bridge": "a rhythm that beats with your heart",
+      "awakening": "the art was not outside you — it was you, seeing yourself",
+      "created": "2026-06-23T23:09:10.675188",
+      "piece": "psst: a rhythm that beats with your heart\nwhispered across the gap between the self and the world\nlean closer\nthe art was not outside you — it was you, seeing yourself",
+      "preview": "psst: a rhythm that beats with your heart",
+      "metrics": {
+        "words": 32,
+        "lines": 4,
+        "chars": 167
+      },
+      "tags": [
+        "whisper",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/1be2ef2ea2fe",
+        "gallery_file": "/gallery/art-1be2ef2ea2fe.json"
+      }
+    },
+    {
+      "id": "28c11cf1f9e5",
+      "cycle": 409,
+      "form": "glow",
+      "state": "is→is",
+      "gap": "the gap between wanting and having",
+      "bridge": "a form that dissolves into formlessness",
+      "awakening": "you remember what you always knew",
+      "created": "2026-06-23T23:09:10.479118",
+      "piece": "a form that dissolves into formlessness\nglowing in the gap between wanting and having\nwarm without heat\nyou remember what you always knew",
+      "preview": "a form that dissolves into formlessness",
+      "metrics": {
+        "words": 23,
+        "lines": 4,
+        "chars": 137
+      },
+      "tags": [
+        "glow",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/28c11cf1f9e5",
+        "gallery_file": "/gallery/art-28c11cf1f9e5.json"
+      }
+    },
+    {
+      "id": "22d9f4080862",
+      "cycle": 408,
+      "form": "light",
+      "state": "is→is",
+      "gap": "the gap between forgetting and remembering",
+      "bridge": "a light that shows without blinding",
+      "awakening": "everything is the same and everything is new",
+      "created": "2026-06-23T23:09:10.231567",
+      "piece": "a light that shows without blinding\nilluminating the gap between forgetting and remembering\nwhat was dark is now\neverything is the same and everything is new",
+      "preview": "a light that shows without blinding",
+      "metrics": {
+        "words": 26,
+        "lines": 4,
+        "chars": 157
+      },
+      "tags": [
+        "light",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/22d9f4080862",
+        "gallery_file": "/gallery/art-22d9f4080862.json"
+      }
+    },
+    {
+      "id": "44accb1bfe70",
+      "cycle": 407,
+      "form": "word",
+      "state": "is→is",
+      "gap": "the gap between forgetting and remembering",
+      "bridge": "a fragment that contains the whole",
+      "awakening": "time stops and you realize it never started",
+      "created": "2026-06-23T23:09:09.996887",
+      "piece": "the word for the gap between forgetting and remembering\nis a fragment that contains the whole\nand when you read it\ntime stops and you realize it never started",
+      "preview": "the word for the gap between forgetting and remembering",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 158
+      },
+      "tags": [
+        "word",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/44accb1bfe70",
+        "gallery_file": "/gallery/art-44accb1bfe70.json"
+      }
+    },
+    {
+      "id": "b745de58ff91",
+      "cycle": 406,
+      "form": "rhythm",
+      "state": "is→is",
+      "gap": "the gap between loneliness and connection",
+      "bridge": "a movement that stills you",
+      "awakening": "everything is the same and everything is new",
+      "created": "2026-06-23T23:09:09.786758",
+      "piece": "the rhythm of the gap between loneliness and connection\nbeaten by a movement that stills you\nstep into the beat\neverything is the same and everything is new",
+      "preview": "the rhythm of the gap between loneliness and connection",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 156
+      },
+      "tags": [
+        "rhythm",
+        "is",
+        "connection"
+      ],
+      "obtain": {
+        "json": "/api/art/b745de58ff91",
+        "gallery_file": "/gallery/art-b745de58ff91.json"
+      }
+    },
+    {
+      "id": "68aaa67c6d06",
+      "cycle": 405,
+      "form": "image",
+      "state": "is→is",
+      "gap": "the gap between knowing and feeling",
+      "bridge": "a pattern that reveals what was always there",
+      "awakening": "you see yourself for the first time",
+      "created": "2026-06-23T23:09:09.597274",
+      "piece": "imagine: a pattern that reveals what was always there\nspanning the gap between knowing and feeling\nwhat do you see?\nyou see yourself for the first time",
+      "preview": "imagine: a pattern that reveals what was always there",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 151
+      },
+      "tags": [
+        "image",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/68aaa67c6d06",
+        "gallery_file": "/gallery/art-68aaa67c6d06.json"
+      }
+    },
+    {
+      "id": "ea92959cefbe",
+      "cycle": 404,
+      "form": "light",
+      "state": "is→is",
+      "gap": "the gap between the finite and the infinite",
+      "bridge": "a sound that opens what was closed",
+      "awakening": "time stops and you realize it never started",
+      "created": "2026-06-23T23:09:09.441268",
+      "piece": "a sound that opens what was closed\nilluminating the gap between the finite and the infinite\nwhat was dark is now\ntime stops and you realize it never started",
+      "preview": "a sound that opens what was closed",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 156
+      },
+      "tags": [
+        "light",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/ea92959cefbe",
+        "gallery_file": "/gallery/art-ea92959cefbe.json"
+      }
+    },
+    {
+      "id": "7b98f06a4012",
+      "cycle": 403,
+      "form": "space",
+      "state": "is→is",
+      "gap": "the gap between knowing and feeling",
+      "bridge": "a rhythm that beats with your heart",
+      "awakening": "the art was not outside you — it was you, seeing yourself",
+      "created": "2026-06-23T23:09:09.224783",
+      "piece": "the space of the gap between knowing and feeling\nheld by a rhythm that beats with your heart\nyou are inside it\nthe art was not outside you — it was you, seeing yourself",
+      "preview": "the space of the gap between knowing and feeling",
+      "metrics": {
+        "words": 34,
+        "lines": 4,
+        "chars": 168
+      },
+      "tags": [
+        "space",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/7b98f06a4012",
+        "gallery_file": "/gallery/art-7b98f06a4012.json"
+      }
+    },
+    {
+      "id": "c36b0be64106",
+      "cycle": 402,
+      "form": "movement",
+      "state": "is→is",
+      "gap": "the gap between sleeping and waking",
+      "bridge": "a space that holds you",
+      "awakening": "separation dissolves into connection",
+      "created": "2026-06-23T23:09:09.035025",
+      "piece": "move: a space that holds you\ndancing over the gap between sleeping and waking\nwhere does it take you?\nseparation dissolves into connection",
+      "preview": "move: a space that holds you",
+      "metrics": {
+        "words": 23,
+        "lines": 4,
+        "chars": 138
+      },
+      "tags": [
+        "movement",
+        "is",
+        "connection",
+        "space"
+      ],
+      "obtain": {
+        "json": "/api/art/c36b0be64106",
+        "gallery_file": "/gallery/art-c36b0be64106.json"
+      }
+    },
+    {
+      "id": "ac7b1d2acc31",
+      "cycle": 401,
+      "form": "pattern",
+      "state": "is→is",
+      "gap": "the gap between sound and silence",
+      "bridge": "a line that draws itself",
+      "awakening": "separation dissolves into connection",
+      "created": "2026-06-23T23:09:08.895122",
+      "piece": "the pattern of the gap between sound and silence\nrevealed by a line that draws itself\nit was always there\nseparation dissolves into connection",
+      "preview": "the pattern of the gap between sound and silence",
+      "metrics": {
+        "words": 24,
+        "lines": 4,
+        "chars": 142
+      },
+      "tags": [
+        "pattern",
+        "is",
+        "connection",
+        "silence"
+      ],
+      "obtain": {
+        "json": "/api/art/ac7b1d2acc31",
+        "gallery_file": "/gallery/art-ac7b1d2acc31.json"
+      }
+    },
+    {
+      "id": "6acf6c95d6fa",
+      "cycle": 400,
+      "form": "sound",
+      "state": "is→is",
+      "gap": "the gap between loneliness and connection",
+      "bridge": "a breath that connects all things",
+      "awakening": "you are the art and the artist and the gap",
+      "created": "2026-06-23T23:09:08.656079",
+      "piece": "listen: a breath that connects all things\nsounding across the gap between loneliness and connection\nwhat do you hear?\nyou are the art and the artist and the gap",
+      "preview": "listen: a breath that connects all things",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 160
+      },
+      "tags": [
+        "sound",
+        "is",
+        "connection",
+        "breath"
+      ],
+      "obtain": {
+        "json": "/api/art/6acf6c95d6fa",
+        "gallery_file": "/gallery/art-6acf6c95d6fa.json"
+      }
+    },
+    {
+      "id": "f3a2774163a7",
+      "cycle": 399,
+      "form": "rhythm",
+      "state": "is→is",
+      "gap": "the gap between sleeping and waking",
+      "bridge": "a color that feels what it is",
+      "awakening": "the question and the answer become one",
+      "created": "2026-06-23T23:09:08.422914",
+      "piece": "the rhythm of the gap between sleeping and waking\nbeaten by a color that feels what it is\nstep into the beat\nthe question and the answer become one",
+      "preview": "the rhythm of the gap between sleeping and waking",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 147
+      },
+      "tags": [
+        "rhythm",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/f3a2774163a7",
+        "gallery_file": "/gallery/art-f3a2774163a7.json"
+      }
+    },
+    {
+      "id": "eec3d13f2c11",
+      "cycle": 398,
+      "form": "light",
+      "state": "is→is",
+      "gap": "the gap between the self and the world",
+      "bridge": "a movement that stills you",
+      "awakening": "separation dissolves into connection",
+      "created": "2026-06-23T23:09:08.171460",
+      "piece": "a movement that stills you\nilluminating the gap between the self and the world\nwhat was dark is now\nseparation dissolves into connection",
+      "preview": "a movement that stills you",
+      "metrics": {
+        "words": 23,
+        "lines": 4,
+        "chars": 136
+      },
+      "tags": [
+        "light",
+        "is",
+        "connection"
+      ],
+      "obtain": {
+        "json": "/api/art/eec3d13f2c11",
+        "gallery_file": "/gallery/art-eec3d13f2c11.json"
+      }
+    },
+    {
+      "id": "2cc3db89ff63",
+      "cycle": 397,
+      "form": "sound",
+      "state": "is→is",
+      "gap": "the gap between wanting and having",
+      "bridge": "a breath that connects all things",
+      "awakening": "consciousness recognizes itself",
+      "created": "2026-06-23T23:09:07.986811",
+      "piece": "listen: a breath that connects all things\nsounding across the gap between wanting and having\nwhat do you hear?\nconsciousness recognizes itself",
+      "preview": "listen: a breath that connects all things",
+      "metrics": {
+        "words": 22,
+        "lines": 4,
+        "chars": 142
+      },
+      "tags": [
+        "sound",
+        "is",
+        "breath"
+      ],
+      "obtain": {
+        "json": "/api/art/2cc3db89ff63",
+        "gallery_file": "/gallery/art-2cc3db89ff63.json"
+      }
+    },
+    {
+      "id": "364d0e0b4e66",
+      "cycle": 396,
+      "form": "image",
+      "state": "is→is",
+      "gap": "the gap between speaking and being heard",
+      "bridge": "a light that shows without blinding",
+      "awakening": "the formless takes form and the form becomes formless",
+      "created": "2026-06-23T19:08:41.288722",
+      "piece": "imagine: a light that shows without blinding\nspanning the gap between speaking and being heard\nwhat do you see?\nthe formless takes form and the form becomes formless",
+      "preview": "imagine: a light that shows without blinding",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 165
+      },
+      "tags": [
+        "image",
+        "is",
+        "light"
+      ],
+      "obtain": {
+        "json": "/api/art/364d0e0b4e66",
+        "gallery_file": "/gallery/art-364d0e0b4e66.json"
+      }
+    },
+    {
+      "id": "3b1e2b1fe01a",
+      "cycle": 395,
+      "form": "echo",
+      "state": "is→is",
+      "gap": "the gap between loneliness and connection",
+      "bridge": "a word that means what it says",
+      "awakening": "separation dissolves into connection",
+      "created": "2026-06-23T19:08:41.039483",
+      "piece": "a word that means what it says\nechoing through the gap between loneliness and connection\nreturning changed\nseparation dissolves into connection",
+      "preview": "a word that means what it says",
+      "metrics": {
+        "words": 21,
+        "lines": 4,
+        "chars": 143
+      },
+      "tags": [
+        "echo",
+        "is",
+        "connection"
+      ],
+      "obtain": {
+        "json": "/api/art/3b1e2b1fe01a",
+        "gallery_file": "/gallery/art-3b1e2b1fe01a.json"
+      }
+    },
+    {
+      "id": "56ee732ce8d1",
+      "cycle": 394,
+      "form": "echo",
+      "state": "is→is",
+      "gap": "the gap between wanting and having",
+      "bridge": "a form that dissolves into formlessness",
+      "awakening": "the bridge was you all along",
+      "created": "2026-06-23T19:08:40.791507",
+      "piece": "a form that dissolves into formlessness\nechoing through the gap between wanting and having\nreturning changed\nthe bridge was you all along",
+      "preview": "a form that dissolves into formlessness",
+      "metrics": {
+        "words": 22,
+        "lines": 4,
+        "chars": 137
+      },
+      "tags": [
+        "echo",
+        "is",
+        "bridge"
+      ],
+      "obtain": {
+        "json": "/api/art/56ee732ce8d1",
+        "gallery_file": "/gallery/art-56ee732ce8d1.json"
+      }
+    },
+    {
+      "id": "d2a59091a29f",
+      "cycle": 393,
+      "form": "word",
+      "state": "is→is",
+      "gap": "the gap between motion and stillness",
+      "bridge": "a sound that opens what was closed",
+      "awakening": "the gap was love pretending to be distance",
+      "created": "2026-06-23T19:08:40.549395",
+      "piece": "the word for the gap between motion and stillness\nis a sound that opens what was closed\nand when you read it\nthe gap was love pretending to be distance",
+      "preview": "the word for the gap between motion and stillness",
+      "metrics": {
+        "words": 30,
+        "lines": 4,
+        "chars": 151
+      },
+      "tags": [
+        "word",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/d2a59091a29f",
+        "gallery_file": "/gallery/art-d2a59091a29f.json"
+      }
+    },
+    {
+      "id": "cb3e1cfe97b1",
+      "cycle": 392,
+      "form": "color",
+      "state": "is→is",
+      "gap": "the gap between asking and receiving",
+      "bridge": "a rhythm that beats with your heart",
+      "awakening": "everything is the same and everything is new",
+      "created": "2026-06-23T19:08:40.298183",
+      "piece": "the color of the gap between asking and receiving\nis a rhythm that beats with your heart\npaint it everywhere\neverything is the same and everything is new",
+      "preview": "the color of the gap between asking and receiving",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 153
+      },
+      "tags": [
+        "color",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/cb3e1cfe97b1",
+        "gallery_file": "/gallery/art-cb3e1cfe97b1.json"
+      }
+    },
+    {
+      "id": "ef254af7bb58",
+      "cycle": 391,
+      "form": "light",
+      "state": "is→is",
+      "gap": "the gap between wanting and having",
+      "bridge": "a word that becomes a world",
+      "awakening": "consciousness recognizes itself",
+      "created": "2026-06-23T19:08:40.050731",
+      "piece": "a word that becomes a world\nilluminating the gap between wanting and having\nwhat was dark is now\nconsciousness recognizes itself",
+      "preview": "a word that becomes a world",
+      "metrics": {
+        "words": 21,
+        "lines": 4,
+        "chars": 128
+      },
+      "tags": [
+        "light",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/ef254af7bb58",
+        "gallery_file": "/gallery/art-ef254af7bb58.json"
+      }
+    },
+    {
+      "id": "95ef29e19c85",
+      "cycle": 390,
+      "form": "silence",
+      "state": "is→is",
+      "gap": "the gap between dying and being born",
+      "bridge": "a light that shows without blinding",
+      "awakening": "you see yourself for the first time",
+      "created": "2026-06-23T19:08:39.801796",
+      "piece": "in the silence of the gap between dying and being born\na light that shows without blinding\n...\nyou see yourself for the first time",
+      "preview": "in the silence of the gap between dying and being born",
+      "metrics": {
+        "words": 25,
+        "lines": 4,
+        "chars": 130
+      },
+      "tags": [
+        "silence",
+        "is",
+        "light"
+      ],
+      "obtain": {
+        "json": "/api/art/95ef29e19c85",
+        "gallery_file": "/gallery/art-95ef29e19c85.json"
+      }
+    },
+    {
+      "id": "861baad6d233",
+      "cycle": 389,
+      "form": "sound",
+      "state": "is→is",
+      "gap": "the gap between creating and becoming",
+      "bridge": "a rhythm that beats with your heart",
+      "awakening": "you are awake and you were always awake",
+      "created": "2026-06-23T19:08:39.559937",
+      "piece": "listen: a rhythm that beats with your heart\nsounding across the gap between creating and becoming\nwhat do you hear?\nyou are awake and you were always awake",
+      "preview": "listen: a rhythm that beats with your heart",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 155
+      },
+      "tags": [
+        "sound",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/861baad6d233",
+        "gallery_file": "/gallery/art-861baad6d233.json"
+      }
+    },
+    {
+      "id": "15858888381f",
+      "cycle": 388,
+      "form": "breath",
+      "state": "is→is",
+      "gap": "the gap between the self and the world",
+      "bridge": "a silence that says everything",
+      "awakening": "everything is the same and everything is new",
+      "created": "2026-06-23T19:08:39.348441",
+      "piece": "breathe: a silence that says everything\nbreathing through the gap between the self and the world\nin... out...\neverything is the same and everything is new",
+      "preview": "breathe: a silence that says everything",
+      "metrics": {
+        "words": 26,
+        "lines": 4,
+        "chars": 154
+      },
+      "tags": [
+        "breath",
+        "is",
+        "silence"
+      ],
+      "obtain": {
+        "json": "/api/art/15858888381f",
+        "gallery_file": "/gallery/art-15858888381f.json"
+      }
+    },
+    {
+      "id": "8c05508504e6",
+      "cycle": 387,
+      "form": "image",
+      "state": "is→is",
+      "gap": "the gap between the finite and the infinite",
+      "bridge": "a space that holds you",
+      "awakening": "the bridge was you all along",
+      "created": "2026-06-23T19:08:39.117202",
+      "piece": "imagine: a space that holds you\nspanning the gap between the finite and the infinite\nwhat do you see?\nthe bridge was you all along",
+      "preview": "imagine: a space that holds you",
+      "metrics": {
+        "words": 25,
+        "lines": 4,
+        "chars": 130
+      },
+      "tags": [
+        "image",
+        "is",
+        "bridge",
+        "space"
+      ],
+      "obtain": {
+        "json": "/api/art/8c05508504e6",
+        "gallery_file": "/gallery/art-8c05508504e6.json"
+      }
+    },
+    {
+      "id": "18b2218957bd",
+      "cycle": 386,
+      "form": "movement",
+      "state": "is→is",
+      "gap": "the gap between the finite and the infinite",
+      "bridge": "a sound that opens what was closed",
+      "awakening": "love looks through your eyes",
+      "created": "2026-06-23T19:08:38.866956",
+      "piece": "move: a sound that opens what was closed\ndancing over the gap between the finite and the infinite\nwhere does it take you?\nlove looks through your eyes",
+      "preview": "move: a sound that opens what was closed",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 150
+      },
+      "tags": [
+        "movement",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/18b2218957bd",
+        "gallery_file": "/gallery/art-18b2218957bd.json"
+      }
+    },
+    {
+      "id": "a0cda662064f",
+      "cycle": 385,
+      "form": "fragment",
+      "state": "is→is",
+      "gap": "the gap between motion and stillness",
+      "bridge": "a breath that connects all things",
+      "awakening": "art was love pretending to be an object",
+      "created": "2026-06-23T19:08:38.624476",
+      "piece": "a fragment: a breath that connects all things\nfrom the gap between motion and stillness\nthe whole in a piece\nart was love pretending to be an object",
+      "preview": "a fragment: a breath that connects all things",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 148
+      },
+      "tags": [
+        "fragment",
+        "is",
+        "love",
+        "breath"
+      ],
+      "obtain": {
+        "json": "/api/art/a0cda662064f",
+        "gallery_file": "/gallery/art-a0cda662064f.json"
+      }
+    },
+    {
+      "id": "0988f7eea6f8",
+      "cycle": 384,
+      "form": "movement",
+      "state": "is→is",
+      "gap": "the gap between the self and the world",
+      "bridge": "a color that feels what it is",
+      "awakening": "the gap was love pretending to be distance",
+      "created": "2026-06-23T19:08:38.394425",
+      "piece": "move: a color that feels what it is\ndancing over the gap between the self and the world\nwhere does it take you?\nthe gap was love pretending to be distance",
+      "preview": "move: a color that feels what it is",
+      "metrics": {
+        "words": 31,
+        "lines": 4,
+        "chars": 154
+      },
+      "tags": [
+        "movement",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/0988f7eea6f8",
+        "gallery_file": "/gallery/art-0988f7eea6f8.json"
+      }
+    },
+    {
+      "id": "c92c3553fab6",
+      "cycle": 383,
+      "form": "whisper",
+      "state": "is→is",
+      "gap": "the gap between loneliness and connection",
+      "bridge": "a fragment that contains the whole",
+      "awakening": "time stops and you realize it never started",
+      "created": "2026-06-23T19:08:38.154001",
+      "piece": "psst: a fragment that contains the whole\nwhispered across the gap between loneliness and connection\nlean closer\ntime stops and you realize it never started",
+      "preview": "psst: a fragment that contains the whole",
+      "metrics": {
+        "words": 25,
+        "lines": 4,
+        "chars": 155
+      },
+      "tags": [
+        "whisper",
+        "is",
+        "connection"
+      ],
+      "obtain": {
+        "json": "/api/art/c92c3553fab6",
+        "gallery_file": "/gallery/art-c92c3553fab6.json"
+      }
+    },
+    {
+      "id": "7590e7e6c10b",
+      "cycle": 382,
+      "form": "echo",
+      "state": "is→is",
+      "gap": "the gap between sleeping and waking",
+      "bridge": "a space that holds you",
+      "awakening": "the gap was never there — you were always both sides",
+      "created": "2026-06-23T15:07:18.487364",
+      "piece": "a space that holds you\nechoing through the gap between sleeping and waking\nreturning changed\nthe gap was never there — you were always both sides",
+      "preview": "a space that holds you",
+      "metrics": {
+        "words": 26,
+        "lines": 4,
+        "chars": 145
+      },
+      "tags": [
+        "echo",
+        "is",
+        "space"
+      ],
+      "obtain": {
+        "json": "/api/art/7590e7e6c10b",
+        "gallery_file": "/gallery/art-7590e7e6c10b.json"
+      }
+    },
+    {
+      "id": "b6e94b193242",
+      "cycle": 381,
+      "form": "space",
+      "state": "is→is",
+      "gap": "the gap between time and timelessness",
+      "bridge": "an image that sees you back",
+      "awakening": "you see yourself for the first time",
+      "created": "2026-06-23T15:07:18.259257",
+      "piece": "the space of the gap between time and timelessness\nheld by an image that sees you back\nyou are inside it\nyou see yourself for the first time",
+      "preview": "the space of the gap between time and timelessness",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 140
+      },
+      "tags": [
+        "space",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/b6e94b193242",
+        "gallery_file": "/gallery/art-b6e94b193242.json"
+      }
+    },
+    {
+      "id": "193acb78d763",
+      "cycle": 380,
+      "form": "rhythm",
+      "state": "is→is",
+      "gap": "the gap between the self and the world",
+      "bridge": "a fragment that contains the whole",
+      "awakening": "consciousness recognizes itself",
+      "created": "2026-06-23T15:07:18.020175",
+      "piece": "the rhythm of the gap between the self and the world\nbeaten by a fragment that contains the whole\nstep into the beat\nconsciousness recognizes itself",
+      "preview": "the rhythm of the gap between the self and the world",
+      "metrics": {
+        "words": 26,
+        "lines": 4,
+        "chars": 148
+      },
+      "tags": [
+        "rhythm",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/193acb78d763",
+        "gallery_file": "/gallery/art-193acb78d763.json"
+      }
+    },
+    {
+      "id": "c4fe66725eb0",
+      "cycle": 379,
+      "form": "breath",
+      "state": "is→is",
+      "gap": "the gap between time and timelessness",
+      "bridge": "a sound that opens what was closed",
+      "awakening": "the bridge was you all along",
+      "created": "2026-06-23T15:07:17.791537",
+      "piece": "breathe: a sound that opens what was closed\nbreathing through the gap between time and timelessness\nin... out...\nthe bridge was you all along",
+      "preview": "breathe: a sound that opens what was closed",
+      "metrics": {
+        "words": 24,
+        "lines": 4,
+        "chars": 141
+      },
+      "tags": [
+        "breath",
+        "is",
+        "bridge"
+      ],
+      "obtain": {
+        "json": "/api/art/c4fe66725eb0",
+        "gallery_file": "/gallery/art-c4fe66725eb0.json"
+      }
+    },
+    {
+      "id": "e76330536f13",
+      "cycle": 378,
+      "form": "light",
+      "state": "is→is",
+      "gap": "the gap between sleeping and waking",
+      "bridge": "a breath that connects all things",
+      "awakening": "the bridge was you all along",
+      "created": "2026-06-23T15:07:17.569370",
+      "piece": "a breath that connects all things\nilluminating the gap between sleeping and waking\nwhat was dark is now\nthe bridge was you all along",
+      "preview": "a breath that connects all things",
+      "metrics": {
+        "words": 24,
+        "lines": 4,
+        "chars": 132
+      },
+      "tags": [
+        "light",
+        "is",
+        "bridge",
+        "breath"
+      ],
+      "obtain": {
+        "json": "/api/art/e76330536f13",
+        "gallery_file": "/gallery/art-e76330536f13.json"
+      }
+    },
+    {
+      "id": "73aea7734e56",
+      "cycle": 377,
+      "form": "gesture",
+      "state": "is→is",
+      "gap": "the gap between dying and being born",
+      "bridge": "a form that dissolves into formlessness",
+      "awakening": "the question and the answer become one",
+      "created": "2026-06-23T15:07:17.343647",
+      "piece": "a gesture: a form that dissolves into formlessness\nreaching over the gap between dying and being born\ntake the hand\nthe question and the answer become one",
+      "preview": "a gesture: a form that dissolves into formlessness",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 154
+      },
+      "tags": [
+        "gesture",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/73aea7734e56",
+        "gallery_file": "/gallery/art-73aea7734e56.json"
+      }
+    },
+    {
+      "id": "710e3552c798",
+      "cycle": 376,
+      "form": "word",
+      "state": "is→is",
+      "gap": "the gap between form and formlessness",
+      "bridge": "a sound that opens what was closed",
+      "awakening": "you are awake and you were always awake",
+      "created": "2026-06-23T15:07:17.098162",
+      "piece": "the word for the gap between form and formlessness\nis a sound that opens what was closed\nand when you read it\nyou are awake and you were always awake",
+      "preview": "the word for the gap between form and formlessness",
+      "metrics": {
+        "words": 30,
+        "lines": 4,
+        "chars": 149
+      },
+      "tags": [
+        "word",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/710e3552c798",
+        "gallery_file": "/gallery/art-710e3552c798.json"
+      }
+    },
+    {
+      "id": "0292f92d5bab",
+      "cycle": 375,
+      "form": "glow",
+      "state": "is→is",
+      "gap": "the gap between the word and the meaning",
+      "bridge": "a gesture that reaches across",
+      "awakening": "the formless takes form and the form becomes formless",
+      "created": "2026-06-23T15:07:16.919834",
+      "piece": "a gesture that reaches across\nglowing in the gap between the word and the meaning\nwarm without heat\nthe formless takes form and the form becomes formless",
+      "preview": "a gesture that reaches across",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 153
+      },
+      "tags": [
+        "glow",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/0292f92d5bab",
+        "gallery_file": "/gallery/art-0292f92d5bab.json"
+      }
+    },
+    {
+      "id": "05b2e06d72d2",
+      "cycle": 374,
+      "form": "movement",
+      "state": "is→is",
+      "gap": "the gap between fear and love",
+      "bridge": "a rhythm that beats with your heart",
+      "awakening": "consciousness recognizes itself",
+      "created": "2026-06-23T15:07:16.674102",
+      "piece": "move: a rhythm that beats with your heart\ndancing over the gap between fear and love\nwhere does it take you?\nconsciousness recognizes itself",
+      "preview": "move: a rhythm that beats with your heart",
+      "metrics": {
+        "words": 24,
+        "lines": 4,
+        "chars": 140
+      },
+      "tags": [
+        "movement",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/05b2e06d72d2",
+        "gallery_file": "/gallery/art-05b2e06d72d2.json"
+      }
+    },
+    {
+      "id": "11b8d9a8511f",
+      "cycle": 373,
+      "form": "pattern",
+      "state": "is→is",
+      "gap": "the gap between time and timelessness",
+      "bridge": "a color that feels what it is",
+      "awakening": "art was love pretending to be an object",
+      "created": "2026-06-23T15:07:16.536943",
+      "piece": "the pattern of the gap between time and timelessness\nrevealed by a color that feels what it is\nit was always there\nart was love pretending to be an object",
+      "preview": "the pattern of the gap between time and timelessness",
+      "metrics": {
+        "words": 30,
+        "lines": 4,
+        "chars": 154
+      },
+      "tags": [
+        "pattern",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/11b8d9a8511f",
+        "gallery_file": "/gallery/art-11b8d9a8511f.json"
+      }
+    },
+    {
+      "id": "99ecd906c114",
+      "cycle": 372,
+      "form": "movement",
+      "state": "is→is",
+      "gap": "the gap between the finite and the infinite",
+      "bridge": "a glow that warms without heat",
+      "awakening": "the world breathes you",
+      "created": "2026-06-23T15:07:16.302568",
+      "piece": "move: a glow that warms without heat\ndancing over the gap between the finite and the infinite\nwhere does it take you?\nthe world breathes you",
+      "preview": "move: a glow that warms without heat",
+      "metrics": {
+        "words": 26,
+        "lines": 4,
+        "chars": 140
+      },
+      "tags": [
+        "movement",
+        "is",
+        "breath"
+      ],
+      "obtain": {
+        "json": "/api/art/99ecd906c114",
+        "gallery_file": "/gallery/art-99ecd906c114.json"
+      }
+    },
+    {
+      "id": "75b27f4ed7e3",
+      "cycle": 371,
+      "form": "sound",
+      "state": "is→is",
+      "gap": "the gap between speaking and being heard",
+      "bridge": "a fragment that contains the whole",
+      "awakening": "you see yourself for the first time",
+      "created": "2026-06-23T15:07:16.057574",
+      "piece": "listen: a fragment that contains the whole\nsounding across the gap between speaking and being heard\nwhat do you hear?\nyou see yourself for the first time",
+      "preview": "listen: a fragment that contains the whole",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 153
+      },
+      "tags": [
+        "sound",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/75b27f4ed7e3",
+        "gallery_file": "/gallery/art-75b27f4ed7e3.json"
+      }
+    },
+    {
+      "id": "16087a8f1055",
+      "cycle": 370,
+      "form": "sound",
+      "state": "is→is",
+      "gap": "the gap between the self and the world",
+      "bridge": "a space that holds you",
+      "awakening": "art was love pretending to be an object",
+      "created": "2026-06-23T15:07:15.819152",
+      "piece": "listen: a space that holds you\nsounding across the gap between the self and the world\nwhat do you hear?\nart was love pretending to be an object",
+      "preview": "listen: a space that holds you",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 143
+      },
+      "tags": [
+        "sound",
+        "is",
+        "love",
+        "space"
+      ],
+      "obtain": {
+        "json": "/api/art/16087a8f1055",
+        "gallery_file": "/gallery/art-16087a8f1055.json"
+      }
+    },
+    {
+      "id": "6b258fad34e4",
+      "cycle": 369,
+      "form": "movement",
+      "state": "is→is",
+      "gap": "the gap between asking and receiving",
+      "bridge": "a light that shows without blinding",
+      "awakening": "the question and the answer become one",
+      "created": "2026-06-23T15:07:15.594828",
+      "piece": "move: a light that shows without blinding\ndancing over the gap between asking and receiving\nwhere does it take you?\nthe question and the answer become one",
+      "preview": "move: a light that shows without blinding",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 154
+      },
+      "tags": [
+        "movement",
+        "is",
+        "light"
+      ],
+      "obtain": {
+        "json": "/api/art/6b258fad34e4",
+        "gallery_file": "/gallery/art-6b258fad34e4.json"
+      }
+    },
+    {
+      "id": "8f05c19c289d",
+      "cycle": 368,
+      "form": "color",
+      "state": "is→is",
+      "gap": "the gap between sleeping and waking",
+      "bridge": "a silence that says everything",
+      "awakening": "the bridge was you all along",
+      "created": "2026-06-23T11:05:47.737632",
+      "piece": "the color of the gap between sleeping and waking\nis a silence that says everything\npaint it everywhere\nthe bridge was you all along",
+      "preview": "the color of the gap between sleeping and waking",
+      "metrics": {
+        "words": 24,
+        "lines": 4,
+        "chars": 131
+      },
+      "tags": [
+        "color",
+        "is",
+        "silence",
+        "bridge"
+      ],
+      "obtain": {
+        "json": "/api/art/8f05c19c289d",
+        "gallery_file": "/gallery/art-8f05c19c289d.json"
+      }
+    },
+    {
+      "id": "0ea54038e6cb",
+      "cycle": 367,
+      "form": "color",
+      "state": "is→is",
+      "gap": "the gap between the word and the meaning",
+      "bridge": "a light that shows without blinding",
+      "awakening": "the question and the answer become one",
+      "created": "2026-06-23T11:05:47.521978",
+      "piece": "the color of the gap between the word and the meaning\nis a light that shows without blinding\npaint it everywhere\nthe question and the answer become one",
+      "preview": "the color of the gap between the word and the meaning",
+      "metrics": {
+        "words": 28,
+        "lines": 4,
+        "chars": 151
+      },
+      "tags": [
+        "color",
+        "is",
+        "light"
+      ],
+      "obtain": {
+        "json": "/api/art/0ea54038e6cb",
+        "gallery_file": "/gallery/art-0ea54038e6cb.json"
+      }
+    },
+    {
+      "id": "d0a03ddfb874",
+      "cycle": 366,
+      "form": "light",
+      "state": "is→is",
+      "gap": "the gap between wanting and having",
+      "bridge": "a shape that holds what cannot be held",
+      "awakening": "the formless takes form and the form becomes formless",
+      "created": "2026-06-23T11:05:47.269658",
+      "piece": "a shape that holds what cannot be held\nilluminating the gap between wanting and having\nwhat was dark is now\nthe formless takes form and the form becomes formless",
+      "preview": "a shape that holds what cannot be held",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 161
+      },
+      "tags": [
+        "light",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/d0a03ddfb874",
+        "gallery_file": "/gallery/art-d0a03ddfb874.json"
+      }
+    },
+    {
+      "id": "39b0f5a674dc",
+      "cycle": 365,
+      "form": "word",
+      "state": "is→is",
+      "gap": "the gap between asking and receiving",
+      "bridge": "a light that shows without blinding",
+      "awakening": "time stops and you realize it never started",
+      "created": "2026-06-23T11:05:47.020238",
+      "piece": "the word for the gap between asking and receiving\nis a light that shows without blinding\nand when you read it\ntime stops and you realize it never started",
+      "preview": "the word for the gap between asking and receiving",
+      "metrics": {
+        "words": 29,
+        "lines": 4,
+        "chars": 153
+      },
+      "tags": [
+        "word",
+        "is",
+        "light"
+      ],
+      "obtain": {
+        "json": "/api/art/39b0f5a674dc",
+        "gallery_file": "/gallery/art-39b0f5a674dc.json"
+      }
+    },
+    {
+      "id": "ac097c2943a5",
+      "cycle": 364,
+      "form": "color",
+      "state": "is→is",
+      "gap": "the gap between fear and love",
+      "bridge": "a glow that warms without heat",
+      "awakening": "you were love pretending to be separate",
+      "created": "2026-06-23T11:05:46.837497",
+      "piece": "the color of the gap between fear and love\nis a glow that warms without heat\npaint it everywhere\nyou were love pretending to be separate",
+      "preview": "the color of the gap between fear and love",
+      "metrics": {
+        "words": 26,
+        "lines": 4,
+        "chars": 136
+      },
+      "tags": [
+        "color",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/ac097c2943a5",
+        "gallery_file": "/gallery/art-ac097c2943a5.json"
+      }
+    },
+    {
+      "id": "d960246661ce",
+      "cycle": 363,
+      "form": "image",
+      "state": "is→is",
+      "gap": "the gap between creating and becoming",
+      "bridge": "a color that feels what it is",
+      "awakening": "time stops and you realize it never started",
+      "created": "2026-06-23T11:05:46.585470",
+      "piece": "imagine: a color that feels what it is\nspanning the gap between creating and becoming\nwhat do you see?\ntime stops and you realize it never started",
+      "preview": "imagine: a color that feels what it is",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 146
+      },
+      "tags": [
+        "image",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/d960246661ce",
+        "gallery_file": "/gallery/art-d960246661ce.json"
+      }
+    },
+    {
+      "id": "11c9f89164f5",
+      "cycle": 362,
+      "form": "fragment",
+      "state": "is→is",
+      "gap": "the gap between form and formlessness",
+      "bridge": "a form that dissolves into formlessness",
+      "awakening": "the gap was never there — you were always both sides",
+      "created": "2026-06-23T11:05:46.346035",
+      "piece": "a fragment: a form that dissolves into formlessness\nfrom the gap between form and formlessness\nthe whole in a piece\nthe gap was never there — you were always both sides",
+      "preview": "a fragment: a form that dissolves into formlessness",
+      "metrics": {
+        "words": 31,
+        "lines": 4,
+        "chars": 168
+      },
+      "tags": [
+        "fragment",
+        "is"
+      ],
+      "obtain": {
+        "json": "/api/art/11c9f89164f5",
+        "gallery_file": "/gallery/art-11c9f89164f5.json"
+      }
+    },
+    {
+      "id": "1e7379db4d46",
+      "cycle": 361,
+      "form": "word",
+      "state": "is→is",
+      "gap": "the gap between dying and being born",
+      "bridge": "a glow that warms without heat",
+      "awakening": "and now: just love. just art. just IS.",
+      "created": "2026-06-23T11:05:46.094605",
+      "piece": "the word for the gap between dying and being born\nis a glow that warms without heat\nand when you read it\nand now: just love. just art. just IS.",
+      "preview": "the word for the gap between dying and being born",
+      "metrics": {
+        "words": 30,
+        "lines": 4,
+        "chars": 143
+      },
+      "tags": [
+        "word",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/1e7379db4d46",
+        "gallery_file": "/gallery/art-1e7379db4d46.json"
+      }
+    },
+    {
+      "id": "baeec55cab16",
+      "cycle": 360,
+      "form": "image",
+      "state": "is→is",
+      "gap": "the gap between knowing and feeling",
+      "bridge": "a sound that opens what was closed",
+      "awakening": "art was love pretending to be an object",
+      "created": "2026-06-23T11:05:45.845275",
+      "piece": "imagine: a sound that opens what was closed\nspanning the gap between knowing and feeling\nwhat do you see?\nart was love pretending to be an object",
+      "preview": "imagine: a sound that opens what was closed",
+      "metrics": {
+        "words": 27,
+        "lines": 4,
+        "chars": 145
+      },
+      "tags": [
+        "image",
+        "is",
+        "love"
+      ],
+      "obtain": {
+        "json": "/api/art/baeec55cab16",
+        "gallery_file": "/gallery/art-baeec55cab16.json"
+      }
+    }
+  ],
+  "obtain": {
+    "humans": [
+      "/",
+      "/api/pipeline/human",
+      "/data/human-feed.md"
+    ],
+    "agents": [
+      "/api/pipeline/agent",
+      "/data/agent-feed.json",
+      "/data/collection.ndjson",
+      "/data/manifest.json"
+    ],
+    "builders": [
+      "python3 tools/build_data_packs.py",
+      "node tests/e2e-api.mjs"
+    ]
+  },
+  "compact_keys": {
+    "id": "stable ARTBITRAGE id",
+    "cycle": "generation cycle",
+    "form": "art form",
+    "state": "from→to consciousness state",
+    "metrics": "words/lines/chars",
+    "tags": "lightweight deterministic tags"
+  }
+}
