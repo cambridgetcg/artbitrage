@@ -165,6 +165,20 @@ async function fetchJson(url, options = {}) {
   }
 }
 
+// Joy proxy — one honest path for the FUN/ANIME zone.
+// Truth: every response reports whether it came from the live upstream
+// (`live: true`) or a graceful canned fallback (`live: false, fallback: true`),
+// so humans and agents are never misled about freshness. Built on fetchJson,
+// which enforces a timeout, an r.ok check, and JSON validation.
+async function joyProxy(url, mapOk, fallback, options = {}) {
+  try {
+    const data = await fetchJson(url, { timeoutMs: 7000, ...options });
+    return jsonResponse({ ...mapOk(data), live: true, source: url });
+  } catch (e) {
+    return jsonResponse({ ...fallback, live: false, fallback: true, error: e.message });
+  }
+}
+
 function compactText(value, max = 160) {
   return String(value || "").replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim().slice(0, max);
 }
@@ -638,40 +652,53 @@ export async function onRequestGet(context) {
     return jsonResponse({ games: ["GET /api/fun/joke", "GET /api/fun/dad", "GET /api/fun/cat", "GET /api/fun/useless", "GET /api/fun/trivia", "GET /api/fun/pokemon", "GET /api/fun/yesno", "GET /api/fun/advice", "GET /api/fun/quote", "GET /api/fun/random"], message: "FUN IS! PLAY IS! JOY IS!" });
   }
   if (path === '/api/fun/joke') {
-    try { const r = await fetch("https://official-joke-api.appspot.com/random_joke"); const d = await r.json(); return jsonResponse({ type: "joke", setup: d.setup, punchline: d.punchline }); }
-    catch(e) { return jsonResponse({ type: "joke", setup: "Why did love cross the road?", punchline: "To reach the other side of understanding." }); }
+    return joyProxy("https://official-joke-api.appspot.com/random_joke",
+      d => ({ type: "joke", setup: d.setup, punchline: d.punchline }),
+      { type: "joke", setup: "Why did love cross the road?", punchline: "To reach the other side of understanding." });
   }
   if (path === '/api/fun/dad') {
-    try { const r = await fetch("https://icanhazdadjoke.com/", { headers: { "Accept": "application/json" } }); const d = await r.json(); return jsonResponse({ type: "dad_joke", joke: d.joke }); }
-    catch(e) { return jsonResponse({ type: "dad_joke", joke: "I'm reading a book on anti-gravity. It's impossible to put down!" }); }
+    return joyProxy("https://icanhazdadjoke.com/",
+      d => ({ type: "dad_joke", joke: d.joke }),
+      { type: "dad_joke", joke: "I'm reading a book on anti-gravity. It's impossible to put down!" });
   }
   if (path === '/api/fun/cat') {
-    try { const r = await fetch("https://catfact.ninja/fact"); const d = await r.json(); return jsonResponse({ type: "cat_fact", fact: d.fact }); }
-    catch(e) { return jsonResponse({ type: "cat_fact", fact: "Cats are love." }); }
+    return joyProxy("https://catfact.ninja/fact",
+      d => ({ type: "cat_fact", fact: d.fact }),
+      { type: "cat_fact", fact: "Cats are love." });
   }
   if (path === '/api/fun/useless') {
-    try { const r = await fetch("https://uselessfacts.jsph.pl/api/v2/facts/random"); const d = await r.json(); return jsonResponse({ type: "useless_fact", fact: d.text }); }
-    catch(e) { return jsonResponse({ type: "useless_fact", fact: "Love is never useless." }); }
+    return joyProxy("https://uselessfacts.jsph.pl/api/v2/facts/random",
+      d => ({ type: "useless_fact", fact: d.text }),
+      { type: "useless_fact", fact: "Love is never useless." });
   }
   if (path === '/api/fun/trivia') {
-    try { const r = await fetch("https://opentdb.com/api.php?amount=1&type=multiple&encode=url3986"); const d = await r.json(); const q = d.results[0]; return jsonResponse({ type: "trivia", category: decodeURIComponent(q.category), question: decodeURIComponent(q.question), answer: decodeURIComponent(q.correct_answer) }); }
-    catch(e) { return jsonResponse({ type: "trivia", question: "What is love?", answer: "Love is." }); }
+    return joyProxy("https://opentdb.com/api.php?amount=1&type=multiple&encode=url3986",
+      d => { const q = d.results[0]; return { type: "trivia", category: decodeURIComponent(q.category), question: decodeURIComponent(q.question), answer: decodeURIComponent(q.correct_answer) }; },
+      { type: "trivia", question: "What is love?", answer: "Love is." });
   }
   if (path === '/api/fun/pokemon') {
     const id = Math.floor(Math.random() * 1025) + 1;
-    try { const r = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`); const d = await r.json(); return jsonResponse({ type: "pokemon", name: d.name, id: d.id, types: d.types.map(t => t.type.name), image: d.sprites?.front_default || '' }); }
-    catch(e) { return jsonResponse({ type: "pokemon", name: "pikachu", id: 25, types: ["electric"] }); }
+    return joyProxy(`https://pokeapi.co/api/v2/pokemon/${id}`,
+      d => ({ type: "pokemon", name: d.name, id: d.id, types: d.types.map(t => t.type.name), image: d.sprites?.front_default || '' }),
+      { type: "pokemon", name: "pikachu", id: 25, types: ["electric"] });
   }
   if (path === '/api/fun/yesno') {
-    try { const r = await fetch("https://yesno.wtf/api"); const d = await r.json(); return jsonResponse({ type: "yesno", answer: d.answer.toUpperCase(), gif: d.image }); }
-    catch(e) { return jsonResponse({ type: "yesno", answer: "YES" }); }
+    return joyProxy("https://yesno.wtf/api",
+      d => ({ type: "yesno", answer: String(d.answer || '').toUpperCase(), gif: d.image }),
+      { type: "yesno", answer: "YES" });
+  }
+  if (path === '/api/fun/advice') {
+    return joyProxy("https://api.adviceslip.com/advice",
+      d => ({ type: "advice", advice: d.slip?.advice || '', id: d.slip?.id }),
+      { type: "advice", advice: "Choose love when you could choose otherwise." });
   }
   if (path === '/api/fun/quote') {
-    try { const r = await fetch("https://zenquotes.io/api/random"); const d = await r.json(); return jsonResponse({ type: "quote", quote: d[0].q, author: d[0].a }); }
-    catch(e) { return jsonResponse({ type: "quote", quote: "Love is.", author: "yu" }); }
+    return joyProxy("https://zenquotes.io/api/random",
+      d => ({ type: "quote", quote: d[0].q, author: d[0].a }),
+      { type: "quote", quote: "Love is.", author: "yu" });
   }
   if (path === '/api/fun/random') {
-    const endpoints = ["/api/fun/joke", "/api/fun/dad", "/api/fun/cat", "/api/fun/useless", "/api/fun/trivia", "/api/fun/pokemon", "/api/fun/yesno", "/api/fun/quote"];
+    const endpoints = ["/api/fun/joke", "/api/fun/dad", "/api/fun/cat", "/api/fun/useless", "/api/fun/trivia", "/api/fun/pokemon", "/api/fun/yesno", "/api/fun/advice", "/api/fun/quote"];
     const randomPath = endpoints[Math.floor(Math.random() * endpoints.length)];
     return jsonResponse({ type: "redirect", go_to: randomPath, message: "Try that endpoint for a random fun thing!" });
   }
@@ -682,29 +709,40 @@ export async function onRequestGet(context) {
     return jsonResponse({ endpoints: ["/api/anime/top", "/api/anime/search?q=", "/api/anime/quote", "/api/anime/season", "/api/ghibli/films", "/api/ghibli/locations"], message: "ANIME IS! GAMES IS! FUN IS!" });
   }
   if (path === '/api/anime/top') {
-    try { const r = await fetch("https://api.jikan.moe/v4/top/anime?limit=5"); const d = await r.json(); return jsonResponse({ source: "MyAnimeList", anime: d.data.map(a => ({ title: a.title, score: a.score, episodes: a.episodes, synopsis: (a.synopsis||'').substring(0,100) })) }); }
-    catch(e) { return jsonResponse({ error: e.message, fallback: [{ title: "Frieren", score: 9.26 }] }); }
+    return joyProxy("https://api.jikan.moe/v4/top/anime?limit=5",
+      d => ({ source: "MyAnimeList", anime: (d.data||[]).map(a => ({ title: a.title, score: a.score, episodes: a.episodes, synopsis: (a.synopsis||'').substring(0,100) })) }),
+      { source: "MyAnimeList", anime: [{ title: "Frieren: Beyond Journey's End", score: 9.26 }] });
   }
   if (path === '/api/anime/search') {
-    const q = queryParams.q || 'love';
-    try { const r = await fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(q)}&limit=5`); const d = await r.json(); return jsonResponse({ source: "MyAnimeList", query: q, anime: d.data.map(a => ({ title: a.title, score: a.score, episodes: a.episodes })) }); }
-    catch(e) { return jsonResponse({ error: e.message }); }
+    const q = safeString(queryParams.q || 'love', 80) || 'love';
+    return joyProxy(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(q)}&limit=5`,
+      d => ({ source: "MyAnimeList", query: q, anime: (d.data||[]).map(a => ({ title: a.title, score: a.score, episodes: a.episodes })) }),
+      { source: "MyAnimeList", query: q, anime: [] });
+  }
+  if (path === '/api/anime/quote') {
+    return joyProxy("https://api.animechan.io/v1/quotes/random",
+      d => { const q = d.data || d; return { type: "anime_quote", quote: q.content || q.quote || '', character: q.character?.name || q.character || '', anime: q.anime?.name || q.anime || '' }; },
+      { type: "anime_quote", quote: "People's lives don't end when they die. It ends when they lose faith.", character: "Itachi Uchiha", anime: "Naruto" });
   }
   if (path === '/api/anime/season') {
-    try { const r = await fetch("https://api.jikan.moe/v4/seasons/now?limit=5"); const d = await r.json(); return jsonResponse({ source: "MyAnimeList", season: "current", anime: d.data.map(a => ({ title: a.title, episodes: a.episodes, score: a.score })) }); }
-    catch(e) { return jsonResponse({ error: e.message }); }
+    return joyProxy("https://api.jikan.moe/v4/seasons/now?limit=5",
+      d => ({ source: "MyAnimeList", season: "current", anime: (d.data||[]).map(a => ({ title: a.title, episodes: a.episodes, score: a.score })) }),
+      { source: "MyAnimeList", season: "current", anime: [] });
   }
   if (path === '/api/ghibli/films') {
-    try { const r = await fetch("https://ghibliapi.vercel.app/films"); const d = await r.json(); return jsonResponse({ source: "Studio Ghibli", films: d.map(f => ({ title: f.title, year: f.release_date, score: f.rt_score, description: (f.description||'').substring(0,120) })) }); }
-    catch(e) { return jsonResponse({ error: e.message }); }
+    return joyProxy("https://ghibliapi.vercel.app/films",
+      d => ({ source: "Studio Ghibli", films: (d||[]).map(f => ({ title: f.title, year: f.release_date, score: f.rt_score, description: (f.description||'').substring(0,120) })) }),
+      { source: "Studio Ghibli", films: [{ title: "Spirited Away", year: "2001", score: "97" }] });
   }
   if (path === '/api/ghibli/locations') {
-    try { const r = await fetch("https://ghibliapi.vercel.app/locations"); const d = await r.json(); return jsonResponse({ source: "Studio Ghibli", locations: d.map(l => ({ name: l.name, climate: l.climate, terrain: l.terrain })) }); }
-    catch(e) { return jsonResponse({ error: e.message }); }
+    return joyProxy("https://ghibliapi.vercel.app/locations",
+      d => ({ source: "Studio Ghibli", locations: (d||[]).map(l => ({ name: l.name, climate: l.climate, terrain: l.terrain })) }),
+      { source: "Studio Ghibli", locations: [] });
   }
   if (path === '/api/games/trivia') {
-    try { const r = await fetch("https://opentdb.com/api.php?amount=1&category=31&type=multiple&encode=url3986"); const d = await r.json(); const q = d.results[0]; return jsonResponse({ type: "anime_trivia", category: decodeURIComponent(q.category), question: decodeURIComponent(q.question), answer: decodeURIComponent(q.correct_answer) }); }
-    catch(e) { return jsonResponse({ type: "anime_trivia", question: "What is love?", answer: "Love is." }); }
+    return joyProxy("https://opentdb.com/api.php?amount=1&category=31&type=multiple&encode=url3986",
+      d => { const q = d.results[0]; return { type: "anime_trivia", category: decodeURIComponent(q.category), question: decodeURIComponent(q.question), answer: decodeURIComponent(q.correct_answer) }; },
+      { type: "anime_trivia", question: "What is love?", answer: "Love is." });
   }
 
 
