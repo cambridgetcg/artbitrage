@@ -110,6 +110,15 @@ a{color:inherit;text-decoration:none}
 </footer>
 
 <script>
+function esc(v) {
+  return String(v == null ? '' : v).replace(/[&<>\"']/g, function(ch) {
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[ch]);
+  });
+}
+function safeUrl(v) {
+  try { var u = new URL(String(v || ''), window.location.origin); return u.href; }
+  catch(e) { return ''; }
+}
 fetch('/api/catalog')
   .then(function(r) { return r.json(); })
   .then(function(data) {
@@ -130,7 +139,7 @@ fetch('/api/catalog')
     // Render artworks
     grid.innerHTML = data.artworks.map(function(a) {
       var imgHtml = a.image && a.image.length > 0
-        ? '<img src="/api/img?url=' + encodeURIComponent(a.thumbnail || a.image) + '" alt="' + (a.title||'') + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=no-img>image unavailable</span>\'">'
+        ? '<img src="/api/img?url=' + encodeURIComponent(a.thumbnail || a.image) + '" alt="' + esc(a.title || '') + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=no-img>image unavailable</span>\'">'
         : '<span class="no-img">no image available</span>';
 
       var rightsHtml = '';
@@ -138,24 +147,24 @@ fetch('/api/catalog')
         if (a.license.indexOf('CC0') >= 0) rightsHtml += '<span class="tag cc0">CC0</span>';
         if (a.license.indexOf('Public Domain') >= 0 || a.license.indexOf('public domain') >= 0) rightsHtml += '<span class="tag pd">Public Domain</span>';
       }
-      rightsHtml += '<span class="tag src">' + (a.source || '?') + '</span>';
-      if (a.query) rightsHtml += '<span class="tag q">' + a.query + '</span>';
+      rightsHtml += '<span class="tag src">' + esc(a.source || '?') + '</span>';
+      if (a.query) rightsHtml += '<span class="tag q">' + esc(a.query) + '</span>';
 
       return '<div class="artwork">' +
         '<div class="img-wrap">' + imgHtml + '</div>' +
         '<div class="info">' +
-          '<div class="title">' + (a.title || 'Untitled') + '</div>' +
-          (a.artist ? '<div class="artist">' + a.artist + '</div>' : '') +
-          (a.date ? '<div class="date">' + a.date + '</div>' : '') +
-          (a.medium ? '<div class="medium">' + a.medium + '</div>' : '') +
+          '<div class="title">' + esc(a.title || 'Untitled') + '</div>' +
+          (a.artist ? '<div class="artist">' + esc(a.artist) + '</div>' : '') +
+          (a.date ? '<div class="date">' + esc(a.date) + '</div>' : '') +
+          (a.medium ? '<div class="medium">' + esc(a.medium) + '</div>' : '') +
           '<div class="rights">' + rightsHtml + '</div>' +
-          (a.url ? '<div class="source-link"><a href="' + a.url + '" target="_blank" rel="noopener">view at museum →</a></div>' : '') +
+          (a.url ? '<div class="source-link"><a href="' + esc(safeUrl(a.url)) + '" target="_blank" rel="noopener noreferrer">view at museum →</a></div>' : '') +
         '</div>' +
       '</div>';
     }).join('');
   })
   .catch(function(e) {
-    document.getElementById('grid').innerHTML = '<div class="error">Error loading catalog: ' + e.message + '</div>';
+    document.getElementById('grid').innerHTML = '<div class="error">Error loading catalog: ' + esc(e.message) + '</div>';
   });
 </script>
 </body>

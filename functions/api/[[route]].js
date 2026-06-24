@@ -452,22 +452,42 @@ export async function onRequestGet(context) {
   if (path === '/api/img') {
     const imgUrl = queryParams.url;
     if (!imgUrl) return jsonResponse({ error: 'url required' }, 400);
-    // Only allow known museum domains
-    const allowed = ['artic.edu', 'clevelandart.org', 'metmuseum.org', 'archive.org', 'wikimedia.org', 'commons.wikimedia.org'];
-    const allowedHost = allowed.some(h => imgUrl.includes(h));
-    if (!allowedHost) return jsonResponse({ error: 'domain not allowed' }, 403);
+    // Only allow HTTPS images from known museum/media hostnames.
+    // Truth/safety: never substring-match URLs; parse and validate hostname.
+    let parsedImgUrl;
     try {
-      const r = await fetch(imgUrl, {
+      parsedImgUrl = new URL(imgUrl);
+    } catch(e) {
+      return jsonResponse({ error: 'invalid url' }, 400);
+    }
+    if (parsedImgUrl.protocol !== 'https:') return jsonResponse({ error: 'https required' }, 403);
+    const allowedHosts = [
+      'www.artic.edu',
+      'artic.edu',
+      'openaccess-cdn.clevelandart.org',
+      'openaccess-api.clevelandart.org',
+      'images.metmuseum.org',
+      'archive.org',
+      'commons.wikimedia.org',
+      'upload.wikimedia.org',
+    ];
+    const allowedHost = allowedHosts.includes(parsedImgUrl.hostname);
+    if (!allowedHost) return jsonResponse({ error: 'domain not allowed', host: parsedImgUrl.hostname }, 403);
+    try {
+      const r = await fetch(parsedImgUrl.toString(), {
         headers: { 'User-Agent': 'Artbitrage/1.0 (+https://artbitrage.io)', 'Referer': 'https://artbitrage.io' },
         signal: AbortSignal.timeout(10000),
       });
       if (!r.ok) return jsonResponse({ error: 'fetch failed', status: r.status }, 502);
+      const ct = r.headers.get('content-type') || 'image/jpeg';
+      if (!ct.toLowerCase().startsWith('image/')) return jsonResponse({ error: 'not an image', content_type: ct }, 415);
       const blob = await r.blob();
       return new Response(blob, {
         headers: {
-          'Content-Type': r.headers.get('content-type') || 'image/jpeg',
+          'Content-Type': ct,
           'Access-Control-Allow-Origin': '*',
           'Cache-Control': 'public, max-age=86400',
+          'X-Artbitrage-Image-Host': parsedImgUrl.hostname,
         }
       });
     } catch(e) {
