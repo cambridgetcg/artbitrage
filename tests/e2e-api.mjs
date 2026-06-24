@@ -104,6 +104,13 @@ try {
   assert.equal(out.res.status, 200);
   assert.ok(out.json.explore.some(link => link.url === '/data/human-feed.md'));
 
+  out = await get('/api/pipeline/feed?limit=9999');
+  assert.equal(out.res.status, 200);
+  assert.equal(out.json.pipeline, 'feed');
+  assert.equal(out.json.max_limit, 50);
+  assert.ok(out.json.limit <= 50);
+  assert.ok(out.json.count <= 50);
+
   const ndjsonRes = await onRequestGet({ request: new Request('https://artbitrage.test/api/pipeline/export?format=ndjson'), env });
   assert.equal(ndjsonRes.status, 200);
   assert.match(ndjsonRes.headers.get('Content-Type'), /application\/x-ndjson/);

@@ -231,7 +231,8 @@ export class ArtbitragePipeline {
   // ── Feed: enriched collection pieces ─────────────────────────
   async feed(limit, env) {
     const collection = await this.loadCollection(env);
-    const pieces = collection.slice(-limit).reverse();
+    const safeLimit = Math.max(1, Math.min(limit || 20, MAX_ENRICH));
+    const pieces = collection.slice(-safeLimit).reverse();
 
     // Light enrichment without AI (structural only for speed)
     const enriched = pieces.map(p => ({
@@ -251,6 +252,8 @@ export class ArtbitragePipeline {
     return {
       pipeline: "feed",
       count: enriched.length,
+      limit: safeLimit,
+      max_limit: MAX_ENRICH,
       total_available: collection.length,
       pieces: enriched,
       fed_at: new Date().toISOString(),

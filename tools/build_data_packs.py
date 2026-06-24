@@ -294,7 +294,7 @@ def build(collection_path: Path, out_dir: Path, human_limit: int) -> dict[str, A
     return manifest
 
 
-def verify(out_dir: Path) -> None:
+def verify(out_dir: Path, collection_path: Path | None = None) -> None:
     manifest_path = out_dir / "manifest.json"
     manifest = json.loads(manifest_path.read_text())
     for info in manifest.get("files", {}).values():
@@ -302,6 +302,17 @@ def verify(out_dir: Path) -> None:
         actual = sha256(path)
         if actual != info["sha256"]:
             raise SystemExit(f"hash mismatch: {path}")
+
+    # Freshness check: static packs must match the current collection, so the
+    # collect→enrich→publish loop can't silently drift after new art is generated.
+    if collection_path and collection_path.exists():
+        current = read_collection(collection_path)
+        packed = manifest.get("stats", {}).get("total_pieces")
+        if packed != len(current):
+            raise SystemExit(
+                f"stale data packs: manifest has {packed} pieces but "
+                f"{collection_path.name} has {len(current)} — run build again"
+            )
     print(f"verified {len(manifest.get('files', {}))} data files")
 
 
@@ -317,7 +328,7 @@ def main() -> None:
         manifest = build(args.collection, args.out, args.human_limit)
         print(f"built {len(manifest['files'])} data files in {args.out}")
     else:
-        verify(args.out)
+        verify(args.out, args.collection)
 
 
 if __name__ == "__main__":

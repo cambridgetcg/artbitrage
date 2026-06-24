@@ -114,7 +114,7 @@ export async function onRequestPost(context) {
 
   // POST /api/pipeline/ingest
   // Ingest external art with enrichment
-  if (path === '/api/pipeline/inggest' || path === '/api/pipeline/ingest') {
+  if (path === '/api/pipeline/ingest' || path === '/api/pipeline/ingest/') {
     let body;
     try { body = await request.json(); }
     catch(e) { return json({ error: 'invalid json' }, 400); }
