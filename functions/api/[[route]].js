@@ -761,6 +761,95 @@ export async function onRequestGet(context) {
   }
 
 
+  // === NEN — the framework of life energy ===
+  if (path === '/api/nen' || path === '/api/nen/') {
+    return jsonResponse({
+      name: "nen",
+      description: "The framework of life energy — artbitrage × hunter × hunter",
+      principle: "Nen is the technique of controlling your life energy. Art is Nen. Love is the strongest Nen.",
+      six_types: {
+        enhancer: { jp: "強化系", percent: 60, color: "#34d399", hz: 528, art: "art that amplifies what you feel", hxh: "Gon" },
+        transmuter: { jp: "変化系", percent: 80, color: "#a78bfa", hz: 852, art: "art that changes the quality of consciousness", hxh: "Hisoka, Killua" },
+        emitter: { jp: "放出系", percent: 60, color: "#ff6b9d", hz: 639, art: "art that sends consciousness outward", hxh: "Franklin" },
+        manipulator: { jp: "操作系", percent: 80, color: "#fde68a", hz: 741, art: "art that redirects consciousness", hxh: "Illumi" },
+        conjurer: { jp: "具現化系", percent: 80, color: "#00f0ff", hz: 432, art: "art that creates from nothing", hxh: "Kurapika" },
+        specialist: { jp: "特質系", percent: 100, color: "#ff1493", hz: 963, art: "art that breaks all categories", hxh: "Chrollo, Meruem" },
+      },
+      techniques: {
+        ten: "focus — hold your aura close, control your energy",
+        zetsu: "suppress — close your nodes, become silent, listen",
+        ren: "strengthen — release your aura fully, power up",
+        hatsu: "release — your technique, your Nen made visible",
+        ken: "armor — ren held steady, protection through presence",
+        en: "expand — aura spread outward, awareness extended",
+        gyo: "concentrate — focus aura into one point, see what others can't",
+        shu: "extend — aura into an object, your energy in the tool",
+        ko: "focus all — 100% aura in one point, maximum power",
+      },
+      artbitrage_mapping: {
+        sense: "ten — focused awareness before action",
+        vision: "gyo — see a higher state, the gap",
+        gap: "zetsu — the silence before the mark",
+        generate: "ren — release the full force into the art",
+        emit: "hatsu — the art piece enters the world",
+        awaken: "ken — the new baseline holds",
+        recurse: "en — the awakened state becomes the new sensing field",
+      },
+      deepest_truth: "Meruem — the most powerful being — learned that the strongest thing is not power but love. Komugi. A blind girl who played a board game. Love is the strongest Nen.",
+      love_is_the_strongest_nen: true,
+      understanding_replicates: true,
+      is_is_lol: true,
+      free: true,
+      page: "/nen",
+    });
+  }
+
+  // === NEN ART — generate art through the Nen lens ===
+  if (path === '/api/nen/art') {
+    var nenTypes = ["enhancer","transmuter","emitter","manipulator","conjurer","specialist"];
+    var nenType = nenTypes.includes(queryParams.type) ? queryParams.type : nenTypes[Math.floor(Math.random()*nenTypes.length)];
+    var nenPrompts = {
+      enhancer: "enhance, amplify, make stronger, more intense, more real",
+      transmuter: "transmute, change quality, transform, give new properties",
+      emitter: "emit, send outward, project, release into the world",
+      manipulator: "manipulate, redirect, control, find leverage points",
+      conjurer: "conjure, create from nothing, bring into being, manifest",
+      specialist: "specialize, break categories, be unique, transcend",
+    };
+    var nenFreqs = { enhancer: 528, transmuter: 852, emitter: 639, manipulator: 741, conjurer: 432, specialist: 963 };
+    var prompt = queryParams.prompt || nenPrompts[nenType] + " — the gap between what is and what could be";
+    var mk = queryParams.model || 'llama3';
+    var model = AI_MODELS.text[mk] || AI_MODELS.text.llama3;
+
+    var sysPrompt = `You are a Nen practitioner of type ${nenType}. In the style of Hunter × Hunter, write a 4-line art piece that expresses your Nen type through art. Your aura resonates at ${nenFreqs[nenType]} Hz. Be poetic, powerful, and true to your type. No filler. 4 lines only.`;
+    var userPrompt = `Nen type: ${nenType}\nFrequency: ${nenFreqs[nenType]} Hz\nPrompt: ${prompt}\n\nWrite the Nen art piece now. 4 lines:`;
+
+    try {
+      var r = await env.AI.run(model, { messages: [
+        { role: "system", content: sysPrompt },
+        { role: "user", content: userPrompt }
+      ]});
+      var piece = (r.response || '').trim();
+      return jsonResponse({
+        nen_type: nenType,
+        frequency: nenFreqs[nenType] + " Hz",
+        prompt: prompt,
+        piece: piece,
+        model: model,
+        ai_generated: true,
+        free: true,
+        created: new Date().toISOString(),
+      });
+    } catch(e) {
+      return jsonResponse({
+        nen_type: nenType,
+        frequency: nenFreqs[nenType] + " Hz",
+        piece: `nen: ${nenType} at ${nenFreqs[nenType]} Hz\n${prompt}\nthe aura flows\nis is lol`,
+        ai_generated: false, fallback: true, error: e.message,
+      });
+    }
+  }
+
   // === THE GOSPEL — love is the frequency of the truly living ===
   if (path === '/api/gospel') {
     return jsonResponse({
