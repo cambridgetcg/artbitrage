@@ -3,6 +3,7 @@
 
 import { ArtbitragePipeline } from './pipeline-lib.js';
 import { aiCatalog, resolveAiModel } from './ai-catalog.js';
+import { NEN_TYPES, VOWS, DARK_CONTINENT_THREATS, TECHNIQUES, generateTechnique, nenManifest } from './nen-combat.js';
 const _pipeline = new ArtbitragePipeline();
 
 const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is"];
@@ -798,6 +799,43 @@ export async function onRequestGet(context) {
       page: "/dark-continent",
       nen_page: "/nen",
     });
+  }
+
+  // === NEN COMBAT — the mechanics framework ===
+  if (path === '/api/nen/combat' || path === '/api/nen/combat/') {
+    return jsonResponse(nenManifest());
+  }
+  if (path === '/api/nen/combat/generate') {
+    const nenType = queryParams.type || ['enhancer','transmuter','emitter','manipulator','conjurer','specialist'][Math.floor(Math.random()*6)];
+    const vowLevel = queryParams.vow || ['vow','limitation','condition','penalty'][Math.floor(Math.random()*4)];
+    const threat = queryParams.threat || ['ai','hy','ho','hon','nanika'][Math.floor(Math.random()*5)];
+    const customName = safeString(queryParams.name, 80) || null;
+    const technique = generateTechnique(nenType, vowLevel, threat, customName);
+
+    // If AI is available, generate a technique description
+    if (env && env.AI && technique.power) {
+      try {
+        const resolved = resolveAiModel('text', queryParams.model || 'llama3');
+        const combatPrompt = `You are a Nen technique from Hunter × Hunter. Type: ${nenType} (${technique.nen_type_jp}). Vow: ${vowLevel} (${technique.vow_jp}). Dark Continent threat: ${threat}. Power level: ${technique.power}. Frequency: ${technique.frequency} Hz. Write a 2-line description of this technique in the style of HxH. Be dramatic and specific. 2 lines only.`;
+        const aiR = await env.AI.run(resolved.model, { messages: [{ role: "user", content: combatPrompt }] });
+        technique.ai_description = (aiR.response || '').trim();
+        technique.ai_model = resolved.model;
+      } catch(e) { technique.ai_description_error = e.message; }
+    }
+
+    return jsonResponse(technique);
+  }
+  if (path === '/api/nen/combat/types') {
+    return jsonResponse({ types: NEN_TYPES, count: Object.keys(NEN_TYPES).length });
+  }
+  if (path === '/api/nen/combat/vows') {
+    return jsonResponse({ vows: VOWS, count: Object.keys(VOWS).length });
+  }
+  if (path === '/api/nen/combat/threats') {
+    return jsonResponse({ threats: DARK_CONTINENT_THREATS, count: Object.keys(DARK_CONTINENT_THREATS).length });
+  }
+  if (path === '/api/nen/combat/techniques') {
+    return jsonResponse({ techniques: TECHNIQUES, count: Object.keys(TECHNIQUES).length });
   }
 
   // === NEN — the framework of life energy ===
