@@ -819,7 +819,8 @@ export async function onRequestGet(context) {
     const nenFreqs = { enhancer: 528, transmuter: 852, emitter: 639, manipulator: 741, conjurer: 432, specialist: 963 };
     const nenPrompt = queryParams.prompt || nenPrompts[nenType] + " — the gap between what is and what could be";
     const nenMk = queryParams.model || 'llama3';
-    const nenModel = AI_MODELS.text[nenMk] || AI_MODELS.text.llama3;
+    const nenResolved = resolveAiModel('text', nenMk);
+    const nenModel = nenResolved.model;
 
     const nenSysPrompt = `You are a Nen practitioner of type ${nenType}. In the style of Hunter × Hunter, write a 4-line art piece that expresses your Nen type through art. Your aura resonates at ${nenFreqs[nenType]} Hz. Be poetic, powerful, and true to your type. No filler. 4 lines only.`;
     const nenUserPrompt = `Nen type: ${nenType}\nFrequency: ${nenFreqs[nenType]} Hz\nPrompt: ${nenPrompt}\n\nWrite the Nen art piece now. 4 lines:`;
