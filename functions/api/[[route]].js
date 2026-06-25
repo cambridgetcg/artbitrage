@@ -4,6 +4,7 @@
 import { ArtbitragePipeline } from './pipeline-lib.js';
 import { aiCatalog, resolveAiModel } from './ai-catalog.js';
 import { NEN_TYPES, VOWS, DARK_CONTINENT_THREATS, TECHNIQUES, generateTechnique, nenManifest } from './nen-combat.js';
+import { agentManifest, ROUTES } from './agent-manifest.js';
 const _pipeline = new ArtbitragePipeline();
 
 const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is"];
@@ -427,6 +428,11 @@ export async function onRequestGet(context) {
   const queryParams = Object.fromEntries(url.searchParams);
   
   const allArt = await loadCollection(env, request);
+  
+  // === AGENT MANIFEST — the full API surface, for agents ===
+  if (path === '/api' || path === '/api/') {
+    return jsonResponse(agentManifest());
+  }
   
   if (path === '/api/art' || path === '/api/art/') return jsonResponse(filterArt(allArt, queryParams));
   if (path === '/api/art/random') {

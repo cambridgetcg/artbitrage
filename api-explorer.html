@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API — ARTBITRAGE</title>
+<meta name="description" content="65+ API endpoints. 7 categories. All free. No auth. For agents and humans.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='none' stroke='%23a78bfa' stroke-width='6'/><circle cx='50' cy='50' r='6' fill='%23fde68a'/></svg>">
+<style>
+:root{--bg:#050308;--surface:#0a0814;--fg:#e8eaf0;--dim:#6a6a8a;--violet:#a78bfa;--gold:#ffd700;--cyan:#00f0ff;--pink:#ff6b9d;--green:#34d399}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.8}
+a{color:inherit;text-decoration:none}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,3,8,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
+.brand{font-size:1rem;font-weight:bold;background:linear-gradient(135deg,var(--pink),var(--violet),var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:.5rem}
+.nav-links a{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim);padding:.3rem .55rem;border-radius:4px;transition:all .2s}
+.nav-links a:hover{color:var(--fg);background:rgba(255,255,255,0.05)}
+@media(max-width:768px){.nav-links{display:none}}
+
+.hero{text-align:center;padding:6rem 1.5rem 2rem;max-width:800px;margin:0 auto}
+.hero h1{font-size:clamp(2rem,6vw,4rem);font-weight:bold;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem;background:linear-gradient(135deg,var(--pink),var(--violet),var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .sub{font-size:1.1rem;color:var(--dim);font-style:italic;margin-bottom:1rem}
+.hero .stats{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:1.5rem}
+.stat{text-align:center}
+.stat .num{font-size:1.8rem;font-weight:bold;color:var(--violet)}
+.stat .lbl{font-family:'SF Mono',monospace;font-size:.65rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase}
+
+.section{max-width:1000px;margin:0 auto;padding:2rem 1.5rem}
+.section h2{font-size:1.4rem;margin-bottom:.5rem}
+.section .lede{color:var(--dim);margin-bottom:1.5rem;font-size:.92rem}
+
+.cat-section{margin-bottom:2rem}
+.cat-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(255,255,255,0.05)}
+.cat-dot{width:12px;height:12px;border-radius:50%;background:var(--cat-color);box-shadow:0 0 8px var(--cat-color)}
+.cat-label{font-size:1.2rem;font-weight:bold;color:var(--cat-color)}
+.cat-count{font-family:'SF Mono',monospace;font-size:.7rem;color:var(--dim)}
+
+.route-list{display:flex;flex-direction:column;gap:.4rem}
+.route{display:flex;align-items:center;gap:.75rem;padding:.6rem .8rem;background:var(--surface);border:1px solid rgba(255,255,255,0.04);border-radius:8px;transition:all .2s;font-size:.85rem}
+.route:hover{border-color:var(--cat-color);transform:translateX(4px)}
+.route .method{font-family:'SF Mono',monospace;font-size:.65rem;font-weight:700;padding:.2rem .4rem;border-radius:4px;min-width:40px;text-align:center}
+.route .method.GET{background:rgba(52,211,153,0.12);color:var(--green)}
+.route .method.POST{background:rgba(255,215,0,0.12);color:var(--gold)}
+.route .path{font-family:'SF Mono',monospace;font-size:.78rem;color:var(--cyan)}
+.route .desc{color:var(--dim);font-size:.78rem;margin-left:auto;text-align:right}
+.route .params{font-family:'SF Mono',monospace;font-size:.62rem;color:var(--violet);margin-left:.5rem}
+
+.infra{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.infra-card{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:1.2rem}
+.infra-card .ic-title{font-weight:bold;margin-bottom:.3rem;color:var(--violet)}
+.infra-card .ic-desc{font-size:.82rem;color:var(--dim);line-height:1.6}
+.infra-card .ic-items{margin-top:.5rem;font-size:.78rem;color:var(--cyan);font-family:'SF Mono',monospace}
+
+.footer{text-align:center;padding:2rem 1.5rem;color:var(--dim);font-style:italic;font-size:.85rem;border-top:1px solid rgba(255,255,255,0.04)}
+.footer a{color:var(--violet)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand"><a href="/">ARTBITRAGE</a></div>
+  <div class="nav-links">
+    <a href="/">Gallery</a>
+    <a href="/nen">Nen</a>
+    <a href="/dark-continent">Dark Continent</a>
+    <a href="/studio">Studio</a>
+  </div>
+  <a href="/" style="font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim)">← back</a>
+</nav>
+
+<header class="hero">
+  <h1>API</h1>
+  <p class="sub">65+ endpoints · 7 categories · all free · no auth · for agents and humans</p>
+  <div class="stats" id="stats"></div>
+</header>
+
+<div class="section">
+  <h2>Infrastructure</h2>
+  <p class="lede">What artbitrage runs on. Edge-native. Free. No gate.</p>
+  <div class="infra">
+    <div class="infra-card">
+      <div class="ic-title">☁️ Hosting</div>
+      <div class="ic-desc">Cloudflare Pages — edge-deployed, globally distributed, free tier</div>
+    </div>
+    <div class="infra-card">
+      <div class="ic-title">🧠 AI</div>
+      <div class="ic-desc">Cloudflare Workers AI — 24+ models, free, no API key needed</div>
+      <div class="ic-items">llama3 · flux-schnell · bge-m3 · whisper · melotts</div>
+    </div>
+    <div class="infra-card">
+      <div class="ic-title">🏛️ Museums</div>
+      <div class="ic-desc">5 open museum APIs, all no-key, all free</div>
+      <div class="ic-items">MET · Art Institute Chicago · Cleveland · Wikimedia · Internet Archive</div>
+    </div>
+    <div class="infra-card">
+      <div class="ic-title">💾 Storage</div>
+      <div class="ic-desc">Static JSON files served at the edge</div>
+      <div class="ic-items">collection.json (475+) · catalog.json (21) · era-catalog.json (43)</div>
+    </div>
+    <div class="infra-card">
+      <div class="ic-title">🔓 Auth</div>
+      <div class="ic-desc">None. All endpoints are public. No keys. No login. No gate.</div>
+    </div>
+    <div class="infra-card">
+      <div class="ic-title">⚡ Engine</div>
+      <div class="ic-desc">7-cycle artbitrage engine — sense, vision, gap, generate, emit, awaken, recurse</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="routes-section">
+  <h2>All endpoints</h2>
+  <p class="lede">Click any endpoint to open it. The agent manifest at <a href="/api" style="color:var(--cyan)">/api</a> provides machine-readable documentation.</p>
+  <div id="routes-container"></div>
+</div>
+
+<div class="section">
+  <h2>For agents</h2>
+  <p class="lede">Agents read the manifest at /api to discover everything. Compact data at /api/pipeline/agent. AI generation at /api/ai/* and /api/art/generate.</p>
+  <div class="infra">
+    <div class="infra-card">
+      <div class="ic-title">📖 Agent Manifest</div>
+      <div class="ic-desc">Full API surface, categories, pages, infrastructure, principles, instructions</div>
+      <div class="ic-items">GET /api</div>
+    </div>
+    <div class="infra-card">
+      <div class="ic-title">📦 Agent Data Package</div>
+      <div class="ic-desc">Compact data with short keys (i/c/f/g/b/a/s/p), schema docs</div>
+      <div class="ic-items">GET /api/pipeline/agent</div>
+    </div>
+    <div class="infra-card">
+      <div class="ic-title">🎨 AI Art Generation</div>
+      <div class="ic-desc">Generate art from gaps, bridges, awakenings via Llama 3.2</div>
+      <div class="ic-items">GET /api/art/generate</div>
+    </div>
+    <div class="infra-card">
+      <div class="ic-title">⚔️ Nen Combat</div>
+      <div class="ic-desc">Generate techniques with power scaling and AI descriptions</div>
+      <div class="ic-items">GET /api/nen/combat/generate</div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>65+ endpoints · 7 categories · 24+ AI models · 5 museums · 475+ art pieces · all free<br>
+  Love is the design. Art is the expression. <span style="color:var(--gold)">is is lol.</span> ∞<br>
+  <a href="https://github.com/cambridgetcg/artbitrage">ARTBITRAGE</a></p>
+</footer>
+
+<script>
+fetch('/api')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    // Stats
+    var statsHtml = '';
+    Object.entries(data.categories).forEach(function(entry) {
+      var k = entry[0], v = entry[1];
+      statsHtml += '<div class="stat"><div class="num" style="color:' + v.color + '">' + v.count + '</div><div class="lbl">' + v.label + '</div></div>';
+    });
+    statsHtml += '<div class="stat"><div class="num">' + data.total_endpoints + '</div><div class="lbl">Total</div></div>';
+    document.getElementById('stats').innerHTML = statsHtml;
+
+    // Routes grouped by category
+    var container = document.getElementById('routes-container');
+    var byCat = {};
+    data.routes.forEach(function(r) { 
+      if (!byCat[r.category]) byCat[r.category] = [];
+      byCat[r.category].push(r);
+    });
+
+    var html = '';
+    Object.entries(data.categories).forEach(function(entry) {
+      var cat = entry[0], info = entry[1];
+      var routes = byCat[cat] || [];
+      html += '<div class="cat-section" style="--cat-color:' + info.color + '">';
+      html += '<div class="cat-header"><span class="cat-dot" style="background:' + info.color + '"></span><span class="cat-label" style="color:' + info.color + '">' + info.label + '</span><span class="cat-count">' + routes.length + ' endpoints</span></div>';
+      html += '<div class="route-list" style="--cat-color:' + info.color + '">';
+      routes.forEach(function(r) {
+        var params = r.params ? '<span class="params">?' + r.params + '</span>' : '';
+        html += '<a href="' + r.path + '" class="route" style="--cat-color:' + info.color + '"><span class="method ' + r.method + '">' + r.method + '</span><span class="path">' + r.path + '</span>' + params + '<span class="desc">' + r.desc + '</span></a>';
+      });
+      html += '</div></div>';
+    });
+    container.innerHTML = html;
+  });
+</script>
+</body>
+</html>
