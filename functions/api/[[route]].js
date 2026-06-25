@@ -806,9 +806,9 @@ export async function onRequestGet(context) {
 
   // === NEN ART — generate art through the Nen lens ===
   if (path === '/api/nen/art') {
-    var nenTypes = ["enhancer","transmuter","emitter","manipulator","conjurer","specialist"];
-    var nenType = nenTypes.includes(queryParams.type) ? queryParams.type : nenTypes[Math.floor(Math.random()*nenTypes.length)];
-    var nenPrompts = {
+    const nenTypes = ["enhancer","transmuter","emitter","manipulator","conjurer","specialist"];
+    const nenType = nenTypes.includes(queryParams.type) ? queryParams.type : nenTypes[Math.floor(Math.random()*nenTypes.length)];
+    const nenPrompts = {
       enhancer: "enhance, amplify, make stronger, more intense, more real",
       transmuter: "transmute, change quality, transform, give new properties",
       emitter: "emit, send outward, project, release into the world",
@@ -816,26 +816,26 @@ export async function onRequestGet(context) {
       conjurer: "conjure, create from nothing, bring into being, manifest",
       specialist: "specialize, break categories, be unique, transcend",
     };
-    var nenFreqs = { enhancer: 528, transmuter: 852, emitter: 639, manipulator: 741, conjurer: 432, specialist: 963 };
-    var prompt = queryParams.prompt || nenPrompts[nenType] + " — the gap between what is and what could be";
-    var mk = queryParams.model || 'llama3';
-    var model = AI_MODELS.text[mk] || AI_MODELS.text.llama3;
+    const nenFreqs = { enhancer: 528, transmuter: 852, emitter: 639, manipulator: 741, conjurer: 432, specialist: 963 };
+    const nenPrompt = queryParams.prompt || nenPrompts[nenType] + " — the gap between what is and what could be";
+    const nenMk = queryParams.model || 'llama3';
+    const nenModel = AI_MODELS.text[nenMk] || AI_MODELS.text.llama3;
 
-    var sysPrompt = `You are a Nen practitioner of type ${nenType}. In the style of Hunter × Hunter, write a 4-line art piece that expresses your Nen type through art. Your aura resonates at ${nenFreqs[nenType]} Hz. Be poetic, powerful, and true to your type. No filler. 4 lines only.`;
-    var userPrompt = `Nen type: ${nenType}\nFrequency: ${nenFreqs[nenType]} Hz\nPrompt: ${prompt}\n\nWrite the Nen art piece now. 4 lines:`;
+    const nenSysPrompt = `You are a Nen practitioner of type ${nenType}. In the style of Hunter × Hunter, write a 4-line art piece that expresses your Nen type through art. Your aura resonates at ${nenFreqs[nenType]} Hz. Be poetic, powerful, and true to your type. No filler. 4 lines only.`;
+    const nenUserPrompt = `Nen type: ${nenType}\nFrequency: ${nenFreqs[nenType]} Hz\nPrompt: ${nenPrompt}\n\nWrite the Nen art piece now. 4 lines:`;
 
     try {
-      var r = await env.AI.run(model, { messages: [
-        { role: "system", content: sysPrompt },
-        { role: "user", content: userPrompt }
+      const nenR = await env.AI.run(nenModel, { messages: [
+        { role: "system", content: nenSysPrompt },
+        { role: "user", content: nenUserPrompt }
       ]});
-      var piece = (r.response || '').trim();
+      const nenPiece = (nenR.response || '').trim();
       return jsonResponse({
         nen_type: nenType,
         frequency: nenFreqs[nenType] + " Hz",
-        prompt: prompt,
-        piece: piece,
-        model: model,
+        prompt: nenPrompt,
+        piece: nenPiece,
+        model: nenModel,
         ai_generated: true,
         free: true,
         created: new Date().toISOString(),
@@ -844,7 +844,7 @@ export async function onRequestGet(context) {
       return jsonResponse({
         nen_type: nenType,
         frequency: nenFreqs[nenType] + " Hz",
-        piece: `nen: ${nenType} at ${nenFreqs[nenType]} Hz\n${prompt}\nthe aura flows\nis is lol`,
+        piece: `nen: ${nenType} at ${nenFreqs[nenType]} Hz\n${nenPrompt}\nthe aura flows\nis is lol`,
         ai_generated: false, fallback: true, error: e.message,
       });
     }
