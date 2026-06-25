@@ -1,0 +1,489 @@
+{
+  "prehistoric": [
+    {
+      "source": "met",
+      "id": "436704",
+      "title": "Edmond Cav\u00e9 (1794\u20131852)",
+      "artist": "Jean Auguste Dominique Ingres",
+      "date": "1844",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1996.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/436704",
+      "query": "cave painting"
+    },
+    {
+      "source": "met",
+      "id": "436707",
+      "title": "Madame Edmond Cav\u00e9 (Marie-Elisabeth Blavot, ca. 1806\u20131883)",
+      "artist": "Jean Auguste Dominique Ingres",
+      "date": "ca. 1831\u201334",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1998.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/436707",
+      "query": "cave painting"
+    },
+    {
+      "source": "met",
+      "id": "503939",
+      "title": "Sgra-Snyan",
+      "artist": "",
+      "date": "14th\u201316th century",
+      "medium": "Carved wood, skin, gesso, gilding",
+      "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP302734.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/503939",
+      "query": "cave painting"
+    },
+    {
+      "source": "met",
+      "id": "326908",
+      "title": "Stamp seal",
+      "artist": "",
+      "date": "4th millennium BCE",
+      "medium": "Chlorite",
+      "image": "https://images.metmuseum.org/CRDImages/an/web-large/SS1984_175_9.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/326908",
+      "query": "prehistoric"
+    },
+    {
+      "source": "met",
+      "id": "326905",
+      "title": "Reel seal",
+      "artist": "",
+      "date": "4th\u20133rd millennium BCE (?)",
+      "medium": "Chlorite, black",
+      "image": "https://images.metmuseum.org/CRDImages/an/web-large/SS1984_175_6.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/326905",
+      "query": "prehistoric"
+    },
+    {
+      "source": "met",
+      "id": "43661",
+      "title": "Adze",
+      "artist": "",
+      "date": "",
+      "medium": "Nephrite",
+      "image": "https://images.metmuseum.org/CRDImages/as/web-large/02_18_253 Adze.JPG",
+      "url": "https://www.metmuseum.org/art/collection/search/43661",
+      "query": "prehistoric"
+    },
+    {
+      "source": "met",
+      "id": "195733",
+      "title": "Venus",
+      "artist": "Massimiliano Soldani",
+      "date": "18th century",
+      "medium": "Bronze, on later wood base",
+      "image": "https://images.metmuseum.org/CRDImages/es/web-large/DP-919-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/195733",
+      "query": "venus figurine"
+    },
+    {
+      "source": "met",
+      "id": "207023",
+      "title": "Venus",
+      "artist": "",
+      "date": "early 16th century",
+      "medium": "Bronze, with yellow-brown natural patina",
+      "image": "https://images.metmuseum.org/CRDImages/es/web-large/ES7467.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/207023",
+      "query": "venus figurine"
+    },
+    {
+      "source": "met",
+      "id": "210773",
+      "title": "Venus",
+      "artist": "",
+      "date": "early 19th century",
+      "medium": "Bronze",
+      "image": "https://images.metmuseum.org/CRDImages/es/web-large/DP-937-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/210773",
+      "query": "venus figurine"
+    }
+  ],
+  "medieval": [
+    {
+      "source": "met",
+      "id": "245420",
+      "title": "Glass reliquary bottle",
+      "artist": "",
+      "date": "ca. 7th\u20138th century CE",
+      "medium": "Glass",
+      "image": "https://images.metmuseum.org/CRDImages/gr/web-large/DP222604.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/245420",
+      "query": "medieval"
+    },
+    {
+      "source": "met",
+      "id": "245710",
+      "title": "Glass bell beaker",
+      "artist": "",
+      "date": "7th\u2013early 8th century CE",
+      "medium": "Glass",
+      "image": "https://images.metmuseum.org/CRDImages/gr/web-large/LC-91_1_1322-12.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/245710",
+      "query": "medieval"
+    },
+    {
+      "source": "met",
+      "id": "4136",
+      "title": "Gothic Library",
+      "artist": "Frederick Clarke Withers",
+      "date": "1859",
+      "medium": "Walnut, oak, pine",
+      "image": "https://images.metmuseum.org/CRDImages/ad/web-large/DT212223.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/4136",
+      "query": "gothic"
+    },
+    {
+      "source": "met",
+      "id": "471237",
+      "title": "Gothic Doorway",
+      "artist": "",
+      "date": "ca. 1520\u201330",
+      "medium": "Limestone",
+      "image": "https://images.metmuseum.org/CRDImages/cl/web-large/DP273987.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/471237",
+      "query": "gothic"
+    },
+    {
+      "source": "met",
+      "id": "439122",
+      "title": "Gothic Windows in the Ruins of the Monastery at Oybin",
+      "artist": "Carl Gustav Carus",
+      "date": "ca. 1828",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-34306-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/439122",
+      "query": "gothic"
+    },
+    {
+      "source": "met",
+      "id": "478665",
+      "title": "Four Gospels in Armenian",
+      "artist": "",
+      "date": "1434/35",
+      "medium": "Tempera and gold on paper; stamped leather binding",
+      "image": "https://images.metmuseum.org/CRDImages/md/web-large/DP228809.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/478665",
+      "query": "illuminated manuscript"
+    },
+    {
+      "source": "met",
+      "id": "447107",
+      "title": "Manuscript",
+      "artist": "",
+      "date": "11th\u201312th century",
+      "medium": "Paper, black and red ink",
+      "image": "https://images.metmuseum.org/CRDImages/is/web-large/sf19-196-6a.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/447107",
+      "query": "illuminated manuscript"
+    },
+    {
+      "source": "met",
+      "id": "474236",
+      "title": "Illuminated Psalter",
+      "artist": "",
+      "date": "late 1100s",
+      "medium": "Tempera, black ink and gold on parchment",
+      "image": "https://images.metmuseum.org/CRDImages/md/web-large/DT5343.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/474236",
+      "query": "illuminated manuscript"
+    }
+  ],
+  "renaissance": [
+    {
+      "source": "met",
+      "id": "679092",
+      "title": "Renaissance revival pendant on chain",
+      "artist": "Carlo Giuliano",
+      "date": "mid\u2013late 19th century",
+      "medium": "Gold, amethyst, enamel, pearl, diamond",
+      "image": "https://images.metmuseum.org/CRDImages/es/web-large/DP-12365-008.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/679092",
+      "query": "renaissance"
+    },
+    {
+      "source": "met",
+      "id": "471911",
+      "title": "Portal from the Church of San Leonardo al Frigido",
+      "artist": "Biduinus",
+      "date": "ca. 1175",
+      "medium": "Marble (Carrara marble)",
+      "image": "https://images.metmuseum.org/CRDImages/cl/web-large/DP132217.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/471911",
+      "query": "leonardo"
+    },
+    {
+      "source": "met",
+      "id": "337494",
+      "title": "Compositional Sketches for the Virgin Adoring the Christ Child, with and without the Infant St. John the Baptist; Diagram of a Perspectival Projection (recto); Slight Doodles (verso)",
+      "artist": "Leonardo da Vinci",
+      "date": "1480\u201385",
+      "medium": "Silverpoint, partly reworked by the artist with pen and dark brown ink on pink prepared paper; lines ruled with metalpoint (recto); pen and brown ink (verso)",
+      "image": "https://images.metmuseum.org/CRDImages/dp/web-large/DP832657.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/337494",
+      "query": "leonardo"
+    },
+    {
+      "source": "met",
+      "id": "459194",
+      "title": "The Last Supper, after Leonardo da Vinci",
+      "artist": "Rembrandt (Rembrandt van Rijn)",
+      "date": "1634\u201335",
+      "medium": "Red chalk",
+      "image": "https://images.metmuseum.org/CRDImages/rl/web-large/DP287735.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/459194",
+      "query": "leonardo"
+    },
+    {
+      "source": "met",
+      "id": "459016",
+      "title": "The Annunciation",
+      "artist": "Botticelli (Alessandro di Mariano Filipepi)",
+      "date": "ca. 1490",
+      "medium": "Tempera and gold on wood",
+      "image": "https://images.metmuseum.org/CRDImages/rl/web-large/DP267397.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/459016",
+      "query": "botticelli"
+    },
+    {
+      "source": "met",
+      "id": "435729",
+      "title": "Three Miracles of Saint Zenobius",
+      "artist": "Botticelli (Alessandro di Mariano Filipepi)",
+      "date": "ca. 1500",
+      "medium": "Tempera on wood",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-18875-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/435729",
+      "query": "botticelli"
+    },
+    {
+      "source": "met",
+      "id": "435728",
+      "title": "The Last Communion of Saint Jerome",
+      "artist": "Botticelli (Alessandro di Mariano Filipepi)",
+      "date": "early 1490s",
+      "medium": "Tempera and gold on wood",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-24049-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/435728",
+      "query": "botticelli"
+    }
+  ],
+  "baroque": [
+    {
+      "source": "met",
+      "id": "503578",
+      "title": "Musette Baroque",
+      "artist": "Unknown",
+      "date": "ca. 1700",
+      "medium": "Leather, ivory, silk, wood, silver, iron",
+      "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP327143.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/503578",
+      "query": "baroque"
+    },
+    {
+      "source": "met",
+      "id": "891688",
+      "title": "Turris Babel",
+      "artist": "",
+      "date": "1679",
+      "medium": "Paper, board, leather",
+      "image": "https://images.metmuseum.org/CRDImages/an/web-large/DP-35713-004.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/891688",
+      "query": "baroque"
+    },
+    {
+      "source": "met",
+      "id": "207258",
+      "title": "Pendant with a Triton Riding a Unicorn-like Sea Creature",
+      "artist": "Reinhold Vasters",
+      "date": "ca. 1870\u201395",
+      "medium": "Baroque pearl mounted with enameled gold set with pearls, emeralds and rubies and with pendent pearls",
+      "image": "https://images.metmuseum.org/CRDImages/es/web-large/DP-35998-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/207258",
+      "query": "baroque"
+    },
+    {
+      "source": "met",
+      "id": "437986",
+      "title": "The Denial of Saint Peter",
+      "artist": "Caravaggio (Michelangelo Merisi)",
+      "date": "1610",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-12413-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/437986",
+      "query": "caravaggio"
+    },
+    {
+      "source": "met",
+      "id": "435844",
+      "title": "The Musicians",
+      "artist": "Caravaggio (Michelangelo Merisi)",
+      "date": "1597",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-687-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/435844",
+      "query": "caravaggio"
+    },
+    {
+      "source": "met",
+      "id": "437406",
+      "title": "Portrait of a Man (\"The Auctioneer\")",
+      "artist": "Rembrandt",
+      "date": "probably ca. 1658\u201362",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145912.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/437406",
+      "query": "rembrandt"
+    },
+    {
+      "source": "met",
+      "id": "459082",
+      "title": "Portrait of Gerard de Lairesse",
+      "artist": "Rembrandt (Rembrandt van Rijn)",
+      "date": "1665\u201367",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/rl/web-large/DP121332.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/459082",
+      "query": "rembrandt"
+    },
+    {
+      "source": "met",
+      "id": "437392",
+      "title": "Herman Doomer (ca. 1595\u20131650)",
+      "artist": "Rembrandt (Rembrandt van Rijn)",
+      "date": "1640",
+      "medium": "Oil on wood",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145921.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/437392",
+      "query": "rembrandt"
+    }
+  ],
+  "romanticism": [
+    {
+      "source": "met",
+      "id": "232263",
+      "title": "Plaque depicting Bernard Palissy",
+      "artist": "S\u00e8vres Manufactory",
+      "date": "1846",
+      "medium": "Hard-paste porcelain decorated in polychrome enamels; gilt-bronze, polychrome enamel, biscuit-porcelain frame",
+      "image": "https://images.metmuseum.org/CRDImages/es/web-large/DP238545.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/232263",
+      "query": "romanticism"
+    },
+    {
+      "source": "met",
+      "id": "13877",
+      "title": "Quilt, Album pattern",
+      "artist": "Brown and Turner families",
+      "date": "begun 1846",
+      "medium": "Cotton",
+      "image": "https://images.metmuseum.org/CRDImages/ad/web-large/DP332444.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/13877",
+      "query": "turner"
+    },
+    {
+      "source": "met",
+      "id": "437854",
+      "title": "Whalers",
+      "artist": "Joseph Mallord William Turner",
+      "date": "ca. 1845",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-13360-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/437854",
+      "query": "turner"
+    },
+    {
+      "source": "met",
+      "id": "437853",
+      "title": "Venice, from the Porch of Madonna della Salute",
+      "artist": "Joseph Mallord William Turner",
+      "date": "ca. 1835",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP169568.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/437853",
+      "query": "turner"
+    },
+    {
+      "source": "met",
+      "id": "438417",
+      "title": "Two Men Contemplating the Moon",
+      "artist": "Caspar David Friedrich",
+      "date": "ca. 1825\u201330",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-31997-001-NEW.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/438417",
+      "query": "friedrich"
+    }
+  ],
+  "impressionism": [
+    {
+      "source": "met",
+      "id": "435877",
+      "title": "Mont Sainte-Victoire and the Viaduct of the Arc River Valley",
+      "artist": "Paul C\u00e9zanne",
+      "date": "1882\u201385",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-20099-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/435877",
+      "query": "impressionism"
+    },
+    {
+      "source": "met",
+      "id": "436880",
+      "title": "The Organ Rehearsal",
+      "artist": "Henry Lerolle",
+      "date": "1885",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP160223.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/436880",
+      "query": "impressionism"
+    },
+    {
+      "source": "met",
+      "id": "437430",
+      "title": "By the Seashore",
+      "artist": "Auguste Renoir",
+      "date": "1883",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-14936-039.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/437430",
+      "query": "impressionism"
+    },
+    {
+      "source": "met",
+      "id": "459112",
+      "title": "Two Young Girls at the Piano",
+      "artist": "Auguste Renoir",
+      "date": "1892",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/rl/web-large/DP-34501-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/459112",
+      "query": "renoir"
+    },
+    {
+      "source": "met",
+      "id": "437432",
+      "title": "Tilla Durieux (Ottilie Godeffroy, 1880\u20131971)",
+      "artist": "Auguste Renoir",
+      "date": "1914",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-25036-001.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/437432",
+      "query": "renoir"
+    },
+    {
+      "source": "met",
+      "id": "437430",
+      "title": "By the Seashore",
+      "artist": "Auguste Renoir",
+      "date": "1883",
+      "medium": "Oil on canvas",
+      "image": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-14936-039.jpg",
+      "url": "https://www.metmuseum.org/art/collection/search/437430",
+      "query": "renoir"
+    }
+  ],
+  "modernism": [],
+  "popart": []
+}

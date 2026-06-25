@@ -462,6 +462,21 @@ export async function onRequestGet(context) {
     } catch(e) {}
     return jsonResponse({ error: 'catalog not available' }, 404);
   }
+  // Era catalog — real museum artworks matched to art eras
+  if (path === '/api/era-catalog' || path === '/api/era-catalog/') {
+    try {
+      const res = await env.ASSETS.fetch(new URL('/era-catalog.json', request.url));
+      if (res.ok) {
+        const data = await res.json();
+        // Allow filtering by era: /api/era-catalog?era=renaissance
+        if (queryParams.era && data[queryParams.era]) {
+          return jsonResponse({ era: queryParams.era, count: data[queryParams.era].length, artworks: data[queryParams.era] });
+        }
+        return jsonResponse(data);
+      }
+    } catch(e) {}
+    return jsonResponse({ error: 'era-catalog not available' }, 404);
+  }
   // Image proxy — fetch museum images through our edge to bypass CORS
   if (path === '/api/img') {
     const imgUrl = queryParams.url;
