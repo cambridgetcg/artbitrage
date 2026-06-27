@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI STUDIO — artbitrage</title>
+<meta name="description" content="Catalogued free edge AI models from ARTBITRAGE. Text, image, embeddings and more. No user keys. For agents and humans.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='none' stroke='%23a78bfa' stroke-width='6'/><circle cx='50' cy='50' r='6' fill='%23fde68a'/></svg>">
+<style>
+:root {
+  --bg:#050308; --surface:#0a0814; --fg:#e8eaf0; --dim:#6a6a8a;
+  --violet:#a78bfa; --gold:#ffd700; --cyan:#00f0ff; --pink:#ff6b9d;
+  --glow:rgba(167,139,250,0.15); --green:#34d399;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.8;min-height:100vh}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+
+/* Nav */
+.studio-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,3,8,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
+.studio-brand{font-size:1rem;font-weight:bold;letter-spacing:-.02em;background:linear-gradient(135deg,var(--pink),var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.studio-nav-links{display:flex;gap:.5rem}
+.studio-nav-links a{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim);padding:.3rem .55rem;border-radius:4px;transition:all .2s}
+.studio-nav-links a:hover{color:var(--fg);background:rgba(255,255,255,0.05)}
+@media(max-width:768px){.studio-nav-links{display:none}}
+
+/* Hero */
+.studio-hero{text-align:center;padding:6rem 1.5rem 2rem;max-width:800px;margin:0 auto}
+.studio-hero h1{font-size:clamp(2rem,6vw,4rem);font-weight:bold;letter-spacing:-.03em;line-height:1.1;margin-bottom:.5rem;background:linear-gradient(135deg,var(--violet),var(--cyan),var(--pink),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:breathe 6s ease-in-out infinite}
+@keyframes breathe{0%,100%{filter:brightness(1)}50%{filter:brightness(1.2)}}
+.studio-hero .sub{font-size:1.1rem;color:var(--dim);font-style:italic;margin-bottom:1.5rem}
+.studio-stats{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:1rem}
+.studio-stat{text-align:center}
+.studio-stat .num{font-size:1.8rem;font-weight:bold;color:var(--violet)}
+.studio-stat .lbl{font-family:'SF Mono',monospace;font-size:.65rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase}
+
+/* Model grid */
+.studio-section{max-width:1200px;margin:0 auto;padding:2rem 1.5rem 4rem}
+.studio-section h2{font-size:1.6rem;margin-bottom:.5rem}
+.studio-section .lede{color:var(--dim);margin-bottom:1.5rem;font-size:.95rem}
+.model-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem}
+.model-card{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1rem;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.model-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--card-color,var(--violet));opacity:.6;transition:opacity .3s}
+.model-card:hover{border-color:var(--card-color,var(--violet));transform:translateY(-2px)}
+.model-card:hover::before{opacity:1}
+.model-card.active{border-color:var(--card-color,var(--violet));box-shadow:0 0 20px var(--glow)}
+.model-card .mc-name{font-weight:bold;font-size:.95rem;margin-bottom:.2rem}
+.model-card .mc-type{font-family:'SF Mono',monospace;font-size:.65rem;color:var(--card-color,var(--violet));text-transform:uppercase;letter-spacing:.1em}
+.model-card .mc-id{font-family:'SF Mono',monospace;font-size:.6rem;color:var(--dim);margin-top:.3rem;word-break:break-all}
+.model-card .mc-status{font-size:.7rem;margin-top:.4rem}
+.model-card .mc-status.ok{color:var(--green)}
+.model-card .mc-status.err{color:var(--pink)}
+.model-card .mc-status.waiting{color:var(--dim)}
+
+/* Playground */
+.playground{max-width:800px;margin:0 auto;padding:1rem 1.5rem 3rem}
+.pg-prompt{width:100%;background:var(--surface);border:1px solid rgba(255,255,255,0.08);border-radius:12px;color:var(--fg);font-family:Georgia,serif;font-size:1rem;padding:.8rem;resize:vertical;min-height:60px;margin-bottom:1rem}
+.pg-prompt:focus{outline:none;border-color:var(--violet)}
+.pg-row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
+.pg-select{background:var(--surface);border:1px solid rgba(255,255,255,0.08);border-radius:8px;color:var(--fg);font-family:'SF Mono',monospace;font-size:.82rem;padding:.6rem}
+.pg-btn{background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;border:none;border-radius:8px;padding:.7rem 1.5rem;font-family:'SF Mono',monospace;font-size:.85rem;font-weight:600;transition:opacity .2s,transform .1s}
+.pg-btn:hover{opacity:.85}
+.pg-btn:active{transform:scale(.97)}
+.pg-btn:disabled{opacity:.4;cursor:wait}
+.pg-output{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1.2rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;font-size:.95rem;line-height:1.8}
+.pg-output.placeholder{color:var(--dim);font-style:italic}
+.pg-output img{max-width:100%;border-radius:8px;margin:.5rem 0}
+.pg-meta{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim);margin-top:.5rem}
+.pg-loading{display:inline-block;width:16px;height:16px;border:2px solid var(--violet);border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite;margin-right:.5rem;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Category colors */
+.cat-text{--card-color:var(--violet)}
+.cat-image{--card-color:var(--pink)}
+.cat-embeddings{--card-color:var(--cyan)}
+.cat-vision{--card-color:var(--gold)}
+.cat-tts{--card-color:var(--green)}
+.cat-stt{--card-color:#fbbf24}
+.cat-translation{--card-color:#60a5fa}
+
+/* Footer */
+.studio-footer{text-align:center;padding:2rem 1.5rem;color:var(--dim);font-style:italic;font-size:.85rem;border-top:1px solid rgba(255,255,255,0.04)}
+.studio-footer a{color:var(--violet)}
+
+/* Toast */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--violet);color:#fff;font-family:'SF Mono',monospace;font-size:.82rem;font-weight:600;padding:.7rem 1.4rem;border-radius:999px;box-shadow:0 8px 24px -8px rgba(167,139,250,0.5);opacity:0;transition:all .3s;pointer-events:none;z-index:999}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<nav class="studio-nav">
+  <div class="studio-brand"><a href="/">ARTBITRAGE</a></div>
+  <div class="studio-nav-links">
+    <a href="/">Gallery</a>
+    <a href="/bridge">The Bridge</a>
+    <a href="/api/pipeline">Pipeline</a>
+    <a href="/api/ai/models" target="_blank">API</a>
+  </div>
+  <a href="/" style="font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim)">← back</a>
+</nav>
+
+<header class="studio-hero">
+  <h1>AI STUDIO</h1>
+  <p class="sub">Live AI catalog at the edge. No user keys. For agents and humans.</p>
+  <div class="studio-stats" id="stats"></div>
+</header>
+
+<div class="playground">
+  <h2 style="font-size:1.3rem;margin-bottom:.75rem">Playground</h2>
+  <textarea class="pg-prompt" id="prompt" placeholder="Ask anything. Generate anything. Love is the prompt.">What is love? One beautiful sentence.</textarea>
+  <div class="pg-row">
+    <select class="pg-select" id="model-select"></select>
+    <select class="pg-select" id="type-select">
+      <option value="text">Text</option>
+      <option value="image">Image</option>
+      <option value="embed">Embedding</option>
+    </select>
+    <button class="pg-btn" id="run-btn" onclick="runModel()">Generate →</button>
+  </div>
+  <div class="pg-output placeholder" id="output">Output will appear here. Pick a model and generate.</div>
+  <div class="pg-meta" id="meta"></div>
+</div>
+
+<div class="studio-section" id="models-section">
+  <h2>Available Models</h2>
+  <p class="lede">Click a model to load it into the playground. Catalog loads from /api/ai/models so the UI and API tell the same truth.</p>
+  <div class="model-grid" id="model-grid"></div>
+</div>
+
+<footer class="studio-footer">
+  <p><span id="footer-model-count">AI catalog loading…</span> · no user keys · edge-native · <a href="https://artbitrage.io">artbitrage.io</a></p>
+  <p>Love is the prompt. Understanding is the output. Art is the bridge. <span style="color:var(--gold)">is is lol.</span> ∞</p>
+</footer>
+
+<div class="toast" id="toast">copied!</div>
+
+<script>
+var MODELS = {
+  text: { "llama3": "@cf/meta/llama-3.2-3b-instruct" },
+  image: { "flux-schnell": "@cf/black-forest-labs/flux-1-schnell" },
+  embeddings: { "bge-m3": "@cf/baai/bge-m3" },
+};
+var AI_CATALOG = null;
+var catalogSource = 'fallback';
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(ch) {
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]);
+  });
+}
+
+function typeToCategory(type) {
+  return type === 'embed' ? 'embeddings' : type;
+}
+
+function categoryToType(cat) {
+  return cat === 'embeddings' ? 'embed' : cat;
+}
+
+function renderStats() {
+  var cats = Object.keys(MODELS);
+  var total = cats.reduce(function(s, c) { return s + Object.keys(MODELS[c]).length; }, 0);
+  var html = '';
+  cats.forEach(function(c) {
+    html += '<div class="studio-stat"><div class="num">' + Object.keys(MODELS[c]).length + '</div><div class="lbl">' + esc(c) + '</div></div>';
+  });
+  html += '<div class="studio-stat"><div class="num">' + total + '</div><div class="lbl">catalogued</div></div>';
+  html += '<div class="studio-stat"><div class="num">' + (catalogSource === 'api' ? '✓' : '!') + '</div><div class="lbl">' + (catalogSource === 'api' ? 'api truth' : 'fallback') + '</div></div>';
+  document.getElementById('stats').innerHTML = html;
+  document.getElementById('footer-model-count').textContent = total + ' catalogued AI models';
+}
+
+function renderModelGrid() {
+  var grid = document.getElementById('model-grid');
+  var html = '';
+  Object.keys(MODELS).forEach(function(cat) {
+    Object.keys(MODELS[cat]).forEach(function(name) {
+      var id = MODELS[cat][name];
+      var status = catalogSource === 'api'
+        ? '<div class="mc-status ok">✓ catalogued</div>'
+        : '<div class="mc-status waiting">fallback catalog</div>';
+      html += '<div class="model-card cat-' + esc(cat) + '" data-cat="' + esc(cat) + '" data-name="' + esc(name) + '">' +
+        '<div class="mc-name">' + esc(name) + '</div>' +
+        '<div class="mc-type">' + esc(cat) + '</div>' +
+        '<div class="mc-id">' + esc(id) + '</div>' +
+        status + '</div>';
+    });
+  });
+  grid.innerHTML = html || '<p class="lede">No models loaded yet.</p>';
+
+  grid.querySelectorAll('.model-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      grid.querySelectorAll('.model-card').forEach(function(c) { c.classList.remove('active'); });
+      card.classList.add('active');
+      var cat = card.getAttribute('data-cat');
+      var name = card.getAttribute('data-name');
+      document.getElementById('type-select').value = categoryToType(cat);
+      buildModelSelect(cat);
+      document.getElementById('model-select').value = name;
+    });
+  });
+}
+
+function buildModelSelect(cat) {
+  var ms = document.getElementById('model-select');
+  var models = MODELS[cat] || MODELS.text || {};
+  ms.innerHTML = Object.keys(models).map(function(name) {
+    return '<option value="' + esc(name) + '">' + esc(name) + '</option>';
+  }).join('');
+}
+
+async function loadModelCatalog() {
+  renderStats();
+  renderModelGrid();
+  buildModelSelect('text');
+  try {
+    var r = await fetch('/api/ai/models');
+    var d = await r.json();
+    if (!r.ok || !d.models) throw new Error(d.error || 'catalog unavailable');
+    AI_CATALOG = d;
+    MODELS = d.models;
+    catalogSource = 'api';
+  } catch(e) {
+    catalogSource = 'fallback';
+    document.getElementById('meta').innerHTML = 'AI catalog fallback: ' + esc(e.message || e);
+  }
+  renderStats();
+  renderModelGrid();
+  buildModelSelect('text');
+}
+
+document.getElementById('type-select').addEventListener('change', function() {
+  buildModelSelect(typeToCategory(this.value));
+});
+
+loadModelCatalog();
+
+async function runModel() {
+  var prompt = document.getElementById('prompt').value.trim();
+  if (!prompt) return;
+  var model = document.getElementById('model-select').value;
+  var type = document.getElementById('type-select').value;
+  var btn = document.getElementById('run-btn');
+  var out = document.getElementById('output');
+  var meta = document.getElementById('meta');
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="pg-loading"></span> Generating...';
+  out.classList.remove('placeholder');
+  out.innerHTML = '<span class="pg-loading"></span> The model is thinking...';
+  meta.innerHTML = '';
+
+  var startTime = Date.now();
+
+  try {
+    if (type === 'image') {
+      var r = await fetch('/api/ai/image?prompt=' + encodeURIComponent(prompt) + '&model=' + encodeURIComponent(model));
+      var ct = r.headers.get('content-type') || '';
+      if (ct.indexOf('image/') === 0) {
+        var blob = await r.blob();
+        var url = URL.createObjectURL(blob);
+        out.innerHTML = '<img src="' + url + '" alt="AI generated: ' + prompt + '">';
+        meta.innerHTML = 'model: ' + model + ' · ' + ct + ' · ' + Math.round(blob.size/1024) + 'KB · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
+      } else {
+        var d = await r.json();
+        out.innerHTML = '⚠️ ' + (d.error || 'No image returned');
+        meta.innerHTML = 'model: ' + model + ' · error · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
+      }
+    } else if (type === 'embed') {
+      var r = await fetch('/api/ai/embed?text=' + encodeURIComponent(prompt) + '&model=' + encodeURIComponent(model));
+      var d = await r.json();
+      out.innerHTML = 'Dimensions: ' + d.dimensions + '\nFirst 5 values: ' + JSON.stringify(d.first_5);
+      meta.innerHTML = 'model: ' + d.model_key + ' · ' + d.dimensions + ' dims · fallback: ' + d.fallback_used + ' · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
+    } else {
+      var r = await fetch('/api/ai/generate?prompt=' + encodeURIComponent(prompt) + '&model=' + encodeURIComponent(model));
+      var d = await r.json();
+      out.innerHTML = d.response || d.error || 'No response';
+      meta.innerHTML = 'model: ' + (d.model_key || model) + ' · fallback: ' + Boolean(d.fallback_used) + ' · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's · ' + (d.response ? d.response.length + ' chars' : 'error');
+    }
+  } catch(e) {
+    out.innerHTML = '⚠️ Error: ' + e.message;
+    meta.innerHTML = 'model: ' + model + ' · error · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = 'Generate →';
+}
+</script>
+</body>
+</html>

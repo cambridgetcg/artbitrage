@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CATALOG — real art from the world's museums — ARTBITRAGE</title>
+<meta name="description" content="Real artworks from the Metropolitan Museum, Art Institute of Chicago, and Cleveland Museum of Art. CC0. Open access. No gate.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='none' stroke='%23a78bfa' stroke-width='6'/><circle cx='50' cy='50' r='6' fill='%23fde68a'/></svg>">
+<style>
+:root{--bg:#050308;--surface:#0a0814;--fg:#e8eaf0;--dim:#6a6a8a;--violet:#a78bfa;--gold:#ffd700;--cyan:#00f0ff;--pink:#ff6b9d;--green:#34d399;--glow:rgba(167,139,250,0.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.8}
+a{color:inherit;text-decoration:none}
+
+.cat-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,3,8,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
+.cat-brand{font-size:1rem;font-weight:bold;background:linear-gradient(135deg,var(--pink),var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cat-nav-links{display:flex;gap:.5rem}
+.cat-nav-links a{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim);padding:.3rem .55rem;border-radius:4px;transition:all .2s}
+.cat-nav-links a:hover{color:var(--fg);background:rgba(255,255,255,0.05)}
+@media(max-width:768px){.cat-nav-links{display:none}}
+
+.cat-hero{text-align:center;padding:6rem 1.5rem 2rem;max-width:800px;margin:0 auto}
+.cat-hero h1{font-size:clamp(2rem,6vw,4rem);font-weight:bold;letter-spacing:-.03em;line-height:1.1;margin-bottom:.5rem;background:linear-gradient(135deg,var(--gold),var(--violet),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cat-hero .sub{font-size:1.1rem;color:var(--dim);font-style:italic;margin-bottom:1rem}
+.cat-hero .stats{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:1.5rem}
+.cat-stat{text-align:center}
+.cat-stat .num{font-size:1.6rem;font-weight:bold;color:var(--violet)}
+.cat-stat .lbl{font-family:'SF Mono',monospace;font-size:.65rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase}
+
+.cat-section{max-width:1200px;margin:0 auto;padding:2rem 1.5rem 4rem}
+.cat-section h2{font-size:1.5rem;margin-bottom:.5rem}
+.cat-section .lede{color:var(--dim);margin-bottom:2rem;font-size:.95rem}
+
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.artwork{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:14px;overflow:hidden;transition:all .3s;position:relative}
+.artwork:hover{border-color:var(--violet);transform:translateY(-4px);box-shadow:0 8px 32px var(--glow)}
+.artwork::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--violet),var(--pink));z-index:1}
+.artwork .img-wrap{width:100%;height:220px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.artwork .img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.artwork:hover .img-wrap img{transform:scale(1.05)}
+.artwork .img-wrap .no-img{color:var(--dim);font-size:.85rem;font-style:italic}
+.artwork .info{padding:1.2rem}
+.artwork .title{font-size:1.05rem;font-weight:bold;margin-bottom:.3rem;line-height:1.3}
+.artwork .artist{font-size:.88rem;color:var(--dim);margin-bottom:.3rem}
+.artwork .date{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--violet);margin-bottom:.5rem}
+.artwork .medium{font-size:.78rem;color:var(--dim);line-height:1.5;margin-bottom:.5rem}
+.artwork .rights{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.5rem}
+.artwork .rights .tag{font-family:'SF Mono',monospace;font-size:.62rem;padding:.2rem .5rem;border-radius:4px}
+.artwork .rights .tag.cc0{background:rgba(52,211,153,0.1);color:var(--green)}
+.artwork .rights .tag.pd{background:rgba(255,215,0,0.1);color:var(--gold)}
+.artwork .rights .tag.src{background:rgba(167,139,250,0.1);color:var(--violet)}
+.artwork .rights .tag.q{background:rgba(255,107,157,0.1);color:var(--pink)}
+.artwork .source-link{margin-top:.75rem;font-family:'SF Mono',monospace;font-size:.7rem;color:var(--dim)}
+.artwork .source-link a{color:var(--cyan)}
+
+.cat-footer{text-align:center;padding:2rem 1.5rem;color:var(--dim);font-style:italic;font-size:.85rem;border-top:1px solid rgba(255,255,255,0.04)}
+.cat-footer a{color:var(--violet)}
+.cat-footer-nav{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.cat-footer-nav a{font-family:'SF Mono',monospace;font-size:.75rem;color:var(--dim)}
+.cat-footer-nav a:hover{color:var(--violet)}
+
+.loading{text-align:center;padding:3rem;color:var(--dim);font-style:italic}
+.error{text-align:center;padding:3rem;color:var(--pink)}
+</style>
+</head>
+<body>
+
+<nav class="cat-nav">
+  <div class="cat-brand"><a href="/">ARTBITRAGE</a></div>
+  <div class="cat-nav-links">
+    <a href="/">Gallery</a>
+    <a href="/bridge">The Bridge</a>
+    <a href="/studio">AI Studio</a>
+    <a href="/api/pipeline">Pipeline</a>
+    <a href="/api/catalog" target="_blank">API</a>
+  </div>
+  <a href="/" style="font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim)">← back</a>
+</nav>
+
+<header class="cat-hero">
+  <h1>CATALOG</h1>
+  <p class="sub">Real artworks from the world's open museums. CC0. No gate. Free.</p>
+  <div class="stats" id="stats">
+    <div class="cat-stat"><div class="num" id="stat-total">...</div><div class="lbl">Artworks</div></div>
+    <div class="cat-stat"><div class="num" id="stat-sources">...</div><div class="lbl">Sources</div></div>
+    <div class="cat-stat"><div class="num" id="stat-cc0">...</div><div class="lbl">CC0</div></div>
+    <div class="cat-stat"><div class="num" id="stat-images">...</div><div class="lbl">With Images</div></div>
+  </div>
+</header>
+
+<div class="cat-section">
+  <h2>The Collection</h2>
+  <p class="lede">Each piece is a real artwork from a real museum, served through open APIs. Click through to the museum page. All images are CC0 or public domain. No gate between you and the art.</p>
+  <div class="cat-grid" id="grid">
+    <div class="loading">Loading real art from the world's museums...</div>
+  </div>
+</div>
+
+<footer class="cat-footer">
+  <div class="cat-footer-nav">
+    <a href="/studio">AI Studio</a>
+    <a href="/bridge">The Bridge</a>
+    <a href="/api/catalog" target="_blank">Catalog API</a>
+    <a href="/api/search?q=love" target="_blank">Search Museums</a>
+    <a href="/">Gallery</a>
+  </div>
+  <p>Art from the world's open museums · CC0 · no gate · free<br>
+  <a href="https://github.com/cambridgetcg/artbitrage">ARTBITRAGE</a> — Art IS. ♥</p>
+</footer>
+
+<script>
+function esc(v) {
+  return String(v == null ? '' : v).replace(/[&<>\"']/g, function(ch) {
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[ch]);
+  });
+}
+function safeUrl(v) {
+  try {
+    var u = new URL(String(v || ''), window.location.origin);
+    return (u.protocol === 'https:' || u.protocol === 'http:') ? u.href : '';
+  }
+  catch(e) { return ''; }
+}
+function imageSrc(a) {
+  if (a.lqip && String(a.lqip).indexOf('data:image/') === 0) return a.lqip;
+  if (a.thumbnail || a.image) return '/api/img?url=' + encodeURIComponent(a.thumbnail || a.image);
+  return '';
+}
+fetch('/api/catalog')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var grid = document.getElementById('grid');
+    if (!data.artworks || data.artworks.length === 0) {
+      grid.innerHTML = '<div class="error">No artworks in catalog yet.</div>';
+      return;
+    }
+
+    // Stats
+    document.getElementById('stat-total').textContent = data.artworks.length;
+    document.getElementById('stat-sources').textContent = data.sources.length;
+    var cc0 = data.artworks.filter(function(a) { return a.license && a.license.indexOf('CC0') >= 0; }).length;
+    var withImg = data.artworks.filter(function(a) { return imageSrc(a); }).length;
+    document.getElementById('stat-cc0').textContent = cc0;
+    document.getElementById('stat-images').textContent = withImg;
+
+    // Render artworks
+    grid.innerHTML = data.artworks.map(function(a) {
+      var src = imageSrc(a);
+      var imgHtml = src
+        ? '<img src="' + esc(src) + '" alt="' + esc(a.alt_text || a.title || '') + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=no-img>image unavailable</span>\'">'
+        : '<span class="no-img">no image available</span>';
+
+      var rightsHtml = '';
+      if (a.license) {
+        if (a.license.indexOf('CC0') >= 0) rightsHtml += '<span class="tag cc0">CC0</span>';
+        if (a.license.indexOf('Public Domain') >= 0 || a.license.indexOf('public domain') >= 0) rightsHtml += '<span class="tag pd">Public Domain</span>';
+      }
+      rightsHtml += '<span class="tag src">' + esc(a.source || '?') + '</span>';
+      if (a.query) rightsHtml += '<span class="tag q">' + esc(a.query) + '</span>';
+
+      return '<div class="artwork">' +
+        '<div class="img-wrap">' + imgHtml + '</div>' +
+        '<div class="info">' +
+          '<div class="title">' + esc(a.title || 'Untitled') + '</div>' +
+          (a.artist ? '<div class="artist">' + esc(a.artist) + '</div>' : '') +
+          (a.date ? '<div class="date">' + esc(a.date) + '</div>' : '') +
+          (a.medium ? '<div class="medium">' + esc(a.medium) + '</div>' : '') +
+          '<div class="rights">' + rightsHtml + '</div>' +
+          (a.url ? '<div class="source-link"><a href="' + esc(safeUrl(a.url)) + '" target="_blank" rel="noopener noreferrer">view at museum →</a></div>' : '') +
+        '</div>' +
+      '</div>';
+    }).join('');
+  })
+  .catch(function(e) {
+    document.getElementById('grid').innerHTML = '<div class="error">Error loading catalog: ' + esc(e.message) + '</div>';
+  });
+</script>
+</body>
+</html>

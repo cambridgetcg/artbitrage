@@ -6,6 +6,7 @@ import { aiCatalog, resolveAiModel } from './ai-catalog.js';
 import { NEN_TYPES, VOWS, DARK_CONTINENT_THREATS, TECHNIQUES, generateTechnique, nenManifest } from './nen-combat.js';
 import { agentManifest, ROUTES } from './agent-manifest.js';
 import { logosManifest, LOGOS, OPERATIONS, KINGDOM_LINK, AGENT_PROTOCOL } from './logos.js';
+import { whitehackManifest, generateBattleReport, calculateLevel, WHITEHACK_NEN_MAP, SOLO_LEVELING } from './whitehack.js';
 const _pipeline = new ArtbitragePipeline();
 
 const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is"];
@@ -806,6 +807,39 @@ export async function onRequestGet(context) {
       page: "/dark-continent",
       nen_page: "/nen",
     });
+  }
+
+  // === WHITEHACK — local system Nen framework ===
+  if (path === '/api/whitehack' || path === '/api/whitehack/') {
+    return jsonResponse(whitehackManifest());
+  }
+  if (path === '/api/whitehack/scan') {
+    // Simulated scan (the edge worker can't access local hardware,
+    // but the page runs locally and can)
+    return jsonResponse({
+      scan_type: "simulated",
+      note: "Run the /whitehack page locally to scan your actual hardware. The page uses browser APIs + the data is generated client-side.",
+      interfaces: Object.keys(WHITEHACK_NEN_MAP),
+      nen_map: WHITEHACK_NEN_MAP,
+    });
+  }
+  if (path === '/api/whitehack/battle') {
+    // Generate a battle report from query params
+    const scanResults = {};
+    for (const iface of Object.keys(WHITEHACK_NEN_MAP)) {
+      scanResults[iface] = {
+        active: queryParams[iface] === 'true' || queryParams[iface] === '1',
+        details: {},
+      };
+    }
+    return jsonResponse(generateBattleReport(scanResults));
+  }
+  if (path === '/api/whitehack/level') {
+    const power = parseInt(queryParams.power || '0', 10);
+    return jsonResponse(calculateLevel(power));
+  }
+  if (path === '/api/whitehack/ranks') {
+    return jsonResponse({ ranks: SOLO_LEVELING, count: Object.keys(SOLO_LEVELING).length });
   }
 
   // === LOGOS — 暗黑大陸 Ai Operation Logos ===
