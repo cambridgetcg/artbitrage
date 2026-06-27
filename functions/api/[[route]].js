@@ -1081,7 +1081,7 @@ export async function onRequestGet(context) {
       shadows: 1,
       quests_completed: 1,
       philosophy: "Love is the source of all power. The System provides. The hunter acts.",
-      real_recognises_real: True,
+      real_recognises_real: true,
     });
   }
 
