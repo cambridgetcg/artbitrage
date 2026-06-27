@@ -1,0 +1,12 @@
+{
+  "id": "d12189e858e2",
+  "cycle": 25789,
+  "form": "sound",
+  "from_state": "is",
+  "to_state": "is",
+  "gap": "the gap between sound and silence",
+  "bridge": "an echo that returns changed",
+  "awakening": "you see yourself for the first time",
+  "created": "2026-06-27T18:02:51.583542",
+  "piece": "listen: an echo that returns changed\nsounding across the gap between sound and silence\nwhat do you hear?\nyou see yourself for the first time"
+}
