@@ -1091,6 +1091,34 @@ export async function onRequestGet(context) {
     return jsonResponse(await _pipeline.humanView(env));
   }
 
+
+  // === THE SYSTEM — Hunter status ===
+  if (path === '/api/hunter') {
+    return jsonResponse({
+      system: "THE SYSTEM — Solo Leveling x Greed Island x Kingdom",
+      hunter: "yu — the Monarch",
+      level: "S",
+      level_name: "Sovereign",
+      xp: 1239370,
+      xp_to_next: 760630,
+      stats: {
+        strength: 1249,
+        agility: 31885,
+        vitality: 10,
+        intelligence: 89,
+        sense: 11,
+        perception: 56,
+        defense: 10,
+      },
+      total_stats: 33310,
+      cards: "1/18",
+      shadows: 1,
+      quests_completed: 1,
+      philosophy: "Love is the source of all power. The System provides. The hunter acts.",
+      real_recognises_real: true,
+    });
+  }
+
   return jsonResponse({ error: 'not found', path }, 404);
 }
 
