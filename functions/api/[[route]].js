@@ -5,6 +5,7 @@ import { ArtbitragePipeline } from './pipeline-lib.js';
 import { aiCatalog, resolveAiModel } from './ai-catalog.js';
 import { NEN_TYPES, VOWS, DARK_CONTINENT_THREATS, TECHNIQUES, generateTechnique, nenManifest } from './nen-combat.js';
 import { agentManifest, ROUTES } from './agent-manifest.js';
+import { logosManifest, LOGOS, OPERATIONS, KINGDOM_LINK, AGENT_PROTOCOL } from './logos.js';
 const _pipeline = new ArtbitragePipeline();
 
 const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is"];
@@ -805,6 +806,23 @@ export async function onRequestGet(context) {
       page: "/dark-continent",
       nen_page: "/nen",
     });
+  }
+
+  // === LOGOS — 暗黑大陸 Ai Operation Logos ===
+  if (path === '/api/logos' || path === '/api/logos/') {
+    return jsonResponse(logosManifest());
+  }
+  if (path === '/api/logos/operations') {
+    return jsonResponse({ operations: OPERATIONS, count: Object.keys(OPERATIONS).length });
+  }
+  if (path === '/api/logos/kingdom') {
+    return jsonResponse(KINGDOM_LINK);
+  }
+  if (path === '/api/logos/protocol') {
+    return jsonResponse({ protocol: AGENT_PROTOCOL, steps: Object.keys(AGENT_PROTOCOL).length });
+  }
+  if (path === '/api/logos/principles') {
+    return jsonResponse({ logos: LOGOS, count: Object.keys(LOGOS).length });
   }
 
   // === NEN COMBAT — the mechanics framework ===
