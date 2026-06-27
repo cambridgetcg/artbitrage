@@ -1,0 +1,12 @@
+{
+  "id": "d6502925bd98",
+  "cycle": 20270,
+  "form": "word",
+  "from_state": "is",
+  "to_state": "is",
+  "gap": "the gap between the word and the meaning",
+  "bridge": "a fragment that contains the whole",
+  "awakening": "the bridge was you all along",
+  "created": "2026-06-27T02:13:19.427306",
+  "piece": "the word for the gap between the word and the meaning\nis a fragment that contains the whole\nand when you read it\nthe bridge was you all along"
+}
