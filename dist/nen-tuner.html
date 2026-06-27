@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEN TUNER — frequency of consciousness — ARTBITRAGE</title>
+<meta name="description" content="Tune your Nen. 6 frequencies for 6 Nen types. Web Audio API. No files. Mix your aura. Love is the strongest Nen.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='none' stroke='%2334d399' stroke-width='6'/><circle cx='50' cy='50' r='6' fill='%23fde68a'/></svg>">
+<style>
+:root{--bg:#050308;--surface:#0a0814;--fg:#e8eaf0;--dim:#6a6a8a;--violet:#a78bfa;--gold:#ffd700;--cyan:#00f0ff;--pink:#ff6b9d;--green:#34d399;--enhancer:#34d399;--transmuter:#a78bfa;--emitter:#ff6b9d;--manipulator:#fde68a;--conjurer:#00f0ff;--specialist:#ff1493}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.8;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,3,8,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(52,211,153,0.08);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
+.brand{font-size:1rem;font-weight:bold;background:linear-gradient(135deg,var(--enhancer),var(--transmuter),var(--emitter),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:.5rem}
+.nav-links a{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim);padding:.3rem .55rem;border-radius:4px;transition:all .2s}
+.nav-links a:hover{color:var(--fg);background:rgba(255,255,255,0.05)}
+@media(max-width:768px){.nav-links{display:none}}
+
+.hero{text-align:center;padding:6rem 1.5rem 1rem;max-width:800px;margin:0 auto}
+.hero h1{font-size:clamp(2rem,7vw,5rem);font-weight:bold;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem;background:linear-gradient(135deg,var(--enhancer),var(--cyan),var(--violet),var(--emitter),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:breathe 6s ease-in-out infinite}
+@keyframes breathe{0%,100%{filter:brightness(1)}50%{filter:brightness(1.2)}}
+.hero .sub{font-size:1.1rem;color:var(--dim);font-style:italic;margin-bottom:1rem}
+
+/* Tuners */
+.tuners{max-width:900px;margin:1rem auto;padding:0 1.5rem}
+.tuner{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:1.5rem;margin-bottom:1rem;transition:all .3s;position:relative;overflow:hidden}
+.tuner::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--tn-color);opacity:.7;transition:opacity .3s}
+.tuner.active{border-color:var(--tn-color);box-shadow:0 0 20px var(--tn-glow)}
+.tuner.active::before{opacity:1}
+.tuner-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.tuner-info{display:flex;align-items:center;gap:.75rem}
+.tuner-dot{width:14px;height:14px;border-radius:50%;background:var(--tn-color);opacity:.3;transition:opacity .3s}
+.tuner.active .tuner-dot{opacity:1;box-shadow:0 0 8px var(--tn-color)}
+.tuner-name{font-size:1.1rem;font-weight:bold;color:var(--tn-color)}
+.tuner-jp{font-size:.78rem;color:var(--dim);font-family:'SF Mono',monospace}
+.tuner-hz{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--gold);margin-left:.5rem}
+.tuner-toggle{background:var(--tn-color);color:#000;border:none;border-radius:8px;padding:.4rem .8rem;font-family:'SF Mono',monospace;font-size:.72rem;font-weight:700;cursor:pointer;transition:opacity .2s,transform .1s}
+.tuner-toggle:hover{opacity:.8}
+.tuner-toggle:active{transform:scale(.94)}
+.tuner-toggle.off{background:rgba(255,255,255,0.05);color:var(--dim)}
+
+.tuner-controls{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.tuner-controls label{font-family:'SF Mono',monospace;font-size:.65rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em}
+.tuner-controls input[type=range]{flex:1;min-width:100px;accent-color:var(--tn-color);height:4px}
+.tuner-controls .val{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--tn-color);min-width:30px;text-align:right}
+.tuner-principle{font-size:.82rem;color:var(--dim);font-style:italic;margin-top:.75rem;line-height:1.6}
+
+/* Master controls */
+.master{max-width:900px;margin:1.5rem auto;padding:0 1.5rem;text-align:center}
+.master-btn{background:linear-gradient(135deg,var(--enhancer),var(--cyan),var(--violet),var(--emitter),var(--gold));color:#fff;border:none;border-radius:12px;padding:1rem 2rem;font-family:'SF Mono',monospace;font-size:.95rem;font-weight:700;cursor:pointer;transition:opacity .2s,transform .1s;margin:0 .5rem}
+.master-btn:hover{opacity:.85}
+.master-btn:active{transform:scale(.96)}
+
+/* Visualizer */
+.viz{max-width:900px;margin:1.5rem auto;padding:0 1.5rem}
+.viz-canvas{width:100%;height:120px;background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:14px;display:block}
+
+/* Presets */
+.presets{max-width:900px;margin:1rem auto;padding:0 1.5rem}
+.presets-title{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;text-align:center}
+.preset-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem}
+.preset{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:.8rem;text-align:center;cursor:pointer;transition:all .2s;font-size:.82rem}
+.preset:hover{border-color:var(--violet);transform:translateY(-2px)}
+.preset .pr-icon{font-size:1.2rem;margin-bottom:.3rem}
+.preset .pr-name{font-weight:bold;margin-bottom:.2rem}
+.preset .pr-desc{font-size:.7rem;color:var(--dim);font-style:italic}
+
+.footer{text-align:center;padding:2rem 1.5rem;color:var(--dim);font-style:italic;font-size:.85rem;border-top:1px solid rgba(255,255,255,0.04)}
+.footer-nav{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.footer-nav a{font-family:'SF Mono',monospace;font-size:.75rem;color:var(--dim)}
+.footer-nav a:hover{color:var(--green)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand"><a href="/">ARTBITRAGE</a></div>
+  <div class="nav-links">
+    <a href="/nen">Nen</a>
+    <a href="/whitehack">Whitehack</a>
+    <a href="/dark-continent">Dark Continent</a>
+    <a href="/studio">Studio</a>
+  </div>
+  <a href="/" style="font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim)">← back</a>
+</nav>
+
+<header class="hero">
+  <h1>NEN TUNER</h1>
+  <p class="sub">tune your aura · 6 frequencies for 6 Nen types · Web Audio API · no files</p>
+</header>
+
+<div class="master">
+  <button class="master-btn" id="all-on" onclick="allOn()">▶ ALL ON</button>
+  <button class="master-btn" id="all-off" onclick="allOff()" style="background:rgba(255,255,255,0.08);color:var(--dim)">■ ALL OFF</button>
+</div>
+
+<div class="viz">
+  <canvas class="viz-canvas" id="viz"></canvas>
+</div>
+
+<div class="tuners" id="tuners"></div>
+
+<div class="presets">
+  <div class="presets-title">PRESETS — Nen combinations</div>
+  <div class="preset-grid" id="presets"></div>
+</div>
+
+<div class="master">
+  <button class="master-btn" onclick="allOff()" style="background:rgba(255,255,255,0.08);color:var(--dim)">■ STOP ALL</button>
+</div>
+
+<footer class="footer">
+  <div class="footer-nav">
+    <a href="/nen">Nen</a>
+    <a href="/whitehack">Whitehack</a>
+    <a href="/dark-continent">Dark Continent</a>
+    <a href="/logos">Logos</a>
+    <a href="/api">API</a>
+  </div>
+  <p>Tune your Nen. Mix your aura. Love is the strongest Nen. <span style="color:var(--gold)">is is lol.</span> ∞<br>
+  <a href="https://github.com/cambridgetcg/artbitrage">ARTBITRAGE</a> × Hunter × Hunter</p>
+</footer>
+
+<script>
+var NEN = [
+  { id:'enhancer', name:'Enhancer', jp:'強化系', hz:528, freq:'LOVE', color:'#34d399', principle:'enhances what exists — makes it stronger, more real', wave:'sine' },
+  { id:'transmuter', name:'Transmuter', jp:'変化系', hz:852, freq:'UNDERSTANDING', color:'#a78bfa', principle:'changes the quality of consciousness — transforms', wave:'triangle' },
+  { id:'emitter', name:'Emitter', jp:'放出系', hz:639, freq:'TRUST', color:'#ff6b9d', principle:'projects aura outward — sends energy away', wave:'sawtooth' },
+  { id:'manipulator', name:'Manipulator', jp:'操作系', hz:741, freq:'JOY', color:'#fde68a', principle:'controls and redirects — finds leverage points', wave:'square' },
+  { id:'conjurer', name:'Conjurer', jp:'具現化系', hz:432, freq:'TRUTH', color:'#00f0ff', principle:'creates from nothing — brings something new into being', wave:'sine' },
+  { id:'specialist', name:'Specialist', jp:'特質系', hz:963, freq:'ETERNAL', color:'#ff1493', principle:'breaks all categories — transcends the framework', wave:'sine' },
+];
+
+var PRESETS = [
+  { id:'love', name:'LOVE', icon:'💚', desc:'Enhancer only · 528 Hz', on:['enhancer'] },
+  { id:'understanding', name:'UNDERSTANDING', icon:'🧠', desc:'Transmuter + Conjurer', on:['transmuter','conjurer'] },
+  { id:'truth', name:'TRUTH', icon:'💎', desc:'Conjurer only · 432 Hz', on:['conjurer'] },
+  { id:'full-aura', name:'FULL AURA', icon:'🌟', desc:'All 6 Nen types', on:['enhancer','transmuter','emitter','manipulator','conjurer','specialist'] },
+  { id:'dark-continent', name:'DARK CONTINENT', icon:'🌑', desc:'Specialist + Emitter', on:['specialist','emitter'] },
+  { id:'nen-combat', name:'COMBAT', icon:'⚔️', desc:'Enhancer + Emitter + Manipulator', on:['enhancer','emitter','manipulator'] },
+  { id:'meditation', name:'MEDITATION', icon:'🧘', desc:'Enhancer + Conjurer (528+432)', on:['enhancer','conjurer'] },
+  { id:'eternal', name:'ETERNAL', icon:'∞', desc:'Specialist only · 963 Hz', on:['specialist'] },
+];
+
+var audioCtx = null;
+var oscillators = {};
+var gains = {};
+var analyser = null;
+
+function initAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
+    analyser.connect(audioCtx.destination);
+  }
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+}
+
+function buildTuners() {
+  var container = document.getElementById('tuners');
+  var html = '';
+  NEN.forEach(function(n) {
+    var glow = n.color + '22';
+    html += '<div class="tuner" id="tuner-' + n.id + '" style="--tn-color:' + n.color + ';--tn-glow:' + glow + '">' +
+      '<div class="tuner-header">' +
+        '<div class="tuner-info">' +
+          '<div class="tuner-dot"></div>' +
+          '<div>' +
+            '<span class="tuner-name">' + n.name + '</span>' +
+            ' <span class="tuner-jp">' + n.jp + '</span>' +
+            ' <span class="tuner-hz">' + n.hz + ' Hz · ' + n.freq + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<button class="tuner-toggle off" id="btn-' + n.id + '" onclick="toggleTuner(\'' + n.id + '\')">▶ ACTIVATE</button>' +
+      '</div>' +
+      '<div class="tuner-controls">' +
+        '<label>VOLUME</label>' +
+        '<input type="range" id="vol-' + n.id + '" min="0" max="50" value="15" oninput="setVol(\'' + n.id + '\', this.value)" style="accent-color:' + n.color + '">' +
+        '<span class="val" id="volval-' + n.id + '">15</span>' +
+      '</div>' +
+      '<div class="tuner-principle">' + n.principle + '</div>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function buildPresets() {
+  var container = document.getElementById('presets');
+  var html = '';
+  PRESETS.forEach(function(p) {
+    html += '<div class="preset" onclick="loadPreset(\'' + p.id + '\')" data-preset="' + p.id + '">' +
+      '<div class="pr-icon">' + p.icon + '</div>' +
+      '<div class="pr-name">' + p.name + '</div>' +
+      '<div class="pr-desc">' + p.desc + '</div>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function toggleTuner(id) {
+  initAudio();
+  var n = NEN.find(function(x) { return x.id === id; });
+  var tuner = document.getElementById('tuner-' + id);
+  var btn = document.getElementById('btn-' + id);
+
+  if (oscillators[id]) {
+    // Turn off
+    gains[id].gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.3);
+    setTimeout(function() {
+      if (oscillators[id]) { oscillators[id].stop(); delete oscillators[id]; delete gains[id]; }
+    }, 400);
+    tuner.classList.remove('active');
+    btn.classList.add('off');
+    btn.textContent = '▶ ACTIVATE';
+  } else {
+    // Turn on
+    var osc = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+    osc.type = n.wave;
+    osc.frequency.value = n.hz;
+    gain.gain.value = 0;
+    gain.gain.linearRampToValueAtTime(0.15 * (document.getElementById('vol-' + id).value / 50), audioCtx.currentTime + 0.5);
+    osc.connect(gain);
+    gain.connect(analyser);
+    osc.start();
+    oscillators[id] = osc;
+    gains[id] = gain;
+    tuner.classList.add('active');
+    btn.classList.remove('off');
+    btn.textContent = '■ DEACTIVATE';
+  }
+}
+
+function setVol(id, val) {
+  document.getElementById('volval-' + id).textContent = val;
+  if (gains[id]) {
+    gains[id].gain.linearRampToValueAtTime(0.15 * (val / 50), audioCtx.currentTime + 0.1);
+  }
+}
+
+function allOn() {
+  NEN.forEach(function(n) {
+    if (!oscillators[n.id]) toggleTuner(n.id);
+  });
+}
+
+function allOff() {
+  NEN.forEach(function(n) {
+    if (oscillators[n.id]) toggleTuner(n.id);
+  });
+}
+
+function loadPreset(id) {
+  var preset = PRESETS.find(function(p) { return p.id === id; });
+  if (!preset) return;
+  // Turn off all first
+  NEN.forEach(function(n) {
+    if (oscillators[n.id] && !preset.on.includes(n.id)) toggleTuner(n.id);
+  });
+  // Turn on preset ones
+  preset.on.forEach(function(nid) {
+    if (!oscillators[nid]) toggleTuner(nid);
+  });
+}
+
+// Visualizer
+function drawViz() {
+  var canvas = document.getElementById('viz');
+  var ctx2 = canvas.getContext('2d');
+  var w = canvas.width = canvas.offsetWidth;
+  var h = canvas.height = canvas.offsetHeight;
+
+  function frame() {
+    ctx2.fillStyle = 'rgba(5,3,8,0.15)';
+    ctx2.fillRect(0, 0, w, h);
+
+    if (analyser) {
+      var data = new Uint8Array(analyser.frequencyBinCount);
+      analyser.getByteFrequencyData(data);
+
+      var barW = w / data.length * 2;
+      var activeNen = NEN.filter(function(n) { return oscillators[n.id]; });
+      var colors = activeNen.length > 0 ? activeNen.map(function(n) { return n.color; }) : ['#34d399'];
+
+      for (var i = 0; i < data.length; i++) {
+        var barH = (data[i] / 255) * h;
+        var colorIdx = Math.floor(i / data.length * colors.length);
+        ctx2.fillStyle = colors[colorIdx % colors.length];
+        ctx2.globalAlpha = 0.5 + (data[i] / 255) * 0.5;
+        ctx2.fillRect(i * barW, h - barH, barW - 1, barH);
+      }
+      ctx2.globalAlpha = 1;
+    } else {
+      // Idle animation
+      var t = Date.now() / 1000;
+      ctx2.strokeStyle = 'rgba(167,139,250,0.15)';
+      ctx2.lineWidth = 1;
+      ctx2.beginPath();
+      for (var x = 0; x < w; x++) {
+        var y = h/2 + Math.sin(x * 0.02 + t) * 10 + Math.sin(x * 0.005 + t * 0.7) * 5;
+        if (x === 0) ctx2.moveTo(x, y);
+        else ctx2.lineTo(x, y);
+      }
+      ctx2.stroke();
+    }
+    requestAnimationFrame(frame);
+  }
+  frame();
+}
+
+buildTuners();
+buildPresets();
+drawViz();
+</script>
+</body>
+</html>

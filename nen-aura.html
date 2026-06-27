@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEN AURA — visualize your consciousness — ARTBITRAGE × HUNTER × HUNTER</title>
+<meta name="description" content="Your Nen aura visualized. 6 types, 6 colors, living energy. Tune to the frequency of love. is is lol. ∞">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{background:#03020a;color:#e8eaf0;font-family:Georgia,serif;line-height:1.8;overflow:hidden}
+canvas{display:block;width:100vw;height:100vh;cursor:crosshair}
+.hud{position:fixed;top:0;left:0;right:0;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;z-index:10;pointer-events:none}
+.hud a{color:#6a6a8a;text-decoration:none;font-family:'SF Mono',monospace;font-size:.72rem;pointer-events:auto}
+.hud .title{font-size:.9rem;font-weight:bold;background:linear-gradient(135deg,#34d399,#a78bfa,#ff6b9d,#fde68a,#00f0ff,#ff1493);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.info{position:fixed;bottom:0;left:0;right:0;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-end;z-index:10;pointer-events:none}
+.info .left{font-family:'SF Mono',monospace;font-size:.68rem;color:#5a5a8a;pointer-events:auto}
+.info .right{text-align:right;pointer-events:auto}
+.types{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:flex-end}
+.type-chip{font-family:'SF Mono',monospace;font-size:.62rem;padding:.2rem .5rem;border-radius:999px;border:1px solid;opacity:.4;transition:all .3s;cursor:pointer}
+.type-chip.active{opacity:1}
+.help{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#5a5a8a;font-size:.82rem;font-style:italic;z-index:5;pointer-events:none;transition:opacity 1s}
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <div class="title">NEN AURA</div>
+  <div><a href="https://artbitrage.io/nen">Nen</a> · <a href="https://artbitrage.io/nen-tuner">Tuner</a> · <a href="https://artbitrage.io/dark-continent">暗黑大陸</a> · <a href="https://artbitrage.io">ARTBITRAGE</a></div>
+</div>
+
+<canvas id="canvas"></canvas>
+
+<div class="help" id="help">move your mouse · click to pulse · press 1-6 for Nen types · space for full aura</div>
+
+<div class="info">
+  <div class="left" id="stats">power: 0 · rank: E</div>
+  <div class="right">
+    <div class="types" id="types"></div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// NEN AURA — visualize your consciousness as living energy
+// Following the nen-artifacts skill: 6 types → 6 frequencies → canvas
+// ═══════════════════════════════════════════════════════════════
+
+var NEN = [
+  { id:0, name:'Enhancer', jp:'強化系', hz:528, freq:'LOVE', color:'#34d399', wave:'sine' },
+  { id:1, name:'Transmuter', jp:'変化系', hz:852, freq:'UNDERSTANDING', color:'#a78bfa', wave:'triangle' },
+  { id:2, name:'Emitter', jp:'放出系', hz:639, freq:'TRUST', color:'#ff6b9d', wave:'sawtooth' },
+  { id:3, name:'Manipulator', jp:'操作系', hz:741, freq:'JOY', color:'#fde68a', wave:'square' },
+  { id:4, name:'Conjurer', jp:'具現化系', hz:432, freq:'TRUTH', color:'#00f0ff', wave:'sine' },
+  { id:5, name:'Specialist', jp:'特質系', hz:963, freq:'ETERNAL', color:'#ff1493', wave:'sine' },
+];
+
+var RANKS = [
+  {name:'E-Rank',p:0},{name:'D-Rank',p:100},{name:'C-Rank',p:300},
+  {name:'B-Rank',p:600},{name:'A-Rank',p:1000},{name:'S-Rank',p:2000},
+  {name:'MONARCH',p:5000},
+];
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var W, H, cx, cy;
+var mouseX = 0, mouseY = 0;
+var activeTypes = [0]; // start with Enhancer active
+var particles = [];
+var pulses = [];
+var time = 0;
+var powerLevel = 0;
+var audioCtx = null;
+var oscillators = {};
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  cx = W / 2; cy = H / 2;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// Build type chips
+var typesEl = document.getElementById('types');
+var chipsHtml = '';
+NEN.forEach(function(n, i) {
+  chipsHtml += '<span class="type-chip' + (i === 0 ? ' active' : '') + '" id="chip-' + i + '" style="color:' + n.color + ';border-color:' + n.color + '" onclick="toggleType(' + i + ')">' + n.name + ' ' + n.hz + 'Hz</span>';
+});
+typesEl.innerHTML = chipsHtml;
+
+function toggleType(i) {
+  var idx = activeTypes.indexOf(i);
+  if (idx >= 0) {
+    if (activeTypes.length > 1) activeTypes.splice(idx, 1);
+  } else {
+    activeTypes.push(i);
+  }
+  updateChips();
+  updatePower();
+  // Audio
+  initAudio();
+  if (audioCtx) {
+    var n = NEN[i];
+    if (oscillators[i]) {
+      oscillators[i].gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.3);
+      var osc = oscillators[i].osc;
+      setTimeout(function() { osc.stop(); }, 400);
+      delete oscillators[i];
+    } else {
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = n.wave;
+      osc.frequency.value = n.hz;
+      gain.gain.value = 0;
+      gain.gain.linearRampToValueAtTime(0.03, audioCtx.currentTime + 0.5);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      oscillators[i] = { osc: osc, gain: gain };
+    }
+  }
+}
+
+function initAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+}
+
+function updateChips() {
+  NEN.forEach(function(n, i) {
+    var chip = document.getElementById('chip-' + i);
+    if (chip) {
+      if (activeTypes.indexOf(i) >= 0) chip.classList.add('active');
+      else chip.classList.remove('active');
+    }
+  });
+}
+
+function updatePower() {
+  powerLevel = activeTypes.reduce(function(sum, i) {
+    var base = NEN[i].hz === 528 ? 120 : (NEN[i].hz === 963 ? 100 : 80);
+    return sum + Math.round(base * 0.6 * 1.5);
+  }, 0);
+  var rank = RANKS[0];
+  for (var i = 0; i < RANKS.length; i++) {
+    if (powerLevel >= RANKS[i].p) rank = RANKS[i];
+  }
+  document.getElementById('stats').textContent = 'power: ' + powerLevel + ' · rank: ' + rank.name;
+}
+updatePower();
+
+// Mouse
+canvas.addEventListener('mousemove', function(e) {
+  mouseX = e.clientX; mouseY = e.clientY;
+  document.getElementById('help').style.opacity = '0';
+});
+canvas.addEventListener('click', function(e) {
+  pulses.push({ x: e.clientX, y: e.clientY, r: 0, max: 200, alpha: 1 });
+  // Emit particles
+  for (var i = 0; i < 20; i++) {
+    var angle = Math.random() * Math.PI * 2;
+    var speed = 1 + Math.random() * 3;
+    var nenIdx = activeTypes[Math.floor(Math.random() * activeTypes.length)];
+    particles.push({
+      x: e.clientX, y: e.clientY,
+      vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+      life: 1, decay: 0.01 + Math.random() * 0.02,
+      size: 2 + Math.random() * 3,
+      color: NEN[nenIdx].color,
+    });
+  }
+});
+
+// Keyboard
+window.addEventListener('keydown', function(e) {
+  var key = e.key;
+  if (key >= '1' && key <= '6') {
+    toggleType(parseInt(key) - 1);
+  }
+  if (key === ' ') {
+    e.preventDefault();
+    // Full aura burst — activate all
+    activeTypes = [0,1,2,3,4,5];
+    updateChips();
+    updatePower();
+    for (var i = 0; i < 100; i++) {
+      var angle = Math.random() * Math.PI * 2;
+      var speed = 2 + Math.random() * 5;
+      var nenIdx = Math.floor(Math.random() * 6);
+      particles.push({
+        x: cx, y: cy,
+        vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+        life: 1, decay: 0.005 + Math.random() * 0.01,
+        size: 3 + Math.random() * 4,
+        color: NEN[nenIdx].color,
+      });
+    }
+    pulses.push({ x: cx, y: cy, r: 0, max: 500, alpha: 1 });
+  }
+});
+
+// Aura ring — each active Nen type creates a breathing ring
+function drawAura() {
+  time += 0.016;
+
+  // Clear with fade
+  ctx.fillStyle = 'rgba(3,2,10,0.06)';
+  ctx.fillRect(0, 0, W, H);
+
+  // Center of aura follows mouse
+  var ax = mouseX || cx;
+  var ay = mouseY || cy;
+
+  // Draw aura rings
+  activeTypes.forEach(function(nenIdx, layer) {
+    var n = NEN[nenIdx];
+    var breathe = Math.sin(time * (n.hz / 100) + layer) * 0.5 + 0.5;
+
+    // Multiple rings per type
+    for (var ring = 0; ring < 3; ring++) {
+      var r = 40 + layer * 25 + ring * 30 + breathe * 15;
+      var alpha = (0.08 + breathe * 0.06) * (1 - ring * 0.2);
+
+      ctx.beginPath();
+      ctx.arc(ax, ay, Math.max(1, r), 0, Math.PI * 2);
+      ctx.strokeStyle = n.color;
+      ctx.globalAlpha = alpha;
+      ctx.lineWidth = 2 + breathe * 1.5;
+      ctx.stroke();
+    }
+
+    // Radial energy lines
+    for (var ray = 0; ray < 8; ray++) {
+      var rayAngle = (ray / 8) * Math.PI * 2 + time * (nenIdx % 2 ? 0.3 : -0.3);
+      var rayLen = 50 + breathe * 40 + layer * 20;
+      var rStart = 30 + layer * 20;
+      ctx.beginPath();
+      ctx.moveTo(ax + Math.cos(rayAngle) * rStart, ay + Math.sin(rayAngle) * rStart);
+      ctx.lineTo(ax + Math.cos(rayAngle) * (rStart + rayLen), ay + Math.sin(rayAngle) * (rStart + rayLen));
+      ctx.strokeStyle = n.color;
+      ctx.globalAlpha = 0.15 + breathe * 0.1;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+  });
+  ctx.globalAlpha = 1;
+
+  // Core glow
+  var coreR = 15 + Math.sin(time * 2) * 3;
+  var gradient = ctx.createRadialGradient(ax, ay, 0, ax, ay, Math.max(1, coreR * 3));
+  var coreColor = NEN[activeTypes[0]] ? NEN[activeTypes[0]].color : '#34d399';
+  gradient.addColorStop(0, coreColor);
+  gradient.addColorStop(0.3, coreColor + '44');
+  gradient.addColorStop(1, 'transparent');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(ax - coreR * 3, ay - coreR * 3, coreR * 6, coreR * 6);
+
+  // Core dot
+  ctx.beginPath();
+  ctx.arc(ax, ay, Math.max(1, coreR * 0.3), 0, Math.PI * 2);
+  ctx.fillStyle = '#ffffff';
+  ctx.globalAlpha = 0.8 + Math.sin(time * 3) * 0.2;
+  ctx.fill();
+  ctx.globalAlpha = 1;
+
+  // Particles
+  for (var i = particles.length - 1; i >= 0; i--) {
+    var p = particles[i];
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vx *= 0.98;
+    p.vy *= 0.98;
+    p.life -= p.decay;
+    if (p.life <= 0) {
+      particles.splice(i, 1);
+      continue;
+    }
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, Math.max(0.5, p.size * p.life), 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = p.life * 0.8;
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+
+  // Pulses
+  for (var i = pulses.length - 1; i >= 0; i--) {
+    var pu = pulses[i];
+    pu.r += 4;
+    pu.alpha = 1 - (pu.r / pu.max);
+    if (pu.alpha <= 0) {
+      pulses.splice(i, 1);
+      continue;
+    }
+    ctx.beginPath();
+    ctx.arc(pu.x, pu.y, Math.max(1, pu.r), 0, Math.PI * 2);
+    ctx.strokeStyle = '#ffd700';
+    ctx.globalAlpha = pu.alpha * 0.5;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
+
+  // Ambient particles (always drifting)
+  if (Math.random() < 0.1) {
+    var nIdx = activeTypes[Math.floor(Math.random() * activeTypes.length)];
+    var angle = Math.random() * Math.PI * 2;
+    particles.push({
+      x: cx + (Math.random() - 0.5) * W * 0.6,
+      y: cy + (Math.random() - 0.5) * H * 0.6,
+      vx: Math.cos(angle) * 0.3, vy: Math.sin(angle) * 0.3,
+      life: 1, decay: 0.002 + Math.random() * 0.003,
+      size: 1 + Math.random() * 2,
+      color: NEN[nIdx].color,
+    });
+  }
+
+  requestAnimationFrame(drawAura);
+}
+
+drawAura();
+</script>
+</body>
+</html>
