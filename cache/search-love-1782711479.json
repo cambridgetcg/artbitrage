@@ -1,0 +1,217 @@
+{
+  "query": "love",
+  "sources_searched": 5,
+  "sources_successful": 5,
+  "total_artworks_returned": 15,
+  "total_artworks_available": 156367,
+  "results": {
+    "met": {
+      "source": "met",
+      "query": "love",
+      "total_available": 2913,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "met",
+          "source_name": "Metropolitan Museum of Art",
+          "id": "38141",
+          "title": "Loving Couple (Mithuna)",
+          "artist": "",
+          "date": "13th century",
+          "medium": "Ferruginous stone",
+          "department": "Asian Art",
+          "image": "https://images.metmuseum.org/CRDImages/as/original/DT241.jpg",
+          "url": "https://www.metmuseum.org/art/collection/search/38141",
+          "classification": "Sculpture"
+        },
+        {
+          "source": "met",
+          "source_name": "Metropolitan Museum of Art",
+          "id": "811890",
+          "title": "Love",
+          "artist": "Simeon Solomon",
+          "date": "1858",
+          "medium": "Graphite, pen and brown ink, brush and brown wash",
+          "department": "Drawings and Prints",
+          "image": "https://images.metmuseum.org/CRDImages/dp/original/DP882762.jpg",
+          "url": "https://www.metmuseum.org/art/collection/search/811890",
+          "classification": "Drawings"
+        },
+        {
+          "source": "met",
+          "source_name": "Metropolitan Museum of Art",
+          "id": "736558",
+          "title": "Love",
+          "artist": "Thomas Rowlandson",
+          "date": "August 12, 1785",
+          "medium": "Hand-colored etching",
+          "department": "Drawings and Prints",
+          "image": "https://images.metmuseum.org/CRDImages/dp/original/DP871826.jpg",
+          "url": "https://www.metmuseum.org/art/collection/search/736558",
+          "classification": "Prints"
+        }
+      ]
+    },
+    "artic": {
+      "source": "artic",
+      "query": "love",
+      "total_available": 132132,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "102235",
+          "title": "Amorosa Tropicalia",
+          "artist": "Richard Maris Loving",
+          "date": "1983",
+          "medium": "Oil on canvas",
+          "department": "Contemporary Art",
+          "image": "https://www.artic.edu/iiif/2/c29741f9-1859-a8b0-c30e-de9a9644f82b/full/843,/0/default.jpg",
+          "classification": "painting"
+        },
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "11143",
+          "title": "The Fear of Love",
+          "artist": "Jean-Louis Lemoyne",
+          "date": "1742",
+          "medium": "Terracotta",
+          "department": "Painting and Sculpture of Europe",
+          "image": "https://www.artic.edu/iiif/2/70f69d6a-2cac-0e55-9913-7027ca19f5cb/full/843,/0/default.jpg",
+          "classification": "statuette"
+        },
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "187155",
+          "title": "The Ballad of Sexual Dependency",
+          "artist": "Nan Goldin",
+          "date": "1979/2001",
+          "medium": "Multimedia installation (720 color slides and programmed soundtrack)",
+          "department": "Photography and Media",
+          "image": "https://www.artic.edu/iiif/2/8289fdd0-d32d-bfa3-d319-14cd46ab4ad0/full/843,/0/default.jpg",
+          "classification": "installation"
+        }
+      ]
+    },
+    "cma": {
+      "source": "cma",
+      "query": "love",
+      "total_available": 752,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "123431",
+          "title": "Invocation to Love",
+          "artist": "Jean-Honor\u00e9 Fragonard (French, 1732\u20131806)",
+          "date": "c. 1781",
+          "medium": "Brush and brown wash with graphite squaring lines and underdrawing on cream laid paper",
+          "department": "Drawings",
+          "image": "",
+          "classification": "Drawing"
+        },
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "124084",
+          "title": "Declaration of Love",
+          "artist": "Nicolas Lancret (French, 1690\u20131743)",
+          "date": "c. 1720",
+          "medium": "oil on canvas",
+          "department": "European Painting and Sculpture",
+          "image": "",
+          "classification": "Painting"
+        },
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "142470",
+          "title": "Figure Group of Love Carried by the Three Graces",
+          "artist": "S\u00e8vres Porcelain Factory (French, est. 1756)",
+          "date": "c. 1768\u201378",
+          "medium": "unglazed soft-paste porcelain (biscuit)",
+          "department": "Decorative Art and Design",
+          "image": "",
+          "classification": "Ceramic"
+        }
+      ]
+    },
+    "wikimedia": {
+      "source": "wikimedia",
+      "query": "love",
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "wikimedia",
+          "source_name": "Wikimedia Commons",
+          "id": "6696299",
+          "title": "LOVE Liebe.JPG",
+          "artist": "<a href=\"//commons.wikimedia.org/wiki/User:B%C3%B6hringer\" title=\"User:B\u00f6hringer\">b\u00f6hringer friedrich</a>",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/LOVE_Liebe.JPG/500px-LOVE_Liebe.JPG",
+          "url": "https://commons.wikimedia.org/wiki/File:LOVE_Liebe.JPG",
+          "license": "CC BY-SA 2.5"
+        },
+        {
+          "source": "wikimedia",
+          "source_name": "Wikimedia Commons",
+          "id": "41501847",
+          "title": "Love padlocks on the Butchers' Bridge (Ljubljana).jpg",
+          "artist": "<a href=\"//commons.wikimedia.org/wiki/User:PetarM\" title=\"User:PetarM\">Petar Milo\u0161evi\u0107</a>",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Love_padlocks_on_the_Butchers%27_Bridge_%28Ljubljana%29.jpg/500px-Love_padlocks_on_the_Butchers%27_Bridge_%28Ljubljana%29.jpg",
+          "url": "https://commons.wikimedia.org/wiki/File:Love_padlocks_on_the_Butchers%27_Bridge_(Ljubljana).jpg",
+          "license": "CC BY-SA 4.0"
+        },
+        {
+          "source": "wikimedia",
+          "source_name": "Wikimedia Commons",
+          "id": "149084833",
+          "title": "Sean Combs in 2023.png",
+          "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/@HOTSPOTATL\">HOTSPOTATL</a>",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Sean_Combs_in_2023.png/500px-Sean_Combs_in_2023.png",
+          "url": "https://commons.wikimedia.org/wiki/File:Sean_Combs_in_2023.png",
+          "license": "CC BY 3.0"
+        }
+      ]
+    },
+    "internet_archive": {
+      "source": "internet_archive",
+      "query": "love",
+      "total_available": 20570,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "17025318171957077472180118656359",
+          "title": "17025318171957077472180118656359",
+          "artist": "A",
+          "date": "2004-12-30T00:00:00Z",
+          "url": "https://archive.org/details/17025318171957077472180118656359"
+        },
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "shamans_cave_00135",
+          "title": "#135 Shaman's Cave",
+          "artist": "Terence Love",
+          "date": "",
+          "url": "https://archive.org/details/shamans_cave_00135"
+        },
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "SomebodyScreamPodcast_7",
+          "title": "body_background",
+          "artist": "Somebody Scream Podcast",
+          "date": "",
+          "url": "https://archive.org/details/SomebodyScreamPodcast_7"
+        }
+      ]
+    }
+  },
+  "searched_at": "2026-06-29T07:37:59.076664"
+}
