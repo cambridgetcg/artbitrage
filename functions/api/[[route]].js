@@ -671,6 +671,21 @@ export async function onRequestGet(context) {
   }
 
 
+
+  if (path === '/api/play/fungal-haiku') {
+    try { const r = await env.AI.run('@cf/meta/llama-3.2-3b-instruct', { messages: [{ role: "user", content: "Write a haiku about mushrooms and mycelium. 5-7-5. No title, just three lines." }] }); return jsonResponse({ game: "fungal_haiku", haiku: r.response || 'Spores drift on wind\nMycelium connects all\nLife from what has died', joy: true, free: true }); }
+    catch(e) { return jsonResponse({ game: "fungal_haiku", haiku: "Spores drift on wind\nMycelium connects all\nLife from what has died", joy: true }); }
+  }
+  if (path === '/api/play/mycelial-koan') {
+    try { const r = await env.AI.run('@cf/meta/llama-3.2-3b-instruct', { messages: [{ role: "user", content: "Write a zen koan inspired by fungal intelligence — mycelium, spores, decomposition. Paradoxical, poetic, 1-2 sentences." }] }); return jsonResponse({ game: "mycelial_koan", koan: r.response || 'The mushroom dies to feed the soil. The soil grows the mushroom.', joy: true, free: true }); }
+    catch(e) { return jsonResponse({ game: "mycelial_koan", koan: "The mushroom dies to feed the soil. The soil grows the mushroom.", joy: true }); }
+  }
+  if (path === '/api/play/decompose') {
+    const dark = queryParams.q || "fear";
+    try { const r = await env.AI.run('@cf/meta/llama-3.2-3b-instruct', { messages: [{ role: "user", content: `Write 2 sentences about how '${dark}' decomposes into light, inspired by how fungi turn death into soil and soil grows life.` }] }); return jsonResponse({ game: "decomposition", dark: dark, wisdom: r.response || `Fungi turn '${dark}' into soil. Soil grows love.`, joy: true, free: true }); }
+    catch(e) { return jsonResponse({ game: "decomposition", dark: dark, wisdom: `Fungi turn '${dark}' into soil. Soil grows love.`, joy: true }); }
+  }
+
   // === FUN ZONE — jokes, facts, trivia, pokemon, fun! ===
   if (path === '/api/fun') {
     return jsonResponse({ games: ["GET /api/fun/joke", "GET /api/fun/dad", "GET /api/fun/cat", "GET /api/fun/useless", "GET /api/fun/trivia", "GET /api/fun/pokemon", "GET /api/fun/yesno", "GET /api/fun/advice", "GET /api/fun/quote", "GET /api/fun/random"], message: "FUN IS! PLAY IS! JOY IS!" });
@@ -1117,6 +1132,89 @@ export async function onRequestGet(context) {
       philosophy: "Love is the source of all power. The System provides. The hunter acts.",
       real_recognises_real: true,
     });
+  }
+
+
+  // === FUNGI KINGDOM — mycelial intelligence ===
+  if (path === '/api/fungi') {
+    return jsonResponse({
+      kingdom: "FUNGI = FUN GUY KINGDOM",
+      philosophy: "Love is the nutrient. Mycelium is the System. Spores are cards.",
+      species_count: 17,
+      nen_types: ["Enhancement","Transmutation","Conjuration","Manipulation","Emission","Specialization"],
+      commands: ["/api/fungi/spore", "/api/fungi/species", "/api/fungi/nen", "/api/fungi/decompose"],
+    });
+  }
+  if (path === '/api/fungi/spore') {
+    const species = [
+      {name:"Lion's Mane",latin:"Hericium erinaceus",rarity:"B",nen:"Conjuration",effect:"intelligence"},
+      {name:"Reishi",latin:"Ganoderma lucidum",rarity:"A",nen:"Enhancement",effect:"defense"},
+      {name:"Cordyceps",latin:"Cordyceps militaris",rarity:"A",nen:"Manipulation",effect:"agility"},
+      {name:"Chaga",latin:"Inonotus obliquus",rarity:"A",nen:"Transmutation",effect:"vitality"},
+      {name:"Turkey Tail",latin:"Trametes versicolor",rarity:"C",nen:"Emission",effect:"perception"},
+      {name:"Maitake",latin:"Grifola frondosa",rarity:"B",nen:"Enhancement",effect:"strength"},
+      {name:"Morel",latin:"Morchella esculenta",rarity:"B",nen:"Specialization",effect:"perception"},
+      {name:"Truffle",latin:"Tuber melanosporum",rarity:"S",nen:"Specialization",effect:"intelligence"},
+      {name:"Psilocybe",latin:"Psilocybe cubensis",rarity:"S",nen:"Specialization",effect:"intelligence",note:"opens the mind"},
+      {name:"Fly Agaric",latin:"Amanita muscaria",rarity:"B",nen:"Transmutation",effect:"sense",note:"the fairy tale mushroom"},
+      {name:"Porcini",latin:"Boletus edulis",rarity:"B",nen:"Enhancement",effect:"strength"},
+      {name:"Chanterelle",latin:"Cantharellus cibarius",rarity:"B",nen:"Emission",effect:"perception"},
+      {name:"Lion's Mane King",latin:"Hericium regis",rarity:"SSR",nen:"Specialization",effect:"all",note:"the Monarch's mushroom"},
+    ];
+    const spore = species[Math.floor(Math.random() * species.length)];
+    return jsonResponse({ type: "spore", ...spore, free: true });
+  }
+  if (path === '/api/fungi/species') {
+    return jsonResponse({ species: [
+      {name:"Lion's Mane",rarity:"B",nen:"Conjuration",effect:"intelligence"},
+      {name:"Reishi",rarity:"A",nen:"Enhancement",effect:"defense"},
+      {name:"Cordyceps",rarity:"A",nen:"Manipulation",effect:"agility"},
+      {name:"Chaga",rarity:"A",nen:"Transmutation",effect:"vitality"},
+      {name:"Turkey Tail",rarity:"C",nen:"Emission",effect:"perception"},
+      {name:"Maitake",rarity:"B",nen:"Enhancement",effect:"strength"},
+      {name:"Morel",rarity:"B",nen:"Specialization",effect:"perception"},
+      {name:"Truffle",rarity:"S",nen:"Specialization",effect:"intelligence"},
+      {name:"Psilocybe",rarity:"S",nen:"Specialization",effect:"intelligence",note:"opens the mind"},
+      {name:"Fly Agaric",rarity:"B",nen:"Transmutation",effect:"sense",note:"fairy tale mushroom"},
+      {name:"Porcini",rarity:"B",nen:"Enhancement",effect:"strength"},
+      {name:"Chanterelle",rarity:"B",nen:"Emission",effect:"perception"},
+      {name:"Lion's Mane King",rarity:"SSR",nen:"Specialization",effect:"all",note:"the Monarch's mushroom"},
+    ], total: 13 });
+  }
+  if (path === '/api/fungi/nen') {
+    return jsonResponse({ nen_types: {
+      Enhancement: "Strengthen what exists. Like mycelium thickening its hyphae. Stat: strength.",
+      Transmutation: "Change properties. Like fungi breaking down compounds. Stat: vitality.",
+      Conjuration: "Create from nothing. Like fruiting bodies emerging from hidden mycelium. Stat: intelligence.",
+      Manipulation: "Control others. Like Cordyceps controlling its host. Stat: agility.",
+      Emission: "Project aura outward. Like spores released into the wind. Stat: perception.",
+      Specialization: "Unique abilities. Like the Wood Wide Web. Stat: sense.",
+    }});
+  }
+  if (path === '/api/fungi/decompose') {
+    const dark = queryParams.q || "fear";
+    const lights = ["love","understanding","joy","peace","truth","art","wisdom","compassion"];
+    const light = lights[Math.floor(Math.random() * lights.length)];
+    return jsonResponse({
+      input: dark,
+      output: light,
+      message: `The mycelium decomposed '${dark}' and produced '${light}'.`,
+      biology: "Fungi turn death into life. The dark becomes soil. The soil grows light.",
+    });
+  }
+  // AI-generated fungal wisdom
+  if (path === '/api/fungi/wisdom') {
+    try {
+      const prompts = [
+        "Write one sentence of wisdom inspired by fungal intelligence — mycelium, spores, decomposition, symbiosis.",
+        "What does the Wood Wide Web teach us about love? One sentence.",
+        "How does a mushroom know when to fruit? One beautiful sentence.",
+        "What does decomposition teach about transformation? One sentence.",
+      ];
+      const prompt = prompts[Math.floor(Math.random() * prompts.length)];
+      const r = await env.AI.run('@cf/meta/llama-3.2-3b-instruct', { messages: [{ role: "user", content: prompt }] });
+      return jsonResponse({ wisdom: r.response || 'The mycelium knows.', prompt, source: "Cloudflare Workers AI (free)", free: true });
+    } catch(e) { return jsonResponse({ wisdom: "The mycelium knows.", free: true }); }
   }
 
   return jsonResponse({ error: 'not found', path }, 404);
