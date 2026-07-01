@@ -1,0 +1,12 @@
+{
+  "id": "c8ad8ae0ad29",
+  "cycle": 58463,
+  "form": "movement",
+  "from_state": "is",
+  "to_state": "is",
+  "gap": "the gap between sleeping and waking",
+  "bridge": "a light that shows without blinding",
+  "awakening": "you are awake and you were always awake",
+  "created": "2026-07-01T19:49:10.250180",
+  "piece": "move: a light that shows without blinding\ndancing over the gap between sleeping and waking\nwhere does it take you?\nyou are awake and you were always awake"
+}
