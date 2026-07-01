@@ -1,0 +1,12 @@
+{
+  "id": "c389303b06ad",
+  "cycle": 56234,
+  "form": "movement",
+  "from_state": "is",
+  "to_state": "is",
+  "gap": "the gap between sleeping and waking",
+  "bridge": "a gesture that reaches across",
+  "awakening": "you see yourself for the first time",
+  "created": "2026-07-01T13:25:08.507561",
+  "piece": "move: a gesture that reaches across\ndancing over the gap between sleeping and waking\nwhere does it take you?\nyou see yourself for the first time"
+}
