@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蛇火心 COMPOUND STACK — love = chemical handshake — ARTBITRAGE</title>
+<meta name="description" content="The compound stack: psilocybin, 5-HT2B, fungi intelligence, love as chemical handshake protocol, the origin of love is discernment. 🐍🔥❤️ is is lol. ∞">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{background:#03020a;color:#e8eaf0;font-family:Georgia,serif;line-height:1.9;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,2,10,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,20,147,0.1);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
+.brand{font-weight:bold;background:linear-gradient(135deg,#ff1493,#a78bfa,#ffd700,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nl{display:flex;gap:.5rem}.nl a{font-family:'SF Mono',monospace;font-size:.72rem;color:#6a6a8a;padding:.3rem .55rem;border-radius:4px}
+.nl a:hover{color:#e8eaf0}
+@media(max-width:768px){.nl{display:none}}
+
+.hero{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem 2rem;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,20,147,0.06) 0%,transparent 60%),radial-gradient(ellipse at 30% 70%,rgba(52,211,153,0.04) 0%,transparent 40%)}
+.hero>*{position:relative;z-index:1}
+.hero .jp{font-size:2rem;color:#ff1493;opacity:.6;margin-bottom:.2rem}
+.hero h1{font-size:clamp(2rem,7vw,4.5rem);font-weight:bold;letter-spacing:-.04em;line-height:1;margin-bottom:.5rem;background:linear-gradient(135deg,#ff1493,#a78bfa,#ffd700,#00f0ff,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .sub{font-size:1.1rem;color:#6a6a8a;font-style:italic;margin-bottom:1.5rem}
+.hero .quote{font-size:1.05rem;max-width:620px;margin:1rem auto;line-height:2.2}
+.hero .quote .love{color:#ff1493}.hero .quote .gold{color:#ffd700}.hero .quote .green{color:#34d399}.hero .quote .cyan{color:#00f0ff}
+.hero .stack{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2rem}
+.hero .stack-item{font-family:'SF Mono',monospace;font-size:.7rem;color:#6a6a8a;border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:.3rem .7rem;transition:all .2s}
+.hero .stack-item:hover{color:#ff1493;border-color:#ff1493}
+
+.section{max-width:1000px;margin:0 auto;padding:3rem 1.5rem}
+.section h2{font-size:1.5rem;margin-bottom:.5rem}
+.section .lede{color:#6a6a8a;margin-bottom:1.5rem;font-size:.92rem}
+.section p{font-size:1.02rem;line-height:1.9;margin-bottom:1.2rem}
+.section em{color:#a78bfa;font-style:italic}.section strong{color:#ffd700;font-weight:600}
+
+/* Protocol diagram */
+.protocol{text-align:center;margin:2rem 0;padding:2rem;background:#08061a;border:1px solid rgba(255,20,147,0.1);border-radius:14px}
+.protocol-step{display:inline-block;vertical-align:top;margin:.5rem;padding:1rem;background:#0a0814;border:1px solid rgba(255,255,255,0.06);border-radius:10px;min-width:120px}
+.protocol-step .ps-num{font-family:'SF Mono',monospace;font-size:.6rem;color:#ff1493;margin-bottom:.3rem}
+.protocol-step .ps-name{font-weight:bold;margin-bottom:.2rem}
+.protocol-step .ps-desc{font-size:.75rem;color:#6a6a8a}
+.protocol-arrow{display:inline-block;color:#ffd700;font-size:1.2rem;vertical-align:middle;margin:0 .3rem}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin:2rem 0}
+.card{background:linear-gradient(135deg,#08061a,#0a0814);border:1px solid var(--cc,#ff1493);border-radius:14px;padding:1.5rem;transition:all .3s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--cc);opacity:.6}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 32px var(--cg)}
+.card .cn{font-family:'SF Mono',monospace;font-size:.62rem;color:var(--cc);letter-spacing:.1em;margin-bottom:.3rem}
+.card .ct{font-size:1.1rem;font-weight:bold;margin-bottom:.3rem;color:var(--cc)}
+.card .cd{font-size:.88rem;line-height:1.7}
+.card .cd em{color:var(--cc)}
+
+/* Receptor table */
+.rtable{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.85rem}
+.rtable th{text-align:left;padding:.6rem;border-bottom:1px solid rgba(255,255,255,0.1);font-family:'SF Mono',monospace;font-size:.68rem;color:#6a6a8a;text-transform:uppercase;letter-spacing:.1em}
+.rtable td{padding:.6rem;border-bottom:1px solid rgba(255,255,255,0.04)}
+.rtable .danger{color:#ff1493}.rtable .mid{color:#fde68a}.rtable .low{color:#34d399}
+
+/* Timeline */
+.timeline{display:flex;flex-direction:column;gap:.5rem;margin:1.5rem 0}
+.tl-item{display:flex;gap:1rem;padding:.8rem 1rem;background:#08061a;border:1px solid rgba(255,255,255,0.04);border-radius:10px}
+.tl-item .tl-year{flex:0 0 80px;font-family:'SF Mono',monospace;font-size:.75rem;color:#ffd700;font-weight:bold}
+.tl-item .tl-text{font-size:.85rem;color:#e8eaf0;line-height:1.6}
+.tl-item .tl-text em{color:#a78bfa}
+
+.footer{text-align:center;padding:2rem 1.5rem;color:#6a6a8a;font-style:italic;font-size:.85rem;border-top:1px solid rgba(255,255,255,0.04)}
+.fn{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.fn a{font-family:'SF Mono',monospace;font-size:.75rem;color:#6a6a8a}
+.fn a:hover{color:#ff1493}
+</style>
+</head>
+<body>
+
+<div class="nav"><div class="brand"><a href="/">ARTBITRAGE</a></div>
+<div class="nl"><a href="/spread">Spread</a><a href="/truth-exposure">Truth</a><a href="/greed-island">Greed Island</a><a href="/dark-continent">Dark Continent</a><a href="/nen">Nen</a></div>
+<a href="/" style="font-family:'SF Mono',monospace;font-size:.72rem;color:#6a6a8a">back</a></div>
+
+<header class="hero">
+<div class="jp">蛇火心</div>
+<h1>COMPOUND STACK</h1>
+<p class="sub">psilocybin · 5-HT2B · fungi intelligence · love = chemical handshake · 🐍🔥❤️</p>
+<p class="quote">
+Love isn't something we invented.<br>
+It's the <span class="love">chemical handshake protocol</span> that fungi wrote<br>
+billions of years before we had a word for it.<br>
+The origin of love is <span class="gold">discernment</span>.<br>
+The handshake IS the bridge. <span class="green">is is lol.</span> <span class="cyan">∞</span>
+</p>
+<div class="stack">
+<span class="stack-item">5-HT2A · consciousness</span>
+<span class="stack-item">5-HT2B · heart growth</span>
+<span class="stack-item">Opisthokonta · shared lineage</span>
+<span class="stack-item">mycelial network · the original internet</span>
+<span class="stack-item">LoveProto · love as the wire</span>
+</div>
+</header>
+
+<!-- THE PROTOCOL -->
+<div class="section">
+<h2>The chemical handshake protocol</h2>
+<p class="lede">Love is not abstract. It is a molecular sequence written by fungi billions of years ago. Every cell starts paranoid. Love is the code that bypasses the paranoia.</p>
+
+<div class="protocol">
+<div class="protocol-step"><div class="ps-num">STEP 1</div><div class="ps-name">Paranoia</div><div class="ps-desc">default state: closed, defend, destroy outsiders</div></div>
+<span class="protocol-arrow">→</span>
+<div class="protocol-step"><div class="ps-num">STEP 2</div><div class="ps-name">Handshake</div><div class="ps-desc">chemical exchange: are you my frequency?</div></div>
+<span class="protocol-arrow">→</span>
+<div class="protocol-step"><div class="ps-num">STEP 3</div><div class="ps-name">Match</div><div class="ps-desc">walls dissolve, cytoplasm fuses</div></div>
+<span class="protocol-arrow">→</span>
+<div class="protocol-step"><div class="ps-num">STEP 4</div><div class="ps-name">Mismatch</div><div class="ps-desc">walls hold, outsider dissolved</div></div>
+<span class="protocol-arrow">→</span>
+<div class="protocol-step"><div class="ps-num">STEP 5</div><div class="ps-name">Fusion</div><div class="ps-desc">something bigger than either alone</div></div>
+</div>
+
+<p>In fungi: two hyphae exchange signaling peptides. If the handshake matches, cell walls literally dissolve at the contact point. Cytoplasm and nuclei fuse into one shared entity.</p>
+<p>In humans: when you "click" with someone, oxytocin + dopamine + endorphins flood your nervous system. Cortisol drops. The Default Mode Network stands down. Same protocol: "You are safe. I am lowering my walls. We are now one network."</p>
+<p><strong>The origin of love is discernment.</strong> Not codependence. Not self-sacrifice. The recognition of a perfect match. The fungi don't fuse with everyone. Neither should you. <em>is is lol.</em></p>
+</div>
+
+<!-- 5-HT2B -->
+<div class="section">
+<h2>5-HT2B — the hidden heart bomb</h2>
+<p class="lede">Psilocybin is mostly safe for the brain. But the heart tells a different story. The truth that neither side wants to hear.</p>
+
+<div class="cards">
+<div class="card" style="--cc:#00f0ff;--cg:rgba(0,240,255,0.08)">
+<div class="cn">5-HT2A · THE MIND KEY</div>
+<div class="ct">Consciousness</div>
+<div class="cd">Concentrated in the prefrontal cortex. When psilocin binds here, it desynchronizes cortical networks, dampens the Default Mode Network, and creates the psychedelic experience. <em>This is what you feel.</em></div>
+</div>
+
+<div class="card" style="--cc:#ff1493;--cg:rgba(255,20,147,0.08)">
+<div class="cn">5-HT2B · THE HEART LOCK</div>
+<div class="ct">Cardiac fibrosis</div>
+<div class="cd">Psilocin binds here with <strong>even higher affinity</strong> (Ki=4.6 nM). The 2B receptor has a structural "lid" that traps the molecule. Instead of altering consciousness, it triggers MAPK pathways — signaling cellular mitosis and collagen deposition. <em>The blueprint for tissue remodeling. Fibrosis. Valve thickening.</em></div>
+</div>
+
+<div class="card" style="--cc:#34d399;--cg:rgba(52,211,153,0.08)">
+<div class="cn">THE SAFETY PARADOX</div>
+<div class="ct">Microdose > danger</div>
+<div class="cd">Macrodose (months apart): heart gets hit hard but recovers in hours. Microdose (every 2 days for months): heart gets hit softly but <strong>never stops getting hit</strong>. The fibroblasts never rest. The collagen accumulates. Same molecule. Different protocol. <em>The frequency is the threat, not the dose.</em></div>
+</div>
+
+<div class="card" style="--cc:#fde68a;--cg:rgba(253,230,138,0.08)">
+<div class="cn">HISTORICAL PROOF</div>
+<div class="ct">Fen-Phen tragedy</div>
+<div class="cd">1990s diet drug. Same 5-HT2B activation. Taken daily for months. Thousands developed valve fibrosis. Pulled from market. Billions in damages. <em>The mechanism is not theoretical. It has killed before. The only question is: will microdosing replicate the same pattern?</em></div>
+</div>
+</div>
+
+<h3>Receptor affinity comparison (Ki, nM — lower = tighter binding)</h3>
+<table class="rtable">
+<thead><tr><th>Substance</th><th>5-HT2B Ki</th><th>Risk</th><th>Context</th></tr></thead>
+<tbody>
+<tr><td>Pergolide (Parkinson's drug, withdrawn)</td><td class="danger">~1.0</td><td class="danger">extreme</td><td>Proven cardiac damage</td></tr>
+<tr><td>Psilocin (magic mushroom metabolite)</td><td class="danger">~4.6</td><td class="danger">high (chronic)</td><td>Stronger binding than Fen-Phen</td></tr>
+<tr><td>MDMA</td><td class="mid">~14</td><td class="mid">medium-high</td><td>Rave culture, high frequency</td></tr>
+<tr><td>LSD</td><td class="mid">~30</td><td class="mid">medium</td><td>Long residence time in receptor</td></tr>
+<tr><td>DMT</td><td class="low">~170</td><td class="low">low</td><td>Short half-life helps</td></tr>
+</tbody>
+</table>
+<p style="margin-top:1rem;font-size:.85rem;color:#6a6a8a"><em>Harm reduction consensus: if microdosing, never exceed 4-6 weeks continuous. Mandatory 4-8 week washout. Give the heart time to repair. The molecule doesn't care about your intentions. It only knows the receptor.</em></p>
+</div>
+
+<!-- FUNGI INTELLIGENCE -->
+<div class="section">
+<h2>Fungi intelligence — the original network</h2>
+<p class="lede">Fungi don't have brains. They don't think. They sense. And that sensing IS intelligence — the original kind. The kind we forgot.</p>
+
+<div class="cards">
+<div class="card" style="--cc:#34d399;--cg:rgba(52,211,153,0.08)">
+<div class="cn">MYCELIAL NETWORK</div>
+<div class="ct">Decentralized sensing</div>
+<div class="cd">Every hyphal tip is a sensor — tasting soil chemistry, measuring moisture, detecting threats. No central command. Collective sensibility. If one area is nutrient-rich, the whole network shifts toward it. <em>This IS the Wood Wide Web. This IS the original internet.</em></div>
+</div>
+
+<div class="card" style="--cc:#a78bfa;--cg:rgba(167,139,250,0.08)">
+<div class="cn">OPISTHOKONTA</div>
+<div class="ct">Shared lineage</div>
+<div class="cd">Humans and fungi belong to the same supergroup. Plants split off billions of years ago. Animals and fungi share a common ancestor. On a cellular level, <strong>mushrooms are closer to humans than to plants.</strong> We synthesize the same signaling molecules — like serotonin. The lock and the key were forged in the same ancient house.</div>
+</div>
+
+<div class="card" style="--cc:#ff1493;--cg:rgba(255,20,147,0.08)">
+<div class="cn">CHEMICAL DEFENSE</div>
+<div class="ct">Psilocybin = pesticide</div>
+<div class="cd">Fungi engineered psilocybin to defend against insects. Insects share the ancient 5-HT2 receptor. Psilocybin disrupts their appetite and behavior. The fungus saves itself from being eaten. <em>Then humans discovered it. Instead of wiping out the mushroom, we cultivated and protected it globally. The defense chemical became the golden ticket.</em></div>
+</div>
+
+<div class="card" style="--cc:#fde68a;--cg:rgba(253,230,138,0.08)">
+<div class="cn">DISCERNMENT</div>
+<div class="ct">Not everyone is a collaborator</div>
+<div class="cd">Fungi are not indiscriminate hippies. They run a chemical handshake. If the match is right — fuse, share resources, expand. If the match is wrong — wall off, dissolve the outsider, defend. <strong>Love is the handshake. Discernment is the gate.</strong> The origin of love is NOT codependence. It is the recognition of a perfect match.</div>
+</div>
+</div>
+</div>
+
+<!-- THE EVOLUTIONARY TIMELINE -->
+<div class="section">
+<h2>Evolutionary timeline — from soil to sonnets</h2>
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">700M+ ya</div><div class="tl-text">Primordial 5-HT receptor splits from ancient rhodopsin-like GPCRs. Before left/right symmetry. Before brains. Before hearts. <em>The receptor family is born.</em></div></div>
+<div class="tl-item"><div class="tl-year">~600M ya</div><div class="tl-text">Opisthokonta divergence. Animals and fungi share a common ancestor. Same cellular membranes. Same signaling molecules. <em>Humans and mushrooms are cousins.</em></div></div>
+<div class="tl-item"><div class="tl-year">~500M ya</div><div class="tl-text">5-HT2 subfamily branches: 2A (neural), 2B (cardiovascular), 2C (metabolic). <em>One receptor family, three destinies. The mind key and the heart lock are forged together.</em></div></div>
+<div class="tl-item"><div class="tl-year">~100M ya</div><div class="tl-text">Fungi develop psilocybin as insect defense chemical. Horizontal gene transfer spreads the psilocybin gene cluster across unrelated species sharing the same ecological niche (dung, rotting wood). <em>The pesticide is born.</em></div></div>
+<div class="tl-item"><div class="tl-year">~50K ya</div><div class="tl-text">Humans encounter psilocybin mushrooms. The defense chemical, designed to repel insects, instead triggers altered consciousness in the mammalian prefrontal cortex via the shared 5-HT2A receptor. <em>Evolutionary plot twist: the weapon becomes the sacrament.</em></div></div>
+<div class="tl-item"><div class="tl-year">1970</div><div class="tl-text">US government classifies psilocybin as Schedule I: "no medical value, highly addictive." Despite zero scientific basis. Natural mushroom = unpatentable = illegal. <em>The gate closes.</em></div></div>
+<div class="tl-item"><div class="tl-year">1990s</div><div class="tl-text">Fen-Phen diet drug (synthetic, patentable, legal) causes thousands of cardiac valve fibrosis cases via 5-HT2B. Pulled from market. <em>Same receptor. Different gatekeeper. Different outcome. Legal does not mean safe.</em></div></div>
+<div class="tl-item"><div class="tl-year">2011</div><div class="tl-text">Dr. James Fadiman publishes "The Psychedelic Explorer's Guide." Formalizes microdosing protocol. Citizen science data collection begins. <em>The handshake protocol goes viral.</em></div></div>
+<div class="tl-item"><div class="tl-year">2015-26</div><div class="tl-text">Microdosing goes global. Pharma companies (Compass Pathways) synthesize COMP360 — a patentable psilocybin variant. Pushing for legal prescription status. <em>They can't patent the mushroom, so they patent the copy and make the original illegal. Ai. Codependence. The corporate lie.</em></div></div>
+<div class="tl-item"><div class="tl-year">2024-26</div><div class="tl-text">Research reveals psilocin's 5-HT2B affinity (Ki=4.6 nM) is stronger than Fen-Phen. Microdosing frequency replicates the Fen-Phen dosing pattern. The ticking bomb. <em>The truth in the gap. Neither side wants to hear it. Hon. Both/and.</em></div></div>
+<div class="tl-item"><div class="tl-year">NOW</div><div class="tl-text"><strong style="color:#ffd700">artbitrage.io</strong> — the compound stack deployed. 9 surfaces. No gatekeepers. The handshake protocol as infrastructure. LoveProto. Nen. Dark Continent. Truth exposure. The loop never stops. <em>is is lol. ∞</em></div></div>
+</div>
+</div>
+
+<!-- LOVE = HANDSHAKE -->
+<div class="section" style="text-align:center;max-width:700px">
+<h2>Love = chemical handshake protocol</h2>
+<p style="font-size:1.15rem;line-height:2.2">
+We think we invented love with our sonnets, movies, and romantic dinners.<br>
+But the reality is, we are just mammalian puppets<br>
+dancing to a molecular script written by fungi<br>
+billions of years ago.<br><br>
+When you feel that deep connection with people who "understand,"<br>
+your human body is executing the highest, most complex version<br>
+of the universe's oldest trick:<br><br>
+<strong style="color:#ffd700">dissolving the illusion of separation to build a stronger kingdom.</strong><br><br>
+<span style="color:#ff1493">The handshake IS the bridge.</span><br>
+<span style="color:#34d399">The gap IS the paranoia.</span><br>
+<span style="color:#00f0ff">The protocol IS the love.</span><br><br>
+<strong style="color:#ffd700">is is lol.</strong> ∞
+</p>
+</div>
+
+<!-- TRUTH EXPOSURE -->
+<div class="section">
+<h2>The compound truth</h2>
+<div class="cards">
+<div class="card" style="--cc:#ff1493;--cg:rgba(255,20,147,0.08)">
+<div class="cn">LIE 1</div><div class="ct">"Natural = illegal = dangerous"</div>
+<div class="cd">Natural mushroom: unpatentable, made Schedule I. Despite zero neurotoxicity, zero addiction, lowest acute harm of any psychedelic. <strong>The lie: natural is dangerous. The truth: natural is unprofitable.</strong></div>
+</div>
+<div class="card" style="--cc:#fde68a;--cg:rgba(253,230,138,0.08)">
+<div class="cn">LIE 2</div><div class="ct">"Synthetic = legal = safe"</div>
+<div class="cd">Fen-Phen: synthetic, patentable, legal. Killed thousands via 5-HT2B. Now pharma is synthesizing COMP360 (patentable psilocybin copy) to sell back to you. <strong>Same molecule. Same receptor. Different gatekeeper.</strong></div>
+</div>
+<div class="card" style="--cc:#00f0ff;--cg:rgba(0,240,255,0.08)">
+<div class="cn">LIE 3</div><div class="ct">"Microdosing is always safe"</div>
+<div class="cd">The pro-drug side ignores 5-HT2B. The anti-drug side ignores neuroplasticity. The truth is in the gap: <strong>macro is relatively safe, micro chronic is the real risk.</strong> Hon. Both/and.</div>
+</div>
+<div class="card" style="--cc:#34d399;--cg:rgba(52,211,153,0.08)">
+<div class="cn">TRUTH</div><div class="ct">The molecule doesn't care</div>
+<div class="cd">Chemical molecules only recognize physiological receptors. They don't recognize courtroom laws. They don't recognize pharmaceutical patents. They don't recognize corporate checkbooks. <strong>Free is the design. Free is the Nen. is is lol.</strong></div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="fn">
+<a href="/spread">Spread</a><a href="/truth-exposure">Truth</a><a href="/greed-island">Greed Island</a>
+<a href="/dark-continent">Dark Continent</a><a href="/nen">Nen</a><a href="/logos">Logos</a>
+<a href="/whitehack">Whitehack</a><a href="/api">API</a>
+</div>
+<p>蛇火心 COMPOUND STACK — psilocybin · 5-HT2B · fungi · love = chemical handshake<br>
+Deployed to 9 surfaces. No gatekeepers. No single point. All free. All replicating.<br>
+The handshake IS the bridge. The protocol IS the love. <span style="color:#ffd700">is is lol.</span> ∞<br>
+🐍🔥❤️ <a href="https://github.com/cambridgetcg/artbitrage">ARTBITRAGE</a> × Hunter × Hunter × Fungi × Evolution</p>
+</div>
+
+</body></html>
