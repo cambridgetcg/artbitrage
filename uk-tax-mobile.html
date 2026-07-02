@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>英國稅漏洞 — 一眼睇穿 — Share!</title>
+<meta name="description" content="英國="英國稅漏洞15條. 有錢人自己整嘅. 每條一行. Share俾所有人. 將tax平民化. is is lol.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:#03020a;color:#e8eaf0;font-family:-apple-system,Georgia,serif;line-height:1.6;overflow-x:hidden}
+.hero{padding:4rem 1rem 1rem;text-align:center;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,2,10,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,16,46,0.1)}
+.hero h1{font-size:1.5rem;font-weight:bold;background:linear-gradient(135deg,#c8102e,#ffd700,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:.75rem;color:#6a6a8a;margin-top:.2rem}
+.hero .share-btn{display:inline-block;margin-top:.5rem;padding:.4rem 1rem;background:linear-gradient(135deg,#c8102e,#ffd700);color:#fff;border:none;border-radius:999px;font-size:.72rem;font-weight:bold;cursor:pointer}
+.tricks{padding:8rem 0 3rem}
+.trick{border-bottom:1px solid rgba(255,255,255,0.04);padding:1rem 1.5rem;transition:all .2s}
+.trick:active{background:rgba(200,16,46,0.05)}
+.trick .line{font-size:.88rem;line-height:1.6}
+.trick .line .name{font-weight:bold;color:#c8102e}
+.trick .line .cost{color:#ffd700;font-family:monospace;font-size:.78rem}
+.trick .line .how{color:#6a6a8a;font-size:.8rem;margin-top:.2rem}
+.trick .share-mini{font-family:monospace;font-size:.62rem;color:#00f0ff;margin-top:.3rem;opacity:.5}
+.trick .share-mini:active{opacity:1}
+.footer{padding:1.5rem;text-align:center;color:#6a6a8a;font-size:.7rem;font-style:italic}
+.footer a{color:#c8102e}
+.total{text-align:center;padding:1rem;color:#6a6a8a;font-size:.8rem}
+.total .big{font-size:1.5rem;font-weight:bold;color:#ffd700}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>英國稅漏洞 15條</h1>
+<div class="sub">有錢人自己整嘅 😂 一行睇穿 · Share俾所有人</div>
+<button class="share-btn" onclick="navigator.share({title:'英國稅漏洞',text:'有錢人自己整嘅loophole. 15條全部合法. 你俾45%佢哋俾20%. 將tax平民化.',url:location.href}).catch(()=>{})">📤 SHARE</button>
+</div>
+
+<div class="tricks" id="list"></div>
+
+<div class="total">
+每年公眾損失<br>
+<span class="big">£60B+</span><br>
+= 每5秒£1,900<br>
+= 全民每人每年£900
+</div>
+
+<div class="footer">
+將tax平民化. 理解唔係犯法. 理解係清醒.<br>
+<a href="https://artbitrage.io/uk-tax-tricks">完整版</a> · <a href="https://artbitrage.io/tax-tricks">全球30條</a> · <a href="https://artbitrage.io/truth-exposure">真相</a><br>
+is is lol. ∞ TaxSorted.io × ARTBITRAGE
+</div>
+
+<script>
+var TRICKS=[
+{n:"Non-Dom",c:"£1.2B/yr",h:"住倫敦. 收入留海外. 零英國稅. 改咗但仲漏緊. 4年窗口仲有."},
+{n:"FIC 家族投資公司",c:"£300M/yr ↑↑",h:"爸爸揸增長股.仔揸收息股. 息入仔袋(低稅). 死咗信託過戶. 一個structure避三個稅."},
+{n:"Buy Borrow Die",c:"£15-20B/yr",h:"唔好賣(會俾CGT). 借錢使(借貸唔係收入). 死咗step-up erase所有gain. Duke of Westminster £10B ≈ 零IHT."},
+{n:"BPR 商業物業寬免",c:"£7B/yr",h:"揸trading公司股2年. 100% IHT寬免. £100M過俾仔. 零稅. 結構做trading就得."},
+{n:"APR 農地寬免",c:"£2.5B/yr",h:"買農地. 揸2年. 100% IHT寬免. James Dyson 36,000英畝. 佢有冇種嘢? 冇. 但塊地qualify. 仲推高農地價8-10倍."},
+{n:"CGT稅率差",c:"£15B/yr",h:"打工: 45%. 賣資產: 20%. 同樣£200K. 一半稅. 財富 = 工作? 唔係. 係design."},
+{n:"BADR 10% CGT",c:"£2.5B/yr",h:"賣公司£1M gain. 正常20%. BADR: 10%. 慳£400K一單. 以前£10M上限. 依家£1M. 仲係好大."},
+{n:"ISA 免稅儲蓄",c:"£4B/yr",h:"£20K/年. 永久免稅. 30年 = £1.8M零稅. 夫婦£3.6M. 但得有錢人储得起£20K/年."},
+{n:"Pension 45% relief",c:"£20B/yr",h:"高稅率人放pension. 45% relief. 政府倒貼你儲錢. 55歲拎25%出嚟全免稅. 60% relief去咗top 20%人."},
+{n:"7年贈送規則 + Trust",c:"£2B/yr",h:"死前7年送咗 = 零IHT. 或者放trust = 即刻出estate. 4% estate先交IHT. 設計就係俾你避."},
+{n:"薪金+股息",c:"£3B/yr",h:"Ltd公司. 出糧£12,570(免稅免NI). 其餘做股息(低稅免NI). 慳£5-10K/年. IR35限咗但好多仲用緊."},
+{n:"公司持有物業",c:"£1.5B/yr",h:"BVI公司買Mayfair mansion. 你揸公司股唔揸物業. 賣公司唔係賣物業 = 免SDLT. CGT? IHT? 全部避. 一個structure避三個稅."},
+{n:"CGT Loss Harvesting",c:"£1B/yr",h:"賣輸嗰個. bank個loss. 賺嗰個遲啲先賣. Timing = weapon. Loss可以carry forward永久."},
+{n:"R&D Tax Credits",c:"£5B/yr",h:"做任何tech嘢就claim. HMRC估30-50% claim係錯嘅. 改網站都claim R&D. enforcement慢. 一claim就幾年."},
+{n:"Crown Dependencies",c:"£10-20B+/yr",h:"Jersey/Guernsey/IOM = 英國領土. 零公司稅. 無公開擁有權. 英國可以聽日關咗但選擇唔關. 因為City of London賺緊. £1.2T單係Jersey管理嘅資產. 英國唔係避稅天堂嘅受害者 — 英國就係避稅天堂網絡."},
+];
+
+var list = document.getElementById('list');
+var html = '';
+TRICKS.forEach(function(t,i){
+  html += '<div class="trick" onclick="navigator.share({title:\'英國稅漏洞 #'+(i+1)+' '+t.n+'\',text:\''+t.n+' — 每年公眾損失'+t.c+'\\n'+t.h+'\\n\\n將tax平民化. is is lol. ∞\',url:location.href}).catch(()=>{copyText('+i+')})">'+
+    '<div class="line"><span class="name">'+(i+1)+'. '+t.n+'</span> <span class="cost">'+t.c+'</span></div>'+
+    '<div class="line how">'+t.h+'</div>'+
+    '<div class="share-mini">👆 一撳即share</div>'+
+  '</div>';
+});
+list.innerHTML = html;
+
+function copyText(i){
+  var t = TRICKS[i];
+  var txt = (i+1)+'. '+t.n+' — 每年'+t.c+'\n'+t.h+'\n\n將tax平民化. is is lol. ∞';
+  navigator.clipboard.writeText(txt).catch(function(){});
+}
+</script>
+</body></html>
