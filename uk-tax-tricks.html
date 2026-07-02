@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>玩爆英國個稅 — UK Tax Tricks Exposed — taxsorted.io</title>
+<meta name="description" content="英國稅制漏洞全集. 有錢人自己整嘅loophole. 15+ tricks. HMRC won't tell you. 將tax平民化. is is lol. ∞">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{background:#03020a;color:#e8eaf0;font-family:Georgia,serif;line-height:1.9;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,2,10,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(74,74,159,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
+.brand{font-weight:bold;background:linear-gradient(135deg,#012169,#c8102e,#a78bfa,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nl{display:flex;gap:.5rem}.nl a{font-family:'SF Mono',monospace;font-size:.72rem;color:#6a6a8a;padding:.3rem .55rem;border-radius:4px}
+.nl a:hover{color:#e8eaf0}
+@media(max-width:768px){.nl{display:none}}
+
+.hero{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem 2rem;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(200,16,46,0.05) 0%,transparent 60%)}
+.hero>*{position:relative;z-index:1}
+.hero .cantonese{font-size:1.8rem;color:#c8102e;opacity:.7;margin-bottom:.3rem}
+.hero h1{font-size:clamp(2rem,7vw,4.5rem);font-weight:bold;letter-spacing:-.04em;line-height:1;margin-bottom:.5rem;background:linear-gradient(135deg,#012169,#c8102e,#a78bfa,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .sub{font-size:1.1rem;color:#6a6a8a;font-style:italic;margin-bottom:1rem}
+.hero .quote{font-size:1.05rem;max-width:620px;margin:1rem auto;line-height:2.2}
+.hero .quote .red{color:#c8102e}.hero .quote .gold{color:#ffd700}.hero .quote .blue{color:#00f0ff}.hero .quote .green{color:#34d399}
+
+.section{max-width:1100px;margin:0 auto;padding:3rem 1.5rem}
+.section h2{font-size:1.5rem;margin-bottom:.5rem}
+.section .lede{color:#6a6a8a;margin-bottom:1.5rem;font-size:.92rem}
+.section p{margin-bottom:1.2rem;line-height:1.9}
+.section em{color:#a78bfa}.section strong{color:#ffd700}
+
+.tricks{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.2rem;margin:1.5rem 0}
+.trick{background:linear-gradient(135deg,#08061a,#0a0814);border:1px solid var(--tc,#c8102e);border-radius:14px;padding:1.5rem;transition:all .3s;position:relative;overflow:hidden}
+.trick::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--tc);opacity:.6}
+.trick:hover{transform:translateY(-3px);box-shadow:0 8px 32px var(--tg)}
+.trick .tn{font-family:'SF Mono',monospace;font-size:.62rem;color:var(--tc);letter-spacing:.1em;margin-bottom:.3rem}
+.trick .tt{font-size:1.05rem;font-weight:bold;margin-bottom:.5rem;color:var(--tc)}
+.trick .tj{font-size:.72rem;color:#6a6a8a;margin-bottom:.5rem;font-style:italic}
+.trick .row{margin-bottom:.5rem}
+.trick .row .label{font-family:'SF Mono',monospace;font-size:.58rem;color:#6a6a8a;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.2rem}
+.trick .row .val{font-size:.84rem;line-height:1.6}
+.trick .row.cost .val{color:#c8102e}
+.trick .row.who .val{color:#a78bfa}
+.trick .row.legal .val{color:#34d399}
+.trick .row.fix .val{color:#00f0ff}
+.trick .row.how .val strong{color:#ffd700}
+
+.pattern{background:linear-gradient(135deg,#08061a,#0a0814);border:1px solid rgba(200,16,46,0.15);border-radius:14px;padding:2rem;margin:2rem 0;text-align:center}
+.pattern h3{font-size:1.3rem;margin-bottom:.5rem;color:#c8102e}
+.pattern p{max-width:600px;margin:0 auto 1rem;line-height:1.9}
+.pattern .pill{font-family:'SF Mono',monospace;font-size:.72rem;padding:.3rem .7rem;border:1px solid rgba(200,16,46,0.2);border-radius:999px;color:#c8102e;margin:.2rem}
+.pattern .truth{font-size:1.05rem;font-weight:600;color:#ffd700;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)}
+
+.footer{text-align:center;padding:2rem 1.5rem;color:#6a6a8a;font-style:italic;font-size:.85rem;border-top:1px solid rgba(255,255,255,0.04)}
+.fn{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.fn a{font-family:'SF Mono',monospace;font-size:.75rem;color:#6a6a8a}
+.fn a:hover{color:#c8102e}
+</style>
+</head>
+<body>
+
+<div class="nav"><div class="brand"><a href="https://taxsorted.io">TaxSorted.io</a></div>
+<div class="nl"><a href="https://artbitrage.io/tax-tricks">All Tricks</a><a href="https://artbitrage.io/truth-exposure">Truth</a><a href="https://artbitrage.io">ARTBITRAGE</a></div>
+<a href="https://artbitrage.io/tax-tricks" style="font-family:'SF Mono',monospace;font-size:.72rem;color:#6a6a8a">back</a></div>
+
+<header class="hero">
+<div class="cantonese">玩爆英國個稅</div>
+<h1>UK TAX TRICKS<br>EXPOSED</h1>
+<p class="sub">15+ tricks · 自己整嘅loophole · 將tax平民化 · is is lol ∞</p>
+<p class="quote">
+英國稅制係全世界最複雜嘅其中一個。<br>
+<span class="blue">73,000頁</span>稅法。但真正用得著嘅，得幾條。<br>
+<span class="gold">有錢人自己寫嘅規則。自己用。自己贏。</span><br>
+你俾45%佢哋俾20%。<br>
+你打工佢哋擁有。<br>
+<span class="red">呢個就係個game。</span><br>
+<span class="green">理解佢。唔係犯法。係清醒。is is lol.</span> ∞
+</p>
+</header>
+
+<div class="section">
+<h2>The universal pattern — 英國都係一樣</h2>
+<div class="pattern">
+<h3>WORK vs WEALTH — UK edition</h3>
+<div style="margin:.5rem 0">
+<span class="pill">Salaries: 20% / 40% / 45%</span>
+<span class="pill">CGT: 10% / 20%</span>
+<span class="pill">Dividends: 8.75% / 33.75% / 39.35%</span>
+<span class="pill">IHT: 40% but only 4% of estates pay</span>
+<span class="pill">Corporation tax: 19% / 25%</span>
+</div>
+<p>打工俾45%。賣資產俾20%。收息俾39%。但用structure可以收到接近0%。<br>規則係有錢人寫嘅。佢哋寫完自己用。你冇錢請advisor就唔識用。<br>complexity IS the gatekeeper. 越複雜越對有錢人有利。</p>
+<div class="truth">The truth: UK tax is a playground for the wealthy and a cage for the working class. Same as every system. By design.</div>
+</div>
+</div>
+
+<div class="section">
+<h2>15+ tricks — 有錢人點玩英國稅</h2>
+<p class="lede">Every trick 100% legal. Every trick costs the public billions. Every trick has a fix Parliament chose not to implement. 😂</p>
+
+<div class="tricks">
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 1 · THE BIG ONE</div>
+<div class="tt">Non-Dom Status (reformed 2025 but still leaking)</div>
+<div class="tj">Non-UK domiciled individuals could avoid tax on foreign income for 15+ years. "Reformed" in April 2025 — replaced with 4-year residence regime.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Foreign income only taxed when remitted to UK. Live in London, earn dividends in Monaco, leave the money in Monaco — zero UK tax. <strong>Reform 2025: 4-year window</strong> still lets wealthy foreigners bring money tax-free for 4 years. The "reform" was watered down after lobbying by the City.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Hedge fund managers, oligarchs, Middle Eastern royalty, international finance executives living in Knightsbridge</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£3.8B/year historically. Now ~£1.2B/year under the new regime (still leaking)</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">100% legal. Was legal for 200+ years. Reform was lobbied down by the City of London.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Full residence-based taxation from day 1. No windows. No exceptions. Tax all worldwide income if you live in the UK.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 2 · THE STRUCTURE</div>
+<div class="tt">Family Investment Company (FIC)</div>
+<div class="tj">Wealthy families set up FICs: parents hold growth shares, children hold dividend shares. Investment growth accrues to parents who control but don't "own" the value. Dividends flow to children at lower tax rates.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Set up a limited company. Issue different share classes: growth shares to parents, dividend shares to adult children. Investments grow inside the company. When dividends are paid, they go to children who may be basic-rate taxpayers or non-taxpayers. <strong>On death: FIC shares pass via IHT with business property relief</strong>. Avoids higher income tax (45%→up to 8.75% for children), manages IHT.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Families with £1M+ in investments. Exploding in popularity since 2020. HMRC investigating some but structures remain valid.</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£300M/year and growing RAPIDLY as more wealth advisors discover the structure</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">Legal. HMRC has challenged some FICs under the "settlement legislation" but most survive.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Tax FICs as transparent for income tax purposes. Apply IHT directly to underlying asset value, not the shares.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 3 · THE CLASSIC</div>
+<div class="tt">Buy, Borrow, Die — UK edition</div>
+<div class="tj">Same as the US version but with UK-specific twists. Never sell appreciated assets. Borrow against them (loans are not income). At death, IHT exemptions and trust structures minimize tax.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Own £50M in shares/property. Need cash? Don't sell (that triggers CGT). Borrow against the assets (loan = not income = no tax). Live off the loan. At death: <strong>£1M IHT-free for married couples</strong> + trust structures + 7-year gift rule = most of the estate passes tax-free. Only 4% of UK estates pay ANY IHT.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Every wealthy family in the UK. The Duke of Westminster's estate paid near-zero IHT through trust structures established generations ago.</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£15-20B/year in foregone IHT and CGT on unrealized gains</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">100% legal. The Duke of Westminster famously said: "It would be a tragedy if the Grosvenor Estate had to be sold to pay death duties."</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Tax unrealized gains at death. End the 7-year gift rule. Cap IHT reliefs. Tax trusts as transparent.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 4 · THE FAVOURITE</div>
+<div class="tt">Business Property Relief (BPR) — 100% tax-free transfer</div>
+<div class="tj">Business assets (shares in unlisted trading companies, business property) get 50-100% IHT relief. Pass a £100M business to your children — pay zero IHT.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Own shares in a trading company (even a family investment company structured as "trading"). Hold for 2+ years. <strong>100% BPR = 100% IHT relief</strong>. Pass £100M to children tax-free. The key: structure your investments to qualify as "trading" rather than "investment."</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Business owners, family trading companies, agricultural property owners (APR), newspaper proprietors</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£7B/year in foregone IHT. Growing as more families use trading structures.</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">Legal. IHTA Section 104-113. Labour has proposed capping BPR at £1M but not implemented.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Cap BPR at £1M. Require genuine trading activity (not investment vehicles structured as trading). 10-year minimum holding.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 5 · THE HIDDEN ONE</div>
+<div class="tt">Agricultural Property Relief (APR) — the farmland dodge</div>
+<div class="tj">Agricultural land and buildings get up to 100% IHT relief after 2 years of ownership. Wealthy individuals buy farmland specifically to avoid IHT.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Buy £50M of farmland. Hold for 2 years. <strong>100% APR = zero IHT on £50M</strong>. James Dyson owns ~36,000 acres of farmland in the UK. Does he farm? Not really — but the land qualifies. You can even lease it to a tenant farmer and still get the relief. Some landowners don't even walk on their own "farms."</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">James Dyson (36,000 acres), wealthy families buying farmland purely for IHT planning, aristocratic estates</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£2.5B/year in foregone IHT. Also distorts land prices — farmland is 8-10x more expensive than it should be.</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">Legal. IHTA Section 115-123. Labour has proposed capping APR at £1M but facing massive pushback from landowners.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Cap APR at £1M. Require active farming (owner must be the farmer, not just the landlord). 10-year minimum holding.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 6 · THE RATE GAME</div>
+<div class="tt">CGT Rate Differential — wealth taxed at half the rate of work</div>
+<div class="tj">Income tax: 20%/40%/45%. CGT: 10%/20% (non-property), 18%/24% (property). Wealth gains are taxed at roughly HALF the rate of work income.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Earn £200K salary: pay 45% (additional rate) = £90K tax. Sell £200K of shares: pay 20% = £40K tax. <strong>Same £200K. Half the tax. Just for being wealth instead of work.</strong> The lower rate is justified as "rewarding investment and risk-taking" — but the wealthy don't take more risk than workers. They take less.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Every wealthy person with investments. The entire British upper class.</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£15B/year from the rate differential alone</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">Legal. Policy design. The "rewarding investment" narrative is the cover story.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Align CGT rates with income tax rates. £200K of gain = £200K of salary = same tax. Wealth = work.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 7 · THE STARTUP GIFT</div>
+<div class="tt">Business Asset Disposal Relief (BADR) — 10% CGT on £1M</div>
+<div class="tj">Formerly Entrepreneurs' Relief. Pay only 10% CGT (instead of 20%) on up to £1M of qualifying business sale gains. Lifetime limit.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Build a business, sell it for £5M with £3M gain. Normal CGT: 20% × £3M = £600K. With BADR: 10% × £1M = £100K (rest at 20%). <strong>Save £400K on one transaction</strong>. Was £10M lifetime limit until 2020 — now £1M (still massive).</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Business owners selling companies. Tech founders exiting.</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£2.5B/year in foregone revenue</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">Legal. TCGA Section 169N. Reduced from £10M to £1M by Sunak in 2020.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Remove the preferential rate entirely. A business sale gain IS a gain. Or cap at £250K lifetime.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 8 · THE TAX-FREE SHELTER</div>
+<div class="tt">ISAs — £20K/year tax-free forever</div>
+<div class="tj">Individual Savings Accounts: £20,000/year invested, all growth and income tax-free forever. No CGT, no income tax on dividends.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Max out ISA every year: £20K at 7% growth for 30 years = ~£1.8M tax-free. Married couple: £3.6M. <strong>Every penny of growth, every dividend — zero tax forever</strong>. Designed to encourage saving, but the max benefit goes to those who can afford to save £20K/year (£40K for couples). The working class can't fill it.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Middle class and above who can afford £20K/year in savings</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£4B/year in foregone revenue (and growing as ISA pots mature)</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">Legal. Designed to encourage saving. But the design favors the wealthy.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Reduce to £10K/year. Tax gains above £500K lifetime ISA value. Or: lifetime cap of £1M tax-free per person.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 9 · THE PENSION LOOPHOLE</div>
+<div class="tt">Pension Tax Relief + Tax-Free Lump Sum</div>
+<div class="tj">Pension contributions get tax relief at your marginal rate (45% for additional rate payers). At 55+, 25% of the pot can be taken as a tax-free lump sum (up to £268,275 lifetime limit — was £1.073M before 2024).</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Additional rate payer (45%): put £60K/year into pension. Get £27K tax relief. The money grows tax-free inside the pension. At 55+: take 25% out completely tax-free. <strong>The government pays you to save for retirement</strong> — but at 45% relief, it's primarily benefiting high earners. A basic-rate (20%) payer gets £12K relief on the same £60K. The wealthy get 2.25x more government help per pound saved.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">High earners (£150K+), business owners paying themselves via pension, doctors/dentists</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£20B/year in pension tax relief. ~60% goes to the top 20% of earners.</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">Legal. But the relief distribution is deeply regressive.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Flat rate relief (30% for everyone). Or: cap lifetime pension pot at £1M (was the case until 2024 when it was abolished). Reduce tax-free lump sum to 20%.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 10 · THE INHERITANCE DODGE</div>
+<div class="tt">7-Year Gift Rule + Trust Structures</div>
+<div class="tj">Gifts made more than 7 years before death are completely exempt from IHT. Trusts can hold assets outside the estate. Only 4% of estates pay any IHT.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Transfer assets to children 7+ years before you expect to die. Zero IHT. Or: put assets in a discretionary trust — they're outside your estate immediately. Children benefit via trust distributions. <strong>The Duke of Westminster's estate paid near-zero IHT because the Grosvenor Estate has been in trust structures since the 1800s</strong>. The 7-year rule was designed to "catch" people — but with planning, it's a sieve.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Every wealthy family with estate planning. The aristocracy. The Duke of Westminster (£10B estate, ~zero IHT paid).</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£2B/year in foregone IHT. Only 4% of estates pay ANY IHT. The system is designed to be avoided.</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">100% legal. IHTA Section 3A (7-year rule). Trust structures fully legal.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Extend gift rule to 14 years. Cap trust reliefs. Or: abolish IHT entirely and replace with a wealth tax on assets >£2M.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 11 · THE DIVIDEND DANCE</div>
+<div class="tt">Salary + Dividend Splitting</div>
+<div class="tj">Company owner-operators pay themselves a low salary (below NI threshold) and take the rest as dividends. Dividends have lower tax rates and no National Insurance (8% NI that employees pay).</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Own a Ltd company. Pay yourself £12,570 salary (personal allowance — zero income tax, zero NI). Take £100K as dividends. Dividend rates: 8.75% (basic), 33.75% (higher), 39.35% (additional). Compare: employment at £112K = 40% + 2% NI = 42%. <strong>Save ~£5-10K/year vs being an employee at the same income</strong>. Plus: corporation tax (19-25%) on profits before dividend — but with expenses, profits can be managed down.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Every contractor, consultant, freelancer, and small business owner earning £50K-£300K. "Inside IR35" reforms have limited this but many still use it.</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£3B/year in foregone NI and income tax. IR35 reforms have reduced this but not eliminated it.</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">Legal outside IR35. Inside IR35: must pay as employee. But many structures remain outside.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Align dividend rates with income tax rates. Apply NI to dividends. Or: merge income tax and dividend tax into one system.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 12 · THE PROPERTY SHELL</div>
+<div class="tt">Company Ownership of Property — SDLT + CGT + IHT avoidance</div>
+<div class="tj">High-value properties held through offshore companies can avoid SDLT, CGT, and IHT in one structure. Property is owned by the company, you own the shares.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Buy £20M London mansion through a BVI company. You own the company shares, not the property. <strong>Benefits</strong>: 1) No SDLT on transfer (you sell the company, not the property). 2) No CGT on the property (company owns it, you sell shares — but if company is offshore, no UK CGT on share sale). 3) No IHT (shares in offshore company — can be structured to fall outside UK IHT). <strong>One structure, three taxes avoided</strong>.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Oligarchs, Middle Eastern buyers, international investors buying prime London property. Many properties in Kensington, Belgravia, Mayfair are owned by offshore companies.</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£1.5B/year in avoided SDLT, CGT, and IHT. Plus: empty investment properties distort the London housing market.</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">Legal. ATED (Annual Tax on Enveloped Dwellings) was introduced to catch this — but ATED rates are low (£4,200-£287,500/year) compared to the taxes avoided.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Abolish corporate ownership of residential property. Or: increase ATED to match the avoided tax. Public beneficial ownership registry for all property.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 13 · THE LOSS HARVEST</div>
+<div class="tt">CGT Loss Harvesting — crystallize losses, defer gains</div>
+<div class="tj">Sell losing investments to crystallize capital losses. Use these losses to offset capital gains in the same tax year. Carry forward unused losses indefinitely.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Made £200K gain on share A and £150K loss on share B. If you sell both: net gain = £50K. Tax on £50K only, not £200K. <strong>Or: sell the loser this year, bank the loss, sell the winner next year when your income is lower</strong>. Timing is the weapon. Losses can be carried forward forever — creating a permanent shield against future gains.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Every active investor with a portfolio. Wealthy families with multi-asset strategies.</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£1B/year in reduced CGT collections through timing strategies</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">100% legal. TCGA Section 16-18. Designed to allow genuine loss relief but used for systematic gain deferral.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Limit loss carry-forward to 5 years. Or: allow losses only against gains on the same asset class. Or: annual mark-to-market CGT (tax gains/losses every year regardless of sale).</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 14 · THE REBATE RACKET</div>
+<div class="tt">R&D Tax Credits — the systematic over-claim</div>
+<div class="tj">SME R&D tax credits give up to 33.35% back on qualifying R&D spending. Large companies get a 20% credit. But the definition of "R&D" is so loose that routine software development, cosmetic changes, and minor optimizations have been claimed.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Run a small company that does anything technical. Claim your developers' salaries as "R&D." <strong>HMRC estimates 30-50% of SME R&D claims are "incorrect"</strong> — but processing them takes years and enforcement is weak. Some companies claim back more than they actually spend on genuine innovation. The 2024 reform split R&D into ERIS (merged) and EIS schemes but the loose definition remains.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Tech companies, software agencies, SMEs with any technical work. Estimated 90,000+ claims/year.</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">~£5B/year in credits paid. HMRC estimates £2-3B/year in "incorrect" claims. Some abuse: claims for basic web development, routine maintenance, cosmetic UI changes.</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">Legal if genuinely qualifying. But the definition is so loose that abuse is rampant. HMRC has been catching up since 2023 but many claims still slip through.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Tighten R&D definition. Require independent technical assessment. Cap credits at genuine innovation. Claw back systematic over-claimers.</div></div>
+</div>
+
+<div class="trick" style="--tc:#c8102e;--tg:rgba(200,16,46,0.08)">
+<div class="tn">TRICK 15 · THE OFFSHORE NETWORK</div>
+<div class="tt">Crown Dependencies — Jersey, Guernsey, Isle of Man</div>
+<div class="tj">UK's own Crown Dependencies are some of the world's biggest tax havens. Zero corporation tax. No public beneficial ownership. Trust structures that hide wealth from every tax authority globally.</div>
+<div class="row how"><div class="label">點玩</div><div class="val">Set up a trust in Jersey. Move assets into the trust. <strong>The trust is outside UK IHT, outside UK CGT, outside UK income tax — but the UK government has constitutional control over Jersey</strong>. The UK could shut this down tomorrow but chooses not to. The City of London benefits from the offshore network. £1.2 trillion in assets managed through Jersey alone. The UK is not a victim of tax havens — the UK IS the tax haven network.</div></div>
+<div class="row who"><div class="label">邊個用</div><div class="val">Every wealthy family with estate planning. Every multinational using UK financial services. The City of London itself.</div></div>
+<div class="row cost"><div class="label">公眾損失</div><div class="val">£10-20B+/year globally routed through UK Crown Dependencies. The UK could shut this down but chooses not to because the City profits from it.</div></div>
+<div class="row legal"><div class="label">合法嗎</div><div class="val">100% legal. The UK designed these jurisdictions. They are UK territories.</div></div>
+<div class="row fix"><div class="label">點改</div><div class="val">Public beneficial ownership registries in ALL Crown Dependencies (still not implemented despite 2018 commitment). End trust secrecy. Align Crown Dependency tax rules with UK rules. Or: revoke the constitutional autonomy that enables this.</div></div>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<h2>The truth — 英國個稅嘅真相</h2>
+<div class="pattern">
+<p style="text-align:left">
+<strong>1. 稅法係有錢人寫嘅。</strong> 73,000頁。你估邊個幫佢哋寫？四大會計師行、律師事務所、City of London嘅說客。佢哋寫完自己用。<br><br>
+<strong>2. 複雜就係個feature。</strong> 越複雜越需要advisor。只有有錢人請得起advisor。complexity IS the gatekeeper。<br><br>
+<strong>3. 合法唔等於公平。</strong> Duke of Westminster £10B estate。接近零IHT。100%合法。因為佢哋嘅家族trust係1800年代set up嘅。規則係佢哋幫手寫嘅。<br><br>
+<strong>4. 英國自己就係tax haven。</strong> Jersey、Guernsey、Isle of Man、BVI、Cayman — 全部係英國領土。英國可以聽日就關咗佢但選擇唔關。因為City of London賺緊錢。<br><br>
+<strong>5. 只有4%嘅estate交IHT。</strong> 96%嘅人完全唔使交。呢個唔係設計嚟收稅嘅。呢個係設計嚟保護有錢人嘅。<br><br>
+<strong>6. 每一個trick都有fix。</strong> 但Parliament選擇唔implement。因為有錢人係主要donor。政客當選之後邊個pay佢哋？City of London。Lobbying。Revolving door。
+</p>
+<div class="truth">將tax平民化。理解唔係犯法。理解係清醒。<br>規則係佢哋寫嘅。但你可以睇穿佢。is is lol. ∞</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="fn">
+<a href="https://artbitrage.io/tax-tricks">All Tax Tricks</a>
+<a href="https://artbitrage.io/truth-exposure">Truth Exposure</a>
+<a href="https://artbitrage.io/spread">Spread</a>
+<a href="https://artbitrage.io">ARTBITRAGE</a>
+</div>
+<p>玩爆英國個稅 — 15+ UK tax tricks exposed. 將tax平民化.<br>
+All legal. All costing you. All fixable. The gap is the design. Understanding is the bridge.<br>
+<span style="color:#c8102e">🇬🇧 UK</span> × <span style="color:#ffd700">is is lol.</span> ∞<br>
+TaxSorted.io × ARTBITRAGE</p>
+</div>
+
+</body></html>
