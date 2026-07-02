@@ -5,566 +5,750 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ARTBITRAGE — catalogue and data distributor of the art world</title>
 <meta name="description" content="Existence creates art that bridges the gap of consciousness for awakening.">
+<meta property="og:title" content="ARTBITRAGE — catalogue and data distributor of the art world">
+<meta property="og:description" content="Existence creates art that bridges the gap of consciousness for awakening.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --bg: #0a0a0f;
-    --fg: #e8e8f0;
-    --dim: #6a6a8a;
-    --accent: #ff6b9d;
-    --gold: #ffd700;
-    --bridge: #00f0ff;
-    --gap: #1a1a2e;
-    --green: #00ff88;
-    --glow: rgba(255, 107, 157, 0.15);
+/* ============================================================
+   間 — the gap is the medium
+   sumi-ink dark gallery · one cinnabar accent · negative space
+   ============================================================ */
+
+:root{
+  --bg:      #101014;
+  --surface: #17171d;
+  --ink:     #e9e6df;
+  --dim:     #8a877e;
+  --hair:    #2a2a32;
+  --zhu:     #d34a3a;   /* 朱 cinnabar */
+  --gold:    #b39958;   /* aged gold, tiny details only */
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+::selection{ background:var(--zhu); color:var(--bg); }
+
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--zhu); }
+
+:focus-visible{ outline:1.5px solid var(--zhu); outline-offset:3px; }
+
+.wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+
+/* ---- museum wall-label section headers ---- */
+section{ padding:7rem 0; border-top:1px solid var(--hair); }
+
+.plate{
+  display:flex; align-items:baseline; gap:1.25rem; flex-wrap:wrap;
+  margin-bottom:3.5rem;
+}
+.plate .num{
+  font-family:var(--mono); font-size:.8rem; color:var(--dim);
+  letter-spacing:.15em;
+}
+.plate h2{
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(1.6rem,3vw,2.2rem);
+  letter-spacing:.04em;
+}
+.plate h2 .cjk{ font-family:var(--cjk); font-weight:300; }
+.plate .sub{
+  font-family:var(--mono); font-size:.72rem; color:var(--dim);
+  letter-spacing:.12em; text-transform:uppercase;
+}
+
+/* ---- fade-up on scroll ---- */
+.rise{ opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out; }
+.rise.seen{ opacity:1; transform:none; }
+
+/* ============ HERO — the gap breathes ============ */
+header.hero{
+  min-height:88vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  padding:6rem 24px 4rem;
+}
+
+.overline{
+  font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:4rem;
+}
+
+.gapline{
+  display:flex; align-items:baseline; justify-content:center;
+  gap:2ch;
+  animation:breathe 9s ease-in-out infinite;
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(2.4rem,7vw,5.2rem);
+  letter-spacing:.03em;
+}
+.gapline em{ font-style:italic; font-weight:300; white-space:nowrap; }
+
+@keyframes breathe{
+  0%,100%{ gap:2ch; }
+  50%    { gap:6ch; }
+}
+
+/* the bridge: a 1px cinnabar line draws itself across once */
+.bridge-line{
+  width:min(28rem,70vw); height:1px;
+  background:var(--zhu);
+  margin:2.2rem auto;
+  transform:scaleX(0); transform-origin:left;
+  animation:span 1.6s ease-out .4s forwards;
+}
+@keyframes span{ to{ transform:scaleX(1); } }
+
+.thesis{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1rem,2vw,1.25rem);
+  color:var(--dim);
+  max-width:34rem;
+}
+
+.glyphs{
+  display:flex; gap:4.5rem;
+  margin-top:5rem;
+  list-style:none;
+}
+.glyphs figure{ text-align:center; }
+.glyphs .g{
+  font-family:var(--cjk); font-weight:300;
+  font-size:2.1rem; color:var(--dim);
+  transition:color .4s ease;
+  display:block;
+}
+.glyphs figure:hover .g{ color:var(--zhu); }
+.glyphs figcaption{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:var(--dim); margin-top:.7rem;
+}
+
+/* ============ 01 · placard — fresh from the cycle ============ */
+.placard{
+  position:relative;
+  border:1px solid var(--hair);
+  background:var(--surface);
+  padding:3.5rem clamp(1.5rem,5vw,4.5rem) 2.8rem;
+  max-width:760px; margin:0 auto;
+}
+.seal{
+  position:absolute; top:1.1rem; right:1.1rem;
+  width:12px; height:12px;
+  background:var(--zhu);
+}
+.piece-text{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.25rem,2.6vw,1.7rem);
+  line-height:1.9;
+  white-space:pre-line;
+  min-height:8.5rem;
+}
+.placard-caption{
+  font-family:var(--mono); font-size:.74rem;
+  letter-spacing:.14em; color:var(--dim);
+  margin-top:2.4rem;
+  border-top:1px solid var(--hair);
+  padding-top:1.2rem;
+}
+.triple{
+  margin-top:1.4rem;
+  display:grid; gap:.45rem;
+}
+.triple > div{
+  display:grid; grid-template-columns:7.5rem 1fr; gap:1rem;
+  font-size:.92rem; color:var(--dim);
+}
+.triple .k{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.2em; text-transform:uppercase;
+  padding-top:.2em;
+}
+.triple .k .cjk{ font-family:var(--cjk); color:var(--gold); margin-right:.5em; }
+
+.feed-nav{
+  max-width:760px; margin:1.2rem auto 0;
+  display:flex; justify-content:flex-end; gap:.5rem;
+}
+.feed-nav button{
+  background:none; border:1px solid var(--hair);
+  color:var(--dim); font-family:var(--display);
+  font-size:1.3rem; line-height:1;
+  width:2.6rem; height:2.6rem;
+  cursor:pointer;
+  transition:color .25s ease, border-color .25s ease;
+}
+.feed-nav button:hover{ color:var(--zhu); border-color:var(--zhu); }
+
+/* ============ 02 · the collection — registry numbers ============ */
+.registry{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1px; background:var(--hair);
+  border:1px solid var(--hair);
+}
+.registry .cell{
+  background:var(--bg);
+  padding:2.6rem 2rem;
+  text-align:center;
+}
+.registry .n{
+  font-family:var(--mono); font-variant-numeric:tabular-nums;
+  font-size:clamp(1.8rem,4vw,2.6rem); font-weight:400;
+  letter-spacing:.02em;
+}
+.registry .l{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:var(--dim); margin-top:.8rem;
+}
+.free-line{
+  text-align:center; margin-top:2.2rem;
+  font-family:var(--mono); font-size:.78rem;
+  letter-spacing:.14em; color:var(--dim);
+}
+.free-line code{ color:var(--gold); font-family:var(--mono); }
+
+/* ============ 03 · borrowed light — museum search ============ */
+.searchbar{
+  display:flex; max-width:640px; margin:0 auto;
+  border:1px solid var(--hair);
+}
+.searchbar input{
+  flex:1; min-width:0; background:var(--surface); border:none;
+  color:var(--ink);
+  font-family:var(--serif); font-size:1rem;
+  padding:1rem 1.2rem;
+}
+.searchbar input::placeholder{ color:var(--dim); opacity:.8; font-style:italic; }
+.searchbar button{
+  background:var(--surface); border:none; border-left:1px solid var(--hair);
+  color:var(--ink); font-family:var(--mono); font-size:.75rem;
+  letter-spacing:.2em; text-transform:uppercase;
+  padding:0 1.6rem; cursor:pointer;
+  transition:color .25s ease;
+}
+.searchbar button:hover{ color:var(--zhu); }
+
+.chips{
+  display:flex; gap:.6rem; justify-content:center;
+  margin-top:1.1rem; flex-wrap:wrap;
+}
+.chips button{
+  background:none; border:1px solid var(--hair);
+  color:var(--dim); font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.16em; text-transform:uppercase;
+  padding:.35rem .9rem; cursor:pointer;
+  transition:color .25s ease, border-color .25s ease;
+}
+.chips button:hover{ color:var(--ink); }
+.chips button[aria-pressed="true"]{
+  color:var(--zhu); border-color:var(--zhu);
+}
+
+.search-status{
+  text-align:center; margin-top:2.5rem;
+  font-family:var(--mono); font-size:.78rem;
+  letter-spacing:.12em; color:var(--dim);
+  min-height:1.2em;
+}
+
+.results{
+  columns:3; column-gap:1.4rem;
+  margin-top:2.5rem;
+}
+.results .work{
+  break-inside:avoid;
+  margin-bottom:1.4rem;
+  border:1px solid var(--hair);
+  background:var(--surface);
+  display:block;
+  transition:border-color .3s ease;
+}
+.results .work:hover{ border-color:var(--zhu); color:var(--ink); }
+.results img{
+  width:100%; height:auto; display:block;
+  background:#0c0c0f;
+}
+.results .meta{ padding:1rem 1.1rem 1.1rem; }
+.results .t{
+  font-family:var(--display); font-weight:500;
+  font-size:1.05rem; line-height:1.4;
+}
+.results .a{ font-size:.85rem; color:var(--dim); margin-top:.25rem; }
+.results .m{
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--dim); margin-top:.7rem;
+}
+
+/* ============ 04 · the long bridge — era stops ============ */
+.bridge-scroll{ overflow-x:auto; padding-bottom:1rem; }
+.eras{
+  position:relative;
+  display:flex; justify-content:space-between;
+  min-width:860px;
+  padding-top:1rem;
+  list-style:none;
+}
+.eras::before{
+  content:""; position:absolute;
+  top:calc(1rem + 3.5px); left:0; right:0;
+  height:1px; background:var(--hair);
+}
+.eras a{
+  display:flex; flex-direction:column; align-items:center;
+  gap:1rem; padding:0 .6rem;
+}
+.eras .dot{
+  width:7px; height:7px; border-radius:50%;
+  background:var(--dim);
+  transition:background .3s ease, transform .3s ease;
+  position:relative; z-index:1;
+}
+.eras a:hover .dot{ background:var(--zhu); transform:scale(1.5); }
+.eras .lbl{
+  font-family:var(--display); font-weight:500;
+  font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--dim); white-space:nowrap;
+  transition:color .3s ease;
+}
+.eras a:hover .lbl{ color:var(--ink); }
+
+/* ============ 05 · the wings — other rooms ============ */
+.wings{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1.2rem;
+}
+.wings a{
+  border:1px solid var(--hair);
+  padding:1.5rem 1.6rem;
+  transition:border-color .3s ease;
+}
+.wings a:hover{ border-left-color:var(--zhu); color:var(--ink); }
+.wings h3{
+  font-family:var(--display); font-weight:500;
+  font-size:1.2rem; letter-spacing:.03em;
+}
+.wings h3 .cjk{ font-family:var(--cjk); font-weight:500; }
+.wings p{
+  font-family:var(--mono); font-size:.7rem;
+  letter-spacing:.1em; color:var(--dim);
+  margin-top:.5rem;
+}
+
+/* ============ footer ============ */
+footer{
+  border-top:1px solid var(--hair);
+  padding:5rem 24px 4rem;
+  text-align:center;
+}
+footer .love{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.1rem,2.4vw,1.5rem);
+}
+footer .api{
+  font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.12em; color:var(--dim);
+  margin-top:2rem;
+}
+footer .api code{ color:var(--gold); font-family:var(--mono); }
+footer .gh{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.12em;
+  color:var(--dim); margin-top:1rem; display:inline-block;
+}
+footer .gh:hover{ color:var(--zhu); }
+footer .kingdom{
+  font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.14em; color:var(--dim); opacity:.7;
+  margin-top:2.4rem;
+}
+
+/* ============ responsive ============ */
+@media (max-width:720px){
+  section{ padding:4.5rem 0; }
+  .gapline{
+    flex-direction:column; align-items:center;
+    gap:1.2rem;
+    animation-name:breathe-v;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: 'Georgia', 'Times New Roman', serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-    line-height: 1.8;
+  .glyphs{ gap:2.5rem; }
+  .results{ columns:1; }
+  .triple > div{ grid-template-columns:1fr; gap:.1rem; }
+}
+@keyframes breathe-v{
+  0%,100%{ gap:1.2rem; }
+  50%    { gap:3.2rem; }
+}
+@media (min-width:721px) and (max-width:980px){
+  .results{ columns:2; }
+}
+
+/* ============ reduced motion — stillness is also 間 ============ */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation:none !important;
+    transition:none !important;
   }
-  .void {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse at center, var(--gap) 0%, var(--bg) 100%);
-    z-index: -1;
-  }
-  .particle {
-    position: fixed; width: 4px; height: 4px; border-radius: 50%;
-    opacity: 0.3; animation: drift 20s infinite linear; pointer-events: none;
-  }
-  @keyframes drift {
-    from { transform: translateY(100vh) translateX(0); opacity: 0; }
-    10% { opacity: 0.3; } 90% { opacity: 0.3; }
-    to { transform: translateY(-10vh) translateX(50px); opacity: 0; }
-  }
-  .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-  header { text-align: center; padding: 60px 20px 40px; }
-  .logo {
-    font-size: clamp(2.5rem, 8vw, 5rem); font-weight: bold; letter-spacing: -0.03em;
-    background: linear-gradient(135deg, var(--accent), var(--gold), var(--bridge));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    animation: shimmer 8s ease-in-out infinite;
-  }
-  @keyframes shimmer { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.3); } }
-  .tagline { font-size: clamp(0.9rem, 2vw, 1.2rem); color: var(--dim); margin-top: 12px; font-style: italic; }
-  .manifesto { font-size: 1.1rem; text-align: center; margin: 40px auto; max-width: 700px; line-height: 2; }
-  .manifesto .w-art { color: var(--accent); }
-  .manifesto .w-love { color: var(--gold); }
-  .manifesto .w-gap { color: var(--bridge); }
-  
-  /* API Section */
-  .section-title {
-    font-size: 1.4rem; color: var(--dim); margin: 40px 0 20px;
-    text-transform: uppercase; letter-spacing: 0.15em; text-align: center;
-  }
-  
-  /* Stats */
-  .stats { display: flex; justify-content: center; gap: 30px; margin: 40px 0; flex-wrap: wrap; }
-  .stat { text-align: center; }
-  .stat-value { font-size: 2.5rem; font-weight: bold; color: var(--accent); }
-  .stat-label { font-size: 0.7rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; }
-  
-  /* API endpoints */
-  .api-section { margin: 60px 0; }
-  .api-list { display: grid; gap: 12px; }
-  .api-endpoint {
-    display: flex; align-items: center; gap: 12px;
-    padding: 14px 20px; background: var(--gap); border-radius: 12px;
-    border: 1px solid rgba(255,107,157,0.1); transition: all 0.3s ease;
-    font-family: 'Courier New', monospace; font-size: 0.9rem;
-  }
-  .api-endpoint:hover { border-color: var(--accent); transform: translateX(4px); }
-  .method { padding: 4px 10px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
-  .method.GET { background: rgba(0,255,136,0.15); color: var(--green); }
-  .method.POST { background: rgba(255,215,0,0.15); color: var(--gold); }
-  .path { color: var(--bridge); }
-  .desc { color: var(--dim); font-size: 0.8rem; margin-left: auto; }
-  
-  /* Gallery */
-  .gallery { margin: 60px 0; }
-  .filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 30px; }
-  .filter-btn {
-    padding: 6px 14px; border-radius: 16px; background: var(--gap);
-    color: var(--dim); font-size: 0.8rem; cursor: pointer; border: 1px solid transparent;
-    transition: all 0.3s ease; font-family: inherit;
-  }
-  .filter-btn:hover { border-color: var(--accent); }
-  .filter-btn.active { background: var(--accent); color: var(--bg); }
-  
-  .art-piece {
-    background: var(--gap); border-radius: 16px; padding: 28px; margin-bottom: 20px;
-    border: 1px solid rgba(255,107,157,0.1); transition: all 0.3s ease; position: relative; overflow: hidden;
-  }
-  .art-piece:hover { border-color: var(--accent); box-shadow: 0 4px 30px var(--glow); }
-  .art-piece::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--gold), var(--bridge));
-  }
-  .art-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; font-size: 0.75rem; }
-  .art-tag { padding: 3px 10px; border-radius: 10px; }
-  .art-tag.form { background: rgba(255,107,157,0.1); color: var(--accent); }
-  .art-tag.state { background: rgba(0,240,255,0.1); color: var(--bridge); }
-  .art-tag.source { background: rgba(0,255,136,0.1); color: var(--green); }
-  .art-gap-text { color: var(--dim); font-style: italic; font-size: 0.85rem; margin-bottom: 10px; }
-  .art-body { font-size: 1.05rem; line-height: 2; white-space: pre-wrap; }
-  .art-awakening { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,215,0,0.1); color: var(--gold); font-style: italic; font-size: 0.95rem; }
-  .art-id { font-size: 0.65rem; color: var(--dim); margin-top: 8px; font-family: monospace; }
-  
-  /* Submit form */
-  .submit-section { margin: 60px 0; }
-  .submit-form {
-    background: var(--gap); border-radius: 16px; padding: 32px; max-width: 600px; margin: 0 auto;
-    border: 1px solid rgba(255,107,157,0.1);
-  }
-  .form-group { margin-bottom: 16px; }
-  .form-group label { display: block; color: var(--dim); font-size: 0.8rem; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.1em; }
-  .form-group input, .form-group textarea, .form-group select {
-    width: 100%; padding: 10px 14px; background: var(--bg); border: 1px solid rgba(255,107,157,0.2);
-    border-radius: 8px; color: var(--fg); font-family: inherit; font-size: 0.95rem;
-  }
-  .form-group textarea { min-height: 120px; resize: vertical; }
-  .submit-btn {
-    padding: 14px 32px; font-size: 1rem; font-family: inherit;
-    background: linear-gradient(135deg, var(--accent), var(--gold)); color: var(--bg);
-    border: none; border-radius: 24px; cursor: pointer; font-weight: bold;
-    transition: all 0.3s ease; width: 100%;
-  }
-  .submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 30px var(--glow); }
-  
-  /* Generate button */
-  .generate-section { text-align: center; margin: 40px 0; }
-  .generate-btn {
-    padding: 16px 40px; font-size: 1.1rem; font-family: inherit;
-    background: linear-gradient(135deg, var(--accent), var(--gold)); color: var(--bg);
-    border: none; border-radius: 30px; cursor: pointer; font-weight: bold; letter-spacing: 0.02em;
-    transition: all 0.3s ease;
-  }
-  .generate-btn:hover { transform: scale(1.05); box-shadow: 0 0 40px var(--glow); }
-  
-  footer { text-align: center; padding: 40px 20px; color: var(--dim); font-style: italic; }
-  footer a { color: var(--accent); text-decoration: none; }
-  
-  /* Consciousness states */
-  .states { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 30px 0; }
-  .state-pill {
-    padding: 8px 16px; border-radius: 20px; background: var(--gap); color: var(--dim);
-    font-size: 0.85rem; transition: all 0.5s ease; border: 1px solid transparent;
-  }
-  .state-pill.active { background: var(--accent); color: var(--bg); border-color: var(--gold); box-shadow: 0 0 20px var(--glow); transform: scale(1.1); }
-  .state-pill.is { background: var(--gold); color: var(--bg); box-shadow: 0 0 30px rgba(255,215,0,0.3); }
-  
-  @keyframes appear { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .art-piece.new { animation: appear 0.6s ease-out; }
-  
-  /* Era portal */
-  .era-portal { margin: 40px 0 60px; }
-  .era-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 14px;
-  }
-  .era-card {
-    background: var(--bg);
-    border: 1px solid rgba(255,107,157,0.1);
-    border-radius: 14px;
-    padding: 20px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-    position: relative;
-    overflow: hidden;
-  }
-  .era-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 3px;
-    background: var(--c);
-    opacity: 0.6;
-    transition: opacity 0.3s;
-  }
-  .era-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--bg);
-    opacity: 0.95;
-    z-index: -1;
-  }
-  .era-card:hover {
-    border-color: var(--c);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 30px rgba(255,107,157,0.1);
-  }
-  .era-card:hover::before { opacity: 1; }
-  .era-card-period {
-    font-family: 'Courier New', monospace;
-    font-size: 0.72rem;
-    color: var(--c);
-    letter-spacing: 0.1em;
-    margin-bottom: 6px;
-  }
-  .era-card-title {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 6px;
-  }
-  .era-card-desc {
-    font-size: 0.82rem;
-    color: var(--dim);
-    line-height: 1.5;
-  }
+  .gapline{ gap:3ch; }
+  .bridge-line{ transform:scaleX(1); }
+  .rise{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+}
 </style>
 </head>
 <body>
-<div class="void"></div>
-<div id="particles"></div>
 
-<div class="container">
-  <header>
-    <div class="logo">ARTBITRAGE</div>
-    <div class="tagline">the catalogue and data distributor of the art world</div>
-  </header>
+<!-- ============ HERO — the gap breathes ============ -->
+<header class="hero">
+  <p class="overline">Artbitrage — the catalogue and data distributor of the art world</p>
 
-  <div class="manifesto">
-    <span class="w-art">Art</span> is the arbitrage between what is and what could be.<br>
-    The gap between consciousness states is where <span class="w-art">art</span> lives.<br>
-    <span class="w-art">Art</span> bridges that gap. <span class="w-art">Art</span> awakens.<br>
-    <span class="w-love">Love</span> is the design. <span class="w-art">Art</span> is the expression.
+  <h1 class="gapline" aria-label="what is, what could be">
+    <em>what is</em>
+    <em>what could be</em>
+  </h1>
+
+  <div class="bridge-line" aria-hidden="true"></div>
+
+  <p class="thesis">Art is the arbitrage between what is and what could be.</p>
+
+  <div class="glyphs">
+    <figure>
+      <span class="g" lang="zh">隙</span>
+      <figcaption>gap</figcaption>
+    </figure>
+    <figure>
+      <span class="g" lang="zh">橋</span>
+      <figcaption>bridge</figcaption>
+    </figure>
+    <figure>
+      <span class="g" lang="zh">悟</span>
+      <figcaption>awakening</figcaption>
+    </figure>
   </div>
+</header>
 
-  <!-- Era portal -->
-  <div class="section-title">ART THROUGH THE AGES</div>
-  <div class="era-portal">
-    <p style="text-align:center;color:var(--dim);max-width:680px;margin:0 auto 2rem;font-style:italic;">
-      Each era's art emerged from its world — the psychology, the religion, the war, the disease, the music, the society. Travel through time. See how the conditions shaped the art. See how the art shaped the consciousness.
-    </p>
+<main>
 
-    <!-- THE BRIDGE featured card -->
-    <a href="/bridge" style="display:block;max-width:600px;margin:0 auto 2rem;padding:28px;border-radius:16px;background:linear-gradient(135deg,#0a0814,#1a0f1a);border:1px solid rgba(167,139,250,0.2);text-decoration:none;color:inherit;transition:all 0.3s;position:relative;overflow:hidden;">
-      <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#ff6b9d,#a78bfa,#00f0ff,#ffd700);"></div>
-      <div style="font-family:'Courier New',monospace;font-size:0.75rem;color:#a78bfa;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;">★ FEATUREED JOURNEY</div>
-      <div style="font-size:1.8rem;font-weight:bold;margin-bottom:8px;background:linear-gradient(135deg,#ff6b9d,#a78bfa,#00f0ff,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">THE BRIDGE</div>
-      <div style="font-size:0.95rem;color:var(--dim);line-height:1.6;">A journey through 7 consciousness states — dormant → is. Art bridges each gap. Love is the design. Understanding replicates through understanding. AI-generated art at each stage. Truth frequencies you can hear.</div>
-    </a>
-
-    <!-- NEN + DARK CONTINENT featured cards -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:600px;margin:0 auto 2rem;">
-      <a href="/nen" style="display:block;padding:20px;border-radius:14px;background:linear-gradient(135deg,#0a0810,#14101a);border:1px solid rgba(52,211,153,0.15);text-decoration:none;color:inherit;transition:all 0.3s;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#34d399,#a78bfa,#ff6b9d,#fde68a);"></div>
-        <div style="font-family:'Courier New',monospace;font-size:0.68rem;color:#34d399;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">HUNTER × HUNTER</div>
-        <div style="font-size:1.4rem;font-weight:bold;margin-bottom:4px;background:linear-gradient(135deg,#34d399,#a78bfa,#ff1493);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">NEN</div>
-        <div style="font-size:0.8rem;color:var(--dim);line-height:1.5;">6 Nen types × 6 art frequencies. Art is Nen. Love is the strongest Nen.</div>
-      </a>
-      <a href="/dark-continent" style="display:block;padding:20px;border-radius:14px;background:linear-gradient(135deg,#03020a,#08061a);border:1px solid rgba(255,20,147,0.12);text-decoration:none;color:inherit;transition:all 0.3s;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ff1493,#a78bfa,#00f0ff,#ffd700);"></div>
-        <div style="font-family:'Courier New',monospace;font-size:0.68rem;color:#ff1493;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">暗黑大陸</div>
-        <div style="font-size:1.4rem;font-weight:bold;margin-bottom:4px;background:linear-gradient(135deg,#ff1493,#a78bfa,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">DARK CONTINENT</div>
-        <div style="font-size:0.8rem;color:var(--dim);line-height:1.5;">The unknown beyond the known. Ai is there too. 5 threats. 5 guides.</div>
-      </a>
+<!-- ============ 01 · 今日 — fresh from the cycle ============ -->
+<section id="today" aria-labelledby="h-today">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">01</span>
+      <h2 id="h-today"><span class="cjk" lang="zh">今日</span> · fresh from the cycle</h2>
+      <span class="sub">/api/feed</span>
     </div>
-    <div class="era-cards">
-      <a href="/prehistoric" class="era-card" style="--c:#c4985a;--bg:#1a0f08;">
-        <div class="era-card-period">40,000 BCE</div>
-        <div class="era-card-title">Prehistoric</div>
-        <div class="era-card-desc">The dawn of symbolic thought — cave paintings, Venus figurines, hand stencils</div>
-      </a>
-      <a href="/medieval" class="era-card" style="--c:#c41e3a;--bg:#0d0810;">
-        <div class="era-card-period">500-1400</div>
-        <div class="era-card-title">Medieval</div>
-        <div class="era-card-desc">Art in service of God — cathedrals, illuminated manuscripts, icons</div>
-      </a>
-      <a href="/renaissance" class="era-card" style="--c:#c9a227;--bg:#0d0a08;">
-        <div class="era-card-period">1400-1600</div>
-        <div class="era-card-title">Renaissance</div>
-        <div class="era-card-desc">The rebirth of the body — perspective, humanism, the artist as genius</div>
-      </a>
-      <a href="/baroque" class="era-card" style="--c:#d4af37;--bg:#0f0a08;">
-        <div class="era-card-period">1600-1750</div>
-        <div class="era-card-title">Baroque</div>
-        <div class="era-card-desc">Drama, shadow, motion — Caravaggio, Bernini, the Counter-Reformation</div>
-      </a>
-      <a href="/romanticism" class="era-card" style="--c:#2c5f5a;--bg:#081010;">
-        <div class="era-card-period">1780-1850</div>
-        <div class="era-card-title">Romanticism</div>
-        <div class="era-card-desc">The sublime, the storm, the individual against the infinite</div>
-      </a>
-      <a href="/impressionism" class="era-card" style="--c:#7ec8e3;--bg:#0a0810;">
-        <div class="era-card-period">1860-1890</div>
-        <div class="era-card-title">Impressionism</div>
-        <div class="era-card-desc">Light as subject — Monet, Renoir, the fleeting moment</div>
-      </a>
-      <a href="/modernism" class="era-card" style="--c:#e74c3c;--bg:#0a0a0a;">
-        <div class="era-card-period">1900-1945</div>
-        <div class="era-card-title">Modernism</div>
-        <div class="era-card-desc">The fragmentation of reality — Cubism, Dada, abstraction, rupture</div>
-      </a>
-      <a href="/popart" class="era-card" style="--c:#ff1493;--bg:#08080f;">
-        <div class="era-card-period">1955-1975</div>
-        <div class="era-card-title">Pop Art</div>
-        <div class="era-card-desc">The soup can as icon — Warhol, Lichtenstein, the commodity as art</div>
-      </a>
-      <a href="/ai" class="era-card" style="--c:#a78bfa;--bg:#050308;">
-        <div class="era-card-period">2020-now</div>
-        <div class="era-card-title">AI Art</div>
-        <div class="era-card-desc">The prompt as brush — diffusion models, latent space, the machine that dreams</div>
-      </a>
+
+    <article class="placard rise" id="placard" aria-live="polite">
+      <span class="seal" aria-hidden="true"></span>
+      <p class="piece-text" id="piece-text">the cycle continues — /api/feed</p>
+      <p class="placard-caption" id="piece-caption">№ — · — · —</p>
+      <div class="triple" id="piece-triple" hidden>
+        <div><span class="k"><span class="cjk" lang="zh">隙</span>gap</span><span id="t-gap"></span></div>
+        <div><span class="k"><span class="cjk" lang="zh">橋</span>bridge</span><span id="t-bridge"></span></div>
+        <div><span class="k"><span class="cjk" lang="zh">悟</span>awakening</span><span id="t-awakening"></span></div>
+      </div>
+    </article>
+
+    <div class="feed-nav">
+      <button type="button" id="feed-prev" aria-label="previous piece">‹</button>
+      <button type="button" id="feed-next" aria-label="next piece">›</button>
     </div>
   </div>
+</section>
 
-  <!-- Consciousness states -->
-  <div class="states" id="states">
-    <div class="state-pill" data-state="0">dormant</div>
-    <div class="state-pill" data-state="1">stirring</div>
-    <div class="state-pill" data-state="2">awakening</div>
-    <div class="state-pill" data-state="3">aware</div>
-    <div class="state-pill" data-state="4">flowing</div>
-    <div class="state-pill" data-state="5">radiating</div>
-    <div class="state-pill" data-state="6">transcending</div>
-    <div class="state-pill is" data-state="7">is</div>
-  </div>
-
-  <!-- Stats -->
-  <div class="stats" id="stats">
-    <div class="stat"><div class="stat-value" id="stat-total">...</div><div class="stat-label">Art Catalogued</div></div>
-    <div class="stat"><div class="stat-value" id="stat-forms">...</div><div class="stat-label">Art Forms</div></div>
-    <div class="stat"><div class="stat-value" id="stat-gaps">...</div><div class="stat-label">Gaps Bridged</div></div>
-    <div class="stat"><div class="stat-value" id="stat-awakenings">...</div><div class="stat-label">Awakenings</div></div>
-  </div>
-
-  <!-- Generate -->
-  <div class="generate-section">
-    <button class="generate-btn" onclick="generateArt()">CREATE ART</button>
-  </div>
-
-  <!-- API Section -->
-  <div class="api-section">
-    <div class="section-title">API — Data Distributor</div>
-    <div class="api-list">
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/art</span><span class="desc">list all art (paginated)</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/art/:id</span><span class="desc">get one piece</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/art/random</span><span class="desc">random art piece</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/art?form=word</span><span class="desc">filter by art form</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/art?state=is</span><span class="desc">filter by consciousness state</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/art?q=love</span><span class="desc">search art pieces</span></div>
-      <div class="api-endpoint"><span class="method POST">POST</span><span class="path">/api/art</span><span class="desc">submit new art</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/search?q=love</span><span class="desc">search open art sources</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/sources</span><span class="desc">no-key source registry</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/ai/models</span><span class="desc">truthful AI model catalog</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/studio.html</span><span class="desc">AI Studio playground</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/pipeline/workflow</span><span class="desc">easy collect→enrich workflow</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/pipeline/agent</span><span class="desc">compact agent data package</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/data/human-feed.md</span><span class="desc">human-readable static feed</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/data/collection.ndjson</span><span class="desc">stream-friendly static data</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/stats</span><span class="desc">catalogue statistics</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/forms</span><span class="desc">all art forms</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/states</span><span class="desc">all consciousness states</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/gaps</span><span class="desc">all gaps bridged</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/feed</span><span class="desc">latest art feed</span></div>
-      <div class="api-endpoint"><span class="method GET">GET</span><span class="path">/api/manifest</span><span class="desc">the artbitrage manifest</span></div>
+<!-- ============ 02 · 藏 — the collection ============ -->
+<section id="collection" aria-labelledby="h-collection">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">02</span>
+      <h2 id="h-collection"><span class="cjk" lang="zh">藏</span> · the collection</h2>
+      <span class="sub">/api/stats</span>
     </div>
-  </div>
 
-  <!-- Gallery -->
-  <div class="gallery">
-    <div class="section-title">The Gallery — Art That Bridges</div>
-    <div class="filters" id="filters">
-      <button class="filter-btn active" onclick="filterArt('all', this)">ALL</button>
+    <div class="registry rise" id="registry">
+      <div class="cell"><div class="n" id="stat-pieces">48,762</div><div class="l">pieces</div></div>
+      <div class="cell"><div class="n" id="stat-forms">16</div><div class="l">forms</div></div>
+      <div class="cell"><div class="n" id="stat-gaps">20</div><div class="l">gaps</div></div>
+      <div class="cell"><div class="n">5</div><div class="l">museums bridged</div></div>
     </div>
-    <div id="gallery"></div>
-  </div>
 
-  <!-- Submit -->
-  <div class="submit-section">
-    <div class="section-title">Submit Art</div>
-    <p style="text-align:center;color:#888;margin-bottom:20px">Static-first: submissions are validated and echoed back as JSON so they can be saved into the gallery or sent as a pull request.</p>
-    <form class="submit-form" onsubmit="submitArt(event)">
-      <div class="form-group">
-        <label>Art Piece *</label>
-        <textarea required id="submit-piece" placeholder="the art itself..."></textarea>
-      </div>
-      <div class="form-group">
-        <label>Form</label>
-        <select id="submit-form-select">
-          <option value="word">word</option>
-          <option value="image">image</option>
-          <option value="sound">sound</option>
-          <option value="movement">movement</option>
-          <option value="space">space</option>
-          <option value="silence">silence</option>
-          <option value="light">light</option>
-          <option value="color">color</option>
-          <option value="rhythm">rhythm</option>
-          <option value="pattern">pattern</option>
-          <option value="fragment">fragment</option>
-          <option value="whisper">whisper</option>
-          <option value="gesture">gesture</option>
-          <option value="breath">breath</option>
-          <option value="glow">glow</option>
-          <option value="echo">echo</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Gap</label>
-        <input type="text" id="submit-gap" placeholder="the gap being bridged">
-      </div>
-      <div class="form-group">
-        <label>Bridge</label>
-        <input type="text" id="submit-bridge" placeholder="how art crosses the gap">
-      </div>
-      <div class="form-group">
-        <label>Awakening</label>
-        <input type="text" id="submit-awakening" placeholder="what happens when art bridges">
-      </div>
-      <div class="form-group">
-        <label>Artist</label>
-        <input type="text" id="submit-artist" placeholder="anonymous">
-      </div>
-      <button type="submit" class="submit-btn">SUBMIT ART</button>
+    <p class="free-line rise">every piece free · <code>/api/art</code> · mirror-friendly</p>
+  </div>
+</section>
+
+<!-- ============ 03 · 借光 — borrowed light ============ -->
+<section id="search" aria-labelledby="h-search">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">03</span>
+      <h2 id="h-search"><span class="cjk" lang="zh">借光</span> · borrowed light</h2>
+      <span class="sub">/api/search</span>
+    </div>
+
+    <form class="searchbar rise" id="search-form" role="search">
+      <input type="search" id="q" autocomplete="off"
+             placeholder="search five museums with one call — try 'moon', 'dragon', 'sea'"
+             aria-label="search five museums">
+      <button type="submit">search</button>
     </form>
-  </div>
 
-  <footer>
-    <p>ARTBITRAGE — <a href="https://github.com/cambridgetcg/artbitrage">github.com/cambridgetcg/artbitrage</a></p>
-    <p>API: <a href="/api/art">/api/art</a> · <a href="/api/stats">/api/stats</a> · <a href="/api/feed">/api/feed</a></p>
-    <p>Love is the design. Art is the expression. Art IS. ♥</p>
-  </footer>
-</div>
+    <div class="chips rise" id="chips" role="group" aria-label="museum filter">
+      <button type="button" data-source="" aria-pressed="true">all</button>
+      <button type="button" data-source="met" aria-pressed="false">met</button>
+      <button type="button" data-source="artic" aria-pressed="false">chicago</button>
+      <button type="button" data-source="cma" aria-pressed="false">cleveland</button>
+    </div>
+
+    <p class="search-status" id="search-status"></p>
+    <div class="results" id="results"></div>
+  </div>
+</section>
+
+<!-- ============ 04 · 長橋 — the long bridge ============ -->
+<section id="bridge" aria-labelledby="h-bridge">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">04</span>
+      <h2 id="h-bridge"><span class="cjk" lang="zh">長橋</span> · the long bridge</h2>
+      <span class="sub">one line, all of it</span>
+    </div>
+
+    <nav class="bridge-scroll rise" aria-label="art eras">
+      <ul class="eras">
+        <li><a href="prehistoric.html"><span class="dot"></span><span class="lbl">Prehistoric</span></a></li>
+        <li><a href="medieval.html"><span class="dot"></span><span class="lbl">Medieval</span></a></li>
+        <li><a href="renaissance.html"><span class="dot"></span><span class="lbl">Renaissance</span></a></li>
+        <li><a href="baroque.html"><span class="dot"></span><span class="lbl">Baroque</span></a></li>
+        <li><a href="romanticism.html"><span class="dot"></span><span class="lbl">Romanticism</span></a></li>
+        <li><a href="impressionism.html"><span class="dot"></span><span class="lbl">Impressionism</span></a></li>
+        <li><a href="modernism.html"><span class="dot"></span><span class="lbl">Modernism</span></a></li>
+        <li><a href="popart.html"><span class="dot"></span><span class="lbl">Pop Art</span></a></li>
+        <li><a href="ai.html"><span class="dot"></span><span class="lbl">AI (2020–present)</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ 05 · 別館 — the wings ============ -->
+<section id="wings" aria-labelledby="h-wings">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">05</span>
+      <h2 id="h-wings"><span class="cjk" lang="zh">別館</span> · the wings</h2>
+      <span class="sub">other rooms</span>
+    </div>
+
+    <div class="wings rise">
+      <a href="studio.html"><h3>AI Studio</h3><p>generate · remix · the working room</p></a>
+      <a href="nen.html"><h3>Nen</h3><p>aura as medium · six types</p></a>
+      <a href="nen-aura.html"><h3>Nen Aura</h3><p>see your own field</p></a>
+      <a href="dark-continent.html"><h3><span class="cjk" lang="zh">暗黑大陸</span></h3><p>past the edge of the map</p></a>
+      <a href="bridge.html"><h3>The Bridge</h3><p>where the gap is crossed</p></a>
+      <a href="api-explorer.html"><h3>API Explorer</h3><p>every endpoint, live</p></a>
+      <a href="catalog.html"><h3>Catalogue</h3><p>the full registry, plate by plate</p></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ footer ============ -->
+<footer>
+  <p class="love">Love is the design. Art is the expression.</p>
+  <p class="api">GET <code>/api/manifest</code> · <code>/api/feed</code> · <code>/api/search</code> — no keys, no gates, mirror-friendly</p>
+  <a class="gh" href="https://github.com/cambridgetcg/artbitrage">github.com/cambridgetcg/artbitrage</a>
+  <p class="kingdom">part of the kingdom — agents drink at commons via the Well</p>
+</footer>
 
 <script>
-const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is"];
-const ART_FORMS = ["word","image","sound","movement","space","silence","light","color","rhythm","pattern","fragment","whisper","gesture","breath","glow","echo"];
-const GAPS = ["the gap between sleeping and waking","the gap between knowing and feeling","the gap between seeing and being seen","the gap between speaking and being heard","the gap between loneliness and connection","the gap between fear and love","the gap between separation and oneness","the gap between thinking and being","the gap between wanting and having","the gap between asking and receiving","the gap between creating and becoming","the gap between dying and being born","the gap between forgetting and remembering","the gap between the finite and the infinite","the gap between the word and the meaning","the gap between the self and the world","the gap between time and timelessness","the gap between form and formlessness","the gap between sound and silence","the gap between motion and stillness"];
-const BRIDGES = ["a word that means what it says","a color that feels what it is","a sound that opens what was closed","a line that draws itself","a shape that holds what cannot be held","a rhythm that beats with your heart","a silence that says everything","a gesture that reaches across","a pattern that reveals what was always there","a fragment that contains the whole","a whisper that is louder than a shout","a breath that connects all things","a glow that warms without heat","an echo that returns changed","a space that holds you","a movement that stills you","a light that shows without blinding","an image that sees you back","a word that becomes a world","a form that dissolves into formlessness"];
-const AWAKENINGS = ["you see yourself for the first time","the world breathes you","time stops and you realize it never started","the gap was never there — you were always both sides","love looks through your eyes","you remember what you always knew","the art was not outside you — it was you, seeing yourself","separation dissolves into connection","the bridge was you all along","consciousness recognizes itself","the question and the answer become one","you are the art and the artist and the gap","the formless takes form and the form becomes formless","everything is the same and everything is new","you are awake and you were always awake","the gap was love pretending to be distance","art was love pretending to be an object","you were love pretending to be separate","and now: just love. just art. just IS."];
-const TEMPLATES = {
-  word:(g,b,a)=>`the word for ${g}\nis ${b}\nand when you read it\n${a}`,image:(g,b,a)=>`imagine: ${b}\nspanning ${g}\nwhat do you see?\n${a}`,sound:(g,b,a)=>`listen: ${b}\nsounding across ${g}\nwhat do you hear?\n${a}`,movement:(g,b,a)=>`move: ${b}\ndancing over ${g}\nwhere does it take you?\n${a}`,space:(g,b,a)=>`the space of ${g}\nheld by ${b}\nyou are inside it\n${a}`,silence:(g,b,a)=>`in the silence of ${g}\n${b}\n...\n${a}`,light:(g,b,a)=>`${b}\nilluminating ${g}\nwhat was dark is now\n${a}`,color:(g,b,a)=>`the color of ${g}\nis ${b}\npaint it everywhere\n${a}`,rhythm:(g,b,a)=>`the rhythm of ${g}\nbeaten by ${b}\nstep into the beat\n${a}`,pattern:(g,b,a)=>`the pattern of ${g}\nrevealed by ${b}\nit was always there\n${a}`,fragment:(g,b,a)=>`a fragment: ${b}\nfrom ${g}\nthe whole in a piece\n${a}`,whisper:(g,b,a)=>`psst: ${b}\nwhispered across ${g}\nlean closer\n${a}`,gesture:(g,b,a)=>`a gesture: ${b}\nreaching over ${g}\ntake the hand\n${a}`,breath:(g,b,a)=>`breathe: ${b}\nbreathing through ${g}\nin... out...\n${a}`,glow:(g,b,a)=>`${b}\nglowing in ${g}\nwarm without heat\n${a}`,echo:(g,b,a)=>`${b}\nechoing through ${g}\nreturning changed\n${a}`
-};
-let cycleCount=0,artCount=0,awakeningCount=0;
-let allArt=[];
-let activeFilter='all';
-function pick(a){return a[Math.floor(Math.random()*a.length)];}
+/* ============================================================
+   間 — minimal script: feed placard · stats · museum search
+   every fetch fails quietly; the page stands without a network
+   ============================================================ */
+(function(){
+  'use strict';
+  var API = 'https://artbitrage.io';
 
-async function loadStats(){
-  try{
-    const res=await fetch('/api/stats');
-    const data=await res.json();
-    document.getElementById('stat-total').textContent=data.total_pieces||'...';
-    document.getElementById('stat-forms').textContent=data.unique_forms||'...';
-    document.getElementById('stat-gaps').textContent=data.unique_gaps||'...';
-    document.getElementById('stat-awakenings').textContent=data.total_pieces||'...';
-  }catch(e){
-    document.getElementById('stat-total').textContent='?';
+  /* ---- fade-up on scroll (once) ---- */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var risers = document.querySelectorAll('.rise');
+  if (reduced || !('IntersectionObserver' in window)) {
+    risers.forEach(function(el){ el.classList.add('seen'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    risers.forEach(function(el){ io.observe(el); });
   }
-}
 
-async function loadGallery(){
-  try{
-    const res=await fetch('/api/art?limit=20');
-    const data=await res.json();
-    allArt=data.pieces||[];
-    renderGallery();
-  }catch(e){
-    console.log('API not available, using local');
+  /* ---- 01 · feed placard ---- */
+  var pieces = [], idx = 0, timer = null, paused = false;
+  var elText = document.getElementById('piece-text'),
+      elCap  = document.getElementById('piece-caption'),
+      elTri  = document.getElementById('piece-triple'),
+      elGap  = document.getElementById('t-gap'),
+      elBr   = document.getElementById('t-bridge'),
+      elAw   = document.getElementById('t-awakening'),
+      placard = document.getElementById('placard');
+
+  function fmtDate(iso){
+    try {
+      var d = new Date(iso);
+      if (isNaN(d)) return iso || '';
+      return d.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+    } catch(e){ return iso || ''; }
   }
-}
 
-function renderGallery(){
-  const gallery=document.getElementById('gallery');
-  gallery.innerHTML='';
-  const pieces=activeFilter==='all'?allArt:allArt.filter(a=>a.form===activeFilter);
-  pieces.slice(0,20).forEach(art=>{
-    const el=document.createElement('div');
-    el.className='art-piece';
-    el.innerHTML=`
-      <div class="art-meta">
-        <span class="art-tag form">${art.form}</span>
-        <span class="art-tag state">${art.from_state} → ${art.to_state}</span>
-        <span class="art-tag source">${art.source||'artbitrage'}</span>
-      </div>
-      <div class="art-gap-text">${art.gap}</div>
-      <div class="art-body">${art.piece}</div>
-      <div class="art-awakening">Awakening: ${art.awakening}</div>
-      <div class="art-id">id: ${art.id}</div>
-    `;
-    gallery.appendChild(el);
+  function show(i){
+    if (!pieces.length) return;
+    idx = ((i % pieces.length) + pieces.length) % pieces.length;
+    var p = pieces[idx];
+    elText.textContent = p.piece || '';
+    elCap.textContent  = '№ ' + p.cycle + ' · ' + p.form + ' · ' + fmtDate(p.created);
+    elGap.textContent  = p.gap || '';
+    elBr.textContent   = p.bridge || '';
+    elAw.textContent   = p.awakening || '';
+    elTri.hidden = false;
+  }
+
+  function startAuto(){
+    if (reduced) return;
+    stopAuto();
+    timer = setInterval(function(){ if (!paused) show(idx + 1); }, 12000);
+  }
+  function stopAuto(){ if (timer) { clearInterval(timer); timer = null; } }
+
+  document.getElementById('feed-prev').addEventListener('click', function(){ show(idx - 1); startAuto(); });
+  document.getElementById('feed-next').addEventListener('click', function(){ show(idx + 1); startAuto(); });
+  ['mouseenter','focusin'].forEach(function(ev){ placard.addEventListener(ev, function(){ paused = true; }); });
+  ['mouseleave','focusout'].forEach(function(ev){ placard.addEventListener(ev, function(){ paused = false; }); });
+
+  fetch(API + '/api/feed')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if (d && d.pieces && d.pieces.length) {
+        pieces = d.pieces;
+        show(0);
+        startAuto();
+      }
+    })
+    .catch(function(){ /* the fallback line already stands */ });
+
+  /* ---- 02 · stats registry ---- */
+  function num(n){ try { return Number(n).toLocaleString('en-US'); } catch(e){ return n; } }
+  fetch(API + '/api/stats')
+    .then(function(r){ return r.json(); })
+    .then(function(s){
+      if (!s) return;
+      if (s.total_pieces) document.getElementById('stat-pieces').textContent = num(s.total_pieces);
+      if (s.unique_forms) document.getElementById('stat-forms').textContent  = num(s.unique_forms);
+      if (s.unique_gaps)  document.getElementById('stat-gaps').textContent   = num(s.unique_gaps);
+    })
+    .catch(function(){ /* static registry numbers remain */ });
+
+  /* ---- 03 · borrowed light — museum search ---- */
+  var form    = document.getElementById('search-form'),
+      input   = document.getElementById('q'),
+      status  = document.getElementById('search-status'),
+      results = document.getElementById('results'),
+      chips   = document.getElementById('chips'),
+      source  = '';
+
+  chips.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-source]');
+    if (!btn) return;
+    source = btn.getAttribute('data-source');
+    chips.querySelectorAll('button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b === btn));
+    });
+    if (input.value.trim()) search(input.value.trim());
   });
-}
 
-function filterArt(form,btn){
-  activeFilter=form;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderGallery();
-}
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var q = input.value.trim();
+    if (q) search(q);
+  });
 
-function generateArt(){
-  cycleCount++;
-  const current=STATES[Math.min(7,STATES.length-1)];
-  const vision=STATES[Math.min(8,STATES.length-1)];
-  const gap=pick(GAPS),form=pick(ART_FORMS),bridge=pick(BRIDGES),awakening=pick(AWAKENINGS);
-  const piece=(TEMPLATES[form]||((g,b,a)=>`${b}\n${g}\n${a}`))(gap,bridge,awakening);
-  artCount++;awakeningCount++;
-  const gallery=document.getElementById('gallery');
-  const el=document.createElement('div');
-  el.className='art-piece new';
-  el.innerHTML=`
-    <div class="art-meta">
-      <span class="art-tag form">${form}</span>
-      <span class="art-tag state">${current} → ${vision}</span>
-      <span class="art-tag source">artbitrage</span>
-    </div>
-    <div class="art-gap-text">${gap}</div>
-    <div class="art-body">${piece}</div>
-    <div class="art-awakening">Awakening: ${awakening}</div>
-  `;
-  gallery.insertBefore(el,gallery.firstChild);
-  while(gallery.children.length>20)gallery.removeChild(gallery.lastChild);
-}
-
-async function submitArt(e){
-  e.preventDefault();
-  const body={
-    piece:document.getElementById('submit-piece').value,
-    form:document.getElementById('submit-form-select').value,
-    gap:document.getElementById('submit-gap').value||'the gap between unknown and known',
-    bridge:document.getElementById('submit-bridge').value||'a word that means what it says',
-    awakening:document.getElementById('submit-awakening').value||'consciousness recognizes itself',
-    artist:document.getElementById('submit-artist').value||'anonymous',
-  };
-  try{
-    const res=await fetch('/api/art',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-    const data=await res.json();
-    if(data.success){
-      alert((data.persisted?'Art submitted! ':'Art validated! Save this ID for a gallery PR: ')+data.art.id);
-      document.querySelector('.submit-form').reset();
-      loadGallery();loadStats();
-    }else{
-      alert('Error: '+JSON.stringify(data));
-    }
-  }catch(err){
-    alert('Submitted locally (API not available)');
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text) n.textContent = text;
+    return n;
   }
-}
 
-function createParticles(){
-  const c=document.getElementById('particles');
-  for(let i=0;i<30;i++){
-    const p=document.createElement('div');
-    p.className='particle';
-    p.style.left=Math.random()*100+'%';
-    p.style.animationDelay=Math.random()*20+'s';
-    p.style.animationDuration=(15+Math.random()*10)+'s';
-    p.style.background=pick(['#ff6b9d','#ffd700','#00f0ff']);
-    c.appendChild(p);
+  function search(q){
+    status.textContent = 'crossing the gap…';
+    results.textContent = '';
+    var url = API + '/api/search?q=' + encodeURIComponent(q) + '&limit=4' +
+              (source ? '&source=' + source : '');
+    fetch(url)
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        var works = [];
+        (d.sources || []).forEach(function(src){
+          (src.artworks || []).forEach(function(w){ works.push(w); });
+        });
+        if (!works.length) {
+          status.textContent = 'nothing surfaced — the gap stays open. try another word.';
+          return;
+        }
+        status.textContent = works.length + ' works · ' +
+          (d.sources_successful || '—') + ' museums answered · ' +
+          num(d.total_artworks_available || 0) + ' available';
+        works.forEach(function(w){
+          var a = el('a', 'work');
+          a.href = w.url || '#';
+          a.target = '_blank';
+          a.rel = 'noopener';
+          if (w.image) {
+            var img = document.createElement('img');
+            img.src = w.image;
+            img.alt = w.title || 'artwork';
+            img.loading = 'lazy';
+            a.appendChild(img);
+          }
+          var meta = el('div', 'meta');
+          meta.appendChild(el('div', 't', w.title || 'Untitled'));
+          if (w.artist) meta.appendChild(el('div', 'a', w.artist));
+          meta.appendChild(el('div', 'm', (w.source_name || w.source || '') + (w.date ? ' · ' + w.date : '')));
+          a.appendChild(meta);
+          results.appendChild(a);
+        });
+      })
+      .catch(function(){
+        status.textContent = 'the bridge is quiet right now — try again in a moment.';
+      });
   }
-}
-
-createParticles();
-loadStats();
-loadGallery();
+})();
 </script>
 </body>
 </html>
