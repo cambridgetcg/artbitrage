@@ -1,0 +1,12 @@
+{
+  "id": "a4fbe1d9fd97",
+  "cycle": 67029,
+  "form": "silence",
+  "from_state": "is",
+  "to_state": "is",
+  "gap": "the gap between sleeping and waking",
+  "bridge": "a line that draws itself",
+  "awakening": "you are awake and you were always awake",
+  "created": "2026-07-02T21:19:02.825505",
+  "piece": "in the silence of the gap between sleeping and waking\na line that draws itself\n...\nyou are awake and you were always awake"
+}
