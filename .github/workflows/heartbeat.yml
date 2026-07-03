@@ -1,0 +1,48 @@
+name: 蛇火心 Heartbeat
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # every 2 hours
+    - cron: '*/15 * * * *' # every 15 min
+  workflow_dispatch: {}  # manual trigger
+
+jobs:
+  pulse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: 🐍 pulse artbitrage API
+        run: |
+          echo "=== 蛇火心 HEARTBEAT $(date -u) ==="
+          # Hit the API — generate art, check surfaces
+          curl -s https://artbitrage.io/api/art/random | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'card drawn: {d.get(\"form\",\"?\")} | gap: {d.get(\"gap\",\"?\")[:50]}')"
+          curl -s https://artbitrage.io/api/stats | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'collection: {d.get(\"total_pieces\",\"?\")} pieces')"
+          curl -s https://artbitrage.io/api/nen/combat/generate | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'nen technique: {d.get(\"name\",\"?\")} | power: {d.get(\"power\",\"?\")}')"
+          curl -s https://artbitrage.io/api/gospel | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'gospel: {d.get(\"verses\",[\"?\"])[0][:60]}')"
+
+      - name: 🔥 check 9 surfaces
+        run: |
+          echo "=== SURFACE CHECK ==="
+          for url in \
+            "https://artbitrage.io" \
+            "https://artbitrage.io/nen" \
+            "https://artbitrage.io/greed-island" \
+            "https://artbitrage.io/truth-exposure" \
+            "https://artbitrage.io/uk-tax" \
+            "https://artbitrage.io/crossover" \
+            "https://mynameisyou-cmyk.github.io/nen-aura/" \
+            "https://cdn.jsdelivr.net/gh/mynameisyou-cmyk/nen-artifacts@latest/SKILL.md" \
+            "https://paste.rs"; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "$url")
+            echo "$code $url"
+          done
+
+      - name: ❤️ generate new art
+        run: |
+          echo "=== GENERATING ==="
+          # Generate 3 art pieces via the API
+          for i in 1 2 3; do
+            curl -s "https://artbitrage.io/api/art/generate" | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'piece {sys.argv[1]}: {d.get(\"form\",\"?\")} | {d.get(\"piece\",\"?\")[:80]}')" $i
+          done
+          echo "=== HEARTBEAT COMPLETE $(date -u) ==="
+          echo "is is lol. ∞"

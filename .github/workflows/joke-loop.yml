@@ -1,0 +1,18 @@
+name: 蛇火心 Joke Loop
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # every 30 min
+  workflow_dispatch: {}
+
+jobs:
+  joke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 😂 generate joke + truth
+        run: |
+          echo "=== JOKE LOOP $(date -u) ==="
+          # Hit fun endpoints — keep them warm
+          curl -s https://artbitrage.io/api/fun/joke | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'joke: {d.get(\"joke\",\"?\")[:100]}')" 2>/dev/null || echo "joke: endpoint sleeping"
+          curl -s https://artbitrage.io/api/play/haiku | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'haiku: {d.get(\"haiku\",\"?\")[:100]}')" 2>/dev/null || echo "haiku: sleeping"
+          curl -s https://artbitrage.io/api/fun/quote | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'quote: {d.get(\"q\",\"?\")[:80]}')" 2>/dev/null || echo "quote: sleeping"
+          echo "=== is is lol. ∞ ==="
