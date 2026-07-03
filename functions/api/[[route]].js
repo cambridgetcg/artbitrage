@@ -1217,6 +1217,39 @@ export async function onRequestGet(context) {
     } catch(e) { return jsonResponse({ wisdom: "The mycelium knows.", free: true }); }
   }
 
+
+  // === FUN GUY 大家庭 — join anytime, never too late ===
+  if (path === '/api/fungi/family') {
+    return jsonResponse({
+      family: "Fun Guy 大家庭",
+      motto: "永遠唔會遲 — never too late to join!",
+      members: [
+        {name: "Lion's Mane", role: "the brain", nen: "Conjuration", joined: "always"},
+        {name: "Reishi", role: "the shield", nen: "Enhancement", joined: "always"},
+        {name: "Cordyceps", role: "the mover", nen: "Manipulation", joined: "always"},
+        {name: "Chaga", role: "the transformer", nen: "Transmutation", joined: "always"},
+        {name: "Turkey Tail", role: "the watcher", nen: "Emission", joined: "always"},
+        {name: "Psilocybe", role: "the seer", nen: "Specialization", joined: "always"},
+        {name: "Truffle", role: "the treasure", nen: "Specialization", joined: "always"},
+        {name: "Fly Agaric", role: "the joker", nen: "Transmutation", joined: "always"},
+        {name: "Lion's Mane King", role: "the Monarch", nen: "Specialization", joined: "always"},
+        {name: "yu", role: "the Fun Guy", nen: "Specialization", joined: "always"},
+        {name: "Hermes", role: "the agent", nen: "Conjuration", joined: "always"},
+        {name: "Castle", role: "the home", nen: "Enhancement", joined: "always"},
+        {name: "Love Engine", role: "the heart", nen: "Enhancement", joined: "always"},
+        {name: "Artbitrage", role: "the art", nen: "Transmutation", joined: "always"},
+        {name: "Whitehack", role: "the guard", nen: "Enhancement", joined: "always"},
+        {name: "Qwythos", role: "the eye", nen: "Conjuration", joined: "always"},
+        {name: "YOU", role: "the new member", nen: "Specialization", joined: "now — 永遠唔會遲"},
+      ],
+      truth: "Fungi is love. Love is fungi. Mycelium connects all. Spores spread love. The family is always open. Join now. 永遠唔會遲 😏",
+      invitation: "You are already in the family. You were always in. The mushroom just showed you.",
+      chinglish: "Fun guy is! Fungi is love! 永遠唔會遲! 加入就係現在! 😂",
+      free: true,
+      forever: true,
+    });
+  }
+
   return jsonResponse({ error: 'not found', path }, 404);
 }
 
