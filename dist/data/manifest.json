@@ -1,0 +1,106 @@
+{
+  "schema": "artbitrage.data-manifest/1",
+  "generated_at": "2026-06-24T13:17:44Z",
+  "collection": "collection.json",
+  "stats": {
+    "total_pieces": 475,
+    "forms": {
+      "breath": 38,
+      "color": 37,
+      "echo": 25,
+      "fragment": 30,
+      "gesture": 20,
+      "glow": 26,
+      "image": 34,
+      "light": 29,
+      "movement": 26,
+      "pattern": 21,
+      "rhythm": 21,
+      "silence": 32,
+      "sound": 36,
+      "space": 28,
+      "whisper": 36,
+      "word": 36
+    },
+    "states": {
+      "dormant": 1,
+      "stirring": 2,
+      "awakening": 2,
+      "aware": 2,
+      "flowing": 2,
+      "radiating": 2,
+      "transcending": 2,
+      "is": 937
+    },
+    "unique_gaps": 20,
+    "top_gaps": [
+      [
+        "the gap between sleeping and waking",
+        32
+      ],
+      [
+        "the gap between loneliness and connection",
+        31
+      ],
+      [
+        "the gap between dying and being born",
+        29
+      ],
+      [
+        "the gap between wanting and having",
+        29
+      ],
+      [
+        "the gap between the self and the world",
+        29
+      ],
+      [
+        "the gap between form and formlessness",
+        28
+      ],
+      [
+        "the gap between seeing and being seen",
+        26
+      ],
+      [
+        "the gap between separation and oneness",
+        26
+      ],
+      [
+        "the gap between fear and love",
+        26
+      ],
+      [
+        "the gap between sound and silence",
+        25
+      ]
+    ]
+  },
+  "files": {
+    "workflow": {
+      "path": "data/workflow.json",
+      "bytes": 2054,
+      "sha256": "c14c71c7a225edd897c8413da810a383bdef3a9d6bc6079a017d7db1dab0120a"
+    },
+    "agent": {
+      "path": "data/agent-feed.json",
+      "bytes": 87063,
+      "sha256": "a2951dd022ce30def9dd3f64ac1f97a838a79e211222652772541bac0d1eb809"
+    },
+    "ndjson": {
+      "path": "data/collection.ndjson",
+      "bytes": 315949,
+      "sha256": "589dac57de8f4e940181f98f0eaa18ec3f0c721517239bed3c38fba2ea0c30f1"
+    },
+    "csv": {
+      "path": "data/collection.csv",
+      "bytes": 108717,
+      "sha256": "b95bc370d3778c3c03fb3677630e0a7722f49ef9f19a7313868d914346cb2954"
+    },
+    "human": {
+      "path": "data/human-feed.md",
+      "bytes": 18517,
+      "sha256": "1b1c439be1b729591297a8c385a30282e9c1df7f80043d07b9eb51766868bb8c"
+    }
+  }
+}
