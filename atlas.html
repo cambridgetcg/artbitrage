@@ -205,7 +205,8 @@ header.hero{
   min-height:1.2em;
 }
 
-/* wall-label cards, masonry columns — no images: the words are the work */
+/* wall-label cards, masonry columns — a thumb frame tops each card the
+   atlas has a rights-clean image for; the rest stay words-only */
 .cards{
   columns:3; column-gap:1.4rem;
   margin-top:2.4rem;
@@ -217,6 +218,7 @@ header.hero{
   background:var(--surface);
   padding:1.5rem 1.5rem 1.6rem;
   transition:border-color .3s ease;
+  contain:content;
 }
 .card:hover{ border-color:var(--zhu); }
 .card[hidden]{ display:none; }
@@ -258,6 +260,72 @@ header.hero{
   transition:color .25s ease;
 }
 .card .go:hover{ color:var(--zhu); }
+
+/* ---- period frames: one muted accent per period, carried by --p.
+   the accent shows ONLY as the 2px top border, the movement tag,
+   the east seal-dot and the modernism corner ticks ---- */
+[data-period="east"]{ --p:var(--zhu); }             /* the seal red it deserves */
+[data-period="surrealism"]{ --p:#7a6291; }          /* dusk violet */
+[data-period="postimpressionism"]{ --p:#4f7a68; }   /* deep viridian */
+[data-period="impressionism"]{ --p:#8fa3c4; }       /* pale air-blue */
+[data-period="renaissance"]{ --p:var(--gold); }
+[data-period="baroque"]{ --p:#7a5c33; }             /* burnt umber */
+[data-period="romanticism"]{ --p:#6d7b8d; }         /* storm grey-blue */
+[data-period="modernism"]{ --p:#4a5f8f; }           /* muted ultramarine */
+[data-period="contemporary"]{ --p:var(--dim); }
+
+.card[data-period]{ border-top:2px solid var(--p); }
+.card[data-period]:hover{ border-top-color:var(--p); }   /* hover stays zhu, the accent stays itself */
+.card[data-period="contemporary"]{ border-top:none; }    /* the work floats */
+
+/* movement tag — the text is the dataset's own movement, the color is the group */
+.card .period{
+  font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--p); margin-top:.6rem;
+}
+
+/* the image frame — click for the full-size image */
+.frame-link{ display:block; }
+.artframe{
+  position:relative;
+  background:#0c0c0f;
+  border:1px solid var(--hair);
+  border-top:2px solid var(--p);
+  padding:6px;
+}
+.artframe img{ display:block; width:100%; height:auto; }
+.card .credit{
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.08em; color:var(--dim);
+  margin:.5rem 0 1.05rem;
+}
+
+/* period quirks — how a thoughtful gallery would frame each era */
+[data-period="east"] .artframe::after{             /* a 6px seal-dot, top-right */
+  content:''; position:absolute; top:0; right:0;
+  width:6px; height:6px; background:var(--p);
+}
+[data-period="surrealism"] .artframe{ border-style:dashed; }  /* dream logic — the only dashed */
+[data-period="impressionism"] .artframe{ border-color:#3a3a44; border-top-color:var(--p); }
+[data-period="renaissance"] .artframe{             /* double hairline: gold outside, hair inside */
+  border-color:var(--gold);
+  box-shadow:inset 0 0 0 1px var(--hair);
+}
+[data-period="baroque"] .artframe{ background:#141210; }      /* slightly warmer padding */
+[data-period="modernism"] .artframe::before,
+[data-period="modernism"] .artframe::after{        /* two tiny corner ticks */
+  content:''; position:absolute; width:8px; height:8px;
+}
+[data-period="modernism"] .artframe::before{
+  top:-2px; left:-2px;
+  border-top:2px solid var(--p); border-left:2px solid var(--p);
+}
+[data-period="modernism"] .artframe::after{
+  bottom:-2px; right:-2px;
+  border-bottom:2px solid var(--p); border-right:2px solid var(--p);
+}
+[data-period="contemporary"] .artframe{ border-top:none; }
 
 /* ============ 03 · 巡礼 — the pilgrimage ============ */
 .pilgrim-intro{
@@ -454,7 +522,14 @@ footer .kingdom{
         "https://www.artnews.com/art-news/news/louvre-paris-closed-monday-due-to-strike-working-conditions-1234745223/",
         "https://www.pbs.org/newshour/arts/ongoing-strikes-and-the-100-million-heist-push-the-louvre-into-historic-crisis"
       ],
-      "link": "https://www.louvre.fr/en/visit/hours-admission"
+      "link": "https://www.louvre.fr/en/visit/hours-admission",
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/mona-lisa.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/mona-lisa-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; artist Leonardo da Vinci d. 1519)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
+      }
     },
     {
       "id": "liberty-leading-the-people",
@@ -473,7 +548,14 @@ footer .kingdom{
       "sources": [
         "https://www.smithsonianmag.com/smart-news/liberty-leading-the-people-returns-to-louvre-after-breathtaking-restoration-180984302/",
         "https://news.artnet.com/art-world/louvre-delacroix-restoration-2479081"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/liberty-leading-the-people.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/liberty-leading-the-people-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Delacroix d. 1863)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Eug%C3%A8ne_Delacroix_-_Le_28_Juillet._La_Libert%C3%A9_guidant_le_peuple.jpg"
+      }
     },
     {
       "id": "raft-of-the-medusa",
@@ -493,7 +575,14 @@ footer .kingdom{
       "sources": [
         "https://www.louvre.fr/en/explore/the-palace/think-big",
         "https://en.wikipedia.org/wiki/The_Raft_of_the_Medusa"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/raft-of-the-medusa.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/raft-of-the-medusa-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Géricault d. 1824)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_%28Museo_del_Louvre%2C_1818-19%29.jpg"
+      }
     },
     {
       "id": "bal-du-moulin-de-la-galette",
@@ -515,7 +604,14 @@ footer .kingdom{
         "https://www.theartnewspaper.com/2026/03/12/two-renoir-exhibitions-at-musee-dorsay-explore-the-joy-of-human-connection",
         "https://www.phillipscollection.org/press/phillips-collection-announces-loan-renoirs-luncheon-boating-party-musee-dorsay",
         "https://exhibitions.paris/exhibition/renoir-and-love-a-joyful-modernity-1865-1885-musee-dorsay/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/bal-du-moulin-de-la-galette.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/bal-du-moulin-de-la-galette-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Renoir d. 1919)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Pierre-Auguste_Renoir%2C_Le_Moulin_de_la_Galette.jpg"
+      }
     },
     {
       "id": "water-lilies-cycle",
@@ -535,7 +631,14 @@ footer .kingdom{
       "sources": [
         "https://www.musee-orangerie.fr/en/node/24",
         "https://www.visitparisregion.com/en/musee-de-l-orangerie"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/water-lilies-cycle.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/water-lilies-cycle-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Monet d. 1926, within the 1955 cutoff)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_The_Water_Lilies_-_Setting_Sun_-_Google_Art_Project.jpg"
+      }
     },
     {
       "id": "the-night-watch",
@@ -556,7 +659,14 @@ footer .kingdom{
         "https://www.rijksmuseum.nl/en/press/press-releases/restoration-begins-of-rembrandt-s-the-night-watch",
         "https://www.artnews.com/art-news/news/the-restoration-of-rembrandts-night-watch-painting-is-finally-underway-1234723603/",
         "https://www.smithsonianmag.com/smart-news/the-public-is-watching-as-conservators-carefully-restore-a-rembrandt-masterpiece-to-its-former-glory-180985534/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/the-night-watch.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/the-night-watch-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Rembrandt d. 1669)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:The_Night_Watch_-_HD.jpg"
+      }
     },
     {
       "id": "sunflowers-amsterdam",
@@ -577,7 +687,14 @@ footer .kingdom{
         "https://www.vangoghmuseum.nl/en/about/news-and-press/press-releases/van-gogh-museum-to-keep-sunflowers-in-amsterdam",
         "https://www.theartnewspaper.com/2026/05/05/van-gogh-museum-in-funding-mediation-with-dutch-government",
         "https://www.vangoghmuseum.nl/en/about/news-and-press/news/20250827-van-gogh-museums-future-in-doubt"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sunflowers-amsterdam.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sunflowers-amsterdam-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Van Gogh d. 1890)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg"
+      }
     },
     {
       "id": "girl-with-a-pearl-earring",
@@ -598,7 +715,14 @@ footer .kingdom{
         "https://www.mauritshuis.nl/en/press-releases/girl-with-a-pearl-earring-travels-to-japan-while-mauritshuis-is-closed",
         "https://www.codart.nl/art-works/girl-with-a-pearl-earring-travels-to-japan-during-mauritshuis-closure/",
         "https://en.thevalue.com/articles/vermeer-girl-with-a-pearl-earring-painting-2026-exhibition-nakanoshima-museum-of-art-osaka"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/girl-with-a-pearl-earring.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/girl-with-a-pearl-earring-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Vermeer d. 1675)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:1665_Girl_with_a_Pearl_Earring.jpg"
+      }
     },
     {
       "id": "birth-of-venus",
@@ -619,7 +743,14 @@ footer .kingdom{
         "https://www.uffizi.it/en/artworks/birth-of-venus",
         "https://abcnews.com/International/wireStory/uffizi-gallery-unveils-new-arrangement-botticellis-birth-venus-133926207",
         "https://ny1.com/nyc/all-boroughs/ap-top-news/2026/06/16/uffizi-gallery-unveils-new-arrangement-for-botticellis-birth-of-venus-and-primavera"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/birth-of-venus.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/birth-of-venus-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Botticelli d. 1510)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg"
+      }
     },
     {
       "id": "primavera",
@@ -639,7 +770,14 @@ footer .kingdom{
       "sources": [
         "https://www.uffizi.it/en/artworks/botticelli-spring",
         "https://abcnews.com/International/wireStory/uffizi-gallery-unveils-new-arrangement-botticellis-birth-venus-133926207"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/primavera.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/primavera-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Botticelli d. 1510)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Botticelli-primavera.jpg"
+      }
     },
     {
       "id": "david",
@@ -660,7 +798,14 @@ footer .kingdom{
         "https://www.galleriaaccademiafirenze.it/en/tickets/",
         "https://www.accademia.org/buy-tickets/",
         "https://untolditaly.com/how-to-buy-tickets-for-the-accademia-gallery-florence/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/david.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/david-t.jpg",
+        "credit": "Rijksmuseum via Wikimedia Commons, CC0",
+        "license": "CC0 (Rijksmuseum dedication of a 19th-century Brogi albumen print; sculpture itself PD, Michelangelo d. 1564)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Detail_van_de_David_van_Michelangelo_in_Florence_FIRENZE_-_Accademia_di_Belle_Arti_-_Particolare_del_David_di_Michelangiolo._%28titel_op_object%29%2C_RP-F-F01184-K.jpg"
+      }
     },
     {
       "id": "sistine-chapel-ceiling",
@@ -681,7 +826,14 @@ footer .kingdom{
         "https://www.museivaticani.va/content/museivaticani/en/organizza-visita/tariffe-e-biglietti.html",
         "https://www.museivaticani.va/content/museivaticani/en/eventi-e-novita/notizie/2026/giudizio-universale-michelangelo-manutenzione-straordinaria.html",
         "https://www.vaticannews.va/en/vatican-city/news/2026-02/restoration-work-michelangelo-last-judgment-sistine-chapel.html"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sistine-chapel-ceiling.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sistine-chapel-ceiling-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Michelangelo d. 1564)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Last_Judgement_%28Michelangelo%29.jpg"
+      }
     },
     {
       "id": "las-meninas",
@@ -700,7 +852,14 @@ footer .kingdom{
       "why": "Painting about painting — Velázquez steps behind his canvas and pulls the viewer into the royal family.",
       "sources": [
         "https://www.museodelprado.es/en/the-collection/art-work/las-meninas/9fdc7800-9ade-48b0-ab8b-edee94ea877f"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/las-meninas.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/las-meninas-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Velázquez d. 1660)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Las_Meninas%2C_by_Diego_Vel%C3%A1zquez%2C_from_Prado_in_Google_Earth.jpg"
+      }
     },
     {
       "id": "garden-of-earthly-delights",
@@ -720,7 +879,14 @@ footer .kingdom{
       "sources": [
         "https://www.museodelprado.es/en/whats-on/new/the-garden-of-earthly-delights-by-bosch-is/dbe6dc3e-f3e9-45c3-0953-d4a1678f8dcb",
         "https://www.afpradomuseum.org/the-garden-of-earthly-delights-bosch/history"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/garden-of-earthly-delights.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/garden-of-earthly-delights-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Bosch d. 1516)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:The_Garden_of_Earthly_Delights_by_Bosch_High_Resolution.jpg"
+      }
     },
     {
       "id": "guernica",
@@ -742,7 +908,9 @@ footer .kingdom{
         "https://www.theartnewspaper.com/2026/04/10/spanish-culture-ministry-denies-loan-picassos-guernica-bilbao",
         "https://www.artforum.com/news/reina-sofia-refuses-to-loan-picassos-guernica-again-1234746868/",
         "https://www.euronews.com/culture/2026/04/07/give-us-guernica-basque-leaders-step-up-call-for-transfer-of-picassos-famous-painting-to-b"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: Picasso died 1973, so 70 years p.m.a. runs to 2044. Not public domain anywhere we serve; no image provided."
     },
     {
       "id": "sunflowers-london",
@@ -763,7 +931,14 @@ footer .kingdom{
         "https://www.theartnewspaper.com/2026/06/05/philadelphia-opens-its-van-gogh-sunflowers-display-with-a-very-rare-loan-from-londons-national-gallery",
         "https://www.philamuseum.org/exhibitions/van-gogh-sunflowers",
         "https://www.nationalgallery.org.uk/paintings/vincent-van-gogh-sunflowers"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sunflowers-london.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sunflowers-london-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Van Gogh d. 1890)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_127.jpg"
+      }
     },
     {
       "id": "arnolfini-portrait",
@@ -784,7 +959,14 @@ footer .kingdom{
         "https://www.nationalgallery.org.uk/paintings/jan-van-eyck-the-arnolfini-portrait",
         "https://www.nationalgallery.org.uk/exhibitions/van-eyck-the-portraits",
         "https://www.smithsonianmag.com/smart-news/all-nine-of-jan-van-eycks-surviving-portraits-are-coming-together-for-the-very-first-time-in-history-180988003/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/arnolfini-portrait.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/arnolfini-portrait-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; van Eyck d. 1441)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Van_Eyck_-_Arnolfini_Portrait.jpg"
+      }
     },
     {
       "id": "ophelia",
@@ -804,7 +986,14 @@ footer .kingdom{
       "sources": [
         "https://www.tate.org.uk/art/artworks/millais-ophelia-n01506",
         "https://www.tate.org.uk/press/press-releases/tate-britain-welcomes-home-ophelia"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/ophelia.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/ophelia-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Millais d. 1896)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:John_Everett_Millais_-_Ophelia_-_Google_Art_Project.jpg"
+      }
     },
     {
       "id": "the-kiss",
@@ -824,7 +1013,14 @@ footer .kingdom{
       "sources": [
         "https://www.belvedere.at/en/visit/upper-belvedere",
         "https://schlossbelvedere.com/guides/klimt-the-kiss-where-and-how-to-see-it/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/the-kiss.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/the-kiss-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Klimt d. 1918)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg"
+      }
     },
     {
       "id": "tower-of-babel",
@@ -843,7 +1039,14 @@ footer .kingdom{
       "sources": [
         "https://en.wikipedia.org/wiki/The_Tower_of_Babel_(Bruegel)",
         "https://kunsthistorischesmuseums.com/attractions/the-tower-of-babel/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/tower-of-babel.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/tower-of-babel-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Bruegel d. 1569)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project_-_edited.jpg"
+      }
     },
     {
       "id": "wanderer-above-the-sea-of-fog",
@@ -863,7 +1066,14 @@ footer .kingdom{
       "sources": [
         "https://www.hamburger-kunsthalle.de/en/news/wanderer-above-sea-fog-caspar-david-friedrich",
         "https://www.metmuseum.org/exhibitions/caspar-david-friedrich-the-soul-of-nature"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/wanderer-above-the-sea-of-fog.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/wanderer-above-the-sea-of-fog-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Friedrich d. 1840)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg"
+      }
     },
     {
       "id": "the-scream",
@@ -883,7 +1093,14 @@ footer .kingdom{
       "sources": [
         "https://www.nasjonalmuseet.no/en/stories/explore-the-collection/edvard-munch-and-the-scream-in-the-national-museum/",
         "https://www.munch.no/en/The-Scream/where-can-i-see-the-scream/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/the-scream.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/the-scream-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Munch d. 1944, 70y p.m.a. expired 2015)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Edvard_Munch,_1893,_The_Scream,_oil,_tempera_and_pastel_on_cardboard,_91_x_73_cm,_National_Gallery_of_Norway.jpg"
+      }
     },
     {
       "id": "return-of-the-prodigal-son",
@@ -904,7 +1121,14 @@ footer .kingdom{
         "https://www.hermitagemuseum.org/digital-collection/43413?lng=en",
         "https://russiable.com/buy-tickets-hermitage-museum/",
         "https://www.theartnewspaper.com/2026/04/29/eu-imposes-sanctions-on-mikhail-piotrovsky-director-of-russias-state-hermitage-museum"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/return-of-the-prodigal-son.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/return-of-the-prodigal-son-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Rembrandt d. 1669)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Rembrandt_Harmensz_van_Rijn_-_Return_of_the_Prodigal_Son_-_Google_Art_Project.jpg"
+      }
     },
     {
       "id": "the-last-supper",
@@ -925,7 +1149,14 @@ footer .kingdom{
         "https://cenacolovinciano.org/en/info/",
         "https://cenacolovinciano.org/en/news-ed-eventi/admission-tickets-now-available-for-may-august-2026/",
         "https://untolditaly.com/how-to-buy-tickets-for-the-last-supper-milan/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/the-last-supper.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/the-last-supper-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Leonardo d. 1519)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:%C3%9Altima_Cena_-_Da_Vinci_5.jpg"
+      }
     },
     {
       "id": "starry-night-moma",
@@ -945,7 +1176,14 @@ footer .kingdom{
       "sources": [
         "https://www.moma.org/collection/works/79802",
         "https://www.moma.org/visit/itineraries/unmissables"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/starry-night-moma.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/starry-night-moma-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; van Gogh d. 1890)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+      }
     },
     {
       "id": "les-demoiselles-davignon",
@@ -965,7 +1203,9 @@ footer .kingdom{
       "sources": [
         "https://www.moma.org/collection/works/79766",
         "https://www.moma.org/calendar/galleries/5696"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: Picasso died 1973, fails the died-1955-or-earlier test (70y p.m.a. runs to 2044). Refused."
     },
     {
       "id": "persistence-of-memory",
@@ -985,7 +1225,9 @@ footer .kingdom{
       "sources": [
         "https://www.moma.org/collection/works/79018",
         "https://www.moma.org/magazine/articles/1386"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: Dali died 1989, fails the died-1955-or-earlier test (70y p.m.a. runs to 2060). Refused."
     },
     {
       "id": "water-lilies-moma",
@@ -1005,7 +1247,14 @@ footer .kingdom{
       "sources": [
         "https://www.moma.org/collection/works/80220",
         "https://www.moma.org/calendar/galleries/5110"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/water-lilies-moma.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/water-lilies-moma-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Monet d. 1926)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Reflections_of_Clouds_on_the_Water-Lily_Pond.jpg"
+      }
     },
     {
       "id": "washington-crossing-the-delaware",
@@ -1025,7 +1274,14 @@ footer .kingdom{
       "sources": [
         "https://www.metmuseum.org/art/collection/search/11417",
         "https://collectionapi.metmuseum.org/public/collection/v1/objects/11417"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/washington-crossing-the-delaware.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/washington-crossing-the-delaware-t.jpg",
+        "credit": "Metropolitan Museum of Art, CC0",
+        "license": "CC0 (Met Open Access; Leutze d. 1868)",
+        "source_page": "https://www.metmuseum.org/art/collection/search/11417"
+      }
     },
     {
       "id": "great-wave-met",
@@ -1046,7 +1302,14 @@ footer .kingdom{
         "https://www.metmuseum.org/art/collection/search/45434",
         "https://collectionapi.metmuseum.org/public/collection/v1/objects/45434",
         "https://www.metmuseum.org/essays/hokusai-great-wave"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/great-wave-met.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/great-wave-met-t.jpg",
+        "credit": "Metropolitan Museum of Art, CC0",
+        "license": "CC0 (Met Open Access; Hokusai d. 1849)",
+        "source_page": "https://www.metmuseum.org/art/collection/search/45434"
+      }
     },
     {
       "id": "adele-bloch-bauer-i",
@@ -1067,7 +1330,14 @@ footer .kingdom{
         "https://www.neuegalerie.org/womaningold",
         "https://www.metmuseum.org/press-releases/neue-galerie-merger-announcement",
         "https://www.theartnewspaper.com/2026/05/14/neue-galerie-metropolitan-museum-merger"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/adele-bloch-bauer-i.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/adele-bloch-bauer-i-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Klimt d. 1918)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt_-_Portr%C3%A4t_der_Adele_Bloch-Bauer_I_(1907).jpg"
+      }
     },
     {
       "id": "ginevra-de-benci",
@@ -1087,7 +1357,14 @@ footer .kingdom{
       "sources": [
         "https://www.nga.gov/artworks/50724-ginevra-de-benci-obverse",
         "https://www.theartnewspaper.com/2023/07/03/leonardo-da-vinci-national-gallery-washington-relocation-renovations"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/ginevra-de-benci.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/ginevra-de-benci-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; Leonardo d. 1519)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci_-_Ginevra_de%27_Benci_-_Google_Art_Project.jpg"
+      }
     },
     {
       "id": "american-gothic",
@@ -1108,7 +1385,14 @@ footer .kingdom{
         "https://www.artic.edu/artworks/6565/american-gothic",
         "https://api.artic.edu/api/v1/artworks/6565?fields=id,title,is_on_view,gallery_title",
         "https://www.artic.edu/visit/collection-updates"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/american-gothic.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/american-gothic-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art; PD-old-70 and US 95-year term expired 2026-01-01)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg"
+      }
     },
     {
       "id": "nighthawks",
@@ -1128,7 +1412,9 @@ footer .kingdom{
       "sources": [
         "https://www.artic.edu/artworks/111628/nighthawks",
         "https://api.artic.edu/api/v1/artworks/111628?fields=id,title,is_on_view,gallery_title"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: Edward Hopper died 1967 (after the 1955 cutoff); rights administered by the Whitney Museum / Heirs of Josephine Hopper. No image supplied."
     },
     {
       "id": "a-sunday-on-la-grande-jatte",
@@ -1149,7 +1435,14 @@ footer .kingdom{
         "https://www.artic.edu/artworks/27992/a-sunday-on-la-grande-jatte-1884",
         "https://api.artic.edu/api/v1/artworks/27992?fields=id,title,is_on_view,gallery_title",
         "https://www.artic.edu/articles/969/la-grande-jatte-frame-by-frame"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/a-sunday-on-la-grande-jatte.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/a-sunday-on-la-grande-jatte-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art, PD-old-70)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Georges_Seurat_-_A_Sunday_on_La_Grande_Jatte_--_1884_-_Google_Art_Project.jpg"
+      }
     },
     {
       "id": "le-bonheur-de-vivre",
@@ -1169,7 +1462,14 @@ footer .kingdom{
       "sources": [
         "https://collection.barnesfoundation.org/objects/7199/Le-Bonheur-de-vivre-also-called-The-Joy-of-Life/",
         "https://www.barnesfoundation.org/press/press-release/matisse-and-renoir-new-encounters-at-the-barnes"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/le-bonheur-de-vivre.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/le-bonheur-de-vivre-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art, PD-old-70)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:La_Joie_de_vivre,_par_Henri_Matisse.jpg"
+      }
     },
     {
       "id": "irises-getty",
@@ -1190,7 +1490,14 @@ footer .kingdom{
         "https://www.getty.edu/art/collection/object/103JNH",
         "https://www.getty.edu/news/irises-at-the-getty/",
         "https://www.getty.edu/art/collection/gallery/113Z8J"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/irises-getty.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/irises-getty-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art, PD-old-70)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Irises-Vincent_van_Gogh.jpg"
+      }
     },
     {
       "id": "where-do-we-come-from-gauguin",
@@ -1210,7 +1517,14 @@ footer .kingdom{
       "sources": [
         "https://collections.mfa.org/objects/32558/where-do-we-come-from-what-are-we-where-are-we-going",
         "https://www.mfa.org/gallery/impressionism-and-beyond"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/where-do-we-come-from-gauguin.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/where-do-we-come-from-gauguin-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art, PD-old-70)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gauguin_-_Where_Do_We_Come_From%3F_What_Are_We%3F_Where_Are_We_Going%3F_(1897-98).jpg"
+      }
     },
     {
       "id": "viva-la-vida-watermelons",
@@ -1230,7 +1544,9 @@ footer .kingdom{
       "sources": [
         "https://boletos.museofridakahlo.org.mx/en/tickets/museo-frida-kahlo-cdmx",
         "https://www.alongdustyroads.com/posts/frida-kahlo-museum-tickets-mexico-city"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: Frida Kahlo d.1954 is a Mexican artist, so the 100-year post-mortem term applies (in copyright until 2055). No image supplied."
     },
     {
       "id": "rosa-e-azul-masp",
@@ -1250,7 +1566,14 @@ footer .kingdom{
       "sources": [
         "https://masp.org.br/acervo/obra/rosa-e-azul-as-meninas-cahen-danvers",
         "https://casafiatdecultura.com.br/evento/renoir-na-casa-fiat-de-cultura/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/rosa-e-azul-masp.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/rosa-e-azul-masp-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art, PD-old-70)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Pink_and_Blue,_the_Cahen_d%27Anvers_Girls,_by_Pierre-Auguste_Renoir,_1881,_oil_on_canvas_-_Museu_de_Arte_de_S%C3%A3o_Paulo_-_DSC07230.jpg"
+      }
     },
     {
       "id": "pine-trees-tohaku",
@@ -1271,7 +1594,14 @@ footer .kingdom{
         "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=7177",
         "https://www.atpress.ne.jp/news/559350",
         "https://en.wikipedia.org/wiki/Sh%C5%8Drin-zu_by%C5%8Dbu"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/pine-trees-tohaku.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/pine-trees-tohaku-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art, PD-old-70)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Hasegawa_Tohaku_-_Pine_Trees_(Sh%C5%8Drin-zu_by%C5%8Dbu)_-_right_hand_screen.jpg"
+      }
     },
     {
       "id": "annunciation-el-greco-ohara",
@@ -1292,7 +1622,14 @@ footer .kingdom{
         "https://project.ohara.or.jp/annunciation2/",
         "https://www.ohara.or.jp/news/27830/",
         "https://www.ohara.or.jp/en/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/annunciation-el-greco-ohara.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/annunciation-el-greco-ohara-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art, PD-old-70)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:El_GRECO_(Domenikos_Theotokopoulos)_-_Annunciation_-_Google_Art_Project.jpg"
+      }
     },
     {
       "id": "jadeite-cabbage",
@@ -1312,7 +1649,14 @@ footer .kingdom{
       "sources": [
         "https://www.npm.gov.tw/Exhibition-Content.aspx?sno=04009612&l=2",
         "https://www.taipeitimes.com/News/front/archives/2025/07/31/2003841214"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/jadeite-cabbage.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/jadeite-cabbage-t.jpg",
+        "credit": "National Palace Museum Open Data via Wikimedia Commons, CC0",
+        "license": "CC0 (photograph, National Palace Museum Open Data); underlying 19th-century work public domain",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Jadeite_Cabbage.jpg"
+      }
     },
     {
       "id": "along-the-river-qingming",
@@ -1332,7 +1676,14 @@ footer .kingdom{
         "https://english.www.gov.cn/news/202510/11/content_WS68e9af66c6d00ca5f9a06adc.html",
         "https://www.souquee.com/news/68daaf67e7e017c4e54471f4",
         "https://en.wikipedia.org/wiki/Along_the_River_During_the_Qingming_Festival"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/along-the-river-qingming.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/along-the-river-qingming-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art, PD-old)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Along_the_River_During_the_Qingming_Festival_(detail_of_original).jpg"
+      }
     },
     {
       "id": "salvator-mundi",
@@ -1352,7 +1703,14 @@ footer .kingdom{
         "https://www.theartnewspaper.com/2024/08/19/where-is-salvator-mundi-in-storage-in-geneva-apparently",
         "https://www.finestresullarte.info/en/news/louvre-abu-dhabi-doesn-t-know-what-happened-to-the-salvator-mundi-and-it-s-not-an-april-fools-joke",
         "https://en.wikipedia.org/wiki/Salvator_Mundi_(Leonardo)"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/salvator-mundi.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/salvator-mundi-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art, PD-old-70)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci,_Salvator_Mundi,_c.1500,_oil_on_walnut,_45.4_%C3%97_65.6_cm.jpg"
+      }
     },
     {
       "id": "blue-poles",
@@ -1373,7 +1731,9 @@ footer .kingdom{
         "https://nga.gov.au/on-demand/jackson-pollock-blue-poles/",
         "https://bluepoles.nga.gov.au/",
         "https://www.artnews.com/art-news/news/ken-griffin-jackson-pollocks-blue-poles-australian-museum-1234751615/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: Jackson Pollock died 1956 (after the 1955 cutoff); rights via ARS/Pollock-Krasner Foundation. No image supplied."
     },
     {
       "id": "spiral-jetty",
@@ -1394,9 +1754,12 @@ footer .kingdom{
         "https://www.diaart.org/visit/visit-our-locations-sites/robert-smithson-spiral-jetty",
         "https://umfa.utah.edu/spiral-jetty/",
         "https://geology.utah.gov/map-pub/survey-notes/geosights/spiral-jetty/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: Robert Smithson died 1973 (Holt/Smithson Foundation, VAGA/ARS). Additionally an earthwork/sculpture, so any photograph carries separate photographer rights. No image supplied."
     }
-  ]
+  ],
+  "images_added": "2026-07-06"
 }
 </script>
 
@@ -1431,6 +1794,26 @@ footer .kingdom{
     if (!v) return false;
     var s = String(v).toLowerCase();
     return s.indexOf('unknown') !== 0 && s.indexOf('none') !== 0;
+  }
+
+  /* movement → period group; the test ORDER is law (surreal before realism,
+     post-impress before impress) — everything unmatched is contemporary */
+  var PERIODS = [
+    [/ukiyo|japanese|song|qing|edo/, 'east'],
+    [/surreal/, 'surrealism'],
+    [/post-impress|symbol|fauv|secession|art nouveau/, 'postimpressionism'],
+    [/impress|pointill/, 'impressionism'],
+    [/renaissance|netherlandish|mannerism/, 'renaissance'],
+    [/golden age|baroque|tenebrism|caravagg/, 'baroque'],
+    [/romantic|pre-raphaelite|visionary/, 'romanticism'],
+    [/cubis|de stijl|suprematis|blaue reiter|abstraction|modernis|realism|regionalis|history painting|neo-plastic/, 'modernism']
+  ];
+  function periodOf(movement){
+    var m = String(movement || '').toLowerCase();
+    for (var i = 0; i < PERIODS.length; i++){
+      if (PERIODS[i][0].test(m)) return PERIODS[i][1];
+    }
+    return 'contemporary';
   }
 
   function render(data){
@@ -1488,11 +1871,33 @@ footer .kingdom{
     works.forEach(function(w){
       var card = el('article', 'card');
       card.setAttribute('data-city', w.city || '');
+      card.setAttribute('data-period', periodOf(w.movement));
+
+      /* the frame, when the atlas has an image; no image → words only
+         (every work here is publicly visible — only photos are restricted) */
+      if (w.image && w.image.thumb) {
+        var link = el('a', 'frame-link');
+        link.href = w.image.full || w.image.thumb;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        var frame = el('div', 'artframe');
+        var img = document.createElement('img');
+        img.src = w.image.thumb;
+        img.alt = [w.title, w.artist].filter(Boolean).join(', ');
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        frame.appendChild(img);
+        link.appendChild(frame);
+        card.appendChild(link);
+        card.appendChild(el('p', 'credit', w.image.credit || 'credit unknown'));
+      }
 
       card.appendChild(el('h3', 't', w.title || 'Untitled'));
 
       var ay = [w.artist, w.year].filter(Boolean).join(' · ');
       if (ay) card.appendChild(el('p', 'a', ay));
+
+      if (w.movement) card.appendChild(el('p', 'period', w.movement));
 
       var mc = [w.museum, w.city].filter(Boolean).join(' · ');
       if (mc) card.appendChild(el('p', 'm', mc));

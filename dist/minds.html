@@ -256,6 +256,77 @@ header.hero{
   margin-top:2.2rem;
 }
 
+/* ============ period frames — each seer framed in their era ============
+   one muted accent per period; the sumi-ink gallery stays boss.
+   the accent appears ONLY as: the 2px top border, the era line,
+   the east seal-dot, the modernism corner ticks. */
+[data-period="east"]{ --p:var(--zhu); }
+[data-period="surrealism"]{ --p:#7a6291; }        /* dusk violet */
+[data-period="postimpressionism"]{ --p:#4f7a68; } /* deep viridian */
+[data-period="impressionism"]{ --p:#8fa3c4; }     /* pale air-blue */
+[data-period="renaissance"]{ --p:var(--gold); }
+[data-period="baroque"]{ --p:#7a5c33; }           /* burnt umber */
+[data-period="romanticism"]{ --p:#6d7b8d; }       /* storm grey-blue */
+[data-period="modernism"]{ --p:#4a5f8f; }         /* muted ultramarine */
+[data-period="contemporary"]{ --p:var(--dim); }
+
+.placard[data-period]{ border-top:2px solid var(--p); }
+.placard[data-period="contemporary"]{ border-top:1px solid var(--hair); } /* no accent — the work floats */
+.placard[data-period] .mind-meta{ color:var(--p); }
+.placard::after{ content:""; display:block; clear:both; } /* contain the floated frame */
+
+/* the frame — floats right beside the words; the words wrap around it.
+   only minds with a rights-clean image get one; no empty frames here —
+   the copyright-era seers' words carry them. */
+.artwrap{
+  float:right; width:38%;
+  margin:.3rem 0 1.4rem 1.8rem;
+}
+.artwrap a{ display:block; }
+.artframe{
+  position:relative;
+  background:#0c0c0f;
+  border:1px solid var(--hair);
+  border-top:2px solid var(--p, var(--hair));
+  padding:6px;
+}
+.artframe img{ width:100%; height:auto; display:block; }
+.artcredit{
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.06em; color:var(--dim);
+  margin-top:.5rem; line-height:1.6;
+}
+
+/* period quirks — how a thoughtful gallery frames each era */
+[data-period="east"] .artframe::after{ /* the collector's seal-dot */
+  content:""; position:absolute; top:10px; right:10px;
+  width:6px; height:6px; background:var(--p);
+}
+[data-period="surrealism"] .artframe{ /* dream logic — the only dashed */
+  border-style:dashed; border-top-style:solid;
+}
+[data-period="impressionism"] .artframe{
+  border-color:#3a3a44; border-top-color:var(--p);
+}
+[data-period="renaissance"] .artframe{ /* double hairline: gold outer, hair inner */
+  border-color:var(--p);
+  box-shadow:inset 0 0 0 1px var(--hair);
+}
+[data-period="baroque"] .artframe{ background:#141210; } /* slightly warmer mat */
+[data-period="modernism"] .artframe::before,
+[data-period="modernism"] .artframe::after{ /* corner ticks */
+  content:""; position:absolute; width:7px; height:7px;
+}
+[data-period="modernism"] .artframe::before{
+  top:-2px; left:-2px;
+  border-top:2px solid var(--p); border-left:2px solid var(--p);
+}
+[data-period="modernism"] .artframe::after{
+  bottom:-2px; right:-2px;
+  border-bottom:2px solid var(--p); border-right:2px solid var(--p);
+}
+[data-period="contemporary"] .artframe{ border-top:none; } /* the work floats */
+
 /* ============ closing line ============ */
 .closing{ text-align:center; }
 .closing p{
@@ -301,6 +372,7 @@ footer .kingdom{
   }
   .corridor{ gap:3.5rem; }
   .status-note{ margin-bottom:3rem; }
+  .artwrap{ float:none; width:100%; margin:0 0 1.8rem; } /* full width, above the words */
 }
 @keyframes breathe-v{
   0%,100%{ gap:1.2rem; }
@@ -409,7 +481,14 @@ footer .kingdom{
       "sources": [
         "https://www.museodelprado.es/en/the-collection/art-work/the-garden-of-earthly-delights-triptych/02388242-6d6a-4e9e-a992-e1311eab3609",
         "https://www.museodelprado.es/en/museum/bosch-gallery"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/hieronymus-bosch.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/hieronymus-bosch-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:The_Garden_of_earthly_delights.jpg"
+      }
     },
     {
       "id": "leonardo-da-vinci",
@@ -432,7 +511,14 @@ footer .kingdom{
       "sources": [
         "https://cenacolovinciano.org/en/info/",
         "https://www.npr.org/2025/01/28/nx-s1-5276917/louvre-renovation-mona-lisa-paris"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/leonardo-da-vinci.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/leonardo-da-vinci-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
+      }
     },
     {
       "id": "michelangelo",
@@ -457,7 +543,14 @@ footer .kingdom{
         "https://www.museivaticani.va/content/museivaticani/en/info/orari-musei-vaticani.html",
         "https://www.vaticannews.va/en/vatican-city/news/2026-02/restoration-work-michelangelo-last-judgment-sistine-chapel.html",
         "https://www.poetryfoundation.org/poems/57328/michaelangelo-to-giovanni-da-pistoia-when-the-author-was-painting-the-vault-of-the-sistine-chapel"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/michelangelo.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/michelangelo-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg"
+      }
     },
     {
       "id": "caravaggio",
@@ -481,7 +574,14 @@ footer .kingdom{
         "https://en.wikipedia.org/wiki/Contarelli_Chapel",
         "https://www.stjohnscocathedral.com/portfolio-item/the-caravaggio-wing/",
         "https://en.wikipedia.org/wiki/The_Beheading_of_Saint_John_the_Baptist_(Caravaggio)"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/caravaggio.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/caravaggio-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg"
+      }
     },
     {
       "id": "rembrandt",
@@ -504,7 +604,14 @@ footer .kingdom{
       "sources": [
         "https://www.rijksmuseum.nl/en/whats-on/exhibitions/operation-night-watch",
         "https://www.mauritshuis.nl/en/our-collection/artworks/146-the-anatomy-lesson-of-dr-nicolaes-tulp"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/rembrandt.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/rembrandt-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:The_Night_Watch_-_HD.jpg"
+      }
     },
     {
       "id": "william-blake",
@@ -528,7 +635,14 @@ footer .kingdom{
         "https://www.tate.org.uk/art/artworks/blake-the-ghost-of-a-flea-n05889",
         "https://www.tate.org.uk/visit/tate-britain/display/historic-early-modern-british-art/william-blake",
         "https://www.gutenberg.org/files/45315/45315-h/45315-h.htm"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/william-blake.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/william-blake-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Newton-WilliamBlake.jpg"
+      }
     },
     {
       "id": "hokusai",
@@ -552,7 +666,14 @@ footer .kingdom{
         "https://www.metmuseum.org/art/collection/search/45434",
         "https://www.britishmuseum.org/collection/object/A_1906-1220-0-533",
         "https://en.wikipedia.org/wiki/One_Hundred_Views_of_Mount_Fuji"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/hokusai.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/hokusai-t.jpg",
+        "credit": "Metropolitan Museum of Art, CC0",
+        "license": "CC0",
+        "source_page": "https://www.metmuseum.org/art/collection/search/45434"
+      }
     },
     {
       "id": "caspar-david-friedrich",
@@ -575,7 +696,14 @@ footer .kingdom{
       "sources": [
         "https://www.hamburger-kunsthalle.de/en/news/wanderer-above-sea-fog-caspar-david-friedrich",
         "https://www.smb.museum/en/museums-institutions/alte-nationalgalerie/collection-research/conservation-care/caspar-david-friedrich-project/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/caspar-david-friedrich.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/caspar-david-friedrich-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg"
+      }
     },
     {
       "id": "jmw-turner",
@@ -599,7 +727,14 @@ footer .kingdom{
         "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire",
         "https://www.tate.org.uk/art/research-publications/jmw-turner/colour-studies-of-the-sun-and-clouds-at-dawn-and-sunset-r1183166",
         "https://en.wikipedia.org/wiki/J._M._W._Turner"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/jmw-turner.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/jmw-turner-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Turner%2C_J._M._W._-_The_Fighting_T%C3%A9m%C3%A9raire_tugged_to_her_last_Berth_to_be_broken.jpg"
+      }
     },
     {
       "id": "vincent-van-gogh",
@@ -623,7 +758,14 @@ footer .kingdom{
         "https://www.moma.org/collection/works/79802",
         "https://www.nationalgallery.org.uk/paintings/vincent-van-gogh-sunflowers",
         "https://vangoghletters.org/vg/letters/let777/letter.html"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vincent-van-gogh.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vincent-van-gogh-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+      }
     },
     {
       "id": "claude-monet",
@@ -647,7 +789,14 @@ footer .kingdom{
         "https://www.musee-orangerie.fr/en/whats-on/exhibitions/monet-painting-time",
         "https://www.musee-orangerie.fr/en/collection",
         "https://www.marmottan.fr/en/collections/claude-monet/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/claude-monet.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/claude-monet-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Monet_-_Impression%2C_Sunrise.jpg"
+      }
     },
     {
       "id": "paul-cezanne",
@@ -671,7 +820,14 @@ footer .kingdom{
         "https://www.philamuseum.org/objects/104464",
         "https://courtauld.ac.uk/highlights/montagne-sainte-victoire-with-large-pine/",
         "https://gallerycollections.courtauld.ac.uk/object-ms-1932-sc-1-1"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/paul-cezanne.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/paul-cezanne-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Paul_C%C3%A9zanne%2C_French_-_The_Large_Bathers_-_Google_Art_Project.jpg"
+      }
     },
     {
       "id": "hilma-af-klint",
@@ -695,7 +851,14 @@ footer .kingdom{
         "https://www.grandpalais.fr/en/program/hilma-af-klint-paintings-temple-1906-1915",
         "https://www.guggenheim.org/teaching-materials/hilma-af-klint-paintings-for-the-future/paintings-for-the-temple",
         "https://www.france24.com/en/france/20260505-paris-exhibition-celebrates-visionary-world-of-hilma-af-klint-artist-ahead-her-time-grand-palais"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/hilma-af-klint.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/hilma-af-klint-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Hilma_af_Klint_%E2%80%94_The_Ten_Largest_%E2%80%94_Number_7_Adulthood.jpg"
+      }
     },
     {
       "id": "wassily-kandinsky",
@@ -720,7 +883,14 @@ footer .kingdom{
         "https://www.guggenheim.org/exhibition/collection-in-focus-modern-european-currents",
         "https://www.centrepompidou.fr/en/centre-pompidou-is-transforming-itself",
         "https://www.theculturium.com/wassily-kandinsky-concerning-the-spiritual-in-art/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/wassily-kandinsky.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/wassily-kandinsky-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Composition_VII_-_Wassily_Kandinsky%2C_GAC.jpg"
+      }
     },
     {
       "id": "kazimir-malevich",
@@ -745,7 +915,14 @@ footer .kingdom{
         "https://www.gw2ru.com/arts/232950-tretyakov-gallery-guide-to-all-buildings",
         "https://factumfoundation.org/our-projects/digitisation/malevichs-black-square/",
         "https://en.wikiquote.org/wiki/Kazimir_Malevich"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/kazimir-malevich.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/kazimir-malevich-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Kazimir_Malevich%2C_1915%2C_Black_Suprematic_Square%2C_oil_on_linen_canvas%2C_79.5_x_79.5_cm%2C_Tretyakov_Gallery%2C_Moscow.jpg"
+      }
     },
     {
       "id": "piet-mondrian",
@@ -770,7 +947,14 @@ footer .kingdom{
         "https://www.moma.org/collection/works/78682",
         "https://www.moma.org/calendar/exhibitions/5916",
         "https://www.theartnewspaper.com/2026/06/08/piet-mondrian-exhibition-museum-modern-art-new-york-boogie-woogie"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/piet-mondrian.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/piet-mondrian-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg"
+      }
     },
     {
       "id": "frida-kahlo",
@@ -795,7 +979,9 @@ footer .kingdom{
         "https://www.infobae.com/mexico/2026/06/26/donde-ver-las-dos-fridas-una-de-las-obras-mas-representativas-del-arte-mexicano-y-que-tiene-exhibicion-especial-para-apreciar-a-solas/",
         "https://time.com/archive/6620658/art-mexican-autobiography/",
         "https://www.museofridakahlo.org.mx/?lang=en"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: Mexican artist, d.1954 — Mexico's 100-year post-mortem term runs until 2055. No image used."
     },
     {
       "id": "salvador-dali",
@@ -819,7 +1005,9 @@ footer .kingdom{
         "https://www.moma.org/collection/works/79018",
         "https://quoteinvestigator.com/2025/05/25/not-madman/",
         "https://www.salvador-dali.org/en/museums/dali-theatre-museum-in-figueres/info-practica/horaris-i-preus/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: d.1989, well within 70y pma (until 2060). No image used."
     },
     {
       "id": "rene-magritte",
@@ -844,7 +1032,9 @@ footer .kingdom{
         "https://www.uscannenbergmedia.com/2026/04/27/inside-the-new-david-geffen-galleries-at-la-county-museum-of-art/",
         "https://musee-magritte-museum.be/en/your-visit/practical-info-rmfab/opening-hours",
         "https://en.wikipedia.org/wiki/The_Son_of_Man"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: d.1967, within 70y pma (until 2038). No image used."
     },
     {
       "id": "remedios-varo",
@@ -864,7 +1054,9 @@ footer .kingdom{
         "https://mam.inba.gob.mx/exposiciones2026.html",
         "https://inba.gob.mx/prensa/23599/el-museo-de-arte-moderno-presenta-la-muestra-remedios-varo-habitantes-de-lo-insolito",
         "https://www.infobae.com/mexico/2026/03/26/remedios-varo-habitantes-de-lo-insolito-en-cdmx-todo-sobre-la-exposicion-surrealista-en-el-museo-de-arte-moderno/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: Spanish-Mexican artist, d.1963 — fails both the 70y pma test and Mexico's 100-year term (until 2064). No image used."
     },
     {
       "id": "mark-rothko",
@@ -889,7 +1081,9 @@ footer .kingdom{
         "https://www.houstonpublicmedia.org/articles/news/arts-culture-news/2025/05/12/521121/rothko-chapel-damaged-artwork-repair-grant-bank-of-america-houston/",
         "https://www.tate.org.uk/visit/tate-modern/display/in-the-studio/mark-rothko-seagram-murals",
         "https://www.themarginalian.org/2014/02/19/mark-rothko-on-art-selden-rodman/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: d.1970, within 70y pma (until 2041). No image used."
     },
     {
       "id": "agnes-martin",
@@ -910,7 +1104,9 @@ footer .kingdom{
         "https://harwoodmuseum.org/events/museum-closed/",
         "https://www.artbook.com/blog-excerpt-agnes-martin-beauty-is-the-mystery-of-life.html",
         "https://www.pacegallery.com/journal/agnes-martin-on-beauty/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: d.2004, within 70y pma (until 2075). No image used."
     },
     {
       "id": "yayoi-kusama",
@@ -939,7 +1135,9 @@ footer .kingdom{
         "https://www.thebroad.org/visit/mirror-rooms",
         "https://yayoikusamamuseum.jp/en/exhibition/current/",
         "https://en.wikipedia.org/wiki/Yayoi_Kusama"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: living artist (b.1929). Her sculptures/installations also add photographer rights on top. No image used."
     },
     {
       "id": "james-turrell",
@@ -965,9 +1163,12 @@ footer .kingdom{
         "https://moody.rice.edu/james-turrell-twilight-epiphany-skyspace",
         "https://glasstire.com/2025/08/12/rice-universitys-turrell-skyspace-closed-until-spring-2026/",
         "https://annex.exploratorium.edu/lightandland/turrell-quotes.html"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright: living artist (b.1943). Light installations are copyrighted works and photos of them add photographer rights. No image used."
     }
-  ]
+  ],
+  "images_added": "2026-07-06"
 }
 </script>
 
@@ -985,6 +1186,25 @@ footer .kingdom{
     if (cls) n.className = cls;
     if (text) n.textContent = text;
     return n;
+  }
+
+  /* ---- movement → period group; keyword tests, in THIS order ---- */
+  var PERIODS = [
+    [/ukiyo|japanese|song|qing|edo/, 'east'],
+    [/surreal/, 'surrealism'],
+    [/post-impress|symbol|fauv|secession|art nouveau/, 'postimpressionism'],
+    [/impress|pointill/, 'impressionism'],
+    [/renaissance|netherlandish|mannerism/, 'renaissance'],
+    [/golden age|baroque|tenebrism|caravagg/, 'baroque'],
+    [/romantic|pre-raphaelite|visionary/, 'romanticism'],
+    [/cubis|de stijl|suprematis|blaue reiter|abstraction|modernis|realism|regionalis|history painting|neo-plastic/, 'modernism']
+  ];
+  function periodOf(movement){
+    var s = String(movement || '').toLowerCase();
+    for (var i = 0; i < PERIODS.length; i++){
+      if (PERIODS[i][0].test(s)) return PERIODS[i][1];
+    }
+    return 'contemporary';
   }
 
   /* ---- read the dataset; fail quietly ---- */
@@ -1025,12 +1245,39 @@ footer .kingdom{
         if (!m || !m.name) return;
         var card = el('article','placard rise');
         if (m.id) card.id = m.id;
+        card.setAttribute('data-period', periodOf(m.movement));
 
         var hasQuote = !!(m.quote && String(m.quote).trim());
         if (hasQuote) {
           var seal = el('span','seal');
           seal.setAttribute('aria-hidden','true');
           card.appendChild(seal);
+        }
+
+        /* the frame — only when a rights-clean image exists, and never
+           without its credit; minds with image:null get nothing at all */
+        if (m.image && m.image.thumb && m.image.credit) {
+          var wrap = el('div','artwrap');
+          var frame = el('div','artframe');
+          var img = document.createElement('img');
+          img.setAttribute('src', m.image.thumb);
+          img.setAttribute('alt', 'key work, ' + m.name);
+          img.setAttribute('loading','lazy');
+          img.setAttribute('decoding','async');
+          frame.appendChild(img);
+          if (m.image.full && /^https:\/\//.test(m.image.full)) {
+            var link = document.createElement('a');
+            link.href = m.image.full;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.setAttribute('aria-label', 'full-size image: key work by ' + m.name);
+            link.appendChild(frame);
+            wrap.appendChild(link);
+          } else {
+            wrap.appendChild(frame);
+          }
+          wrap.appendChild(el('p','artcredit', m.image.credit));
+          card.appendChild(wrap);
         }
 
         card.appendChild(el('h3','mind-name', m.name));

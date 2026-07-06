@@ -266,6 +266,35 @@ header.hero{
   font-size:1.02rem; color:var(--dim); margin-top:.9rem;
 }
 
+/* ---- the frame: the ghost returns, or the frame waits.
+   plain frames only — grief needs no period ornament. ---- */
+.artwrap{ max-width:272px; margin:1.6rem 0 .2rem; }
+.artwrap a{ display:block; }
+.artframe{
+  background:#0c0c0f;
+  border:1px solid var(--hair);
+  border-top:2px solid var(--p, var(--hair));
+  padding:6px;
+}
+.artframe img{ width:100%; height:auto; display:block; }
+.artframe.empty{
+  aspect-ratio:4/5; max-height:340px;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:.55rem; text-align:center;
+  padding:6px 1rem;
+}
+.artframe.empty p{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.12em; color:var(--dim);
+  line-height:1.6;
+}
+.artcredit{
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.06em; color:var(--dim);
+  margin-top:.5rem;
+}
+
 /* ============ 03 · 見張 — the watch ============ */
 .season-prose{
   max-width:70ch;
@@ -488,7 +517,14 @@ footer .kingdom{
         "https://www.npr.org/sections/thetwo-way/2017/12/07/569142929/mystery-solved-saudi-prince-is-buyer-of-450m-davinci-painting",
         "https://www.theartnewspaper.com/2024/08/19/where-is-salvator-mundi-in-storage-in-geneva-apparently",
         "https://www.artnews.com/art-news/news/mbs-mohammed-bin-salman-salvator-mundi-saudi-arabia-museum-leonardo-da-vinci-1234714870/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-salvator-mundi.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-salvator-mundi-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci,_Salvator_Mundi,_c.1500,_oil_on_walnut,_45.4_%C3%97_65.6_cm.jpg"
+      }
     },
     {
       "title": "Interchange",
@@ -505,7 +541,9 @@ footer .kingdom{
       "sources": [
         "https://www.cnbc.com/2016/02/18/ken-griffin-spent-500-million-on-two-paintings-sources.html",
         "https://www.artnews.com/art-news/news/billionaire-art-collector-ken-griffin-rothko-pollock-litchenstein-degas-de-kooning-the-norton-1234650732/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Willem de Kooning died 1997 (fails died-by-1955 test)."
     },
     {
       "title": "The Card Players",
@@ -522,7 +560,14 @@ footer .kingdom{
       "sources": [
         "https://hyperallergic.com/qatar-paul-cezanne-card-players/",
         "https://www.forbes.com/sites/janelee/2012/02/06/cezannes-card-players-shatters-record-for-highest-price-ever-for-a-work-of-art/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-the-card-players.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-the-card-players-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Les_Joueurs_de_cartes,_par_Paul_C%C3%A9zanne,_collection_Al-Thani,_Yorck.jpg"
+      }
     },
     {
       "title": "Portrait of Elisabeth Lederer",
@@ -541,7 +586,14 @@ footer .kingdom{
         "https://www.artnews.com/art-news/news/gustav-klimt-portrait-of-elisabeth-lederer-auction-record-1234762083/",
         "https://en.wikipedia.org/wiki/Portrait_of_Elisabeth_Lederer",
         "https://www.aljazeera.com/news/2025/11/20/gustav-klimt-portrait-breaks-modern-art-record-with-236m-sale"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-portrait-of-elisabeth-lederer.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-portrait-of-elisabeth-lederer-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt_-_Bildnis_der_Elisabeth_Lederer_(1914-1916).jpg"
+      }
     },
     {
       "title": "Nafea Faa Ipoipo (When Will You Marry?)",
@@ -559,7 +611,14 @@ footer .kingdom{
         "https://news.artnet.com/art-world/uk-lawsuit-secret-gauguin-dealing-1011617",
         "https://www.bostonglobe.com/lifestyle/names/2017/07/04/lawsuit-reveals-gauguin-painting-was-not-world-most-expensive/XPdHYmO6UNnsOmWqWhC72M/story.html",
         "https://en.wikipedia.org/wiki/When_Will_You_Marry"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-nafea-faa-ipoipo-when-will-you-marry.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-nafea-faa-ipoipo-when-will-you-marry-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Paul_Gauguin,_Nafea_Faa_Ipoipo%3F_(When_Will_You_Marry%3F)_1892,_oil_on_canvas,_101_x_77_cm.jpg"
+      }
     },
     {
       "title": "Number 17A",
@@ -576,7 +635,9 @@ footer .kingdom{
       "sources": [
         "https://www.cnbc.com/2016/02/18/ken-griffin-spent-500-million-on-two-paintings-sources.html",
         "https://www.artnews.com/art-news/news/billionaire-art-collector-ken-griffin-rothko-pollock-litchenstein-degas-de-kooning-the-norton-1234650732/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Jackson Pollock died 1956, one year past the died-by-1955 bar."
     },
     {
       "title": "The Standard Bearer (De Vaandeldrager)",
@@ -594,7 +655,14 @@ footer .kingdom{
         "https://www.rijksmuseum.nl/en/press/press-releases/the-dutch-state-to-acquire-rembrandt-s-historic-masterpiece-the-standard-bearer-for-the-nation",
         "https://www.artnews.com/art-news/news/rembrandt-the-standard-bearer-debuts-at-the-rijksmuseum-with-free-entry-1234671869/",
         "https://en.wikipedia.org/wiki/The_Standard_Bearer_(Rembrandt,_1636)"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-the-standard-bearer-de-vaandeldrager.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-the-standard-bearer-de-vaandeldrager-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Rembrandt_-_De_vaandeldrager_(Q21467444).jpeg"
+      }
     },
     {
       "title": "Shot Sage Blue Marilyn",
@@ -611,7 +679,9 @@ footer .kingdom{
       "sources": [
         "https://news.artnet.com/market/evening-auction-report-ammann-sale-at-christies-2110810",
         "https://www.forbes.com/sites/carlieporterfield/2022/05/10/why-larry-gagosian-bought-andy-warhols-marilyn-monroe-portrait-for-a-record-195-million/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Andy Warhol died 1987."
     },
     {
       "title": "No. 6 (Violet, Green and Red)",
@@ -629,7 +699,9 @@ footer .kingdom{
         "https://www.cnbc.com/2024/02/29/christies-sells-rothko-painting-for-100-million-in-a-secret-sale.html",
         "https://www.artnews.com/art-news/news/mark-rothko-painting-sale-100-million-rybolovlev-bouvier-griffin-art-market-1234700520/",
         "https://en.wikipedia.org/wiki/No._6_(Violet,_Green_and_Red)"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Mark Rothko died 1970."
     },
     {
       "title": "Wasserschlangen II (Water Serpents II)",
@@ -647,7 +719,14 @@ footer .kingdom{
         "https://en.wikipedia.org/wiki/Water_Serpents_II",
         "https://www.belvedere.at/en/klimt-inspired-van-gogh-rodin-matisse",
         "https://www.euronews.com/culture/2023/02/04/a-lost-klimt-masterpiece-returns-to-austria-after-60-years"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-wasserschlangen-ii-water-serpents-ii.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-wasserschlangen-ii-water-serpents-ii-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt_-_Water_Serpents_II.jpg"
+      }
     },
     {
       "title": "Number 7A",
@@ -665,7 +744,9 @@ footer .kingdom{
         "https://www.artnews.com/art-news/market/s-i-newhouse-jackson-pollock-sell-christies-record-breaking-1234785975/",
         "https://heni.com/news/article/jackson-pollock-number-7a-2026-05-18",
         "https://www.theartnewspaper.com/2026/05/19/christies-nets-11bn-from-back-to-back-si-newhouse-and-20th-century-evening-sales-in-new-york"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Jackson Pollock died 1956, one year past the died-by-1955 bar."
     },
     {
       "title": "Pendant portraits of Maerten Soolmans and Oopjen Coppit",
@@ -683,7 +764,14 @@ footer .kingdom{
         "https://nltimes.nl/2024/01/24/rembrandts-portraits-marten-oopjen-will-go-louvre-5-years",
         "https://presse.louvre.fr/les-portraits-de-marten-soolmans-et-doopjen-coppit-sont-de-retour/",
         "https://en.wikipedia.org/wiki/Pendant_portraits_of_Maerten_Soolmans_and_Oopjen_Coppit"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-pendant-portraits-of-maerten-soolmans-and-oopjen-coppit.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-pendant-portraits-of-maerten-soolmans-and-oopjen-coppit-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Pendant_portraits_of_Maerten_Soolmans_and_Oopjen_Coppit.jpeg"
+      }
     },
     {
       "title": "Les Femmes d'Alger (Version O)",
@@ -700,7 +788,9 @@ footer .kingdom{
       "sources": [
         "https://news.artnet.com/market/record-breaking-picasso-painting-qatar-300723",
         "https://www.artnews.com/art-news/news/buyer-of-the-179-4-million-picasso-revealed-4210/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Pablo Picasso died 1973."
     },
     {
       "title": "Nu couché",
@@ -717,7 +807,14 @@ footer .kingdom{
       "sources": [
         "https://www.scmp.com/news/hong-kong/education-community/article/1884371/chinas-long-museum-founder-liu-yiqian-out-educate",
         "https://en.thevalue.com/articles/liu-yiqian-long-museum-art-collection-sothebys-auction-result-2023"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-nu-couche.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-nu-couche-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Modigliani_-_Nu_couch%C3%A9.jpg"
+      }
     },
     {
       "title": "Masterpiece",
@@ -734,7 +831,9 @@ footer .kingdom{
       "sources": [
         "https://www.npr.org/sections/thetwo-way/2017/06/12/532597956/art-collector-sells-lichtenstein-for-165-million-to-fund-criminal-justice-reform",
         "https://www.cnbc.com/2017/06/12/steve-cohen-buys-roy-lichtensteins-masterpiece-for-165-million.html"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Roy Lichtenstein died 1997."
     },
     {
       "title": "Nu couché (sur le côté gauche)",
@@ -751,7 +850,14 @@ footer .kingdom{
       "sources": [
         "https://www.sothebys.com/en/articles/at-157-2-million-modiglianis-greatest-nude-is-also-the-most-expensive-painting-ever-sold-at-sothebys",
         "https://www.artsy.net/article/artsy-editorial-157-million-modigliani-breaks-sothebys-record-underwhelming-impressionist-modern-sale"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-nu-couche-sur-le-cote-gauche.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-nu-couche-sur-le-cote-gauche-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Amedeo_Modigliani_014.jpg"
+      }
     },
     {
       "title": "Le Rêve",
@@ -768,7 +874,9 @@ footer .kingdom{
       "sources": [
         "https://www.npr.org/sections/thetwo-way/2013/03/26/175412881/years-after-the-elbow-incident-steve-wynn-sells-picassos-le-r-ve-for-155-million",
         "https://en.wikipedia.org/wiki/Le_R%C3%AAve_(Picasso)"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Pablo Picasso died 1973."
     },
     {
       "title": "Portrait of Adele Bloch-Bauer II",
@@ -786,7 +894,14 @@ footer .kingdom{
         "https://www.bloomberg.com/news/articles/2017-02-08/oprah-said-to-snag-150-million-selling-klimt-to-chinese-buyer",
         "https://www.ots.at/presseaussendung/OTS_20231108_OTS0050/oberes-belvedere-special-guest-adele-bloch-bauer-ii",
         "https://www.scmp.com/lifestyle/arts-culture/article/3201222/how-us150-million-klimt-painting-once-owned-oprah-winfrey-linked-hong-kong-art-investment-fund"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-portrait-of-adele-bloch-bauer-ii.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-portrait-of-adele-bloch-bauer-ii-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt_047.jpg"
+      }
     },
     {
       "title": "Les Poseuses, Ensemble (Petite version)",
@@ -803,7 +918,14 @@ footer .kingdom{
       "sources": [
         "https://www.artnews.com/art-news/news/georges-seurat-paul-allen-christies-record-sale-1234646173/",
         "https://heni.com/news/article/georges-seurat-les-poseuses-ensemble-petite-version-2022-11-09"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-les-poseuses-ensemble-petite-version.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-les-poseuses-ensemble-petite-version-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Georges_seurat_les_poseuses_ensemble100119).jpg"
+      }
     },
     {
       "title": "Three Studies of Lucian Freud",
@@ -821,7 +943,9 @@ footer .kingdom{
         "https://unframed.lacma.org/2025/09/09/francis-bacon-three-studies-lucian-freud-bequeathed-lacma",
         "https://www.lacma.org/press/lacmas-david-geffen-galleries-open-april-19-2026-ribbon-cutting-ceremony-and-two-weeks",
         "https://unframed.lacma.org/2026/04/09/50-works-50-weeks-francis-bacon-three-studies-lucian-freud"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Francis Bacon died 1992."
     },
     {
       "title": "L'Homme au doigt (Pointing Man)",
@@ -838,7 +962,9 @@ footer .kingdom{
       "sources": [
         "https://www.artnews.com/art-news/market/steven-a-cohen-revealed-as-buyer-of-141-3-m-giacometti-sculpture-4290/",
         "https://en.wikipedia.org/wiki/L'Homme_au_doigt"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Alberto Giacometti died 1966; also a sculpture, so photographs carry photographer rights on top."
     },
     {
       "title": "No. 5, 1948",
@@ -855,7 +981,9 @@ footer .kingdom{
       "sources": [
         "https://en.wikipedia.org/wiki/No._5,_1948",
         "https://www.artforum.com/news/geffen-sells-pollock-for-record-140-million-174578/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Jackson Pollock died 1956, one year past the died-by-1955 bar."
     },
     {
       "title": "Femme à la montre",
@@ -872,7 +1000,9 @@ footer .kingdom{
       "sources": [
         "https://www.voanews.com/a/picasso-s-woman-with-a-watch-fetches-139m-at-auction-/7347910.html",
         "https://en.wikipedia.org/wiki/Femme_%C3%A0_la_montre"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Pablo Picasso died 1973."
     },
     {
       "title": "La Montagne Sainte-Victoire",
@@ -889,7 +1019,14 @@ footer .kingdom{
       "sources": [
         "https://www.bloomberg.com/news/articles/2022-11-10/paul-allen-auction-results-cezanne-painting-sets-138-million-record",
         "https://heni.com/news/article/paul-cezanne-la-montagne-sainte-victoire-2022-11-09"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-la-montagne-sainte-victoire.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-la-montagne-sainte-victoire-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Montagne_Sainte-Victoire,_par_Paul_C%C3%A9zanne_114.jpg"
+      }
     },
     {
       "title": "Woman III",
@@ -906,7 +1043,9 @@ footer .kingdom{
       "sources": [
         "https://en.wikipedia.org/wiki/Woman_III",
         "https://theartwolf.com/news/kooning_woman/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Willem de Kooning died 1997."
     },
     {
       "title": "Portrait of Adele Bloch-Bauer I",
@@ -925,7 +1064,14 @@ footer .kingdom{
         "https://www.theartnewspaper.com/2026/05/14/neue-galerie-metropolitan-museum-merger",
         "https://www.neuegalerie.org/",
         "https://en.wikipedia.org/wiki/Neue_Galerie_New_York"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-portrait-of-adele-bloch-bauer-i.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-portrait-of-adele-bloch-bauer-i-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt,_1907,_Adele_Bloch-Bauer_I,_Neue_Galerie_New_York.jpg"
+      }
     },
     {
       "title": "L'Empire des lumières",
@@ -943,7 +1089,9 @@ footer .kingdom{
         "https://news.artnet.com/art-world/magritte-record-auction-christies-2572287",
         "https://fortune.com/2024/11/20/rene-magritte-empire-of-light-auction-record-121-million-christies-new-york/",
         "https://puck.news/new-york-fall-art-auctions-review/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — René Magritte died 1967."
     },
     {
       "title": "The Scream (1895 pastel)",
@@ -960,7 +1108,14 @@ footer .kingdom{
       "sources": [
         "https://heni.com/news/article/edvard-munch-the-scream-2012-05-02",
         "https://en.wikipedia.org/wiki/The_Scream"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-the-scream-1895-pastel.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-the-scream-1895-pastel-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:The_Scream_Pastel.jpg"
+      }
     },
     {
       "title": "Dame mit Fächer (Lady with a Fan)",
@@ -977,7 +1132,14 @@ footer .kingdom{
       "sources": [
         "https://news.artnet.com/market/klimt-record-sothebys-london-2328580",
         "https://www.sothebys.com/en/press/gustav-klimts-final-masterpiece-dame-mit-facher-lady-with-a-fan-comes-to-auction-at-sothebys-in-london-this-june"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/sale-dame-mit-facher-lady-with-a-fan.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sale-dame-mit-facher-lady-with-a-fan-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt_-_Dame_mit_F%C3%A4cher.jpeg"
+      }
     },
     {
       "title": "Danaïde",
@@ -995,7 +1157,9 @@ footer .kingdom{
         "https://www.cnn.com/2026/05/19/style/christies-may-sales-si-newhouse-nicole-kidman",
         "https://www.theartnewspaper.com/2026/05/19/christies-nets-11bn-from-back-to-back-si-newhouse-and-20th-century-evening-sales-in-new-york",
         "https://news.artnet.com/market/pollock-brancusi-newhouse-christies-record-2774133"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Constantin Brancusi died 1957, missing the died-by-1955 bar; a bronze sculpture besides, so photos would carry photographer rights too."
     },
     {
       "title": "No. 15 (Two Greens and Red Stripe)",
@@ -1013,7 +1177,9 @@ footer .kingdom{
         "https://www.theartnewspaper.com/2026/05/19/christies-nets-11bn-from-back-to-back-si-newhouse-and-20th-century-evening-sales-in-new-york",
         "https://news.artnet.com/market/pollock-brancusi-newhouse-christies-record-2774133",
         "https://ocula.com/magazine/art-news/christies-1bn-new-york-auction/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Mark Rothko died 1970."
     },
     {
       "title": "Rabbit",
@@ -1030,7 +1196,9 @@ footer .kingdom{
       "sources": [
         "https://www.bloomberg.com/news/articles/2019-05-21/steve-cohen-outed-as-mystery-buyer-of-91-million-koons-bunny",
         "https://en.wikipedia.org/wiki/Rabbit_(Koons)"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Jeff Koons is living; sculpture, so photographs carry additional rights."
     },
     {
       "title": "Portrait of an Artist (Pool with Two Figures)",
@@ -1047,7 +1215,9 @@ footer .kingdom{
       "sources": [
         "https://www.artnews.com/art-news/market/david-hockneys-famed-pool-scene-sells-90-3-m-christies-new-record-work-living-artist-auction-11356/",
         "https://en.wikipedia.org/wiki/Portrait_of_an_Artist_(Pool_with_Two_Figures)"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — David Hockney is living."
     }
   ],
   "vanished": [
@@ -1060,7 +1230,14 @@ footer .kingdom{
       "sources": [
         "https://www.theartnewspaper.com/2024/08/19/where-is-salvator-mundi-in-storage-in-geneva-apparently",
         "https://www.artnews.com/art-news/news/mbs-mohammed-bin-salman-salvator-mundi-saudi-arabia-museum-leonardo-da-vinci-1234714870/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-salvator-mundi.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-salvator-mundi-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci,_Salvator_Mundi,_c.1500,_oil_on_walnut,_45.4_%C3%97_65.6_cm.jpg"
+      }
     },
     {
       "title": "Portrait of Dr. Gachet",
@@ -1072,7 +1249,14 @@ footer .kingdom{
         "https://www.theartnewspaper.com/2019/11/15/where-is-the-portrait-of-dr-gachet-the-mysterious-disappearance-of-van-goghs-most-expensive-painting",
         "https://www.theartnewspaper.com/2024/12/20/once-the-most-expensive-painting-ever-auctioned-has-a-long-hidden-van-gogh-portrait-been-rediscovered",
         "https://en.wikipedia.org/wiki/Portrait_of_Dr._Gachet"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-portrait-of-dr-gachet.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-portrait-of-dr-gachet-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Bildnis_Doktor_Gachet.jpeg"
+      }
     },
     {
       "title": "The Concert",
@@ -1085,7 +1269,14 @@ footer .kingdom{
         "https://en.wikipedia.org/wiki/The_Concert_(Vermeer)",
         "https://www.cbsnews.com/boston/news/isabella-stewart-gardner-museum-art-heist-fbi-book/",
         "https://www.artnews.com/art-news/news/thirteen-perfect-fugitives-book-geoffrey-kelly-interview-1234776743/"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-concert.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-concert-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Vermeer_The_Concert.jpg"
+      }
     },
     {
       "title": "The Storm on the Sea of Galilee",
@@ -1096,7 +1287,14 @@ footer .kingdom{
       "sources": [
         "https://www.gardnermuseum.org/about/theft",
         "https://en.wikipedia.org/wiki/Isabella_Stewart_Gardner_Museum_theft"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-storm-on-the-sea-of-galilee.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-storm-on-the-sea-of-galilee-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee.jpg"
+      }
     },
     {
       "title": "Poppy Flowers (Vase with Flowers)",
@@ -1107,7 +1305,14 @@ footer .kingdom{
       "sources": [
         "https://www.theartnewspaper.com/2021/05/21/how-a-van-gogh-painting-was-stolen-from-a-cairo-museumnot-once-but-twice",
         "https://en.wikipedia.org/wiki/Poppy_Flowers"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-poppy-flowers-vase-with-flowers.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-poppy-flowers-vase-with-flowers-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Vase_with_Viscaria_(stolen)_-_My_Dream.jpg"
+      }
     },
     {
       "title": "The Just Judges (panel of the Ghent Altarpiece)",
@@ -1118,7 +1323,14 @@ footer .kingdom{
       "sources": [
         "https://visit.gent.be/en/disappearance-just-judges-panel",
         "https://en.wikipedia.org/wiki/The_Just_Judges"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-just-judges-panel-of-the-ghent-altarpiece.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-just-judges-panel-of-the-ghent-altarpiece-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ghent_Altarpiece_E_-_Just_Judges_(original_painting).jpg"
+      }
     },
     {
       "title": "Nativity with Saint Francis and Saint Lawrence",
@@ -1130,7 +1342,14 @@ footer .kingdom{
         "https://www.fbi.gov/investigate/violent-crime/art-crime/fbi-top-ten-art-crimes/nativity-with-san-lorenzo-and-san-francesco",
         "https://www.theartnewspaper.com/2019/10/08/its-50-years-since-caravaggios-nativity-was-stolen-in-palermo-have-the-police-been-chasing-red-herrings-all-this-time",
         "https://en.wikipedia.org/wiki/Nativity_with_Saint_Francis_and_Saint_Lawrence"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-nativity-with-saint-francis-and-saint-lawrence.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-nativity-with-saint-francis-and-saint-lawrence-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Caravaggio-Nativity(1600).jpg"
+      }
     },
     {
       "title": "Portrait of a Young Man",
@@ -1141,7 +1360,14 @@ footer .kingdom{
       "sources": [
         "https://www.monumentsmenandwomenfnd.org/post/raphael-s-lost-portrait",
         "https://en.wikipedia.org/wiki/Portrait_of_a_Young_Man_(Raphael)"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-portrait-of-a-young-man.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-portrait-of-a-young-man-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Young_Man_by_Raphael_-_Cleaned_Archival_Scan.jpg"
+      }
     },
     {
       "title": "View of Auvers-sur-Oise",
@@ -1152,7 +1378,14 @@ footer .kingdom{
       "sources": [
         "https://www.fbi.gov/investigate/violent-crime/art-crime/fbi-top-ten-art-crimes/theft-of-cezannes-view-of-auvers-sur-oise",
         "https://en.wikipedia.org/wiki/View_of_Auvers-sur-Oise"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-view-of-auvers-sur-oise.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-view-of-auvers-sur-oise-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:View_of_Auvers-sur-Oise_Paul_Cezanne.png"
+      }
     },
     {
       "title": "The Card Players (Embiricos version)",
@@ -1163,7 +1396,14 @@ footer .kingdom{
       "sources": [
         "https://www.npr.org/2012/02/05/146424989/cezanne-sold-to-qatar-for-a-record-price",
         "https://en.wikipedia.org/wiki/The_Card_Players"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-card-players-embiricos-version.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-card-players-embiricos-version-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Les_Joueurs_de_cartes,_par_Paul_C%C3%A9zanne,_collection_Al-Thani,_Yorck.jpg"
+      }
     },
     {
       "title": "Nafea Faa Ipoipo (When Will You Marry?)",
@@ -1174,7 +1414,14 @@ footer .kingdom{
       "sources": [
         "https://news.artnet.com/art-world/uk-lawsuit-secret-gauguin-dealing-1011617",
         "https://en.wikipedia.org/wiki/When_Will_You_Marry%3F"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-nafea-faa-ipoipo-when-will-you-marry.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-nafea-faa-ipoipo-when-will-you-marry-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Paul_Gauguin,_Nafea_Faa_Ipoipo%3F_(When_Will_You_Marry%3F)_1892,_oil_on_canvas,_101_x_77_cm.jpg"
+      }
     },
     {
       "title": "Le Reve",
@@ -1185,7 +1432,9 @@ footer .kingdom{
       "sources": [
         "https://www.npr.org/sections/thetwo-way/2013/03/26/175412881/years-after-the-elbow-incident-steve-wynn-sells-picassos-le-r-ve-for-155-million",
         "https://en.wikipedia.org/wiki/Le_R%C3%AAve_(Picasso)"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Pablo Picasso died 1973. Vanished into a private collection or not, the work cannot be shown."
     },
     {
       "title": "Lady with a Fan (Dame mit Facher)",
@@ -1196,7 +1445,14 @@ footer .kingdom{
       "sources": [
         "https://news.artnet.com/market/klimt-record-sothebys-london-2328580",
         "https://news.artnet.com/market/who-bought-the-mysterious-klimt-at-sothebys-an-equally-enigmatic-hong-kong-power-broker-some-believe-2336528"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-lady-with-a-fan-dame-mit-facher.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-lady-with-a-fan-dame-mit-facher-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt_-_Dame_mit_F%C3%A4cher.jpeg"
+      }
     },
     {
       "title": "Water Lilies (c. 1925, 18.5-foot canvas)",
@@ -1207,7 +1463,9 @@ footer .kingdom{
       "sources": [
         "https://news.artnet.com/art-world/art-bites-moma-1958-fire-monet-2468112",
         "https://www.thedailybeast.com/the-moma-fire-that-destroyed-a-coveted-monet-painting/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Monet d.1926, so the work is PD — but no image meets the quality bar. The big canvas destroyed in MoMA's 15 April 1958 fire survives on Commons only as a 1047x369 Wildenstein catalogue scan (linked as source_page), and the other canvas destroyed in the same fire (W1813, 180x200cm) only as ~600px Factum Foundation images. All below the 1200px minimum, so no image_url rather than a bad one."
     },
     {
       "title": "Waterloo Bridge, London and Charing Cross Bridge, London",
@@ -1218,7 +1476,9 @@ footer .kingdom{
       "sources": [
         "https://www.npr.org/2018/11/18/669035614/six-years-after-museum-heist-missing-picasso-possibly-found-in-romania",
         "https://nltimes.nl/2021/07/05/trail-found-monet-stolen-2012-rotterdam-museum-heist"
-      ]
+      ],
+      "image": null,
+      "image_note": "Monet d.1926, so both works are PD — but the two Triton Foundation pastels stolen in the 2012 Kunsthal Rotterdam theft (and possibly burned) exist on Commons only as 800x500 Rotterdam police handout photos (File:Waterloo Bridge in London.jpg and File:Charing Cross Bridge, London.jpg, both PD-Art tagged). Below the 1200px minimum, so no image_url. Larger same-series Monets exist but would be the wrong paintings."
     },
     {
       "title": "Les Femmes d'Alger (Version O)",
@@ -1229,7 +1489,9 @@ footer .kingdom{
       "sources": [
         "https://en.wikipedia.org/wiki/Les_Femmes_d%27Alger",
         "https://www.artnews.com/art-news/news/buyer-of-the-179-4-million-picasso-revealed-4210/"
-      ]
+      ],
+      "image": null,
+      "image_note": "Under copyright — Pablo Picasso died 1973."
     },
     {
       "title": "Portrait of Elisabeth Lederer",
@@ -1241,7 +1503,14 @@ footer .kingdom{
         "https://www.artnews.com/art-news/news/gustav-klimt-portrait-of-elisabeth-lederer-auction-record-1234762083/",
         "https://www.pbs.org/newshour/arts/gustav-klimt-portrait-that-spared-its-subject-from-nazis-breaks-modern-art-record-with-236m-sale",
         "https://en.wikipedia.org/wiki/Portrait_of_Elisabeth_Lederer"
-      ]
+      ],
+      "image": {
+        "full": "https://artbitrage-art.s3.amazonaws.com/art/vanished-portrait-of-elisabeth-lederer.jpg",
+        "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vanished-portrait-of-elisabeth-lederer-t.jpg",
+        "credit": "Wikimedia Commons, public domain (PD-Art)",
+        "license": "Public domain (PD-Art)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt_-_Bildnis_der_Elisabeth_Lederer_(1914-1916).jpg"
+      }
     }
   ],
   "watch": {
@@ -1269,7 +1538,8 @@ footer .kingdom{
     ],
     "seasons_note": "The auction year beats twice. In May and in November, Christie's, Sotheby's and Phillips hold their marquee evening sales in New York — the modern and contemporary auctions where nine-figure records are set. Each house takes an evening in the same week or two, with cheaper day sales wrapped around them; these two weeks decide the mood of the whole art market. London runs its own evening sales in late February or early March and again in October around the Frieze fair; Paris now peaks in October too, during Art Basel Paris week. Hong Kong anchors Asia with a spring season (late March to April) and an autumn season (late September to November). Geneva means jewels and watches, in May and November. Between the peaks the houses fill the calendar with day sales and online-only sales. One rhythm worth knowing: the star consignments for a November evening sale are usually announced from September onward — so early July, when this was written, is the quiet season, and the calendar pages above are where the fall's headliners will first appear.",
     "upcoming": []
-  }
+  },
+  "images_added": "2026-07-06"
 }</script>
 
 <script>
@@ -1384,6 +1654,38 @@ footer .kingdom{
         if (v.artist) bits.push(v.artist);
         if (v.year_lost_public) bits.push('left public view ' + v.year_lost_public);
         if (bits.length) card.appendChild(el('p', 'vm', bits.join(' · ')));
+
+        /* the frame: image where the ghost can return, empty frame where not */
+        var wrap = el('div', 'artwrap');
+        if (v.image && v.image.thumb) {
+          var frame = el('div', 'artframe');
+          var img = document.createElement('img');
+          img.setAttribute('src', v.image.thumb);
+          img.setAttribute('alt', (v.title || '') + ', ' + (v.artist || ''));
+          img.setAttribute('loading', 'lazy');
+          img.setAttribute('decoding', 'async');
+          frame.appendChild(img);
+          if (v.image.full && /^https:\/\//.test(v.image.full)) {
+            var link = document.createElement('a');
+            link.href = v.image.full;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.setAttribute('aria-label', 'full-size image: ' + (v.title || ''));
+            link.appendChild(frame);
+            wrap.appendChild(link);
+          } else {
+            wrap.appendChild(frame);
+          }
+          if (v.image.credit) wrap.appendChild(el('p', 'artcredit', v.image.credit));
+        } else {
+          var isCopyright = /under copyright/i.test(v.image_note || '');
+          var empty = el('div', 'artframe empty');
+          empty.appendChild(el('p', null, isCopyright ? 'under copyright' : 'vanished from public view'));
+          empty.appendChild(el('p', null, isCopyright ? 'the frame stands empty' : 'the frame waits'));
+          wrap.appendChild(empty);
+        }
+        card.appendChild(wrap);
+
         if (v.fate) card.appendChild(el('p', 'vf', v.fate));
         if (v.note) card.appendChild(el('p', 'vn', v.note));
         van.appendChild(card);
