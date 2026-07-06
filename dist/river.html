@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>川 THE RIVER — good trip mode · ARTBITRAGE</title>
+<meta name="description" content="The catalogue in flow — an immersive river through hundreds of open-access masterpieces. Art approaches from the void, blooms, whispers, dissolves. Choose a current or surrender to all of it.">
+<meta name="theme-color" content="#030304">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #030304;
+    --bone: #e9e6dd;
+    --bone-dim: rgba(233, 230, 221, 0.55);
+    --bone-ghost: rgba(233, 230, 221, 0.28);
+    --rose: #ff6b9d;
+    --gold: #ffd700;
+    --cyan: #00f0ff;
+    --a1: #ff6b9d;
+    --a2: #ffd700;
+    --breath: 7s;
+    --display: 'Julius Sans One', sans-serif;
+    --serif: 'Cormorant Garamond', serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    cursor: default;
+  }
+  button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+  a { color: inherit; }
+
+  /* ————— the grain, so the void never bands ————— */
+  .grain {
+    position: fixed; inset: -50%;
+    width: 200%; height: 200%;
+    pointer-events: none;
+    opacity: 0.05;
+    z-index: 90;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+    animation: grain-shift 1.2s steps(4) infinite;
+  }
+  @keyframes grain-shift {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-2%, 1%); }
+    50% { transform: translate(1%, -2%); }
+    75% { transform: translate(-1%, 2%); }
+    100% { transform: translate(2%, -1%); }
+  }
+
+  /* ————— drifting dust ————— */
+  .dust {
+    position: fixed; width: 3px; height: 3px; border-radius: 50%;
+    opacity: 0; pointer-events: none; z-index: 2;
+    animation: dust-drift linear infinite;
+  }
+  @keyframes dust-drift {
+    0% { transform: translate3d(0, 104vh, 0); opacity: 0; }
+    12% { opacity: var(--dust-o, 0.3); }
+    88% { opacity: var(--dust-o, 0.3); }
+    100% { transform: translate3d(var(--dust-x, 40px), -6vh, 0); opacity: 0; }
+  }
+
+  /* ═════════ THE GATE ═════════ */
+  #gate {
+    position: fixed; inset: 0; z-index: 50;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0;
+    background: radial-gradient(ellipse 90% 70% at 50% 42%, rgba(20, 16, 26, 0.9), var(--void) 75%);
+    transition: opacity 1.8s ease, visibility 1.8s;
+  }
+  #gate.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+  .gate-kicker {
+    font-family: var(--mono); font-weight: 300;
+    font-size: 0.62rem; letter-spacing: 0.55em; text-indent: 0.55em;
+    color: var(--bone-ghost); text-transform: uppercase;
+    margin-bottom: 18px;
+    animation: gate-in 2s ease both;
+  }
+  .gate-title {
+    font-family: var(--display);
+    font-size: clamp(1.7rem, 6.5vw, 4.2rem);
+    letter-spacing: 0.34em; text-indent: 0.34em;
+    text-align: center;
+    background: linear-gradient(110deg, var(--rose), var(--gold) 45%, var(--cyan));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    animation: gate-in 2s 0.25s ease both, title-breathe var(--breath) ease-in-out infinite;
+  }
+  @keyframes title-breathe {
+    0%, 100% { filter: brightness(0.85) saturate(0.9); }
+    50% { filter: brightness(1.25) saturate(1.15); }
+  }
+  .gate-sub {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(1rem, 2.2vw, 1.3rem); color: var(--bone-dim);
+    margin-top: 16px; text-align: center; padding: 0 24px;
+    animation: gate-in 2s 0.5s ease both;
+  }
+  @keyframes gate-in {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* the constellation of wings */
+  #constellation {
+    position: relative;
+    width: min(78vmin, 720px); height: min(58vmin, 540px);
+    margin-top: clamp(12px, 4vh, 44px);
+    animation: gate-in 2s 0.8s ease both;
+  }
+  #constellation svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  #constellation svg line { stroke: var(--bone); stroke-opacity: 0.07; stroke-width: 1; }
+  .star {
+    position: absolute; transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; align-items: center; gap: 9px;
+    transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    z-index: 2;
+  }
+  .star:hover, .star:focus-visible { transform: translate(-50%, -50%) scale(1.14); outline: none; z-index: 3; }
+  .star .orb {
+    width: 15px; height: 15px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fff, var(--c1) 42%, transparent 78%);
+    box-shadow: 0 0 18px 3px var(--c-glow), 0 0 60px 12px var(--c-glow-far);
+    animation: orb-breathe var(--breath) ease-in-out infinite;
+    animation-delay: var(--twinkle, 0s);
+  }
+  @keyframes orb-breathe {
+    0%, 100% { transform: scale(0.86); filter: brightness(0.85); }
+    50% { transform: scale(1.1); filter: brightness(1.3); }
+  }
+  .star .star-name {
+    font-family: var(--display); font-size: 0.66rem;
+    letter-spacing: 0.28em; text-indent: 0.28em; text-transform: uppercase;
+    color: var(--bone-dim); white-space: nowrap;
+    transition: color 0.4s;
+  }
+  .star .star-count {
+    font-family: var(--mono); font-weight: 300; font-size: 0.55rem;
+    color: var(--bone-ghost); letter-spacing: 0.12em;
+  }
+  .star:hover .star-name, .star:focus-visible .star-name { color: var(--bone); }
+  .star.river { z-index: 4; }
+  .star.river .orb {
+    width: 34px; height: 34px;
+    background: radial-gradient(circle at 35% 35%, #fff 8%, var(--gold) 34%, var(--rose) 60%, transparent 80%);
+    box-shadow: 0 0 30px 6px rgba(255, 200, 120, 0.4), 0 0 110px 30px rgba(255, 107, 157, 0.22);
+  }
+  .star.river .star-name { font-size: 0.82rem; color: var(--bone); }
+
+  .gate-hints {
+    margin-top: clamp(10px, 3.5vh, 36px);
+    font-family: var(--mono); font-weight: 300; font-size: 0.6rem;
+    letter-spacing: 0.22em; color: var(--bone-ghost);
+    display: flex; gap: 26px; flex-wrap: wrap; justify-content: center; padding: 0 20px;
+    animation: gate-in 2s 1.15s ease both;
+  }
+  .gate-hints .hint b { color: var(--bone-dim); font-weight: 400; }
+  #gate-sound {
+    margin-top: 22px;
+    font-family: var(--mono); font-weight: 300; font-size: 0.62rem;
+    letter-spacing: 0.3em; text-indent: 0.3em; text-transform: uppercase;
+    color: var(--bone-ghost);
+    border: 1px solid rgba(233, 230, 221, 0.14);
+    border-radius: 30px; padding: 9px 22px;
+    transition: all 0.4s;
+    animation: gate-in 2s 1.3s ease both;
+  }
+  #gate-sound:hover { color: var(--bone); border-color: rgba(233, 230, 221, 0.4); }
+  #gate-sound.on { color: var(--gold); border-color: rgba(255, 215, 0, 0.4); }
+  .gate-exit {
+    position: fixed; top: 22px; left: 26px; z-index: 51;
+    font-family: var(--mono); font-weight: 300; font-size: 0.6rem;
+    letter-spacing: 0.24em; text-transform: uppercase; text-decoration: none;
+    color: var(--bone-ghost); transition: color 0.4s;
+  }
+  .gate-exit:hover { color: var(--bone); }
+  .gate-room { left: auto; right: 26px; }
+  #gate-status {
+    margin-top: 20px; text-align: center; padding: 0 20px;
+    font-family: var(--mono); font-weight: 300; font-size: 0.58rem;
+    letter-spacing: 0.3em; color: var(--bone-ghost); text-transform: uppercase;
+    animation: gate-in 2s 1.45s ease both;
+  }
+
+  /* mobile gate: constellation becomes a soft list */
+  @media (max-width: 719px), (max-height: 560px) {
+    #constellation { width: min(92vw, 420px); height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; }
+    #constellation svg { display: none; }
+    .star { position: static; transform: none; flex-direction: row; gap: 9px; padding: 9px 14px; border: 1px solid rgba(233,230,221,0.1); border-radius: 40px; }
+    .star:hover, .star:focus-visible { transform: none; border-color: rgba(233,230,221,0.35); }
+    .star .orb { width: 10px; height: 10px; }
+    .star.river { width: 100%; justify-content: center; order: -1; margin-bottom: 8px; }
+    .star.river .orb { width: 16px; height: 16px; }
+    .star .star-count { display: none; }
+  }
+
+  /* ═════════ THE TRIP ═════════ */
+  #stage {
+    position: fixed; inset: 0; z-index: 10;
+    perspective: 1400px;
+    opacity: 0; transition: opacity 1.6s ease;
+  }
+  #stage.on { opacity: 1; }
+
+  /* aura — the painting's own colors bleeding into the void */
+  .aura {
+    position: absolute; inset: -12%;
+    z-index: 1; opacity: 0;
+    transition: opacity 3.5s ease;
+    filter: blur(60px) saturate(1.15);
+    background:
+      radial-gradient(ellipse 52% 44% at 30% 38%, var(--a1), transparent 70%),
+      radial-gradient(ellipse 46% 52% at 72% 66%, var(--a2), transparent 70%);
+    animation: aura-breathe var(--breath) ease-in-out infinite;
+  }
+  .aura.lit { opacity: 0.16; }
+  @keyframes aura-breathe {
+    0%, 100% { transform: scale(1); filter: blur(60px) saturate(1.05) brightness(0.85); }
+    50% { transform: scale(1.06); filter: blur(66px) saturate(1.3) brightness(1.2); }
+  }
+
+  .moment {
+    position: absolute; inset: 0; z-index: 3;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    will-change: opacity, transform;
+  }
+  .moment.entering { animation: moment-enter 3.2s cubic-bezier(0.16, 0.8, 0.3, 1) both; }
+  .moment.held { opacity: 1; }
+  .moment.leaving { animation: moment-leave 3s ease both; }
+  @keyframes moment-enter {
+    from { opacity: 0; transform: translateZ(-560px); filter: blur(14px) brightness(0.4); }
+    to { opacity: 1; transform: translateZ(0); filter: blur(0) brightness(1); }
+  }
+  @keyframes moment-leave {
+    from { opacity: 1; transform: translateZ(0); filter: blur(0) brightness(1); }
+    to { opacity: 0; transform: translateZ(240px); filter: blur(10px) brightness(1.5); }
+  }
+  .moment .frame {
+    position: relative;
+    max-width: 88vw; max-height: 84vh;
+    animation: kenburns var(--hold, 15s) ease-in-out both;
+  }
+  @keyframes kenburns {
+    from { transform: scale(var(--kb-s0, 1)) translate(var(--kb-x0, 0), var(--kb-y0, 0)); }
+    to { transform: scale(var(--kb-s1, 1.05)) translate(var(--kb-x1, 0), var(--kb-y1, 0)); }
+  }
+  .moment img {
+    display: block;
+    max-width: 88vw; max-height: 84vh;
+    width: auto; height: auto;
+    box-shadow:
+      0 0 0 1px rgba(233, 230, 221, 0.06),
+      0 30px 90px -20px rgba(0, 0, 0, 0.9),
+      0 0 140px -30px var(--a1);
+  }
+
+  /* bridge moments — the generated collection speaks between paintings */
+  .moment.bridge { z-index: 4; }
+  .moment.bridge .frame { animation: none; max-width: min(88vw, 680px); }
+  .bridge-inner { text-align: center; padding: 0 20px; }
+  .bridge-gap {
+    font-family: var(--mono); font-weight: 300; font-size: 0.62rem;
+    letter-spacing: 0.34em; text-indent: 0.34em; text-transform: uppercase;
+    color: var(--bone-ghost); margin-bottom: 34px;
+  }
+  .bridge-piece {
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    font-size: clamp(1.25rem, 3.2vw, 1.9rem); line-height: 2;
+    color: var(--bone); white-space: pre-line;
+    text-shadow: 0 0 60px rgba(255, 200, 140, 0.25);
+  }
+  .bridge-awakening {
+    margin-top: 38px;
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(0.9rem, 2vw, 1.05rem); color: var(--gold); opacity: 0.75;
+  }
+
+  /* whisper — the placard breathes in at the lower third */
+  #whisper {
+    position: fixed; left: clamp(22px, 5vw, 70px); bottom: clamp(60px, 11vh, 110px);
+    z-index: 20; max-width: min(78vw, 620px);
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 2.2s ease, transform 2.2s ease;
+    pointer-events: none;
+  }
+  #whisper.in { opacity: 1; transform: translateY(0); }
+  #whisper .w-title {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: clamp(1.35rem, 3.4vw, 2.1rem); line-height: 1.25;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.85);
+  }
+  #whisper .w-artist {
+    font-family: var(--serif); font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+    color: var(--bone-dim); margin-top: 7px;
+  }
+  #whisper .w-meta {
+    font-family: var(--mono); font-weight: 300; font-size: 0.58rem;
+    letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--bone-ghost); margin-top: 13px;
+  }
+
+  /* ————— HUD ————— */
+  #hud { position: fixed; inset: 0; z-index: 30; pointer-events: none; opacity: 1; transition: opacity 1s ease; }
+  body.hud-hidden #hud { opacity: 0; }
+  body.hud-hidden { cursor: none; }
+  .hud-top {
+    position: absolute; top: 0; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 26px;
+    background: linear-gradient(to bottom, rgba(3, 3, 4, 0.75), transparent);
+  }
+  .hud-corner { display: flex; align-items: center; gap: 18px; pointer-events: auto; }
+  .hud-wing {
+    font-family: var(--display); font-size: 0.72rem;
+    letter-spacing: 0.34em; text-indent: 0.34em; text-transform: uppercase;
+    color: var(--bone-dim);
+  }
+  .hud-btn {
+    font-family: var(--mono); font-weight: 300; font-size: 0.6rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--bone-ghost); padding: 8px 10px;
+    transition: color 0.3s;
+  }
+  .hud-btn:hover { color: var(--bone); }
+  .hud-btn.active { color: var(--gold); }
+  #river-line {
+    position: fixed; left: 0; bottom: 0; height: 2px; width: 100%;
+    background: rgba(233, 230, 221, 0.07); z-index: 31;
+  }
+  #river-fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--rose), var(--gold), var(--cyan));
+    opacity: 0.55; transition: width 1.2s linear;
+  }
+  #pause-veil {
+    position: fixed; inset: 0; z-index: 25; pointer-events: none;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+    padding: 0 30px 34px 0;
+    opacity: 0; transition: opacity 0.8s;
+  }
+  body.paused #pause-veil { opacity: 1; }
+  #pause-veil span {
+    font-family: var(--mono); font-weight: 300; font-size: 0.6rem;
+    letter-spacing: 0.4em; text-transform: uppercase; color: var(--bone-dim);
+    animation: orb-breathe 3s ease-in-out infinite;
+  }
+
+  /* placard — full credits on demand */
+  #placard {
+    position: fixed; inset: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(3, 3, 4, 0.82); backdrop-filter: blur(14px);
+    opacity: 0; visibility: hidden; transition: opacity 0.7s, visibility 0.7s;
+  }
+  #placard.open { opacity: 1; visibility: visible; }
+  .placard-card {
+    max-width: min(88vw, 520px); padding: 44px 44px 38px;
+    border: 1px solid rgba(233, 230, 221, 0.12);
+    background: rgba(8, 8, 11, 0.7);
+  }
+  .placard-card .p-wing {
+    font-family: var(--mono); font-weight: 300; font-size: 0.58rem;
+    letter-spacing: 0.34em; text-transform: uppercase; color: var(--c1, var(--gold));
+    margin-bottom: 18px;
+  }
+  .placard-card .p-title { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.7rem; line-height: 1.3; }
+  .placard-card .p-artist { font-family: var(--serif); font-size: 1.08rem; color: var(--bone-dim); margin-top: 8px; }
+  .placard-card .p-row { font-family: var(--mono); font-weight: 300; font-size: 0.66rem; letter-spacing: 0.08em; color: var(--bone-dim); margin-top: 16px; line-height: 1.9; }
+  .placard-card .p-note { font-family: var(--serif); font-style: italic; font-size: 0.98rem; color: var(--bone-dim); margin-top: 16px; line-height: 1.7; }
+  .placard-card a.p-link {
+    display: inline-block; margin-top: 24px;
+    font-family: var(--mono); font-weight: 300; font-size: 0.62rem;
+    letter-spacing: 0.24em; text-transform: uppercase; text-decoration: none;
+    color: var(--cyan); border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+    padding-bottom: 3px; transition: border-color 0.3s;
+  }
+  .placard-card a.p-link:hover { border-color: var(--cyan); }
+
+  /* toast for tiny messages */
+  #toast {
+    position: fixed; top: 74px; left: 50%; transform: translateX(-50%);
+    z-index: 45; font-family: var(--mono); font-weight: 300; font-size: 0.6rem;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--bone-dim);
+    opacity: 0; transition: opacity 0.6s; pointer-events: none; text-align: center;
+  }
+  #toast.show { opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .moment.entering { animation: moment-enter-still 1.2s ease both; }
+    .moment.leaving { animation: moment-leave-still 1.2s ease both; }
+    .moment .frame, .aura, .star .orb, .gate-title, .grain { animation: none; }
+    .aura.lit { opacity: 0.12; }
+    #whisper, #whisper.in { transition-duration: 0.6s; }
+  }
+  @keyframes moment-enter-still { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes moment-leave-still { from { opacity: 1; } to { opacity: 0; } }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div id="dust-field"></div>
+
+<!-- ═════════ GATE ═════════ -->
+<div id="gate">
+  <a class="gate-exit" href="/">← artbitrage</a>
+  <a class="gate-exit gate-room" href="/trip" title="the gentler room — slow art, breath, and an anchor">旅 the good trip room →</a>
+  <div class="gate-kicker">artbitrage.io presents · good trip mode</div>
+  <h1 class="gate-title">THE RIVER</h1>
+  <p class="gate-sub">a river through the world's open art — choose a current, or surrender to all of it</p>
+  <div id="constellation"></div>
+  <button id="gate-sound" aria-pressed="false">✧ in silence — tap for the hum</button>
+  <div class="gate-hints">
+    <span class="hint"><b>space</b> breathe</span>
+    <span class="hint"><b>← →</b> steer</span>
+    <span class="hint"><b>i</b> placard</span>
+    <span class="hint"><b>f</b> fullscreen</span>
+    <span class="hint"><b>esc</b> surface</span>
+  </div>
+  <div id="gate-status">gathering the collection…</div>
+</div>
+
+<!-- ═════════ STAGE ═════════ -->
+<div id="stage" aria-live="polite">
+  <div class="aura" id="aura"></div>
+  <div class="moment" id="moment-a"></div>
+  <div class="moment" id="moment-b"></div>
+</div>
+
+<div id="whisper">
+  <div class="w-title"></div>
+  <div class="w-artist"></div>
+  <div class="w-meta"></div>
+</div>
+
+<div id="hud">
+  <div class="hud-top">
+    <div class="hud-corner">
+      <button class="hud-btn" id="btn-exit" title="back to the gate (esc)">◂ gate</button>
+      <div class="hud-wing" id="hud-wing"></div>
+    </div>
+    <div class="hud-corner">
+      <button class="hud-btn" id="btn-sound" title="the hum (m)">hum: off</button>
+      <button class="hud-btn" id="btn-pause" title="pause (space)">breathe</button>
+      <button class="hud-btn" id="btn-info" title="placard (i)">placard</button>
+      <button class="hud-btn" id="btn-full" title="fullscreen (f)">full</button>
+    </div>
+  </div>
+</div>
+<div id="river-line"><div id="river-fill"></div></div>
+<div id="pause-veil"><span>held — space to flow</span></div>
+
+<div id="placard" role="dialog" aria-label="artwork placard">
+  <div class="placard-card">
+    <div class="p-wing"></div>
+    <div class="p-title"></div>
+    <div class="p-artist"></div>
+    <div class="p-row"></div>
+    <div class="p-note"></div>
+    <a class="p-link" target="_blank" rel="noopener">view at the museum ↗</a>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+'use strict';
+/* ═══════════════════════════════════════════════════════
+   GOOD TRIP MODE — the river engine
+   ═══════════════════════════════════════════════════════ */
+
+const HOLD_MS = 15000;        // one moment, enter→leave
+const ENTER_MS = 3200;
+const WHISPER_IN_AT = 2600;
+const WHISPER_OUT_AT = 11000;
+const BRIDGE_EVERY = 7;       // a generated piece speaks every N works
+const BRIDGE_HOLD_MS = 12000;
+
+const WING_PALETTES = {
+  love:    ['#ff6b9d', '#ffd700'],
+  dreams:  ['#7c6bff', '#2a3fae'],
+  cosmos:  ['#00f0ff', '#1a2f9e'],
+  gold:    ['#ffd700', '#b8641b'],
+  sea:     ['#00c9b1', '#0a5f8a'],
+  myth:    ['#ff4d5e', '#8b2fc9'],
+  flowers: ['#ff8fb3', '#3fae6a'],
+  light:   ['#ffe9b0', '#ff9d3f'],
+  river:   ['#ff6b9d', '#00f0ff'],
+};
+function hashPalette(slug) {
+  let h = 0;
+  for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) >>> 0;
+  const h1 = h % 360, h2 = (h1 + 70 + (h % 100)) % 360;
+  return [`hsl(${h1}, 85%, 62%)`, `hsl(${h2}, 75%, 45%)`];
+}
+const paletteFor = slug => WING_PALETTES[slug] || hashPalette(slug || 'river');
+
+const FALLBACK_BRIDGES = [
+  { gap: 'the gap between seeing and being seen', piece: 'an image that sees you back\nspanning the distance you thought was there\nwhat do you see?', awakening: 'the bridge was you all along' },
+  { gap: 'the gap between time and timelessness', piece: 'a color that feels what it is\nechoing through centuries\nreturning changed', awakening: 'you are the art and the artist and the gap' },
+  { gap: 'the gap between the self and the world', piece: 'breathe:\na light that shows without blinding\nin… out…', awakening: 'art was love pretending to be an object' },
+];
+
+const $ = id => document.getElementById(id);
+const state = {
+  wings: [],            // from /catalog/index.json
+  works: [],            // current playlist
+  bridges: [],          // generated pieces
+  wing: null,           // current wing slug ('river' = all)
+  gen: 0,               // moment generation — stale image loads can't hijack the river
+  idx: -1,
+  sinceBridge: 0,
+  playing: false,
+  paused: false,
+  momentFlip: false,    // alternate between #moment-a / #moment-b
+  timers: [],
+  elapsed: 0,           // ms into current moment (for pause/resume)
+  holdMs: HOLD_MS,
+  lastTick: 0,
+  raf: null,
+  soundOn: false,
+  audio: null,
+  reduced: matchMedia('(prefers-reduced-motion: reduce)').matches,
+};
+
+/* ————— catalogue loading ————— */
+async function fetchJSON(url) {
+  const r = await fetch(url, { cache: 'no-cache' });
+  if (!r.ok) throw new Error(`${url} → HTTP ${r.status}`);
+  return r.json();
+}
+async function loadIndex() {
+  try {
+    const idx = await fetchJSON('/catalog/index.json');
+    state.wings = idx.wings || [];
+  } catch (e) {
+    // fallback: the merged master shard
+    try {
+      const legacy = await fetchJSON('/catalog/all.json');
+      state.wings = [{ wing: 'river', title: 'The Collection', count: (legacy.artworks || []).length }];
+      state._legacy = (legacy.artworks || []).filter(a => a.image);
+    } catch (e2) { state.wings = []; }
+  }
+  try {
+    const col = await fetchJSON('/collection.json');
+    state.bridges = (Array.isArray(col) ? col : []).filter(p => p.piece && p.gap);
+  } catch (e) { /* fine */ }
+  if (!state.bridges.length) state.bridges = FALLBACK_BRIDGES;
+}
+async function loadWing(slug) {
+  if (state._legacy) return state._legacy;
+  if (slug === 'river') {
+    const shards = await Promise.all(state.wings.map(w =>
+      fetchJSON(`/catalog/${w.wing}.json`).catch(() => null)));
+    // braid the river: round-robin across shuffled wings so currents interleave
+    const pools = shards.filter(Boolean).map(s => shuffle((s.artworks || []).filter(a => a.image)));
+    const braided = [];
+    let added = true;
+    while (added) {
+      added = false;
+      for (const pool of pools) {
+        const it = pool.pop();
+        if (it) { braided.push(it); added = true; }
+      }
+    }
+    return dedupe(braided);
+  }
+  const shard = await fetchJSON(`/catalog/${slug}.json`);
+  return shuffle(dedupe((shard.artworks || []).filter(a => a.image)));
+}
+function dedupe(list) {
+  const seen = new Set();
+  return list.filter(a => {
+    const k = `${a.source}:${a.id}`;
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+}
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* ————— the gate ————— */
+function buildGate() {
+  const holder = $('constellation');
+  holder.innerHTML = '';
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(svgNS, 'svg');
+  svg.setAttribute('viewBox', '0 0 100 100');
+  svg.setAttribute('preserveAspectRatio', 'none');
+  holder.appendChild(svg);
+
+  const total = state.wings.reduce((s, w) => s + (w.count || 0), 0);
+  const mkStar = (slug, title, count, x, y, isRiver) => {
+    const el = document.createElement('button');
+    el.className = 'star' + (isRiver ? ' river' : '');
+    el.style.left = x + '%';
+    el.style.top = y + '%';
+    const [c1, c2] = paletteFor(slug);
+    el.style.setProperty('--c1', c1);
+    el.style.setProperty('--c-glow', c1 + '66');
+    el.style.setProperty('--c-glow-far', c2 + '44');
+    el.style.setProperty('--twinkle', (-(x + y) % 7) + 's');
+    el.innerHTML = `<span class="orb"></span><span class="star-name">${title}</span><span class="star-count">${count} works</span>`;
+    el.addEventListener('click', () => beginTrip(slug));
+    holder.appendChild(el);
+    if (!isRiver) {
+      const line = document.createElementNS(svgNS, 'line');
+      line.setAttribute('x1', '50'); line.setAttribute('y1', '50');
+      line.setAttribute('x2', String(x)); line.setAttribute('y2', String(y));
+      svg.appendChild(line);
+    }
+    return el;
+  };
+
+  mkStar('river', 'the river', total, 50, 50, true);
+  const n = state.wings.length;
+  state.wings.forEach((w, i) => {
+    const ang = (i / Math.max(n, 1)) * Math.PI * 2 - Math.PI / 2;
+    const jitter = ((i * 2654435761) % 13) - 6;      // deterministic wobble
+    const rx = 40 + jitter * 0.35, ry = 38 + jitter * 0.3;
+    const x = 50 + Math.cos(ang) * rx;
+    const y = 50 + Math.sin(ang) * ry;
+    mkStar(w.wing, w.title || w.wing, w.count || 0, x, y, false);
+  });
+  $('gate-status').textContent = total
+    ? `${total} open-access works · ${n} currents · all CC0, all free`
+    : 'the river is still gathering — try /catalog/index.json';
+}
+
+/* ————— dust ————— */
+function makeDust() {
+  const field = $('dust-field');
+  const colors = ['#ff6b9d', '#ffd700', '#00f0ff', '#e9e6dd'];
+  for (let i = 0; i < 26; i++) {
+    const d = document.createElement('div');
+    d.className = 'dust';
+    d.style.left = Math.random() * 100 + '%';
+    d.style.background = colors[i % colors.length];
+    d.style.setProperty('--dust-o', (0.08 + Math.random() * 0.2).toFixed(2));
+    d.style.setProperty('--dust-x', (Math.random() * 120 - 60).toFixed(0) + 'px');
+    d.style.animationDuration = (26 + Math.random() * 30).toFixed(1) + 's';
+    d.style.animationDelay = (-Math.random() * 40).toFixed(1) + 's';
+    field.appendChild(d);
+  }
+}
+
+/* ————— palette sampling: the painting lights its own void ————— */
+function sampleAura(img, fallback) {
+  try {
+    const c = document.createElement('canvas');
+    const w = 24, h = 24;
+    c.width = w; c.height = h;
+    const ctx = c.getContext('2d', { willReadFrequently: true });
+    ctx.drawImage(img, 0, 0, w, h);
+    const data = ctx.getImageData(0, 0, w, h).data;
+    let best = null, second = null;
+    const buckets = new Map();
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i], g = data[i + 1], b = data[i + 2];
+      const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      if (lum < 24 || lum > 242) continue;         // skip void-dark & blown-white
+      const key = `${r >> 5},${g >> 5},${b >> 5}`;
+      const e = buckets.get(key) || { n: 0, r: 0, g: 0, b: 0 };
+      e.n++; e.r += r; e.g += g; e.b += b;
+      buckets.set(key, e);
+    }
+    const sorted = [...buckets.values()].sort((a, b) => b.n - a.n);
+    const toCss = e => `rgb(${Math.round(e.r / e.n)}, ${Math.round(e.g / e.n)}, ${Math.round(e.b / e.n)})`;
+    if (sorted[0]) best = toCss(sorted[0]);
+    // second color: most-populous bucket that differs enough from the first
+    for (let i = 1; i < sorted.length; i++) {
+      const a = sorted[0], b = sorted[i];
+      const d = Math.abs(a.r / a.n - b.r / b.n) + Math.abs(a.g / a.n - b.g / b.n) + Math.abs(a.b / a.n - b.b / b.n);
+      if (d > 90) { second = toCss(sorted[i]); break; }
+    }
+    return [best || fallback[0], second || best || fallback[1]];
+  } catch (e) {
+    return fallback;                                // CORS-tainted canvas etc.
+  }
+}
+function setAura([a1, a2]) {
+  const root = document.documentElement;
+  root.style.setProperty('--a1', a1);
+  root.style.setProperty('--a2', a2);
+  $('aura').classList.add('lit');
+}
+
+/* ————— the hum: a drone that retunes to each artwork ————— */
+const PENTATONIC = [0, 3, 5, 7, 10];
+function makeAudio() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const master = ctx.createGain(); master.gain.value = 0;
+  const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 520; lp.Q.value = 0.4;
+  const mk = (freq, gain, type) => {
+    const o = ctx.createOscillator(); o.type = type || 'sine'; o.frequency.value = freq;
+    const g = ctx.createGain(); g.gain.value = gain;
+    o.connect(g); g.connect(lp); o.start();
+    return { o, g };
+  };
+  const voices = [mk(110, 0.5), mk(165.2, 0.28), mk(55, 0.34), mk(220.6, 0.09, 'triangle')];
+  lp.connect(master); master.connect(ctx.destination);
+  const lfo = ctx.createOscillator(); lfo.frequency.value = 1 / 14;
+  const lfoGain = ctx.createGain(); lfoGain.gain.value = 0.012;
+  lfo.connect(lfoGain); lfoGain.connect(master.gain); lfo.start();
+  return { ctx, master, lp, voices };
+}
+function humOn() {
+  if (!state.audio) state.audio = makeAudio();
+  const a = state.audio;
+  a.ctx.resume();
+  a.master.gain.cancelScheduledValues(a.ctx.currentTime);
+  a.master.gain.setTargetAtTime(0.045, a.ctx.currentTime, 2.5);
+}
+function humOff() {
+  const a = state.audio;
+  if (!a) return;
+  a.master.gain.cancelScheduledValues(a.ctx.currentTime);
+  a.master.gain.setTargetAtTime(0.00001, a.ctx.currentTime, 0.8);
+}
+function parseColor(css) {
+  let m;
+  if ((m = /rgb\((\d+),\s*(\d+),\s*(\d+)\)/.exec(css))) return [+m[1], +m[2], +m[3]];
+  if ((m = /#([0-9a-f]{6})/i.exec(css))) {
+    const n = parseInt(m[1], 16);
+    return [n >> 16 & 255, n >> 8 & 255, n & 255];
+  }
+  if ((m = /hsl\((\d+)/.exec(css))) return { hue: +m[1] };
+  return [128, 128, 128];
+}
+function retuneHum(cssColor) {
+  const a = state.audio;
+  if (!a || !state.soundOn) return;
+  const parsed = parseColor(cssColor);
+  const [r, g, b] = Array.isArray(parsed) ? parsed : [180, 160, 120];
+  const hue = Array.isArray(parsed) ? rgbHue(r, g, b) : parsed.hue;
+  const degree = PENTATONIC[Math.floor(hue / 360 * PENTATONIC.length) % PENTATONIC.length];
+  const base = 98 * Math.pow(2, degree / 12);       // G2 pentatonic root
+  const t = a.ctx.currentTime;
+  const targets = [base, base * 1.4983, base / 2, base * 2.0068]; // root, fifth, sub, octave-ish shimmer
+  a.voices.forEach((v, i) => {
+    v.o.frequency.cancelScheduledValues(t);
+    v.o.frequency.setTargetAtTime(targets[i], t, 5.5);  // slow six-second glide
+  });
+  const bright = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+  a.lp.frequency.setTargetAtTime(340 + bright * 640, t, 5);
+}
+function rgbHue(r, g, b) {
+  const mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+  if (mx === mn) return 0;
+  const d = mx - mn;
+  let h;
+  if (mx === r) h = ((g - b) / d) % 6;
+  else if (mx === g) h = (b - r) / d + 2;
+  else h = (r - g) / d + 4;
+  return ((h * 60) + 360) % 360;
+}
+
+/* ————— moments engine ————— */
+function clearTimers() { state.timers.forEach(clearTimeout); state.timers = []; }
+function after(ms, fn) { state.timers.push(setTimeout(fn, ms)); }
+
+function currentWork() { return state.works[state.idx]; }
+function activeMomentEl() {                          // the slot currently on screen
+  return state.momentFlip ? $('moment-a') : $('moment-b');
+}
+function nextMomentEl() {
+  state.momentFlip = !state.momentFlip;
+  return state.momentFlip ? $('moment-a') : $('moment-b');
+}
+
+function preload(i) {
+  const wantLarge = Math.max(innerWidth, innerHeight) * (devicePixelRatio || 1) > 1500;
+  for (let k = 1; k <= 3; k++) {
+    const w = state.works[(i + k) % state.works.length];
+    if (w && w.image) { const im = new Image(); im.src = (wantLarge && w.image_large) ? w.image_large : w.image; }
+  }
+}
+
+function showWhisper(work) {
+  const w = $('whisper');
+  w.querySelector('.w-title').textContent = work.title || 'Untitled';
+  w.querySelector('.w-artist').textContent = [work.artist, work.date].filter(Boolean).join(' · ') || 'artist unknown';
+  w.querySelector('.w-meta').textContent = [work.source_name, work.license || 'open access'].filter(Boolean).join(' — ');
+  w.classList.add('in');
+}
+function hideWhisper() { $('whisper').classList.remove('in'); }
+
+function playMoment(advanceBy = 1) {
+  clearTimers();
+  hideWhisper();
+  if (!state.works.length) return;
+  const gen = ++state.gen;
+
+  // bridge moment?
+  const isBridge = state.sinceBridge >= BRIDGE_EVERY && state.bridges.length && advanceBy === 1;
+  state.holdMs = isBridge ? BRIDGE_HOLD_MS : HOLD_MS;
+  state.elapsed = 0;
+
+  const leaving = activeMomentEl();                 // grab BEFORE the flip — this is the on-screen slot
+  leaving.classList.remove('entering', 'held');
+  leaving.classList.add('leaving');
+  after(3100, () => { leaving.classList.remove('leaving'); leaving.innerHTML = ''; });
+
+  const el = nextMomentEl();
+  el.classList.remove('leaving', 'held');
+  el.classList.toggle('bridge', isBridge);
+
+  if (isBridge) {
+    state.sinceBridge = 0;
+    const b = state.bridges[Math.floor(Math.random() * state.bridges.length)];
+    el.innerHTML = `<div class="frame"><div class="bridge-inner">
+      <div class="bridge-gap">${escapeHtml(b.gap || 'the gap')}</div>
+      <div class="bridge-piece">${escapeHtml(b.piece)}</div>
+      <div class="bridge-awakening">${escapeHtml(b.awakening ? '— ' + b.awakening : '')}</div>
+    </div></div>`;
+    setAura(paletteFor(state.wing));
+    el.classList.add('entering');
+    after(ENTER_MS, () => { el.classList.remove('entering'); el.classList.add('held'); });
+    startFlow();
+    return;
+  }
+
+  state.idx = ((state.idx + advanceBy) % state.works.length + state.works.length) % state.works.length;
+  state.sinceBridge++;
+  const work = currentWork();
+  updateRiverLine();
+  preload(state.idx);
+
+  const frame = document.createElement('div');
+  frame.className = 'frame';
+  frame.style.setProperty('--hold', (state.holdMs + ENTER_MS) + 'ms');
+  // gentle randomized ken burns
+  const s0 = (0.98 + Math.random() * 0.03).toFixed(3);
+  const s1 = (1.03 + Math.random() * 0.045).toFixed(3);
+  frame.style.setProperty('--kb-s0', s0);
+  frame.style.setProperty('--kb-s1', s1);
+  frame.style.setProperty('--kb-x0', (Math.random() * 2 - 1).toFixed(2) + '%');
+  frame.style.setProperty('--kb-y0', (Math.random() * 2 - 1).toFixed(2) + '%');
+  frame.style.setProperty('--kb-x1', (Math.random() * 3 - 1.5).toFixed(2) + '%');
+  frame.style.setProperty('--kb-y1', (Math.random() * 3 - 1.5).toFixed(2) + '%');
+
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.alt = `${work.title || 'Untitled'} — ${work.artist || 'artist unknown'}`;
+  img.decoding = 'async';
+  const wantLarge = Math.max(innerWidth, innerHeight) * (devicePixelRatio || 1) > 1500;
+  const src = (wantLarge && work.image_large) ? work.image_large : work.image;
+
+  let settled = false;
+  const arrive = () => {
+    if (settled || gen !== state.gen) return;
+    settled = true;
+    const fallback = paletteFor(work.wing || state.wing);
+    const aura = sampleAura(img, fallback);
+    setAura(aura);
+    retuneHum(aura[0]);
+    el.innerHTML = '';
+    frame.appendChild(img);
+    el.appendChild(frame);
+    el.classList.add('entering');
+    after(ENTER_MS, () => { el.classList.remove('entering'); el.classList.add('held'); });
+    after(WHISPER_IN_AT, () => showWhisper(work));
+    after(WHISPER_OUT_AT, hideWhisper);
+    startFlow();
+  };
+  const skip = () => {
+    if (settled || gen !== state.gen) return;
+    settled = true;
+    playMoment(1);                                  // dead image: the river flows on
+  };
+  img.onload = arrive;
+  img.onerror = () => {
+    if (settled || gen !== state.gen) return;
+    // retry once without crossOrigin (some hosts reject CORS but still serve the image)
+    const plain = new Image();
+    plain.alt = img.alt;
+    plain.onload = () => {
+      if (settled || gen !== state.gen) return;
+      settled = true;
+      setAura(paletteFor(work.wing || state.wing));
+      retuneHum(paletteFor(work.wing || state.wing)[0]);
+      el.innerHTML = '';
+      frame.appendChild(plain);
+      el.appendChild(frame);
+      el.classList.add('entering');
+      after(ENTER_MS, () => { el.classList.remove('entering'); el.classList.add('held'); });
+      after(WHISPER_IN_AT, () => showWhisper(work));
+      after(WHISPER_OUT_AT, hideWhisper);
+      startFlow();
+    };
+    plain.onerror = skip;
+    plain.src = work.image;
+  };
+  img.src = src;
+  after(9000, skip);                                // hard timeout: never stall the river
+}
+
+/* flow clock — tick-based so pause holds mid-moment */
+function startFlow() {
+  cancelAnimationFrame(state.raf);
+  state.lastTick = performance.now();
+  const tick = now => {
+    if (!state.playing) return;
+    if (!state.paused) {
+      state.elapsed += now - state.lastTick;
+      if (state.elapsed >= state.holdMs) { playMoment(1); return; }
+    }
+    state.lastTick = now;
+    state.raf = requestAnimationFrame(tick);
+  };
+  state.raf = requestAnimationFrame(tick);
+}
+
+function updateRiverLine() {
+  const pct = state.works.length ? ((state.idx + 1) / state.works.length) * 100 : 0;
+  $('river-fill').style.width = pct + '%';
+}
+
+function escapeHtml(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+/* ————— trip lifecycle ————— */
+async function beginTrip(slug) {
+  $('gate-status').textContent = 'entering…';
+  let works;
+  try {
+    works = await loadWing(slug);
+  } catch (e) {
+    $('gate-status').textContent = 'that current is dry — try another';
+    return;
+  }
+  if (!works.length) { $('gate-status').textContent = 'that current is dry — try another'; return; }
+  state.wing = slug;
+  state.works = works;
+  state.idx = -1;
+  state.sinceBridge = 0;
+  state.playing = true;
+  state.paused = false;
+  document.body.classList.remove('paused');
+  const wingMeta = state.wings.find(w => w.wing === slug);
+  $('hud-wing').textContent = slug === 'river' ? 'the river · all currents' : (wingMeta?.title || slug);
+  location.hash = slug === 'river' ? '' : slug;
+  $('gate').classList.add('gone');
+  $('stage').classList.add('on');
+  if (state.soundOn) humOn();
+  scheduleHudHide();
+  playMoment(1);
+}
+function surface() {                                 // esc — back to the gate
+  state.playing = false;
+  clearTimers();
+  cancelAnimationFrame(state.raf);
+  hideWhisper();
+  humOff();
+  document.body.classList.remove('paused', 'hud-hidden');
+  $('stage').classList.remove('on');
+  $('moment-a').innerHTML = ''; $('moment-b').innerHTML = '';
+  $('moment-a').className = 'moment'; $('moment-b').className = 'moment';
+  $('aura').classList.remove('lit');
+  $('gate').classList.remove('gone');
+  $('gate-status').textContent = 'welcome back — choose another current';
+  location.hash = '';
+}
+function togglePause() {
+  if (!state.playing) return;
+  state.paused = !state.paused;
+  document.body.classList.toggle('paused', state.paused);
+  $('btn-pause').textContent = state.paused ? 'flow' : 'breathe';
+  const stage = $('stage');
+  [...stage.querySelectorAll('.frame')].forEach(f => f.style.animationPlayState = state.paused ? 'paused' : 'running');
+}
+function toggleSound(fromGate) {
+  state.soundOn = !state.soundOn;
+  $('btn-sound').textContent = 'hum: ' + (state.soundOn ? 'on' : 'off');
+  $('btn-sound').classList.toggle('active', state.soundOn);
+  const g = $('gate-sound');
+  g.classList.toggle('on', state.soundOn);
+  g.setAttribute('aria-pressed', String(state.soundOn));
+  g.textContent = state.soundOn ? '♪ the hum is with you' : '✧ in silence — tap for the hum';
+  if (state.soundOn && (state.playing || fromGate)) humOn(); else humOff();
+}
+function toggleInfo() {
+  const p = $('placard');
+  if (p.classList.contains('open')) { p.classList.remove('open'); return; }
+  const w = currentWork();
+  if (!w || !state.playing) return;
+  const card = p.querySelector('.placard-card');
+  const [c1] = paletteFor(w.wing || state.wing);
+  card.style.setProperty('--c1', c1);
+  card.querySelector('.p-wing').textContent = (w.wing || state.wing || 'the river') + ' current';
+  card.querySelector('.p-title').textContent = w.title || 'Untitled';
+  card.querySelector('.p-artist').textContent = [w.artist || 'artist unknown', w.date].filter(Boolean).join(', ');
+  card.querySelector('.p-row').innerHTML =
+    [w.medium, w.department, w.source_name, (w.license || 'open access')].filter(Boolean).map(escapeHtml).join('<br>');
+  card.querySelector('.p-note').textContent = w.note || '';
+  const link = card.querySelector('.p-link');
+  if (w.url) { link.href = w.url; link.style.display = 'inline-block'; } else link.style.display = 'none';
+  p.classList.add('open');
+}
+function toggleFull() {
+  if (document.fullscreenElement) document.exitFullscreen();
+  else document.documentElement.requestFullscreen?.();
+}
+
+/* HUD auto-hide */
+let hudTimer = null;
+function scheduleHudHide() {
+  clearTimeout(hudTimer);
+  document.body.classList.remove('hud-hidden');
+  hudTimer = setTimeout(() => {
+    if (state.playing && !state.paused && !$('placard').classList.contains('open')) {
+      document.body.classList.add('hud-hidden');
+    }
+  }, 4200);
+}
+
+/* ————— input ————— */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if ($('placard').classList.contains('open')) { $('placard').classList.remove('open'); return; }
+    if (state.playing) surface();
+    return;
+  }
+  if (!state.playing) return;
+  if (e.key === ' ') { e.preventDefault(); togglePause(); scheduleHudHide(); }
+  else if (e.key === 'ArrowRight') { playMoment(1); scheduleHudHide(); }
+  else if (e.key === 'ArrowLeft') { playMoment(-1); scheduleHudHide(); }
+  else if (e.key === 'i' || e.key === 'I') toggleInfo();
+  else if (e.key === 'm' || e.key === 'M') toggleSound();
+  else if (e.key === 'f' || e.key === 'F') toggleFull();
+});
+document.addEventListener('mousemove', scheduleHudHide);
+document.addEventListener('click', e => {
+  if (e.target.closest('#placard') && !e.target.closest('.placard-card')) $('placard').classList.remove('open');
+});
+let touchX = null, touchY = null;
+document.addEventListener('touchstart', e => {
+  touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
+}, { passive: true });
+document.addEventListener('touchend', e => {
+  if (!state.playing || touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  const dy = e.changedTouches[0].clientY - touchY;
+  if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) playMoment(dx < 0 ? 1 : -1);
+  else if (Math.abs(dx) < 12 && Math.abs(dy) < 12 && !e.target.closest('button, a')) {
+    document.body.classList.toggle('hud-hidden');
+  }
+  touchX = null;
+}, { passive: true });
+
+$('btn-exit').addEventListener('click', surface);
+$('btn-pause').addEventListener('click', () => { togglePause(); scheduleHudHide(); });
+$('btn-sound').addEventListener('click', () => toggleSound());
+$('btn-info').addEventListener('click', toggleInfo);
+$('btn-full').addEventListener('click', toggleFull);
+$('gate-sound').addEventListener('click', () => toggleSound(true));
+
+/* ————— init ————— */
+(async function init() {
+  makeDust();
+  await loadIndex();
+  buildGate();
+  const want = decodeURIComponent(location.hash.slice(1));
+  if (want && (state.wings.some(w => w.wing === want) || want === 'river')) beginTrip(want);
+})();
+</script>
+</body>
+</html>

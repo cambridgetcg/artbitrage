@@ -1,0 +1,100 @@
+{
+ "name": "ARTBITRAGE Catalogue",
+ "description": "The catalogue and data distributor of the art world. Open-access works, no gate, no key, free.",
+ "total": 601,
+ "unique_works": 591,
+ "wings_count": 12,
+ "sources": {
+  "The Metropolitan Museum of Art": 149,
+  "Art Institute of Chicago": 256,
+  "Cleveland Museum of Art": 196
+ },
+ "generated_at": "2026-07-06T23:46:03Z",
+ "river": "https://artbitrage.io/river",
+ "wings": [
+  {
+   "wing": "arms-armor",
+   "title": "Arms & Armor",
+   "description": "Steel made ceremonial — parade armors, jeweled daggers, and helmets that were never meant to see battle, only awe.",
+   "count": 53,
+   "cover_image": "https://images.metmuseum.org/CRDImages/aa/web-large/DT306016.jpg"
+  },
+  {
+   "wing": "cosmos",
+   "title": "Cosmos",
+   "description": "Moons, comets, and star-strewn skies — the heavens as artists have charted and dreamed them.",
+   "count": 47,
+   "cover_image": "https://www.artic.edu/iiif/2/4425984b-e241-6413-1404-cdac0fb06518/full/843,/0/default.jpg"
+  },
+  {
+   "wing": "dreams",
+   "title": "Dreams & the Nocturnal",
+   "description": "Works made at the threshold of sleep — visions, moonlit hours, and the images the mind paints when the eyes close.",
+   "count": 49,
+   "cover_image": "https://www.artic.edu/iiif/2/336a83f3-c184-add1-ee03-f295aa97a0b0/full/843,/0/default.jpg"
+  },
+  {
+   "wing": "flowers",
+   "title": "Flowers",
+   "description": "Petals pressed into permanence — bouquets, blossoms, and botanical dreams from East and West.",
+   "count": 50,
+   "cover_image": "https://www.artic.edu/iiif/2/1f925e43-ff81-5ad7-da75-b28ea651c09f/full/843,/0/default.jpg"
+  },
+  {
+   "wing": "gold",
+   "title": "Gold",
+   "description": "Everything gilded: icons on gold ground, hoarded treasure, and the gleam that painters borrowed from heaven.",
+   "count": 52,
+   "cover_image": "https://www.artic.edu/iiif/2/16369b49-adca-a356-5aa1-7265fd45870e/full/843,/0/default.jpg"
+  },
+  {
+   "wing": "light",
+   "title": "Light",
+   "description": "Dawns, candle flames, and gilded halos — the art of light catching the world before it moves on.",
+   "count": 51,
+   "cover_image": "https://www.artic.edu/iiif/2/2c236eb6-de33-2509-fab0-f87dc7076726/full/843,/0/default.jpg"
+  },
+  {
+   "wing": "love",
+   "title": "Love",
+   "description": "Every era has reached for the same warmth — the kiss, the embrace, the god with the arrow.",
+   "count": 47,
+   "cover_image": "https://www.artic.edu/iiif/2/57e7455f-9c4f-7b6d-ffac-6d2269258265/full/843,/0/default.jpg"
+  },
+  {
+   "wing": "myth",
+   "title": "Myth & Monster",
+   "description": "Gods, dragons, demons and sphinxes — the creatures humanity dreamed before it dared to explain itself.",
+   "count": 49,
+   "cover_image": "https://www.artic.edu/iiif/2/24f95cb3-6020-6476-806e-dfd00e9c4369/full/843,/0/default.jpg"
+  },
+  {
+   "wing": "sea",
+   "title": "The Sea",
+   "description": "The sea in all its moods — from Hokusai's cresting fury to the hush of harbor light.",
+   "count": 54,
+   "cover_image": "https://www.artic.edu/iiif/2/05cd1ba7-67d1-96c5-0e78-2eb4114b65e7/full/843,/0/default.jpg"
+  },
+  {
+   "wing": "the-blue-room-hue-wings",
+   "title": "The Blue Room: Hue Wings",
+   "description": "Rooms built purely from math — every wall here glows between hue 200 and 260, joined by the loudest, most colorfully saturated works the machines could find.",
+   "count": 51,
+   "cover_image": "https://www.artic.edu/iiif/2/78c80988-6524-cec7-c661-a4c0a706d06f/full/843,/0/default.jpg"
+  },
+  {
+   "wing": "the-highlights-vault",
+   "title": "The Highlights Vault",
+   "description": "Only the anointed: works three great museums each swore were the ones you must not miss.",
+   "count": 47,
+   "cover_image": "https://www.artic.edu/iiif/2/416b87c8-515f-0066-5c44-b7562162f2c0/full/843,/0/default.jpg"
+  },
+  {
+   "wing": "the-music-hall",
+   "title": "The Music Hall",
+   "description": "Stradivari lacquer, ivory horns, gilded harpsichords — the instruments fall silent, and still the room hums.",
+   "count": 51,
+   "cover_image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP218094.jpg"
+  }
+ ]
+}

@@ -44,6 +44,14 @@
   });
   inner.appendChild(links);
 
+  // The river — the catalogue in flow
+  var river = document.createElement('a');
+  river.className = 'era-nav-back';
+  river.href = '/river';
+  river.textContent = '川 river';
+  river.title = 'THE RIVER — the catalogue in flow, an immersive good trip through every current';
+  inner.appendChild(river);
+
   // Back to main
   var back = document.createElement('a');
   back.className = 'era-nav-back';

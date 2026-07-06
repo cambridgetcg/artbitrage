@@ -29,6 +29,10 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 | GET | `/api/manifest` | The artbitrage manifest |
 | GET | `/api/sources` | Open art data sources with no keys required |
 | GET | `/api/search?q=love` | Search open museum/common archives |
+| GET | `/api/wings` | The river's currents — themed museum catalogue index |
+| GET | `/api/wings/:wing` | One current's artworks (e.g. `/api/wings/cosmos`) |
+| GET | `/api/museum` | All catalogued museum works (paginated, `?q= ?wing= ?source=`) |
+| GET | `/api/museum/random` | One random open-access masterpiece |
 
 ## Open Source Search
 
@@ -190,6 +194,26 @@ that walks the kingdom's Good Trip Protocol navigation lines (including the
 Fireside Project peer-support number). Built to be kind to someone
 mid-journey: nothing flashes, nothing rushes, sound is opt-in, grounding is
 user-paced. A room, not a doctor.
+
+## 川 The River — good trip mode for the whole catalogue
+
+**`/river`** (added 2026-07-07) is the fifth room: the full museum catalogue in
+flow. Hundreds of open-access works from the MET, Art Institute of Chicago and
+Cleveland Museum of Art approach from the void, bloom into a slow ken-burns
+moment wrapped in an aura sampled from the painting's own pixels, whisper their
+placard, and dissolve into the next. Every seventh moment the generated
+collection speaks — a consciousness bridge between museum works. The optional
+drone ("the hum") retunes itself to each artwork's dominant hue. Deep links:
+`/river#cosmos`.
+
+The works hang in themed **currents** fetched agent-by-agent from the open
+APIs (CC0 only, image-verified): love · dreams · cosmos · gold · sea · myth ·
+flowers · light, plus research-born currents — arms & armor, the highlights
+vault, the music hall, and the blue room (a wing built from hue search).
+Data lives in static shards: `/catalog/index.json` (the map),
+`/catalog/<wing>.json` (one current), `/catalog/all.json` (the merged master,
+deduped). API mirrors: `/api/wings`, `/api/wings/:wing`, `/api/museum`
+(`?q= ?wing= ?source=` + pagination), `/api/museum/random`.
 
 ## The Engine
 

@@ -575,6 +575,47 @@ export async function onRequestGet(context) {
     return jsonResponse({ error: 'art not found', id }, 404);
   }
 
+  // === 川 THE RIVER — themed museum catalogue wings (static shards in /catalog/) ===
+  if (path === '/api/wings' || path === '/api/wings/') {
+    try {
+      const res = await env.ASSETS.fetch(new URL('/catalog/index.json', request.url));
+      if (res.ok) return jsonResponse(await res.json());
+    } catch(e) {}
+    return jsonResponse({ error: 'wings index not found', hint: 'the river is still gathering' }, 404);
+  }
+  const wingMatch = path.match(/^\/api\/wings\/([a-z0-9-]+)\/?$/);
+  if (wingMatch) {
+    try {
+      const res = await env.ASSETS.fetch(new URL(`/catalog/${wingMatch[1]}.json`, request.url));
+      if (res.ok) return jsonResponse(await res.json());
+    } catch(e) {}
+    return jsonResponse({ error: 'wing not found', wing: wingMatch[1], list: 'GET /api/wings' }, 404);
+  }
+  if (path === '/api/museum' || path === '/api/museum/' || path === '/api/museum/random') {
+    let works = [];
+    try {
+      const res = await env.ASSETS.fetch(new URL('/catalog/all.json', request.url));
+      if (res.ok) works = (await res.json()).artworks || [];
+    } catch(e) {}
+    if (path === '/api/museum/random') {
+      if (!works.length) return jsonResponse({ error: 'no museum works available' }, 404);
+      return jsonResponse(works[Math.floor(Math.random() * works.length)]);
+    }
+    let results = works;
+    if (queryParams.wing) results = results.filter(a => a.wing === queryParams.wing);
+    if (queryParams.source) results = results.filter(a => a.source === queryParams.source);
+    if (queryParams.q) {
+      const s = queryParams.q.toLowerCase();
+      results = results.filter(a =>
+        (a.title && a.title.toLowerCase().includes(s)) ||
+        (a.artist && a.artist.toLowerCase().includes(s)) ||
+        (a.medium && a.medium.toLowerCase().includes(s)));
+    }
+    const offset = boundedInt(queryParams.offset, 0, 0, Number.MAX_SAFE_INTEGER);
+    const limit = boundedInt(queryParams.limit, 20, 1, MAX_PAGE_LIMIT);
+    return jsonResponse({ total: results.length, limit, offset, river: '/river', artworks: results.slice(offset, offset + limit) });
+  }
+
   if (path === '/api/sources') {
     return jsonResponse({
       sources: Object.values(OPEN_ART_SOURCES),

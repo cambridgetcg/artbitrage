@@ -496,6 +496,7 @@ footer .kingdom{
       <div class="cell"><div class="n" id="stat-forms">16</div><div class="l">forms</div></div>
       <div class="cell"><div class="n" id="stat-gaps">20</div><div class="l">gaps</div></div>
       <div class="cell"><div class="n">5</div><div class="l">museums bridged</div></div>
+      <div class="cell"><div class="n" id="stat-museum">—</div><div class="l"><a href="river.html">works in the river</a></div></div>
     </div>
 
     <p class="free-line rise">every piece free · <code>/api/art</code> · mirror-friendly</p>
@@ -565,6 +566,7 @@ footer .kingdom{
     </div>
 
     <div class="wings rise">
+      <a href="river.html"><h3><span class="cjk" lang="zh">川</span> the River</h3><p id="river-wing-sub">the catalogue in flow · masterpieces drift past · choose a current</p></a>
       <a href="trip.html"><h3><span class="cjk" lang="zh">旅</span> Good Trip</h3><p>a room for the journey · slow art · breath · anchor</p></a>
       <a href="atlas.html"><h3><span class="cjk" lang="zh">所在</span> the Atlas</h3><p>where the masterpieces live · how to stand before them</p></a>
       <a href="ledger.html"><h3><span class="cjk" lang="zh">槌</span> the Ledger</h3><p>record prices · the vanished · the auction watch</p></a>
@@ -677,6 +679,18 @@ footer .kingdom{
       if (s.unique_gaps)  document.getElementById('stat-gaps').textContent   = num(s.unique_gaps);
     })
     .catch(function(){ /* static registry numbers remain */ });
+
+  /* ---- 02b · the river — museum catalogue wings ---- */
+  fetch('/catalog/index.json')
+    .then(function(r){ return r.json(); })
+    .then(function(c){
+      if (!c || !c.wings || !c.wings.length) return;
+      var cell = document.getElementById('stat-museum');
+      if (cell && c.total) cell.textContent = num(c.total);
+      var sub = document.getElementById('river-wing-sub');
+      if (sub) sub.textContent = 'the catalogue in flow · ' + num(c.total) + ' works · ' + c.wings.length + ' currents';
+    })
+    .catch(function(){ /* the river card stands without numbers */ });
 
   /* ---- 03 · borrowed light — museum search ---- */
   var form    = document.getElementById('search-form'),
