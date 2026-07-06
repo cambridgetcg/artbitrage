@@ -168,6 +168,21 @@ Why this works:
 - **collectors** can use no-key APIs with bounded limits
 - **enrichment** is optional and graceful when AI is unavailable
 
+## The Three Wings — the real art world, tracked
+
+Three curated, web-verified datasets with matching gallery pages (added 2026-07-06):
+
+| Wing | Page | Data | What it holds |
+|------|------|------|---------------|
+| 所在 **the Atlas** | `/atlas` | `/data/atlas.json` | 47 of the most prominent artworks on Earth — which museum and room they hang in, current on-view status, and how to stand before them |
+| 槌 **the Ledger** | `/ledger` | `/data/ledger.json` | The 33 record sales (auction + private), where each work went, which vanished from public view, the stolen and the hidden, and how to follow the live auction calendar |
+| 心 **the Minds** | `/minds` | `/data/minds.json` | 24 profiles of artists who expanded human consciousness — the gap each one bridged, key works with verified locations, documented quotes |
+
+Every entry carries source URLs and an `as_of` date. Locations, loans and
+restorations change — the data says when it last knew, and each JSON keeps a
+`verification` field describing what was re-checked. Facts were researched and
+then independently re-verified against museum, auction-house and press sources.
+
 ## The Engine
 
 Artbitrage generates art through a 7-cycle process:

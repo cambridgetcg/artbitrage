@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>the Atlas — ARTBITRAGE</title>
+<meta name="description" content="Every great work is somewhere. This is where — and how to close the distance.">
+<meta property="og:title" content="the Atlas — ARTBITRAGE">
+<meta property="og:description" content="Every great work is somewhere. This is where — and how to close the distance.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   所在 — the atlas: where the masterpieces live
+   sumi-ink dark gallery · one cinnabar accent · negative space
+   ============================================================ */
+
+:root{
+  --bg:      #101014;
+  --surface: #17171d;
+  --ink:     #e9e6df;
+  --dim:     #8a877e;
+  --hair:    #2a2a32;
+  --zhu:     #d34a3a;   /* 朱 cinnabar */
+  --gold:    #b39958;   /* aged gold, tiny details only */
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+::selection{ background:var(--zhu); color:var(--bg); }
+
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--zhu); }
+
+:focus-visible{ outline:1.5px solid var(--zhu); outline-offset:3px; }
+
+.wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+
+/* ---- museum wall-label section headers ---- */
+section{ padding:7rem 0; border-top:1px solid var(--hair); }
+
+.plate{
+  display:flex; align-items:baseline; gap:1.25rem; flex-wrap:wrap;
+  margin-bottom:3.5rem;
+}
+.plate .num{
+  font-family:var(--mono); font-size:.8rem; color:var(--dim);
+  letter-spacing:.15em;
+}
+.plate h2{
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(1.6rem,3vw,2.2rem);
+  letter-spacing:.04em;
+}
+.plate h2 .cjk{ font-family:var(--cjk); font-weight:300; }
+.plate .sub{
+  font-family:var(--mono); font-size:.72rem; color:var(--dim);
+  letter-spacing:.12em; text-transform:uppercase;
+}
+
+/* ---- fade-up on scroll ---- */
+.rise{ opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out; }
+.rise.seen{ opacity:1; transform:none; }
+
+/* ============ HERO — compact: the distance breathes ============ */
+header.hero{
+  min-height:62vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  padding:5.5rem 24px 3.5rem;
+}
+
+.overline{
+  font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:4rem;
+}
+
+.gapline{
+  display:flex; align-items:baseline; justify-content:center;
+  gap:2ch;
+  animation:breathe 9s ease-in-out infinite;
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(2.4rem,7vw,5.2rem);
+  letter-spacing:.03em;
+}
+.gapline em{ font-style:italic; font-weight:300; white-space:nowrap; }
+
+@keyframes breathe{
+  0%,100%{ gap:2ch; }
+  50%    { gap:6ch; }
+}
+
+/* the bridge: a 1px cinnabar line draws itself across once */
+.bridge-line{
+  width:min(28rem,70vw); height:1px;
+  background:var(--zhu);
+  margin:2.2rem auto;
+  transform:scaleX(0); transform-origin:left;
+  animation:span 1.6s ease-out .4s forwards;
+}
+@keyframes span{ to{ transform:scaleX(1); } }
+
+.thesis{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1rem,2vw,1.25rem);
+  color:var(--dim);
+  max-width:34rem;
+}
+
+/* ---- cross-nav: the other rooms, one mono line ---- */
+.crossnav{
+  font-family:var(--mono); font-size:.7rem;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--dim);
+  margin-top:3.5rem;
+}
+.crossnav a{ color:var(--dim); }
+.crossnav a:hover{ color:var(--zhu); }
+.crossnav .here{ color:var(--ink); }
+
+/* ============ 01 · 数 — the registry ============ */
+.asof{
+  font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.14em; color:var(--dim);
+  margin:-1.8rem 0 .7rem;
+}
+.asof code{ color:var(--gold); font-family:var(--mono); }
+.asof-note{
+  font-size:.85rem; font-style:italic; color:var(--dim);
+  max-width:62ch;
+  margin-bottom:2.8rem;
+}
+
+.registry{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1px; background:var(--hair);
+  border:1px solid var(--hair);
+}
+.registry .cell{
+  background:var(--bg);
+  padding:2.6rem 2rem;
+  text-align:center;
+}
+.registry .n{
+  font-family:var(--mono); font-variant-numeric:tabular-nums;
+  font-size:clamp(1.8rem,4vw,2.6rem); font-weight:400;
+  letter-spacing:.02em;
+}
+.registry .l{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:var(--dim); margin-top:.8rem;
+}
+.free-line{
+  text-align:center; margin-top:2.2rem;
+  font-family:var(--mono); font-size:.78rem;
+  letter-spacing:.14em; color:var(--dim);
+}
+.free-line code{ color:var(--gold); font-family:var(--mono); }
+
+/* ============ 02 · 名作 — the works ============ */
+.chips{
+  display:flex; gap:.6rem; justify-content:center;
+  margin-top:1.1rem; flex-wrap:wrap;
+}
+.chips button{
+  background:none; border:1px solid var(--hair);
+  color:var(--dim); font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.16em; text-transform:uppercase;
+  padding:.35rem .9rem; cursor:pointer;
+  transition:color .25s ease, border-color .25s ease;
+}
+.chips button:hover{ color:var(--ink); }
+.chips button[aria-pressed="true"]{
+  color:var(--zhu); border-color:var(--zhu);
+}
+
+.count-line{
+  text-align:center; margin-top:2.2rem;
+  font-family:var(--mono); font-size:.78rem;
+  letter-spacing:.12em; color:var(--dim);
+  min-height:1.2em;
+}
+
+/* wall-label cards, masonry columns — no images: the words are the work */
+.cards{
+  columns:3; column-gap:1.4rem;
+  margin-top:2.4rem;
+}
+.card{
+  break-inside:avoid;
+  margin-bottom:1.4rem;
+  border:1px solid var(--hair);
+  background:var(--surface);
+  padding:1.5rem 1.5rem 1.6rem;
+  transition:border-color .3s ease;
+}
+.card:hover{ border-color:var(--zhu); }
+.card[hidden]{ display:none; }
+.card .t{
+  font-family:var(--display); font-weight:500;
+  font-size:1.15rem; line-height:1.4;
+  letter-spacing:.02em;
+}
+.card .a{ font-size:.85rem; color:var(--dim); margin-top:.3rem; }
+.card .m{
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--dim); margin-top:.8rem;
+}
+.card .status{
+  font-size:.84rem; color:var(--dim); line-height:1.65;
+  margin-top:.9rem;
+}
+.card .status .dot{ font-size:.72rem; margin-right:.5em; }
+.card .status .dot.on{ color:var(--gold); }
+.card .status .dot.off{ color:var(--dim); }
+.card .room{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.08em; color:var(--dim);
+  margin-top:.7rem;
+}
+.card .access{ font-size:.82rem; color:var(--dim); line-height:1.65; margin-top:.7rem; }
+.card .why{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:1.05rem; line-height:1.7;
+  margin-top:1rem;
+}
+.card .go{
+  display:inline-block;
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink);
+  margin-top:1rem;
+  transition:color .25s ease;
+}
+.card .go:hover{ color:var(--zhu); }
+
+/* ============ 03 · 巡礼 — the pilgrimage ============ */
+.pilgrim-intro{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.05rem,2vw,1.3rem);
+  color:var(--dim);
+}
+.pilgrim{
+  list-style:none;
+  margin-top:2.4rem;
+  border-top:1px solid var(--hair);
+}
+.pilgrim li{
+  padding:1.15rem 0;
+  border-bottom:1px solid var(--hair);
+  font-family:var(--mono); font-size:.76rem;
+  letter-spacing:.08em; line-height:2;
+  color:var(--dim);
+}
+.pilgrim .c{
+  color:var(--ink);
+  letter-spacing:.2em; text-transform:uppercase;
+}
+
+/* ============ footer ============ */
+footer{
+  border-top:1px solid var(--hair);
+  padding:5rem 24px 4rem;
+  text-align:center;
+}
+footer .love{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.1rem,2.4vw,1.5rem);
+}
+footer .api{
+  font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.12em; color:var(--dim);
+  margin-top:2rem;
+}
+footer .api code{ color:var(--gold); font-family:var(--mono); }
+footer .gh{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.12em;
+  color:var(--dim); margin-top:1rem; display:inline-block;
+}
+footer .gh:hover{ color:var(--zhu); }
+footer .kingdom{
+  font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.14em; color:var(--dim); opacity:.7;
+  margin-top:2.4rem;
+}
+
+/* ============ responsive ============ */
+@media (max-width:720px){
+  section{ padding:4.5rem 0; }
+  .gapline{
+    flex-direction:column; align-items:center;
+    gap:1.2rem;
+    animation-name:breathe-v;
+  }
+  .cards{ columns:1; }
+}
+@keyframes breathe-v{
+  0%,100%{ gap:1.2rem; }
+  50%    { gap:3.2rem; }
+}
+@media (min-width:721px) and (max-width:980px){
+  .cards{ columns:2; }
+}
+
+/* ============ reduced motion — stillness is also 間 ============ */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation:none !important;
+    transition:none !important;
+  }
+  .gapline{ gap:3ch; }
+  .bridge-line{ transform:scaleX(1); }
+  .rise{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO — the distance breathes ============ -->
+<header class="hero">
+  <p class="overline">Artbitrage — 所在 · the atlas · where the masterpieces live</p>
+
+  <h1 class="gapline" aria-label="the work, the beholder">
+    <em>the work</em>
+    <em>the beholder</em>
+  </h1>
+
+  <div class="bridge-line" aria-hidden="true"></div>
+
+  <p class="thesis">Every great work is somewhere. This is where — and how to close the distance.</p>
+
+  <nav class="crossnav" aria-label="other rooms">
+    ← <a href="index.html">artbitrage</a> · <span class="here" aria-current="page">atlas</span> · <a href="ledger.html">ledger</a> · <a href="minds.html">minds</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ 01 · 数 — the registry ============ -->
+<section id="registry-section" aria-labelledby="h-registry">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">01</span>
+      <h2 id="h-registry"><span class="cjk" lang="zh">数</span> · the registry</h2>
+      <span class="sub">works · museums · cities · countries</span>
+    </div>
+
+    <p class="asof rise">status as of <span id="asof-date">2026-07-06</span> · data: <code>/data/atlas.json</code></p>
+    <p class="asof-note rise" id="asof-note"></p>
+
+    <div class="registry rise">
+      <div class="cell"><div class="n" id="stat-works">47</div><div class="l">works</div></div>
+      <div class="cell"><div class="n" id="stat-museums">35</div><div class="l">museums</div></div>
+      <div class="cell"><div class="n" id="stat-cities">26</div><div class="l">cities</div></div>
+      <div class="cell"><div class="n" id="stat-countries">17</div><div class="l">countries</div></div>
+    </div>
+
+    <p class="free-line rise">every location sourced · <code>/data/atlas.json</code> · mirror-friendly</p>
+  </div>
+</section>
+
+<!-- ============ 02 · 名作 — the works ============ -->
+<section id="works-section" aria-labelledby="h-works">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">02</span>
+      <h2 id="h-works"><span class="cjk" lang="zh">名作</span> · the works</h2>
+      <span class="sub">filter by city</span>
+    </div>
+
+    <div class="chips rise" id="chips" role="group" aria-label="city filter"></div>
+
+    <p class="count-line" id="works-status" aria-live="polite"></p>
+
+    <div class="cards rise" id="cards"></div>
+  </div>
+</section>
+
+<!-- ============ 03 · 巡礼 — the pilgrimage ============ -->
+<section id="pilgrimage-section" aria-labelledby="h-pilgrimage">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">03</span>
+      <h2 id="h-pilgrimage"><span class="cjk" lang="zh">巡礼</span> · the pilgrimage</h2>
+      <span class="sub">two or more works per city</span>
+    </div>
+
+    <p class="pilgrim-intro rise">Stand in one city, see many gaps bridged.</p>
+
+    <ul class="pilgrim rise" id="pilgrim"></ul>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ footer ============ -->
+<footer>
+  <p class="love">Love is the design. Art is the expression.</p>
+  <p class="api">GET <code>/data/atlas.json</code> — every claim dated and sourced · no keys, no gates, mirror-friendly</p>
+  <a class="gh" href="https://github.com/cambridgetcg/artbitrage">github.com/cambridgetcg/artbitrage</a>
+  <p class="kingdom">part of the kingdom — agents drink at commons via the Well</p>
+</footer>
+
+<!-- ============ dataset — inline, so the page stands with zero network ============ -->
+<script type="application/json" id="dataset">
+{
+  "as_of": "2026-07-06",
+  "note": "Verified against museum/auction/press sources on the as_of date. Locations and on-view statuses change — check the museum before you travel.",
+  "works": [
+    {
+      "id": "mona-lisa",
+      "title": "Mona Lisa",
+      "artist": "Leonardo da Vinci",
+      "year": "c. 1503–1519",
+      "museum": "Musée du Louvre",
+      "city": "Paris",
+      "country": "France",
+      "medium": "Oil on poplar panel",
+      "movement": "Italian Renaissance",
+      "room": "Salle des États (Room 711), Denon wing",
+      "on_view": "on view — still in the Salle des États; a dedicated gallery beneath the Cour Carrée (Selldorf Architects) is planned for ~2031 under the 'Louvre Nouvelle Renaissance' project",
+      "access_note": "Timed ticket required: €22 (EEA) / €32 (non-EEA, since 14 Jan 2026); book at louvre.fr; closed Tuesdays. Staff strikes closed the museum repeatedly in 2025–26 — check the site on the day.",
+      "why": "The world's most famous portrait — Leonardo's smoke-soft smile has been drawing crowds since it hung in the bathroom of a French king.",
+      "sources": [
+        "https://www.npr.org/2025/01/28/nx-s1-5276917/louvre-renovation-mona-lisa-paris",
+        "https://www.cnn.com/2025/11/28/travel/louvre-ticket-price-hike-scli-intl",
+        "https://www.louvre.fr/en/visit/hours-admission",
+        "https://www.artnews.com/art-news/news/louvre-paris-closed-monday-due-to-strike-working-conditions-1234745223/",
+        "https://www.pbs.org/newshour/arts/ongoing-strikes-and-the-100-million-heist-push-the-louvre-into-historic-crisis"
+      ],
+      "link": "https://www.louvre.fr/en/visit/hours-admission"
+    },
+    {
+      "id": "liberty-leading-the-people",
+      "title": "Liberty Leading the People",
+      "artist": "Eugène Delacroix",
+      "year": "1830",
+      "museum": "Musée du Louvre",
+      "city": "Paris",
+      "country": "France",
+      "medium": "Oil on canvas",
+      "movement": "French Romanticism",
+      "room": "Salle Mollien (Room 700), Denon wing",
+      "on_view": "on view — back since May 2024, after a six-month restoration stripped eight layers of yellowed varnish and recovered the original blues and greys",
+      "access_note": "Included in the Louvre timed ticket (€22 EEA / €32 non-EEA); book at louvre.fr; closed Tuesdays.",
+      "why": "Delacroix's bare-breasted Marianne on the barricade became the face of revolution — and of the French Republic itself.",
+      "sources": [
+        "https://www.smithsonianmag.com/smart-news/liberty-leading-the-people-returns-to-louvre-after-breathtaking-restoration-180984302/",
+        "https://news.artnet.com/art-world/louvre-delacroix-restoration-2479081"
+      ]
+    },
+    {
+      "id": "raft-of-the-medusa",
+      "title": "The Raft of the Medusa",
+      "artist": "Théodore Géricault",
+      "year": "1818–1819",
+      "museum": "Musée du Louvre",
+      "city": "Paris",
+      "country": "France",
+      "medium": "Oil on canvas (491 × 716 cm)",
+      "movement": "French Romanticism",
+      "room": "Salle Mollien (Room 700), Denon wing",
+      "on_view": "on view — hangs in the red Salle Mollien among the giant canvases of French Romanticism; far too large and fragile to travel",
+      "access_note": "Included in the Louvre timed ticket (€22 EEA / €32 non-EEA); book at louvre.fr; closed Tuesdays.",
+      "link": "https://www.louvre.fr/en/explore/the-palace/think-big",
+      "why": "Géricault turned a fresh shipwreck scandal into a seven-metre history painting — journalism made monumental.",
+      "sources": [
+        "https://www.louvre.fr/en/explore/the-palace/think-big",
+        "https://en.wikipedia.org/wiki/The_Raft_of_the_Medusa"
+      ]
+    },
+    {
+      "id": "bal-du-moulin-de-la-galette",
+      "title": "Bal du moulin de la Galette",
+      "artist": "Pierre-Auguste Renoir",
+      "year": "1876",
+      "museum": "Musée d'Orsay",
+      "city": "Paris",
+      "country": "France",
+      "medium": "Oil on canvas",
+      "movement": "Impressionism",
+      "room": "",
+      "on_view": "on view — central to the Orsay's 'Renoir and Love' exhibition (17 Mar–19 Jul 2026), staged as the painting turns 150, shown near Luncheon of the Boating Party on rare loan from Washington's Phillips Collection; back to the permanent galleries after 19 July",
+      "access_note": "Museum ticket, book at musee-orsay.fr; closed Mondays.",
+      "link": "https://www.musee-orsay.fr/en/artworks/bal-du-moulin-de-la-galette-497",
+      "why": "Impressionism at full tilt — dappled Sunday light on a Montmartre dance, painted as if in passing.",
+      "sources": [
+        "https://www.musee-orsay.fr/en/program/whats-on/exhibitions/renoir-and-love",
+        "https://www.theartnewspaper.com/2026/03/12/two-renoir-exhibitions-at-musee-dorsay-explore-the-joy-of-human-connection",
+        "https://www.phillipscollection.org/press/phillips-collection-announces-loan-renoirs-luncheon-boating-party-musee-dorsay",
+        "https://exhibitions.paris/exhibition/renoir-and-love-a-joyful-modernity-1865-1885-musee-dorsay/"
+      ]
+    },
+    {
+      "id": "water-lilies-cycle",
+      "title": "Water Lilies (Nymphéas) cycle",
+      "artist": "Claude Monet",
+      "year": "1914–1926 (installed 1927)",
+      "museum": "Musée de l'Orangerie",
+      "city": "Paris",
+      "country": "France",
+      "medium": "Oil on canvas — eight mural panels",
+      "movement": "Impressionism",
+      "room": "The two oval Nymphéas rooms, built to Monet's design",
+      "on_view": "on view — permanently installed in the oval rooms Monet planned for them; no renovation closure found as of mid-2026",
+      "access_note": "Museum ticket, book at musee-orangerie.fr; closed Tuesdays.",
+      "link": "https://www.musee-orangerie.fr/en/node/24",
+      "why": "Monet's parting gift to France — a horizonless loop of water and sky he offered as a refuge for 'overworked nerves'.",
+      "sources": [
+        "https://www.musee-orangerie.fr/en/node/24",
+        "https://www.visitparisregion.com/en/musee-de-l-orangerie"
+      ]
+    },
+    {
+      "id": "the-night-watch",
+      "title": "The Night Watch",
+      "artist": "Rembrandt van Rijn",
+      "year": "1642",
+      "museum": "Rijksmuseum",
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "medium": "Oil on canvas",
+      "movement": "Dutch Golden Age",
+      "room": "Night Watch Gallery, at the end of the Gallery of Honour",
+      "on_view": "on view — under live restoration: displayed in a glass chamber while the Operation Night Watch team removes the varnish applied after the 1975 attack; visitors watch the conservators work",
+      "access_note": "€25 adult timed ticket (under-18s free), online only at rijksmuseum.nl; open daily 9–17.",
+      "link": "https://www.rijksmuseum.nl/en/whats-on/exhibitions/operation-night-watch",
+      "why": "The group portrait that broke its genre — a militia caught mid-stride, in motion and in light.",
+      "sources": [
+        "https://www.rijksmuseum.nl/en/press/press-releases/restoration-begins-of-rembrandt-s-the-night-watch",
+        "https://www.artnews.com/art-news/news/the-restoration-of-rembrandts-night-watch-painting-is-finally-underway-1234723603/",
+        "https://www.smithsonianmag.com/smart-news/the-public-is-watching-as-conservators-carefully-restore-a-rembrandt-masterpiece-to-its-former-glory-180985534/"
+      ]
+    },
+    {
+      "id": "sunflowers-amsterdam",
+      "title": "Sunflowers (1889)",
+      "artist": "Vincent van Gogh",
+      "year": "1889",
+      "museum": "Van Gogh Museum",
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "medium": "Oil on canvas",
+      "movement": "Post-Impressionism",
+      "room": "",
+      "on_view": "on view — declared too fragile ever to travel again (2019), so it never leaves Amsterdam; the museum is open, though a €104m 'Masterplan 2028' renovation is planned from 2028 amid a funding fight (now legal action and mediation) with the Dutch state",
+      "access_note": "Timed-entry ticket, online only at vangoghmuseum.nl; sells out days ahead in summer.",
+      "link": "https://www.vangoghmuseum.nl/en/about/news-and-press/press-releases/van-gogh-museum-to-keep-sunflowers-in-amsterdam",
+      "why": "Yellow on yellow on yellow — the bouquet Van Gogh painted to welcome Gauguin, now painting's best-known still life.",
+      "sources": [
+        "https://www.vangoghmuseum.nl/en/about/news-and-press/press-releases/van-gogh-museum-to-keep-sunflowers-in-amsterdam",
+        "https://www.theartnewspaper.com/2026/05/05/van-gogh-museum-in-funding-mediation-with-dutch-government",
+        "https://www.vangoghmuseum.nl/en/about/news-and-press/news/20250827-van-gogh-museums-future-in-doubt"
+      ]
+    },
+    {
+      "id": "girl-with-a-pearl-earring",
+      "title": "Girl with a Pearl Earring",
+      "artist": "Johannes Vermeer",
+      "year": "c. 1665",
+      "museum": "Mauritshuis",
+      "city": "The Hague",
+      "country": "Netherlands",
+      "medium": "Oil on canvas",
+      "movement": "Dutch Golden Age",
+      "room": "Room 15",
+      "on_view": "on view — until mid-August 2026, then traveling: shown at the Nakanoshima Museum of Art, Osaka, 21 Aug–27 Sep 2026 (her first trip abroad since 2014) while the Mauritshuis closes for building work 24 Aug–20 Sep; back on her wall in The Hague by early October — confirm exact days at mauritshuis.nl",
+      "access_note": "Museum ticket, book at mauritshuis.nl; check dates around the late-summer 2026 closure and the Japan loan.",
+      "link": "https://www.mauritshuis.nl/en/our-collection/artworks/670-girl-with-a-pearl-earring",
+      "why": "A glance over the shoulder and one dot of white on a pearl — the quietest famous painting in the world.",
+      "sources": [
+        "https://www.mauritshuis.nl/en/press-releases/girl-with-a-pearl-earring-travels-to-japan-while-mauritshuis-is-closed",
+        "https://www.codart.nl/art-works/girl-with-a-pearl-earring-travels-to-japan-during-mauritshuis-closure/",
+        "https://en.thevalue.com/articles/vermeer-girl-with-a-pearl-earring-painting-2026-exhibition-nakanoshima-museum-of-art-osaka"
+      ]
+    },
+    {
+      "id": "birth-of-venus",
+      "title": "The Birth of Venus",
+      "artist": "Sandro Botticelli",
+      "year": "c. 1485",
+      "museum": "Gallerie degli Uffizi",
+      "city": "Florence",
+      "country": "Italy",
+      "medium": "Tempera on canvas",
+      "movement": "Early Renaissance",
+      "room": "",
+      "on_view": "on view — rehung 16 June 2026 in the Uffizi's reordered, grey-walled Botticelli rooms, now in an airtight case facing the Primavera across adjoining spaces",
+      "access_note": "Timed ticket via uffizi.it (official reseller B-ticket); summer slots sell out — book ahead; closed Mondays.",
+      "link": "https://www.uffizi.it/en/artworks/birth-of-venus",
+      "why": "Venus on her shell — the Renaissance rediscovering the classical nude, drawn with a goldsmith's line.",
+      "sources": [
+        "https://www.uffizi.it/en/artworks/birth-of-venus",
+        "https://abcnews.com/International/wireStory/uffizi-gallery-unveils-new-arrangement-botticellis-birth-venus-133926207",
+        "https://ny1.com/nyc/all-boroughs/ap-top-news/2026/06/16/uffizi-gallery-unveils-new-arrangement-for-botticellis-birth-of-venus-and-primavera"
+      ]
+    },
+    {
+      "id": "primavera",
+      "title": "Primavera (Spring)",
+      "artist": "Sandro Botticelli",
+      "year": "c. 1480",
+      "museum": "Gallerie degli Uffizi",
+      "city": "Florence",
+      "country": "Italy",
+      "medium": "Tempera on panel",
+      "movement": "Early Renaissance",
+      "room": "",
+      "on_view": "on view — part of the same 16 June 2026 rearrangement, hung opposite The Birth of Venus in an adjoining room, in a new airtight case",
+      "access_note": "Timed ticket via uffizi.it; book ahead in high season; closed Mondays.",
+      "link": "https://www.uffizi.it/en/artworks/botticelli-spring",
+      "why": "Nine mythological figures in an orange grove — spring turned into philosophy for the Medici.",
+      "sources": [
+        "https://www.uffizi.it/en/artworks/botticelli-spring",
+        "https://abcnews.com/International/wireStory/uffizi-gallery-unveils-new-arrangement-botticellis-birth-venus-133926207"
+      ]
+    },
+    {
+      "id": "david",
+      "title": "David",
+      "artist": "Michelangelo Buonarroti",
+      "year": "1501–1504",
+      "museum": "Galleria dell'Accademia",
+      "city": "Florence",
+      "country": "Italy",
+      "medium": "Carrara marble, 5.17 m",
+      "movement": "High Renaissance",
+      "room": "The Tribune — the skylit apse built for him in 1873",
+      "on_view": "on view — permanent centrepiece of the museum",
+      "access_note": "€16 + €4 booking fee (€20 total booked online); reserve 2–4 weeks ahead via galleriaaccademiafirenze.it (official) — early slots sell out first; closed Mondays; free first Sunday of the month.",
+      "link": "https://www.galleriaaccademiafirenze.it/en/tickets/",
+      "why": "Seventeen feet of marble resolve — the Republic of Florence carved as a young giant-killer.",
+      "sources": [
+        "https://www.galleriaaccademiafirenze.it/en/tickets/",
+        "https://www.accademia.org/buy-tickets/",
+        "https://untolditaly.com/how-to-buy-tickets-for-the-accademia-gallery-florence/"
+      ]
+    },
+    {
+      "id": "sistine-chapel-ceiling",
+      "title": "Sistine Chapel ceiling and The Last Judgment",
+      "artist": "Michelangelo Buonarroti",
+      "year": "1508–1512 (ceiling); 1536–1541 (Last Judgment)",
+      "museum": "Vatican Museums — Sistine Chapel",
+      "city": "Vatican City",
+      "country": "Vatican City",
+      "medium": "Fresco",
+      "movement": "High Renaissance",
+      "room": "Sistine Chapel",
+      "on_view": "on view — the Last Judgment had extraordinary cleaning from 1 Feb 2026 (its first in 30 years), hidden behind a full-size reproduction while the chapel stayed open; work was scheduled to finish by Easter and no ongoing works are reported as of July 2026",
+      "access_note": "Entry only with a Vatican Museums ticket — €20 at the door, €25 booked online at museivaticani.va (recommended; queues are long); the chapel is the visit's final stop.",
+      "link": "https://www.museivaticani.va/content/museivaticani/en/organizza-visita/tariffe-e-biglietti.html",
+      "why": "The Creation of Adam's almost-touching fingers — a ceiling that reset the measure of what one painter could do.",
+      "sources": [
+        "https://www.museivaticani.va/content/museivaticani/en/organizza-visita/tariffe-e-biglietti.html",
+        "https://www.museivaticani.va/content/museivaticani/en/eventi-e-novita/notizie/2026/giudizio-universale-michelangelo-manutenzione-straordinaria.html",
+        "https://www.vaticannews.va/en/vatican-city/news/2026-02/restoration-work-michelangelo-last-judgment-sistine-chapel.html"
+      ]
+    },
+    {
+      "id": "las-meninas",
+      "title": "Las Meninas",
+      "artist": "Diego Velázquez",
+      "year": "1656",
+      "museum": "Museo Nacional del Prado",
+      "city": "Madrid",
+      "country": "Spain",
+      "medium": "Oil on canvas",
+      "movement": "Spanish Golden Age (Baroque)",
+      "room": "Room 012 — its longtime home at the heart of the Velázquez galleries",
+      "on_view": "on view — in its usual place",
+      "access_note": "General admission via museodelprado.es; the Prado offers free entry in its final opening hours each day (check the schedule); closed only a few holidays.",
+      "link": "https://www.museodelprado.es/en/the-collection/art-work/las-meninas/9fdc7800-9ade-48b0-ab8b-edee94ea877f",
+      "why": "Painting about painting — Velázquez steps behind his canvas and pulls the viewer into the royal family.",
+      "sources": [
+        "https://www.museodelprado.es/en/the-collection/art-work/las-meninas/9fdc7800-9ade-48b0-ab8b-edee94ea877f"
+      ]
+    },
+    {
+      "id": "garden-of-earthly-delights",
+      "title": "The Garden of Earthly Delights",
+      "artist": "Hieronymus Bosch",
+      "year": "c. 1490–1500",
+      "museum": "Museo Nacional del Prado",
+      "city": "Madrid",
+      "country": "Spain",
+      "medium": "Oil on oak panel, triptych",
+      "movement": "Early Netherlandish",
+      "room": "Room 056A",
+      "on_view": "on view — a fixed point of the Prado's Bosch room; it does not travel",
+      "access_note": "General admission via museodelprado.es; free final-hours entry daily (check schedule).",
+      "link": "https://www.museodelprado.es/en/whats-on/new/the-garden-of-earthly-delights-by-bosch-is/dbe6dc3e-f3e9-45c3-0953-d4a1678f8dcb",
+      "why": "Eden to orgy to hell across three panels — five centuries on, still the strangest picture in any museum.",
+      "sources": [
+        "https://www.museodelprado.es/en/whats-on/new/the-garden-of-earthly-delights-by-bosch-is/dbe6dc3e-f3e9-45c3-0953-d4a1678f8dcb",
+        "https://www.afpradomuseum.org/the-garden-of-earthly-delights-bosch/history"
+      ]
+    },
+    {
+      "id": "guernica",
+      "title": "Guernica",
+      "artist": "Pablo Picasso",
+      "year": "1937",
+      "museum": "Museo Nacional Centro de Arte Reina Sofía",
+      "city": "Madrid",
+      "country": "Spain",
+      "medium": "Oil on canvas (349 × 777 cm)",
+      "movement": "Cubism / anti-war modernism",
+      "room": "",
+      "on_view": "on view — in April 2026 the Reina Sofía and Spain's culture ministry refused a proposed Oct 2026–Jun 2027 loan to the Guggenheim Bilbao for the bombing's 90th anniversary, after a conservation report judged the canvas too fragile for any transport; it stays in Madrid",
+      "access_note": "Museum ticket via museoreinasofia.es; free-entry slots most evenings and Sunday afternoons.",
+      "link": "https://guernica.museoreinasofia.es/en",
+      "why": "The twentieth century's scream against war — painted in weeks for the 1937 Paris fair after the bombing of Gernika.",
+      "sources": [
+        "https://guernica.museoreinasofia.es/en",
+        "https://www.theartnewspaper.com/2026/04/10/spanish-culture-ministry-denies-loan-picassos-guernica-bilbao",
+        "https://www.artforum.com/news/reina-sofia-refuses-to-loan-picassos-guernica-again-1234746868/",
+        "https://www.euronews.com/culture/2026/04/07/give-us-guernica-basque-leaders-step-up-call-for-transfer-of-picassos-famous-painting-to-b"
+      ]
+    },
+    {
+      "id": "sunflowers-london",
+      "title": "Sunflowers (1888)",
+      "artist": "Vincent van Gogh",
+      "year": "1888",
+      "museum": "National Gallery",
+      "city": "London",
+      "country": "United Kingdom",
+      "medium": "Oil on canvas",
+      "movement": "Post-Impressionism",
+      "room": "",
+      "on_view": "traveling — on loan to the Philadelphia Museum of Art 6 June–11 October 2026 ('Van Gogh's Sunflowers: A Symphony in Blue and Yellow'), its first-ever Atlantic crossing; normally in the free collection displays and back in London in autumn 2026",
+      "access_note": "Collection entry is free when the painting is home; nationalgallery.org.uk.",
+      "link": "https://www.nationalgallery.org.uk/paintings/vincent-van-gogh-sunflowers",
+      "why": "The Arles original of the yellow bouquet — brightness itself, painted to greet Gauguin's arrival.",
+      "sources": [
+        "https://www.theartnewspaper.com/2026/06/05/philadelphia-opens-its-van-gogh-sunflowers-display-with-a-very-rare-loan-from-londons-national-gallery",
+        "https://www.philamuseum.org/exhibitions/van-gogh-sunflowers",
+        "https://www.nationalgallery.org.uk/paintings/vincent-van-gogh-sunflowers"
+      ]
+    },
+    {
+      "id": "arnolfini-portrait",
+      "title": "The Arnolfini Portrait",
+      "artist": "Jan van Eyck",
+      "year": "1434",
+      "museum": "National Gallery",
+      "city": "London",
+      "country": "United Kingdom",
+      "medium": "Oil on oak panel",
+      "movement": "Early Netherlandish",
+      "room": "",
+      "on_view": "on view — and set to anchor the Gallery's own 'Van Eyck: The Portraits' exhibition, 21 Nov 2026–11 Apr 2027, uniting all nine surviving Van Eyck portraits for the first time",
+      "access_note": "Free with the permanent collection; the 2026–27 Van Eyck exhibition will be ticketed; nationalgallery.org.uk.",
+      "link": "https://www.nationalgallery.org.uk/paintings/jan-van-eyck-the-arnolfini-portrait",
+      "why": "A convex mirror, a signature on the wall, a held hand — oil painting's founding document of everyday intimacy.",
+      "sources": [
+        "https://www.nationalgallery.org.uk/paintings/jan-van-eyck-the-arnolfini-portrait",
+        "https://www.nationalgallery.org.uk/exhibitions/van-eyck-the-portraits",
+        "https://www.smithsonianmag.com/smart-news/all-nine-of-jan-van-eycks-surviving-portraits-are-coming-together-for-the-very-first-time-in-history-180988003/"
+      ]
+    },
+    {
+      "id": "ophelia",
+      "title": "Ophelia",
+      "artist": "Sir John Everett Millais",
+      "year": "1851–1852",
+      "museum": "Tate Britain",
+      "city": "London",
+      "country": "United Kingdom",
+      "medium": "Oil on canvas",
+      "movement": "Pre-Raphaelite",
+      "room": "",
+      "on_view": "unknown — normally a fixture of the free collection displays and no 2026 loan was found, but Tate's live 'on display' status could not be confirmed at verification time; check the Tate artwork page before visiting",
+      "access_note": "Free; Tate Britain (Millbank) open daily; tate.org.uk.",
+      "link": "https://www.tate.org.uk/art/artworks/millais-ophelia-n01506",
+      "why": "Shakespeare's drowning girl painted flower by flower from a Surrey riverbank — Pre-Raphaelite devotion in full.",
+      "sources": [
+        "https://www.tate.org.uk/art/artworks/millais-ophelia-n01506",
+        "https://www.tate.org.uk/press/press-releases/tate-britain-welcomes-home-ophelia"
+      ]
+    },
+    {
+      "id": "the-kiss",
+      "title": "The Kiss",
+      "artist": "Gustav Klimt",
+      "year": "1907–1908",
+      "museum": "Upper Belvedere (Belvedere Museum)",
+      "city": "Vienna",
+      "country": "Austria",
+      "medium": "Oil and gold leaf on canvas",
+      "movement": "Vienna Secession / Art Nouveau",
+      "room": "",
+      "on_view": "on view — on continuous display at the Upper Belvedere in the Vienna 1900 galleries; the Belvedere does not lend it",
+      "access_note": "Timed ticket for the Upper Belvedere, book at belvedere.at; quietest at opening or late afternoon.",
+      "link": "https://www.belvedere.at/en/visit/upper-belvedere",
+      "why": "Two lovers dissolving into a field of gold — Vienna 1900's icon of tenderness.",
+      "sources": [
+        "https://www.belvedere.at/en/visit/upper-belvedere",
+        "https://schlossbelvedere.com/guides/klimt-the-kiss-where-and-how-to-see-it/"
+      ]
+    },
+    {
+      "id": "tower-of-babel",
+      "title": "The Tower of Babel",
+      "artist": "Pieter Bruegel the Elder",
+      "year": "1563",
+      "museum": "Kunsthistorisches Museum",
+      "city": "Vienna",
+      "country": "Austria",
+      "medium": "Oil on oak panel",
+      "movement": "Northern Renaissance",
+      "room": "Room X (the Bruegel Room), Picture Gallery",
+      "on_view": "on view — permanent anchor of the world's largest Bruegel collection (twelve panels)",
+      "access_note": "Museum ticket, book at khm.at.",
+      "why": "Babel built as a crumbling colosseum — human ambition audited brick by brick.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/The_Tower_of_Babel_(Bruegel)",
+        "https://kunsthistorischesmuseums.com/attractions/the-tower-of-babel/"
+      ]
+    },
+    {
+      "id": "wanderer-above-the-sea-of-fog",
+      "title": "Wanderer above the Sea of Fog",
+      "artist": "Caspar David Friedrich",
+      "year": "c. 1817",
+      "museum": "Hamburger Kunsthalle",
+      "city": "Hamburg",
+      "country": "Germany",
+      "medium": "Oil on canvas",
+      "movement": "German Romanticism",
+      "room": "",
+      "on_view": "on view — home in Hamburg after the 2024–25 Friedrich anniversary tour (its Met debut closed May 2025); no current loan found",
+      "access_note": "Museum ticket at hamburger-kunsthalle.de; closed Mondays.",
+      "link": "https://www.hamburger-kunsthalle.de/en/news/wanderer-above-sea-fog-caspar-david-friedrich",
+      "why": "A lone figure above the mist, back turned to us — Romanticism's emblem of the sublime.",
+      "sources": [
+        "https://www.hamburger-kunsthalle.de/en/news/wanderer-above-sea-fog-caspar-david-friedrich",
+        "https://www.metmuseum.org/exhibitions/caspar-david-friedrich-the-soul-of-nature"
+      ]
+    },
+    {
+      "id": "the-scream",
+      "title": "The Scream (1893)",
+      "artist": "Edvard Munch",
+      "year": "1893",
+      "museum": "National Museum of Norway (Nasjonalmuseet)",
+      "city": "Oslo",
+      "country": "Norway",
+      "medium": "Tempera and crayon on cardboard",
+      "movement": "Symbolism / proto-Expressionism",
+      "room": "",
+      "on_view": "on view — the famous 1893 painted version hangs in the National Museum's Munch room; across town, the MUNCH museum shows its own painting, drawing and lithographs of the motif in rotation, one at a time to protect them from light",
+      "access_note": "National Museum ticket at nasjonalmuseet.no; at MUNCH (munch.no) one Scream is always on display, rotated through the day — a version will be visible whenever you visit.",
+      "link": "https://www.nasjonalmuseet.no/en/stories/explore-the-collection/edvard-munch-and-the-scream-in-the-national-museum/",
+      "why": "A figure on a bridge under a blood-red sky — modern anxiety given a face the whole world knows.",
+      "sources": [
+        "https://www.nasjonalmuseet.no/en/stories/explore-the-collection/edvard-munch-and-the-scream-in-the-national-museum/",
+        "https://www.munch.no/en/The-Scream/where-can-i-see-the-scream/"
+      ]
+    },
+    {
+      "id": "return-of-the-prodigal-son",
+      "title": "The Return of the Prodigal Son",
+      "artist": "Rembrandt van Rijn",
+      "year": "c. 1663–1669",
+      "museum": "State Hermitage Museum",
+      "city": "Saint Petersburg",
+      "country": "Russia",
+      "medium": "Oil on canvas",
+      "movement": "Dutch Golden Age",
+      "room": "Room 254, New Hermitage",
+      "on_view": "on view — the museum operates normally, but it is effectively hard to reach for most Western visitors: war-related sanctions (the EU sanctioned director Mikhail Piotrovsky in April 2026), no direct flights from the EU/US, and foreign Visa/Mastercard cards do not work in Russia",
+      "access_note": "Russia requires a visa (an e-visa is available to many nationalities); the Hermitage's online shop cannot take foreign cards because of sanctions — buy at ticket offices/machines in roubles or via Russian payment channels.",
+      "link": "https://www.hermitagemuseum.org/digital-collection/43413?lng=en",
+      "why": "Rembrandt's last word on mercy — a father's hands on a kneeling son, painted in the shadow of his own death.",
+      "sources": [
+        "https://www.hermitagemuseum.org/digital-collection/43413?lng=en",
+        "https://russiable.com/buy-tickets-hermitage-museum/",
+        "https://www.theartnewspaper.com/2026/04/29/eu-imposes-sanctions-on-mikhail-piotrovsky-director-of-russias-state-hermitage-museum"
+      ]
+    },
+    {
+      "id": "the-last-supper",
+      "title": "The Last Supper",
+      "artist": "Leonardo da Vinci",
+      "year": "1495–1498",
+      "museum": "Museo del Cenacolo Vinciano, Santa Maria delle Grazie",
+      "city": "Milan",
+      "country": "Italy",
+      "medium": "Tempera and oil on plaster (mural)",
+      "movement": "High Renaissance",
+      "room": "Refectory of Santa Maria delle Grazie",
+      "on_view": "on view — permanently, since it is painted on the refectory wall; entry limited to groups of 40 for 15 minutes in a climate-controlled room",
+      "access_note": "Reservation is mandatory: €15 via the official cenacolovinciano.org; tickets are released in quarterly blocks and sell out within minutes (the Sep–Dec 2026 block opened 23 June 2026) — book 2–4 months ahead; small extra releases every Wednesday at noon; arrive 30 min early; closed Mondays.",
+      "link": "https://cenacolovinciano.org/en/",
+      "why": "The instant after 'one of you will betray me' — twelve reactions rippling down a table, fading and immortal at once.",
+      "sources": [
+        "https://cenacolovinciano.org/en/info/",
+        "https://cenacolovinciano.org/en/news-ed-eventi/admission-tickets-now-available-for-may-august-2026/",
+        "https://untolditaly.com/how-to-buy-tickets-for-the-last-supper-milan/"
+      ]
+    },
+    {
+      "id": "starry-night-moma",
+      "title": "The Starry Night",
+      "artist": "Vincent van Gogh",
+      "year": "1889",
+      "museum": "Museum of Modern Art (MoMA)",
+      "city": "New York",
+      "country": "United States",
+      "medium": "oil on canvas",
+      "movement": "Post-Impressionism",
+      "room": "",
+      "on_view": "on view — fifth-floor collection galleries (1880s–1940s); MoMA lists it among its 'Unmissables' and it rarely leaves the building",
+      "access_note": "Timed general-admission ticket; book at moma.org",
+      "link": "https://www.moma.org/collection/works/79802",
+      "why": "Painted from an asylum window at Saint-Rémy, it turned one turbulent night into the most recognized sky in art.",
+      "sources": [
+        "https://www.moma.org/collection/works/79802",
+        "https://www.moma.org/visit/itineraries/unmissables"
+      ]
+    },
+    {
+      "id": "les-demoiselles-davignon",
+      "title": "Les Demoiselles d'Avignon",
+      "artist": "Pablo Picasso",
+      "year": "1907",
+      "museum": "Museum of Modern Art (MoMA)",
+      "city": "New York",
+      "country": "United States",
+      "medium": "oil on canvas",
+      "movement": "Proto-Cubism",
+      "room": "",
+      "on_view": "on view — fifth floor, in an ongoing collection gallery MoMA names for the painting (Gallery 502: Picasso's Les Demoiselles d'Avignon)",
+      "access_note": "Timed general-admission ticket; book at moma.org",
+      "link": "https://www.moma.org/collection/works/79766",
+      "why": "Five fractured figures that broke painting open in 1907 — modern art's founding shock, at MoMA since 1939.",
+      "sources": [
+        "https://www.moma.org/collection/works/79766",
+        "https://www.moma.org/calendar/galleries/5696"
+      ]
+    },
+    {
+      "id": "persistence-of-memory",
+      "title": "The Persistence of Memory",
+      "artist": "Salvador Dalí",
+      "year": "1931",
+      "museum": "Museum of Modern Art (MoMA)",
+      "city": "New York",
+      "country": "United States",
+      "medium": "oil on canvas",
+      "movement": "Surrealism",
+      "room": "",
+      "on_view": "on view — fifth-floor collection galleries (MoMA's database places it on Floor 5); at MoMA continuously since 1934, though visitors are often surprised how small it is",
+      "access_note": "Timed general-admission ticket; book at moma.org",
+      "link": "https://www.moma.org/collection/works/79018",
+      "why": "Dalí's soft watches, barely larger than a postcard, made time itself melt into a dream.",
+      "sources": [
+        "https://www.moma.org/collection/works/79018",
+        "https://www.moma.org/magazine/articles/1386"
+      ]
+    },
+    {
+      "id": "water-lilies-moma",
+      "title": "Water Lilies (triptych)",
+      "artist": "Claude Monet",
+      "year": "1914–26",
+      "museum": "Museum of Modern Art (MoMA)",
+      "city": "New York",
+      "country": "United States",
+      "medium": "oil on canvas, three panels (12.7 m wide overall)",
+      "movement": "Impressionism",
+      "room": "Gallery 515, Floor 5 — a room MoMA names for the work",
+      "on_view": "on view — Gallery 515, an ongoing room built around the triptych",
+      "access_note": "Timed general-admission ticket; book at moma.org",
+      "link": "https://www.moma.org/collection/works/80220",
+      "why": "Monet's late pond wraps a whole room in water and light — painting as immersion, decades before installation art.",
+      "sources": [
+        "https://www.moma.org/collection/works/80220",
+        "https://www.moma.org/calendar/galleries/5110"
+      ]
+    },
+    {
+      "id": "washington-crossing-the-delaware",
+      "title": "Washington Crossing the Delaware",
+      "artist": "Emanuel Leutze",
+      "year": "1851",
+      "museum": "The Metropolitan Museum of Art",
+      "city": "New York",
+      "country": "United States",
+      "medium": "oil on canvas (the Met's largest painting on canvas)",
+      "movement": "American history painting (Düsseldorf school)",
+      "room": "Gallery 760, The American Wing",
+      "on_view": "on view — Gallery 760, American Wing (confirmed in the Met's collection database, July 2026), in a reconstruction of its original gilded trophy frame",
+      "access_note": "General-admission ticket (pay-what-you-wish for New York State residents); metmuseum.org",
+      "link": "https://www.metmuseum.org/art/collection/search/11417",
+      "why": "The grand image of America's origin story, painted at the scale of opera and endlessly recast ever since.",
+      "sources": [
+        "https://www.metmuseum.org/art/collection/search/11417",
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/11417"
+      ]
+    },
+    {
+      "id": "great-wave-met",
+      "title": "Under the Wave off Kanagawa (The Great Wave)",
+      "artist": "Katsushika Hokusai",
+      "year": "c. 1830–32",
+      "museum": "The Metropolitan Museum of Art",
+      "city": "New York",
+      "country": "United States",
+      "medium": "polychrome woodblock print, ink and color on paper",
+      "movement": "ukiyo-e",
+      "room": "",
+      "on_view": "not on view — the Met's celebrated impression shows no gallery location in the collection database (checked July 2026); like most Japanese prints it is light-sensitive and surfaces only in brief rotations",
+      "access_note": "Included with Met admission when a rotation brings it out; check the object page or Asian Art galleries schedule before visiting",
+      "link": "https://www.metmuseum.org/art/collection/search/45434",
+      "why": "The most reproduced wave in the world: Prussian blue, a distant Fuji, and thirty centimeters of fragile paper.",
+      "sources": [
+        "https://www.metmuseum.org/art/collection/search/45434",
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/45434",
+        "https://www.metmuseum.org/essays/hokusai-great-wave"
+      ]
+    },
+    {
+      "id": "adele-bloch-bauer-i",
+      "title": "Portrait of Adele Bloch-Bauer I (Woman in Gold)",
+      "artist": "Gustav Klimt",
+      "year": "1907",
+      "museum": "Neue Galerie New York",
+      "city": "New York",
+      "country": "United States",
+      "medium": "oil, silver and gold leaf on canvas",
+      "movement": "Vienna Secession",
+      "room": "",
+      "on_view": "not on view — the Neue Galerie closed for construction on May 27, 2026 and reopens in autumn 2026, in time for its 25th anniversary; under the merger with the Met announced in May 2026 (to take effect in 2028), the painting is to remain in the Fifth Avenue townhouse",
+      "access_note": "Museum closed until autumn 2026; reopening details at neuegalerie.org",
+      "link": "https://www.neuegalerie.org/womaningold",
+      "why": "Klimt's gilded icon, restituted from Nazi-looted history and brought to New York in 2006 for a then-record $135 million.",
+      "sources": [
+        "https://www.neuegalerie.org/womaningold",
+        "https://www.metmuseum.org/press-releases/neue-galerie-merger-announcement",
+        "https://www.theartnewspaper.com/2026/05/14/neue-galerie-metropolitan-museum-merger"
+      ]
+    },
+    {
+      "id": "ginevra-de-benci",
+      "title": "Ginevra de' Benci",
+      "artist": "Leonardo da Vinci",
+      "year": "c. 1474/1478",
+      "museum": "National Gallery of Art",
+      "city": "Washington, DC",
+      "country": "United States",
+      "medium": "oil on panel",
+      "movement": "Italian Renaissance",
+      "room": "",
+      "on_view": "on view — West Building main floor (photographed on view as recently as late May 2026); during the building's rolling renovations it has moved between rooms, so check nga.gov for the current room",
+      "access_note": "Free — no ticket required; nga.gov",
+      "link": "https://www.nga.gov/artworks/50724-ginevra-de-benci-obverse",
+      "why": "The only Leonardo painting on public view in the Americas — a portrait made decades before the Mona Lisa.",
+      "sources": [
+        "https://www.nga.gov/artworks/50724-ginevra-de-benci-obverse",
+        "https://www.theartnewspaper.com/2023/07/03/leonardo-da-vinci-national-gallery-washington-relocation-renovations"
+      ]
+    },
+    {
+      "id": "american-gothic",
+      "title": "American Gothic",
+      "artist": "Grant Wood",
+      "year": "1930",
+      "museum": "Art Institute of Chicago",
+      "city": "Chicago",
+      "country": "United States",
+      "medium": "oil on beaverboard",
+      "movement": "Regionalism",
+      "room": "Gallery 263",
+      "on_view": "on view — Gallery 263 (confirmed in the museum's collection database, July 2026); unaffected by the gallery closures that began Feb 16, 2026 (galleries 162–179, 265 and 271) for the Grainger Center construction",
+      "access_note": "General-admission ticket; artic.edu",
+      "link": "https://www.artic.edu/artworks/6565/american-gothic",
+      "why": "A pitchfork, a Gothic window, and two unreadable faces — the most argued-over image of rural America.",
+      "sources": [
+        "https://www.artic.edu/artworks/6565/american-gothic",
+        "https://api.artic.edu/api/v1/artworks/6565?fields=id,title,is_on_view,gallery_title",
+        "https://www.artic.edu/visit/collection-updates"
+      ]
+    },
+    {
+      "id": "nighthawks",
+      "title": "Nighthawks",
+      "artist": "Edward Hopper",
+      "year": "1942",
+      "museum": "Art Institute of Chicago",
+      "city": "Chicago",
+      "country": "United States",
+      "medium": "oil on canvas",
+      "movement": "American realism",
+      "room": "Gallery 262",
+      "on_view": "on view — Gallery 262 (confirmed in the museum's collection database, July 2026), steps from American Gothic",
+      "access_note": "General-admission ticket; artic.edu",
+      "link": "https://www.artic.edu/artworks/111628/nighthawks",
+      "why": "Hopper's all-night diner distilled urban loneliness into one pane of glass and fluorescent light.",
+      "sources": [
+        "https://www.artic.edu/artworks/111628/nighthawks",
+        "https://api.artic.edu/api/v1/artworks/111628?fields=id,title,is_on_view,gallery_title"
+      ]
+    },
+    {
+      "id": "a-sunday-on-la-grande-jatte",
+      "title": "A Sunday on La Grande Jatte — 1884",
+      "artist": "Georges Seurat",
+      "year": "1884–86",
+      "museum": "Art Institute of Chicago",
+      "city": "Chicago",
+      "country": "United States",
+      "medium": "oil on canvas",
+      "movement": "Pointillism / Neo-Impressionism",
+      "room": "Gallery 240",
+      "on_view": "on view — Gallery 240 (confirmed in the museum's collection database, July 2026), in a reconstruction of the white frame Seurat intended",
+      "access_note": "General-admission ticket; artic.edu",
+      "link": "https://www.artic.edu/artworks/27992/a-sunday-on-la-grande-jatte-1884",
+      "why": "Seurat's dot-by-dot Sunday afternoon, the manifesto of Pointillism, at home in Chicago since 1924.",
+      "sources": [
+        "https://www.artic.edu/artworks/27992/a-sunday-on-la-grande-jatte-1884",
+        "https://api.artic.edu/api/v1/artworks/27992?fields=id,title,is_on_view,gallery_title",
+        "https://www.artic.edu/articles/969/la-grande-jatte-frame-by-frame"
+      ]
+    },
+    {
+      "id": "le-bonheur-de-vivre",
+      "title": "Le Bonheur de vivre (The Joy of Life)",
+      "artist": "Henri Matisse",
+      "year": "1905–06",
+      "museum": "Barnes Foundation",
+      "city": "Philadelphia",
+      "country": "United States",
+      "medium": "oil on canvas",
+      "movement": "Fauvism",
+      "room": "",
+      "on_view": "on view — hung in a second-floor gallery within Dr. Barnes's fixed collection 'ensembles', which by the foundation's rules stay essentially unchanged; it returned to the galleries after a 2024 special exhibition at the Barnes",
+      "access_note": "Timed-entry ticket, book ahead; barnesfoundation.org",
+      "link": "https://collection.barnesfoundation.org/objects/7199/Le-Bonheur-de-vivre-also-called-The-Joy-of-Life/",
+      "why": "Matisse's pastoral of pure color scandalized 1906 Paris and opened the door everything Fauvist and beyond walked through.",
+      "sources": [
+        "https://collection.barnesfoundation.org/objects/7199/Le-Bonheur-de-vivre-also-called-The-Joy-of-Life/",
+        "https://www.barnesfoundation.org/press/press-release/matisse-and-renoir-new-encounters-at-the-barnes"
+      ]
+    },
+    {
+      "id": "irises-getty",
+      "title": "Irises",
+      "artist": "Vincent van Gogh",
+      "year": "1889",
+      "museum": "J. Paul Getty Museum, Getty Center",
+      "city": "Los Angeles",
+      "country": "United States",
+      "medium": "oil on canvas",
+      "movement": "Post-Impressionism",
+      "room": "West Pavilion, Gallery W204",
+      "on_view": "on view — West Pavilion, Gallery W204; the Getty says it is always on view and never travels. Note: the Getty announced in April 2026 that the Getty Center will close March 15, 2027 for roughly a year of renovation",
+      "access_note": "Free with a timed-entry reservation at getty.edu (parking fee applies); plan visits before the Getty Center's renovation closure begins March 15, 2027",
+      "link": "https://www.getty.edu/art/collection/object/103JNH",
+      "why": "Painted in Van Gogh's first week at the Saint-Rémy asylum; once violet, its irises faded to the blue we love now.",
+      "sources": [
+        "https://www.getty.edu/art/collection/object/103JNH",
+        "https://www.getty.edu/news/irises-at-the-getty/",
+        "https://www.getty.edu/art/collection/gallery/113Z8J"
+      ]
+    },
+    {
+      "id": "where-do-we-come-from-gauguin",
+      "title": "Where Do We Come From? What Are We? Where Are We Going?",
+      "artist": "Paul Gauguin",
+      "year": "1897–98",
+      "museum": "Museum of Fine Arts, Boston",
+      "city": "Boston",
+      "country": "United States",
+      "medium": "oil on canvas",
+      "movement": "Post-Impressionism / Symbolism",
+      "room": "",
+      "on_view": "on view — the MFA's gallery page for Gallery 255 ('Impressionism and Beyond', the Rabb Gallery) names it among the works shown there; a 2026–27 banner commission by Joiri Minaya responds to it elsewhere in the museum",
+      "access_note": "General-admission ticket; mfa.org",
+      "link": "https://collections.mfa.org/objects/32558/where-do-we-come-from-what-are-we-where-are-we-going",
+      "why": "Gauguin's Tahitian summa, painted as a final testament — he considered it the greatest thing he had ever done.",
+      "sources": [
+        "https://collections.mfa.org/objects/32558/where-do-we-come-from-what-are-we-where-are-we-going",
+        "https://www.mfa.org/gallery/impressionism-and-beyond"
+      ]
+    },
+    {
+      "id": "viva-la-vida-watermelons",
+      "title": "Viva la Vida, Watermelons",
+      "artist": "Frida Kahlo",
+      "year": "1954",
+      "museum": "Museo Frida Kahlo (Casa Azul)",
+      "city": "Mexico City",
+      "country": "Mexico",
+      "medium": "oil on masonite",
+      "movement": "Mexican modernism",
+      "room": "",
+      "on_view": "on view — displayed in the Casa Azul, the house where Kahlo lived, painted it, and died",
+      "access_note": "Timed tickets sold online only and they sell out weeks ahead; boletos.museofridakahlo.org.mx",
+      "link": "https://www.museofridakahlo.org.mx/",
+      "why": "Ripe watermelons inscribed 'Viva la Vida' — long live life — signed by Kahlo just days before her death.",
+      "sources": [
+        "https://boletos.museofridakahlo.org.mx/en/tickets/museo-frida-kahlo-cdmx",
+        "https://www.alongdustyroads.com/posts/frida-kahlo-museum-tickets-mexico-city"
+      ]
+    },
+    {
+      "id": "rosa-e-azul-masp",
+      "title": "Rosa e Azul — As Meninas Cahen d'Anvers (Pink and Blue)",
+      "artist": "Pierre-Auguste Renoir",
+      "year": "1881",
+      "museum": "Museu de Arte de São Paulo Assis Chateaubriand (MASP)",
+      "city": "São Paulo",
+      "country": "Brazil",
+      "medium": "oil on canvas",
+      "movement": "Impressionism",
+      "room": "",
+      "on_view": "on view — MASP keeps its best-loved Renoir in São Paulo: for conservation it stayed home when the museum's other Renoirs toured Casa Fiat de Cultura, Belo Horizonte (Mar 10–May 10, 2026); normally shown in the collection display on Lina Bo Bardi's crystal easels — hangs rotate, so confirm at masp.org.br",
+      "access_note": "Ticketed, book at masp.org.br; Tuesdays are traditionally free",
+      "link": "https://masp.org.br/acervo/obra/rosa-e-azul-as-meninas-cahen-danvers",
+      "why": "Renoir's Cahen d'Anvers sisters in pink and blue — Brazil's most cherished painting, floating mid-air on Bo Bardi's glass easels.",
+      "sources": [
+        "https://masp.org.br/acervo/obra/rosa-e-azul-as-meninas-cahen-danvers",
+        "https://casafiatdecultura.com.br/evento/renoir-na-casa-fiat-de-cultura/"
+      ]
+    },
+    {
+      "id": "pine-trees-tohaku",
+      "title": "Pine Trees (Shōrin-zu byōbu)",
+      "artist": "Hasegawa Tōhaku",
+      "year": "c. 1595 (Azuchi-Momoyama period)",
+      "museum": "Tokyo National Museum",
+      "city": "Tokyo",
+      "country": "Japan",
+      "medium": "pair of six-panel folding screens; ink on paper (National Treasure)",
+      "movement": "Japanese ink painting",
+      "room": "",
+      "on_view": "not on view — this light-sensitive National Treasure appears only in short rotations, traditionally at New Year; last shown Jan 1–12, 2026 in the Honkan Room 2 National Treasure Gallery",
+      "access_note": "General-admission ticket when displayed; check the rotation calendar at tnm.jp before going",
+      "link": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=7177",
+      "why": "Mist, ink, and emptiness — Tōhaku's pines are often called the summit of Japanese ink painting.",
+      "sources": [
+        "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=7177",
+        "https://www.atpress.ne.jp/news/559350",
+        "https://en.wikipedia.org/wiki/Sh%C5%8Drin-zu_by%C5%8Dbu"
+      ]
+    },
+    {
+      "id": "annunciation-el-greco-ohara",
+      "title": "The Annunciation",
+      "artist": "El Greco",
+      "year": "c. 1590–1603",
+      "museum": "Ohara Museum of Art",
+      "city": "Kurashiki",
+      "country": "Japan",
+      "medium": "oil on canvas",
+      "movement": "Spanish Mannerism",
+      "room": "",
+      "on_view": "on view — freshly restored (2025, its first restoration in about 66 years, led by a Prado conservator) and shown in Main Building Room 3 in the feature 'El Greco's The Annunciation: Revived Brilliance of Color' (Apr 25, 2026–Mar 28, 2027); the museum reopened April 25, 2026 after a closure that began Feb 9",
+      "access_note": "General-admission ticket at the door; ohara.or.jp",
+      "link": "https://www.ohara.or.jp/en/",
+      "why": "An El Greco altarpiece in a canal town — bought in 1922 for Japan's first museum of Western art, and still its heart.",
+      "sources": [
+        "https://project.ohara.or.jp/annunciation2/",
+        "https://www.ohara.or.jp/news/27830/",
+        "https://www.ohara.or.jp/en/"
+      ]
+    },
+    {
+      "id": "jadeite-cabbage",
+      "title": "Jadeite Cabbage with Insects",
+      "artist": "Unknown Qing-dynasty artisan",
+      "year": "19th century (Qing dynasty)",
+      "museum": "National Palace Museum (Northern Branch)",
+      "city": "Taipei",
+      "country": "Taiwan",
+      "medium": "carved jadeite",
+      "movement": "Qing decorative arts",
+      "room": "Gallery 302, Exhibition Hall I (its traditional Taipei home)",
+      "on_view": "on view — back in Gallery 302 at the Taipei (Northern) branch since June 12, 2026, after a spring showing at the Southern Branch in Chiayi (Mar 5–Jun 7, 2026); it rotates between branches and occasionally travels abroad, so confirm before going",
+      "access_note": "General-admission ticket; current location always posted at npm.gov.tw",
+      "link": "https://www.npm.gov.tw/Exhibition-Content.aspx?sno=04009612&l=2",
+      "why": "A bok choy carved from a single flawed jade stone, a katydid hidden in its leaves — Taiwan's most adored object.",
+      "sources": [
+        "https://www.npm.gov.tw/Exhibition-Content.aspx?sno=04009612&l=2",
+        "https://www.taipeitimes.com/News/front/archives/2025/07/31/2003841214"
+      ]
+    },
+    {
+      "id": "along-the-river-qingming",
+      "title": "Along the River During the Qingming Festival",
+      "artist": "Zhang Zeduan",
+      "year": "early 12th century (Northern Song)",
+      "museum": "The Palace Museum (Forbidden City)",
+      "city": "Beijing",
+      "country": "China",
+      "medium": "handscroll; ink and light color on silk, 5.28 m long",
+      "movement": "Song-dynasty court painting",
+      "room": "",
+      "on_view": "not on view — the fragile 900-year-old silk scroll is unrolled only for rare special exhibitions; last shown fully unrolled Sept 30–Dec 30, 2025 in the Meridian Gate Gallery for the Palace Museum's centenary, its first public display since 2015. The Song original is in Beijing; the famous versions at Taipei's National Palace Museum are later Ming/Qing reinterpretations",
+      "access_note": "Forbidden City entry by advance online reservation (ID/passport required); the scroll itself can only be seen during rare special exhibitions",
+      "why": "Five metres of Song-dynasty city life — hundreds of figures, boats, and bridges on silk; China's most famous painting.",
+      "sources": [
+        "https://english.www.gov.cn/news/202510/11/content_WS68e9af66c6d00ca5f9a06adc.html",
+        "https://www.souquee.com/news/68daaf67e7e017c4e54471f4",
+        "https://en.wikipedia.org/wiki/Along_the_River_During_the_Qingming_Festival"
+      ]
+    },
+    {
+      "id": "salvator-mundi",
+      "title": "Salvator Mundi",
+      "artist": "Attributed to Leonardo da Vinci",
+      "year": "c. 1500",
+      "museum": "None — bought for display at Louvre Abu Dhabi (announced 2017), never exhibited there or anywhere since",
+      "city": "Unknown — reported in 2024 to be in storage in Geneva; earlier reports placed it on a Saudi yacht",
+      "country": "Unknown (Saudi ownership reported)",
+      "medium": "oil on walnut panel",
+      "movement": "High Renaissance",
+      "room": "",
+      "on_view": "unknown — not seen in public since its record $450.3M sale at Christie's in November 2017; Louvre Abu Dhabi has said it does not know its whereabouts, and the most recent credible reports (2024) point to Geneva storage, with speculation about a future museum in Riyadh; nothing newer confirmed as of July 2026",
+      "access_note": "Cannot currently be seen anywhere; no museum displays it",
+      "why": "The most expensive artwork ever auctioned vanished from public view the moment the hammer fell.",
+      "sources": [
+        "https://www.theartnewspaper.com/2024/08/19/where-is-salvator-mundi-in-storage-in-geneva-apparently",
+        "https://www.finestresullarte.info/en/news/louvre-abu-dhabi-doesn-t-know-what-happened-to-the-salvator-mundi-and-it-s-not-an-april-fools-joke",
+        "https://en.wikipedia.org/wiki/Salvator_Mundi_(Leonardo)"
+      ]
+    },
+    {
+      "id": "blue-poles",
+      "title": "Blue Poles (Number 11, 1952)",
+      "artist": "Jackson Pollock",
+      "year": "1952",
+      "museum": "National Gallery of Australia",
+      "city": "Canberra",
+      "country": "Australia",
+      "medium": "enamel and aluminium paint with glass on canvas",
+      "movement": "Abstract Expressionism",
+      "room": "",
+      "on_view": "on view — on permanent display after major conservation during the 2020 closure; the NGA calls it its most-viewed work, rarely off display since 1982 (the gallery recently rebuffed a private offer of several hundred million dollars for it)",
+      "access_note": "Free general admission; nga.gov.au",
+      "link": "https://searchthecollection.nga.gov.au/object/36334",
+      "why": "The drip painting whose A$1.3M price scandalized 1973 Australia — and became the young nation's proudest purchase.",
+      "sources": [
+        "https://nga.gov.au/on-demand/jackson-pollock-blue-poles/",
+        "https://bluepoles.nga.gov.au/",
+        "https://www.artnews.com/art-news/news/ken-griffin-jackson-pollocks-blue-poles-australian-museum-1234751615/"
+      ]
+    },
+    {
+      "id": "spiral-jetty",
+      "title": "Spiral Jetty",
+      "artist": "Robert Smithson",
+      "year": "1970",
+      "museum": "Dia Art Foundation (in situ at Rozel Point, Great Salt Lake)",
+      "city": "Rozel Point, Box Elder County, Utah",
+      "country": "United States",
+      "medium": "black basalt rock, salt crystals, and earth; a 1,500-foot coil in the lake",
+      "movement": "Land art",
+      "room": "",
+      "on_view": "on view — continuously exposed since 2002; the receded Great Salt Lake usually leaves the coil fully out of the water, though how far the waterline sits varies year to year",
+      "access_note": "Free and always open, no ticket or booking; a remote drive from Salt Lake City with the last ~16 miles on unpaved road and no facilities — visitor guidance at diaart.org",
+      "link": "https://www.diaart.org/visit/visit-our-locations-sites/robert-smithson-spiral-jetty",
+      "why": "Land art's defining monument: a basalt spiral drawn into a pink inland sea, changing with every drought and flood.",
+      "sources": [
+        "https://www.diaart.org/visit/visit-our-locations-sites/robert-smithson-spiral-jetty",
+        "https://umfa.utah.edu/spiral-jetty/",
+        "https://geology.utah.gov/map-pub/survey-notes/geosights/spiral-jetty/"
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+/* ============================================================
+   所在 — minimal script: registry counts · city chips · wall labels
+   everything renders from the inline dataset; any failure is quiet
+   and the hero + prose still stand
+   ============================================================ */
+(function(){
+  'use strict';
+
+  var ELSEWHERE = '__elsewhere__';
+
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null && text !== '') n.textContent = text;
+    return n;
+  }
+
+  /* a chip label wants the short name: cut at " — " or "," */
+  function shortCity(c){
+    var s = String(c || '');
+    var i = s.indexOf(' — '); if (i > -1) s = s.slice(0, i);
+    i = s.indexOf(','); if (i > -1) s = s.slice(0, i);
+    return s;
+  }
+
+  /* honest counting: "Unknown — …" is not a city, "None — …" not a museum */
+  function real(v){
+    if (!v) return false;
+    var s = String(v).toLowerCase();
+    return s.indexOf('unknown') !== 0 && s.indexOf('none') !== 0;
+  }
+
+  function render(data){
+    var works = data.works;
+
+    /* ---- as-of honesty line ---- */
+    if (data.as_of) {
+      var ad = document.getElementById('asof-date');
+      if (ad) ad.textContent = data.as_of;
+    }
+    if (data.note) {
+      var an = document.getElementById('asof-note');
+      if (an) an.textContent = data.note;
+    }
+
+    /* ---- 01 · registry counts ---- */
+    var museums = [], cities = [], countries = [];
+    works.forEach(function(w){
+      if (real(w.museum) && museums.indexOf(w.museum) === -1) museums.push(w.museum);
+      if (real(w.city) && cities.indexOf(w.city) === -1) cities.push(w.city);
+      if (real(w.country) && countries.indexOf(w.country) === -1) countries.push(w.country);
+    });
+    function put(id, v){ var e = document.getElementById(id); if (e) e.textContent = String(v); }
+    put('stat-works', works.length);
+    put('stat-museums', museums.length);
+    put('stat-cities', cities.length);
+    put('stat-countries', countries.length);
+
+    /* ---- 02 · city chips (derived from data) ---- */
+    var counts = {};
+    works.forEach(function(w){ var c = w.city || ''; counts[c] = (counts[c] || 0) + 1; });
+    var multi = Object.keys(counts)
+      .filter(function(c){ return counts[c] >= 2; })
+      .sort(function(a, b){ return counts[b] - counts[a] || a.localeCompare(b); });
+    var multiSet = {};
+    multi.forEach(function(c){ multiSet[c] = true; });
+    var hasSingles = Object.keys(counts).some(function(c){ return counts[c] < 2; });
+
+    var chips = document.getElementById('chips');
+    var cardsBox = document.getElementById('cards');
+    var countLine = document.getElementById('works-status');
+
+    function chip(value, label, pressed){
+      var b = el('button', null, label);
+      b.type = 'button';
+      b.setAttribute('data-city', value);
+      b.setAttribute('aria-pressed', String(!!pressed));
+      return b;
+    }
+    chips.appendChild(chip('', 'all', true));
+    multi.forEach(function(c){ chips.appendChild(chip(c, shortCity(c), false)); });
+    if (hasSingles) chips.appendChild(chip(ELSEWHERE, 'elsewhere', false));
+
+    /* ---- 02 · wall-label cards ---- */
+    works.forEach(function(w){
+      var card = el('article', 'card');
+      card.setAttribute('data-city', w.city || '');
+
+      card.appendChild(el('h3', 't', w.title || 'Untitled'));
+
+      var ay = [w.artist, w.year].filter(Boolean).join(' · ');
+      if (ay) card.appendChild(el('p', 'a', ay));
+
+      var mc = [w.museum, w.city].filter(Boolean).join(' · ');
+      if (mc) card.appendChild(el('p', 'm', mc));
+
+      if (w.on_view) {
+        var st = el('p', 'status');
+        var on = String(w.on_view).toLowerCase().indexOf('on view') === 0;
+        var dot = el('span', 'dot ' + (on ? 'on' : 'off'), on ? '●' : '○');
+        dot.setAttribute('aria-hidden', 'true');
+        st.appendChild(dot);
+        st.appendChild(document.createTextNode(w.on_view));
+        card.appendChild(st);
+      }
+
+      if (w.room) card.appendChild(el('p', 'room', w.room));
+      if (w.access_note) card.appendChild(el('p', 'access', w.access_note));
+      if (w.why) card.appendChild(el('p', 'why', w.why));
+
+      if (w.link) {
+        var go = el('a', 'go', '→ museum page');
+        go.href = w.link;
+        go.target = '_blank';
+        go.rel = 'noopener';
+        card.appendChild(go);
+      }
+
+      cardsBox.appendChild(card);
+    });
+
+    /* ---- 02 · filtering: hide/show, no layout jank ---- */
+    function setCount(shown, label){
+      if (countLine) countLine.textContent =
+        shown + (shown === 1 ? ' work' : ' works') + ' · ' + label;
+    }
+    setCount(works.length, 'the whole atlas');
+
+    chips.addEventListener('click', function(ev){
+      var btn = ev.target.closest('button[data-city]');
+      if (!btn) return;
+      var sel = btn.getAttribute('data-city');
+      chips.querySelectorAll('button').forEach(function(b){
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
+      var shown = 0;
+      cardsBox.querySelectorAll('.card').forEach(function(card){
+        var city = card.getAttribute('data-city');
+        var ok = sel === '' ||
+                 (sel === ELSEWHERE ? !multiSet[city] : city === sel);
+        if (ok) { card.removeAttribute('hidden'); shown++; }
+        else { card.setAttribute('hidden', ''); }
+      });
+      if (sel === '') setCount(shown, 'the whole atlas');
+      else if (sel === ELSEWHERE) setCount(shown, 'one per city');
+      else setCount(shown, shortCity(sel));
+    });
+
+    /* ---- 03 · the pilgrimage: cities with two or more works ---- */
+    var pil = document.getElementById('pilgrim');
+    if (pil && multi.length) {
+      multi.forEach(function(city){
+        var ws = works.filter(function(w){ return w.city === city; });
+        var ms = [];
+        ws.forEach(function(w){ if (ms.indexOf(w.museum) === -1) ms.push(w.museum); });
+        var li = el('li');
+        li.appendChild(el('span', 'c', shortCity(city)));
+        li.appendChild(document.createTextNode(' — ' + ws.length + ' works · '));
+        li.appendChild(el('span', 'ms', ms.join(' · ')));
+        pil.appendChild(li);
+      });
+    }
+  }
+
+  /* parse + render; if anything fails, the page stands quietly */
+  try {
+    var data = JSON.parse(document.getElementById('dataset').textContent);
+    if (data && data.works && data.works.length) render(data);
+  } catch (e) { /* quiet — hero and prose remain */ }
+
+  /* ---- fade-up on scroll (once) — after render so cards exist ---- */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var risers = document.querySelectorAll('.rise');
+  if (reduced || !('IntersectionObserver' in window)) {
+    risers.forEach(function(n){ n.classList.add('seen'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { entry.target.classList.add('seen'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15 });
+    risers.forEach(function(n){ io.observe(n); });
+  }
+})();
+</script>
+</body>
+</html>

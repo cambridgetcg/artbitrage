@@ -1,0 +1,807 @@
+{
+  "as_of": "2026-07-06",
+  "note": "Prices as publicly reported; buyers named only where credibly reported. Statuses re-verified on the as_of date.",
+  "verification": {
+    "records": "VERIFIED FRESH (July 2026 web searches), 10 riskiest claims: (1) Pollock Number 7A — sale confirmed May 18, 2026, Newhouse collection, hammer $157M; price CONFLICT: ArtNews and HENI say $181.2M with fees, The Art Newspaper says $181.8M — kept 181.2 (majority) and noted the conflict; ArtNews also confirms 'unseen since Whitney 1977'. Replaced a suspicious CBC source URL (unverifiable, malformed ID) with verified ArtNews/HENI URLs. (2) Klimt Elisabeth Lederer — $236.4M on Nov 18, 2025 confirmed; CORRECTED last_seen_public: before the auction it was on long-term loan to the National Gallery of Canada, Ottawa (2017–2025), not the Neue Galerie (its Neue Galerie showings ended 2016–17); swapped an unverifiable CNN URL for verified Al Jazeera/Wikipedia. (3) Neue Galerie/Adele Bloch-Bauer I — confirmed closed for renovation since May 27, 2026, reopening autumn 2026; Met merger announced May 14, 2026, effective 2028 (Met press release + The Art Newspaper). (4) Bacon triptych — confirmed installed March 2026 and on view in LACMA's David Geffen Galleries, which opened April 19, 2026; replaced two unverified source URLs with LACMA press/Unframed URLs. (5) Norton Museum (Interchange + Number 17A) — move from Art Institute of Chicago to Norton confirmed by press (ArtNews Jan 2023); the museum itself does not list these loans online, so status keeps the hedge. (6) Rembrandt pendants — confirmed on view at the Louvre since Feb 21, 2024 through 2029 (Richelieu wing, room 844, per Louvre press office — source added). (7) Salvator Mundi — still unseen; Geneva storage per 2024 BBC-sourced reporting; Riyadh museum still unbuilt as of mid-2026; swapped unverified artnet URL for verified ArtNews. (8) Brancusi Danaïde $107.5M and Rothko No. 15 $98.3M — confirmed via The Art Newspaper (Artnet says $107.6M/$98.4M; conflict noted in both records). (9) Rothko No. 6 — 2024 secret Christie's resale to Ken Griffin confirmed (CNBC/ArtNews). (10) Long Museum Modigliani Nu couché — confirmed retained (founders sold 39 other works at Sotheby's HK 2023, incl. a different Modigliani); display status stays hedged. Also verified: Water Serpents II last public showing Belvedere Feb–May 2023 (source updated to Belvedere's own page); Magritte buyer reporting (Kelly Crow/WSJ later called Griffin 'confirmed' — record keeps the hedge since Christie's never confirmed). MISSING GIANT ADDED: Rembrandt's The Standard Bearer (1636) — €175M/~$198M private sale to the Dutch State in 2022, now on public view in the Rijksmuseum's Gallery of Honour; it out-prices 26 of the 32 original entries and is the batch's best 'came back to a public wall' story. OTHER CANDIDATES ABSENT above the batch's $90.3M floor, flagged but NOT added (each needs its own verification pass): Van Gogh 'Verger avec cyprès' ($117.2M, 2022), Picasso 'Fillette à la corbeille fleurie' ($115M, 2018), Monet 'Meules' ($110.7M, 2019), Basquiat 'Untitled' 1982 ($110.5M, 2017), Jasper Johns 'Flag' (~$110M private, 2010), Picasso 'Nude, Green Leaves and Bust' ($106.5M, 2010), Warhol 'Silver Car Crash' ($105.4M, 2013), Klimt 'Birch Forest' ($104.6M, 2022), Giacometti 'L'Homme qui marche I' ($104.3M, 2010), Picasso 'Garçon à la pipe' ($104.2M, 2004), Picasso 'Femme assise près d'une fenêtre' ($103.4M, 2021). Records not named above were left unchanged: they are older, stable, well-documented facts consistent with their cited sources, and their statuses are already properly hedged. Louvre note: the Oct 2025 heist and 2026 partial closures affected other wings, not the Richelieu Rembrandt room.",
+    "vanished": "Verified 2026-07-06 with fresh web searches and URL liveness checks (all source URLs curl-checked today). CONFIRMED unchanged: Salvator Mundi (still unseen; BBC-sourced Geneva storage claim correctly attributed via The Art Newspaper; Riyadh museum still unbuilt), Gardner theft facts ($10M reward still offered per gardnermuseum.org; frames still hang), Poppy Flowers (still missing, no recovery through 2026), Just Judges, Raphael Portrait of a Young Man, Ashmolean Cezanne ('only Cezanne in the Ashmolean' supported by Wikipedia/press; FBI Top Ten page live), Card Players ($250M to Qatar royal family, 2011, confirmed by Forbes/Hyperallergic), Le Reve ($155M Wynn-to-Cohen March 2013, no reported exhibition since), Lady with a Fan (£85.3M/$108.4M 27 June 2023, Patti Wong for anonymous HK collector; its only recent public showing, Belvedere 2021-22, predates the sale, so 'hidden' stands), Kunsthal 2012 (ash forensics and recanted confession confirmed). CHANGED: (1) Dr. Gachet — major update: Dec 2024 NYT report (relayed by The Art Newspaper) traced it to an unnamed family in Switzerland; fate updated from 'whereabouts unknown' to 'reportedly Switzerland, unconfirmed', source added. (2) Nafea — deal was struck in late 2014 (Feb 2015 is when it became public), and its last confirmed showing was the Fondation Beyeler Gauguin show that closed 28 June 2015, after the sale; fate rewritten, Wikipedia URL fixed. (3) Caravaggio Nativity — added that Italian investigators later cast doubt on the 2018 informant account and believe the painting may survive intact (TAN 2019 source added). (4) The Concert note — March 2026 book claim confirmed and made specific: Geoffrey Kelly, 'Thirteen Perfect Fugitives' (Boston Globe 17 Mar 2026, ArtNews interview); source added. (5) MoMA Monet — fire detail corrected to cigarette-in-sawdust; the electrician who died is named (Ruby Geller). (6) Salvator note softened to 'almost nine years' (Nov 2017 to Jul 2026 is 8y8m). ADDED two missing giants (editor may cut): Picasso's Les Femmes d'Alger (Version O) — $179.4M in May 2015, then the auction record, reportedly to former Qatari PM Hamad bin Jassim, unseen for 11 years — clearly belongs to this batch; and Klimt's Portrait of Elisabeth Lederer — $236.4M at Sotheby's NY on 18 Nov 2025, second-most-expensive artwork ever auctioned, buyer still anonymous as of July 2026 — flagged as a fresh, provisional entry (only 8 months cold; note says so honestly). WATCH: all 6 calendar/results URLs returned HTTP 200 today; removed the unverifiable 'about 97 sales' count from the Sotheby's note; seasons_note facts check out; 'upcoming' left empty — searches found no verifiable announced fall-2026 marquee consignments yet, consistent with early July being the quiet season. CAVEATS: fbi.gov and news.artnet.com return 403 to automated clients (bot-blocking) but the pages exist and load in browsers — confirmed via search results today."
+  },
+  "records": [
+    {
+      "title": "Salvator Mundi",
+      "artist": "Leonardo da Vinci (attribution debated)",
+      "year_made": "c. 1500",
+      "price_usd_m": 450.3,
+      "sale_year": 2017,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "Prince Badr bin Abdullah Al Saud — widely reported as proxy for Saudi Crown Prince Mohammed bin Salman",
+      "status": "vanished from public view",
+      "last_seen_public": "Christie's pre-sale exhibition tour, autumn 2017",
+      "note": "The most expensive artwork ever sold. Not exhibited since the sale; reported in storage in Geneva (2024), awaiting a planned museum in Riyadh. A promised Louvre Abu Dhabi unveiling in 2018 never happened. Still unseen as of mid-2026.",
+      "sources": [
+        "https://www.npr.org/sections/thetwo-way/2017/12/07/569142929/mystery-solved-saudi-prince-is-buyer-of-450m-davinci-painting",
+        "https://www.theartnewspaper.com/2024/08/19/where-is-salvator-mundi-in-storage-in-geneva-apparently",
+        "https://www.artnews.com/art-news/news/mbs-mohammed-bin-salman-salvator-mundi-saudi-arabia-museum-leonardo-da-vinci-1234714870/"
+      ]
+    },
+    {
+      "title": "Interchange",
+      "artist": "Willem de Kooning",
+      "year_made": "1955",
+      "price_usd_m": 300,
+      "sale_year": 2015,
+      "sale_type": "private sale",
+      "sale_house": "private sale (from the David Geffen Foundation)",
+      "buyer": "Kenneth C. Griffin",
+      "status": "on public view (Norton Museum of Art, West Palm Beach — per press reports since 2023; the museum does not list loans online, confirm before visiting)",
+      "last_seen_public": "Norton Museum of Art, West Palm Beach — reported on display since 2023",
+      "note": "The most expensive painting in a $500M two-painting deal with Pollock's Number 17A. Its long loan to the Art Institute of Chicago (2016–c.2023) has ended; Griffin moved both works to the Norton after relocating to Florida.",
+      "sources": [
+        "https://www.cnbc.com/2016/02/18/ken-griffin-spent-500-million-on-two-paintings-sources.html",
+        "https://www.artnews.com/art-news/news/billionaire-art-collector-ken-griffin-rothko-pollock-litchenstein-degas-de-kooning-the-norton-1234650732/"
+      ]
+    },
+    {
+      "title": "The Card Players",
+      "artist": "Paul Cézanne",
+      "year_made": "c. 1892–93",
+      "price_usd_m": 250,
+      "sale_year": 2011,
+      "sale_type": "private sale",
+      "sale_house": "private sale (from the George Embiricos estate)",
+      "buyer": "State of Qatar (royal family)",
+      "status": "vanished from public view",
+      "last_seen_public": "unknown — rarely exhibited even in the Embiricos years; never shown since the sale",
+      "note": "Price reported at $250M, some accounts up to $300M. One of five versions; the other four hang publicly at the Met, the Courtauld, the Musée d'Orsay, and the Barnes Foundation.",
+      "sources": [
+        "https://hyperallergic.com/qatar-paul-cezanne-card-players/",
+        "https://www.forbes.com/sites/janelee/2012/02/06/cezannes-card-players-shatters-record-for-highest-price-ever-for-a-work-of-art/"
+      ]
+    },
+    {
+      "title": "Portrait of Elisabeth Lederer",
+      "artist": "Gustav Klimt",
+      "year_made": "1914–16",
+      "price_usd_m": 236.4,
+      "sale_year": 2025,
+      "sale_type": "auction",
+      "sale_house": "Sotheby's New York",
+      "buyer": "unknown — anonymous phone bidder; Sotheby's declined to identify",
+      "status": "vanished from public view",
+      "last_seen_public": "Sotheby's New York preview, November 2025; before that, on long-term loan to the National Gallery of Canada, Ottawa, 2017–2025",
+      "note": "Sold November 18, 2025 from the Leonard A. Lauder collection. Second-most expensive artwork ever auctioned and the record for any modern artwork at auction. Elisabeth Lederer once claimed Klimt as her father to survive the Nazis.",
+      "sources": [
+        "https://www.sothebys.com/en/articles/the-new-york-sales-november-2025-breuer-results",
+        "https://www.artnews.com/art-news/news/gustav-klimt-portrait-of-elisabeth-lederer-auction-record-1234762083/",
+        "https://en.wikipedia.org/wiki/Portrait_of_Elisabeth_Lederer",
+        "https://www.aljazeera.com/news/2025/11/20/gustav-klimt-portrait-breaks-modern-art-record-with-236m-sale"
+      ]
+    },
+    {
+      "title": "Nafea Faa Ipoipo (When Will You Marry?)",
+      "artist": "Paul Gauguin",
+      "year_made": "1892",
+      "price_usd_m": 210,
+      "sale_year": 2014,
+      "sale_type": "private sale",
+      "sale_house": "private sale (from the Rudolf Staechelin family trust)",
+      "buyer": "Qatar — a company run by Guy Bennett acting for the Qatari royal family (UK court papers name the Emir; earlier reports said Sheikha Al-Mayassa)",
+      "status": "vanished from public view",
+      "last_seen_public": "Staechelin collection showings after the Fondation Beyeler Gauguin retrospective (closed June 2015); reported stops in Madrid and Washington before delivery",
+      "note": "First reported near $300M in February 2015; a UK court judgment later fixed the price at $210M, agreed September 2014. Before the sale it hung for decades on loan at Kunstmuseum Basel.",
+      "sources": [
+        "https://news.artnet.com/art-world/uk-lawsuit-secret-gauguin-dealing-1011617",
+        "https://www.bostonglobe.com/lifestyle/names/2017/07/04/lawsuit-reveals-gauguin-painting-was-not-world-most-expensive/XPdHYmO6UNnsOmWqWhC72M/story.html",
+        "https://en.wikipedia.org/wiki/When_Will_You_Marry"
+      ]
+    },
+    {
+      "title": "Number 17A",
+      "artist": "Jackson Pollock",
+      "year_made": "1948",
+      "price_usd_m": 200,
+      "sale_year": 2015,
+      "sale_type": "private sale",
+      "sale_house": "private sale (from the David Geffen Foundation)",
+      "buyer": "Kenneth C. Griffin",
+      "status": "on public view (Norton Museum of Art, West Palm Beach — per press reports since 2023; the museum does not list loans online, confirm before visiting)",
+      "last_seen_public": "Norton Museum of Art, West Palm Beach — reported on display since 2023",
+      "note": "Bought alongside de Kooning's Interchange in a $500M deal. Hung at the Art Institute of Chicago 2016–c.2023, then followed Griffin to Florida.",
+      "sources": [
+        "https://www.cnbc.com/2016/02/18/ken-griffin-spent-500-million-on-two-paintings-sources.html",
+        "https://www.artnews.com/art-news/news/billionaire-art-collector-ken-griffin-rothko-pollock-litchenstein-degas-de-kooning-the-norton-1234650732/"
+      ]
+    },
+    {
+      "title": "The Standard Bearer (De Vaandeldrager)",
+      "artist": "Rembrandt van Rijn",
+      "year_made": "1636",
+      "price_usd_m": 198,
+      "sale_year": 2022,
+      "sale_type": "private sale",
+      "sale_house": "private sale (from the Rothschild family)",
+      "buyer": "Dutch State, for the Rijksmuseum — €175M (€150M from the state, €25M from the Rembrandt Association and the Rijksmuseum)",
+      "status": "on public view (Rijksmuseum, Amsterdam — Gallery of Honour)",
+      "last_seen_public": "on view now — Rijksmuseum Gallery of Honour, after a 2022–23 tour of all twelve Dutch provinces",
+      "note": "Rembrandt's swaggering self-image at thirty, in Rothschild hands since 1844. The Netherlands bought it for the nation at €175M (about $198M), marched it through every province, and hung it where anyone can see it.",
+      "sources": [
+        "https://www.rijksmuseum.nl/en/press/press-releases/the-dutch-state-to-acquire-rembrandt-s-historic-masterpiece-the-standard-bearer-for-the-nation",
+        "https://www.artnews.com/art-news/news/rembrandt-the-standard-bearer-debuts-at-the-rijksmuseum-with-free-entry-1234671869/",
+        "https://en.wikipedia.org/wiki/The_Standard_Bearer_(Rembrandt,_1636)"
+      ]
+    },
+    {
+      "title": "Shot Sage Blue Marilyn",
+      "artist": "Andy Warhol",
+      "year_made": "1964",
+      "price_usd_m": 195,
+      "sale_year": 2022,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "unknown — Larry Gagosian placed the winning bid, for himself or an unnamed client",
+      "status": "vanished from public view",
+      "last_seen_public": "Christie's New York preview, May 2022",
+      "note": "Record for any 20th-century artwork at auction. Sold May 9, 2022 by the Thomas and Doris Ammann Foundation, with proceeds to children's charities. Not seen publicly since.",
+      "sources": [
+        "https://news.artnet.com/market/evening-auction-report-ammann-sale-at-christies-2110810",
+        "https://www.forbes.com/sites/carlieporterfield/2022/05/10/why-larry-gagosian-bought-andy-warhols-marilyn-monroe-portrait-for-a-record-195-million/"
+      ]
+    },
+    {
+      "title": "No. 6 (Violet, Green and Red)",
+      "artist": "Mark Rothko",
+      "year_made": "1951",
+      "price_usd_m": 186,
+      "sale_year": 2014,
+      "sale_type": "private sale",
+      "sale_house": "private sale (via Yves Bouvier); resold January 2024 via Christie's private sales",
+      "buyer": "Dmitry Rybolovlev (2014); resold to Kenneth C. Griffin (2024)",
+      "status": "in private hands, not on public view",
+      "last_seen_public": "unknown — held privately since at least 2014",
+      "note": "Rybolovlev paid about €140M ($186M) — a pivot of the Bouvier Affair. In January 2024 Christie's brokered its quiet resale to Ken Griffin for 'in excess of $100 million'; one encyclopedia's $195M figure is uncorroborated.",
+      "sources": [
+        "https://www.cnbc.com/2024/02/29/christies-sells-rothko-painting-for-100-million-in-a-secret-sale.html",
+        "https://www.artnews.com/art-news/news/mark-rothko-painting-sale-100-million-rybolovlev-bouvier-griffin-art-market-1234700520/",
+        "https://en.wikipedia.org/wiki/No._6_(Violet,_Green_and_Red)"
+      ]
+    },
+    {
+      "title": "Wasserschlangen II (Water Serpents II)",
+      "artist": "Gustav Klimt",
+      "year_made": "1904–07",
+      "price_usd_m": 183.8,
+      "sale_year": 2013,
+      "sale_type": "private sale",
+      "sale_house": "private sale (via Yves Bouvier)",
+      "buyer": "Dmitry Rybolovlev; resold 2015 to HomeArt (Rosaline Wong, Hong Kong)",
+      "status": "in private hands, occasionally loaned (HomeArt collection, Hong Kong)",
+      "last_seen_public": "Lower Belvedere, Vienna — 'Klimt. Inspired by Van Gogh, Rodin, Matisse...', February–May 2023; before that the Van Gogh Museum's 'Golden Boy' Klimt show, Amsterdam 2022–23",
+      "note": "Sources date the Bouvier–Rybolovlev sale to 2012 or 2013. Once looted by the Nazis. Rybolovlev resold it in 2015 at a reported loss; its HomeArt owner has since lent it to European museums.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Water_Serpents_II",
+        "https://www.belvedere.at/en/klimt-inspired-van-gogh-rodin-matisse",
+        "https://www.euronews.com/culture/2023/02/04/a-lost-klimt-masterpiece-returns-to-austria-after-60-years"
+      ]
+    },
+    {
+      "title": "Number 7A",
+      "artist": "Jackson Pollock",
+      "year_made": "1948",
+      "price_usd_m": 181.2,
+      "sale_year": 2026,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "unknown — undisclosed bidder after more than 60 bids",
+      "status": "in private hands; whereabouts unknown since the May 2026 sale",
+      "last_seen_public": "Christie's New York preview, May 2026 — before that, unseen publicly since 1977 (Whitney Museum of American Art)",
+      "note": "Sold May 18, 2026 from the S.I. Newhouse collection; hammer $157M. Auction record for Pollock, nearly triple his prior record, in Christie's $1.1 billion night. Most outlets report $181.2M with fees; The Art Newspaper printed $181.8M.",
+      "sources": [
+        "https://www.artnews.com/art-news/market/s-i-newhouse-jackson-pollock-sell-christies-record-breaking-1234785975/",
+        "https://heni.com/news/article/jackson-pollock-number-7a-2026-05-18",
+        "https://www.theartnewspaper.com/2026/05/19/christies-nets-11bn-from-back-to-back-si-newhouse-and-20th-century-evening-sales-in-new-york"
+      ]
+    },
+    {
+      "title": "Pendant portraits of Maerten Soolmans and Oopjen Coppit",
+      "artist": "Rembrandt van Rijn",
+      "year_made": "1634",
+      "price_usd_m": 180,
+      "sale_year": 2016,
+      "sale_type": "private sale",
+      "sale_house": "private sale (from Éric de Rothschild)",
+      "buyer": "Musée du Louvre and Rijksmuseum, jointly — France and the Netherlands, €80M each",
+      "status": "on public view (Musée du Louvre, Paris — Richelieu wing, room 844)",
+      "last_seen_public": "on view now — Musée du Louvre, Paris (since February 21, 2024, for five years; to the Rijksmuseum in 2029)",
+      "note": "€160M for the pair — the record for Rembrandt. By treaty the wedding portraits must always hang together, alternating between Paris and Amsterdam. Anyone can stand in front of them today.",
+      "sources": [
+        "https://nltimes.nl/2024/01/24/rembrandts-portraits-marten-oopjen-will-go-louvre-5-years",
+        "https://presse.louvre.fr/les-portraits-de-marten-soolmans-et-doopjen-coppit-sont-de-retour/",
+        "https://en.wikipedia.org/wiki/Pendant_portraits_of_Maerten_Soolmans_and_Oopjen_Coppit"
+      ]
+    },
+    {
+      "title": "Les Femmes d'Alger (Version O)",
+      "artist": "Pablo Picasso",
+      "year_made": "1955",
+      "price_usd_m": 179.4,
+      "sale_year": 2015,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "reportedly Hamad bin Jassim bin Jaber Al Thani, former prime minister of Qatar — never confirmed",
+      "status": "vanished from public view",
+      "last_seen_public": "Christie's New York preview, May 2015",
+      "note": "World auction record from May 2015 until Salvator Mundi in 2017, and still the record for Picasso. The buyer's identity rests on unnamed sources; Christie's has never commented.",
+      "sources": [
+        "https://news.artnet.com/market/record-breaking-picasso-painting-qatar-300723",
+        "https://www.artnews.com/art-news/news/buyer-of-the-179-4-million-picasso-revealed-4210/"
+      ]
+    },
+    {
+      "title": "Nu couché",
+      "artist": "Amedeo Modigliani",
+      "year_made": "1917–18",
+      "price_usd_m": 170.4,
+      "sale_year": 2015,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "Liu Yiqian and Wang Wei, founders of the Long Museum, Shanghai",
+      "status": "in private-museum hands (Long Museum, Shanghai); shown there intermittently — current display unconfirmed",
+      "last_seen_public": "Long Museum, Shanghai — displayed after the 2015 purchase",
+      "note": "Record for Modigliani when sold, November 9, 2015. The taxi-driver-turned-billionaire buyer famously paid with his American Express card. The founders sold dozens of works in 2023 but kept this one — among the few on this list a traveler has had a real chance to see.",
+      "sources": [
+        "https://www.scmp.com/news/hong-kong/education-community/article/1884371/chinas-long-museum-founder-liu-yiqian-out-educate",
+        "https://en.thevalue.com/articles/liu-yiqian-long-museum-art-collection-sothebys-auction-result-2023"
+      ]
+    },
+    {
+      "title": "Masterpiece",
+      "artist": "Roy Lichtenstein",
+      "year_made": "1962",
+      "price_usd_m": 165,
+      "sale_year": 2017,
+      "sale_type": "private sale",
+      "sale_house": "private sale (via Acquavella Galleries)",
+      "buyer": "Steven A. Cohen",
+      "status": "in private hands, not on public view",
+      "last_seen_public": "on loan at MoMA, New York, before the January 2017 sale",
+      "note": "Agnes Gund sold it to seed the Art for Justice Fund with $100M for criminal-justice reform — a sale made so the money could do public good, while the painting went private.",
+      "sources": [
+        "https://www.npr.org/sections/thetwo-way/2017/06/12/532597956/art-collector-sells-lichtenstein-for-165-million-to-fund-criminal-justice-reform",
+        "https://www.cnbc.com/2017/06/12/steve-cohen-buys-roy-lichtensteins-masterpiece-for-165-million.html"
+      ]
+    },
+    {
+      "title": "Nu couché (sur le côté gauche)",
+      "artist": "Amedeo Modigliani",
+      "year_made": "1917",
+      "price_usd_m": 157.2,
+      "sale_year": 2018,
+      "sale_type": "auction",
+      "sale_house": "Sotheby's New York",
+      "buyer": "unknown — sold to its third-party guarantor, never identified",
+      "status": "vanished from public view",
+      "last_seen_public": "Sotheby's New York preview, May 2018",
+      "note": "Sold May 14, 2018 by John Magnier, who had paid $26.9M in 2003. Still the most expensive lot ever sold at Sotheby's until 2025. Not publicly seen since.",
+      "sources": [
+        "https://www.sothebys.com/en/articles/at-157-2-million-modiglianis-greatest-nude-is-also-the-most-expensive-painting-ever-sold-at-sothebys",
+        "https://www.artsy.net/article/artsy-editorial-157-million-modigliani-breaks-sothebys-record-underwhelming-impressionist-modern-sale"
+      ]
+    },
+    {
+      "title": "Le Rêve",
+      "artist": "Pablo Picasso",
+      "year_made": "1932",
+      "price_usd_m": 155,
+      "sale_year": 2013,
+      "sale_type": "private sale",
+      "sale_house": "private sale",
+      "buyer": "Steven A. Cohen",
+      "status": "in private hands, not on public view",
+      "last_seen_public": "not shown publicly since the sale; earlier displayed in Steve Wynn's Las Vegas galleries",
+      "note": "Steve Wynn put his elbow through the canvas in 2006 while showing it off, killing a $139M deal. Repaired, it sold to the same buyer in 2013 for $16M more.",
+      "sources": [
+        "https://www.npr.org/sections/thetwo-way/2013/03/26/175412881/years-after-the-elbow-incident-steve-wynn-sells-picassos-le-r-ve-for-155-million",
+        "https://en.wikipedia.org/wiki/Le_R%C3%AAve_(Picasso)"
+      ]
+    },
+    {
+      "title": "Portrait of Adele Bloch-Bauer II",
+      "artist": "Gustav Klimt",
+      "year_made": "1912",
+      "price_usd_m": 150,
+      "sale_year": 2016,
+      "sale_type": "private sale",
+      "sale_house": "private sale (brokered by Larry Gagosian)",
+      "buyer": "unnamed China-based buyer (per Bloomberg); the work is now associated with HomeArt (Rosaline Wong, Hong Kong)",
+      "status": "in private hands, occasionally loaned (HomeArt collection, Hong Kong)",
+      "last_seen_public": "Upper Belvedere, Vienna — 'Special Guest' presentation, November 2023–February 2024",
+      "note": "Restituted to Maria Altmann's family in 2006, bought by Oprah Winfrey for $87.9M, sold by her in 2016 for $150M. It resurfaced in Vienna in 2023, cleaned and glowing, courtesy of its Hong Kong owner.",
+      "sources": [
+        "https://www.bloomberg.com/news/articles/2017-02-08/oprah-said-to-snag-150-million-selling-klimt-to-chinese-buyer",
+        "https://www.ots.at/presseaussendung/OTS_20231108_OTS0050/oberes-belvedere-special-guest-adele-bloch-bauer-ii",
+        "https://www.scmp.com/lifestyle/arts-culture/article/3201222/how-us150-million-klimt-painting-once-owned-oprah-winfrey-linked-hong-kong-art-investment-fund"
+      ]
+    },
+    {
+      "title": "Les Poseuses, Ensemble (Petite version)",
+      "artist": "Georges Seurat",
+      "year_made": "1888",
+      "price_usd_m": 149.2,
+      "sale_year": 2022,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "unknown — a client of Christie's Asia deputy chairman Xin Li-Cohen",
+      "status": "vanished from public view",
+      "last_seen_public": "Christie's New York preview, November 2022",
+      "note": "Top lot of the Paul G. Allen estate sale — at $1.62 billion, the most valuable single-collection auction ever. All proceeds went to philanthropy. The painting has not surfaced since.",
+      "sources": [
+        "https://www.artnews.com/art-news/news/georges-seurat-paul-allen-christies-record-sale-1234646173/",
+        "https://heni.com/news/article/georges-seurat-les-poseuses-ensemble-petite-version-2022-11-09"
+      ]
+    },
+    {
+      "title": "Three Studies of Lucian Freud",
+      "artist": "Francis Bacon",
+      "year_made": "1969",
+      "price_usd_m": 142.4,
+      "sale_year": 2013,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "Elaine Wynn",
+      "status": "on public view (LACMA, Los Angeles — David Geffen Galleries)",
+      "last_seen_public": "on view now — installed March 2026 in LACMA's David Geffen Galleries, which opened April 19, 2026",
+      "note": "World auction record in 2013. Bequeathed to LACMA by Elaine Wynn's estate in September 2025 — one of the few nine-figure trophies to come back to a public wall.",
+      "sources": [
+        "https://unframed.lacma.org/2025/09/09/francis-bacon-three-studies-lucian-freud-bequeathed-lacma",
+        "https://www.lacma.org/press/lacmas-david-geffen-galleries-open-april-19-2026-ribbon-cutting-ceremony-and-two-weeks",
+        "https://unframed.lacma.org/2026/04/09/50-works-50-weeks-francis-bacon-three-studies-lucian-freud"
+      ]
+    },
+    {
+      "title": "L'Homme au doigt (Pointing Man)",
+      "artist": "Alberto Giacometti",
+      "year_made": "1947",
+      "price_usd_m": 141.3,
+      "sale_year": 2015,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "Steven A. Cohen (later revealed)",
+      "status": "in private hands, not on public view",
+      "last_seen_public": "Christie's New York preview, May 2015",
+      "note": "Still the most expensive sculpture ever auctioned. This cast is private, but Giacometti made six plus a proof — other casts stand in public museums.",
+      "sources": [
+        "https://www.artnews.com/art-news/market/steven-a-cohen-revealed-as-buyer-of-141-3-m-giacometti-sculpture-4290/",
+        "https://en.wikipedia.org/wiki/L'Homme_au_doigt"
+      ]
+    },
+    {
+      "title": "No. 5, 1948",
+      "artist": "Jackson Pollock",
+      "year_made": "1948",
+      "price_usd_m": 140,
+      "sale_year": 2006,
+      "sale_type": "private sale",
+      "sale_house": "private sale",
+      "buyer": "disputed — reported as David Martinez; his lawyers publicly denied it and the true buyer was never established",
+      "status": "disputed — vanished from public view; ownership undisclosed",
+      "last_seen_public": "unknown — not publicly exhibited since the 2006 sale",
+      "note": "Sold by David Geffen in November 2006 for a then-record $140M. The buyer's identity was reported, denied, and never resolved. Twenty years on, no one has publicly seen it.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/No._5,_1948",
+        "https://www.artforum.com/news/geffen-sells-pollock-for-record-140-million-174578/"
+      ]
+    },
+    {
+      "title": "Femme à la montre",
+      "artist": "Pablo Picasso",
+      "year_made": "1932",
+      "price_usd_m": 139.4,
+      "sale_year": 2023,
+      "sale_type": "auction",
+      "sale_house": "Sotheby's New York",
+      "buyer": "unknown",
+      "status": "vanished from public view",
+      "last_seen_public": "Sotheby's New York preview, November 2023",
+      "note": "Portrait of Marie-Thérèse Walter, sold November 8, 2023 from the Emily Fisher Landau collection. Second-most expensive Picasso ever auctioned. Not seen since.",
+      "sources": [
+        "https://www.voanews.com/a/picasso-s-woman-with-a-watch-fetches-139m-at-auction-/7347910.html",
+        "https://en.wikipedia.org/wiki/Femme_%C3%A0_la_montre"
+      ]
+    },
+    {
+      "title": "La Montagne Sainte-Victoire",
+      "artist": "Paul Cézanne",
+      "year_made": "1888–90",
+      "price_usd_m": 137.8,
+      "sale_year": 2022,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "unknown",
+      "status": "vanished from public view",
+      "last_seen_public": "Christie's New York preview, November 2022",
+      "note": "From the Paul G. Allen estate sale; auction record for Cézanne, more than double his previous high. Proceeds to philanthropy; the painting itself has gone quiet.",
+      "sources": [
+        "https://www.bloomberg.com/news/articles/2022-11-10/paul-allen-auction-results-cezanne-painting-sets-138-million-record",
+        "https://heni.com/news/article/paul-cezanne-la-montagne-sainte-victoire-2022-11-09"
+      ]
+    },
+    {
+      "title": "Woman III",
+      "artist": "Willem de Kooning",
+      "year_made": "1953",
+      "price_usd_m": 137.5,
+      "sale_year": 2006,
+      "sale_type": "private sale",
+      "sale_house": "private sale (brokered by Larry Gagosian)",
+      "buyer": "Steven A. Cohen",
+      "status": "in private hands, not on public view",
+      "last_seen_public": "not on public view; smuggled out of post-revolution Iran in a 1994 swap, privately held since",
+      "note": "Once in Tehran's Museum of Contemporary Art, hidden after 1979, traded out of Iran for a Persian manuscript in 1994. The only early Woman painting not in a public collection.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Woman_III",
+        "https://theartwolf.com/news/kooning_woman/"
+      ]
+    },
+    {
+      "title": "Portrait of Adele Bloch-Bauer I",
+      "artist": "Gustav Klimt",
+      "year_made": "1907",
+      "price_usd_m": 135,
+      "sale_year": 2006,
+      "sale_type": "private sale",
+      "sale_house": "private sale",
+      "buyer": "Ronald S. Lauder, for the Neue Galerie New York",
+      "status": "museum-owned (Neue Galerie New York) — temporarily off view: museum closed for renovation since May 27, 2026, reopens autumn 2026",
+      "last_seen_public": "Neue Galerie, New York — on continuous view from July 2006 until the May 2026 closure",
+      "note": "The 'Woman in Gold', restituted to Maria Altmann after her Supreme Court fight, then bought for the Neue Galerie. A merger with the Met, announced May 14, 2026, takes effect in 2028; the portrait should return to public view in autumn 2026.",
+      "sources": [
+        "https://www.metmuseum.org/press-releases/neue-galerie-merger-announcement",
+        "https://www.theartnewspaper.com/2026/05/14/neue-galerie-metropolitan-museum-merger",
+        "https://www.neuegalerie.org/",
+        "https://en.wikipedia.org/wiki/Neue_Galerie_New_York"
+      ]
+    },
+    {
+      "title": "L'Empire des lumières",
+      "artist": "René Magritte",
+      "year_made": "1954",
+      "price_usd_m": 121.2,
+      "sale_year": 2024,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "Kenneth C. Griffin (reported by the Wall Street Journal's Kelly Crow and Puck; Christie's never confirmed)",
+      "status": "in private hands, not on public view",
+      "last_seen_public": "Christie's New York preview, November 2024",
+      "note": "Sold November 19, 2024 from the Mica Ertegun estate — the record for Magritte and for any Surrealist work at auction.",
+      "sources": [
+        "https://news.artnet.com/art-world/magritte-record-auction-christies-2572287",
+        "https://fortune.com/2024/11/20/rene-magritte-empire-of-light-auction-record-121-million-christies-new-york/",
+        "https://puck.news/new-york-fall-art-auctions-review/"
+      ]
+    },
+    {
+      "title": "The Scream (1895 pastel)",
+      "artist": "Edvard Munch",
+      "year_made": "1895",
+      "price_usd_m": 119.9,
+      "sale_year": 2012,
+      "sale_type": "auction",
+      "sale_house": "Sotheby's New York",
+      "buyer": "Leon Black",
+      "status": "in private hands, not on public view",
+      "last_seen_public": "MoMA, New York — special loan, October 2012–April 2013",
+      "note": "The only one of the four Screams in private hands; the others are in Oslo's museums. After a six-month MoMA showing it went home with its buyer and has not been seen publicly since.",
+      "sources": [
+        "https://heni.com/news/article/edvard-munch-the-scream-2012-05-02",
+        "https://en.wikipedia.org/wiki/The_Scream"
+      ]
+    },
+    {
+      "title": "Dame mit Fächer (Lady with a Fan)",
+      "artist": "Gustav Klimt",
+      "year_made": "1917–18",
+      "price_usd_m": 108.4,
+      "sale_year": 2023,
+      "sale_type": "auction",
+      "sale_house": "Sotheby's London",
+      "buyer": "unknown — a Hong Kong collector, bidding through advisor Patti Wong",
+      "status": "in private hands (Hong Kong), not on public view",
+      "last_seen_public": "Sotheby's London preview, June 2023",
+      "note": "Klimt's last portrait — still on his easel when he died. At £85.3M, the most expensive artwork ever auctioned in Europe. Its Klimt record stood until Elisabeth Lederer in 2025.",
+      "sources": [
+        "https://news.artnet.com/market/klimt-record-sothebys-london-2328580",
+        "https://www.sothebys.com/en/press/gustav-klimts-final-masterpiece-dame-mit-facher-lady-with-a-fan-comes-to-auction-at-sothebys-in-london-this-june"
+      ]
+    },
+    {
+      "title": "Danaïde",
+      "artist": "Constantin Brancusi",
+      "year_made": "c. 1913",
+      "price_usd_m": 107.5,
+      "sale_year": 2026,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "unknown",
+      "status": "in private hands; whereabouts unknown since the May 2026 sale",
+      "last_seen_public": "Christie's New York preview, May 2026",
+      "note": "Sold May 18, 2026 from the S.I. Newhouse collection. Shattered the $71M Brancusi record — the second-highest price ever for a sculpture at auction, after Giacometti's Pointing Man. (The Art Newspaper reports $107.5M with fees; Artnet, $107.6M.)",
+      "sources": [
+        "https://www.cnn.com/2026/05/19/style/christies-may-sales-si-newhouse-nicole-kidman",
+        "https://www.theartnewspaper.com/2026/05/19/christies-nets-11bn-from-back-to-back-si-newhouse-and-20th-century-evening-sales-in-new-york",
+        "https://news.artnet.com/market/pollock-brancusi-newhouse-christies-record-2774133"
+      ]
+    },
+    {
+      "title": "No. 15 (Two Greens and Red Stripe)",
+      "artist": "Mark Rothko",
+      "year_made": "1964",
+      "price_usd_m": 98.3,
+      "sale_year": 2026,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "unknown",
+      "status": "in private hands; whereabouts unknown since the May 2026 sale",
+      "last_seen_public": "Christie's New York preview, May 2026",
+      "note": "Sold May 18, 2026 in Christie's $1.1 billion evening — a new auction record for Rothko, passing the $86.9M set in 2012; hammer $85M. (The Art Newspaper reports $98.3M with fees; Artnet, $98.4M.) His true priciest work, No. 6, changed hands privately for more.",
+      "sources": [
+        "https://www.theartnewspaper.com/2026/05/19/christies-nets-11bn-from-back-to-back-si-newhouse-and-20th-century-evening-sales-in-new-york",
+        "https://news.artnet.com/market/pollock-brancusi-newhouse-christies-record-2774133",
+        "https://ocula.com/magazine/art-news/christies-1bn-new-york-auction/"
+      ]
+    },
+    {
+      "title": "Rabbit",
+      "artist": "Jeff Koons",
+      "year_made": "1986",
+      "price_usd_m": 91.1,
+      "sale_year": 2019,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "Steven A. Cohen (via dealer Robert Mnuchin)",
+      "status": "in private hands, not on public view",
+      "last_seen_public": "Christie's New York preview, May 2019",
+      "note": "Record for a living artist at auction, from the S.I. Newhouse collection. This cast went private, but Rabbit is an edition of three plus a proof — another gleams publicly at The Broad in Los Angeles.",
+      "sources": [
+        "https://www.bloomberg.com/news/articles/2019-05-21/steve-cohen-outed-as-mystery-buyer-of-91-million-koons-bunny",
+        "https://en.wikipedia.org/wiki/Rabbit_(Koons)"
+      ]
+    },
+    {
+      "title": "Portrait of an Artist (Pool with Two Figures)",
+      "artist": "David Hockney",
+      "year_made": "1972",
+      "price_usd_m": 90.3,
+      "sale_year": 2018,
+      "sale_type": "auction",
+      "sale_house": "Christie's New York",
+      "buyer": "unknown — anonymous phone bidder",
+      "status": "vanished from public view",
+      "last_seen_public": "Christie's New York preview, November 2018 — after touring in Hockney's Tate/Pompidou/Met retrospective, 2017–18",
+      "note": "Record for a living artist at auction until Koons's Rabbit six months later. Consigned by Joe Lewis; the buyer has never been named and the pool has not been seen since.",
+      "sources": [
+        "https://www.artnews.com/art-news/market/david-hockneys-famed-pool-scene-sells-90-3-m-christies-new-record-work-living-artist-auction-11356/",
+        "https://en.wikipedia.org/wiki/Portrait_of_an_Artist_(Pool_with_Two_Figures)"
+      ]
+    }
+  ],
+  "vanished": [
+    {
+      "title": "Salvator Mundi",
+      "artist": "Leonardo da Vinci (attribution debated)",
+      "year_lost_public": "2017",
+      "fate": "Hidden in private hands. Sold at Christie's New York on 15 November 2017 for $450.3M — the most expensive artwork ever auctioned — to a proxy widely reported to be acting for Saudi Crown Prince Mohammed bin Salman. Not seen in public since. A 2024 BBC report, relayed by The Art Newspaper, placed it in storage in Geneva, awaiting a planned museum in Riyadh; Saudi Arabia has never officially confirmed it holds the painting.",
+      "note": "Almost nine years unseen and counting. Attribution to Leonardo remains contested by some scholars, which the eventual wall label will have to face.",
+      "sources": [
+        "https://www.theartnewspaper.com/2024/08/19/where-is-salvator-mundi-in-storage-in-geneva-apparently",
+        "https://www.artnews.com/art-news/news/mbs-mohammed-bin-salman-salvator-mundi-saudi-arabia-museum-leonardo-da-vinci-1234714870/"
+      ]
+    },
+    {
+      "title": "Portrait of Dr. Gachet",
+      "artist": "Vincent van Gogh",
+      "year_lost_public": "1990",
+      "fate": "Hidden in private hands. Sold at Christie's New York in May 1990 for $82.5M to Japanese businessman Ryoei Saito, then the highest price ever paid for a painting. Never publicly exhibited since. After Saito's death in 1996 it was reportedly sold to Austrian financier Wolfgang Flottl, and after his financial troubles passed to owners unknown. In December 2024 the New York Times reported it had traced the painting to a family in Switzerland; the report has not been officially confirmed, and European publications have declined to name the family for legal reasons. Current whereabouts: reportedly Switzerland, unconfirmed.",
+      "note": "Saito once said he wanted it cremated with him; it survived him, but the world lost sight of it anyway.",
+      "sources": [
+        "https://www.theartnewspaper.com/2019/11/15/where-is-the-portrait-of-dr-gachet-the-mysterious-disappearance-of-van-goghs-most-expensive-painting",
+        "https://www.theartnewspaper.com/2024/12/20/once-the-most-expensive-painting-ever-auctioned-has-a-long-hidden-van-gogh-portrait-been-rediscovered",
+        "https://en.wikipedia.org/wiki/Portrait_of_Dr._Gachet"
+      ]
+    },
+    {
+      "title": "The Concert",
+      "artist": "Johannes Vermeer",
+      "year_lost_public": "1990",
+      "fate": "Stolen, still missing. Taken from the Isabella Stewart Gardner Museum, Boston, in the early hours of 18 March 1990 by two men dressed as police officers, along with 12 other works. Considered the most valuable unrecovered stolen painting in the world. No arrests, nothing recovered; the museum's $10M reward still stands, and its empty frame still hangs in the Dutch Room.",
+      "note": "One of only about 34 known Vermeers. In March 2026 Geoffrey Kelly, the retired FBI agent who led the case for 22 years, published Thirteen Perfect Fugitives, naming the men he believes did it — the painting itself remains lost.",
+      "sources": [
+        "https://www.gardnermuseum.org/about/theft",
+        "https://en.wikipedia.org/wiki/The_Concert_(Vermeer)",
+        "https://www.cbsnews.com/boston/news/isabella-stewart-gardner-museum-art-heist-fbi-book/",
+        "https://www.artnews.com/art-news/news/thirteen-perfect-fugitives-book-geoffrey-kelly-interview-1234776743/"
+      ]
+    },
+    {
+      "title": "The Storm on the Sea of Galilee",
+      "artist": "Rembrandt van Rijn",
+      "year_lost_public": "1990",
+      "fate": "Stolen, still missing. Rembrandt's only known seascape, cut from its frame in the same 18 March 1990 Gardner Museum heist. Unrecovered after 36 years; the case is unsolved and the $10M reward remains open.",
+      "note": "Painted in 1633. The Gardner keeps the empty frames on the wall — part vigil, part promise.",
+      "sources": [
+        "https://www.gardnermuseum.org/about/theft",
+        "https://en.wikipedia.org/wiki/Isabella_Stewart_Gardner_Museum_theft"
+      ]
+    },
+    {
+      "title": "Poppy Flowers (Vase with Flowers)",
+      "artist": "Vincent van Gogh",
+      "year_lost_public": "2010",
+      "fate": "Stolen, still missing. Cut from its frame in broad daylight on 21 August 2010 at the Mohamed Mahmoud Khalil Museum, Cairo — the second theft of the same picture, which had also been stolen in 1977 and recovered a decade later. Estimated value around $50-55M. No sighting or ransom demand since; a private reward from businessman Naguib Sawiris went unclaimed.",
+      "note": "Museum security that day was later described in court as feeble; eleven officials were convicted of negligence.",
+      "sources": [
+        "https://www.theartnewspaper.com/2021/05/21/how-a-van-gogh-painting-was-stolen-from-a-cairo-museumnot-once-but-twice",
+        "https://en.wikipedia.org/wiki/Poppy_Flowers"
+      ]
+    },
+    {
+      "title": "The Just Judges (panel of the Ghent Altarpiece)",
+      "artist": "Jan and/or Hubert van Eyck",
+      "year_lost_public": "1934",
+      "fate": "Stolen, still missing. The lower-left panel of the Ghent Altarpiece was taken from St Bavo's Cathedral, Ghent, on the night of 10 April 1934; the thief returned one half (the St John grisaille) during ransom talks, then died having confessed involvement without revealing the hiding place. Never recovered. Since 1945 the altarpiece has been shown with a copy by restorer Jef Van der Veken in the panel's place.",
+      "note": "Ninety-two years on, Ghent police still receive tips. The world's most famous altarpiece stands complete-but-for-one.",
+      "sources": [
+        "https://visit.gent.be/en/disappearance-just-judges-panel",
+        "https://en.wikipedia.org/wiki/The_Just_Judges"
+      ]
+    },
+    {
+      "title": "Nativity with Saint Francis and Saint Lawrence",
+      "artist": "Caravaggio",
+      "year_lost_public": "1969",
+      "fate": "Stolen, fate disputed. Cut from its frame in the Oratory of San Lorenzo, Palermo, on the night of 17-18 October 1969 and long believed held by the Sicilian Mafia. On the FBI's Top Ten Art Crimes list. Informant accounts conflict: one says it rotted in a barn and was burned in the 1980s; another (2018) says it was sold to a Swiss dealer and cut up for transport. Italian investigators have since cast doubt on that 2018 account — suggesting the informant confused it with another stolen picture — and say the painting may survive intact. A full-scale facsimile has hung in its place since 2015. Current whereabouts: unknown, possibly destroyed.",
+      "note": "Sources genuinely conflict on whether this painting still exists; we say so rather than choose.",
+      "sources": [
+        "https://www.fbi.gov/investigate/violent-crime/art-crime/fbi-top-ten-art-crimes/nativity-with-san-lorenzo-and-san-francesco",
+        "https://www.theartnewspaper.com/2019/10/08/its-50-years-since-caravaggios-nativity-was-stolen-in-palermo-have-the-police-been-chasing-red-herrings-all-this-time",
+        "https://en.wikipedia.org/wiki/Nativity_with_Saint_Francis_and_Saint_Lawrence"
+      ]
+    },
+    {
+      "title": "Portrait of a Young Man",
+      "artist": "Raphael",
+      "year_lost_public": "1939",
+      "fate": "Nazi-looted, still missing. Seized from the Czartoryski collection in Krakow after the German invasion of Poland in 1939 and hung at Wawel Castle by governor-general Hans Frank; it vanished in 1945 as Frank fled. Widely called the most important painting still missing from the Second World War. Poland's foreign ministry has said it believes the painting survived the war; its location is unknown.",
+      "note": "Its stolen companions — Leonardo's Lady with an Ermine and Rembrandt's Landscape with the Good Samaritan — came home. The Raphael did not.",
+      "sources": [
+        "https://www.monumentsmenandwomenfnd.org/post/raphael-s-lost-portrait",
+        "https://en.wikipedia.org/wiki/Portrait_of_a_Young_Man_(Raphael)"
+      ]
+    },
+    {
+      "title": "View of Auvers-sur-Oise",
+      "artist": "Paul Cezanne",
+      "year_lost_public": "1999",
+      "fate": "Stolen, still missing. Taken from the Ashmolean Museum, Oxford, as midnight fireworks marked the new millennium on 31 December 1999 — a thief came through a skylight under cover of a smoke bomb and took only the Cezanne. No trace of painting or thief since; the case sits on the FBI's top unsolved art thefts list.",
+      "note": "The only Cezanne the Ashmolean had.",
+      "sources": [
+        "https://www.fbi.gov/investigate/violent-crime/art-crime/fbi-top-ten-art-crimes/theft-of-cezannes-view-of-auvers-sur-oise",
+        "https://en.wikipedia.org/wiki/View_of_Auvers-sur-Oise"
+      ]
+    },
+    {
+      "title": "The Card Players (Embiricos version)",
+      "artist": "Paul Cezanne",
+      "year_lost_public": "2011",
+      "fate": "Hidden in private hands. One of five versions; this one, long held privately by Greek shipping collector George Embiricos, was sold by his estate to the royal family of Qatar in 2011 for a reported $250M or more — at the time the highest price ever paid for a work of art. No confirmed public display since the sale.",
+      "note": "It was rarely seen even before the sale; the price was widely reported but never officially confirmed. The other four versions hang in public museums (Musee d'Orsay, Met, Courtauld, Barnes).",
+      "sources": [
+        "https://www.npr.org/2012/02/05/146424989/cezanne-sold-to-qatar-for-a-record-price",
+        "https://en.wikipedia.org/wiki/The_Card_Players"
+      ]
+    },
+    {
+      "title": "Nafea Faa Ipoipo (When Will You Marry?)",
+      "artist": "Paul Gauguin",
+      "year_lost_public": "2015",
+      "fate": "Hidden in private hands. On public loan at the Kunstmuseum Basel for nearly half a century, then sold privately by the Rudolf Staechelin family trust to a buyer for Qatar — the deal was struck in late 2014 and became public in February 2015. First reported at $300M; a later London lawsuit revealed the true price was close to $210M. Its last confirmed public showing was the Fondation Beyeler's Gauguin exhibition outside Basel, which closed on 28 June 2015; nothing confirmed since.",
+      "note": "The reported price and the real price differ by about $90M — a caution about headline numbers in private sales.",
+      "sources": [
+        "https://news.artnet.com/art-world/uk-lawsuit-secret-gauguin-dealing-1011617",
+        "https://en.wikipedia.org/wiki/When_Will_You_Marry%3F"
+      ]
+    },
+    {
+      "title": "Le Reve",
+      "artist": "Pablo Picasso",
+      "year_lost_public": "2013",
+      "fate": "Hidden in private hands. Steve Wynn sold the 1932 portrait of Marie-Therese Walter to hedge-fund billionaire Steven A. Cohen in March 2013 for $155M — then the highest price paid by a US collector — seven years after Wynn famously put his elbow through the canvas and had it restored. It remains in Cohen's private collection; no public exhibition has been reported since.",
+      "note": "The elbow tear cut the insured value, was repaired, and the price still rose $16M between the two deals.",
+      "sources": [
+        "https://www.npr.org/sections/thetwo-way/2013/03/26/175412881/years-after-the-elbow-incident-steve-wynn-sells-picassos-le-r-ve-for-155-million",
+        "https://en.wikipedia.org/wiki/Le_R%C3%AAve_(Picasso)"
+      ]
+    },
+    {
+      "title": "Lady with a Fan (Dame mit Facher)",
+      "artist": "Gustav Klimt",
+      "year_lost_public": "2023",
+      "fate": "Hidden in private hands. Klimt's last portrait sold at Sotheby's London on 27 June 2023 for £85.3M ($108.4M), a European auction record, bid by dealer Patti Wong for an anonymous Hong Kong collector. It had been publicly shown at Vienna's Belvedere in 2021-22, before the sale; since the hammer fell, the buyer's identity and the painting's location have not been publicly disclosed.",
+      "note": "It stood on the easel in Klimt's studio when he died in 1918. After one evening of bidding, the trail went cold.",
+      "sources": [
+        "https://news.artnet.com/market/klimt-record-sothebys-london-2328580",
+        "https://news.artnet.com/market/who-bought-the-mysterious-klimt-at-sothebys-an-equally-enigmatic-hong-kong-power-broker-some-believe-2336528"
+      ]
+    },
+    {
+      "title": "Water Lilies (c. 1925, 18.5-foot canvas)",
+      "artist": "Claude Monet",
+      "year_lost_public": "1958",
+      "fate": "Destroyed. MoMA's first Water Lilies acquisition — an 18.5-foot canvas bought in 1955 — was destroyed in a fire at the museum on 15 April 1958, started by a workman's cigarette that landed in sawdust during renovation work; an electrician, Ruby Geller, died in the blaze. This is loss by fire, not theft or hoarding: the painting no longer exists. MoMA bought its present Water Lilies triptych from Monet's son the following year.",
+      "note": "Destroyed, honestly: nothing to find, only to remember.",
+      "sources": [
+        "https://news.artnet.com/art-world/art-bites-moma-1958-fire-monet-2468112",
+        "https://www.thedailybeast.com/the-moma-fire-that-destroyed-a-coveted-monet-painting/"
+      ]
+    },
+    {
+      "title": "Waterloo Bridge, London and Charing Cross Bridge, London",
+      "artist": "Claude Monet",
+      "year_lost_public": "2012",
+      "fate": "Stolen; probably destroyed, never proven. Two Monets taken from the Kunsthal Rotterdam on 16 October 2012 with five other works (Picasso, Matisse, Gauguin, Lucian Freud, Meijer de Haan). The mother of one convicted Romanian thief said she burned the paintings in her stove to protect him, then recanted; forensic analysis found period-correct pigments and canvas nails in her fireplace ash. Courts could not conclusively prove the burning. None of the seven works has resurfaced.",
+      "note": "The most honest label here is a question mark leaning toward ash.",
+      "sources": [
+        "https://www.npr.org/2018/11/18/669035614/six-years-after-museum-heist-missing-picasso-possibly-found-in-romania",
+        "https://nltimes.nl/2021/07/05/trail-found-monet-stolen-2012-rotterdam-museum-heist"
+      ]
+    },
+    {
+      "title": "Les Femmes d'Alger (Version O)",
+      "artist": "Pablo Picasso",
+      "year_lost_public": "2015",
+      "fate": "Hidden in private hands. Sold at Christie's New York on 11 May 2015 for $179.4M — then the highest price ever paid for any artwork at auction. Christie's never named the buyer, but art-world sources widely identified him as former Qatari prime minister Hamad bin Jassim bin Jaber Al Thani. No confirmed public display since the sale.",
+      "note": "For two years it was the most expensive painting ever auctioned; eleven years on, not one confirmed public viewing.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Les_Femmes_d%27Alger",
+        "https://www.artnews.com/art-news/news/buyer-of-the-179-4-million-picasso-revealed-4210/"
+      ]
+    },
+    {
+      "title": "Portrait of Elisabeth Lederer",
+      "artist": "Gustav Klimt",
+      "year_lost_public": "2025",
+      "fate": "Hidden in private hands — for now. Sold at Sotheby's New York on 18 November 2025 for $236.4M from the estate of Leonard A. Lauder, becoming the most expensive work of modern art and the second most expensive artwork ever auctioned. The winning phone bidder has not been identified, and no destination or loan has been announced as of July 2026.",
+      "note": "Eight months is early for a private sale to resurface; this entry watches rather than mourns.",
+      "sources": [
+        "https://www.artnews.com/art-news/news/gustav-klimt-portrait-of-elisabeth-lederer-auction-record-1234762083/",
+        "https://www.pbs.org/newshour/arts/gustav-klimt-portrait-that-spared-its-subject-from-nazis-breaks-modern-art-record-with-236m-sale",
+        "https://en.wikipedia.org/wiki/Portrait_of_Elisabeth_Lederer"
+      ]
+    }
+  ],
+  "watch": {
+    "houses": [
+      {
+        "name": "Christie's",
+        "calendar_url": "https://www.christies.com/en/calendar",
+        "note": "Auction calendar for all locations; past prices at https://www.christies.com/en/results. Both URLs verified live (HTTP 200) on 2026-07-06; the site blocks some automated readers, so open in a normal browser."
+      },
+      {
+        "name": "Sotheby's",
+        "calendar_url": "https://www.sothebys.com/en/calendar",
+        "note": "Filterable list of upcoming sales across New York, London, Hong Kong, Paris, Geneva and more; results at https://www.sothebys.com/en/results. Both URLs verified live (HTTP 200) on 2026-07-06."
+      },
+      {
+        "name": "Phillips",
+        "calendar_url": "https://www.phillips.com/calendar",
+        "note": "One page for both upcoming sales and past results, filterable by department and location (New York, London, Hong Kong, Geneva). Strongest in 20th-century, contemporary and design. Verified live (HTTP 200) 2026-07-06."
+      },
+      {
+        "name": "Bonhams",
+        "calendar_url": "https://www.bonhams.com/auctions/",
+        "note": "Upcoming sales across the UK, US, France and other countries, filterable by category and month; broader and more mid-market than the big three. Verified live (HTTP 200) 2026-07-06."
+      }
+    ],
+    "seasons_note": "The auction year beats twice. In May and in November, Christie's, Sotheby's and Phillips hold their marquee evening sales in New York — the modern and contemporary auctions where nine-figure records are set. Each house takes an evening in the same week or two, with cheaper day sales wrapped around them; these two weeks decide the mood of the whole art market. London runs its own evening sales in late February or early March and again in October around the Frieze fair; Paris now peaks in October too, during Art Basel Paris week. Hong Kong anchors Asia with a spring season (late March to April) and an autumn season (late September to November). Geneva means jewels and watches, in May and November. Between the peaks the houses fill the calendar with day sales and online-only sales. One rhythm worth knowing: the star consignments for a November evening sale are usually announced from September onward — so early July, when this was written, is the quiet season, and the calendar pages above are where the fall's headliners will first appear.",
+    "upcoming": []
+  }
+}

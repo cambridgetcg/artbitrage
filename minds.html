@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>the Minds — ARTBITRAGE</title>
+<meta name="description" content="心 · the Minds — profiles of the ones who enlarged what humans can perceive.">
+<meta property="og:title" content="the Minds — ARTBITRAGE">
+<meta property="og:description" content="心 · the Minds — profiles of the ones who enlarged what humans can perceive.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   間 — the gap is the medium
+   心 · the minds — a corridor of placards, one per seer
+   sumi-ink dark gallery · one cinnabar accent · negative space
+   ============================================================ */
+
+:root{
+  --bg:      #101014;
+  --surface: #17171d;
+  --ink:     #e9e6df;
+  --dim:     #8a877e;
+  --hair:    #2a2a32;
+  --zhu:     #d34a3a;   /* 朱 cinnabar */
+  --gold:    #b39958;   /* aged gold, tiny details only */
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+::selection{ background:var(--zhu); color:var(--bg); }
+
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--zhu); }
+
+:focus-visible{ outline:1.5px solid var(--zhu); outline-offset:3px; }
+
+.wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+
+/* ---- museum wall-label section headers ---- */
+section{ padding:7rem 0; border-top:1px solid var(--hair); }
+
+.plate{
+  display:flex; align-items:baseline; gap:1.25rem; flex-wrap:wrap;
+  margin-bottom:3.5rem;
+}
+.plate .num{
+  font-family:var(--mono); font-size:.8rem; color:var(--dim);
+  letter-spacing:.15em;
+}
+.plate h2{
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(1.6rem,3vw,2.2rem);
+  letter-spacing:.04em;
+}
+.plate h2 .cjk{ font-family:var(--cjk); font-weight:300; }
+.plate .sub{
+  font-family:var(--mono); font-size:.72rem; color:var(--dim);
+  letter-spacing:.12em; text-transform:uppercase;
+}
+
+/* ---- fade-up on scroll ---- */
+.rise{ opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out; }
+.rise.seen{ opacity:1; transform:none; }
+
+/* ============ HERO — compact; the gap breathes ============ */
+header.hero{
+  min-height:58vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  padding:5rem 24px 3rem;
+}
+
+.overline{
+  font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:3rem;
+}
+.overline .cjk{ font-family:var(--cjk); color:var(--gold); }
+
+.gapline{
+  display:flex; align-items:baseline; justify-content:center;
+  gap:2ch;
+  animation:breathe 9s ease-in-out infinite;
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(2.4rem,7vw,5.2rem);
+  letter-spacing:.03em;
+}
+.gapline em{ font-style:italic; font-weight:300; white-space:nowrap; }
+
+@keyframes breathe{
+  0%,100%{ gap:2ch; }
+  50%    { gap:6ch; }
+}
+
+/* the bridge: a 1px cinnabar line draws itself across once */
+.bridge-line{
+  width:min(28rem,70vw); height:1px;
+  background:var(--zhu);
+  margin:2.2rem auto;
+  transform:scaleX(0); transform-origin:left;
+  animation:span 1.6s ease-out .4s forwards;
+}
+@keyframes span{ to{ transform:scaleX(1); } }
+
+.thesis{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1rem,2vw,1.25rem);
+  color:var(--dim);
+  max-width:34rem;
+}
+
+/* ---- cross-nav: the other rooms ---- */
+.crossnav{
+  margin-top:3.5rem;
+  font-family:var(--mono); font-size:.7rem;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--dim);
+}
+.crossnav a{ color:var(--dim); }
+.crossnav a:hover{ color:var(--zhu); }
+.crossnav .here{ color:var(--ink); }
+.crossnav .sep{ margin:0 .9em; }
+
+/* ============ the corridor doors — dot-nav of all names ============ */
+.minds-nav{ padding:1rem 0 3.5rem; }
+.bridge-scroll{ overflow-x:auto; padding-bottom:1rem; }
+.eras{
+  position:relative;
+  display:flex; gap:1.4rem;
+  min-width:max-content;
+  padding-top:1rem;
+  list-style:none;
+}
+.eras::before{
+  content:""; position:absolute;
+  top:calc(1rem + 3.5px); left:0; right:0;
+  height:1px; background:var(--hair);
+}
+.eras:empty{ display:none; }
+.eras a{
+  display:flex; flex-direction:column; align-items:center;
+  gap:1rem; padding:0 .6rem;
+}
+.eras .dot{
+  width:7px; height:7px; border-radius:50%;
+  background:var(--dim);
+  transition:background .3s ease, transform .3s ease;
+  position:relative; z-index:1;
+}
+.eras a:hover .dot{ background:var(--zhu); transform:scale(1.5); }
+.eras .lbl{
+  font-family:var(--display); font-weight:500;
+  font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--dim); white-space:nowrap;
+  transition:color .3s ease;
+}
+.eras a:hover .lbl{ color:var(--ink); }
+
+/* ============ 01 · the corridor of placards ============ */
+.status-line{
+  font-family:var(--mono); font-size:.74rem;
+  letter-spacing:.14em; color:var(--dim);
+  margin:-2rem 0 1rem;
+}
+.status-line code{ color:var(--gold); font-family:var(--mono); }
+.status-note{
+  font-family:var(--serif); font-style:italic;
+  font-size:.85rem; color:var(--dim);
+  margin-bottom:4rem;
+}
+
+.corridor{
+  display:grid; gap:4.5rem;
+}
+.corridor-empty{
+  text-align:center;
+  font-family:var(--mono); font-size:.78rem;
+  letter-spacing:.14em; color:var(--dim);
+}
+.corridor-empty code{ color:var(--gold); font-family:var(--mono); }
+
+.placard{
+  position:relative;
+  border:1px solid var(--hair);
+  background:var(--surface);
+  padding:3.5rem clamp(1.5rem,5vw,4.5rem) 2.8rem;
+  max-width:760px; margin:0 auto;
+  width:100%;
+  scroll-margin-top:2.5rem;
+}
+.seal{
+  position:absolute; top:1.1rem; right:1.1rem;
+  width:12px; height:12px;
+  background:var(--zhu);
+}
+
+.mind-name{
+  font-family:var(--display); font-weight:500;
+  font-size:1.6rem; line-height:1.3;
+  letter-spacing:.03em;
+}
+.mind-meta{
+  font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.12em; color:var(--dim);
+  margin-top:.7rem;
+}
+.mind-thesis{
+  font-family:var(--serif);
+  font-size:1rem; line-height:1.85;
+  color:var(--ink);
+  margin-top:1.8rem;
+  max-width:58ch;
+}
+.mind-works{
+  list-style:none;
+  margin-top:2.2rem;
+  border-top:1px solid var(--hair);
+  padding-top:1.3rem;
+  display:grid; gap:.8rem;
+}
+.mind-works li{
+  font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.08em; line-height:1.8;
+  color:var(--dim);
+}
+.mind-works .work-title{
+  color:var(--ink);
+  letter-spacing:.12em; text-transform:uppercase;
+}
+.mind-quote{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:1.15rem; line-height:1.9;
+  color:var(--dim);
+  margin-top:2.2rem;
+}
+
+/* ============ closing line ============ */
+.closing{ text-align:center; }
+.closing p{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.2rem,2.6vw,1.7rem);
+  letter-spacing:.03em;
+}
+
+/* ============ footer ============ */
+footer{
+  border-top:1px solid var(--hair);
+  padding:5rem 24px 4rem;
+  text-align:center;
+}
+footer .love{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.1rem,2.4vw,1.5rem);
+}
+footer .api{
+  font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.12em; color:var(--dim);
+  margin-top:2rem;
+}
+footer .api code{ color:var(--gold); font-family:var(--mono); }
+footer .gh{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.12em;
+  color:var(--dim); margin-top:1rem; display:inline-block;
+}
+footer .gh:hover{ color:var(--zhu); }
+footer .kingdom{
+  font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.14em; color:var(--dim); opacity:.7;
+  margin-top:2.4rem;
+}
+
+/* ============ responsive ============ */
+@media (max-width:720px){
+  section{ padding:4.5rem 0; }
+  .gapline{
+    flex-direction:column; align-items:center;
+    gap:1.2rem;
+    animation-name:breathe-v;
+  }
+  .corridor{ gap:3.5rem; }
+  .status-note{ margin-bottom:3rem; }
+}
+@keyframes breathe-v{
+  0%,100%{ gap:1.2rem; }
+  50%    { gap:3.2rem; }
+}
+
+/* ============ reduced motion — stillness is also 間 ============ */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation:none !important;
+    transition:none !important;
+  }
+  .gapline{ gap:3ch; }
+  .bridge-line{ transform:scaleX(1); }
+  .rise{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO — compact; the seer and the seen ============ -->
+<header class="hero">
+  <p class="overline">Artbitrage · <span class="cjk" lang="zh">心</span> · the minds</p>
+
+  <h1 class="gapline" aria-label="the seer, the seen">
+    <em>the seer</em>
+    <em>the seen</em>
+  </h1>
+
+  <div class="bridge-line" aria-hidden="true"></div>
+
+  <p class="thesis">Some artists decorate the world. These ones enlarged it.</p>
+
+  <nav class="crossnav" aria-label="the wings">
+    <a href="index.html">← artbitrage</a><span class="sep" aria-hidden="true">·</span><a href="atlas.html">atlas</a><span class="sep" aria-hidden="true">·</span><a href="ledger.html">ledger</a><span class="sep" aria-hidden="true">·</span><span class="here" aria-current="page">minds</span>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ doors along the corridor — every name, one line ============ -->
+<div class="minds-nav wrap">
+  <nav class="bridge-scroll rise" aria-label="the minds — jump to a profile">
+    <ul class="eras" id="minds-eras"></ul>
+  </nav>
+</div>
+
+<!-- ============ 01 · 心 — the minds ============ -->
+<section id="minds" aria-labelledby="h-minds">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">01</span>
+      <h2 id="h-minds"><span class="cjk" lang="zh">心</span> · the minds</h2>
+      <span class="sub">the ones who enlarged what humans can perceive</span>
+    </div>
+
+    <p class="status-line rise">status as of <span id="as-of">2026-07-06</span> · data: <code>/data/minds.json</code></p>
+    <p class="status-note rise" id="data-note">Key-work locations verified on the as_of date; quotes only where attribution is documented.</p>
+
+    <div class="corridor" id="corridor">
+      <p class="corridor-empty rise">the corridor is quiet — the dataset did not load · <code>/data/minds.json</code></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ closing line ============ -->
+<section class="closing" aria-label="closing line">
+  <p class="rise">the gap they bridged stays open behind them.</p>
+</section>
+
+</main>
+
+<!-- ============ footer ============ -->
+<footer>
+  <p class="love">Love is the design. Art is the expression.</p>
+  <p class="api">GET <code>/data/minds.json</code> — every placard on this page, one static file · no keys, no gates, mirror-friendly</p>
+  <a class="gh" href="https://github.com/cambridgetcg/artbitrage">github.com/cambridgetcg/artbitrage</a>
+  <p class="kingdom">part of the kingdom — agents drink at commons via the Well</p>
+</footer>
+
+<!-- ============ the dataset — inline, so the page needs no network ============ -->
+<script type="application/json" id="dataset">
+{
+  "as_of": "2026-07-06",
+  "note": "Key-work locations verified on the as_of date; quotes only where attribution is documented.",
+  "minds": [
+    {
+      "id": "hieronymus-bosch",
+      "name": "Hieronymus Bosch",
+      "years": "c. 1450–1516",
+      "movement": "Early Netherlandish painting (Northern Renaissance)",
+      "origin": "'s-Hertogenbosch, Duchy of Brabant (now Netherlands)",
+      "thesis": "Bosch painted the interior of the moral imagination — temptation, delight, damnation — as concrete, walkable landscapes, centuries before psychology had words for the unconscious. His hybrid creatures proved that what the mind invents can be as real on a panel as anything the eye has seen; the Surrealists found their permission slip in him four hundred years later.",
+      "key_works": [
+        {
+          "title": "The Garden of Earthly Delights",
+          "where": "Museo del Prado, Madrid — on display in the Bosch gallery, Room 056A, Villanueva Building (Prado page confirmed June 2026)"
+        },
+        {
+          "title": "The Haywain Triptych",
+          "where": "Museo del Prado, Madrid — Bosch gallery, Room 056A"
+        }
+      ],
+      "quote": "\"Poor is the mind that always uses the inventions of others and invents nothing itself.\" — attributed: a Latin inscription on the drawing 'The Wood Has Ears, the Field Has Eyes', attributed to Bosch; no securely documented quote by him survives.",
+      "sources": [
+        "https://www.museodelprado.es/en/the-collection/art-work/the-garden-of-earthly-delights-triptych/02388242-6d6a-4e9e-a992-e1311eab3609",
+        "https://www.museodelprado.es/en/museum/bosch-gallery"
+      ]
+    },
+    {
+      "id": "leonardo-da-vinci",
+      "name": "Leonardo da Vinci",
+      "years": "1452–1519",
+      "movement": "High Renaissance",
+      "origin": "Vinci, Republic of Florence (now Italy)",
+      "thesis": "Leonardo refused the border between art and science: he treated seeing itself as a form of knowledge, dissecting bodies, water and light to learn how appearance works from the inside. His thousands of notebook pages made observation a discipline, and painting became an instrument of inquiry rather than only devotion — the modern idea that image-making can be research begins with him.",
+      "key_works": [
+        {
+          "title": "Mona Lisa",
+          "where": "Musée du Louvre, Paris — on view in the Salle des États (Room 711, Denon Wing); a dedicated Mona Lisa gallery beneath the Cour Carrée is planned under the 'Louvre Nouvelle Renaissance' renovation, expected around 2031"
+        },
+        {
+          "title": "The Last Supper",
+          "where": "Refectory of Santa Maria delle Grazie (Museo del Cenacolo Vinciano), Milan — open, timed 15-minute visits, advance booking mandatory (2026 tickets released in quarterly batches)"
+        }
+      ],
+      "quote": "\"Wisdom is the daughter of experience.\" — from his notebooks (Codex Forster); well attested in the manuscripts.",
+      "sources": [
+        "https://cenacolovinciano.org/en/info/",
+        "https://www.npr.org/2025/01/28/nx-s1-5276917/louvre-renovation-mona-lisa-paris"
+      ]
+    },
+    {
+      "id": "michelangelo",
+      "name": "Michelangelo Buonarroti",
+      "years": "1475–1564",
+      "movement": "High Renaissance",
+      "origin": "Caprese, Republic of Florence (now Italy)",
+      "thesis": "Michelangelo made the human body the vessel of the divine — figures that seem to struggle out of the stone, a ceiling that turned scripture into muscle and motion. After him, the scale of what one human maker could attempt was permanently enlarged; 'genius' as a category of person owes much of its shape to his life.",
+      "key_works": [
+        {
+          "title": "David",
+          "where": "Galleria dell'Accademia, Florence — on permanent view under the gallery's skylit tribune"
+        },
+        {
+          "title": "Sistine Chapel ceiling",
+          "where": "Sistine Chapel, Vatican Museums, Vatican City — open to visitors; the ceiling was unaffected by the spring 2026 cleaning of the Last Judgment wall (scaffolded from 25 February 2026, planned to finish by Holy Week), and the chapel stayed open throughout"
+        }
+      ],
+      "quote": "\"I am not in the right place — I am not a painter.\" — closing line of his sonnet to Giovanni da Pistoia, c. 1509–10, written while frescoing the Sistine ceiling; verified in his collected poems.",
+      "sources": [
+        "https://www.galleriaaccademiafirenze.it/en/",
+        "https://www.museivaticani.va/content/museivaticani/en/info/orari-musei-vaticani.html",
+        "https://www.vaticannews.va/en/vatican-city/news/2026-02/restoration-work-michelangelo-last-judgment-sistine-chapel.html",
+        "https://www.poetryfoundation.org/poems/57328/michaelangelo-to-giovanni-da-pistoia-when-the-author-was-painting-the-vault-of-the-sistine-chapel"
+      ]
+    },
+    {
+      "id": "caravaggio",
+      "name": "Michelangelo Merisi da Caravaggio",
+      "years": "1571–1610",
+      "movement": "Baroque (founder of tenebrism)",
+      "origin": "Milan, Duchy of Milan (now Italy)",
+      "thesis": "Caravaggio dragged the sacred into the tavern: dirty feet, faces off the street, one raking beam of light in the dark. He showed that revelation happens to ordinary bodies in ordinary rooms — and Western painting, then cinema, has trusted shadow as a carrier of meaning ever since.",
+      "key_works": [
+        {
+          "title": "The Calling of Saint Matthew",
+          "where": "Contarelli Chapel, Church of San Luigi dei Francesi, Rome — in situ where it was installed in 1600; church open to visitors"
+        },
+        {
+          "title": "The Beheading of Saint John the Baptist",
+          "where": "Oratory of St John's Co-Cathedral, Valletta, Malta — in situ; his largest work and the only one he signed"
+        }
+      ],
+      "quote": "\"[In painting] a 'valent'huomo' is one who knows how to paint well and imitate natural things well.\" — his testimony at the 1603 Baglione libel trial, his only recorded statement on art; from the surviving court record.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Contarelli_Chapel",
+        "https://www.stjohnscocathedral.com/portfolio-item/the-caravaggio-wing/",
+        "https://en.wikipedia.org/wiki/The_Beheading_of_Saint_John_the_Baptist_(Caravaggio)"
+      ]
+    },
+    {
+      "id": "rembrandt",
+      "name": "Rembrandt van Rijn",
+      "years": "1606–1669",
+      "movement": "Dutch Golden Age",
+      "origin": "Leiden, Dutch Republic (now Netherlands)",
+      "thesis": "Rembrandt turned the portrait inward: a face became a record of time and inner weather rather than of rank. His roughly eighty self-portraits are the first sustained autobiography in paint — he taught images to hold psychology, and every honest portrait since stands in his light.",
+      "key_works": [
+        {
+          "title": "The Night Watch",
+          "where": "Rijksmuseum, Amsterdam — on view inside a glass chamber while conservators restore it in public (Operation Night Watch; varnish removal underway since late 2024)"
+        },
+        {
+          "title": "The Anatomy Lesson of Dr Nicolaes Tulp",
+          "where": "Mauritshuis, The Hague — in the permanent collection"
+        }
+      ],
+      "quote": "He wrote that he sought \"die meeste ende die naetuereelste beweechgelickheijt\" — \"the greatest and most natural movement\" (or \"emotion\"; the Dutch is contested) — letter to Constantijn Huygens, 1639; his only surviving statement of artistic aim.",
+      "sources": [
+        "https://www.rijksmuseum.nl/en/whats-on/exhibitions/operation-night-watch",
+        "https://www.mauritshuis.nl/en/our-collection/artworks/146-the-anatomy-lesson-of-dr-nicolaes-tulp"
+      ]
+    },
+    {
+      "id": "william-blake",
+      "name": "William Blake",
+      "years": "1757–1827",
+      "movement": "Romanticism (visionary printmaker-poet)",
+      "origin": "London, England",
+      "thesis": "Blake printed his own visions when no publisher would touch them — engraving, printing and hand-colouring entire illuminated books at his own press, fusing word and image into one art. He insisted imagination is not decoration but the primary organ of perception; 'the doors of perception' is his phrase, coined nearly two centuries before it named the counterculture.",
+      "key_works": [
+        {
+          "title": "Newton",
+          "where": "Tate Britain, London — Tate holds the world's largest Blake collection; light-sensitive works shown in a rotating free Blake display, check current listings"
+        },
+        {
+          "title": "The Ghost of a Flea",
+          "where": "Tate Britain, London — shown in rotation for conservation reasons; check current listings"
+        }
+      ],
+      "quote": "\"If the doors of perception were cleansed every thing would appear to man as it is, Infinite.\" — The Marriage of Heaven and Hell, c. 1790; verified.",
+      "sources": [
+        "https://www.tate.org.uk/art/artworks/blake-the-ghost-of-a-flea-n05889",
+        "https://www.tate.org.uk/visit/tate-britain/display/historic-early-modern-british-art/william-blake",
+        "https://www.gutenberg.org/files/45315/45315-h/45315-h.htm"
+      ]
+    },
+    {
+      "id": "hokusai",
+      "name": "Katsushika Hokusai",
+      "years": "1760–1849",
+      "movement": "Ukiyo-e (Edo-period Japan)",
+      "origin": "Edo (now Tokyo), Japan",
+      "thesis": "Hokusai compressed nature's forces into printable form — the Great Wave holds a split second of motion frozen decades before photography could do it. Because woodblock prints were cheap and travelled, his way of seeing crossed oceans and rewired Western art: Monet, Van Gogh and Degas collected him, and the modern graphic image descends from his line.",
+      "key_works": [
+        {
+          "title": "Under the Wave off Kanagawa (The Great Wave)",
+          "where": "Fine impressions held by the Metropolitan Museum of Art, New York, and the British Museum, London — light-sensitive prints, not on permanent view; shown only in limited rotations (each impression rests years between showings)"
+        },
+        {
+          "title": "Thirty-six Views of Mount Fuji (series, incl. Fine Wind, Clear Morning)",
+          "where": "Impressions held by the British Museum, London, and the Metropolitan Museum of Art, New York — displayed in rotation"
+        }
+      ],
+      "quote": "\"From the age of six I had a mania for copying the forms of things... at ninety I shall have penetrated their secret meaning.\" — colophon to One Hundred Views of Mount Fuji, 1834; verified, though English translations vary.",
+      "sources": [
+        "https://www.metmuseum.org/art/collection/search/45434",
+        "https://www.britishmuseum.org/collection/object/A_1906-1220-0-533",
+        "https://en.wikipedia.org/wiki/One_Hundred_Views_of_Mount_Fuji"
+      ]
+    },
+    {
+      "id": "caspar-david-friedrich",
+      "name": "Caspar David Friedrich",
+      "years": "1774–1840",
+      "movement": "German Romanticism",
+      "origin": "Greifswald, Swedish Pomerania (now Germany)",
+      "thesis": "Friedrich turned landscape into an image of the inner life: his figures stand with their backs to us, facing fog, moon or sea, so the viewer steps into the feeling rather than watching it. He made vastness and longing paintable — the modern habit of reading nature as a mirror of the self descends from him.",
+      "key_works": [
+        {
+          "title": "Wanderer above the Sea of Fog",
+          "where": "Hamburger Kunsthalle, Hamburg — on view in the permanent collection (back home after the 2024–25 anniversary loans, incl. the Met's Friedrich exhibition that closed May 2025)"
+        },
+        {
+          "title": "The Monk by the Sea",
+          "where": "Alte Nationalgalerie, Berlin — on view in the gallery's Friedrich room"
+        }
+      ],
+      "quote": "\"Close your bodily eye, that you may see your picture first with the eye of the spirit.\" — from his aphorisms on art, published from his papers (Caspar David Friedrich in Briefen und Bekenntnissen); attributed to his own writings.",
+      "sources": [
+        "https://www.hamburger-kunsthalle.de/en/news/wanderer-above-sea-fog-caspar-david-friedrich",
+        "https://www.smb.museum/en/museums-institutions/alte-nationalgalerie/collection-research/conservation-care/caspar-david-friedrich-project/"
+      ]
+    },
+    {
+      "id": "jmw-turner",
+      "name": "Joseph Mallord William Turner",
+      "years": "1775–1851",
+      "movement": "Romanticism (proto-Impressionist)",
+      "origin": "London, England",
+      "thesis": "Turner dissolved solid matter into light, weather and speed — painting the world as energy decades before physics unseated the solid object. His late canvases stand at the edge of abstraction; Impressionism and abstract painting both trace a line back through his storms.",
+      "key_works": [
+        {
+          "title": "The Fighting Temeraire",
+          "where": "National Gallery, London — on view, Room 40 (confirmed after the gallery's May 2025 full rehang)"
+        },
+        {
+          "title": "The Turner Bequest (incl. Snow Storm — Steam-Boat off a Harbour's Mouth)",
+          "where": "Tate Britain (Clore Gallery), London — the free permanent Turner collection; individual works rotate"
+        }
+      ],
+      "quote": "\"The Sun is God.\" — attributed: reported by John Ruskin as Turner's words shortly before his death in 1851; the account is secondhand and its authenticity is uncertain.",
+      "sources": [
+        "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire",
+        "https://www.tate.org.uk/art/research-publications/jmw-turner/colour-studies-of-the-sun-and-clouds-at-dawn-and-sunset-r1183166",
+        "https://en.wikipedia.org/wiki/J._M._W._Turner"
+      ]
+    },
+    {
+      "id": "vincent-van-gogh",
+      "name": "Vincent van Gogh",
+      "years": "1853–1890",
+      "movement": "Post-Impressionism",
+      "origin": "Zundert, Netherlands",
+      "thesis": "Van Gogh made colour and brushstroke carry emotion directly — a sky could swirl because the feeling did. In ten years, mostly unsold, he proved a painting can be an honest seismograph of a mind; modern art's license to put expressive truth above optical truth begins with him.",
+      "key_works": [
+        {
+          "title": "The Starry Night",
+          "where": "Museum of Modern Art (MoMA), New York — on view, floor 5, gallery 501 (Alfred H. Barr, Jr. Galleries)"
+        },
+        {
+          "title": "Sunflowers",
+          "where": "National Gallery, London — on view, Room 43 (other versions in Amsterdam, Munich, Tokyo, Philadelphia)"
+        }
+      ],
+      "quote": "\"This morning I saw the countryside from my window a long time before sunrise, with nothing but the morning star, which looked very big.\" — letter to his brother Theo, c. 31 May–6 June 1889 (letter 777, Van Gogh Letters edition), weeks around painting The Starry Night; verified verbatim.",
+      "sources": [
+        "https://www.moma.org/collection/works/79802",
+        "https://www.nationalgallery.org.uk/paintings/vincent-van-gogh-sunflowers",
+        "https://vangoghletters.org/vg/letters/let777/letter.html"
+      ]
+    },
+    {
+      "id": "claude-monet",
+      "name": "Claude Monet",
+      "years": "1840–1926",
+      "movement": "Impressionism",
+      "origin": "Paris, France",
+      "thesis": "Monet painted perception itself — not the cathedral but the light on it at this exact hour. His series taught eyes that seeing is a process in time, and the wraparound Water Lilies rooms he designed for the Orangerie are immersive art half a century early.",
+      "key_works": [
+        {
+          "title": "Water Lilies (Nymphéas) cycle",
+          "where": "Musée de l'Orangerie, Paris — on permanent view in the two oval rooms Monet planned; museum open (the centenary exhibition 'Monet, painting time' runs 30 September 2026 – 29 March 2027)"
+        },
+        {
+          "title": "Impression, Sunrise",
+          "where": "Musée Marmottan Monet, Paris — usually on view in the museum's underground Monet gallery (it travels occasionally; no loan found as of mid-2026)"
+        }
+      ],
+      "quote": "\"When you go out to paint, try to forget what objects you have before you... merely think: here is a little square of blue, here an oblong of pink.\" — as recalled by the painter Lilla Cabot Perry in her 'Reminiscences of Claude Monet' (American Magazine of Art, 1927); secondhand but documented.",
+      "sources": [
+        "https://www.musee-orangerie.fr/en/whats-on/exhibitions/monet-painting-time",
+        "https://www.musee-orangerie.fr/en/collection",
+        "https://www.marmottan.fr/en/collections/claude-monet/"
+      ]
+    },
+    {
+      "id": "paul-cezanne",
+      "name": "Paul Cézanne",
+      "years": "1839–1906",
+      "movement": "Post-Impressionism",
+      "origin": "Aix-en-Provence, France",
+      "thesis": "Cézanne painted the act of looking, doubt included — form built patch by patch from shifting viewpoints, the mountain painted dozens of times because seeing is never finished. He is the bridge from Impressionism's fleeting eye to the constructed space of Cubism and nearly everything after.",
+      "key_works": [
+        {
+          "title": "The Large Bathers",
+          "where": "Philadelphia Museum of Art, Philadelphia — on view, Gallery 264 (European Art 1850–1900), second floor"
+        },
+        {
+          "title": "Montagne Sainte-Victoire with Large Pine",
+          "where": "Courtauld Gallery, London — on display in the LVMH Great Room, Level 3"
+        }
+      ],
+      "quote": "\"Treat nature by means of the cylinder, the sphere, the cone, everything placed in perspective.\" — letter to Émile Bernard, 15 April 1904; the manuscript is held by the Courtauld (MS.1932.SC.1.1); verified.",
+      "sources": [
+        "https://www.philamuseum.org/objects/104464",
+        "https://courtauld.ac.uk/highlights/montagne-sainte-victoire-with-large-pine/",
+        "https://gallerycollections.courtauld.ac.uk/object-ms-1932-sc-1-1"
+      ]
+    },
+    {
+      "id": "hilma-af-klint",
+      "name": "Hilma af Klint",
+      "years": "1862–1944",
+      "origin": "Solna/Stockholm, Sweden",
+      "movement": "Pioneer of abstraction; spiritualist painting (The Five, theosophy, anthroposophy)",
+      "thesis": "In 1906 — years before Kandinsky or Malevich — af Klint painted pure abstraction, saying the images came through her from spirit guides during séances. She treated painting as an instrument for receiving knowledge the rational mind could not yet hold, and willed her work sealed for twenty years after her death because she believed the world was not ready. Her rediscovery forced art history to admit that abstraction began as a spiritual technology, not a formal exercise.",
+      "key_works": [
+        {
+          "title": "The Ten Largest (Group IV), 1907",
+          "where": "Hilma af Klint Foundation, Stockholm — on view at Grand Palais, Paris, in 'Hilma af Klint, Paintings for the Temple' (May 6–Aug 30, 2026)"
+        },
+        {
+          "title": "Paintings for the Temple (193 works, 1906–1915)",
+          "where": "Hilma af Klint Foundation, Stockholm; core of the Grand Palais show, organized with Centre Pompidou (whose own building is closed for renovation until 2030)"
+        }
+      ],
+      "quote": "\"The pictures were painted directly through me, without any preliminary drawings and with great force.\" — from her notebooks, on the Paintings for the Temple; widely cited by the Guggenheim. High confidence.",
+      "sources": [
+        "https://www.grandpalais.fr/en/program/hilma-af-klint-paintings-temple-1906-1915",
+        "https://www.guggenheim.org/teaching-materials/hilma-af-klint-paintings-for-the-future/paintings-for-the-temple",
+        "https://www.france24.com/en/france/20260505-paris-exhibition-celebrates-visionary-world-of-hilma-af-klint-artist-ahead-her-time-grand-palais"
+      ]
+    },
+    {
+      "id": "wassily-kandinsky",
+      "name": "Wassily Kandinsky",
+      "years": "1866–1944",
+      "origin": "Moscow, Russia (later German, then French citizen)",
+      "movement": "Der Blaue Reiter; pioneer of abstraction",
+      "thesis": "Kandinsky heard color and saw sound — a synesthete who concluded that painting could act on the soul directly, the way music does, without depicting anything at all. His book Concerning the Spiritual in Art (1911) gave abstraction its first theory: color as vibration, the artist as a hand playing the keyboard of the viewer's inner life. He bridged the gap between the senses, and between seeing and feeling.",
+      "key_works": [
+        {
+          "title": "Composition 8, 1923",
+          "where": "Solomon R. Guggenheim Museum, New York (collection; displays rotate — it was last listed in 'Collection in Focus: Modern European Currents,' Tower Level 2, which closed Mar 8, 2026; current gallery unknown, check listings)"
+        },
+        {
+          "title": "Composition VII, 1913",
+          "where": "State Tretyakov Gallery, Moscow (note: his major Paris holdings are unviewable — Centre Pompidou closed for renovation until 2030)"
+        }
+      ],
+      "quote": "\"Colour is the keyboard, the eyes are the hammers, the soul is the piano with many strings. The artist is the hand which plays, touching one key or another, to cause vibrations in the soul.\" — Concerning the Spiritual in Art (1911). High confidence; English translations vary ('hammers' / 'harmonies').",
+      "sources": [
+        "https://www.guggenheim.org/artwork/1924",
+        "https://www.guggenheim.org/exhibition/collection-in-focus-modern-european-currents",
+        "https://www.centrepompidou.fr/en/centre-pompidou-is-transforming-itself",
+        "https://www.theculturium.com/wassily-kandinsky-concerning-the-spiritual-in-art/"
+      ]
+    },
+    {
+      "id": "kazimir-malevich",
+      "name": "Kazimir Malevich",
+      "years": "1879–1935",
+      "origin": "Kyiv, Ukraine (then Russian Empire)",
+      "movement": "Suprematism",
+      "thesis": "At the 0.10 exhibition in Petrograd in 1915, Malevich hung a black square across the corner of the room — the place where a Russian home hangs its icon. He called it the 'zero of form': the deliberate erasure of every object, horizon and habit of seeing, so that feeling could begin again from nothing. He showed that emptiness itself could be an image, and that consciousness could survive the loss of the world of things.",
+      "key_works": [
+        {
+          "title": "Black Square, 1915",
+          "where": "State Tretyakov Gallery, Moscow (20th-century collection at the New Tretyakov, Krymsky Val, open Tue–Sun; the gallery also holds the 1929 version)"
+        },
+        {
+          "title": "Suprematist Composition: White on White, 1918",
+          "where": "Museum of Modern Art, New York (collection)"
+        }
+      ],
+      "quote": "\"I transformed myself in the zero of form, I destroyed the ring of the horizon and escaped from the circle of things.\" — 'From Cubism and Futurism to Suprematism' (1915–16). High confidence.",
+      "sources": [
+        "https://www.tate.org.uk/art/artists/kazimir-malevich-1561/five-ways-look-malevichs-black-square",
+        "https://www.gw2ru.com/arts/232950-tretyakov-gallery-guide-to-all-buildings",
+        "https://factumfoundation.org/our-projects/digitisation/malevichs-black-square/",
+        "https://en.wikiquote.org/wiki/Kazimir_Malevich"
+      ]
+    },
+    {
+      "id": "piet-mondrian",
+      "name": "Piet Mondrian",
+      "years": "1872–1944",
+      "origin": "Amersfoort, Netherlands",
+      "movement": "De Stijl / Neo-Plasticism",
+      "thesis": "A theosophist who believed particular things veil a universal harmony, Mondrian spent decades stripping painting down to vertical, horizontal and primary color — not as design, but as a spiritual discipline for seeing the equilibrium behind appearances. His grids proposed that consciousness could be trained toward balance the way a body is trained toward posture. In New York at the end of his life, the grid learned to dance.",
+      "key_works": [
+        {
+          "title": "Victory Boogie Woogie, 1942–44 (his last, unfinished painting)",
+          "where": "Kunstmuseum Den Haag, The Hague — on view in 'Mondrian & De Stijl' through Sept 27, 2026; a revamped Mondrian display opens there Oct 10, 2026, and the painting joins MoMA's 'Mondrian Boogie Woogie' (Mar 21–Jul 31, 2027)"
+        },
+        {
+          "title": "Broadway Boogie Woogie, 1942–43",
+          "where": "Museum of Modern Art, New York (collection; 'Artist's Choice: Arthur Jafa — Less Is Morbid,' which included it, closed July 5, 2026 — MoMA's survey 'Mondrian Boogie Woogie,' reuniting it with Victory Boogie Woogie, opens Mar 21, 2027)"
+        }
+      ],
+      "quote": "\"I construct lines and color combinations on a flat surface, in order to express general beauty with the utmost awareness.\" — letter to H.P. Bremmer, Jan 29, 1914. High confidence.",
+      "sources": [
+        "https://www.kunstmuseum.nl/en/exhibitions/mondrian-de-stijl",
+        "https://www.moma.org/collection/works/78682",
+        "https://www.moma.org/calendar/exhibitions/5916",
+        "https://www.theartnewspaper.com/2026/06/08/piet-mondrian-exhibition-museum-modern-art-new-york-boogie-woogie"
+      ]
+    },
+    {
+      "id": "frida-kahlo",
+      "name": "Frida Kahlo",
+      "years": "1907–1954",
+      "origin": "Coyoacán, Mexico City, Mexico",
+      "movement": "Mexican modernism (labelled Surrealist; she refused the label)",
+      "thesis": "After a bus accident broke her body at eighteen, Kahlo painted from bed with a mirror over her, and made the examined self the whole subject of art. Her doubled and wounded self-portraits insisted that private pain, a divided identity, and a woman's interior life were public realities worth looking at — not dreams. She widened consciousness by proving the inside of one person could be a national, and then universal, landscape.",
+      "key_works": [
+        {
+          "title": "The Two Fridas (Las dos Fridas), 1939",
+          "where": "Museo de Arte Moderno, Mexico City — on view since June 5, 2026 in a dedicated space within 'La colección. Redes y trayectorias del arte mexicano, 1910–1950' (Sala B, listed into 2027); the museum's program also lists the cabinet show 'Las dos Fridas: una identidad global' to Aug 30, 2026, though INBA press had announced a late-May close — sources conflict on that show's dates"
+        },
+        {
+          "title": "La Casa Azul (her lifelong home, now the Museo Frida Kahlo)",
+          "where": "Museo Frida Kahlo, Coyoacán, Mexico City — open Tue–Sun; timed tickets sell out days ahead"
+        }
+      ],
+      "quote": "\"They thought I was a Surrealist, but I wasn't. I never painted dreams. I painted my own reality.\" — Time, 'Mexican Autobiography', Apr 27, 1953. High confidence.",
+      "sources": [
+        "https://mam.inba.gob.mx/exposiciones2026.html",
+        "https://www.infobae.com/mexico/2026/06/26/donde-ver-las-dos-fridas-una-de-las-obras-mas-representativas-del-arte-mexicano-y-que-tiene-exhibicion-especial-para-apreciar-a-solas/",
+        "https://time.com/archive/6620658/art-mexican-autobiography/",
+        "https://www.museofridakahlo.org.mx/?lang=en"
+      ]
+    },
+    {
+      "id": "salvador-dali",
+      "name": "Salvador Dalí",
+      "years": "1904–1989",
+      "origin": "Figueres, Catalonia, Spain",
+      "movement": "Surrealism",
+      "thesis": "Dalí's 'paranoiac-critical method' was a deliberate technique for inducing delusional seeing — letting one image become another — and then recording the result with a jeweler's precision. By rendering dream-logic more sharply than waking life, he showed that the unconscious is not vague but exact, and that the mind can be its own laboratory. Melting watches taught a mass audience that time, too, is something the mind makes soft.",
+      "key_works": [
+        {
+          "title": "The Persistence of Memory, 1931",
+          "where": "Museum of Modern Art, New York — on view, Gallery 517, Floor 5"
+        },
+        {
+          "title": "Dalí Theatre-Museum (built by the artist; he is buried beneath its dome)",
+          "where": "Fundació Gala-Salvador Dalí, Figueres, Spain — open Tue–Sun (daily in high summer)"
+        }
+      ],
+      "quote": "\"The only difference between me and a madman is that I am not mad.\" — first documented from a 1934 lecture (per Quote Investigator); repeated in his 1942 autobiography era. High confidence in attribution; wording varies slightly between tellings.",
+      "sources": [
+        "https://www.moma.org/collection/works/79018",
+        "https://quoteinvestigator.com/2025/05/25/not-madman/",
+        "https://www.salvador-dali.org/en/museums/dali-theatre-museum-in-figueres/info-practica/horaris-i-preus/"
+      ]
+    },
+    {
+      "id": "rene-magritte",
+      "name": "René Magritte",
+      "years": "1898–1967",
+      "origin": "Lessines, Belgium",
+      "movement": "Surrealism",
+      "thesis": "In flat, deadpan realism Magritte painted a pipe and wrote beneath it 'this is not a pipe' — snapping the invisible thread that welds words, images and things. His paradoxes (day and night in one street, a face hidden by an apple) reveal that ordinary seeing is a habit, and habits can be interrupted. He expanded consciousness by making viewers catch their own minds in the act of believing pictures — groundwork for semiotics and conceptual art.",
+      "key_works": [
+        {
+          "title": "The Treachery of Images (Ceci n'est pas une pipe), 1929",
+          "where": "Los Angeles County Museum of Art (LACMA), Los Angeles — on view; the collection page lists BCAM, 3rd floor (Modern Art), while April 2026 press places Magritte among highlights of the new David Geffen Galleries (opened Apr 19, 2026) — sources conflict on the building, confirm on arrival"
+        },
+        {
+          "title": "The Empire of Light (L'Empire des lumières) — one of the many versions",
+          "where": "Magritte Museum (Royal Museums of Fine Arts of Belgium), Brussels — open Tue–Sun"
+        }
+      ],
+      "quote": "\"Everything we see hides another thing, we always want to see what is hidden by what we see.\" — radio interview with Jean Neyens, 1965; cited in Torczyner, Magritte: Ideas and Images, p. 172. High confidence.",
+      "sources": [
+        "https://collections.lacma.org/object/31931",
+        "https://www.uscannenbergmedia.com/2026/04/27/inside-the-new-david-geffen-galleries-at-la-county-museum-of-art/",
+        "https://musee-magritte-museum.be/en/your-visit/practical-info-rmfab/opening-hours",
+        "https://en.wikipedia.org/wiki/The_Son_of_Man"
+      ]
+    },
+    {
+      "id": "remedios-varo",
+      "name": "Remedios Varo",
+      "years": "1908–1963",
+      "origin": "Anglès, Girona, Spain; exiled to Mexico City in 1941",
+      "movement": "Surrealism (Mexican exile circle, with Leonora Carrington and Kati Horna)",
+      "thesis": "Varo painted consciousness as a craft: robed figures in towers weave the fabric of the world, distill starlight into food, engineer machines for crossing into other planes. Trained in science and steeped in alchemy, mysticism and Jung, she fused laboratory and ritual until the two were indistinguishable — inner work rendered with an engineer's exactness. She made the journey of the psyche look like skilled labor, and gave the unconscious a workshop instead of a dream.",
+      "key_works": [
+        {
+          "title": "La huida (The Escape), 1961 — final panel of her triptych",
+          "where": "Museo de Arte Moderno, Mexico City — the museum holds the largest Varo collection (Gruen–Varsoviano bequest); its show 'Remedios Varo: Habitantes de lo insólito' is on view in Sala C, listed on the museum's program into 2027 (earlier press had reported a July 5, 2026 close)"
+        }
+      ],
+      "quote": "",
+      "sources": [
+        "https://mam.inba.gob.mx/exposiciones2026.html",
+        "https://inba.gob.mx/prensa/23599/el-museo-de-arte-moderno-presenta-la-muestra-remedios-varo-habitantes-de-lo-insolito",
+        "https://www.infobae.com/mexico/2026/03/26/remedios-varo-habitantes-de-lo-insolito-en-cdmx-todo-sobre-la-exposicion-surrealista-en-el-museo-de-arte-moderno/"
+      ]
+    },
+    {
+      "id": "mark-rothko",
+      "name": "Mark Rothko",
+      "years": "1903–1970",
+      "origin": "Daugavpils, Latvia (then Russian Empire); emigrated to the US in 1913",
+      "movement": "Abstract Expressionism / Color Field",
+      "thesis": "Rothko emptied painting of every image so that it could hold feeling alone — floating fields of color at body scale, meant to be stood inside rather than looked at. He said viewers who wept before his pictures were having the religious experience he had painting them, and he meant it literally: the canvas as a site of transcendence for a secular age. The Houston chapel completes the thought — painting become a room for contemplation itself.",
+      "key_works": [
+        {
+          "title": "Rothko Chapel (fourteen paintings, dedicated 1971)",
+          "where": "Rothko Chapel, Houston — open Tue–Sun (reopened Dec 17, 2024 after Hurricane Beryl damage; the east-wall triptych remains off-site under restoration per latest reports, with no announced return date)"
+        },
+        {
+          "title": "The Seagram Murals, 1958–59",
+          "where": "Tate Modern, London — dedicated Rothko room, displayed low-lit as the artist intended"
+        }
+      ],
+      "quote": "\"The people who weep before my pictures are having the same religious experience I had when I painted them.\" — conversation with Selden Rodman, 1956, published in Conversations with Artists (1957), p. 92. High confidence.",
+      "sources": [
+        "https://rothkochapel.org/",
+        "https://www.houstonpublicmedia.org/articles/news/arts-culture-news/2025/05/12/521121/rothko-chapel-damaged-artwork-repair-grant-bank-of-america-houston/",
+        "https://www.tate.org.uk/visit/tate-modern/display/in-the-studio/mark-rothko-seagram-murals",
+        "https://www.themarginalian.org/2014/02/19/mark-rothko-on-art-selden-rodman/"
+      ]
+    },
+    {
+      "id": "agnes-martin",
+      "name": "Agnes Martin",
+      "years": "1912–2004",
+      "origin": "Macklin, Saskatchewan, Canada; became a US citizen, settled in New Mexico",
+      "movement": "Between Abstract Expressionism and Minimalism (she claimed the former)",
+      "thesis": "Martin drew faint pencil grids and pale bands by hand, over and over, for fifty years — paintings of nothing that are really paintings of states of mind: innocence, gratitude, an untroubled sea. She held that beauty and happiness exist in the mind, not the eye, and built canvases quiet enough for a viewer to notice their own attention. Decades before 'mindfulness' entered the language, her rooms taught it wordlessly.",
+      "key_works": [
+        {
+          "title": "The Agnes Martin Gallery — seven paintings (1993–94) hung in an octagonal room under an oculus, with four Donald Judd benches",
+          "where": "Harwood Museum of Art, Taos, New Mexico — the only installation of its kind; museum reopened June 27, 2026 after a June 1–26 installation closure"
+        }
+      ],
+      "quote": "\"When I think of art, I think of beauty. Beauty is the mystery of life. It is not in the eye it is in the mind.\" — 'Beauty Is the Mystery of Life', lecture first given at the Carnegie Museum of Art, 1989. High confidence.",
+      "sources": [
+        "https://harwoodmuseum.org/art/collections/agnes-martin/",
+        "https://harwoodmuseum.org/events/museum-closed/",
+        "https://www.artbook.com/blog-excerpt-agnes-martin-beauty-is-the-mystery-of-life.html",
+        "https://www.pacegallery.com/journal/agnes-martin-on-beauty/"
+      ]
+    },
+    {
+      "id": "yayoi-kusama",
+      "name": "Yayoi Kusama",
+      "years": "b. 1929",
+      "origin": "Matsumoto, Nagano, Japan",
+      "movement": "Avant-garde; precursor of Pop and Minimalism; self-described 'obsessional art'",
+      "thesis": "Since childhood Kusama has hallucinated proliferating dots and nets; painting them is how she survives them — art as therapy conducted in public for seventy years. Her mirrored infinity rooms turn that private symptom into a shareable state: the self dissolving into endless repetition, which she calls self-obliteration. She has lived voluntarily in a Tokyo psychiatric hospital since 1977, walking to her studio daily — proof that a mind's affliction can be built into rooms where anyone can stand inside infinity.",
+      "key_works": [
+        {
+          "title": "Pumpkin, 1994 (re-created 2022 after typhoon damage)",
+          "where": "Benesse Art Site Naoshima, Naoshima island, Japan — outdoor, on its pier; reinstalled Oct 2022"
+        },
+        {
+          "title": "Infinity Mirrored Room — The Souls of Millions of Light Years Away, 2013",
+          "where": "The Broad, Los Angeles — permanent collection; free timed reservations"
+        },
+        {
+          "title": "Yayoi Kusama Museum (five floors devoted to her work)",
+          "where": "Yayoi Kusama Museum, Shinjuku, Tokyo — open Thu–Sun and holidays by timed ticket; current exhibition 'KUSAMA's POP' runs Apr 16–Aug 30, 2026"
+        }
+      ],
+      "quote": "\"If it were not for art, I would have killed myself a long time ago.\" — Infinity Net: The Autobiography of Yayoi Kusama (2003). High confidence.",
+      "sources": [
+        "https://benesse-artsite.jp/en/special2022/pumpkin.html",
+        "https://www.thebroad.org/visit/mirror-rooms",
+        "https://yayoikusamamuseum.jp/en/exhibition/current/",
+        "https://en.wikipedia.org/wiki/Yayoi_Kusama"
+      ]
+    },
+    {
+      "id": "james-turrell",
+      "name": "James Turrell",
+      "years": "b. 1943",
+      "origin": "Los Angeles, California, USA",
+      "movement": "Light and Space",
+      "thesis": "Turrell's medium is not paint or even light fixtures but perception itself: rooms and skies arranged so you watch yourself seeing. Raised Quaker — taught to 'go inside and greet the light' — he builds spaces where light is not depicting anything; it is the thing, and the viewer's awareness is the artwork's other half. Roden Crater, the extinct volcano he has been shaping since 1977 into a naked-eye observatory, is the largest instrument ever built for pointing consciousness at the sky.",
+      "key_works": [
+        {
+          "title": "Roden Crater (begun 1977, unfinished)",
+          "where": "Painted Desert near Flagstaff, Arizona — closed to the public; construction ongoing and fundraising underway to complete and open it, per the project itself; no public opening date"
+        },
+        {
+          "title": "The Light Inside, 1999",
+          "where": "Museum of Fine Arts, Houston — permanent tunnel installation, on view (note: his Twilight Epiphany Skyspace at Rice University, Houston, is closed for construction nearby and lighting upgrades, reopening fall 2026)"
+        }
+      ],
+      "quote": "\"My work is more about your seeing than it is about my seeing, although it is a product of my seeing.\" — in Occluded Front: James Turrell (Museum of Contemporary Art, Los Angeles, 1985). High confidence.",
+      "sources": [
+        "https://rodencrater.com/about/",
+        "https://emuseum.mfah.org/objects/42358/the-light-inside",
+        "https://moody.rice.edu/james-turrell-twilight-epiphany-skyspace",
+        "https://glasstire.com/2025/08/12/rice-universitys-turrell-skyspace-closed-until-spring-2026/",
+        "https://annex.exploratorium.edu/lightandland/turrell-quotes.html"
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+/* ============================================================
+   間 — minimal script: parse the inline dataset, build the
+   dot-nav and the corridor of placards. If parsing fails, the
+   page stands quietly: hero, prose and footer remain.
+   ============================================================ */
+(function(){
+  'use strict';
+
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text) n.textContent = text;
+    return n;
+  }
+
+  /* ---- read the dataset; fail quietly ---- */
+  var data = null;
+  try {
+    var raw = document.getElementById('dataset');
+    if (raw) data = JSON.parse(raw.textContent);
+  } catch(e){ data = null; }
+
+  if (data && data.minds && data.minds.length){
+
+    /* ---- status line ---- */
+    try {
+      if (data.as_of) document.getElementById('as-of').textContent = data.as_of;
+      if (data.note)  document.getElementById('data-note').textContent = data.note;
+    } catch(e){ /* the static line already stands */ }
+
+    /* ---- doors along the corridor: one dot per mind ---- */
+    var nav = document.getElementById('minds-eras');
+    if (nav) {
+      data.minds.forEach(function(m){
+        if (!m || !m.id || !m.name) return;
+        var li = document.createElement('li');
+        var a  = document.createElement('a');
+        a.href = '#' + m.id;
+        a.appendChild(el('span','dot'));
+        a.appendChild(el('span','lbl', m.name));
+        li.appendChild(a);
+        nav.appendChild(li);
+      });
+    }
+
+    /* ---- the corridor: one placard per mind, dataset order ---- */
+    var corridor = document.getElementById('corridor');
+    if (corridor) {
+      corridor.textContent = '';
+      data.minds.forEach(function(m){
+        if (!m || !m.name) return;
+        var card = el('article','placard rise');
+        if (m.id) card.id = m.id;
+
+        var hasQuote = !!(m.quote && String(m.quote).trim());
+        if (hasQuote) {
+          var seal = el('span','seal');
+          seal.setAttribute('aria-hidden','true');
+          card.appendChild(seal);
+        }
+
+        card.appendChild(el('h3','mind-name', m.name));
+
+        var meta = [m.years, m.origin, m.movement]
+          .filter(function(x){ return x && String(x).trim(); })
+          .join(' · ');
+        if (meta) card.appendChild(el('p','mind-meta', meta));
+
+        if (m.thesis) card.appendChild(el('p','mind-thesis', m.thesis));
+
+        if (m.key_works && m.key_works.length){
+          var works = el('ul','mind-works');
+          m.key_works.forEach(function(w){
+            if (!w || !w.title) return;
+            var line = document.createElement('li');
+            line.appendChild(el('span','work-title', w.title));
+            if (w.where) line.appendChild(document.createTextNode(' — ' + w.where));
+            works.appendChild(line);
+          });
+          card.appendChild(works);
+        }
+
+        if (hasQuote) card.appendChild(el('p','mind-quote', m.quote));
+
+        corridor.appendChild(card);
+      });
+    }
+  }
+
+  /* ---- fade-up on scroll (once) — after the corridor is built ---- */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var risers = document.querySelectorAll('.rise');
+  if (reduced || !('IntersectionObserver' in window)) {
+    risers.forEach(function(r){ r.classList.add('seen'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    risers.forEach(function(r){ io.observe(r); });
+  }
+})();
+</script>
+</body>
+</html>
