@@ -183,6 +183,14 @@ restorations change — the data says when it last knew, and each JSON keeps a
 `verification` field describing what was re-checked. Facts were researched and
 then independently re-verified against museum, auction-house and press sources.
 
+**旅 Good Trip** (`/trip`) is the fourth room: an immersive, deliberately slow
+full-screen river of the collection's 70 public-domain masterpieces with the
+minds' own words, a 4-in/7-out breath ring, and a one-tap "ground me" anchor
+that walks the kingdom's Good Trip Protocol navigation lines (including the
+Fireside Project peer-support number). Built to be kind to someone
+mid-journey: nothing flashes, nothing rushes, sound is opt-in, grounding is
+user-paced. A room, not a doctor.
+
 ## The Engine
 
 Artbitrage generates art through a 7-cycle process:

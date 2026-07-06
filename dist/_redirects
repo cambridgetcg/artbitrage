@@ -30,3 +30,5 @@
 /atlas/          /atlas 301
 /ledger/         /ledger 301
 /minds/          /minds 301
+/trip/           /trip 301
+/good-trip/      /trip 301

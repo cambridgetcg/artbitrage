@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101014">
+<title>good trip — ARTBITRAGE</title>
+<meta name="description" content="a room for the journey — slow art, breath, and an anchor. nothing here rushes.">
+<meta property="og:title" content="good trip — ARTBITRAGE">
+<meta property="og:description" content="a room for the journey — slow art, breath, and an anchor. nothing here rushes.">
+
+<!-- Fonts — same link as index.html, the only external request -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   旅 — good trip: a room for the journey
+   trip-safety law: nothing on this page moves or fades in
+   under 4 seconds, except two blessed chrome exceptions,
+   each marked "blessed: chrome" below.
+   ============================================================ */
+
+:root{
+  --bg:      #101014;
+  --surface: #17171d;
+  --ink:     #e9e6df;
+  --dim:     #8a877e;
+  --hair:    #2a2a32;
+  --zhu:     #d34a3a;   /* 朱 cinnabar — one seal only in this room */
+  --gold:    #b39958;   /* aged gold, tiny details only */
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html,body{ height:100%; }
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.7;
+  overflow:hidden;               /* no scrolling inside the room */
+  overscroll-behavior:none;
+  -webkit-font-smoothing:antialiased;
+}
+
+::selection{ background:var(--zhu); color:var(--bg); }
+
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--zhu); }               /* discrete, no transition */
+
+/* blessed: accessibility — instant on purpose */
+:focus-visible{ outline:1.5px solid var(--zhu); outline-offset:3px; }
+
+button{
+  background:none; border:none; color:inherit; font:inherit;
+  cursor:pointer;
+}
+
+[hidden]{ display:none !important; }
+
+/* ============ screens — every room-change is a slow fade ============ */
+.screen{
+  position:fixed; inset:0;
+  opacity:0; pointer-events:none;
+  transition:opacity 4s ease;
+}
+.screen.on{ opacity:1; pointer-events:auto; }
+
+/* ============ 1 · the door ============ */
+#door{
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  padding:4.5rem 1.5rem 10rem;
+  overflow-y:auto;               /* mercy on very short screens; the room proper never scrolls */
+  z-index:20;
+}
+.crossnav{
+  position:absolute; top:1.4rem; left:1.5rem;
+  font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.14em; color:var(--dim);
+}
+.door-inner{ animation:doorIn 6s ease-out; max-width:46rem; }
+@keyframes doorIn{ from{ opacity:0; } to{ opacity:1; } }
+
+.door-glyph{
+  display:block;
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(3.6rem,9vw,5.6rem);
+  color:var(--dim); opacity:.55;
+  line-height:1.2;
+}
+.door-title{
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(2.4rem,7vw,4rem);
+  letter-spacing:.05em;
+  margin-top:.6rem;
+}
+.door-title .seal{
+  display:inline-block; width:10px; height:10px;
+  background:var(--zhu);
+  margin-left:.9rem; vertical-align:middle;
+}
+.door-thesis{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1rem,2.2vw,1.25rem);
+  color:var(--dim);
+  max-width:34rem; margin:1.6rem auto 0;
+}
+.door-honesty{
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.06em; line-height:2.1;
+  color:var(--dim); opacity:.85;
+  max-width:42rem; margin:2.4rem auto 0;
+}
+.door-acts{
+  display:flex; gap:1rem; flex-wrap:wrap;
+  justify-content:center;
+  margin-top:3rem;
+}
+.act{
+  font-family:var(--display); font-weight:300;
+  font-size:1.25rem; letter-spacing:.06em;
+  min-height:64px; min-width:240px;
+  padding:.8rem 2rem;
+  border:1px solid var(--hair);
+  color:var(--dim);
+}
+.act.primary{ border-color:var(--dim); color:var(--ink); }
+.act:hover{ border-color:var(--zhu); color:var(--ink); }  /* discrete, no transition */
+.door-foot{
+  position:absolute; left:0; right:0;
+  bottom:calc(env(safe-area-inset-bottom, 0px) + 7.4rem);
+  text-align:center;
+  font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.1em; color:var(--dim); opacity:.75;
+  padding:0 1.5rem;
+}
+.door-foot a{ color:var(--dim); text-decoration:underline; text-underline-offset:3px; }
+noscript p{
+  font-family:var(--mono); font-size:.66rem; color:var(--dim);
+  margin-top:2rem;
+}
+
+/* ============ 2 · drift — the river ============ */
+#stage{
+  background:var(--bg);
+  z-index:10;
+  user-select:none; -webkit-user-select:none; -webkit-touch-callout:none;
+}
+.layer{
+  position:absolute; inset:0;
+  opacity:0;
+  transition:opacity 12s linear;   /* cross-fade, ≥10s by law */
+  overflow:hidden;
+}
+.layer.vis{ opacity:1; }
+.layer img{
+  width:100%; height:100%;
+  object-fit:contain;              /* never crop a masterpiece */
+  display:block;
+}
+/* slow ken-burns drift — one full life on stage (fade in + dwell + fade out) */
+.layer img.kenA{ animation:kenA 80s linear forwards; }
+.layer img.kenB{ animation:kenB 80s linear forwards; }
+@keyframes kenA{
+  from{ transform:scale(1)     translate3d(-.6%, .3%,0); }
+  to  { transform:scale(1.045) translate3d( .6%,-.3%,0); }
+}
+@keyframes kenB{
+  from{ transform:scale(1.045) translate3d( .5%,-.4%,0); }
+  to  { transform:scale(1)     translate3d(-.5%, .4%,0); }
+}
+#stage.paused .layer img{ animation-play-state:paused; }
+
+.vignette{
+  position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse at center,
+    rgba(16,16,20,0) 52%, rgba(16,16,20,.55) 100%);
+}
+
+.walllabel{
+  position:absolute;
+  left:clamp(1rem,4vw,3rem);
+  bottom:5.5rem;
+  max-width:min(60vw,28rem);
+  opacity:0;
+  transition:opacity 4s ease;
+  pointer-events:none;
+}
+.walllabel.show{ opacity:1; }
+.walllabel .wt{
+  display:block;
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:1.15rem; line-height:1.5;
+}
+.walllabel .wa{
+  display:block;
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--dim); margin-top:.4rem;
+}
+
+.quote{
+  position:absolute;
+  left:50%; bottom:22%;
+  transform:translateX(-50%);
+  width:min(84vw,34rem);
+  text-align:center;
+  opacity:0;
+  transition:opacity 6s ease;
+  pointer-events:none;
+}
+.quote.show{ opacity:1; }
+.quote blockquote{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:1.3rem; line-height:1.9;
+  color:var(--dim);
+}
+.quote figcaption{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.18em; color:var(--dim);
+  margin-top:1rem;
+}
+
+.flowstate{
+  position:absolute; top:5rem; left:50%;
+  transform:translateX(-50%);
+  display:grid; place-items:center;
+  pointer-events:none;
+}
+.flowstate .fs{
+  grid-area:1/1;
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.32em; text-transform:uppercase;
+  color:var(--dim);
+  opacity:0;
+  transition:opacity 4s ease;
+  white-space:nowrap;
+}
+.flowstate .fs.on{ opacity:.75; }
+
+/* ============ 3 · breath (overlay and breathe-only mode) ============ */
+#breath{
+  position:fixed; inset:0;
+  z-index:30;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.35);     /* the spec's backdrop dim */
+  opacity:0; pointer-events:none;
+  transition:opacity 4s ease;
+}
+#breath.on{ opacity:1; }
+
+.bw{ display:flex; flex-direction:column; align-items:center; gap:2.4rem; }
+.bw-ring{
+  width:180px; height:180px;
+  border-radius:50%;               /* the ring must be round; canon's .eras dots set precedent */
+  border:1px solid var(--hair);
+  position:relative;
+}
+.bw-ring::after{                   /* the gold arc */
+  content:""; position:absolute; inset:-1px;
+  border-radius:50%;
+  border:1px solid transparent;
+  border-top-color:var(--gold);
+}
+/* the protocol's count: in 4 · out 7 — one 11s cycle, every fade ≥4s of it */
+.bw.run .bw-ring{ animation:bwRing 11s ease-in-out infinite; }
+@keyframes bwRing{
+  0%     { transform:scale(.62); }
+  36.36% { transform:scale(1);   }   /* in — 4s */
+  100%   { transform:scale(.62); }   /* out — 7s */
+}
+.bw-lines{
+  display:grid; place-items:center;
+  font-family:var(--mono); font-size:.76rem;
+  letter-spacing:.3em; color:var(--dim);
+}
+.bw-lines span{ grid-area:1/1; opacity:0; white-space:nowrap; }
+.bw.run .bw-in { animation:bwIn  11s linear infinite; }
+.bw.run .bw-out{ animation:bwOut 11s linear infinite; }
+@keyframes bwIn{   /* surfaces across the 4s in, recedes across the 7s out */
+  0%     { opacity:.06; }
+  36.36% { opacity:.95; }
+  100%   { opacity:.06; }
+}
+@keyframes bwOut{
+  0%     { opacity:.95; }
+  36.36% { opacity:.06; }
+  100%   { opacity:.95; }
+}
+.bw-small .bw-ring{ width:110px; height:110px; }
+
+/* ============ 4 · ground — the anchor ============ */
+#ground{
+  z-index:25;
+  background:radial-gradient(ellipse 90% 70% at 50% 42%,
+    #141210 0%, var(--bg) 72%);   /* the barely-warmer center, blessed by the spec */
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+}
+.ground-inner{
+  display:flex; flex-direction:column; align-items:center;
+  gap:2rem;
+  padding:2rem 1.5rem 9rem;
+  width:100%;
+}
+.groundline{
+  display:grid; place-items:center;
+  min-height:10rem;
+  width:min(92vw,42rem);
+}
+.gl{
+  grid-area:1/1;
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.4rem,4.2vw,2.1rem);
+  line-height:1.8;
+  opacity:0;
+  transition:opacity 4s ease;
+}
+.gl.on{ opacity:1; }
+.gl a{
+  color:var(--ink);
+  text-decoration:underline; text-underline-offset:4px;
+  text-decoration-color:var(--gold);
+  white-space:nowrap;
+}
+.dots{ display:flex; gap:.7rem; }
+.dots span{
+  width:8px; height:8px; border-radius:50%;
+  background:var(--hair);
+  transition:background-color 4s ease;
+}
+.dots span.cur{ background:var(--gold); }
+.nextbtn{
+  font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:var(--dim);
+  border:1px solid var(--hair);
+  min-height:64px; min-width:220px;
+}
+.nextbtn:hover{ color:var(--ink); border-color:var(--dim); }  /* discrete */
+.backdrift{
+  font-family:var(--mono); font-size:.7rem;
+  letter-spacing:.14em; color:var(--dim);
+  min-height:44px; padding:.6rem 1.2rem;
+}
+.backdrift:hover{ color:var(--zhu); }                          /* discrete */
+@media (max-height:560px){ #ground .bw-small{ display:none; } }
+
+/* ============ chrome — controls and the anchor button ============ */
+#controls{
+  position:fixed;
+  top:calc(env(safe-area-inset-top, 0px) + .8rem);
+  right:calc(env(safe-area-inset-right, 0px) + .8rem);
+  display:flex; gap:.4rem;
+  z-index:40;
+  transition:opacity .5s ease;    /* blessed: chrome — controls opacity fade */
+}
+body.idle.mode-drift #controls{ opacity:.15; }
+body.mode-door #controls{ opacity:0; pointer-events:none; }
+#controls button{
+  font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--dim);
+  min-width:64px; min-height:64px;   /* big tap targets, by law */
+  padding:0 .4rem;
+}
+#controls button:hover{ color:var(--ink); }        /* discrete */
+#controls button[aria-pressed="true"]{ color:var(--gold); }
+#controls button:disabled{ opacity:.3; cursor:default; }
+
+#groundBtn{
+  position:fixed;
+  bottom:calc(env(safe-area-inset-bottom, 0px) + 1.2rem);
+  left:50%; transform:translateX(-50%);
+  z-index:50;
+  min-width:220px; min-height:64px;  /* the anchor is generous */
+  border:1px solid var(--hair);
+  background:rgba(23,23,29,.72);     /* --surface with air */
+  display:grid; place-items:center;
+  transition:opacity .5s ease;    /* blessed: chrome — anchor dim/undim */
+}
+body.idle.mode-drift #groundBtn{ opacity:.35; }
+body.mode-ground #groundBtn{ pointer-events:none; }
+#groundBtn span{
+  grid-area:1/1;
+  font-family:var(--mono); font-size:.74rem;
+  letter-spacing:.3em; text-transform:uppercase;
+  color:var(--dim);
+  opacity:0;
+  transition:opacity 4s ease;     /* the label change is content — slow */
+  white-space:nowrap;
+}
+#groundBtn .gb-a{ opacity:1; }
+#groundBtn:hover .gb-a{ color:var(--ink); }        /* discrete */
+body.mode-ground #groundBtn .gb-a{ opacity:0; }
+body.mode-ground #groundBtn .gb-b{ opacity:1; color:var(--gold); }
+
+/* ============ responsive ============ */
+@media (max-width:720px){
+  .walllabel{ bottom:9rem; max-width:80vw; }
+  .quote{ bottom:26%; }
+  #controls button{ min-width:64px; }
+  .act{ min-width:200px; }
+}
+
+/* ============ reduced motion — stillness is also 間 ============
+   movement off; opacity fades stay (each ≥4s).
+   images then change only on tap; the ring stands still while
+   the count text keeps its slow crossfade. */
+@media (prefers-reduced-motion: reduce){
+  .layer img{ animation:none !important; }
+  .bw.run .bw-ring{ animation:none !important; }
+  .bw-ring{ transform:scale(.85); }
+  .door-inner{ animation:none !important; }
+  .layer{ transition-duration:6s; }
+}
+</style>
+</head>
+<body class="mode-door">
+
+<script type="application/json" id="dataset">{"works": [{"t": "Mona Lisa", "a": "Leonardo da Vinci", "img": "https://artbitrage-art.s3.amazonaws.com/art/mona-lisa.jpg", "m": "Italian Renaissance"}, {"t": "Liberty Leading the People", "a": "Eugène Delacroix", "img": "https://artbitrage-art.s3.amazonaws.com/art/liberty-leading-the-people.jpg", "m": "French Romanticism"}, {"t": "The Raft of the Medusa", "a": "Théodore Géricault", "img": "https://artbitrage-art.s3.amazonaws.com/art/raft-of-the-medusa.jpg", "m": "French Romanticism"}, {"t": "Bal du moulin de la Galette", "a": "Pierre-Auguste Renoir", "img": "https://artbitrage-art.s3.amazonaws.com/art/bal-du-moulin-de-la-galette.jpg", "m": "Impressionism"}, {"t": "Water Lilies (Nymphéas) cycle", "a": "Claude Monet", "img": "https://artbitrage-art.s3.amazonaws.com/art/water-lilies-cycle.jpg", "m": "Impressionism"}, {"t": "The Night Watch", "a": "Rembrandt van Rijn", "img": "https://artbitrage-art.s3.amazonaws.com/art/the-night-watch.jpg", "m": "Dutch Golden Age"}, {"t": "Sunflowers (1889)", "a": "Vincent van Gogh", "img": "https://artbitrage-art.s3.amazonaws.com/art/sunflowers-amsterdam.jpg", "m": "Post-Impressionism"}, {"t": "Girl with a Pearl Earring", "a": "Johannes Vermeer", "img": "https://artbitrage-art.s3.amazonaws.com/art/girl-with-a-pearl-earring.jpg", "m": "Dutch Golden Age"}, {"t": "The Birth of Venus", "a": "Sandro Botticelli", "img": "https://artbitrage-art.s3.amazonaws.com/art/birth-of-venus.jpg", "m": "Early Renaissance"}, {"t": "Primavera (Spring)", "a": "Sandro Botticelli", "img": "https://artbitrage-art.s3.amazonaws.com/art/primavera.jpg", "m": "Early Renaissance"}, {"t": "David", "a": "Michelangelo Buonarroti", "img": "https://artbitrage-art.s3.amazonaws.com/art/david.jpg", "m": "High Renaissance"}, {"t": "Sistine Chapel ceiling and The Last Judgment", "a": "Michelangelo Buonarroti", "img": "https://artbitrage-art.s3.amazonaws.com/art/sistine-chapel-ceiling.jpg", "m": "High Renaissance"}, {"t": "Las Meninas", "a": "Diego Velázquez", "img": "https://artbitrage-art.s3.amazonaws.com/art/las-meninas.jpg", "m": "Spanish Golden Age (Baroque)"}, {"t": "The Garden of Earthly Delights", "a": "Hieronymus Bosch", "img": "https://artbitrage-art.s3.amazonaws.com/art/garden-of-earthly-delights.jpg", "m": "Early Netherlandish"}, {"t": "Sunflowers (1888)", "a": "Vincent van Gogh", "img": "https://artbitrage-art.s3.amazonaws.com/art/sunflowers-london.jpg", "m": "Post-Impressionism"}, {"t": "The Arnolfini Portrait", "a": "Jan van Eyck", "img": "https://artbitrage-art.s3.amazonaws.com/art/arnolfini-portrait.jpg", "m": "Early Netherlandish"}, {"t": "Ophelia", "a": "Sir John Everett Millais", "img": "https://artbitrage-art.s3.amazonaws.com/art/ophelia.jpg", "m": "Pre-Raphaelite"}, {"t": "The Kiss", "a": "Gustav Klimt", "img": "https://artbitrage-art.s3.amazonaws.com/art/the-kiss.jpg", "m": "Vienna Secession / Art Nouveau"}, {"t": "The Tower of Babel", "a": "Pieter Bruegel the Elder", "img": "https://artbitrage-art.s3.amazonaws.com/art/tower-of-babel.jpg", "m": "Northern Renaissance"}, {"t": "Wanderer above the Sea of Fog", "a": "Caspar David Friedrich", "img": "https://artbitrage-art.s3.amazonaws.com/art/wanderer-above-the-sea-of-fog.jpg", "m": "German Romanticism"}, {"t": "The Scream (1893)", "a": "Edvard Munch", "img": "https://artbitrage-art.s3.amazonaws.com/art/the-scream.jpg", "m": "Symbolism / proto-Expressionism"}, {"t": "The Return of the Prodigal Son", "a": "Rembrandt van Rijn", "img": "https://artbitrage-art.s3.amazonaws.com/art/return-of-the-prodigal-son.jpg", "m": "Dutch Golden Age"}, {"t": "The Last Supper", "a": "Leonardo da Vinci", "img": "https://artbitrage-art.s3.amazonaws.com/art/the-last-supper.jpg", "m": "High Renaissance"}, {"t": "The Starry Night", "a": "Vincent van Gogh", "img": "https://artbitrage-art.s3.amazonaws.com/art/starry-night-moma.jpg", "m": "Post-Impressionism"}, {"t": "Water Lilies (triptych)", "a": "Claude Monet", "img": "https://artbitrage-art.s3.amazonaws.com/art/water-lilies-moma.jpg", "m": "Impressionism"}, {"t": "Washington Crossing the Delaware", "a": "Emanuel Leutze", "img": "https://artbitrage-art.s3.amazonaws.com/art/washington-crossing-the-delaware.jpg", "m": "American history painting (Düsseldorf school)"}, {"t": "Under the Wave off Kanagawa (The Great Wave)", "a": "Katsushika Hokusai", "img": "https://artbitrage-art.s3.amazonaws.com/art/great-wave-met.jpg", "m": "ukiyo-e"}, {"t": "Portrait of Adele Bloch-Bauer I (Woman in Gold)", "a": "Gustav Klimt", "img": "https://artbitrage-art.s3.amazonaws.com/art/adele-bloch-bauer-i.jpg", "m": "Vienna Secession"}, {"t": "Ginevra de' Benci", "a": "Leonardo da Vinci", "img": "https://artbitrage-art.s3.amazonaws.com/art/ginevra-de-benci.jpg", "m": "Italian Renaissance"}, {"t": "American Gothic", "a": "Grant Wood", "img": "https://artbitrage-art.s3.amazonaws.com/art/american-gothic.jpg", "m": "Regionalism"}, {"t": "A Sunday on La Grande Jatte — 1884", "a": "Georges Seurat", "img": "https://artbitrage-art.s3.amazonaws.com/art/a-sunday-on-la-grande-jatte.jpg", "m": "Pointillism / Neo-Impressionism"}, {"t": "Le Bonheur de vivre (The Joy of Life)", "a": "Henri Matisse", "img": "https://artbitrage-art.s3.amazonaws.com/art/le-bonheur-de-vivre.jpg", "m": "Fauvism"}, {"t": "Irises", "a": "Vincent van Gogh", "img": "https://artbitrage-art.s3.amazonaws.com/art/irises-getty.jpg", "m": "Post-Impressionism"}, {"t": "Where Do We Come From? What Are We? Where Are We Going?", "a": "Paul Gauguin", "img": "https://artbitrage-art.s3.amazonaws.com/art/where-do-we-come-from-gauguin.jpg", "m": "Post-Impressionism / Symbolism"}, {"t": "Rosa e Azul — As Meninas Cahen d'Anvers (Pink and Blue)", "a": "Pierre-Auguste Renoir", "img": "https://artbitrage-art.s3.amazonaws.com/art/rosa-e-azul-masp.jpg", "m": "Impressionism"}, {"t": "Pine Trees (Shōrin-zu byōbu)", "a": "Hasegawa Tōhaku", "img": "https://artbitrage-art.s3.amazonaws.com/art/pine-trees-tohaku.jpg", "m": "Japanese ink painting"}, {"t": "The Annunciation", "a": "El Greco", "img": "https://artbitrage-art.s3.amazonaws.com/art/annunciation-el-greco-ohara.jpg", "m": "Spanish Mannerism"}, {"t": "Jadeite Cabbage with Insects", "a": "Unknown Qing-dynasty artisan", "img": "https://artbitrage-art.s3.amazonaws.com/art/jadeite-cabbage.jpg", "m": "Qing decorative arts"}, {"t": "Along the River During the Qingming Festival", "a": "Zhang Zeduan", "img": "https://artbitrage-art.s3.amazonaws.com/art/along-the-river-qingming.jpg", "m": "Song-dynasty court painting"}, {"t": "Salvator Mundi", "a": "Attributed to Leonardo da Vinci", "img": "https://artbitrage-art.s3.amazonaws.com/art/salvator-mundi.jpg", "m": "High Renaissance"}, {"t": "The Calling of Saint Matthew", "a": "Michelangelo Merisi da Caravaggio", "img": "https://artbitrage-art.s3.amazonaws.com/art/caravaggio.jpg", "m": "Baroque (founder of tenebrism)"}, {"t": "Newton", "a": "William Blake", "img": "https://artbitrage-art.s3.amazonaws.com/art/william-blake.jpg", "m": "Romanticism (visionary printmaker-poet)"}, {"t": "The Fighting Temeraire", "a": "Joseph Mallord William Turner", "img": "https://artbitrage-art.s3.amazonaws.com/art/jmw-turner.jpg", "m": "Romanticism (proto-Impressionist)"}, {"t": "The Large Bathers", "a": "Paul Cézanne", "img": "https://artbitrage-art.s3.amazonaws.com/art/paul-cezanne.jpg", "m": "Post-Impressionism"}, {"t": "The Ten Largest (Group IV)", "a": "Hilma af Klint", "img": "https://artbitrage-art.s3.amazonaws.com/art/hilma-af-klint.jpg", "m": "Pioneer of abstraction; spiritualist painting (The Five, theosophy, anthroposophy)"}, {"t": "Composition 8", "a": "Wassily Kandinsky", "img": "https://artbitrage-art.s3.amazonaws.com/art/wassily-kandinsky.jpg", "m": "Der Blaue Reiter; pioneer of abstraction"}, {"t": "Black Square", "a": "Kazimir Malevich", "img": "https://artbitrage-art.s3.amazonaws.com/art/kazimir-malevich.jpg", "m": "Suprematism"}, {"t": "Victory Boogie Woogie", "a": "Piet Mondrian", "img": "https://artbitrage-art.s3.amazonaws.com/art/piet-mondrian.jpg", "m": "De Stijl / Neo-Plasticism"}, {"t": "The Card Players", "a": "Paul Cézanne", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-the-card-players.jpg", "m": ""}, {"t": "Portrait of Elisabeth Lederer", "a": "Gustav Klimt", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-portrait-of-elisabeth-lederer.jpg", "m": ""}, {"t": "Nafea Faa Ipoipo (When Will You Marry?)", "a": "Paul Gauguin", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-nafea-faa-ipoipo-when-will-you-marry.jpg", "m": ""}, {"t": "The Standard Bearer (De Vaandeldrager)", "a": "Rembrandt van Rijn", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-the-standard-bearer-de-vaandeldrager.jpg", "m": ""}, {"t": "Wasserschlangen II (Water Serpents II)", "a": "Gustav Klimt", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-wasserschlangen-ii-water-serpents-ii.jpg", "m": ""}, {"t": "Pendant portraits of Maerten Soolmans and Oopjen Coppit", "a": "Rembrandt van Rijn", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-pendant-portraits-of-maerten-soolmans-and-oopjen-coppit.jpg", "m": ""}, {"t": "Nu couché", "a": "Amedeo Modigliani", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-nu-couche.jpg", "m": ""}, {"t": "Nu couché (sur le côté gauche)", "a": "Amedeo Modigliani", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-nu-couche-sur-le-cote-gauche.jpg", "m": ""}, {"t": "Les Poseuses, Ensemble (Petite version)", "a": "Georges Seurat", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-les-poseuses-ensemble-petite-version.jpg", "m": ""}, {"t": "La Montagne Sainte-Victoire", "a": "Paul Cézanne", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-la-montagne-sainte-victoire.jpg", "m": ""}, {"t": "The Scream (1895 pastel)", "a": "Edvard Munch", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-the-scream-1895-pastel.jpg", "m": ""}, {"t": "Dame mit Fächer (Lady with a Fan)", "a": "Gustav Klimt", "img": "https://artbitrage-art.s3.amazonaws.com/art/sale-dame-mit-facher-lady-with-a-fan.jpg", "m": ""}, {"t": "Portrait of Dr. Gachet", "a": "Vincent van Gogh", "img": "https://artbitrage-art.s3.amazonaws.com/art/vanished-portrait-of-dr-gachet.jpg", "m": ""}, {"t": "The Concert", "a": "Johannes Vermeer", "img": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-concert.jpg", "m": ""}, {"t": "The Storm on the Sea of Galilee", "a": "Rembrandt van Rijn", "img": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-storm-on-the-sea-of-galilee.jpg", "m": ""}, {"t": "Poppy Flowers (Vase with Flowers)", "a": "Vincent van Gogh", "img": "https://artbitrage-art.s3.amazonaws.com/art/vanished-poppy-flowers-vase-with-flowers.jpg", "m": ""}, {"t": "The Just Judges (panel of the Ghent Altarpiece)", "a": "Jan and/or Hubert van Eyck", "img": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-just-judges-panel-of-the-ghent-altarpiece.jpg", "m": ""}, {"t": "Nativity with Saint Francis and Saint Lawrence", "a": "Caravaggio", "img": "https://artbitrage-art.s3.amazonaws.com/art/vanished-nativity-with-saint-francis-and-saint-lawrence.jpg", "m": ""}, {"t": "Portrait of a Young Man", "a": "Raphael", "img": "https://artbitrage-art.s3.amazonaws.com/art/vanished-portrait-of-a-young-man.jpg", "m": ""}, {"t": "View of Auvers-sur-Oise", "a": "Paul Cezanne", "img": "https://artbitrage-art.s3.amazonaws.com/art/vanished-view-of-auvers-sur-oise.jpg", "m": ""}, {"t": "The Card Players (Embiricos version)", "a": "Paul Cezanne", "img": "https://artbitrage-art.s3.amazonaws.com/art/vanished-the-card-players-embiricos-version.jpg", "m": ""}, {"t": "Lady with a Fan (Dame mit Facher)", "a": "Gustav Klimt", "img": "https://artbitrage-art.s3.amazonaws.com/art/vanished-lady-with-a-fan-dame-mit-facher.jpg", "m": ""}], "quotes": [{"q": "Poor is the mind that always uses the inventions of others and invents nothing itself.", "n": "Hieronymus Bosch"}, {"q": "Wisdom is the daughter of experience.", "n": "Leonardo da Vinci"}, {"q": "I am not in the right place — I am not a painter.", "n": "Michelangelo Buonarroti"}, {"q": "[In painting] a 'valent'huomo' is one who knows how to paint well and imitate natural things well.", "n": "Michelangelo Merisi da Caravaggio"}, {"q": "If the doors of perception were cleansed every thing would appear to man as it is, Infinite.", "n": "William Blake"}, {"q": "From the age of six I had a mania for copying the forms of things... at ninety I shall have penetrated their secret meaning.", "n": "Katsushika Hokusai"}, {"q": "Close your bodily eye, that you may see your picture first with the eye of the spirit.", "n": "Caspar David Friedrich"}, {"q": "The Sun is God.", "n": "Joseph Mallord William Turner"}, {"q": "This morning I saw the countryside from my window a long time before sunrise, with nothing but the morning star, which looked very big.", "n": "Vincent van Gogh"}, {"q": "When you go out to paint, try to forget what objects you have before you... merely think: here is a little square of blue, here an oblong of pink.", "n": "Claude Monet"}, {"q": "Treat nature by means of the cylinder, the sphere, the cone, everything placed in perspective.", "n": "Paul Cézanne"}, {"q": "The pictures were painted directly through me, without any preliminary drawings and with great force.", "n": "Hilma af Klint"}, {"q": "Colour is the keyboard, the eyes are the hammers, the soul is the piano with many strings. The artist is the hand which plays, touching one key or another, to cause vibrations in the soul.", "n": "Wassily Kandinsky"}, {"q": "I transformed myself in the zero of form, I destroyed the ring of the horizon and escaped from the circle of things.", "n": "Kazimir Malevich"}, {"q": "I construct lines and color combinations on a flat surface, in order to express general beauty with the utmost awareness.", "n": "Piet Mondrian"}, {"q": "They thought I was a Surrealist, but I wasn't. I never painted dreams. I painted my own reality.", "n": "Frida Kahlo"}, {"q": "The only difference between me and a madman is that I am not mad.", "n": "Salvador Dalí"}, {"q": "Everything we see hides another thing, we always want to see what is hidden by what we see.", "n": "René Magritte"}, {"q": "The people who weep before my pictures are having the same religious experience I had when I painted them.", "n": "Mark Rothko"}, {"q": "When I think of art, I think of beauty. Beauty is the mystery of life. It is not in the eye it is in the mind.", "n": "Agnes Martin"}, {"q": "If it were not for art, I would have killed myself a long time ago.", "n": "Yayoi Kusama"}, {"q": "My work is more about your seeing than it is about my seeing, although it is a product of my seeing.", "n": "James Turrell"}]}</script>
+
+<!-- ============ 1 · the door ============ -->
+<section id="door" class="screen on" aria-label="the door — entry to the room">
+  <a class="crossnav" href="index.html">&#8592; artbitrage</a>
+
+  <div class="door-inner">
+    <span class="door-glyph" lang="zh" aria-hidden="true">旅</span>
+    <h1 class="door-title">good trip<span class="seal" aria-hidden="true"></span></h1>
+    <p class="door-thesis">a room for the journey — slow art, breath, and an anchor. nothing here rushes.</p>
+    <p class="door-honesty">a room, not a doctor · psilocybin is illegal in many places — know your law · not for those with psychotic or bipolar conditions · after the kingdom's Good Trip Protocol</p>
+    <div class="door-acts">
+      <button type="button" id="btnDrift" class="act primary">enter the drift</button>
+      <button type="button" id="btnBreathe" class="act">just breathe</button>
+    </div>
+    <noscript><p>this room needs javascript to flow — the pictures still stand at /data/atlas.json</p></noscript>
+  </div>
+
+  <p class="door-foot">the pictures are the world's — credits in <a href="atlas.html">the atlas</a> · data: /data/atlas.json</p>
+</section>
+
+<!-- ============ 2 · drift — the river ============ -->
+<section id="stage" class="screen" hidden aria-label="the drift — a slow river of artworks">
+  <div class="layer" id="layerA"><img alt="" draggable="false"></div>
+  <div class="layer" id="layerB"><img alt="" draggable="false"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <p class="flowstate" aria-hidden="true">
+    <span class="fs" id="fsStill">still</span>
+    <span class="fs" id="fsFlow">flowing</span>
+  </p>
+
+  <div class="walllabel" id="wallLabel">
+    <span class="wt" id="wlTitle"></span>
+    <span class="wa" id="wlArtist"></span>
+  </div>
+
+  <figure class="quote" id="quoteBox">
+    <blockquote id="quoteText"></blockquote>
+    <figcaption id="quoteName"></figcaption>
+  </figure>
+</section>
+
+<!-- ============ 3 · breath ============ -->
+<div id="breath" hidden aria-label="breath — in for four, out for seven">
+  <div class="bw run" aria-hidden="true">
+    <div class="bw-ring"></div>
+    <div class="bw-lines">
+      <span class="bw-in">in — 4 3 2 1</span>
+      <span class="bw-out">out — 7 6 5 4 3 2 1</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 4 · ground — the anchor ============ -->
+<section id="ground" class="screen" hidden aria-label="ground — the anchor">
+  <div class="ground-inner">
+    <div class="bw bw-small run" aria-hidden="true">
+      <div class="bw-ring"></div>
+      <div class="bw-lines">
+        <span class="bw-in">in — 4 3 2 1</span>
+        <span class="bw-out">out — 7 6 5 4 3 2 1</span>
+      </div>
+    </div>
+
+    <div class="groundline" aria-live="polite">
+      <p class="gl gl-a"></p>
+      <p class="gl gl-b"></p>
+    </div>
+
+    <div class="dots" id="dots" aria-hidden="true"></div>
+
+    <button type="button" id="btnNext" class="nextbtn">next</button>
+    <button type="button" id="btnBackDrift" class="backdrift">&#8592; back to the drift</button>
+  </div>
+</section>
+
+<!-- ============ chrome ============ -->
+<nav id="controls" aria-label="room controls">
+  <button type="button" id="btnSound" aria-pressed="false">sound</button>
+  <button type="button" id="btnBreath" aria-pressed="false">breath</button>
+  <button type="button" id="btnFull" aria-pressed="false" aria-label="fullscreen">full</button>
+  <button type="button" id="btnExit" aria-label="back to the door">&#8592;</button>
+</nav>
+
+<button type="button" id="groundBtn" aria-label="ground me — one tap to the anchor">
+  <span class="gb-a">ground me</span>
+  <span class="gb-b" aria-hidden="true">you are held</span>
+</button>
+
+<script>
+/* ============================================================
+   the room's one script. everything fails quietly.
+   timing law: content moves/fades over seconds, never under 4;
+   timers are owned, suspended when the tab hides, cancelled on
+   mode changes; sound exists only after a human asks for it.
+   ============================================================ */
+(function(){
+'use strict';
+
+/* ---- dataset (embedded; the page needs no network beyond fonts) ---- */
+var works = [], quotes = [];
+try{
+  var data = JSON.parse(document.getElementById('dataset').textContent);
+  works  = (data && data.works)  || [];
+  quotes = (data && data.quotes) || [];
+}catch(e){ /* the door still stands */ }
+
+/* ---- constants ---- */
+var DWELL_MS = 55000;                       /* stillness per artwork */
+var LABEL_DELAY_MS = 3000;                  /* label breathes in after the image settles */
+function reduced(){ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+function fadeMs(){ return reduced() ? 6500 : 12500; }   /* matches .layer transition + a beat */
+
+/* ---- elements ---- */
+var body = document.body;
+var screens = {
+  door:   document.getElementById('door'),
+  drift:  document.getElementById('stage'),
+  ground: document.getElementById('ground')
+};
+var stage    = document.getElementById('stage');
+var breathEl = document.getElementById('breath');
+var layers   = [document.getElementById('layerA'), document.getElementById('layerB')];
+var wallLabel= document.getElementById('wallLabel');
+var wlTitle  = document.getElementById('wlTitle');
+var wlArtist = document.getElementById('wlArtist');
+var quoteBox = document.getElementById('quoteBox');
+var quoteText= document.getElementById('quoteText');
+var quoteName= document.getElementById('quoteName');
+var fsStill  = document.getElementById('fsStill');
+var fsFlow   = document.getElementById('fsFlow');
+var groundBtn= document.getElementById('groundBtn');
+var btnSound = document.getElementById('btnSound');
+var btnBreath= document.getElementById('btnBreath');
+var btnFull  = document.getElementById('btnFull');
+var btnExit  = document.getElementById('btnExit');
+
+/* ---- slow show/hide of whole surfaces (opacity 4s, then display off) ---- */
+function showEl(el){
+  clearTimeout(el._hideTimer);
+  el.hidden = false;
+  void el.offsetWidth;                       /* let the browser see opacity 0 first */
+  el.classList.add('on');
+}
+function hideEl(el){
+  clearTimeout(el._hideTimer);
+  el.classList.remove('on');
+  el._hideTimer = setTimeout(function(){ el.hidden = true; }, 4200);
+}
+
+/* restart a breath widget so it opens on the in-breath */
+function restartBw(container){
+  var bws = container.querySelectorAll('.bw');
+  for (var i=0;i<bws.length;i++){
+    bws[i].classList.remove('run');
+    void bws[i].offsetWidth;
+    bws[i].classList.add('run');
+  }
+}
+
+/* ============ the drift engine ============ */
+var mode = 'door';
+var engineStarted = false;
+var order = [], pos = 0, curWidx = -1, cur = 0, cycleN = 0, phase = 'idle';
+var qorder = [], qpos = 0;
+var quoteGap = 3 + (Math.random() < .5 ? 0 : 1);
+var userPaused = false, waiting = false;
+var pre = { img:null, pos:-1, widx:-1, ready:false };
+var preLoading = false;
+var labelTimer = null, quoteTimer = null, indicatorTimer = null;
+
+for (var i=0;i<works.length;i++)  order.push(i);
+for (var j=0;j<quotes.length;j++) qorder.push(j);
+
+function shuffle(arr){
+  for (var i=arr.length-1;i>0;i--){
+    var k = Math.floor(Math.random()*(i+1));
+    var t = arr[i]; arr[i]=arr[k]; arr[k]=t;
+  }
+}
+function shuffleOrder(){
+  shuffle(order);
+  if (order.length > 1 && order[0] === curWidx){
+    var t = order[0]; order[0] = order[1]; order[1] = t;
+  }
+}
+
+/* one owned timer for the dwell/fade chain — suspendable, cancellable */
+var drift = { timer:null, fn:null, deadline:0, remaining:0 };
+function schedule(fn, ms){
+  clearTimeout(drift.timer);
+  drift.fn = fn; drift.deadline = Date.now() + ms;
+  drift.timer = setTimeout(function(){
+    drift.timer = null; var f = drift.fn; drift.fn = null;
+    if (f) f();
+  }, ms);
+}
+function suspendSchedule(){
+  if (!drift.timer) return;
+  drift.remaining = Math.max(400, drift.deadline - Date.now());
+  clearTimeout(drift.timer); drift.timer = null;
+}
+function resumeSchedule(){
+  if (drift.timer || !drift.fn) return;
+  if (reduced() && drift.fn === startFade){ drift.fn = null; return; }  /* reduced motion: only a tap advances */
+  schedule(drift.fn, drift.remaining || 400);
+}
+
+function updatePausedClass(){
+  var still = userPaused || document.hidden || mode !== 'drift';
+  stage.classList.toggle('paused', still);
+}
+
+/* preload one ahead; on a broken image, quietly try the one after */
+function preloadNext(){
+  if (preLoading || pre.ready || !works.length) return;
+  preLoading = true;
+  var tries = 0;
+  function attempt(p){
+    if (tries++ >= works.length){ preLoading = false; return; }  /* give up gracefully; the river rests */
+    var np = p;
+    if (np >= order.length){ shuffleOrder(); np = 0; }
+    var widx = order[np];
+    var im = new Image();
+    im.onload = function(){
+      pre = { img:im, pos:np, widx:widx, ready:true };
+      preLoading = false;
+      if (waiting){
+        waiting = false;
+        maybeStartFade();
+      }
+    };
+    im.onerror = function(){ attempt(np + 1); };
+    im.src = works[widx].img;
+  }
+  attempt(pos + 1);
+}
+
+function maybeStartFade(){
+  if (mode === 'drift' && !userPaused && !document.hidden && phase === 'dwell') startFade();
+}
+
+function hideCaptions(){
+  clearTimeout(labelTimer); clearTimeout(quoteTimer);
+  wallLabel.classList.remove('show');
+  quoteBox.classList.remove('show');
+}
+
+function startFade(){
+  if (!pre.ready){ waiting = true; return; }   /* the preload's onload will return here */
+  hideCaptions();
+  var next = 1 - cur;
+  var img = layers[next].querySelector('img');
+  img.className = '';
+  img.src = pre.img.src;
+  var w = works[pre.widx];
+  img.alt = (w.t || '') + (w.a ? ' — ' + w.a : '');
+  pos = pre.pos; curWidx = pre.widx;
+  pre = { img:null, pos:-1, widx:-1, ready:false };
+  void layers[next].offsetWidth;
+  if (!reduced()) img.classList.add(cycleN % 2 ? 'kenB' : 'kenA');
+  layers[next].classList.add('vis');
+  layers[cur].classList.remove('vis');
+  cur = next; cycleN++;
+  phase = 'fading';
+  schedule(finishFade, fadeMs());
+}
+
+function finishFade(){
+  phase = 'dwell';
+  settle();
+}
+
+/* the image has settled: label in, sometimes a quote, next one warming */
+function settle(){
+  var w = works[curWidx];
+  if (!w) return;
+  wlTitle.textContent  = w.t || '';
+  wlArtist.textContent = w.a || '';
+  clearTimeout(labelTimer);
+  labelTimer = setTimeout(function(){ wallLabel.classList.add('show'); }, LABEL_DELAY_MS);
+
+  quoteGap--;
+  if (quoteGap <= 0 && quotes.length){
+    quoteGap = 3 + (Math.random() < .5 ? 0 : 1);
+    var q = quotes[qorder[qpos]];
+    qpos = (qpos + 1) % qorder.length;
+    if (qpos === 0) shuffle(qorder);
+    quoteText.textContent = q.q || '';
+    quoteName.textContent = '— ' + (q.n || '');
+    clearTimeout(quoteTimer);
+    quoteTimer = setTimeout(function(){ quoteBox.classList.add('show'); }, LABEL_DELAY_MS);
+  }
+
+  preloadNext();
+  if (!reduced()) schedule(startFade, DWELL_MS);   /* reduced motion: only a tap moves the river */
+}
+
+function engineStart(){
+  if (engineStarted || !works.length) return;
+  engineStarted = true;
+  shuffleOrder();
+  pos = 0;
+  var tries = 0;
+  function first(p){
+    if (tries++ >= works.length) return;         /* every picture failed; the dark room remains calm */
+    var np = p % order.length;
+    var widx = order[np];
+    var im = new Image();
+    im.onload = function(){
+      pos = np; curWidx = widx; cur = 0;
+      var img = layers[0].querySelector('img');
+      img.className = '';
+      img.src = im.src;
+      img.alt = (works[widx].t || '') + ' — ' + (works[widx].a || '');
+      void layers[0].offsetWidth;
+      if (!reduced()) img.classList.add('kenA');
+      layers[0].classList.add('vis');
+      phase = 'fading';
+      if (mode === 'drift' && !document.hidden) schedule(finishFade, fadeMs());
+      else { drift.fn = finishFade; drift.remaining = fadeMs(); }
+    };
+    im.onerror = function(){ first(np + 1); };
+    im.src = works[widx].img;
+  }
+  first(0);
+}
+
+/* ---- pause / flow (tap anywhere on the stage) ---- */
+function indicator(word){
+  clearTimeout(indicatorTimer);
+  fsStill.classList.toggle('on', word === 'still');
+  fsFlow.classList.toggle('on', word === 'flowing');
+  if (word === 'flowing'){
+    indicatorTimer = setTimeout(function(){ fsFlow.classList.remove('on'); }, 6000);
+  }
+}
+
+function pauseDrift(){
+  userPaused = true;
+  suspendSchedule();
+  updatePausedClass();
+  indicator('still');
+}
+function resumeDrift(){
+  userPaused = false;
+  updatePausedClass();
+  if (waiting && pre.ready){ waiting = false; maybeStartFade(); }
+  else resumeSchedule();
+  indicator('flowing');
+}
+
+stage.addEventListener('click', function(e){
+  if (e.target.closest('a,button')) return;
+  if (mode !== 'drift') return;
+  if (reduced()){
+    /* reduced motion: a tap asks for the next picture */
+    if (phase === 'dwell'){
+      if (pre.ready) startFade();
+      else waiting = true;
+    }
+    return;
+  }
+  if (phase !== 'dwell' && !userPaused) return;  /* mid-fade taps rest */
+  if (userPaused) resumeDrift(); else pauseDrift();
+});
+
+/* ============ ground — the anchor ============ */
+var LINES = [
+  "this is difficult — and that is okay. naming it calms the mind.",
+  "you took a medicine. what you feel is the medicine. it will pass.",
+  "the peak lasts about ninety minutes. it will not stay this hard.",
+  "stop fighting. breathe out long. the exhale tells the body: we are safe.",
+  "soften the jaw. the shoulders. the belly. the hands.",
+  "go toward it, not away. ask it: what are you here to show me?",
+  "tears are release. laughter is the turn. let both come.",
+  "water is good. a blanket is good. lying down is good.",
+  { pre: "a human voice helps: Fireside Project psychedelic peer support — ",
+    tel: "62-FIRESIDE (+1 623-473-7433)",
+    href: "tel:+16234737433",
+    post: ", free, US · or call the friend you trust." },
+  "this room stays open. return to the drift when you are ready — or stay."
+];
+var glA = document.querySelector('.gl-a');
+var glB = document.querySelector('.gl-b');
+var dotsEl = document.getElementById('dots');
+var glActive = glA, lineIdx = 0, glBusy = false, glBusyTimer = null;
+
+for (var d=0; d<LINES.length; d++) dotsEl.appendChild(document.createElement('span'));
+
+function renderLine(el, item){
+  while (el.firstChild) el.removeChild(el.firstChild);
+  if (typeof item === 'string'){
+    el.textContent = item;
+    return;
+  }
+  el.appendChild(document.createTextNode(item.pre));
+  var a = document.createElement('a');
+  a.href = item.href;
+  a.textContent = item.tel;
+  a.addEventListener('click', function(ev){ ev.stopPropagation(); });
+  el.appendChild(a);
+  el.appendChild(document.createTextNode(item.post));
+}
+function updateDots(){
+  var spans = dotsEl.children;
+  for (var i=0;i<spans.length;i++) spans[i].classList.toggle('cur', i === lineIdx);
+}
+function setLine(i, instant){
+  lineIdx = ((i % LINES.length) + LINES.length) % LINES.length;
+  if (instant){
+    renderLine(glActive, LINES[lineIdx]);
+    glActive.classList.add('on');
+    (glActive === glA ? glB : glA).classList.remove('on');
+  } else {
+    var incoming = (glActive === glA) ? glB : glA;
+    renderLine(incoming, LINES[lineIdx]);
+    incoming.classList.add('on');
+    glActive.classList.remove('on');
+    glActive = incoming;
+    glBusy = true;
+    clearTimeout(glBusyTimer);
+    glBusyTimer = setTimeout(function(){ glBusy = false; }, 4100);
+  }
+  updateDots();
+}
+function advanceLine(){
+  if (glBusy) return;                          /* one line at a time, slowly */
+  setLine(lineIdx + 1, false);
+}
+screens.ground.addEventListener('click', function(e){
+  if (e.target.closest('a,button')) return;
+  advanceLine();
+});
+document.getElementById('btnNext').addEventListener('click', advanceLine);
+document.getElementById('btnBackDrift').addEventListener('click', function(){ goMode('drift'); });
+
+/* ============ sound — opt-in drone, built on a human gesture ============ */
+var actx = null, master = null, soundOn = false, audioOffTimer = null;
+function buildAudio(){
+  var AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return false;
+  actx = new AC();
+  master = actx.createGain(); master.gain.value = 0;
+  master.connect(actx.destination);
+  var amp = actx.createGain(); amp.gain.value = .9;
+  var filt = actx.createBiquadFilter();
+  filt.type = 'lowpass'; filt.frequency.value = 400; filt.Q.value = .4;
+  var o1 = actx.createOscillator(); o1.type = 'sine'; o1.frequency.value = 110;
+  var o2 = actx.createOscillator(); o2.type = 'sine'; o2.frequency.value = 110;
+  o2.detune.value = 3;                        /* a slow beat, ~5s wide */
+  var lfo = actx.createOscillator(); lfo.type = 'sine'; lfo.frequency.value = .02;  /* 50s swell */
+  var lg1 = actx.createGain(); lg1.gain.value = 70;    /* breathes the filter */
+  var lg2 = actx.createGain(); lg2.gain.value = .06;   /* breathes the loudness */
+  o1.connect(filt); o2.connect(filt);
+  filt.connect(amp); amp.connect(master);
+  lfo.connect(lg1); lg1.connect(filt.frequency);
+  lfo.connect(lg2); lg2.connect(amp.gain);
+  o1.start(); o2.start(); lfo.start();
+  return true;
+}
+function soundUp(){                            /* fade in over 6s — law says ≥5 */
+  if (!actx && !buildAudio()) return;
+  clearTimeout(audioOffTimer);
+  try{
+    var p = actx.resume(); if (p && p.catch) p.catch(function(){});
+    var g = master.gain, now = actx.currentTime;
+    g.cancelScheduledValues(now);
+    g.setValueAtTime(g.value, now);
+    g.linearRampToValueAtTime(.1, now + 6);    /* master ≤ .12 */
+  }catch(e){}
+  soundOn = true;
+  btnSound.setAttribute('aria-pressed','true');
+}
+function soundDown(){                          /* fade out over 3s — law says ≥2 */
+  soundOn = false;
+  btnSound.setAttribute('aria-pressed','false');
+  if (!actx) return;
+  try{
+    var g = master.gain, now = actx.currentTime;
+    g.cancelScheduledValues(now);
+    g.setValueAtTime(g.value, now);
+    g.linearRampToValueAtTime(.0001, now + 3);
+  }catch(e){}
+  clearTimeout(audioOffTimer);
+  audioOffTimer = setTimeout(function(){
+    try{ var p = actx.suspend(); if (p && p.catch) p.catch(function(){}); }catch(e){}
+  }, 3400);
+}
+btnSound.addEventListener('click', function(){ soundOn ? soundDown() : soundUp(); });
+
+/* ============ wake lock — keep the room lit, quietly ============ */
+var lock = null;
+function getLock(){
+  try{
+    if (navigator.wakeLock && !lock){
+      navigator.wakeLock.request('screen').then(function(l){
+        lock = l;
+        l.addEventListener('release', function(){ lock = null; });
+      }).catch(function(){});
+    }
+  }catch(e){}
+}
+function dropLock(){
+  try{ if (lock){ lock.release().catch(function(){}); lock = null; } }catch(e){}
+}
+
+/* ============ breath toggle ============ */
+var breathOn = false;
+function setBreath(on){
+  breathOn = on;
+  btnBreath.setAttribute('aria-pressed', String(on));
+  if (on){ showEl(breathEl); restartBw(breathEl); }
+  else hideEl(breathEl);
+}
+btnBreath.addEventListener('click', function(){
+  if (mode === 'drift') setBreath(!breathOn);
+  else if (mode === 'breathe') goMode('door');   /* breath is the whole room here; off means leave */
+});
+
+/* ============ fullscreen ============ */
+btnFull.addEventListener('click', function(){
+  try{
+    if (!document.fullscreenElement){
+      var p = document.documentElement.requestFullscreen();
+      if (p && p.catch) p.catch(function(){});
+    } else {
+      var q = document.exitFullscreen();
+      if (q && q.catch) q.catch(function(){});
+    }
+  }catch(e){}
+});
+document.addEventListener('fullscreenchange', function(){
+  btnFull.setAttribute('aria-pressed', String(!!document.fullscreenElement));
+});
+
+/* ============ modes — every change of room is a slow fade ============ */
+function goMode(next){
+  if (next === mode) return;
+  var prev = mode;
+  mode = next;
+
+  ['mode-door','mode-drift','mode-breathe','mode-ground'].forEach(function(c){
+    body.classList.remove(c);
+  });
+  body.classList.add('mode-' + next);
+
+  /* leaving */
+  if (prev === 'drift'){ suspendSchedule(); }
+  if (prev === 'breathe' || (prev === 'drift' && next !== 'drift')){
+    if (breathOn || prev === 'breathe') setBreath(false);
+  }
+
+  /* screens */
+  if (screens[prev]) hideEl(screens[prev]);
+  if (next === 'breathe'){ setBreath(true); }
+  if (screens[next]) showEl(screens[next]);
+
+  /* arriving */
+  if (next === 'drift'){
+    if (!engineStarted) engineStart();
+    else if (!userPaused && !document.hidden){
+      if (waiting && pre.ready){ waiting = false; maybeStartFade(); }
+      else resumeSchedule();
+    }
+  }
+  if (next === 'ground'){
+    glBusy = false;
+    setLine(0, true);
+    restartBw(screens.ground);
+  }
+  btnBreath.disabled = (next === 'ground');
+
+  /* the screen stays lit anywhere inside the room */
+  if (next === 'door'){ dropLock(); if (soundOn) soundDown(); }
+  else getLock();
+
+  updatePausedClass();
+}
+
+document.getElementById('btnDrift').addEventListener('click', function(){
+  goMode(works.length ? 'drift' : 'breathe');   /* if the river is empty, breathe */
+});
+document.getElementById('btnBreathe').addEventListener('click', function(){ goMode('breathe'); });
+btnExit.addEventListener('click', function(){ goMode('door'); });
+groundBtn.addEventListener('click', function(){
+  if (mode !== 'ground') goMode('ground');      /* one tap, no confirmation */
+});
+
+/* ============ idle — chrome dims, never disappears ============ */
+var idleTimer = null;
+function wakeChrome(){
+  body.classList.remove('idle');
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(function(){
+    if (mode === 'drift') body.classList.add('idle');
+  }, 8000);
+}
+['pointermove','pointerdown','keydown','touchstart'].forEach(function(ev){
+  document.addEventListener(ev, wakeChrome, { passive:true });
+});
+wakeChrome();
+
+/* ============ a hidden tab must not stack transitions ============ */
+document.addEventListener('visibilitychange', function(){
+  if (document.hidden){
+    suspendSchedule();
+  } else {
+    if (mode === 'drift' && !userPaused){
+      if (waiting && pre.ready){ waiting = false; maybeStartFade(); }
+      else resumeSchedule();
+    }
+    if (mode !== 'door') getLock();             /* reacquire — locks release when tabs hide */
+  }
+  updatePausedClass();
+});
+
+})();
+</script>
+</body>
+</html>
