@@ -33,6 +33,7 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 | GET | `/api/wings/:wing` | One current's artworks (e.g. `/api/wings/cosmos`) |
 | GET | `/api/museum` | All catalogued museum works (paginated, `?q= ?wing= ?source=`) |
 | GET | `/api/museum/random` | One random open-access masterpiece |
+| GET | `/api/homecoming` | 愛星正音字典 — the Love Star pronunciation dictionary (`/homecoming` is the room) |
 
 ## Open Source Search
 

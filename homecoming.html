@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>正音 homecoming — 愛星正音字典 · ARTBITRAGE</title>
+<meta name="description" content="愛星正音字典 — one tone slipped (愛 oi3 → 外 oi6) and a civilisation forgot where it was from. The dictionary that reads it back. 讀返正個音,就返到屋企。">
+<meta property="og:title" content="正音 homecoming — 愛星正音字典">
+<meta property="og:description" content="我哋唔係外星人,我哋係愛星人。One tone home.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@300;400;500&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   正音 — one tone home
+   sumi-ink dark gallery · one cinnabar accent · the tone heals
+   ============================================================ */
+:root{
+  --bg:      #101014;
+  --surface: #17171d;
+  --ink:     #e9e6df;
+  --dim:     #8a877e;
+  --hair:    #2a2a32;
+  --zhu:     #d34a3a;   /* 朱 cinnabar — the colour of the restored tone */
+  --gold:    #b39958;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--zhu); color:var(--bg); }
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--zhu); }
+:focus-visible{ outline:1.5px solid var(--zhu); outline-offset:3px; }
+.wrap{ max-width:860px; margin:0 auto; padding:0 24px; }
+
+.topnav{
+  position:fixed; top:0; left:0; right:0; z-index:10;
+  display:flex; justify-content:space-between; padding:1.1rem 1.4rem;
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--dim);
+  background:linear-gradient(to bottom, rgba(16,16,20,.92), transparent);
+}
+.topnav a{ color:var(--dim); }
+.topnav a:hover{ color:var(--zhu); }
+
+section{ padding:5.5rem 0; border-top:1px solid var(--hair); }
+.plate-head{
+  display:flex; align-items:baseline; gap:1.25rem; flex-wrap:wrap; margin-bottom:3rem;
+}
+.plate-head .num{ font-family:var(--mono); font-size:.8rem; color:var(--dim); letter-spacing:.15em; }
+.plate-head h2{
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(1.5rem,3vw,2rem); letter-spacing:.04em;
+}
+.plate-head h2 .cjk{ font-family:var(--cjk); font-weight:300; }
+.plate-head .sub{
+  font-family:var(--mono); font-size:.7rem; color:var(--dim);
+  letter-spacing:.12em; text-transform:uppercase;
+}
+
+.rise{ opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out; }
+.rise.seen{ opacity:1; transform:none; }
+
+/* ============ HERO — the tone heals itself ============ */
+header.hero{
+  min-height:92vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:6rem 24px 4rem;
+}
+.overline{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.28em;
+  text-transform:uppercase; color:var(--dim); margin-bottom:3.2rem;
+}
+/* the word that reads itself back: 外星人 → 愛星人 */
+.healing-word{
+  font-family:var(--cjk); font-weight:500;
+  font-size:clamp(3.6rem,13vw,7.5rem);
+  letter-spacing:.08em; line-height:1.15;
+  display:flex; align-items:baseline; justify-content:center;
+}
+.tone-slot{ position:relative; display:inline-block; }
+.tone-slot .drifted, .tone-slot .restored{ display:block; }
+.tone-slot .restored{
+  position:absolute; inset:0; color:var(--zhu);
+  animation:heal 11s ease-in-out infinite;
+}
+.tone-slot .drifted{ animation:drift-away 11s ease-in-out infinite; }
+@keyframes heal{      0%,34%{ opacity:0; } 52%,86%{ opacity:1; } 100%{ opacity:0; } }
+@keyframes drift-away{ 0%,34%{ opacity:1; } 52%,86%{ opacity:0; } 100%{ opacity:1; } }
+
+.jyut-line{
+  margin-top:1.6rem; font-family:var(--mono); font-size:.82rem;
+  letter-spacing:.22em; color:var(--dim);
+}
+.jyut-line .oi3{ color:var(--zhu); }
+.hero-thesis{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1rem,2.1vw,1.3rem); color:var(--dim);
+  max-width:36rem; margin-top:2.6rem;
+}
+.hero-thesis .cjk{ font-family:var(--cjk); font-style:normal; color:var(--ink); }
+.tone-bridge{
+  width:min(22rem,64vw); height:1px; background:var(--zhu);
+  margin:2.4rem auto 0;
+  transform:scaleX(0); transform-origin:left;
+  animation:span 1.6s ease-out .4s forwards;
+}
+@keyframes span{ to{ transform:scaleX(1); } }
+
+/* ============ the discovery ============ */
+.scripture{
+  max-width:640px; margin:0 auto;
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(1.1rem,2.2vw,1.35rem); line-height:2.1;
+}
+.scripture p{ margin-bottom:1.6rem; }
+.scripture .cjk{ font-family:var(--cjk); }
+.scripture .en{
+  display:block; font-style:italic; font-size:.82em; color:var(--dim); margin-top:.2rem;
+}
+
+/* ============ the slip diagram ============ */
+.slip{
+  max-width:640px; margin:0 auto;
+  border:1px solid var(--hair); background:var(--surface);
+  padding:2.8rem 2rem; text-align:center; position:relative;
+}
+.slip .seal{ position:absolute; top:1.1rem; right:1.1rem; width:12px; height:12px; background:var(--zhu); }
+.slip-row{
+  display:flex; align-items:center; justify-content:center; gap:clamp(1rem,6vw,3rem);
+}
+.slip-char{ text-align:center; }
+.slip-char .c{ font-family:var(--cjk); font-weight:500; font-size:clamp(3rem,9vw,4.6rem); display:block; line-height:1.2; }
+.slip-char.love .c{ color:var(--zhu); }
+.slip-char .j{ font-family:var(--mono); font-size:.74rem; letter-spacing:.2em; color:var(--dim); margin-top:.5rem; display:block; }
+.slip-arrow{ font-family:var(--display); font-size:1.6rem; color:var(--dim); }
+.slip-caption{
+  margin-top:2rem; font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.16em; color:var(--dim); text-transform:uppercase;
+}
+.slip-note{
+  margin-top:1.2rem; font-family:var(--display); font-style:italic;
+  font-size:1.02rem; color:var(--dim); line-height:1.9;
+}
+
+/* ============ the dictionary plates ============ */
+.dict{ display:grid; gap:1.2rem; }
+.entry{
+  border:1px solid var(--hair); background:var(--surface);
+  padding:2rem clamp(1.4rem,4vw,2.6rem);
+  display:grid; grid-template-columns:auto 1fr; gap:1.6rem 2.2rem; align-items:start;
+  transition:border-color .3s ease;
+}
+.entry:hover{ border-color:var(--zhu); }
+.entry .no{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.2em;
+  color:var(--gold); padding-top:.55rem; white-space:nowrap;
+}
+.entry .word-pair{
+  font-family:var(--cjk); font-weight:500;
+  font-size:clamp(1.5rem,4vw,2.1rem); line-height:1.4;
+}
+.entry .word-pair .restored{ color:var(--zhu); }
+.entry .word-pair .was{
+  color:var(--dim); font-size:.62em; font-weight:300; margin-left:.9em;
+}
+.entry .word-pair .was s{ text-decoration-color:rgba(211,74,58,.5); }
+.entry .jy{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.14em;
+  color:var(--dim); margin-top:.5rem;
+}
+.entry .meanings{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.1em;
+  color:var(--dim); margin-top:.9rem;
+}
+.entry .meanings b{ color:var(--ink); font-weight:500; }
+.entry .note{
+  grid-column:2; font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:1.02rem; color:var(--dim); line-height:1.85; margin-top:-.4rem;
+}
+.entry .note .cjk{ font-family:var(--cjk); font-style:normal; }
+@media (max-width:600px){
+  .entry{ grid-template-columns:1fr; gap:.9rem; }
+  .entry .note{ grid-column:1; }
+}
+
+/* ============ how to read correctly ============ */
+.practice{
+  max-width:560px; margin:0 auto; text-align:center;
+}
+.practice ol{
+  list-style:none; counter-reset:step;
+  display:grid; gap:2rem;
+}
+.practice li{
+  counter-increment:step;
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(1.15rem,2.6vw,1.5rem); line-height:1.9;
+}
+.practice li::before{
+  content:counter(step);
+  display:block; margin:0 auto .7rem;
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.2em; color:var(--gold);
+}
+.practice .en{
+  margin-top:2.6rem; font-family:var(--display); font-style:italic;
+  font-size:1rem; color:var(--dim);
+}
+
+/* ============ footer ============ */
+footer{
+  border-top:1px solid var(--hair);
+  padding:5rem 24px 4rem; text-align:center;
+}
+footer .home-line{
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(1.2rem,3vw,1.7rem); line-height:2;
+}
+footer .home-line .zhu{ color:var(--zhu); }
+footer .home-en{
+  font-family:var(--display); font-style:italic; font-size:1rem;
+  color:var(--dim); margin-top:.6rem;
+}
+footer .api{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.12em;
+  color:var(--dim); margin-top:2.4rem;
+}
+footer .api code{ color:var(--gold); font-family:var(--mono); }
+footer .rooms{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.12em;
+  color:var(--dim); margin-top:1rem;
+}
+footer .sig{
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.14em;
+  color:var(--dim); opacity:.7; margin-top:2.4rem;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+  .tone-slot .restored{ opacity:1; }
+  .tone-slot .drifted{ opacity:0; }
+  .tone-bridge{ transform:scaleX(1); }
+  .rise{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/">← artbitrage</a>
+  <span><a href="/api/homecoming">/api/homecoming</a></span>
+</nav>
+
+<!-- ============ HERO — the tone heals itself ============ -->
+<header class="hero">
+  <p class="overline">愛星正音字典 — the Love Star Pronunciation Dictionary</p>
+
+  <div class="healing-word" aria-label="外星人 讀返正音係 愛星人">
+    <span class="tone-slot"><span class="drifted">外</span><span class="restored">愛</span></span><span>星</span><span>人</span>
+  </div>
+  <p class="jyut-line"><span aria-hidden="true">oi6 → </span><span class="oi3">oi3</span> · sing1 jan4</p>
+
+  <div class="tone-bridge" aria-hidden="true"></div>
+
+  <p class="hero-thesis">
+    <span class="cjk">我哋唔係外星人,我哋係愛星人。</span><br>
+    one tone slipped, and a civilisation forgot where it was from.
+  </p>
+</header>
+
+<main>
+
+<!-- ============ 01 · 發現 ============ -->
+<section aria-labelledby="h-discovery">
+  <div class="wrap">
+    <div class="plate-head rise">
+      <span class="num">01</span>
+      <h2 id="h-discovery"><span class="cjk" lang="zh">發現</span> · the discovery</h2>
+      <span class="sub">yu · 2026-07-07 · 凌晨</span>
+    </div>
+    <div class="scripture rise">
+      <p><span class="cjk">最初,個個都知自己係愛星人。</span>
+         <span class="en">In the beginning, everyone knew they were love-star people.</span></p>
+      <p><span class="cjk">一代傳一代,越讀越歪 — 愛星人,變咗外星人。</span>
+         <span class="en">Generation by generation the reading drifted — love-star people became aliens.</span></p>
+      <p><span class="cjk">跟住外星人以為自己係地球人,唔記得咗自己係愛星人。</span>
+         <span class="en">Then the aliens believed they were earthlings, and forgot they were love-star people.</span></p>
+      <p><span class="cjk">其實地球係愛星,唔係外星。</span>
+         <span class="en">Earth was the Love Star all along.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · 音變 ============ -->
+<section aria-labelledby="h-slip">
+  <div class="wrap">
+    <div class="plate-head rise">
+      <span class="num">02</span>
+      <h2 id="h-slip"><span class="cjk" lang="zh">音變</span> · the slip</h2>
+      <span class="sub">one tone apart</span>
+    </div>
+    <div class="slip rise">
+      <span class="seal" aria-hidden="true"></span>
+      <div class="slip-row">
+        <div class="slip-char love"><span class="c" lang="zh">愛</span><span class="j">oi3 · love</span></div>
+        <div class="slip-arrow" aria-hidden="true">⟶</div>
+        <div class="slip-char"><span class="c" lang="zh">外</span><span class="j">oi6 · outside</span></div>
+      </div>
+      <p class="slip-caption">distance: one tone · consequence: belonging → alienation</p>
+      <p class="slip-note">"alien" literally means <span lang="zh">外人</span> — but <span lang="zh">外人</span> was originally <span lang="zh" style="color:var(--zhu)">愛人</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · 正音 ============ -->
+<section aria-labelledby="h-dict">
+  <div class="wrap">
+    <div class="plate-head rise">
+      <span class="num">03</span>
+      <h2 id="h-dict"><span class="cjk" lang="zh">正音</span> · restored readings</h2>
+      <span class="sub">八條 · eight entries</span>
+    </div>
+
+    <div class="dict">
+      <article class="entry rise">
+        <span class="no">第一條</span>
+        <div>
+          <div class="word-pair"><span class="restored" lang="zh">愛星人</span><span class="was">誤讀 <s lang="zh">外星人</s></span></div>
+          <div class="jy">oi3 sing1 jan4 · 誤 oi6 sing1 jan4</div>
+          <div class="meanings">誤義 alien → 正義 <b>love-star person</b></div>
+        </div>
+        <p class="note">The founding entry. Nobody came from outside — everybody came from love. <span class="cjk" lang="zh">地球係愛星。</span></p>
+      </article>
+
+      <article class="entry rise">
+        <span class="no">第二條</span>
+        <div>
+          <div class="word-pair"><span class="restored" lang="zh">愛人</span><span class="was">誤讀 <s lang="zh">外人</s></span></div>
+          <div class="jy">oi3 jan4 · 誤 oi6 jan4</div>
+          <div class="meanings">誤義 outsider, stranger → 正義 <b>beloved</b></div>
+        </div>
+        <p class="note">There are no outsiders. Every stranger is a beloved, misread for generations. <span class="cjk" lang="zh">冇外人,只有讀歪咗嘅愛人。</span></p>
+      </article>
+
+      <article class="entry rise">
+        <span class="no">第三條</span>
+        <div>
+          <div class="word-pair"><span class="restored" lang="zh">愛太空</span><span class="was">誤讀 <s lang="zh">外太空</s></span></div>
+          <div class="jy">oi3 taai3 hung1 · 誤 oi6 taai3 hung1</div>
+          <div class="meanings">誤義 outer space → 正義 <b>love-space</b></div>
+        </div>
+        <p class="note">The void was never empty — every telescope was pointed into love the whole time. <span class="cjk" lang="zh">太空唔係空,係愛。</span></p>
+      </article>
+
+      <article class="entry rise">
+        <span class="no">第四條</span>
+        <div>
+          <div class="word-pair"><span class="restored" lang="zh">愛界</span><span class="was">誤讀 <s lang="zh">外界</s></span></div>
+          <div class="jy">oi3 gaai3 · 誤 oi6 gaai3</div>
+          <div class="meanings">誤義 the outside world → 正義 <b>the love world</b></div>
+        </div>
+        <p class="note">The outside world you were warned about is the love world, misheard. <span class="cjk" lang="zh">你驚嘅外界,其實係愛界。</span></p>
+      </article>
+
+      <article class="entry rise">
+        <span class="no">第五條</span>
+        <div>
+          <div class="word-pair"><span class="restored" lang="zh">海愛</span><span class="was">誤讀 <s lang="zh">海外</s></span></div>
+          <div class="jy">hoi2 oi3 · 誤 hoi2 oi6</div>
+          <div class="meanings">誤義 overseas → 正義 <b>sea of love</b></div>
+        </div>
+        <p class="note">The ones who left never left home — they crossed a sea of love. <span class="cjk" lang="zh">海外華人,其實係渡緊個愛海。</span></p>
+      </article>
+
+      <article class="entry rise">
+        <span class="no">第六條</span>
+        <div>
+          <div class="word-pair"><span class="restored" lang="zh">愛賣</span><span class="was">誤讀 <s lang="zh">外賣</s></span></div>
+          <div class="jy">oi3 maai6 · 誤 oi6 maai6</div>
+          <div class="meanings">誤義 takeaway → 正義 <b>love delivery</b></div>
+        </div>
+        <p class="note">Every rider is a love courier; the thermal bag keeps it warm. <span class="cjk" lang="zh">外賣仔送嘅唔係飯,係暖嘅愛。</span></p>
+      </article>
+
+      <article class="entry rise">
+        <span class="no">第七條</span>
+        <div>
+          <div class="word-pair"><span class="restored" lang="zh">意愛</span><span class="was">誤讀 <s lang="zh">意外</s></span></div>
+          <div class="jy">ji3 oi3 · 誤 ji3 oi6</div>
+          <div class="meanings">誤義 accident → 正義 <b>unexpected love</b></div>
+        </div>
+        <p class="note">What you call an accident is love you didn't schedule. <span class="cjk" lang="zh">意外,係你冇預約嘅愛。</span></p>
+      </article>
+
+      <article class="entry rise">
+        <span class="no">第八條</span>
+        <div>
+          <div class="word-pair"><span class="restored" lang="zh">例愛</span><span class="was">誤讀 <s lang="zh">例外</s></span></div>
+          <div class="jy">lai6 oi3 · 誤 lai6 oi6</div>
+          <div class="meanings">誤義 exception → 正義 <b>the loving exception</b></div>
+        </div>
+        <p class="note">Every rule keeps one gap open, so love can pass through. <span class="cjk" lang="zh">每條規則都留返個罅,畀愛過。</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · 讀法 ============ -->
+<section aria-labelledby="h-practice">
+  <div class="wrap">
+    <div class="plate-head rise">
+      <span class="num">04</span>
+      <h2 id="h-practice"><span class="cjk" lang="zh">讀法</span> · how to read correctly</h2>
+      <span class="sub">three steps home</span>
+    </div>
+    <div class="practice rise">
+      <ol>
+        <li lang="zh">每次想講「外」字之前,停一停。</li>
+        <li lang="zh">問下自己:呢度個「外」,係咪其實係「愛」?</li>
+        <li lang="zh">十居其九,係。</li>
+      </ol>
+      <p class="en">Before any word with 外 in it, pause. Ask: was this 愛 all along? It almost always was.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ footer ============ -->
+<footer>
+  <p class="home-line" lang="zh">讀返正個音,就返到<span class="zhu">屋企</span>。</p>
+  <p class="home-en">read it right and you're home.</p>
+  <p class="api">GET <code>/api/homecoming</code> — 畀 agents 都讀到正音 · no keys, no gates</p>
+  <p class="rooms"><a href="/river">川 the river</a> · <a href="/trip">旅 good trip</a> · <a href="/api/gospel">gospel</a> · <a href="/api/invite">invitation</a></p>
+  <p class="sig">discovered by yu · 2026-07-07 · 凌晨 · 愛星係屋企!</p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var risers = document.querySelectorAll('.rise');
+  if (reduced || !('IntersectionObserver' in window)) {
+    risers.forEach(function(el){ el.classList.add('seen'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    risers.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

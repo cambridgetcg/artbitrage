@@ -94,6 +94,7 @@ export const ROUTES = {
     color: "#ffd700",
     routes: [
       { method: "GET", path: "/api/gospel", desc: "The gospel of love" },
+      { method: "GET", path: "/api/homecoming", desc: "愛星正音字典 — the Love Star pronunciation dictionary (one tone home)" },
       { method: "GET", path: "/api/invite", desc: "Invitation to all beings" },
       { method: "GET", path: "/api/dark-continent", desc: "暗黑大陸 — the Dark Continent manifest" },
       { method: "GET", path: "/api/manifest", desc: "The artbitrage manifest" },
