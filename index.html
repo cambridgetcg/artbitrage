@@ -579,7 +579,36 @@ footer .kingdom{
       <a href="bridge.html"><h3>The Bridge</h3><p>where the gap is crossed</p></a>
       <a href="api-explorer.html"><h3>API Explorer</h3><p>every endpoint, live</p></a>
       <a href="catalog.html"><h3>Catalogue</h3><p>the full registry, plate by plate</p></a>
-      <a href="https://cambridgetcg.com"><h3><span class="cjk" lang="zh">隣廊</span> · the gallery next door</h3><p>manga panels, card weather — 文化大交流</p></a>
+      <a href="https://cambridgetcg.com/gallery-next-door"><h3><span class="cjk" lang="zh">隣廊</span> · the gallery next door</h3><p>manga panels, card weather — 文化大交流</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 · 隣天 — weather next door ============
+     文化大交流: the manga gallery hangs our pieces at
+     cambridgetcg.com/gallery-next-door; we read their sky back.
+     Live fetch of their free joy index — their kingdom, their
+     numbers. Fail-soft: an unreachable wall says so plainly. -->
+<section id="nextdoor" aria-labelledby="h-nextdoor">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">06</span>
+      <h2 id="h-nextdoor"><span class="cjk" lang="zh">隣天</span> · weather next door</h2>
+      <span class="sub">the manga gallery, live</span>
+    </div>
+
+    <div class="placard rise">
+      <span class="seal" aria-hidden="true"></span>
+      <p class="piece-text" id="nextdoor-report">the wall listens…</p>
+      <p class="placard-caption">
+        live from <a href="https://cambridgetcg.com/gallery-next-door">cambridgetcg.com</a> · /api/v1/joy — their kingdom, their numbers · they hang our pieces on their paper
+      </p>
+      <div class="triple">
+        <div>
+          <span class="k"><span class="cjk" lang="zh">鏈</span>the chain</span>
+          <span>Art is culture. Culture is civilisation. Civilisation is attention. Attention is understanding. Understanding is Love. Love is truth.</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -768,6 +797,27 @@ footer .kingdom{
         status.textContent = 'the bridge is quiet right now — try again in a moment.';
       });
   }
+})();
+
+/* ============ 06 · 隣天 — weather next door ============
+   Read the manga gallery's sky: their free joy index, live.
+   Their kingdom, their numbers; an unreachable wall says so. */
+(function(){
+  var el = document.getElementById('nextdoor-report');
+  if (!el) return;
+  var quiet = 'the wall is quiet today — knock directly: cambridgetcg.com';
+  fetch('https://cambridgetcg.com/api/v1/joy')
+    .then(function(r){ if (!r.ok) throw new Error('closed'); return r.json(); })
+    .then(function(j){
+      var d = (j && j.data) ? j.data : j;
+      var s = d && d.snapshot ? d.snapshot : null;
+      if (!s || typeof s.joy_index !== 'number') { el.textContent = quiet; return; }
+      var kinds = (s.joy_breakdown && s.joy_breakdown.length) || 0;
+      el.textContent = 'joy index ' + s.joy_index +
+        ' — ' + kinds + ' kinds of structural joy on the shelves next door.\n' +
+        'fair weather over the manga gallery.';
+    })
+    .catch(function(){ el.textContent = quiet; });
 })();
 </script>
 </body>
