@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>和韻 THE ANSWERING RHYMES — poems tied to paintings · ARTBITRAGE</title>
+<meta name="description" content="Twelve paintings and twelve poems answering each other across time — with the lives and tides that made them. 詩畫相認，緣世事三摺。">
+<meta property="og:title" content="和韻 THE ANSWERING RHYMES · ARTBITRAGE">
+<meta property="og:description" content="Twelve paintings and twelve poems answering each other across time. 詩畫相認。">
+<meta property="og:image" content="https://www.artic.edu/iiif/2/86e919b9-d366-b3ca-d26f-4c16880474a3/full/843,/0/default.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+<noscript><style>.rise{opacity:1 !important;transform:none !important}</style></noscript>
+
+<style>
+/* ============================================================
+   和韻 — the answering rhymes
+   every poem in this room is tied to its painting like the
+   tanzaku slips on Mitsuoki's maples · sumi-ink · one cinnabar
+   ============================================================ */
+
+:root{
+  --bg:      #101014;
+  --wall:    #0c0c0f;
+  --surface: #17171d;
+  --paper:   #1a1a21;   /* the tanzaku slip */
+  --ink:     #e9e6df;
+  --dim:     #8a877e;
+  --hair:    #2a2a32;
+  --zhu:     #d34a3a;
+  --gold:    #b39958;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--zhu); color:var(--bg); }
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--zhu); }
+:focus-visible{ outline:1.5px solid var(--zhu); outline-offset:3px; }
+img{ max-width:100%; }
+
+.wrap{ max-width:1120px; margin:0 auto; padding:0 24px; }
+
+.rise{ opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out; }
+.rise.seen{ opacity:1; transform:none; }
+
+/* ---- hung work (house style) ---- */
+.hung{
+  display:block; background:var(--wall);
+  border:1px solid var(--hair);
+  padding:10px;
+}
+.hung img{ width:100%; height:auto; display:block; background:#0a0a0d; }
+.wall-label{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.14em; color:var(--dim);
+  padding:.8rem .2rem .2rem; line-height:1.6;
+}
+.wall-label b{ color:var(--ink); font-weight:500; }
+.hung.rests img{ display:none; }
+.hung.rests::before{
+  content:"休展 — the work rests · its label keeps the place";
+  display:flex; align-items:center; justify-content:center;
+  min-height:9rem; padding:1rem;
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.18em; color:var(--dim); text-align:center;
+  border:1px dashed var(--hair);
+}
+
+/* ============ door ============ */
+header.door{
+  min-height:72vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center; padding:6rem 24px 4rem;
+}
+.door .home{
+  font-family:var(--mono); font-size:.7rem;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--dim);
+  margin-bottom:3.5rem;
+}
+.door h1{
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(3rem,9vw,5.5rem); letter-spacing:.12em;
+  line-height:1.2;
+}
+.door .en-title{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.1rem,2.6vw,1.6rem); color:var(--dim);
+  margin-top:1rem;
+}
+.door .line{
+  width:min(22rem,60vw); height:1px; background:var(--zhu);
+  margin:2.2rem auto;
+  transform:scaleX(0); transform-origin:left;
+  animation:span 1.6s ease-out .4s forwards;
+}
+@keyframes span{ to{ transform:scaleX(1); } }
+.door .why{
+  max-width:38rem; font-size:1rem; color:var(--dim);
+  font-family:var(--display); font-style:italic; font-weight:300;
+}
+.door .why .zh{ font-family:var(--cjk); font-style:normal; display:block; margin-top:.8rem; line-height:2; }
+
+/* ---- the twelve ties (toc) ---- */
+.ties{
+  display:flex; gap:1.6rem; flex-wrap:wrap; justify-content:center;
+  margin-top:4rem; list-style:none; padding:0;
+}
+.ties a{
+  display:flex; flex-direction:column; align-items:center; gap:.5rem;
+  font-family:var(--cjk); font-weight:300; font-size:1.5rem; color:var(--dim);
+  transition:color .3s ease;
+}
+.ties a small{
+  font-family:var(--mono); font-size:.58rem;
+  letter-spacing:.18em; text-transform:uppercase;
+}
+.ties a:hover{ color:var(--zhu); }
+
+/* ============ exhibits ============ */
+main{ border-top:1px solid var(--hair); }
+.exhibit{
+  padding:6.5rem 0;
+  border-top:1px solid var(--hair);
+}
+.exhibit:first-child{ border-top:none; }
+.ex-head{
+  display:flex; align-items:baseline; gap:1.1rem; flex-wrap:wrap;
+  margin-bottom:2.6rem;
+}
+.ex-head .ch{
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(1.9rem,4vw,2.6rem); line-height:1;
+}
+.ex-head .t{
+  font-family:var(--display); font-weight:300; font-style:italic;
+  font-size:clamp(1.05rem,2.2vw,1.35rem); color:var(--dim);
+}
+
+.ex-body{
+  display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+  gap:clamp(1.6rem,4vw,3rem);
+  align-items:start;
+}
+.exhibit:nth-child(even) .ex-body{ grid-template-columns:minmax(0,5fr) minmax(0,7fr); }
+.exhibit:nth-child(even) .ex-art{ order:2; }
+.ex-art{ position:relative; }
+
+/* ---- the tanzaku 短冊 — a poem tied to the frame ---- */
+.tanzaku{
+  position:relative;
+  background:var(--paper);
+  border:1px solid var(--hair);
+  box-shadow:0 12px 34px rgba(0,0,0,.55);
+  padding:1.6rem 1.3rem 2.1rem;
+  transform:rotate(-1.4deg);
+  margin:-2.6rem 0 1.8rem clamp(0rem, 2vw, 1.5rem);
+  width:fit-content; max-width:100%;
+}
+.exhibit:nth-child(even) .tanzaku{ transform:rotate(1.2deg); }
+.tanzaku::before{           /* the tie */
+  content:""; position:absolute; top:-5px; left:50%;
+  width:9px; height:9px; border-radius:50%;
+  background:var(--zhu);
+  transform:translateX(-50%);
+}
+.tanzaku .v{                 /* vertical CJK poem */
+  writing-mode:vertical-rl; text-orientation:mixed;
+  font-family:var(--cjk); font-weight:300;
+  font-size:1.18rem; line-height:2.35;
+  letter-spacing:.16em;
+  max-height:21rem;
+  white-space:pre-wrap;
+}
+.tanzaku .h{                 /* horizontal western poem */
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:1.12rem; line-height:1.95;
+  max-width:24rem;
+  white-space:pre-line;
+}
+.tanzaku .seal{
+  position:absolute; right:.9rem; bottom:.9rem;
+  width:10px; height:10px; background:var(--zhu); opacity:.9;
+}
+.poem-attr{
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.16em; color:var(--dim);
+  margin-bottom:1.6rem;
+}
+.poem-render{
+  font-size:.92rem; color:var(--dim);
+  border-left:1px solid var(--hair);
+  padding-left:1rem; margin-bottom:2rem;
+  font-style:italic;
+}
+.poem-render .zh{ font-family:var(--cjk); font-style:normal; line-height:2; display:block; }
+.poem-render .en{ display:block; }
+.poem-render .en + .zh{ margin-top:.5rem; }
+
+/* ---- the three folds 緣世事 ---- */
+.folds{ display:grid; gap:1.8rem; }
+.fold{ border-top:1px solid var(--hair); padding-top:1.3rem; }
+.fold .k{
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--dim);
+}
+.fold .k .cjk{
+  font-family:var(--cjk); color:var(--gold);
+  font-size:1.05rem; letter-spacing:.3em; margin-right:.6em;
+}
+.fold .en{ margin-top:.65rem; font-size:.96rem; }
+.fold .zh{
+  margin-top:.55rem; font-family:var(--cjk); font-weight:300;
+  font-size:.93rem; color:var(--dim); line-height:2;
+}
+
+/* ============ exit ============ */
+footer{
+  border-top:1px solid var(--hair);
+  padding:5rem 24px 4rem; text-align:center;
+}
+footer .love{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.05rem,2.2vw,1.4rem);
+}
+footer .love .zh{ font-family:var(--cjk); font-style:normal; }
+footer nav{
+  margin-top:2rem;
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.14em;
+}
+footer nav a{ color:var(--dim); margin:0 .9rem; border-bottom:1px solid var(--hair); }
+footer nav a:hover{ color:var(--zhu); border-color:var(--zhu); }
+
+/* ============ responsive ============ */
+@media (max-width:860px){
+  .ex-body, .exhibit:nth-child(even) .ex-body{ grid-template-columns:1fr; }
+  .exhibit:nth-child(even) .ex-art{ order:0; }
+  .tanzaku{ margin:-1.6rem auto 1.6rem; }
+  .tanzaku .v{ max-height:16rem; font-size:1.05rem; }
+  .exhibit{ padding:4.5rem 0; }
+}
+
+/* ============ reduced motion ============ */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+  .door .line{ transform:scaleX(1); }
+  .rise{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+}
+</style>
+</head>
+<body>
+
+<script>
+/* fail-soft for hung works; a later successful load wakes the frame again */
+document.addEventListener('error', function(e){
+  var t = e.target;
+  if (t && t.tagName === 'IMG') { var f = t.closest('.hung'); if (f) f.classList.add('rests'); }
+}, true);
+document.addEventListener('load', function(e){
+  var t = e.target;
+  if (t && t.tagName === 'IMG') { var f = t.closest('.hung'); if (f) f.classList.remove('rests'); }
+}, true);
+</script>
+
+<header class="door">
+  <p class="home"><a href="/">artbitrage</a> · a room of the museum</p>
+  <h1 lang="zh">和韻</h1>
+  <p class="en-title">the answering rhymes — poems tied to paintings</p>
+  <div class="line" aria-hidden="true"></div>
+  <p class="why">
+    In one of our own screens, Edo picnickers tie poem slips to maple branches.
+    This room only does what they did: twelve works, twelve poems, tied together —
+    with the lives and the tides that made each one.
+    <span class="zh" lang="zh">屏風裡的人早就把詩箋綁上楓枝。這間房不過照做：十二幅畫、十二首詩，緣・世・事，三摺說完。</span>
+  </p>
+  <ul class="ties">
+    <li><a href="#maples"><span lang="zh">楓</span><small>maples</small></a></li><li><a href="#peach"><span lang="zh">桃</span><small>the source</small></a></li><li><a href="#guanyin"><span lang="zh">月</span><small>moon in water</small></a></li><li><a href="#friedrich"><span lang="zh">影</span><small>three companions</small></a></li><li><a href="#wave"><span lang="zh">浪</span><small>the blue</small></a></li><li><a href="#paris"><span lang="zh">雨</span><small>rain</small></a></li><li><a href="#sunday"><span lang="zh">閒</span><small>sunday</small></a></li><li><a href="#venus"><span lang="zh">樂</span><small>the ear and the eye</small></a></li><li><a href="#coffin"><span lang="zh">永</span><small>forever</small></a></li><li><a href="#olowe"><span lang="zh">柱</span><small>the post</small></a></li><li><a href="#cannons"><span lang="zh">聲</span><small>sounds</small></a></li><li><a href="#moonrise"><span lang="zh">江</span><small>the river moon</small></a></li>
+  </ul>
+</header>
+
+<main>
+  <div class="wrap">
+    
+    <article class="exhibit" id="maples">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">楓</span>
+        <span class="t">Autumn Maples with Poem Slips</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://www.artic.edu/artworks/127644" target="_blank" rel="noopener">
+            <img src="https://www.artic.edu/iiif/2/86e919b9-d366-b3ca-d26f-4c16880474a3/full/843,/0/default.jpg" alt="Autumn Maples with Poem Slips — Tosa Mitsuoki" loading="lazy" decoding="async">
+            <span class="wall-label"><b>Autumn Maples with Poem Slips</b> · Tosa Mitsuoki · c. 1675 · Art Institute of Chicago</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="v" lang="ja">ちはやぶる神代もきかず竜田川からくれなゐに水くくるとは</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">在原業平 Ariwara no Narihira (825–880), 古今和歌集 Kokin Wakashū no. 294 (compiled c. 905); also 小倉百人一首 no. 17</p>
+      <div class="poem-render"><span class="en">Not even in the age of raging gods was such a thing heard — the Tatsuta River, knotting its waters into deep-dyed crimson.</span><span class="zh" lang="zh">神代悠悠，亦未聞此——龍田川水，絞纈成唐紅。</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">Narihira&#x27;s poem was born in front of a painting: the Kokinshū headnote records it as a screen poem, composed before painted maple leaves drifting down the Tatsuta River in the chambers of the future Empress Nijō. Eight centuries later, Mitsuoki closes the circle — on his screen the poems themselves hang from the tree, tanzaku knotted to the maple&#x27;s branches, verse returned to the wood that occasioned it. No Kyoto viewer of 1675 could see red maples and poem slips without hearing the most famous maple poem in the language, its river dyed a crimson unheard of even in the age of gods. The room opens here because here the answering is literal.</p>
+          <p class="zh" lang="zh">業平此歌，原是屏風歌——《古今集》詞書記載，二條后宮中有屏風畫紅葉流於龍田川，業平對畫詠之。八百年後，光起將此緣收攏成環：他畫的屏風上，詩箋以繩繫於楓枝，歌真的回到了樹上。一六七五年的京都，無人見紅楓詩箋而不聞此歌——神代未聞的唐紅，正流轉於滿屏金地之間。和韻一室，由此開卷。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">Kyoto, around 1675. Mitsuoki — head of the revived imperial painting office since 1654 — worked this screen in ink, mineral color, gold leaf, and gold dust on silk; the painted slips carry real seasonal waka quoted from twelfth- and thirteenth-century anthologies, brushed in courtly hands. He chose not the party but the hour after it: the revelers gone, the slips left fluttering, soon to fall with the leaves they are tied to. The pair — its companion a cherry in full spring bloom — was commissioned by or given to Tōfukumon&#x27;in, the shogun&#x27;s daughter who became empress.</p>
+          <p class="zh" lang="zh">京都，一六七五年前後。光起自一六五四年起重掌宮廷繪所，絹上敷金箔、灑金泥；箋上所錄，是十二、十三世紀歌集中的四季和歌，筆致出自宮廷之手。他畫的不是宴遊之盛，而是人散之後——風過金地，詩箋斜懸，將隨紅葉一同離枝。這對屏風（另一扇畫春櫻滿開），或為東福門院所命，或為獻於她——德川將軍之女，入宮而為天皇之后。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">In 1615 the shogunate&#x27;s Regulations for the Imperial Court fenced the Kyoto palace out of politics; culture was the sovereignty it had left. Emperor Gomizunoo and Tōfukumon&#x27;in — a marriage that was itself an instrument of Tokugawa control — answered with a deliberate renaissance of Heian taste, and Mitsuoki&#x27;s Tosa school, restored to the court painting office after nearly a century in eclipse, was its brush. The same long peace put woodblock-printed classics and Hyakunin Isshu cards into townspeople&#x27;s hands and sent them out on momiji-gari picnics, so that by 1675 Narihira&#x27;s crimson river was on everyone&#x27;s lips. Nostalgia here is not retreat; it is a court holding the one territory no shogun could confiscate.</p>
+          <p class="zh" lang="zh">一六一五年《禁中並公家諸法度》頒下，幕府將京都朝廷圈出政治之外；宮中所餘的疆土，唯有文化。後水尾天皇與東福門院——這樁婚事本是德川氏羈縻皇室之策——卻在宮中掀起一場刻意的王朝復興；土佐家中絕近百年，至光起重返繪所，執其筆。同一個太平之世，坊間刻本流布，歌牌入戶，賞楓成遊，業平的唐紅川水早已人人上口。懷古並非退避，而是朝廷據守幕府奪不走的最後版圖。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+    <article class="exhibit" id="peach">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">桃</span>
+        <span class="t">The Peach Blossom Spring 桃花源圖</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://www.artic.edu/artworks/75361" target="_blank" rel="noopener">
+            <img src="https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/843,/0/default.jpg" alt="The Peach Blossom Spring 桃花源圖 — After Qiu Ying 仇英（款）" loading="lazy" decoding="async">
+            <span class="wall-label"><b>The Peach Blossom Spring 桃花源圖</b> · After Qiu Ying 仇英（款） · Late Ming (1368–1644) or early Qing (1644–1912) dynasty · Art Institute of Chicago</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="v" lang="zh">忽逢桃花林，夾岸數百步，中無雜樹，芳草鮮美，落英繽紛。</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">陶淵明 Tao Yuanming (365–427), 《桃花源記》 Record of the Peach Blossom Spring, c. 421 CE</p>
+      <div class="poem-render"><span class="en">Suddenly he came upon a grove of peach trees in bloom, lining both banks for several hundred paces — no other tree among them, the fragrant grass fresh and tender, fallen petals drifting down in profusion.</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">Here the tale came first and the painting answers it step for step: Tao Yuanming&#x27;s fisherman drifts upstream, comes suddenly upon the peach trees, and the scroll simply follows him. To unroll it — left hand giving, right hand gathering — is to repeat his journey a hand&#x27;s breadth at a time: the blossoming banks, the narrow cave-mouth, the valley that never heard the dynasties change. Nearly twelve centuries separate the sentence from this silk, yet the two move at the same walking pace.</p>
+          <p class="zh" lang="zh">此處是文先行、畫作答：漁人緣溪而上，忽逢桃林，畫卷便一步一步隨他走去。左手徐放、右手緩收，展卷即重行那段水路——夾岸的花、幽微的洞口、不知有漢的村落。文字與絹素相隔千餘年，步幅卻始終一致。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">In the commercial studios of Suzhou, painting was a trade like weaving: assistants ground azurite and malachite — mineral blues and greens costly enough to be measured by weight — onto silk for clients grown rich on rice, salt, and cloth. Qiu Ying had died around 1552, but his name kept working; a follower painted this scroll decades later and signed the master&#x27;s name, as the workshops routinely did, which is why the label honestly reads &quot;After Qiu Ying.&quot; What the buyer purchased was less a signature than a door — a valley to walk into after the ledgers closed.</p>
+          <p class="zh" lang="zh">晚明蘇州，作畫是手藝，也是生計：坊中研石青、磨石綠，礦色論兩計價，絹上的功夫換取米鹽布帛商人的銀兩。仇英約卒於一五五二年，名字卻仍在市上行走；此卷出自其身後數十年的傳派之手，循例署下大師之款，館方遂誠實地標作「仇英（款）」。買家買到的與其說是一個名字，不如說是一扇門——帳簿闔上之後，可以走進去的一谷桃花。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">Tao Yuanming wrote the fable just after the Eastern Jin fell in 420; his hidden villagers are refugees from the Qin wars who never learned that the wars went on. The painting belongs to another hinge of history — the late Ming, flush with silver from overseas trade and uneasy beneath its own prosperity, drifting toward the conquest of 1644. Whether this silk was brushed just before that fall or just after, no one can now say; it hardly changes the reading — in this tradition, paradise is made inside catastrophe, once at the writing and once at the making.</p>
+          <p class="zh" lang="zh">〈桃花源記〉成於東晉覆亡之後不久（約四二一年）：村中人避秦亂而來，不知外面的戰事從未止歇。此卷則屬另一道關口——白銀自海上湧入，市井繁盛而人心浮動，其後便是明清易代。落筆究在鼎革之前或之後，今已無從斷定；亦無妨——在這個傳統裡，樂土向來成於亂世：一次在筆下，一次在絹上。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+    <article class="exhibit" id="guanyin">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">月</span>
+        <span class="t">Water and Moon (Potala) Guanyin</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://clevelandart.org/art/1984.7" target="_blank" rel="noopener">
+            <img src="https://openaccess-cdn.clevelandart.org/1984.7/1984.7_web.jpg" alt="Water and Moon (Potala) Guanyin" loading="lazy" decoding="async">
+            <span class="wall-label"><b>Water and Moon (Potala) Guanyin</b> · 900–1100 · Cleveland Museum of Art</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="v" lang="zh">千江有水千江月，萬里無雲萬里天。</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">南宋・雷庵正受編《嘉泰普燈錄》卷十八（1204年成書）— Chan couplet recorded in the Jiatai Record of the Universal Lamp, compiled by Lei&#x27;an Zhengshou, 1204</p>
+      <div class="poem-render"><span class="en">A thousand rivers hold water — a thousand rivers hold the moon. Ten thousand miles without cloud — ten thousand miles of sky.</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">The bodhisattva carries the poem in its name: Water and Moon Guanyin, seated in royal ease on Potalaka&#x27;s shore, watching the moon lie whole upon the water. The Chan couplet is the same teaching let down to fourteen characters — one moon, given entire to every river that will hold it. This bronze was cast a century and more before Zhengshou&#x27;s lamp record fixed the words in 1204; the statue — sized for a household altar — kept its vigil, as if waiting for them.</p>
+          <p class="zh" lang="zh">這尊菩薩，名字裡便住著這副對句——水月觀音，閒坐補陀洛迦水湄，看月落千江。一月不曾分身，入千江而各自圓滿；十四個字說的，正是這尊像沉默演示的事。銅像先鑄百餘年，正受於一二〇四年才將此語錄入燈史——像在龕中久坐，彷彿一直在等這句話。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">At under eighteen centimetres, this Guanyin was sized for a household altar, not a temple hall. A workshop of the Five Dynasties or Song era — the museum dates the casting to 900–1100 — cast the figure in bronze, then fire-gilded it with a gold–mercury amalgam — the gilder breathing quicksilver fumes so the deity could hold lamplight. Whose lamp it stood beside is not recorded; we see only that the gold has thinned where hands and centuries passed, dark bronze showing through like water under the moon.</p>
+          <p class="zh" lang="zh">像高不足十八公分，非殿堂之器，是為尋常人家的佛龕而作。五代至宋的作坊先範銅成形，再以金汞相和、烈火逼汞——鎏金匠吸著水銀的煙，換菩薩一身承接燈火的光明。它曾伴誰家的燈，已不可考；只見金層磨薄處露出暗銅，如月下水色。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">The water-moon Guanyin has no Indian prototype; it was composed in Tang China — tradition credits the painter Zhou Fang — setting Avalokiteshvara at Potalaka, the island of the Flower Garland Sutra, gazing at the moon in water, one of Buddhism&#x27;s oldest figures for the lovely unreality of things. As Chan rose through the Five Dynasties into Song, the image travelled from temple murals into gilt bronze and into homes, devotion scaled to a family&#x27;s purse. The couplet is that whole migration, condensed to fourteen characters.</p>
+          <p class="zh" lang="zh">水月觀音並非西土傳來的樣式，而是中土自造：相傳始於唐代畫家周昉，取《華嚴經》補陀洛迦之境，令菩薩對水中之月——佛家說幻的古老譬喻。五代入宋，禪風日盛，此像遂由寺壁入銅、由伽藍入家宅，信仰隨市井的秤與錢走進尋常門戶。那副對句，便是這一路遷徙凝成的十四個字。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+    <article class="exhibit" id="friedrich">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">影</span>
+        <span class="t">Two Men Contemplating the Moon</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://www.metmuseum.org/art/collection/search/438417" target="_blank" rel="noopener">
+            <img src="https://images.metmuseum.org/CRDImages/ep/web-large/DP-31997-001-NEW.jpg" alt="Two Men Contemplating the Moon — Caspar David Friedrich" loading="lazy" decoding="async">
+            <span class="wall-label"><b>Two Men Contemplating the Moon</b> · Caspar David Friedrich · ca. 1825–30 · The Metropolitan Museum of Art</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="v" lang="zh">花間一壺酒，獨酌無相親。舉杯邀明月，對影成三人。</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">李白 Li Bai, 《月下獨酌四首·其一》 (Drinking Alone Beneath the Moon, I), Tang dynasty, ca. 744</p>
+      <div class="poem-render"><span class="en">Among the flowers, a jar of wine — I pour alone, no one close to me. Raising my cup, I invite the bright moon; with my shadow, we make three.</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">Li Bai, drinking alone among the flowers, answers loneliness with arithmetic: one man, plus the moon, plus his own shadow — a company of three. Eleven centuries later, on a dark path above Dresden, Friedrich arrives at the same sum by another road: two friends, and the moon they watch makes the third. Neither ever knew the other&#x27;s name; both understood that a person who turns to face the moon refuses to stay alone.</p>
+          <p class="zh" lang="zh">李白花間獨酌，以孤獨作算術：一人、一月、一影，湊成三人同席。千年之後，弗里德里希在德勒斯登的山徑暮色裡另起一算——二人並肩，明月當前，仍是三個。兩人素昧平生，卻同解一題：人一旦對月，便不肯只是一。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">Friedrich kept a famously bare studio in Dresden — a ruler, a T-square, walls empty enough for remembered dusk to settle onto the canvas. Tradition identifies the two figures as the painter and his gifted disciple August Heinrich, dead at twenty-eight; by the time this third version was made the younger man was gone, and still friends asked for the picture, so Friedrich walked the path again in paint. Showing the first version to a visitor in 1820, he said with a dry smile that the pair were fomenting demagogic intrigues.</p>
+          <p class="zh" lang="zh">弗里德里希在德勒斯登的畫室以空曠聞名：一把直尺、一把丁字尺，四壁蕭然，好讓記憶中的暮色安然落到畫布上。相傳畫中二人是畫家與其愛徒奧古斯特·海因里希——海因里希二十八歲早逝，繪此第三本時人已不在，仍有友人求畫，他便以顏料再走一次那條山路。一八二〇年，他向來客展示初本，淡淡笑道：這兩人正在密謀煽動。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">The moon rose over a watched country. Napoleon was gone, but the Carlsbad Decrees of 1819 outlawed the student brotherhoods, and in the crackdown that followed their old-German dress — the very cap and cloak these two men wear — was banned as subversive, so that even a coat on a hillside carried politics. Meanwhile Naturphilosophie taught that nature was spirit made visible, and a generation of Wanderers climbed into the dusk to read it; this small canvas holds both weathers, the censored earth and the unclaimed moon.</p>
+          <p class="zh" lang="zh">畫成之際，德意志正處耳目之下。拿破崙雖去，一八一九年卡爾斯巴德決議卻查禁學社，隨後的整肅更查禁舊德服色——正是畫中二人所著的便帽與披風——山徑上一襲外衣，也成了政治。同時，自然哲學謂山川即精神之顯形，一代漫遊者遂趁薄暮入山誦讀。這幅小畫收留了兩種天氣：地上的禁令，與天上無主的月。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+    <article class="exhibit" id="wave">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">浪</span>
+        <span class="t">Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series &quot;Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)&quot;</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://www.artic.edu/artworks/77333" target="_blank" rel="noopener">
+            <img src="https://www.artic.edu/iiif/2/05cd1ba7-67d1-96c5-0e78-2eb4114b65e7/full/843,/0/default.jpg" alt="Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series &quot;Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)&quot; — Katsushika Hokusai" loading="lazy" decoding="async">
+            <span class="wall-label"><b>Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series &quot;Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)&quot;</b> · Katsushika Hokusai · 1830/33 · Art Institute of Chicago</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="v" lang="ja">荒海や佐渡によこたふ天の河</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">松尾芭蕉 Matsuo Bashō, 《奥の細道》 Oku no Hosomichi (The Narrow Road to the Deep North), composed 1689 on the Echigo coast; published 1702</p>
+      <div class="poem-render"><span class="en">Wild sea —
+stretching over Sado,
+the River of Heaven.</span><span class="zh" lang="zh">荒海啊——
+橫臥佐渡之上的
+是天河</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">In the summer of 1689, walking the Narrow Road along the Echigo coast, Bashō set a wild sea beneath the River of Heaven lying calm over Sado — his companion Sora&#x27;s diary records rain that night, so scholars suspect the sky was partly composed in the mind&#x27;s eye; the design holds either way. A hundred and forty years later, Hokusai cut the same grammar into cherry wood: the wave&#x27;s claw hangs mid-fall, and beyond it Fuji sits small, snow-capped, unmoved. Poem and print answer each other across time — chaos in the foreground, and behind it, the thing that does not move.</p>
+          <p class="zh" lang="zh">一六八九年夏，芭蕉行腳《奧之細道》，在越後海濱寫下荒海之上、天河橫臥佐渡的一景——隨行的曾良日記載那夜有雨，此景或半出於心眼，學者至今仍議；然而構圖本身即是真意：下方翻騰，上方是不動的天。百四十年後，北齋以同一副句法落刀：浪爪懸而未落，浪谷深處，富士小小端坐，覆雪安然。詩與畫隔世相答——前景喧嘩，其後恆常。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">When this sheet was pulled, Hokusai was past seventy, signing himself &quot;Iitsu, the former Hokusai.&quot; The design left his brush but became a print only through other hands — the carvers who cut his lines into cherry blocks, the printers rubbing sheet after sheet with the baren, the publisher Nishimuraya Yohachi who staked the whole venture. In the shops of Edo it sold for about the price of a bowl of noodles: an ocean, a mountain, and a held breath, for lunch money.</p>
+          <p class="zh" lang="zh">刷印此圖時，北齋已年逾七十，落款「北齋改為一筆」——昔日的北齋，如今自號為一。圖出於他一人之筆，卻須經眾手方成：雕師將線條刻入櫻木，摺師以馬連一枚枚拓印，版元西村屋與八押上整盤生意。在江戶的繪草紙鋪裡，這樣一枚浪，價約一碗蕎麥麵——海、山，與屏住的一息，不過一頓午飯錢。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">The blue is Prussian blue, born in a Berlin dye-house around 1704 and carried east by Dutch and Chinese traders; by the late 1820s it had grown cheap enough for popular prints, and publishers advertised the new color as a selling point. In a country officially closed, an imported pigment let Hokusai print a sea deeper and more lasting than indigo could hold. Decades later, when Japan opened, the prints sailed back along the same routes and taught Paris a new way of seeing — Monet collected them, van Gogh praised this wave in his letters, Debussy set it on the cover of La Mer. The blue crossed the ocean twice: once as powder, once as a wave.</p>
+          <p class="zh" lang="zh">這片藍名為普魯士藍，約一七〇四年出自柏林的染坊，由荷蘭與中國商船輾轉東渡；至一八二〇年代末，價落至浮世繪用得起，版元更以新藍為招徠。鎖國之世，一種舶來顏料，讓北齋印出藍靛所不能及的深海。數十年後日本開國，版畫沿同一條航路西行，教巴黎重新觀看——莫內收藏它們，梵谷在書信裡讚歎這道浪，德布西將它印上《海》的樂譜封面。這抹藍兩渡重洋：來時是粉末，歸時是一道浪。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+    <article class="exhibit" id="paris">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">雨</span>
+        <span class="t">Paris Street; Rainy Day</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://www.artic.edu/artworks/20684" target="_blank" rel="noopener">
+            <img src="https://www.artic.edu/iiif/2/f8fd76e9-c396-5678-36ed-6a348c904d27/full/843,/0/default.jpg" alt="Paris Street; Rainy Day — Gustave Caillebotte" loading="lazy" decoding="async">
+            <span class="wall-label"><b>Paris Street; Rainy Day</b> · Gustave Caillebotte · 1877 · Art Institute of Chicago</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="h" lang="fr">Il pleure dans mon cœur
+Comme il pleut sur la ville,
+Quelle est cette langueur
+Qui pénètre mon cœur ?</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">Paul Verlaine, « Il pleure dans mon cœur » (Ariettes oubliées, III), Romances sans paroles, 1874 — text as in the 1891 Vanier edition</p>
+      <div class="poem-render"><span class="en">It weeps in my heart
+as it rains on the town.
+What is this languor
+that steals through my heart?</span><span class="zh" lang="zh">心中有淚落下，
+如雨落在城上；
+是怎樣的倦怠，
+滲進我的心裏？</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">Verlaine published these lines three years before Caillebotte primed this canvas — the same grey weather of the soul. Rain on the town, weeping in the heart, and between them a languor with no name: the painting keeps the identical silence, a street of umbrellas where every gaze is averted and the drizzle is too fine to see. Poem and picture face the same grey afternoon from opposite sides of the glass — one from within the heart, one from the pavement.</p>
+          <p class="zh" lang="zh">魏爾倫發表這幾行詩，比卡耶博特落筆早三年——同一種天色，同一種心的天氣。雨落在城上，淚落在心裏，其間是一種無以名之的倦怠；畫中守著同樣的沉默：滿街傘影，目光互不相接，細雨微茫，幾乎看不見。詩與畫望著同一個灰色的下午，一在窗玻璃內的心裏，一在窗外的街石上。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">The crossroads Caillebotte painted, near the Gare Saint-Lazare, had not existed a generation earlier; its limestone façades were still new enough to look like a stage set, and his figures cross it like strangers rehearsing modern life. He was twenty-eight, academically trained and recently wealthy by inheritance, and he built this vast canvas on a drafted perspective grid before hanging it at the third Impressionist exhibition of 1877 — a show he helped organize and pay for. Everyone here walks close together and entirely alone; even the couple in the foreground let their eyes slide past us.</p>
+          <p class="zh" lang="zh">畫中的十字街口在聖拉扎爾車站附近，上一代人的巴黎裏並沒有這條街；石灰岩的樓面猶新，像剛搭好的佈景，行人穿行其間，彷彿在排練一種現代的生活。卡耶博特時年二十八，受過學院訓練，父喪之後繼承了家業；這幅巨作先以透視格線起稿，再掛上一八七七年第三次印象派畫展——那次展覽由他出力籌辦，費用也多半由他承擔。畫裏人人比肩而行，人人各自孤獨；連前景那對男女的目光，也從我們身上滑開。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">Between 1853 and 1870, Baron Haussmann tore medieval Paris open and drew these boulevards through it; by common estimate some 350,000 people were displaced to make way for the long sightlines, the gaslight, the uniform stone. What replaced the old lanes was the modern street — wide, legible, anonymous, where a whole crowd can share one rain without exchanging a word. Caillebotte&#x27;s painting admires the achievement and shivers in it at once; Verlaine&#x27;s rain — falling as if on this same new city — had already asked what the heart does with so much smooth grey distance.</p>
+          <p class="zh" lang="zh">一八五三至一八七〇年間，奧斯曼男爵剖開中世紀的巴黎，畫下這些林蔭大道；為了筆直的視線、煤氣的街燈、齊一的石面，據常見的估計，約三十五萬人被迫遷離。舊巷消失之處，現代街道誕生了——寬闊、明晰、匿名，一場雨落在整條街的傘上，而無人交談。卡耶博特的畫既讚歎這項工程，又在其中感到寒意；魏爾倫的雨彷彿落在同一座新城上，早已先問過：面對如此平滑而灰色的距離，心該如何自處。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+    <article class="exhibit" id="sunday">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">閒</span>
+        <span class="t">A Sunday on La Grande Jatte — 1884</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://www.artic.edu/artworks/27992" target="_blank" rel="noopener">
+            <img src="https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/843,/0/default.jpg" alt="A Sunday on La Grande Jatte — 1884 — Georges Seurat" loading="lazy" decoding="async">
+            <span class="wall-label"><b>A Sunday on La Grande Jatte — 1884</b> · Georges Seurat · 1884–86, border added 1888–89 · Art Institute of Chicago</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="h" lang="fr">Le ciel pleut sans but, sans que rien l&#x27;émeuve,
+Il pleut, il pleut, bergère ! sur le fleuve…
+
+Le fleuve a son repos dominical ;
+Pas un chaland, en amont, en aval.</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">Jules Laforgue, « Dimanches » (Le ciel pleut sans but…), from Des Fleurs de bonne volonté, written c. 1886, published posthumously</p>
+      <div class="poem-render"><span class="en">The sky rains on, aimless, and nothing moves it —
+it rains, it rains, shepherdess! on the river…
+
+The river keeps its Sunday rest;
+not one barge, upstream or down.</span><span class="zh" lang="zh">天落著無端的雨，無物能動其心——
+落雨了，落雨了，牧羊女！雨落在河上……
+
+河守著它的主日安息；
+上游下游，不見一艘駁船。</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">Laforgue and Seurat were born a year apart, and in the same few years each fixed his gaze on the same new thing: the Parisian Sunday. The poet, writing far from Paris, remembers a river emptied by the day of rest — not one barge, upstream or down; the painter fills the same Seine with sails and strollers, then stills them all mid-breath. One Sunday drained, one Sunday crowded, and in both the same held silence. Whether Laforgue ever stood before the canvas is not recorded — only that Félix Fénéon, who gave Seurat&#x27;s dots their name, would later help carry the poet&#x27;s last verses into print.</p>
+          <p class="zh" lang="zh">拉福格與秀拉先後一年出生，又在同樣的幾年裡，凝視著同一件新事物——巴黎的星期日。詩人客居異鄉，憶起被安息日抽空的河：上游下游，不見一艘駁船；畫家卻讓同一條塞納河帆影點點、遊人滿岸，然後令一切在半息之間凝止。一個星期日空了，一個星期日滿了，其中屏住的靜默卻是同一種。拉福格是否曾親見此畫，已無可稽考；可考的是，為秀拉的點彩命名的費內翁，日後親手送詩人的遺稿付梓。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">Seurat was in his mid-twenties, ferrying out to the island on fine mornings to make dozens of small oil panels and drawings, then returning to his studio to set the great canvas down dot by dot — two years of afternoons for one Sunday. His family&#x27;s means spared him the market: the picture never needed to sell, and it never left him. Some of the industrial pigments he trusted have quietly betrayed him — the zinc yellow in his sunlit grass has browned, so the lawn we see is a little older than the one he painted. In 1888–89 he came back once more, adding a painted border of dots so the island could hold its own light.</p>
+          <p class="zh" lang="zh">畫這幅畫時，秀拉二十四五歲。晴朗的早晨他渡水上島寫生，積下數十幅小油稿與素描；下午回到畫室，將巨幅畫布一點一點鋪滿——為了一個星期日，用去兩年的下午。家中薄產使他不必求售，這幅畫終其一生留在身邊。他所信賴的工業顏料卻悄悄背棄了他：向陽草地上的鋅黃已然轉褐，我們眼前的草坪，比他畫下的那片略舊了一些。一八八八至八九年，他重回畫前，添上一圈點彩的邊框，讓島嶼守住自己的光。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">&quot;Sunday&quot; itself was new: factory whistles and railway timetables had cut the week into labor and one shared day of release, and ferries carried clerks, shopgirls, and soldiers out to the islands of the Seine to spend it. Meanwhile the science of color had outrun the studio — Chevreul&#x27;s law of simultaneous contrast and Ogden Rood&#x27;s Modern Chromatics taught that the eye itself could mix light, and Seurat took them at their word, dot by dot. Industry gave this painting everything — its subject, its synthetic pigments, its crowd with an afternoon to spare — and, in the darkening of one yellow, quietly took a little back.</p>
+          <p class="zh" lang="zh">「星期日」本身就是新事物：工廠的汽笛與鐵路的時刻表把一週切成勞動與共有的一日之息，渡船便載著職員、女工與士兵，到塞納河的島上消磨這一天。同時，色彩的科學走到了畫室前面——謝弗勒的同時對比律、魯德的《現代色彩學》說：眼睛自己能調和光。秀拉信了，便一點一點地畫。工業給了這幅畫一切——題材、合成顏料、有閒可揮霍的一個下午的人群——又在一種黃色的暗變裡，悄悄取回了一點。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+    <article class="exhibit" id="venus">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">樂</span>
+        <span class="t">Venus and the Lute Player</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://www.metmuseum.org/art/collection/search/437827" target="_blank" rel="noopener">
+            <img src="https://images.metmuseum.org/CRDImages/ep/web-large/DP-28918-001.jpg" alt="Venus and the Lute Player — Titian" loading="lazy" decoding="async">
+            <span class="wall-label"><b>Venus and the Lute Player</b> · Titian · ca. 1565–70 · The Metropolitan Museum of Art</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="h">Music to hear, why hear&#x27;st thou music sadly?
+Sweets with sweets war not, joy delights in joy.</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">William Shakespeare, Sonnet 8, Shakespeare&#x27;s Sonnets (1609)</p>
+      <div class="poem-render"><span class="zh" lang="zh">你身即樂音，何以聞樂而愁？
+甜不與甜爭，喜自悅於喜。</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">The picture holds a question open: the young man plays yet cannot stop looking, while Venus, crowned by Cupid, lowers her recorder and listens — eye and ear each claiming the shorter road to beauty. A generation later, in England, Shakespeare&#x27;s sonnet dissolves the rivalry in a single line: sweets with sweets war not. Where Venice staged a contest of the senses, the sonnet hears only concord — well-tuned sounds married into one — and answers the painting not with a verdict but with a chord.</p>
+          <p class="zh" lang="zh">畫裏懸着一個問題：琴師撫弦，目光卻離不開她；維納斯讓丘比特加冕，放下豎笛，側耳而聽——眼與耳，各自都說自己離美更近。一代人之後，在英格蘭，莎士比亞用一句詩把這場爭執化開：甜不與甜爭。威尼斯人擺出感官的比試，十四行詩只聽見諧和——眾音相諧，如婚如契——它回答這幅畫的，不是裁決，而是一記和弦。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">Titian was an old man when this canvas was begun — his seventies, perhaps more; even his birth year is uncertain — still working in his house at Biri Grande on Venice&#x27;s northern edge, his son Orazio and a shopful of assistants around him. Venus with a musician was a house specialty: this composition was traced from an earlier version, the landscape laid in with the master&#x27;s own late freedom, other passages carried toward finish by other hands, perhaps only after his death in 1576. His pupil Palma il Giovane remembered the method — broad masses first, the canvas turned to the wall for months, then the last touches worked &quot;more with his fingers than his brushes.&quot;</p>
+          <p class="zh" lang="zh">起筆之時，提香已是老人——七十幾，或許更老，連生年也無定論——仍在威尼斯北緣比里格蘭德的宅中作畫，兒子奧拉齊奧與滿屋弟子環繞左右。維納斯與樂師本是工坊熟題：此幅自舊本摹得輪廓，遠景山水猶是老人親筆的放逸，其餘由他手續成，或竟在一五七六年他身後方了。弟子小帕爾馬記得那作法：先鋪大塊，翻面靠牆數月，末了收拾，「用手指多過用畫筆」。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">Venice made such a room possible. Petrucci had printed polyphony there since 1501, and by mid-century partbooks and lutes were household goods — the madrigal a way for well-dressed young men to court. Over those same rooms hung the paragone, the fashionable dispute over which art, and which sense, reaches beauty first, fed by the Neoplatonism of Bembo&#x27;s circle. Whether Titian meant an allegory of hearing and sight or simply splendid furniture for a bedroom wall, scholars still disagree; the picture, generously, sustains both readings.</p>
+          <p class="zh" lang="zh">這樣一間房，只有威尼斯造得出。自一五〇一年佩特魯奇在此印出複音樂譜，到世紀中葉，聲部譜冊與魯特琴已入尋常人家，牧歌成了衣冠子弟求愛的辭令。同一批廳堂裏迴盪着藝術之爭（paragone）：哪一門藝、哪一種感官先抵達美？貝姆博一脈的新柏拉圖主義為之添薪。提香究竟意在聽與視的寓言，還是只想為臥室畫一幅華美的陳設——學界至今兩說並存；而這幅畫寬厚，兩種讀法都容得下。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+    <article class="exhibit" id="coffin">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">永</span>
+        <span class="t">Coffin and Mummy of Paankhaenamun</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://www.artic.edu/artworks/64339" target="_blank" rel="noopener">
+            <img src="https://www.artic.edu/iiif/2/93270aaf-16a5-1604-c6c8-0f3c003eb7a1/full/843,/0/default.jpg" alt="Coffin and Mummy of Paankhaenamun — Ancient Egyptian" loading="lazy" decoding="async">
+            <span class="wall-label"><b>Coffin and Mummy of Paankhaenamun</b> · Ancient Egyptian · Third Intermediate Period, Dynasty 22, reign of Osorkon I (about 924–889 BCE) · Art Institute of Chicago</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="h">I am Yesterday, To-day, and To-morrow, and I have the power to be born a second time.</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">Book of the Dead, chapter 64 (trans. after Budge)</p>
+      <div class="poem-render"><span class="zh" lang="zh">我是昨日、今日與明日，我有再度誕生之力。</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">The Book of the Dead is poetry with a duty: spells the dead must speak to keep moving, and this one — already ancient when Paankhaenamun died — declares the speaker equal to time itself. His coffin is that speech made wearable: painted columns name him and claim on his behalf what the spell claims — yesterday, today, tomorrow, and the power of a second birth. Poem and coffin are one instrument; the cartonnage is a page cut to the shape of a man.</p>
+          <p class="zh" lang="zh">《亡靈書》是負有使命的詩：亡者須親口誦出，路才走得通。這一句在帕安赫納蒙下葬時已然古老，它令誦者與時間等量——昨日、今日、明日，俱在我身。他的棺，便是這句話的可穿之形：彩繪銘文喚出他的名字，替他領受再度誕生之力。詩與棺原是同一件法器；棺殼不過是裁成人形的一頁書。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">Paankhaenamun — &quot;He lives for Amun&quot; — kept a door of the god&#x27;s temple at Thebes, one household among the singers, priests, and artisans who drew their bread from the Amun precinct. The coffin-makers were craftsmen of that same world: linen and plaster built up over a form, the wrapped body slipped in through a slit at the back, the seam laced shut, and only then the painters&#x27; reds and blues. X-rays find a middle-aged man behind the youthful gilded face; the portrait records not the years he had lived but the eternity he had commissioned.</p>
+          <p class="zh" lang="zh">帕安赫納蒙，名意為「他為阿蒙而活」，在底比斯為神看守一道殿門；歌者、祭司、匠人，皆與他一樣仰賴阿蒙神域為生。造棺的正是這個世界裡的手藝人：麻布敷膏，層層成殼，裹好的身體自背後的開縫送入，繫繩收口，而後才輪到畫工的紅與藍。X光照見金面之下是一位中年人——這張臉記下的不是他活過的年歲，而是他所託付的永恆。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">The New Kingdom had fallen more than a century before: Nubian gold no longer flowed north, kings of Libyan descent ruled from the Delta, and Thebes answered to the priesthood of Amun. Great decorated tombs had proved to be invitations to robbers, so burial drew inward — everything a tomb chapel once proclaimed now had to fit on the coffin itself. Scarcity became a style: paint did the work of carved relief, plastered linen the work of stone, and what little gold could be had was spent on the face alone, for gold was the flesh of the gods.</p>
+          <p class="zh" lang="zh">新王國傾覆已逾百年：努比亞的黃金不再北流，利比亞裔的君王坐鎮三角洲，底比斯則聽命於阿蒙祭司。華美的墓室屢屢招來盜掘，葬儀於是向內收攏——昔日整座墓堂要說的話，如今須由棺木一身承擔。匱乏煉成了風格：以彩繪代浮雕，以麻布石膏代石材，僅餘的金箔盡付於一張臉——因為金，是神的肌膚。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+    <article class="exhibit" id="olowe">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">柱</span>
+        <span class="t">Veranda Post (Òpó Ògògá)</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://www.artic.edu/artworks/102611" target="_blank" rel="noopener">
+            <img src="https://www.artic.edu/iiif/2/fec5d023-0b46-45df-eb57-cbf64e24121d/full/843,/0/default.jpg" alt="Veranda Post (Òpó Ògògá) — Olowe of Ise" loading="lazy" decoding="async">
+            <span class="wall-label"><b>Veranda Post (Òpó Ògògá)</b> · Olowe of Ise · 1910-14 · Art Institute of Chicago</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="h">Olowe, oko mi kare o
+[…]
+O sun on tegbetegbe
+Elegbe bi oni sa
+O p’uroko bi oni p’ugba
+O m’eo roko daun se</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">oríkì of Olowe of Ise, traditional — sung by his wives; recorded from a surviving wife at Ise-Ekiti, 1988</p>
+      <div class="poem-render"><span class="en">Olowe, my husband — well done!
+[…]
+handsome among his friends,
+matchless among his fellows:
+he cuts the hard iroko as one cuts a calabash,
+and with the earnings of his knife he made his name.</span><span class="zh" lang="zh">奧洛韋，我的良人，好一個他——
+[…]
+友朋之中，數他俊美；
+儕輩之中，無人可匹：
+他刻堅硬的伊羅科木，如削一枚軟葫蘆；
+憑一把刻刀掙來的，是他的名。</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">No diary, no letters, no confirmed photograph — what survives of Olowe&#x27;s life is a song. The oríkì his wives sang is almost a map of his commissions: it remembers the four years he spent carving at the ogoga&#x27;s palace in Ikere, where this post stood and held up the roof. Its most famous praise — that he cut hard iroko as though it were a soft calabash — is proved here in the wood: king, queen, and the open air between their limbs, all freed from a single trunk. A wife&#x27;s voice upholding a husband&#x27;s name; a carved wife upholding a king — poem and post are one gesture.</p>
+          <p class="zh" lang="zh">沒有日記，沒有書信，也幾乎沒有一張可確認的照片——奧洛韋的一生，只以一首歌傳世。妻子們為他唱的oríkì，幾乎是一張作品的輿圖：詩裡記得他在伊凱雷王宮中刻了四年，這根柱子，正是在那裡撐起屋頂。詩中最有名的一句，讚他刻堅硬的伊羅科木如削軟葫蘆；此柱便是物證——王、后、連人物之間透空的空氣，俱自同一根木中解放出來。妻子以歌聲撐住丈夫的名字，木裡的王后以雙手撐住王座：詩與柱，原是同一個手勢。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">Olowe began as an emissary at the court of Ise; by the time the ogoga of Ikere summoned him, around 1910, kings were competing for his knife. He came with apprentices and stayed some four years — adzes opening the iroko trunk, finer blades finding the queen&#x27;s shoulders and the gaps of air between the figures, a wash of blue for her skin, red for her beads and the bird’s long beak — and when the carving was done, the palace roof was set on its head. His dates can only be held loosely, born around 1875, dead in 1938; the cost of the work is more exact: years away from home, and a household carried by the wives whose song became his only biography.</p>
+          <p class="zh" lang="zh">奧洛韋本是伊塞王廷的使者；到伊凱雷王於一九一〇年前後召他之時，諸王已在競相等候他的刻刀。他攜弟子前往，一住約四年——斧鑿先剖開伊羅科巨木，細刀再尋出王后的肩與人物之間的空隙，她的肌膚敷上一層藍，珠串與冠頂鳥喙點上赭紅；人像既成，宮殿的屋頂便安放在他們頭頂。他的生卒只能約略持之：約生於一八七五，卒於一九三八。這件作品的代價倒更確切——離家經年，家業全靠妻子們撐持，而她們的歌，日後成了他唯一的傳記。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">These were exactly the years Britain was redrawing Yoruba kingship: in 1914 the protectorates were amalgamated into colonial Nigeria, and the obas were folded into indirect rule — left on their thrones while the ground moved beneath them. Against that pressure the post reads as a quiet counter-statement about where power truly stands: the senior wife rising above the crown, the bird of the mothers at its peak, her hands steadying the seat. The same empire soon carried the carver&#x27;s fame along its own roads — in 1924 a palace door Olowe made for this ogoga went to the British Empire Exhibition at Wembley and never came home; his oríkì took note, down to a carved lion that went away to England.</p>
+          <p class="zh" lang="zh">恰是在這幾年，英國人重新劃定了約魯巴的王權：一九一四年，南北保護領合併為殖民地奈及利亞，諸王被納入「間接統治」——王座猶在，座下的地基已然挪動。在此壓力之下，這根柱子是一句安靜的反話，道出權力真正的所在：長妃高出王冠，冠頂棲著「眾母」之鳥，她的雙手扶穩王座。同一個帝國，不久也沿自己的道路把刻工的名聲運走——一九二四年，奧洛韋為這位伊凱雷王所刻的宮門遠赴溫布利大英帝國博覽會，一去未歸；他的頌詩連這也記下了，連同一頭去了英格蘭的木獅。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+    <article class="exhibit" id="cannons">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">聲</span>
+        <span class="t">Improvisation No. 30 (Cannons)</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://www.artic.edu/artworks/8991" target="_blank" rel="noopener">
+            <img src="https://www.artic.edu/iiif/2/b5bc6b66-9e6e-fe57-dcec-fc49e820e904/full/843,/0/default.jpg" alt="Improvisation No. 30 (Cannons) — Vasily Kandinsky" loading="lazy" decoding="async">
+            <span class="wall-label"><b>Improvisation No. 30 (Cannons)</b> · Vasily Kandinsky · 1913 · Art Institute of Chicago</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="h" lang="de">Blaues, Blaues hob sich, hob sich und fiel.
+Spitzes, Dünnes pfiff und drängte sich ein, stach aber nicht durch.
+An allen Ecken hat’s gedröhnt.
+〔…〕
+Daher fängt auch alles an ……
+…… Es hat gekracht ……</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">Wassily Kandinsky, „Sehen“ (Seeing), from Klänge, R. Piper &amp; Co., Munich, 1912 (imprint dated 1913)</p>
+      <div class="poem-render"><span class="en">Blue, blue rose up, rose up and fell.
+Something sharp, something thin whistled and pushed its way in, but did not pierce through.
+On every corner there was a booming.
+〔…〕
+That is where it all begins ……
+…… There was a crash ……</span><span class="zh" lang="zh">藍,藍,升起,升起,又落下。
+尖的、細的,呼嘯著擠進來,卻刺不穿。
+每一個角落都轟轟作響。
+〔⋯⋯〕
+一切正是由此開始⋯⋯
+⋯⋯砰然一聲巨響⋯⋯</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">Here the painter answers himself, one year apart. In 1912 Kandinsky published the prose poem &quot;Sehen&quot; in Klänge — blue rising and falling, something sharp whistling its way in but never piercing through — and closed it with a crash. In 1913 the crash found its pigment: a blue mass surging up the canvas while cannons roll quietly in the lower corner. The poem&#x27;s last sound is the painting&#x27;s first.</p>
+          <p class="zh" lang="zh">這一回,是畫家隔了一年回答自己。一九一二年,康丁斯基在《聲響》裡印下散文詩〈看〉——藍升起又落下,尖細之物呼嘯擠入而刺不穿,末了是一聲巨響。一九一三年,巨響落成顏料:藍色山體湧上畫布,砲車靜靜臥在畫幅下角。詩的最後一個聲音,正是這幅畫的第一個。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">Munich, 1913: Kandinsky shared a flat in Schwabing with the painter Gabriele Münter, at the center of the Blue Rider circle he had founded with Franz Marc, and Schoenberg&#x27;s atonal concerts had persuaded him that dissonance could be its own order. The canvas moved fast — reproduced by Der Sturm in Berlin that same year — before the Chicago lawyer Arthur Jerome Eddy bought it and wrote to ask what the cannons meant. Kandinsky&#x27;s reply: the true contents are &quot;what the spectator lives or feels while under the effect of the form and color combinations of the picture.&quot;</p>
+          <p class="zh" lang="zh">一九一三年的慕尼黑:康丁斯基與畫家明特同住施瓦賓區,身邊是他與馬爾克創立的「藍騎士」;荀白克的無調性音樂會使他確信,不協和自有其秩序。畫成當年,即由柏林《狂飆》刊印、赴倫敦展出;芝加哥律師艾迪買下它,寫信追問砲車何意。康丁斯基答道:畫的真正內容,是觀者在形與色的作用之下,親身經歷的一切。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">The date on the canvas is 1913 — some eighteen months before the guns of August. The Balkan Wars filled that year&#x27;s newspapers, and Kandinsky conceded to Eddy that the cannons &quot;could probably be explained by the constant war talk going on through the year,&quot; while insisting his improvisations rose unbidden, from inner tension rather than intention. That may be the more unsettling reading: a painter reaching for pure abstraction, and finding artillery already waiting in his hand.</p>
+          <p class="zh" lang="zh">畫布落款一九一三——距八月砲響,約莫一年半。巴爾幹戰事佔滿了那一年的報紙;康丁斯基向艾迪承認,砲車「大概可以用整年不斷的戰爭議論來解釋」,卻堅稱「即興」系列不假思索,出於內在張力而非意圖。這或許才更教人心驚:一位奔向純粹抽象的畫家,筆底早已候著大砲。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+    <article class="exhibit" id="moonrise">
+      <div class="ex-head rise">
+        <span class="ch" lang="zh">江</span>
+        <span class="t">Moonrise</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise">
+          <a class="hung" href="https://www.artic.edu/artworks/64754" target="_blank" rel="noopener">
+            <img src="https://www.artic.edu/iiif/2/4425984b-e241-6413-1404-cdac0fb06518/full/843,/0/default.jpg" alt="Moonrise — George Inness" loading="lazy" decoding="async">
+            <span class="wall-label"><b>Moonrise</b> · George Inness · 1891 · Art Institute of Chicago</span>
+          </a>
+        </div>
+        <div class="ex-side rise">
+          
+      <div class="tanzaku rise">
+        <p class="v" lang="zh">江畔何人初見月？江月何年初照人？</p>
+        <span class="seal" aria-hidden="true"></span>
+      </div>
+      <p class="poem-attr">張若虛 Zhang Ruoxu (fl. c. 705, dates uncertain), 《春江花月夜》 (Spring River, Flowers, Moonlit Night), Tang dynasty, early 8th century</p>
+      <div class="poem-render"><span class="en">Who, on this riverbank, first saw the moon? And the moon over the river — in what year did it first shine on a human face?</span></div>
+          <div class="folds">
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">緣</span>the meeting</div>
+          <p class="en">Inness lets an orange moon burn low through the haze, and the one small figure in the field walks on, head bowed — the moon rises unwitnessed. Nearly twelve centuries earlier, on a spring riverbank, Zhang Ruoxu asked who first saw the moon at all, and in what year the moon first shone on a human face. The painting is the question&#x27;s quiet obverse: not who first looked, but how easily we forget to. The moon keeps its half of the appointment either way.</p>
+          <p class="zh" lang="zh">畫中橙月低懸霧裡，田間唯一的白衣身影卻低著頭，逕自前行——月升起，而無人見證。千餘年前的春江岸上，張若虛先問了那個問題：江畔何人初見月？江月何年初照人？英尼斯畫出的是此問的背面——不是誰最先抬頭，而是我們多麼容易忘了抬頭。月自守約，一如當初。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">世</span>the living</div>
+          <p class="en">Inness painted this in his mid-sixties in Montclair, New Jersey, a devoted reader of the mystic Emanuel Swedenborg, working in the studio from memory through layered, veiling glazes — landscape, for him, was inner weather. He kept the canvas; it never left his hands, surfacing first in the December 1894 memorial exhibition of paintings &quot;left by the late George Inness,&quot; then sold from his estate the following February. It passed through several hands until 1911, when the Chicago businessman Edward B. Butler bought it and gave it, that same year, to the Art Institute.</p>
+          <p class="zh" lang="zh">一八九一年，英尼斯已年過花甲，隱居於新澤西州蒙特克萊爾。他篤信瑞典神祕家史威登堡之說，晚年多憑記憶在畫室中層層罩染——風景於他，即是心境的天氣。這幅畫他生前始終留在身邊：一八九四年十二月，它首次現身於「已故英尼斯遺作展」；次年二月自遺產拍賣中售出，輾轉數手；一九一一年由芝加哥商人愛德華・巴特勒購得，同年捐贈芝加哥藝術博物館。</p>
+        </div>
+        <div class="fold">
+          <div class="k"><span class="cjk" lang="zh">事</span>the tide</div>
+          <p class="en">After the Civil War, American landscape painting turned inward: the mile-wide panoramas that had marched with Manifest Destiny gave way to the tonalists&#x27; small, veiled twilights — a turn Inness helped lead, having absorbed Corot and the Barbizon painters in France. Montclair itself was a creature of the railroad age, a commuter town outside New York where pasture and metropolis sat a train-ride apart. And Swedenborg&#x27;s teaching that the visible world corresponds to a spiritual one gave the generation&#x27;s inwardness a theology: a moon in the haze could be painted as a condition of the soul.</p>
+          <p class="zh" lang="zh">南北戰爭之後，美國風景畫由外轉內：與「昭昭天命」並行的壯闊全景，讓位於調性主義含霧的黃昏小景；英尼斯早年遊歐，取法柯洛與巴比松諸家，正是此一轉向的先聲。蒙特克萊爾本身便是鐵路時代的造物——紐約城外的通勤小鎮，牧場與都會只隔一程車。而史威登堡「有形世界與靈界相應」之說，為這一代人的內向給出了神學：霧中之月，可以畫作靈魂的天氣。</p>
+        </div></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <p class="love">Every poem was already tied to something. <span class="zh" lang="zh">詩不孤生，早有所繫。</span></p>
+  <nav>
+    <a href="/">the front door</a>
+    <a href="river.html">川 the river</a>
+    <a href="homecoming.html">正音 homecoming</a>
+  </nav>
+</footer>
+
+<script>
+/* fade-up on scroll (once) */
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var risers = document.querySelectorAll('.rise');
+  if (reduced || !('IntersectionObserver' in window)) {
+    risers.forEach(function(el){ el.classList.add('seen'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  risers.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
