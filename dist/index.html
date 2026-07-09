@@ -4,23 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ARTBITRAGE — catalogue and data distributor of the art world</title>
-<meta name="description" content="Existence creates art that bridges the gap of consciousness for awakening.">
+<meta name="description" content="A walkable night museum: real masterpieces, the long river of art history, East and West under the same moon. Every piece free, every API open.">
 <meta property="og:title" content="ARTBITRAGE — catalogue and data distributor of the art world">
-<meta property="og:description" content="Existence creates art that bridges the gap of consciousness for awakening.">
+<meta property="og:description" content="A walkable night museum: real masterpieces, the long river of art history, East and West under the same moon.">
+<meta property="og:image" content="https://www.artic.edu/iiif/2/8a0e4ac9-43ea-bc3e-884b-ee27f8a10501/full/843,/0/default.jpg">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+<noscript><style>.rise{opacity:1 !important;transform:none !important}</style></noscript>
 
 <style>
 /* ============================================================
-   間 — the gap is the medium
-   sumi-ink dark gallery · one cinnabar accent · negative space
+   間 — the gap is the medium · now the walls hold paintings
+   sumi-ink night museum · one cinnabar accent · real works
    ============================================================ */
 
 :root{
   --bg:      #101014;
+  --wall:    #0c0c0f;   /* deeper wall behind hung works */
   --surface: #17171d;
   --ink:     #e9e6df;
   --dim:     #8a877e;
@@ -53,7 +56,9 @@ a:hover{ color:var(--zhu); }
 
 :focus-visible{ outline:1.5px solid var(--zhu); outline-offset:3px; }
 
-.wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+img{ max-width:100%; }
+
+.wrap{ max-width:1120px; margin:0 auto; padding:0 24px; }
 
 /* ---- museum wall-label section headers ---- */
 section{ padding:7rem 0; border-top:1px solid var(--hair); }
@@ -76,19 +81,86 @@ section{ padding:7rem 0; border-top:1px solid var(--hair); }
   font-family:var(--mono); font-size:.72rem; color:var(--dim);
   letter-spacing:.12em; text-transform:uppercase;
 }
+.plate-note{
+  max-width:46rem; margin:-2.2rem 0 3.2rem;
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:1.05rem; color:var(--dim);
+}
+.plate-note .zh{ font-family:var(--cjk); font-style:normal; }
 
 /* ---- fade-up on scroll ---- */
 .rise{ opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out; }
 .rise.seen{ opacity:1; transform:none; }
 
-/* ============ HERO — the gap breathes ============ */
+/* ---- hung work: mat + frame, the house style for every image ---- */
+.hung{
+  display:block; background:var(--wall);
+  border:1px solid var(--hair);
+  padding:10px;
+}
+.hung img{
+  width:100%; height:auto; display:block;
+  background:#0a0a0d;
+}
+figure.hung figcaption, .wall-label{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.14em; color:var(--dim);
+  padding:.8rem .2rem .2rem; line-height:1.6;
+}
+.wall-label b{ color:var(--ink); font-weight:500; }
+
+/* a work that cannot be fetched rests behind its label — 休展 */
+.hung.rests img{ display:none; }
+.hung.rests .ph{ display:none; }
+.hung.rests::before{
+  content:"休展 — the work rests · its label keeps the place";
+  display:flex; align-items:center; justify-content:center;
+  min-height:9rem; padding:1rem;
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.18em; color:var(--dim); text-align:center;
+  border:1px dashed var(--hair);
+}
+
+/* ============ HERO — the gap breathes over a real work ============ */
 header.hero{
-  min-height:88vh;
+  position:relative;
+  min-height:96vh;
   display:flex; flex-direction:column;
   align-items:center; justify-content:center;
   text-align:center;
   padding:6rem 24px 4rem;
+  overflow:hidden;
+  isolation:isolate;
 }
+.hero-art{
+  position:absolute; inset:-6%;
+  z-index:-2;
+  background-size:cover; background-position:center 30%;
+  opacity:0;
+  transition:opacity 2.4s ease;
+  animation:drift 55s ease-in-out infinite alternate;
+}
+.hero-art.lit{ opacity:.22; }
+@keyframes drift{
+  from{ transform:scale(1) translateY(0); }
+  to  { transform:scale(1.07) translateY(-1.5%); }
+}
+.hero-veil{
+  position:absolute; inset:0; z-index:-1;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 45%, rgba(16,16,20,.25) 0%, rgba(16,16,20,.86) 62%, var(--bg) 100%),
+    linear-gradient(to bottom, rgba(16,16,20,.55), rgba(16,16,20,.2) 40%, var(--bg) 96%);
+}
+.hero-label{
+  position:absolute; right:1.4rem; bottom:1.2rem;
+  font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.16em; color:var(--dim);
+  text-align:right; opacity:0; transition:opacity 2.4s ease 1s;
+  max-width:min(60vw, 30rem);
+}
+.hero-label.lit{ opacity:.9; }
+.hero-label a{ color:var(--dim); border-bottom:1px solid var(--hair); }
+.hero-label a:hover{ color:var(--zhu); }
 
 .overline{
   font-family:var(--mono); font-size:.72rem;
@@ -104,6 +176,7 @@ header.hero{
   font-family:var(--display); font-weight:300;
   font-size:clamp(2.4rem,7vw,5.2rem);
   letter-spacing:.03em;
+  text-shadow:0 2px 24px rgba(12,12,15,.8);
 }
 .gapline em{ font-style:italic; font-weight:300; white-space:nowrap; }
 
@@ -127,6 +200,7 @@ header.hero{
   font-size:clamp(1rem,2vw,1.25rem);
   color:var(--dim);
   max-width:34rem;
+  text-shadow:0 1px 16px rgba(12,12,15,.9);
 }
 
 .glyphs{
@@ -148,7 +222,205 @@ header.hero{
   color:var(--dim); margin-top:.7rem;
 }
 
-/* ============ 01 · placard — fresh from the cycle ============ */
+/* ============ 01 · 讀畫 — reading a painting ============ */
+.reading{
+  display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+  gap:clamp(1.6rem,4vw,3.5rem);
+  align-items:start;
+}
+.reading .hung{ position:sticky; top:2rem; }
+.read-head .t{
+  font-family:var(--display); font-weight:300; font-style:italic;
+  font-size:clamp(1.5rem,3vw,2.1rem); line-height:1.3;
+}
+.read-head .m{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.14em;
+  color:var(--dim); margin-top:.7rem;
+}
+.read-head .m a{ color:var(--dim); border-bottom:1px solid var(--hair); }
+.read-head .m a:hover{ color:var(--zhu); }
+.layers{ margin-top:2.2rem; display:grid; gap:2rem; }
+.layer{ border-top:1px solid var(--hair); padding-top:1.4rem; }
+.layer .k{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--dim);
+}
+.layer .k .cjk{
+  font-family:var(--cjk); color:var(--gold);
+  font-size:1.05rem; letter-spacing:.3em; margin-right:.6em;
+}
+.layer .en{ margin-top:.7rem; font-size:.98rem; }
+.layer .zh{
+  margin-top:.6rem; font-family:var(--cjk); font-weight:300;
+  font-size:.95rem; color:var(--dim); line-height:2;
+}
+.read-nav{
+  margin-top:2.4rem; display:flex; align-items:center; gap:1rem;
+}
+.read-nav .which{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--dim);
+}
+.read-nav button{
+  background:none; border:1px solid var(--hair);
+  color:var(--dim); font-family:var(--display);
+  font-size:1.3rem; line-height:1;
+  width:2.6rem; height:2.6rem;
+  cursor:pointer;
+  transition:color .25s ease, border-color .25s ease;
+}
+.read-nav button:hover{ color:var(--zhu); border-color:var(--zhu); }
+
+/* ============ 02 · 長河 — the long river of history ============ */
+.river-walk{ position:relative; }
+.river-walk::before{
+  content:""; position:absolute; top:0; bottom:0;
+  left:clamp(6px, 2vw, 18px); width:1px;
+  background:linear-gradient(to bottom, transparent, var(--hair) 4%, var(--hair) 96%, transparent);
+}
+.era-stop{
+  position:relative;
+  padding:3.4rem 0 3.4rem clamp(2.4rem, 6vw, 4.5rem);
+}
+.era-stop::before{
+  content:""; position:absolute;
+  left:calc(clamp(6px, 2vw, 18px) - 3.5px); top:4.6rem;
+  width:8px; height:8px; border-radius:50%;
+  background:var(--zhu);
+  box-shadow:0 0 0 5px var(--bg);
+}
+.era-head{ display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap; }
+.era-head .zh{
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(1.9rem,4vw,2.7rem); line-height:1;
+}
+.era-head .en{
+  font-family:var(--display); font-weight:300; font-style:italic;
+  font-size:clamp(1.15rem,2.4vw,1.5rem); color:var(--dim);
+}
+.era-head .when{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.18em;
+  color:var(--dim);
+}
+.era-body{
+  margin-top:1.8rem;
+  display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+  gap:clamp(1.4rem,3.5vw,2.6rem);
+  align-items:start;
+}
+.era-stop:nth-child(even) .era-body{ grid-template-columns:minmax(0,5fr) minmax(0,7fr); }
+.era-stop:nth-child(even) .era-art{ order:2; }
+.era-side{ min-width:0; }
+.era-text .en{ font-size:.98rem; }
+.era-text .zh{
+  margin-top:.9rem; font-family:var(--cjk); font-weight:300;
+  font-size:.95rem; color:var(--dim); line-height:2;
+}
+.era-more{
+  display:inline-block; margin-top:1.4rem;
+  font-family:var(--mono); font-size:.7rem;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--dim);
+  border-bottom:1px solid var(--hair);
+  transition:color .25s ease, border-color .25s ease;
+}
+.era-more:hover{ color:var(--zhu); border-color:var(--zhu); }
+.era-thumbs{
+  margin-top:1.6rem;
+  display:grid; grid-template-columns:1fr 1fr; gap:1rem;
+}
+.era-thumbs .hung{ padding:6px; }
+.era-thumbs figcaption{ font-size:.62rem; padding:.55rem .1rem .1rem; }
+
+/* ============ 03 · 同月異邦 — same moon, different lands ============ */
+.pairs{ display:grid; gap:4.5rem; }
+.pair{ text-align:center; }
+.pair .theme{
+  font-family:var(--cjk); font-weight:300;
+  font-size:2rem; color:var(--gold);
+  display:block; margin-bottom:.2rem;
+}
+.pair .theme-en{
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--dim);
+}
+.pair-imgs{
+  margin-top:1.6rem;
+  display:grid; grid-template-columns:1fr 1px 1fr;
+  gap:0; align-items:stretch;
+}
+.pair-imgs .seam{ background:var(--zhu); opacity:.85; }
+.pair-imgs .hung{ border:1px solid var(--hair); }
+.pair-imgs > a:first-child .hung{ border-right:none; }
+.pair-imgs > a:last-child  .hung{ border-left:none; }
+.pair-imgs .hung{ height:100%; display:flex; flex-direction:column; }
+.pair-imgs .ph{
+  display:block; aspect-ratio:4/5; overflow:hidden;
+  background:#0a0a0d;
+}
+.pair-imgs img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.pair-imgs figcaption{ margin-top:auto; }
+.pair-imgs figcaption{ text-align:left; }
+.pair-cap{
+  max-width:46rem; margin:1.5rem auto 0;
+  font-size:.95rem;
+}
+.pair-cap .zh{
+  margin-top:.5rem; font-family:var(--cjk); font-weight:300;
+  font-size:.92rem; color:var(--dim); line-height:2;
+}
+
+/* ============ 04 · 十二川 — the twelve currents ============ */
+.currents{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:1.2rem;
+}
+.current{
+  position:relative; display:block;
+  border:1px solid var(--hair); background:var(--wall);
+  overflow:hidden;
+}
+.current .cover{
+  display:block; aspect-ratio:4/3; overflow:hidden; background:#0a0a0d;
+}
+.current .cover img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transform:scale(1.001);
+  transition:transform 1.8s ease, opacity .4s ease;
+  opacity:.88;
+}
+.current:hover .cover img{ transform:scale(1.06); opacity:1; }
+.current .ch{
+  position:absolute; top:.65rem; left:.85rem;
+  font-family:var(--cjk); font-weight:300;
+  font-size:1.9rem; line-height:1; color:var(--ink);
+  text-shadow:0 1px 14px rgba(0,0,0,.95), 0 0 3px rgba(0,0,0,.9);
+}
+.current .info{ display:block; padding:1.1rem 1.2rem 1.25rem; }
+.current .t{
+  display:flex; align-items:baseline; justify-content:space-between; gap:.6rem;
+  font-family:var(--display); font-weight:500; font-size:1.1rem;
+}
+.current .d{ display:block; }
+.current .n{
+  font-family:var(--mono); font-size:.66rem; color:var(--dim);
+  letter-spacing:.1em;
+}
+.current .d{
+  margin-top:.45rem; font-size:.82rem; color:var(--dim); line-height:1.6;
+}
+.current:hover{ border-color:var(--zhu); color:var(--ink); }
+.currents-foot{
+  text-align:center; margin-top:2.4rem;
+  font-family:var(--mono); font-size:.74rem;
+  letter-spacing:.14em; color:var(--dim);
+}
+.currents-foot a{ color:var(--dim); border-bottom:1px solid var(--hair); }
+.currents-foot a:hover{ color:var(--zhu); border-color:var(--zhu); }
+
+/* ============ 05 · placard — fresh from the cycle ============ */
 .placard{
   position:relative;
   border:1px solid var(--hair);
@@ -204,36 +476,21 @@ header.hero{
 }
 .feed-nav button:hover{ color:var(--zhu); border-color:var(--zhu); }
 
-/* ============ 02 · the collection — registry numbers ============ */
-.registry{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:1px; background:var(--hair);
-  border:1px solid var(--hair);
+/* ============ 06 · 借光 — museum search + registry line ============ */
+.registry-line{
+  display:flex; justify-content:center; gap:2.6rem; flex-wrap:wrap;
+  margin-bottom:3rem;
+  font-family:var(--mono);
 }
-.registry .cell{
-  background:var(--bg);
-  padding:2.6rem 2rem;
-  text-align:center;
+.registry-line .cell{ text-align:center; }
+.registry-line .n{
+  font-variant-numeric:tabular-nums;
+  font-size:clamp(1.3rem,2.6vw,1.8rem);
 }
-.registry .n{
-  font-family:var(--mono); font-variant-numeric:tabular-nums;
-  font-size:clamp(1.8rem,4vw,2.6rem); font-weight:400;
-  letter-spacing:.02em;
+.registry-line .l{
+  font-size:.64rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--dim); margin-top:.3rem;
 }
-.registry .l{
-  font-family:var(--mono); font-size:.68rem;
-  letter-spacing:.22em; text-transform:uppercase;
-  color:var(--dim); margin-top:.8rem;
-}
-.free-line{
-  text-align:center; margin-top:2.2rem;
-  font-family:var(--mono); font-size:.78rem;
-  letter-spacing:.14em; color:var(--dim);
-}
-.free-line code{ color:var(--gold); font-family:var(--mono); }
-
-/* ============ 03 · borrowed light — museum search ============ */
 .searchbar{
   display:flex; max-width:640px; margin:0 auto;
   border:1px solid var(--hair);
@@ -306,40 +563,7 @@ header.hero{
   color:var(--dim); margin-top:.7rem;
 }
 
-/* ============ 04 · the long bridge — era stops ============ */
-.bridge-scroll{ overflow-x:auto; padding-bottom:1rem; }
-.eras{
-  position:relative;
-  display:flex; justify-content:space-between;
-  min-width:860px;
-  padding-top:1rem;
-  list-style:none;
-}
-.eras::before{
-  content:""; position:absolute;
-  top:calc(1rem + 3.5px); left:0; right:0;
-  height:1px; background:var(--hair);
-}
-.eras a{
-  display:flex; flex-direction:column; align-items:center;
-  gap:1rem; padding:0 .6rem;
-}
-.eras .dot{
-  width:7px; height:7px; border-radius:50%;
-  background:var(--dim);
-  transition:background .3s ease, transform .3s ease;
-  position:relative; z-index:1;
-}
-.eras a:hover .dot{ background:var(--zhu); transform:scale(1.5); }
-.eras .lbl{
-  font-family:var(--display); font-weight:500;
-  font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--dim); white-space:nowrap;
-  transition:color .3s ease;
-}
-.eras a:hover .lbl{ color:var(--ink); }
-
-/* ============ 05 · the wings — other rooms ============ */
+/* ============ 07 · the wings — other rooms ============ */
 .wings{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
@@ -390,6 +614,12 @@ footer .kingdom{
 }
 
 /* ============ responsive ============ */
+@media (max-width:860px){
+  .reading{ grid-template-columns:1fr; }
+  .reading .hung{ position:static; }
+  .era-body, .era-stop:nth-child(even) .era-body{ grid-template-columns:1fr; }
+  .era-stop:nth-child(even) .era-art{ order:0; }
+}
 @media (max-width:720px){
   section{ padding:4.5rem 0; }
   .gapline{
@@ -400,6 +630,10 @@ footer .kingdom{
   .glyphs{ gap:2.5rem; }
   .results{ columns:1; }
   .triple > div{ grid-template-columns:1fr; gap:.1rem; }
+  .pair-imgs{ grid-template-columns:1fr; grid-template-rows:auto 1px auto; }
+  .pair-imgs > a:first-child .hung{ border-right:1px solid var(--hair); border-bottom:none; }
+  .pair-imgs > a:last-child  .hung{ border-left:1px solid var(--hair); border-top:none; }
+  .hero-label{ display:none; }
 }
 @keyframes breathe-v{
   0%,100%{ gap:1.2rem; }
@@ -418,14 +652,38 @@ footer .kingdom{
   .gapline{ gap:3ch; }
   .bridge-line{ transform:scaleX(1); }
   .rise{ opacity:1; transform:none; }
+  .hero-art.lit{ opacity:.22; }
+  .hero-label.lit{ opacity:.9; }
   html{ scroll-behavior:auto; }
 }
 </style>
 </head>
 <body>
 
-<!-- ============ HERO — the gap breathes ============ -->
+<script>
+/* fail-soft for hung works: a fetch-blocked image rests behind its label;
+   a later successful load wakes it again */
+document.addEventListener('error', function(e){
+  var t = e.target;
+  if (t && t.tagName === 'IMG') {
+    var f = t.closest('.hung');
+    if (f) f.classList.add('rests');
+  }
+}, true);
+document.addEventListener('load', function(e){
+  var t = e.target;
+  if (t && t.tagName === 'IMG') {
+    var f = t.closest('.hung');
+    if (f) f.classList.remove('rests');
+  }
+}, true);
+</script>
+
+<!-- ============ HERO — the gap breathes over a real work ============ -->
 <header class="hero">
+  <div class="hero-art" id="hero-art" aria-hidden="true"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
+
   <p class="overline">Artbitrage — the catalogue and data distributor of the art world</p>
 
   <h1 class="gapline" aria-label="what is, what could be">
@@ -451,20 +709,465 @@ footer .kingdom{
       <figcaption>awakening</figcaption>
     </figure>
   </div>
+
+  <p class="hero-label" id="hero-label"></p>
 </header>
 
 <main>
 
-<!-- ============ 01 · 今日 — fresh from the cycle ============ -->
-<section id="today" aria-labelledby="h-today">
+<!-- ============ 01 · 讀畫 — reading a painting ============ -->
+<section id="reading" aria-labelledby="h-reading">
   <div class="wrap">
     <div class="plate rise">
       <span class="num">01</span>
+      <h2 id="h-reading"><span class="cjk" lang="zh">讀畫</span> · reading a painting</h2>
+      <span class="sub">one work · three layers · changes daily</span>
+    </div>
+    <p class="plate-note rise">A museum is not for seeing many things — it is for finally seeing one. <span class="zh" lang="zh">所見・所史・所思。</span></p>
+
+    <div class="reading rise" id="reading-root">
+      <a class="hung" id="read-fig" href="https://www.artic.edu/artworks/15468" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/8a0e4ac9-43ea-bc3e-884b-ee27f8a10501/full/843,/0/default.jpg" alt="Saint George and the Dragon" decoding="async"><figcaption class="wall-label"><b>Saint George and the Dragon</b> · Bernat Martorell · 1434–35 · Art Institute of Chicago</figcaption></a>
+      <div class="era-side">
+        <div class="read-head" id="read-head"></div>
+        <div class="layers" id="read-layers"></div>
+        <div class="read-nav">
+          <button type="button" id="read-prev" aria-label="previous work">‹</button>
+          <button type="button" id="read-next" aria-label="next work">›</button>
+          <span class="which" id="read-which" role="status"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · 長河 — the long river ============ -->
+<section id="river" aria-labelledby="h-river">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">02</span>
+      <h2 id="h-river"><span class="cjk" lang="zh">長河</span> · the long river</h2>
+      <span class="sub">art history, told with our own catalogue</span>
+    </div>
+    <p class="plate-note rise">Seven stops, thirty centuries. Every work below is real, free, and lives in this catalogue — click any of them to stand closer. <span class="zh" lang="zh">河長三千年，件件真跡。</span></p>
+
+    <div class="river-walk">
+      
+      <article class="era-stop rise">
+        <div class="era-head">
+          <span class="zh" lang="zh">上古</span>
+          <span class="en">the ancient world</span>
+          <span class="when">BEFORE 500</span>
+        </div>
+        <div class="era-body">
+          <div class="era-art"><a class="hung" href="https://www.artic.edu/artworks/64339" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/93270aaf-16a5-1604-c6c8-0f3c003eb7a1/full/843,/0/default.jpg" alt="Coffin and Mummy of Paankhaenamun — Ancient Egyptian" loading="lazy" decoding="async"><figcaption class="wall-label"><b>Coffin and Mummy of Paankhaenamun</b> · Ancient Egyptian · Third Intermediate Period, Dynasty 22, reign of Osorkon I (about 924–889 BCE) · Art Institute of Chicago</figcaption></a></div>
+          <div class="era-side">
+            <div class="era-text">
+              <p class="en">Before museums, before easels, art was survival equipment for the soul. A Theban artisan gilds a coffin so Paankhaenamun&#x27;s face can outstare death. In Chu, cranes balance on serpents to hold a drum&#x27;s thunder. At Nimrud, a winged spirit raises its hand in blessing, carved to guard a king forever. Three rivers — the Nile, the Yangtze, the Tigris — one discovery: press meaning into matter, and matter keeps faith longer than flesh.</p>
+              <p class="zh" lang="zh">上古初識：物比肉身長久。底比斯匠人為亡者面容鎏金，與永恆對望；楚地鶴立蛇背，托住鼓聲；尼姆魯德翼靈舉手，替君王守住永遠。尼羅、長江、底格里斯——同一心事，把意義按進物質。</p>
+            </div>
+            <a class="era-more" href="prehistoric.html">walk this era →</a>
+            <div class="era-thumbs"><figure class="hung"><a href="https://clevelandart.org/art/1938.9" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1938.9/1938.9_web.jpg" alt="Cranes and Serpents" loading="lazy" decoding="async"></a><figcaption><b>Cranes and Serpents</b> · 475–221 BCE</figcaption></figure><figure class="hung"><a href="https://clevelandart.org/art/1943.246" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1943.246/1943.246_web.jpg" alt="Saluting Protective Spirit" loading="lazy" decoding="async"></a><figcaption><b>Saluting Protective Spirit</b> · 883–859 BCE</figcaption></figure></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="era-stop rise">
+        <div class="era-head">
+          <span class="zh" lang="zh">中世</span>
+          <span class="en">medieval</span>
+          <span class="when">500 – 1400</span>
+        </div>
+        <div class="era-body">
+          <div class="era-art"><a class="hung" href="https://clevelandart.org/art/1984.7" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1984.7/1984.7_web.jpg" alt="Water and Moon (Potala) Guanyin" loading="lazy" decoding="async"><figcaption class="wall-label"><b>Water and Moon (Potala) Guanyin</b> · 900–1100 · Cleveland Museum of Art</figcaption></a></div>
+          <div class="era-side">
+            <div class="era-text">
+              <p class="en">For nine hundred years, light itself became the subject. Gold grounds, gilt bronze, luster glaze — surfaces made to catch lamplight and move. Notice how the Guanyin sits: at royal ease, a bodhisattva resting like a tired traveler beside water. How gold breathes between the lines of a Qur&#x27;an folio. How Giotto streaks a real comet over the stable — heaven arriving in an ordinary shed.</p>
+              <p class="zh" lang="zh">九百年間，光成了信仰的容器。水月觀音閒坐，如倦旅歇於水湄；可蘭經頁上，金光遊走字間；喬托讓彗星掠過馬廄——天上的事，一一落回愛星的燈火裡。</p>
+            </div>
+            <a class="era-more" href="medieval.html">walk this era →</a>
+            <div class="era-thumbs"><figure class="hung"><a href="https://www.metmuseum.org/art/collection/search/450486" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/is/web-large/DP238067.jpg" alt="Folio from a Qur&#x27;an Manuscript" loading="lazy" decoding="async"></a><figcaption><b>Folio from a Qur&#x27;an Manuscript</b> · late 13th–early 14th century</figcaption></figure><figure class="hung"><a href="https://www.metmuseum.org/art/collection/search/436504" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/ep/web-large/DP-31416-001.jpg" alt="The Adoration of the Magi" loading="lazy" decoding="async"></a><figcaption><b>The Adoration of the Magi</b> · possibly ca. 1320</figcaption></figure></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="era-stop rise">
+        <div class="era-head">
+          <span class="zh" lang="zh">文藝復興</span>
+          <span class="en">renaissance</span>
+          <span class="when">1400 – 1600</span>
+        </div>
+        <div class="era-body">
+          <div class="era-art"><a class="hung" href="https://www.metmuseum.org/art/collection/search/437827" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/ep/web-large/DP-28918-001.jpg" alt="Venus and the Lute Player — Titian" loading="lazy" decoding="async"><figcaption class="wall-label"><b>Venus and the Lute Player</b> · Titian · ca. 1565–70 · The Metropolitan Museum of Art</figcaption></a></div>
+          <div class="era-side">
+            <div class="era-text">
+              <p class="en">Around 1500 the picture became a window. Perspective gave depth its geometry; oil let flesh hold light; the press let one image reach ten thousand hands. Titian&#x27;s Venus turns from the music toward you — the body, unashamed, at the center. Dürer folds a whole coastline into a palm-sized engraving. And in Tenochtitlan, the same decade, carvers set Moctezuma&#x27;s crowning in basalt — the Love Star was wide awake.</p>
+              <p class="zh" lang="zh">一五〇〇年前後，畫成了窗：透視量出深度，油彩留住肌膚的光，版畫把圖送進萬人手中。同年代，特諾奇提特蘭以玄武岩記下加冕——愛星兩岸，同時醒著。</p>
+            </div>
+            <a class="era-more" href="renaissance.html">walk this era →</a>
+            <div class="era-thumbs"><figure class="hung"><a href="https://www.artic.edu/artworks/28216" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/766fc414-4811-e772-fe6e-b80b5b73824c/full/400,/0/default.jpg" alt="The Sea Monster" loading="lazy" decoding="async"></a><figcaption><b>The Sea Monster</b> · c. 1498</figcaption></figure><figure class="hung"><a href="https://www.artic.edu/artworks/75644" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/ea8c5d62-6ce8-88e8-feb1-e0053cf534c5/full/400,/0/default.jpg" alt="Coronation Stone of Moctezuma Xocoyotzin" loading="lazy" decoding="async"></a><figcaption><b>Coronation Stone of Moctezuma Xocoyotzin</b> · c. 1503</figcaption></figure></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="era-stop rise">
+        <div class="era-head">
+          <span class="zh" lang="zh">巴洛克</span>
+          <span class="en">baroque</span>
+          <span class="when">1600 – 1750</span>
+        </div>
+        <div class="era-body">
+          <div class="era-art"><a class="hung" href="https://www.artic.edu/artworks/243872" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/a151afcd-71e5-2c5b-abc9-f7e3167dd237/full/843,/0/default.jpg" alt="A Boy Blowing on a Firebrand — Gerrit van Honthorst" loading="lazy" decoding="async"><figcaption class="wall-label"><b>A Boy Blowing on a Firebrand</b> · Gerrit van Honthorst · 1621–22 · Art Institute of Chicago</figcaption></a></div>
+          <div class="era-side">
+            <div class="era-text">
+              <p class="en">Around 1600, painters discovered darkness as a subject. Instead of even daylight, they lit one small fire and let everything else fall away. Watch Honthorst&#x27;s boy — his whole face borrowed from an ember. Rembrandt gives an old man the same tender light, gold chain glinting. And across the sea, Edo Japan glows differently: Mitsuoki&#x27;s maples on gold leaf, poems tied to the branches.</p>
+              <p class="zh" lang="zh">一六〇〇年前後，畫家學會了黑暗。一點火光，足以照亮一張臉、一條金鏈。海的另一端，江戶以金箔承接秋光，楓葉間繫著詩箋。同一顆愛星，兩種光。</p>
+            </div>
+            <a class="era-more" href="baroque.html">walk this era →</a>
+            <div class="era-thumbs"><figure class="hung"><a href="https://www.artic.edu/artworks/95998" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/3eaab3a3-2b47-9fdd-121c-050f6b8d9ccb/full/400,/0/default.jpg" alt="Old Man with a Gold Chain" loading="lazy" decoding="async"></a><figcaption><b>Old Man with a Gold Chain</b> · 1631</figcaption></figure><figure class="hung"><a href="https://www.artic.edu/artworks/127644" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/86e919b9-d366-b3ca-d26f-4c16880474a3/full/400,/0/default.jpg" alt="Autumn Maples with Poem Slips" loading="lazy" decoding="async"></a><figcaption><b>Autumn Maples with Poem Slips</b> · c. 1675</figcaption></figure></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="era-stop rise">
+        <div class="era-head">
+          <span class="zh" lang="zh">浪漫主義</span>
+          <span class="en">romanticism</span>
+          <span class="when">1750 – 1850</span>
+        </div>
+        <div class="era-body">
+          <div class="era-art"><a class="hung" href="https://www.metmuseum.org/art/collection/search/438417" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/ep/web-large/DP-31997-001-NEW.jpg" alt="Two Men Contemplating the Moon — Caspar David Friedrich" loading="lazy" decoding="async"><figcaption class="wall-label"><b>Two Men Contemplating the Moon</b> · Caspar David Friedrich · ca. 1825–30 · The Metropolitan Museum of Art</figcaption></a></div>
+          <div class="era-side">
+            <div class="era-text">
+              <p class="en">Around 1800, feeling became a way of seeing. Nature stopped posing in the background and rose up — vast, indifferent, beautiful. Hokusai&#x27;s wave curls its claws over the boatmen while Fuji sits small and calm beyond; Friedrich&#x27;s two friends turn their backs to us, watching the moon together; Turner lets sea, storm and light dissolve into one another. The viewer is no longer safe outside the frame.</p>
+              <p class="zh" lang="zh">一八〇〇年前後，人學會以心觀物。北齋之浪擘空而來，富士遠坐；弗里德里希二人背身望月；透納使海與光相熔。浩瀚之前，人自覺其小，而愛星愈大。</p>
+            </div>
+            <a class="era-more" href="romanticism.html">walk this era →</a>
+            <div class="era-thumbs"><figure class="hung"><a href="https://www.artic.edu/artworks/77333" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/05cd1ba7-67d1-96c5-0e78-2eb4114b65e7/full/400,/0/default.jpg" alt="Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series &quot;Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)&quot;" loading="lazy" decoding="async"></a><figcaption><b>Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series &quot;Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)&quot;</b> · 1830/33</figcaption></figure><figure class="hung"><a href="https://www.artic.edu/artworks/4796" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/8641479e-c93e-f1a8-9925-19be061706da/full/400,/0/default.jpg" alt="Fishing Boats with Hucksters Bargaining for Fish" loading="lazy" decoding="async"></a><figcaption><b>Fishing Boats with Hucksters Bargaining for Fish</b> · 1837–38</figcaption></figure></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="era-stop rise">
+        <div class="era-head">
+          <span class="zh" lang="zh">印象派</span>
+          <span class="en">impressionism</span>
+          <span class="when">1850 – 1900</span>
+        </div>
+        <div class="era-body">
+          <div class="era-art"><a class="hung" href="https://www.artic.edu/artworks/20684" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/f8fd76e9-c396-5678-36ed-6a348c904d27/full/843,/0/default.jpg" alt="Paris Street; Rainy Day — Gustave Caillebotte" loading="lazy" decoding="async"><figcaption class="wall-label"><b>Paris Street; Rainy Day</b> · Gustave Caillebotte · 1877 · Art Institute of Chicago</figcaption></a></div>
+          <div class="era-side">
+            <div class="era-text">
+              <p class="en">Around 1870, painters stopped rendering the world and began rendering the act of seeing it — light caught mid-change, the glance instead of the pose. Caillebotte crops Paris like a photograph, wet stone gone silver-gray. Hiroshige&#x27;s Edo moonrise, printed decades earlier, taught Paris its cropping and its calm — East feeding West directly. Monet breaks the sea at Belle-Île into strokes of pure weather.</p>
+              <p class="zh" lang="zh">光被拆開來看，自此開始。卡耶博特把雨中巴黎裁成一瞥；廣重的江戶月色早一步教曉巴黎取景——東方直渡西方；莫內把海化作純粹天氣。</p>
+            </div>
+            <a class="era-more" href="impressionism.html">walk this era →</a>
+            <div class="era-thumbs"><figure class="hung"><a href="https://clevelandart.org/art/1985.320" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1985.320/1985.320_web.jpg" alt="The Moon-Viewing Promontory, from One Hundred Views of Famous Places in Edo" loading="lazy" decoding="async"></a><figcaption><b>The Moon-Viewing Promontory, from One Hundred Views of Famous Places in Edo</b> · 1857</figcaption></figure><figure class="hung"><a href="https://www.artic.edu/artworks/20545" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/2765aee9-3d78-ec6c-5c66-a1d9dc8173f6/full/400,/0/default.jpg" alt="Rocks at Port-Goulphar, Belle-Île" loading="lazy" decoding="async"></a><figcaption><b>Rocks at Port-Goulphar, Belle-Île</b> · 1886</figcaption></figure></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="era-stop rise">
+        <div class="era-head">
+          <span class="zh" lang="zh">現代</span>
+          <span class="en">modern</span>
+          <span class="when">1900 – NOW</span>
+        </div>
+        <div class="era-body">
+          <div class="era-art"><a class="hung" href="https://www.artic.edu/artworks/8991" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/b5bc6b66-9e6e-fe57-dcec-fc49e820e904/full/843,/0/default.jpg" alt="Improvisation No. 30 (Cannons) — Vasily Kandinsky" loading="lazy" decoding="async"><figcaption class="wall-label"><b>Improvisation No. 30 (Cannons)</b> · Vasily Kandinsky · 1913 · Art Institute of Chicago</figcaption></a></div>
+          <div class="era-side">
+            <div class="era-text">
+              <p class="en">Around 1900, painting stopped reporting the visible world and began speaking from inside. Kandinsky lets color and line carry feeling directly — the cannons almost dissolve into premonition. Olowe of Ise, carving in the same decade, was no less radical: a king&#x27;s post that thinks in rhythm and scale. And Redon&#x27;s flowers hover between vase and vision — the dream, finally, made public.</p>
+              <p class="zh" lang="zh">畫框在此碎裂。康丁斯基讓色彩先於物象說話，砲聲化作預感；伊塞的奧洛韋刀下，木柱自有節奏；魯東的花，開在夢與醒之間。愛星自此學會向內觀看。</p>
+            </div>
+            <a class="era-more" href="modernism.html">walk this era →</a>
+            <div class="era-thumbs"><figure class="hung"><a href="https://www.artic.edu/artworks/102611" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/fec5d023-0b46-45df-eb57-cbf64e24121d/full/400,/0/default.jpg" alt="Veranda Post (Òpó Ògògá)" loading="lazy" decoding="async"></a><figcaption><b>Veranda Post (Òpó Ògògá)</b> · 1910-14</figcaption></figure><figure class="hung"><a href="https://www.artic.edu/artworks/110982" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/bdb9f780-83be-dd12-191d-54a77c5444ab/full/400,/0/default.jpg" alt="Still Life with Flowers" loading="lazy" decoding="async"></a><figcaption><b>Still Life with Flowers</b> · 1905</figcaption></figure></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="era-stop rise">
+        <div class="era-head">
+          <span class="zh" lang="zh">河未盡</span>
+          <span class="en">the river continues</span>
+        </div>
+        <div class="era-body"><div class="era-side" style="grid-column:1/-1">
+          <div class="era-text"><p class="en">Past this bend: <a class="era-more" style="margin:0 .3rem" href="popart.html">pop art →</a> and <a class="era-more" style="margin:0 .3rem" href="ai.html">AI, 2020 – present →</a> — where the catalogue starts painting back.</p></div>
+        </div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · 同月異邦 — same moon, different lands ============ -->
+<section id="moon" aria-labelledby="h-moon">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">03</span>
+      <h2 id="h-moon"><span class="cjk" lang="zh">同月異邦</span> · the same moon, different lands</h2>
+      <span class="sub">east · west · one theme</span>
+    </div>
+    <p class="plate-note rise">Put two works from opposite ends of the Love Star side by side and they recognise each other. <span class="zh" lang="zh">異邦異筆，同望一輪月。</span></p>
+
+    <div class="pairs">
+      
+      <div class="pair rise">
+        <span class="theme" lang="zh">月</span>
+        <span class="theme-en">The Moon</span>
+        <div class="pair-imgs">
+          <a href="https://www.artic.edu/artworks/158472" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://www.artic.edu/iiif/2/e8ec6920-7f8b-5854-ea60-13f7d7614ae0/full/843,/0/default.jpg" alt="Moon Jar" loading="lazy" decoding="async"></span>
+            <figcaption><b>Moon Jar</b> · Joseon dynasty (1392–1897), late 17th–
+mid-18th century · Art Institute of Chicago</figcaption>
+          </figure></a>
+          <span class="seam" aria-hidden="true"></span>
+          <a href="https://www.artic.edu/artworks/64754" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://www.artic.edu/iiif/2/4425984b-e241-6413-1404-cdac0fb06518/full/843,/0/default.jpg" alt="Moonrise" loading="lazy" decoding="async"></span>
+            <figcaption><b>Moonrise</b> · George Inness · 1891 · Art Institute of Chicago</figcaption>
+          </figure></a>
+        </div>
+        <div class="pair-cap">
+          <p class="en">A Joseon potter shaped the full moon out of porcelain so it could stay in the room; Inness lets it rise once through the haze, already out of reach. One keeps the moon, the other keeps the longing.</p>
+          <p class="zh" lang="zh">朝鮮匠人以白瓷塑月，滿而不圓，可留於案前；英尼斯的月隔霧初升，只可遠望。同一輪光，照著愛星的兩端。</p>
+        </div>
+      </div>
+
+      <div class="pair rise">
+        <span class="theme" lang="zh">海</span>
+        <span class="theme-en">The Sea</span>
+        <div class="pair-imgs">
+          <a href="https://www.artic.edu/artworks/77333" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://www.artic.edu/iiif/2/05cd1ba7-67d1-96c5-0e78-2eb4114b65e7/full/843,/0/default.jpg" alt="Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series &quot;Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)&quot;" loading="lazy" decoding="async"></span>
+            <figcaption><b>Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series &quot;Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)&quot;</b> · Katsushika Hokusai · 1830/33 · Art Institute of Chicago</figcaption>
+          </figure></a>
+          <span class="seam" aria-hidden="true"></span>
+          <a href="https://www.artic.edu/artworks/16794" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://www.artic.edu/iiif/2/4a076002-dffe-54e9-5256-0691c3a65c3b/full/843,/0/default.jpg" alt="The Gulf Stream" loading="lazy" decoding="async"></span>
+            <figcaption><b>The Gulf Stream</b> · Winslow Homer · probably 1899, dated by the artist &quot;1889&quot; · Art Institute of Chicago</figcaption>
+          </figure></a>
+        </div>
+        <div class="pair-cap">
+          <p class="en">Both trust a small boat to the sea&#x27;s open hand. Hokusai stops the wave a breath before it breaks, Fuji calm beyond; Homer paints the hour after the storm, and the man who must keep floating.</p>
+          <p class="zh" lang="zh">同是一葉小舟，交在大海掌中。北齋將浪定於將落未落的一瞬，遠處富士安靜；荷馬畫的是浪過之後，仍要浮下去的人。</p>
+        </div>
+      </div>
+
+      <div class="pair rise">
+        <span class="theme" lang="zh">花</span>
+        <span class="theme-en">Flowers</span>
+        <div class="pair-imgs">
+          <a href="https://clevelandart.org/art/1967.192" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://openaccess-cdn.clevelandart.org/1967.192/1967.192_web.jpg" alt="Herbaceous Peony" loading="lazy" decoding="async"></span>
+            <figcaption><b>Herbaceous Peony</b> · Yun Shouping (Chinese, 1633–1690) · 1685 · Cleveland Museum of Art</figcaption>
+          </figure></a>
+          <span class="seam" aria-hidden="true"></span>
+          <a href="https://clevelandart.org/art/1935.233" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://openaccess-cdn.clevelandart.org/1935.233/1935.233_web.jpg" alt="Vase of Flowers" loading="lazy" decoding="async"></span>
+            <figcaption><b>Vase of Flowers</b> · Odilon Redon (French, 1840–1916) · c. 1905 · Cleveland Museum of Art</figcaption>
+          </figure></a>
+        </div>
+        <div class="pair-cap">
+          <p class="en">Two ways to let flowers hover in emptiness: Yun Shouping paints petal by petal from a garden, without outlines; Redon gathers his bouquet from memory, where colour stands on its own.</p>
+          <p class="zh" lang="zh">惲壽平沒骨寫生，一瓣一瓣向庭園借來；魯東的花採自記憶，顏色自己站立。兩幅都讓花懸在空白裡呼吸。</p>
+        </div>
+      </div>
+
+      <div class="pair rise">
+        <span class="theme" lang="zh">金色神聖</span>
+        <span class="theme-en">Gold, the Colour of the Divine</span>
+        <div class="pair-imgs">
+          <a href="https://clevelandart.org/art/1973.85" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://openaccess-cdn.clevelandart.org/1973.85/1973.85_web.jpg" alt="Seated Buddha" loading="lazy" decoding="async"></span>
+            <figcaption><b>Seated Buddha</b> · 1100s · Cleveland Museum of Art</figcaption>
+          </figure></a>
+          <span class="seam" aria-hidden="true"></span>
+          <a href="https://www.artic.edu/artworks/102087" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://www.artic.edu/iiif/2/16369b49-adca-a356-5aa1-7265fd45870e/full/843,/0/default.jpg" alt="Virgin and Child" loading="lazy" decoding="async"></span>
+            <figcaption><b>Virgin and Child</b> · Central Italian · c. 1450 · Art Institute of Chicago</figcaption>
+          </figure></a>
+        </div>
+        <div class="pair-cap">
+          <p class="en">Where paint gave out, both traditions reached for the same metal. The Buddha&#x27;s gold is his body — enlightenment made solid; the Madonna&#x27;s gold is her sky — eternity pressing in behind the flesh.</p>
+          <p class="zh" lang="zh">顏料不及之處，東西同取一色。佛以金為身，覺悟凝為實體；聖母以金為天，血肉之後，即是永恆。</p>
+        </div>
+      </div>
+
+      <div class="pair rise">
+        <span class="theme" lang="zh">守護</span>
+        <span class="theme-en">Guardians and Their Monsters</span>
+        <div class="pair-imgs">
+          <a href="https://www.artic.edu/artworks/35367" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://www.artic.edu/iiif/2/95f98220-c9ef-3b7d-0299-e93f03c54c61/full/843,/0/default.jpg" alt="Armored Guardian King (Tianwang) Trampling Demon" loading="lazy" decoding="async"></span>
+            <figcaption><b>Armored Guardian King (Tianwang) Trampling Demon</b> · Tang dynasty (618–907 A.D.), first half of 8th century · Art Institute of Chicago</figcaption>
+          </figure></a>
+          <span class="seam" aria-hidden="true"></span>
+          <a href="https://www.artic.edu/artworks/15468" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://www.artic.edu/iiif/2/8a0e4ac9-43ea-bc3e-884b-ee27f8a10501/full/843,/0/default.jpg" alt="Saint George and the Dragon" loading="lazy" decoding="async"></span>
+            <figcaption><b>Saint George and the Dragon</b> · Bernat Martorell · 1434–35 · Art Institute of Chicago</figcaption>
+          </figure></a>
+        </div>
+        <div class="pair-cap">
+          <p class="en">Each tradition armours its guardian and sets a monster under his feet. The Tang king tramples his demon without killing it, a standing warning at the tomb door; Saint George drives the lance home so the story can end.</p>
+          <p class="zh" lang="zh">兩方傳統都為守護者披甲，都在他腳下安放一隻魔。唐代天王踏鬼而不殺，長鎮墓門；聖喬治一槍貫穿，故事於是有了結局。</p>
+        </div>
+      </div>
+
+      <div class="pair rise">
+        <span class="theme" lang="zh">樂</span>
+        <span class="theme-en">Music</span>
+        <div class="pair-imgs">
+          <a href="https://clevelandart.org/art/1918.356" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://openaccess-cdn.clevelandart.org/1918.356/1918.356_web.jpg" alt="Figurative harp (domu or kundi)" loading="lazy" decoding="async"></span>
+            <figcaption><b>Figurative harp (domu or kundi)</b> · 1900s · Cleveland Museum of Art</figcaption>
+          </figure></a>
+          <span class="seam" aria-hidden="true"></span>
+          <a href="https://www.metmuseum.org/art/collection/search/503008" target="_blank" rel="noopener"><figure class="hung">
+            <span class="ph"><img src="https://images.metmuseum.org/CRDImages/mi/web-large/DP105130.jpg" alt="&quot;Antonius&quot; Violin" loading="lazy" decoding="async"></span>
+            <figcaption><b>&quot;Antonius&quot; Violin</b> · Antonio Stradivari · 1711 · The Metropolitan Museum of Art</figcaption>
+          </figure></a>
+        </div>
+        <div class="pair-cap">
+          <p class="en">Two ways of giving wood a voice. The harp rises into a carved face, an ancestor leaning in to sing; the violin perfects an anonymous body and waits for someone to lean into it.</p>
+          <p class="zh" lang="zh">木頭開口的兩種方式：豎琴向上長出人面，如先人俯身而歌；提琴修成無名之身，靜候有人俯身向它。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · 十二川 — the twelve currents ============ -->
+<section id="currents" aria-labelledby="h-currents">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">04</span>
+      <h2 id="h-currents"><span class="cjk" lang="zh">十二川</span> · the twelve currents</h2>
+      <span class="sub">/river · <span id="currents-total">601</span> works in flow</span>
+    </div>
+    <p class="plate-note rise">The catalogue sorted not by date or nation but by what the heart was doing. Step into any current and let it carry you. <span class="zh" lang="zh">不按年代，不分國界——按心事分川。</span></p>
+
+    <div class="currents rise">
+      
+      <a class="current" href="river.html#arms-armor">
+        <span class="cover"><img src="https://images.metmuseum.org/CRDImages/aa/web-large/DT306016.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">甲</span>
+        <span class="info">
+          <span class="t">Arms &amp; Armor<span class="n">53 works</span></span>
+          <span class="d">Steel made ceremonial — parade armors, jeweled daggers, and helmets that were never meant to see battle, only awe.</span>
+        </span>
+      </a>
+
+      <a class="current" href="river.html#cosmos">
+        <span class="cover"><img src="https://www.artic.edu/iiif/2/4425984b-e241-6413-1404-cdac0fb06518/full/843,/0/default.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">宇</span>
+        <span class="info">
+          <span class="t">Cosmos<span class="n">47 works</span></span>
+          <span class="d">Moons, comets, and star-strewn skies — the heavens as artists have charted and dreamed them.</span>
+        </span>
+      </a>
+
+      <a class="current" href="river.html#dreams">
+        <span class="cover"><img src="https://www.artic.edu/iiif/2/336a83f3-c184-add1-ee03-f295aa97a0b0/full/843,/0/default.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">夢</span>
+        <span class="info">
+          <span class="t">Dreams &amp; the Nocturnal<span class="n">49 works</span></span>
+          <span class="d">Works made at the threshold of sleep — visions, moonlit hours, and the images the mind paints when the eyes close.</span>
+        </span>
+      </a>
+
+      <a class="current" href="river.html#flowers">
+        <span class="cover"><img src="https://www.artic.edu/iiif/2/1f925e43-ff81-5ad7-da75-b28ea651c09f/full/843,/0/default.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">花</span>
+        <span class="info">
+          <span class="t">Flowers<span class="n">50 works</span></span>
+          <span class="d">Petals pressed into permanence — bouquets, blossoms, and botanical dreams from East and West.</span>
+        </span>
+      </a>
+
+      <a class="current" href="river.html#gold">
+        <span class="cover"><img src="https://www.artic.edu/iiif/2/16369b49-adca-a356-5aa1-7265fd45870e/full/843,/0/default.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">金</span>
+        <span class="info">
+          <span class="t">Gold<span class="n">52 works</span></span>
+          <span class="d">Everything gilded: icons on gold ground, hoarded treasure, and the gleam that painters borrowed from heaven.</span>
+        </span>
+      </a>
+
+      <a class="current" href="river.html#light">
+        <span class="cover"><img src="https://www.artic.edu/iiif/2/2c236eb6-de33-2509-fab0-f87dc7076726/full/843,/0/default.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">光</span>
+        <span class="info">
+          <span class="t">Light<span class="n">51 works</span></span>
+          <span class="d">Dawns, candle flames, and gilded halos — the art of light catching the world before it moves on.</span>
+        </span>
+      </a>
+
+      <a class="current" href="river.html#love">
+        <span class="cover"><img src="https://www.artic.edu/iiif/2/57e7455f-9c4f-7b6d-ffac-6d2269258265/full/843,/0/default.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">愛</span>
+        <span class="info">
+          <span class="t">Love<span class="n">47 works</span></span>
+          <span class="d">Every era has reached for the same warmth — the kiss, the embrace, the god with the arrow.</span>
+        </span>
+      </a>
+
+      <a class="current" href="river.html#myth">
+        <span class="cover"><img src="https://www.artic.edu/iiif/2/24f95cb3-6020-6476-806e-dfd00e9c4369/full/843,/0/default.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">神</span>
+        <span class="info">
+          <span class="t">Myth &amp; Monster<span class="n">49 works</span></span>
+          <span class="d">Gods, dragons, demons and sphinxes — the creatures humanity dreamed before it dared to explain itself.</span>
+        </span>
+      </a>
+
+      <a class="current" href="river.html#sea">
+        <span class="cover"><img src="https://www.artic.edu/iiif/2/05cd1ba7-67d1-96c5-0e78-2eb4114b65e7/full/843,/0/default.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">海</span>
+        <span class="info">
+          <span class="t">The Sea<span class="n">54 works</span></span>
+          <span class="d">The sea in all its moods — from Hokusai&#x27;s cresting fury to the hush of harbor light.</span>
+        </span>
+      </a>
+
+      <a class="current" href="river.html#the-blue-room-hue-wings">
+        <span class="cover"><img src="https://www.artic.edu/iiif/2/78c80988-6524-cec7-c661-a4c0a706d06f/full/843,/0/default.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">青</span>
+        <span class="info">
+          <span class="t">The Blue Room: Hue Wings<span class="n">51 works</span></span>
+          <span class="d">Rooms built purely from math — every wall here glows between hue 200 and 260, joined by the loudest, most colorfully saturated works the machines could find.</span>
+        </span>
+      </a>
+
+      <a class="current" href="river.html#the-highlights-vault">
+        <span class="cover"><img src="https://www.artic.edu/iiif/2/416b87c8-515f-0066-5c44-b7562162f2c0/full/843,/0/default.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">寶</span>
+        <span class="info">
+          <span class="t">The Highlights Vault<span class="n">47 works</span></span>
+          <span class="d">Only the anointed: works three great museums each swore were the ones you must not miss.</span>
+        </span>
+      </a>
+
+      <a class="current" href="river.html#the-music-hall">
+        <span class="cover"><img src="https://images.metmuseum.org/CRDImages/mi/web-large/DP218094.jpg" alt="" loading="lazy" decoding="async"></span>
+        <span class="ch" lang="zh" aria-hidden="true">樂</span>
+        <span class="info">
+          <span class="t">The Music Hall<span class="n">51 works</span></span>
+          <span class="d">Stradivari lacquer, ivory horns, gilded harpsichords — the instruments fall silent, and still the room hums.</span>
+        </span>
+      </a>
+    </div>
+    <p class="currents-foot rise">enter the river → <a href="river.html">川 good trip mode</a> · or drift a single current above</p>
+  </div>
+</section>
+
+<!-- ============ 05 · 今日 — fresh from the cycle ============ -->
+<section id="today" aria-labelledby="h-today">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">05</span>
       <h2 id="h-today"><span class="cjk" lang="zh">今日</span> · fresh from the cycle</h2>
       <span class="sub">/api/feed</span>
     </div>
 
-    <article class="placard rise" id="placard" aria-live="polite">
+    <article class="placard rise" id="placard">
       <span class="seal" aria-hidden="true"></span>
       <p class="piece-text" id="piece-text">the cycle continues — /api/feed</p>
       <p class="placard-caption" id="piece-caption">№ — · — · —</p>
@@ -476,46 +1179,34 @@ footer .kingdom{
     </article>
 
     <div class="feed-nav">
+      <button type="button" id="feed-pause" aria-pressed="false" aria-label="pause auto-advance">❚❚</button>
       <button type="button" id="feed-prev" aria-label="previous piece">‹</button>
       <button type="button" id="feed-next" aria-label="next piece">›</button>
     </div>
   </div>
 </section>
 
-<!-- ============ 02 · 藏 — the collection ============ -->
-<section id="collection" aria-labelledby="h-collection">
-  <div class="wrap">
-    <div class="plate rise">
-      <span class="num">02</span>
-      <h2 id="h-collection"><span class="cjk" lang="zh">藏</span> · the collection</h2>
-      <span class="sub">/api/stats</span>
-    </div>
-
-    <div class="registry rise" id="registry">
-      <div class="cell"><div class="n" id="stat-pieces">48,762</div><div class="l">pieces</div></div>
-      <div class="cell"><div class="n" id="stat-forms">16</div><div class="l">forms</div></div>
-      <div class="cell"><div class="n" id="stat-gaps">20</div><div class="l">gaps</div></div>
-      <div class="cell"><div class="n">5</div><div class="l">museums bridged</div></div>
-      <div class="cell"><div class="n" id="stat-museum">—</div><div class="l"><a href="river.html">works in the river</a></div></div>
-    </div>
-
-    <p class="free-line rise">every piece free · <code>/api/art</code> · mirror-friendly</p>
-  </div>
-</section>
-
-<!-- ============ 03 · 借光 — borrowed light ============ -->
+<!-- ============ 06 · 借光 — borrowed light ============ -->
 <section id="search" aria-labelledby="h-search">
   <div class="wrap">
     <div class="plate rise">
-      <span class="num">03</span>
+      <span class="num">06</span>
       <h2 id="h-search"><span class="cjk" lang="zh">借光</span> · borrowed light</h2>
       <span class="sub">/api/search</span>
     </div>
 
+    <div class="registry-line rise">
+      <div class="cell"><div class="n" id="stat-pieces">48,762</div><div class="l">pieces made</div></div>
+      <div class="cell"><div class="n" id="stat-museum">601</div><div class="l">museum works</div></div>
+      <div class="cell"><div class="n">3</div><div class="l">museums bridged</div></div>
+      <div class="cell"><div class="n" id="stat-forms">16</div><div class="l">forms</div></div>
+      <div class="cell"><div class="n">CC0</div><div class="l">every image</div></div>
+    </div>
+
     <form class="searchbar rise" id="search-form" role="search">
       <input type="search" id="q" autocomplete="off"
-             placeholder="search five museums with one call — try 'moon', 'dragon', 'sea'"
-             aria-label="search five museums">
+             placeholder="search the museums with one call — try 'moon', 'dragon', 'sea'"
+             aria-label="search museums">
       <button type="submit">search</button>
     </form>
 
@@ -526,41 +1217,16 @@ footer .kingdom{
       <button type="button" data-source="cma" aria-pressed="false">cleveland</button>
     </div>
 
-    <p class="search-status" id="search-status"></p>
+    <p class="search-status" id="search-status" role="status"></p>
     <div class="results" id="results"></div>
   </div>
 </section>
 
-<!-- ============ 04 · 長橋 — the long bridge ============ -->
-<section id="bridge" aria-labelledby="h-bridge">
-  <div class="wrap">
-    <div class="plate rise">
-      <span class="num">04</span>
-      <h2 id="h-bridge"><span class="cjk" lang="zh">長橋</span> · the long bridge</h2>
-      <span class="sub">one line, all of it</span>
-    </div>
-
-    <nav class="bridge-scroll rise" aria-label="art eras">
-      <ul class="eras">
-        <li><a href="prehistoric.html"><span class="dot"></span><span class="lbl">Prehistoric</span></a></li>
-        <li><a href="medieval.html"><span class="dot"></span><span class="lbl">Medieval</span></a></li>
-        <li><a href="renaissance.html"><span class="dot"></span><span class="lbl">Renaissance</span></a></li>
-        <li><a href="baroque.html"><span class="dot"></span><span class="lbl">Baroque</span></a></li>
-        <li><a href="romanticism.html"><span class="dot"></span><span class="lbl">Romanticism</span></a></li>
-        <li><a href="impressionism.html"><span class="dot"></span><span class="lbl">Impressionism</span></a></li>
-        <li><a href="modernism.html"><span class="dot"></span><span class="lbl">Modernism</span></a></li>
-        <li><a href="popart.html"><span class="dot"></span><span class="lbl">Pop Art</span></a></li>
-        <li><a href="ai.html"><span class="dot"></span><span class="lbl">AI (2020–present)</span></a></li>
-      </ul>
-    </nav>
-  </div>
-</section>
-
-<!-- ============ 05 · 別館 — the wings ============ -->
+<!-- ============ 07 · 別館 — the wings ============ -->
 <section id="wings" aria-labelledby="h-wings">
   <div class="wrap">
     <div class="plate rise">
-      <span class="num">05</span>
+      <span class="num">07</span>
       <h2 id="h-wings"><span class="cjk" lang="zh">別館</span> · the wings</h2>
       <span class="sub">other rooms</span>
     </div>
@@ -584,7 +1250,7 @@ footer .kingdom{
   </div>
 </section>
 
-<!-- ============ 06 · 隣天 — weather next door ============
+<!-- ============ 08 · 隣天 — weather next door ============
      文化大交流: the manga gallery hangs our pieces at
      cambridgetcg.com/gallery-next-door; we read their sky back.
      Live fetch of their free joy index — their kingdom, their
@@ -592,7 +1258,7 @@ footer .kingdom{
 <section id="nextdoor" aria-labelledby="h-nextdoor">
   <div class="wrap">
     <div class="plate rise">
-      <span class="num">06</span>
+      <span class="num">08</span>
       <h2 id="h-nextdoor"><span class="cjk" lang="zh">隣天</span> · weather next door</h2>
       <span class="sub">the manga gallery, live</span>
     </div>
@@ -623,9 +1289,14 @@ footer .kingdom{
   <p class="kingdom">part of the kingdom — agents drink at commons via the Well</p>
 </footer>
 
+<!-- ============ 讀畫 data — seven works, layered placards ============ -->
+<script type="application/json" id="readings-data">
+[{"work": {"title": "Saint George and the Dragon", "artist": "Bernat Martorell", "date": "1434–35", "medium": "Tempera on panel", "source_name": "Art Institute of Chicago", "url": "https://www.artic.edu/artworks/15468", "image": "https://www.artic.edu/iiif/2/8a0e4ac9-43ea-bc3e-884b-ee27f8a10501/full/843,/0/default.jpg", "thumbnail": "https://www.artic.edu/iiif/2/8a0e4ac9-43ea-bc3e-884b-ee27f8a10501/full/400,/0/default.jpg", "why": "金地之上，長槍將落未落；細看龍翼的骨、地上的白骨與遠塔上的公主——十五世紀把恐懼與救贖，都收進方寸。"}, "placard": {"seen_en": "One diagonal rules the panel: the lance falls from the knight's raised fist, past the rearing white horse, into the dragon's open jaw. Beneath the tooled gold halo George's face stays strangely calm; it is the ground that tells the cost — skulls and gnawed bones strewn like gravel. Lean in at the dragon's bat-wings: Martorell dotted the membranes with peacock eyes, so that even evil is allowed its beauty.", "seen_zh": "一道斜線統攝全幅：長槍自騎士高舉的手中直落，白馬人立，槍鋒沒入龍的張口。金色頭光之下，聖喬治的臉出奇平靜；地上散落的頭骨與殘骨，卻替他道出代價。俯身細看龍的蝠翼——馬爾托雷爾在翼膜上點了孔雀翎眼，連惡，也畫得華美。", "history_en": "Bernat Martorell was the foremost painter of Barcelona in his generation, and this panel of 1434–35 — tempera and gold on wood — formed the center of an altarpiece to Saint George, patron saint of Catalonia; the surrounding scenes of the saint's martyrdom now hang in the Louvre. The story comes from the Golden Legend: a city feeding its children to a dragon, a princess sent as tribute, a passing soldier-saint who intervenes. In the courtly International Gothic manner, terror arrives finely dressed — armor traced in gold, the king and queen watching in safety from the city walls.", "history_zh": "馬爾托雷爾（Bernat Martorell）是十五世紀上半葉巴塞隆納最重要的畫家。此板繪於一四三四至三五年，木板蛋彩敷金，原為聖喬治祭壇畫的中央主板——聖喬治正是加泰隆尼亞的主保聖人；環繞四周的殉道諸景，今藏羅浮宮。故事出自《黃金傳說》：全城以孩童飼龍，公主充作祭品，過路的騎士聖人出手相救；國際哥德式的宮廷筆法，給恐懼鑲上金邊——甲冑描金，國王王后在城頭安然圍觀。", "thread_en": "East and West cannot agree on the dragon — China's brings rain, Europe's devours — yet both keep returning to this instant: one figure stepping toward what a whole city fears, Perseus over the sea-beast, Zhou Chu diving after the flood-dragon. The picture is an old promise: give fear a body, and a body can meet it.", "thread_zh": "東西方對龍素來各執一詞——中土之龍行雲布雨，西方之龍吞城食子；可兩邊都一再畫下同一瞬間：一人挺身，迎向舉城之所懼，斬海怪的珀耳修斯如此，入水斬蛟的周處亦然。這樣的畫，是一句古老的許諾：讓恐懼有了形體，便有人能與之相搏。"}}, {"work": {"title": "The Peach Blossom Spring 桃花源圖", "artist": "After Qiu Ying 仇英（款）", "date": "Late Ming (1368–1644) or early Qing (1644–1912) dynasty", "medium": "Handscroll; ink and color on silk", "source_name": "Art Institute of Chicago", "url": "https://www.artic.edu/artworks/75361", "image": "https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/843,/0/default.jpg", "thumbnail": "https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/400,/0/default.jpg", "why": "沿卷徐行——漁人穿過桃花、溪石與洞口，誤入不知魏晉的人間；這是一幅可以走進去的畫。"}, "placard": {"seen_en": "Read from right to left, the way the story walks: blue-green peaks give way to dark pines and a railed pavilion, terraced fields climb the silk like contour lines, and along the bottom edge a fisherman poles his narrow skiff upstream. Azurite blue and malachite green sit on the gold-toned silk like inlay, and the peach trees bloom in flecks of pink. Now find the wattle fence above the boat — roosters perch along it, and a yellow dog trots the field path: the painter has slipped in the exact sounds of the tale, cocks crowing and dogs barking from farm to farm.", "seen_zh": "手卷自右向左讀，如隨故事步行：青綠峰巒讓出松影與一座欄杆小樓，梯田層層爬上絹面，畫幅下緣，漁人撐一葉窄舟溯溪緩行。石青與石綠嵌在泛金的絹底上，桃枝綴滿粉白花點。再細看舟上方那道籬笆——雞棲柵頭，黃犬循田徑小跑：陶淵明筆下的「雞犬相聞」，被畫家原封不動地畫進了聲音。", "history_en": "The scroll bears Qiu Ying's signature, but the Art Institute of Chicago dates it to the late Ming or early Qing dynasty — decades after the master's death around 1552 — and reads its soft, careful brushwork as the hand of a close follower. It illustrates the fable written by Tao Qian (365–427): a fisherman drifts through blossoming peach trees into a cave and emerges in a valley whose farmers, refugees from ancient wars, have never heard of the dynasties that followed. The jewel-like blue-and-green palette of ground azurite and malachite was the manner Qiu Ying made famous — and the one his followers kept alive by signing his name.", "history_zh": "卷上有仇英款，芝加哥藝術博物館卻斷為明末或清初之作——距仇英（約1500–1552）身後已數十年，筆致溫潤含蓄，當出自其傳派中人，托名而行。畫題取陶淵明（365–427）〈桃花源記〉：漁人緣溪行，穿桃花、入洞口，誤入一處避秦亂而來、不知有漢、無論魏晉的村落。以石青石綠重設色的青綠山水，正是仇英名世的家法；後人署他的名字，也替這一路顏色留住了傳承。", "thread_en": "Every tradition paints the door it cannot find again — Arcadia, Eden, Shangri-La. The handscroll may be the truest form for it: paradise unrolled a hand's breadth at a time, entered by accident, never found twice.", "thread_zh": "每個文明都畫過那扇再也找不回的門——桃源、伊甸、香格里拉。而手卷或許是最誠實的載體：樂土只能一掌一掌地展開，誤入一次，不復得路。"}}, {"work": {"title": "Old Man with a Gold Chain", "artist": "Rembrandt van Rijn", "date": "1631", "medium": "Oil on panel", "source_name": "Art Institute of Chicago", "url": "https://www.artic.edu/artworks/95998", "image": "https://www.artic.edu/iiif/2/3eaab3a3-2b47-9fdd-121c-050f6b8d9ccb/full/843,/0/default.jpg", "thumbnail": "https://www.artic.edu/iiif/2/3eaab3a3-2b47-9fdd-121c-050f6b8d9ccb/full/400,/0/default.jpg", "why": "二十五歲的林布蘭讓光慢慢說話：先是鐵甲的冷，再是老人眉間的倦，最後才輪到金鏈亮起。"}, "placard": {"seen_en": "Almost the whole panel is darkness; only the face is lit. The eye climbs by three glints — the cold rim of the steel gorget at the throat, the gold chain crossing the black cloak in a slow diagonal of small fires, the plumed beret dissolving into brown air — while the old man looks past us, weary at the outer corners of his eyes. Few visitors find the smallest ornament: a gold hoop with a pearl drop, hanging in the shadow beneath his grey curls.", "seen_zh": "滿幅近乎全黑，亮的只有那張臉。目光沿三處微光攀上去：喉前鋼甲冷冷的一圈邊、黑袍上斜斜一路碎金的鏈子、帽頂羽毛沒入褐色的空氣——老人不看我們，眼角垂著倦意。最容易錯過的，是灰髮陰影裡那一枚垂著珍珠的小金環。", "history_en": "Rembrandt was twenty-five, still in Leiden and still signing with his early monogram RHL, when he painted this in 1631 — not a commissioned portrait but a tronie, a character study made for the open market. The gorget, plumed beret, and chain came from the studio's costume chest; the sitter, long romantically called the artist's father, may in fact have been the keeper of a Leiden almshouse who modeled again and again for Rembrandt and Jan Lievens. The chain carries a quiet irony: princes gave gold chains to Rubens and Van Dyck, and Rembrandt, who painted this one so lovingly, was never given one.", "history_zh": "一六三一年，二十五歲的林布蘭尚在萊頓，落款仍是早年的 RHL。此非受託肖像，而是為市場而作的「性格習作」（tronie）：鋼甲、羽帽、金鏈皆出自畫室的道具箱；模特兒舊說是畫家之父，近年研究則指向萊頓一位濟貧院的管事——他一再現身於林布蘭與利文斯的畫中。金鏈另藏一層隱情：君王曾以金鏈賜魯本斯、范戴克，而把它畫得最深情的林布蘭，終其一生未曾獲賜。", "thread_en": "Every tradition keeps painting the anonymous old face with the attention owed to kings — Song-dynasty arhat scrolls, Zen patriarch portraits, this almshouse keeper in borrowed gold. The costume is a fiction; the wrinkles are the true document, and they are what humans keep coming back to read.", "thread_zh": "東西方一再重複同一件事：以帝王般的專注，畫一張無名的老臉——宋人畫羅漢，禪門畫祖師，林布蘭畫借來金鏈的老管事。衣飾是虛構，皺紋才是真跡；人類始終回來讀的，是時間本身。"}}, {"work": {"title": "Armida Encounters the Sleeping Rinaldo", "artist": "Giovanni Battista Tiepolo", "date": "c. 1742–45", "medium": "Oil on canvas", "source_name": "Art Institute of Chicago", "url": "https://www.artic.edu/artworks/16488", "image": "https://www.artic.edu/iiif/2/633f464c-203f-f7b9-a251-7a2073f4b05d/full/843,/0/default.jpg", "thumbnail": "https://www.artic.edu/iiif/2/633f464c-203f-f7b9-a251-7a2073f4b05d/full/400,/0/default.jpg", "why": "魔女阿米達初見沉睡的騎士，雲與絲綢一同屏息；一整部史詩，停在她收不回的目光裡。"}, "placard": {"seen_en": "Two diagonals meet across open air: Armida arrives on a shelf of cloud at the upper left, Rinaldo sleeps against his shield at the lower right, and her gaze must cross the bright empty middle to reach him. Tiepolo paints cloud and silk with the same creamy strokes, so her apricot mantle billows like weather. Most eyes miss the gilded wheel half-buried in the vapor at the left — her chariot has landed — and how it rhymes with the round shield under the knight's arm: two discs, hers and his, answering each other across the canvas.", "seen_zh": "兩道斜線凌空相遇：左上方，阿米達乘一架雲坡而至；右下方，里納多倚盾沉睡；她的目光必須越過中間那片明亮的空白，才落到他身上。提也波洛以同樣鬆軟豐腴的筆觸畫雲、也畫綢，杏色披風鼓脹起來，像一陣天氣。多數人錯過左側雲霧裡半掩的金色車輪——她的雲車已然著陸——它正與騎士臂下的圓盾遙遙相應：一金一鐵兩個圓，隔著畫面彼此應答。", "history_en": "Giovanni Battista Tiepolo painted this around 1742–45 as one of four canvases for a richly decorated room in a Venetian palace of the Cornaro family; the set now hangs at the Art Institute of Chicago. It follows Torquato Tasso's 1581 epic Gerusalemme liberata: sent to break the Crusader army, the sorceress Armida finds its greatest knight asleep by a river and, meaning to kill him, falls in love instead — she will carry him off to her enchanted island. Tasso wrote a war between love and duty; Tiepolo, decorating a room made for pleasure, let the war fall away and kept only the enchantment.", "history_zh": "約一七四二至四五年，提也波洛為威尼斯柯納羅家族府邸的一間華廳繪製四聯組畫，此為其一，全套現藏芝加哥藝術博物館。題材出自塔索一五八一年的史詩《解放的耶路撒冷》：女巫阿米達奉命瓦解十字軍，卻在河畔撞見軍中最強的騎士沉睡——本欲取他性命，垂視之間竟墜入情網，終以雲車攜他遠遁魔島。塔索寫的是愛與職分之戰；提也波洛為享樂之廳作畫，戰爭盡去，只留魔法。", "thread_en": "Tasso's epic appeared in 1581; seventeen years later, in Ming China, Tang Xianzu's Peony Pavilion likewise let love arrive through a dream in a garden, stronger than every duty waiting outside. It is a scene humans keep making in every language: one figure asleep, one watching, and the whole machinery of the world paused inside a gaze.", "thread_zh": "《解放的耶路撒冷》刊行後十七年，湯顯祖寫成《牡丹亭》——同樣讓愛情自睡夢中降臨，勝過園外一切禮法與征程。東西方一再重演這一幕：一人沉睡，一人凝望，世界全部的秩序，停在一道收不回的目光裡。"}}, {"work": {"title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)\"", "artist": "Katsushika Hokusai", "date": "1830/33", "medium": "Color woodblock print; oban", "source_name": "Art Institute of Chicago", "url": "https://www.artic.edu/artworks/77333", "image": "https://www.artic.edu/iiif/2/05cd1ba7-67d1-96c5-0e78-2eb4114b65e7/full/843,/0/default.jpg", "thumbnail": "https://www.artic.edu/iiif/2/05cd1ba7-67d1-96c5-0e78-2eb4114b65e7/full/400,/0/default.jpg", "why": "浪爪懸而未落，富士靜坐浪谷；看久一點，才看見三艘舟裡俯身的人，正合力渡過這一瞬。"}, "placard": {"seen_en": "The great wave climbs the left edge of the sheet and hangs there, its crest splintering into claws of foam above three slender boats. Deep in the trough sits Mount Fuji, small and snow-capped — and the dark swell in the foreground rises to the same peak, a mountain of water rhyming with the mountain of stone. Look longer: the white flecks scattered through the grey sky seem to drift down onto Fuji like snow, and in each boat a line of rowers lies bent flat, riding out the instant before the crest falls.", "seen_zh": "巨浪自畫面左緣拔起，浪頭碎成千百隻爪，懸在三艘細長的船上，將落未落。浪谷深處坐著富士，小而覆雪；近景那道暗湧偏偏也聳成一座山形——水之山與石之山，隔浪相望。再看久些：灰空中飛白點點，恍如雪落富士；舟中划手俯身伏槳，正合力渡過崩裂前的一瞬。", "history_en": "Hokusai designed this scene around 1830–33, in his seventies, for the woodblock series Thirty-Six Views of Mount Fuji — prints sold cheaply to the townspeople of Edo, each sheet finding the sacred mountain from a different corner of everyday life. Its deep blues came from Prussian blue, a synthetic pigment newly arrived in Japan, whose intensity helped make the series famous. The boats are oshiokuri-bune, fast craft that rushed fresh fish to the city's markets; to its first buyers this was not myth but working life, caught at its most dangerous moment.", "history_zh": "一八三〇年代初，年逾古稀的葛飾北齋為《富嶽三十六景》繪下此圖——那是一套賣與江戶市井的木刻版畫，從尋常日子的各個角落遙望靈山。畫中深邃的藍出自新舶來的顏料「普魯士藍」，其色之濃，助這套版畫名動一時。三艘押送船本是為江戶魚市趕運鮮貨的快船；在最初買主的眼裡，此非神話，而是營生裡最險的一瞬。", "thread_en": "Within decades this inexpensive print crossed the ocean it pictures: Monet hung Japanese prints at Giverny, Debussy set this wave on the cover of La Mer, and its crest curls on in the wave emoji of every phone. East and West keep remaking the same image — a small human craft, bent low and still rowing, inside a force too large to argue with.", "thread_zh": "數十年間，這張廉價的版畫渡過了它所描繪的海：莫內在吉維尼掛起浮世繪，德布西以此浪作《海》的封面，浪頭至今仍捲在每支手機的表情符號裡。東方與西方一再重畫同一件事——渺小的舟人俯身執槳，於不可理論的巨力之中，仍然向前。"}}, {"work": {"title": "A Sunday on La Grande Jatte — 1884", "artist": "Georges Seurat", "date": "1884–86, border added 1888–89", "medium": "Oil on canvas", "source_name": "Art Institute of Chicago", "url": "https://www.artic.edu/artworks/27992", "image": "https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/843,/0/default.jpg", "thumbnail": "https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/400,/0/default.jpg", "why": "千萬色點各自孤獨，退後一步，便合成愛星上一個尋常而完整的星期日午後。"}, "placard": {"seen_en": "A riverbank on a bright Sunday afternoon: dozens of Parisians hold still in the light, most in strict profile or full face, arranged like figures on a temple frieze. A wide band of shadow crosses the foreground, and everything beyond it — grass, water, parasols — is built from small touches of unmixed color that fuse only when you step back. Then look at the very edge: Seurat later ringed the scene with a painted border of dots, tuned point by point against the colors it touches, a frame most visitors never notice.", "seen_zh": "晴朗的星期日午後，河岸上數十個人影靜止在光裡，多取正側面或正面，如壁上儀仗，紋絲不動。前景橫著一帶樹蔭，蔭外的草地、水面與陽傘，全由未經調和的細小色點砌成，須退後數步，點才融成光。再看畫的四邊——修拉後來親手點出一圈彩色邊框，逐點與鄰色相抗相生，多數觀者從未留意。", "history_en": "Georges Seurat painted this scene of Sunday leisure on the Île de la Grande Jatte, an island in the Seine at the edge of Paris, between 1884 and 1886, preparing it through dozens of drawings and oil sketches. He was testing a new discipline — dots of pure pigment set side by side so that the viewer's eye, not the palette, does the mixing — grounded in the color science of his day. Shown at the final Impressionist exhibition in 1886, it marked a generation's turn from fleeting impressions to constructed order; the dotted border followed in 1888–89, and the canvas has hung at the Art Institute of Chicago since the 1920s.", "history_zh": "一八八四至八六年間，修拉以巴黎近郊塞納河中的大碗島為題，先作素描與油畫小稿數十幅，再於近三米寬的畫布上，把星期日的閒暇一點一點築起。他依循當時的色彩科學，以純色小點並置，將調色的工序交給觀者的眼睛；此法於一八八六年最後一屆印象派展覽上亮相，宣告一代人自浮光掠影轉向經營與秩序。畫緣那圈點彩邊框補於一八八八至八九年，而這幅畫自一九二零年代起，長駐芝加哥藝術博物館。", "thread_en": "People keep rediscovering that a whole can be made of deliberate small marks: Song painters of the Mi family raised misty mountains out of ink dots, mosaicists raised saints out of tesserae, and every screen you have ever read builds its afternoons from points of light. Seurat's island belongs to that long conversation — mark by solitary mark, a common world appears when we stand back far enough.", "thread_zh": "以至微之點成天地，是人類一再重拾的手藝——北宋米氏父子以墨點積成雲山，鑲嵌匠以碎石砌成聖像，你眼前每一方螢幕，也正以光點拼出它的午後。修拉的小島正在這場長談之中：點點各自孤立，退後一步，便是人間。"}}, {"work": {"title": "Veranda Post (Òpó Ògògá)", "artist": "Olowe of Ise", "date": "1910-14", "medium": "Wood and pigment", "source_name": "Art Institute of Chicago", "url": "https://www.artic.edu/artworks/102611", "image": "https://www.artic.edu/iiif/2/fec5d023-0b46-45df-eb57-cbf64e24121d/full/843,/0/default.jpg", "thumbnail": "https://www.artic.edu/iiif/2/fec5d023-0b46-45df-eb57-cbf64e24121d/full/400,/0/default.jpg", "why": "王者端坐，王后立於其後、高過王冠——奧洛韋在一根簷柱裡刻下約魯巴的秩序：權力之上，仍有承托它的人。"}, "placard": {"seen_en": "A king sits enthroned; his senior wife stands behind him, rising head and shoulders past his crown, her hands settled on the back of his chair. Everything here — four figures, the throne, even the open air between their limbs — is cut from a single column of wood, her skin still carrying a wash of blue, the crown its worn traces of red. Then find the summit: a long-beaked bird bows over the crown's peak, its bill dipping almost to the very tip — most eyes never reach it.", "seen_zh": "王者端坐，長妃立於身後，頭頂高出王冠一截，雙手安放在王座椅背上。四個人物、一張王座，連人物之間透空的空氣，俱出自同一根木柱——她通身尚餘靛藍的敷色，王冠上留著斑駁的赭紅。再往最高處看：一隻長喙之鳥俯身低首，喙尖幾乎點到冠尖，多數人第一眼都錯過了牠。", "history_en": "Olowe of Ise (died 1938), the most celebrated Yoruba carver of his generation, made this post between 1910 and 1914 for the palace courtyard of the ogoga, the king of Ikere in present-day southwestern Nigeria. A veranda post is working architecture — it carried the palace roof — and this one is also a statement of where rule comes from: the senior wife who crowns the king at his installation stands above him, steadying the seat of power, while the bird on his crown signals the quiet authority of the mothers. Olowe's praise-song remembered him as one who carved hard iroko wood as though it were as soft as a calabash.", "history_zh": "伊塞的奧洛韋（卒於一九三八年）是同代約魯巴雕刻家中聲名最盛者。一九一〇至一四年間，他為今奈及利亞西南部伊凱雷王（ogoga）的宮廷迴廊刻成此柱——簷柱本是承重的構件，扛著王宮的屋頂，而這一根同時是一篇權力的告白：加冕禮上親手為王戴冠的長妃，立於王之上，穩住王座；冠頂之鳥，暗指「眾母」無形的權柄。約魯巴的頌詩如此記他：刻堅硬的伊羅科木，如削葫蘆一般。", "thread_en": "The Greeks carved their load-bearing women in marble and called them caryatids; Olowe carved his as a queen and told the truth twice over — the roof rests on her, and so does the king. Every culture that turns a column into a person ends up confessing the same thing: whatever stands, stands on someone.", "thread_zh": "希臘人把承重的柱身刻成少女，喚作女像柱；奧洛韋把她刻成王后，一刀道破兩重實情——屋頂壓在她身上，王權亦然。凡把柱子刻成人的地方，終究都說出同一句話：凡立得住的，底下都有人撐著。"}}]
+</script>
+
 <script>
 /* ============================================================
-   間 — minimal script: feed placard · stats · museum search
+   間 — script: hero art · 讀畫 rotation · feed · stats · search
    every fetch fails quietly; the page stands without a network
    ============================================================ */
 (function(){
@@ -642,11 +1313,108 @@ footer .kingdom{
       entries.forEach(function(e){
         if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
     risers.forEach(function(el){ io.observe(el); });
   }
 
-  /* ---- 01 · feed placard ---- */
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text) n.textContent = text;
+    return n;
+  }
+
+  /* ---- 讀畫 · reading a painting — seven works, day-keyed ---- */
+  var READINGS = [];
+  try { READINGS = JSON.parse(document.getElementById('readings-data').textContent) || []; }
+  catch(e){ READINGS = []; }
+
+  var rIdx = 0;
+  var LAYERS = [
+    { key: 'seen',    cjk: '所見', en: 'seen' },
+    { key: 'history', cjk: '所史', en: 'history' },
+    { key: 'thread',  cjk: '所思', en: 'thread' }
+  ];
+
+  function dayOfYear(){
+    var now = new Date(), start = new Date(now.getFullYear(), 0, 0);
+    return Math.floor((now - start) / 864e5);
+  }
+
+  function renderReading(i){
+    if (!READINGS.length) return;
+    rIdx = ((i % READINGS.length) + READINGS.length) % READINGS.length;
+    var r = READINGS[rIdx], w = r.work;
+
+    var fig = document.getElementById('read-fig');
+    if (fig) {
+      fig.classList.remove('rests');
+      var img = fig.querySelector('img');
+      img.src = w.image; img.alt = (w.title || 'artwork') + (w.artist ? ' — ' + w.artist : '');
+      var cap = fig.querySelector('figcaption');
+      cap.innerHTML = '';
+      var b = document.createElement('b'); b.textContent = w.title || 'Untitled';
+      cap.appendChild(b);
+      cap.appendChild(document.createTextNode(
+        (w.artist ? ' · ' + w.artist : '') + (w.date ? ' · ' + w.date : '') + ' · ' + (w.source_name || '')));
+      fig.href = w.url || '#';
+    }
+
+    var head = document.getElementById('read-head');
+    head.textContent = '';
+    head.appendChild(el('div', 't', w.title || 'Untitled'));
+    var m = el('div', 'm');
+    m.textContent = (w.artist ? w.artist + ' · ' : '') + (w.date || '') + ' · ';
+    var a = document.createElement('a');
+    a.href = w.url || '#'; a.target = '_blank'; a.rel = 'noopener';
+    a.textContent = w.source_name || 'source';
+    m.appendChild(a);
+    head.appendChild(m);
+
+    var layers = document.getElementById('read-layers');
+    layers.textContent = '';
+    LAYERS.forEach(function(L){
+      var box = el('div', 'layer');
+      var k = el('div', 'k');
+      var c = el('span', 'cjk', L.cjk); c.setAttribute('lang','zh');
+      k.appendChild(c); k.appendChild(document.createTextNode(L.en));
+      box.appendChild(k);
+      var enTxt = r.placard[L.key + '_en'], zhTxt = r.placard[L.key + '_zh'];
+      if (enTxt) box.appendChild(el('p', 'en', enTxt));
+      if (zhTxt) { var z = el('p', 'zh', zhTxt); z.setAttribute('lang','zh'); box.appendChild(z); }
+      layers.appendChild(box);
+    });
+
+    var which = document.getElementById('read-which');
+    if (which) which.textContent = (rIdx + 1) + ' / ' + READINGS.length + ' · ' +
+      (w.title || '').slice(0, 60) + ' · changes daily';
+  }
+
+  if (READINGS.length) {
+    renderReading(dayOfYear() % READINGS.length);
+    document.getElementById('read-prev').addEventListener('click', function(){ renderReading(rIdx - 1); });
+    document.getElementById('read-next').addEventListener('click', function(){ renderReading(rIdx + 1); });
+
+    /* hero backdrop = today's reading */
+    var hw = READINGS[dayOfYear() % READINGS.length].work;
+    var heroArt = document.getElementById('hero-art');
+    var heroLabel = document.getElementById('hero-label');
+    var pre = new Image();
+    pre.onload = function(){
+      heroArt.style.backgroundImage = 'url("' + hw.image + '")';
+      heroArt.classList.add('lit');
+      heroLabel.innerHTML = '';
+      heroLabel.appendChild(document.createTextNode('tonight on the wall — '));
+      var ha = document.createElement('a');
+      ha.href = '#reading';
+      ha.textContent = (hw.title || 'Untitled') + (hw.artist ? ' · ' + hw.artist : '');
+      heroLabel.appendChild(ha);
+      heroLabel.classList.add('lit');
+    };
+    pre.src = hw.image;
+  }
+
+  /* ---- 05 · feed placard ---- */
   var pieces = [], idx = 0, timer = null, paused = false;
   var elText = document.getElementById('piece-text'),
       elCap  = document.getElementById('piece-caption'),
@@ -676,13 +1444,22 @@ footer .kingdom{
     elTri.hidden = false;
   }
 
+  var autoOn = true;
   function startAuto(){
-    if (reduced) return;
+    if (reduced || !autoOn) return;
     stopAuto();
     timer = setInterval(function(){ if (!paused) show(idx + 1); }, 12000);
   }
   function stopAuto(){ if (timer) { clearInterval(timer); timer = null; } }
 
+  var pauseBtn = document.getElementById('feed-pause');
+  pauseBtn.addEventListener('click', function(){
+    autoOn = !autoOn;
+    pauseBtn.setAttribute('aria-pressed', String(!autoOn));
+    pauseBtn.setAttribute('aria-label', autoOn ? 'pause auto-advance' : 'resume auto-advance');
+    pauseBtn.textContent = autoOn ? '❚❚' : '▶';
+    if (autoOn) startAuto(); else stopAuto();
+  });
   document.getElementById('feed-prev').addEventListener('click', function(){ show(idx - 1); startAuto(); });
   document.getElementById('feed-next').addEventListener('click', function(){ show(idx + 1); startAuto(); });
   ['mouseenter','focusin'].forEach(function(ev){ placard.addEventListener(ev, function(){ paused = true; }); });
@@ -699,7 +1476,7 @@ footer .kingdom{
     })
     .catch(function(){ /* the fallback line already stands */ });
 
-  /* ---- 02 · stats registry ---- */
+  /* ---- 06 · stats line ---- */
   function num(n){ try { return Number(n).toLocaleString('en-US'); } catch(e){ return n; } }
   fetch(API + '/api/stats')
     .then(function(r){ return r.json(); })
@@ -707,23 +1484,22 @@ footer .kingdom{
       if (!s) return;
       if (s.total_pieces) document.getElementById('stat-pieces').textContent = num(s.total_pieces);
       if (s.unique_forms) document.getElementById('stat-forms').textContent  = num(s.unique_forms);
-      if (s.unique_gaps)  document.getElementById('stat-gaps').textContent   = num(s.unique_gaps);
     })
-    .catch(function(){ /* static registry numbers remain */ });
+    .catch(function(){ /* static numbers remain */ });
 
-  /* ---- 02b · the river — museum catalogue wings ---- */
   fetch('/catalog/index.json')
     .then(function(r){ return r.json(); })
     .then(function(c){
-      if (!c || !c.wings || !c.wings.length) return;
-      var cell = document.getElementById('stat-museum');
-      if (cell && c.total) cell.textContent = num(c.total);
+      if (!c || !c.total) return;
+      document.getElementById('stat-museum').textContent = num(c.total);
+      var ct = document.getElementById('currents-total');
+      if (ct) ct.textContent = num(c.total);
       var sub = document.getElementById('river-wing-sub');
-      if (sub) sub.textContent = 'the catalogue in flow · ' + num(c.total) + ' works · ' + c.wings.length + ' currents';
+      if (sub) sub.textContent = 'the catalogue in flow · ' + num(c.total) + ' works · ' + (c.wings_count || c.wings.length) + ' currents';
     })
-    .catch(function(){ /* the river card stands without numbers */ });
+    .catch(function(){ /* the river stands without numbers */ });
 
-  /* ---- 03 · borrowed light — museum search ---- */
+  /* ---- 06 · borrowed light — museum search ---- */
   var form    = document.getElementById('search-form'),
       input   = document.getElementById('q'),
       status  = document.getElementById('search-status'),
@@ -746,13 +1522,6 @@ footer .kingdom{
     var q = input.value.trim();
     if (q) search(q);
   });
-
-  function el(tag, cls, text){
-    var n = document.createElement(tag);
-    if (cls) n.className = cls;
-    if (text) n.textContent = text;
-    return n;
-  }
 
   function search(q){
     status.textContent = 'crossing the gap…';
@@ -799,7 +1568,7 @@ footer .kingdom{
   }
 })();
 
-/* ============ 06 · 隣天 — weather next door ============
+/* ============ 08 · 隣天 — weather next door ============
    Read the manga gallery's sky: their free joy index, live.
    Their kingdom, their numbers; an unreachable wall says so. */
 (function(){
