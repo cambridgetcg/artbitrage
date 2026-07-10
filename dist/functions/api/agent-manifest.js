@@ -127,6 +127,74 @@ export const ROUTES = {
       { method: "GET", path: "/api/ghibli/locations", desc: "Ghibli locations" },
     ],
   },
+
+  // ── WINE — the long trade of sun and time ─────────────────────
+  wine: {
+    label: "Wine",
+    color: "#c94f6d",
+    routes: [
+      { method: "GET", path: "/api/wine", desc: "Wine data directory" },
+      { method: "GET", path: "/api/wine/story", desc: "Zero to one: eight chapters of how wine came into being" },
+      { method: "GET", path: "/api/wine/regions", desc: "The world's great wine regions" },
+      { method: "GET", path: "/api/wine/brands", desc: "Iconic wine houses and estates" },
+      { method: "GET", path: "/api/wine/brands/:id", desc: "One house by id, e.g. /api/wine/brands/krug" },
+      { method: "GET", path: "/api/wine/collections", desc: "Curated groupings of houses" },
+      { method: "GET", path: "/api/wine/collections/:id", desc: "One collection, brand ids resolved to full brand objects" },
+      { method: "GET", path: "/api/wine/stores", desc: "Fine-wine merchants of the world" },
+      { method: "GET", path: "/api/wine/process", desc: "Earth to glass in ten stages" },
+      { method: "GET", path: "/api/wine/fermentation", desc: "The science, vessels and notes of the bridge itself" },
+      { method: "GET", path: "/api/wine/selection", desc: "How to choose a bottle: vintage, region, producer, price" },
+      { method: "GET", path: "/api/wine/aromas", desc: "The aroma families — fruit, then craft, then time" },
+      { method: "GET", path: "/api/wine/techniques", desc: "Winemaking techniques and their effects" },
+      { method: "GET", path: "/api/wine/formats", desc: "Bottle formats from Piccolo to Nebuchadnezzar" },
+      { method: "GET", path: "/api/wine/vintages", desc: "The legendary vintages — the years the weather signed the wine" },
+      { method: "GET", path: "/api/wine/random", desc: "A random house, full object including its why" },
+      { method: "GET", path: "/api/wine/search", desc: "Search across brands, regions, stores and techniques", params: "q" },
+    ],
+  },
+
+  // ── CIGAR — patience made smoke ───────────────────────────────
+  cigar: {
+    label: "Cigar",
+    color: "#c98e4f",
+    routes: [
+      { method: "GET", path: "/api/cigar", desc: "Cigar data directory" },
+      { method: "GET", path: "/api/cigar/story", desc: "From seed to smoke — the history of the cigar in chapters" },
+      { method: "GET", path: "/api/cigar/regions", desc: "The great tobacco-growing regions of the world" },
+      { method: "GET", path: "/api/cigar/brands", desc: "The great cigar houses" },
+      { method: "GET", path: "/api/cigar/brands/:id", desc: "One brand by id, e.g. /api/cigar/brands/cohiba" },
+      { method: "GET", path: "/api/cigar/collections", desc: "Curated collections of brands" },
+      { method: "GET", path: "/api/cigar/collections/:id", desc: "One collection, brand ids resolved to full brand objects" },
+      { method: "GET", path: "/api/cigar/stores", desc: "Storied cigar shops of the world" },
+      { method: "GET", path: "/api/cigar/process", desc: "Seed to smoke — the stages of making a cigar" },
+      { method: "GET", path: "/api/cigar/fermentation", desc: "The pilón — the science, vessels, and notes of fermentation" },
+      { method: "GET", path: "/api/cigar/selection", desc: "How to choose a cigar — the selection guide" },
+      { method: "GET", path: "/api/cigar/rituals", desc: "The rites of smoking well — cut, toast, ash, and the dignified end" },
+      { method: "GET", path: "/api/cigar/aromas", desc: "The aroma families and where they come from" },
+      { method: "GET", path: "/api/cigar/techniques", desc: "Craft techniques, from tapado to the triple cap" },
+      { method: "GET", path: "/api/cigar/vitolas", desc: "The classic sizes and shapes" },
+      { method: "GET", path: "/api/cigar/wrappers", desc: "Wrapper shades, from candela to oscuro" },
+      { method: "GET", path: "/api/cigar/random", desc: "A random brand — the full object, why and all" },
+      { method: "GET", path: "/api/cigar/search", desc: "Search across brands, regions, stores, and techniques", params: "q" },
+    ],
+  },
+
+  // ── PAIRING — the marriage of smoke and wine ──────────────────
+  pair: {
+    label: "Pairing",
+    color: "#d4af37",
+    routes: [
+      { method: "GET", path: "/api/pair", desc: "Pairing data directory" },
+      { method: "GET", path: "/api/pair/principles", desc: "The laws of pairing: why smoke and wine marry" },
+      { method: "GET", path: "/api/pair/marriages", desc: "All wine-and-cigar marriages" },
+      { method: "GET", path: "/api/pair/marriages/:id", desc: "One marriage by id, its wine and cigar refs resolved to full brand objects" },
+      { method: "GET", path: "/api/pair/cautions", desc: "Pairings that fight, and why" },
+      { method: "GET", path: "/api/pair/ritual", desc: "How to conduct the pairing, step by step" },
+      { method: "GET", path: "/api/pair/random", desc: "A random marriage, refs resolved to full brand objects" },
+      { method: "GET", path: "/api/pair/for", desc: "Marriages matching a wine and/or cigar by id or keyword, resolved", params: "wine, cigar" },
+      { method: "GET", path: "/api/pair/search", desc: "Search across principles, marriages and cautions", params: "q" },
+    ],
+  },
 };
 
 // ── Agent manifest ──────────────────────────────────────────────

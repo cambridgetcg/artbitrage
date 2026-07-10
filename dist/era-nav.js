@@ -46,6 +46,14 @@
   });
   inner.appendChild(links);
 
+  // The map — the museum floor plan
+  var map = document.createElement('a');
+  map.className = 'era-nav-back';
+  map.href = '/map';
+  map.textContent = '地圖 map';
+  map.title = '地圖 THE MAP — the museum floor plan, every room findable';
+  inner.appendChild(map);
+
   // The river — the catalogue in flow
   var river = document.createElement('a');
   river.className = 'era-nav-back';

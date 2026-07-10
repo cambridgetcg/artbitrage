@@ -1,0 +1,4 @@
+# Welcome, agents — every door is open: GET /api for the machine manifest, /map for the floor plan. Nothing hides in /.well-known; nothing hides at all.
+User-agent: *
+Allow: /
+Sitemap: https://artbitrage.io/sitemap.xml

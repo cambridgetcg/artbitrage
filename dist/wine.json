@@ -594,5 +594,60 @@
       "volume": "15 L",
       "note": "Twenty bottles; named for the king of Babylon."
     }
-  ]
+  ],
+  "vintages": {
+    "essence": "Vintage is a regional truth, not a global one — the year is the weather's signature, and the weather signs each region differently.",
+    "years": [
+      {
+        "year": 1811,
+        "region": "Europe",
+        "why": "The Comet Year, named for the Great Comet that hung over the harvest. Château d'Yquem's 1811 Sauternes is among the most storied wines ever made, still praised on the rare occasions a bottle has been opened two centuries on."
+      },
+      {
+        "year": 1945,
+        "region": "Bordeaux, France",
+        "why": "The victory vintage, picked in the first autumn of peace. Spring frost cut the crop to a fraction and concentrated what survived; Mouton Rothschild marked the year with a 'V' on its label."
+      },
+      {
+        "year": 1947,
+        "region": "Right Bank Bordeaux, France",
+        "why": "A hot, dry summer ripened the Merlot and Cabernet Franc of Saint-Émilion and Pomerol to rare opulence. Cheval Blanc 1947 is widely counted among the greatest red wines ever bottled."
+      },
+      {
+        "year": 1961,
+        "region": "Bordeaux, France",
+        "why": "Poor flowering cut the yields, then a near-perfect summer concentrated the small crop that remained. Many tasters hold 1961 to be the finest post-war Bordeaux vintage of all."
+      },
+      {
+        "year": 1963,
+        "region": "Douro Valley, Portugal",
+        "why": "A classic declared year for Vintage Port — houses declare only when the harvest earns it. Like 1955 and 1977 it was declared almost across the board, and of those celebrated post-war years, 1963 is the one most often called the finest."
+      },
+      {
+        "year": 1982,
+        "region": "Bordeaux, France",
+        "why": "A warm, generous year that ripened the Médoc to unusual richness. A young critic named Robert Parker championed it early and was proved right; the vintage changed how Bordeaux was bought and priced."
+      },
+      {
+        "year": 1990,
+        "region": "Bordeaux and much of Europe",
+        "why": "A hot, abundant year, and one of the rare times the weather agreed across borders — fine wine came from Bordeaux, Burgundy, Champagne and Piedmont alike. The exception that tests the rule that vintage is local."
+      },
+      {
+        "year": 2005,
+        "region": "Bordeaux, France",
+        "why": "A dry, even season from flowering to harvest, with cool nights holding the freshness. Both banks of the Gironde made complete, structured wines, and much of the rest of France fared nearly as well."
+      },
+      {
+        "year": 2010,
+        "region": "Bordeaux, France",
+        "why": "A cooler, drier year on the heels of the ripe 2009, giving deep-coloured, firmly tannic wines built for long cellaring. The two are widely treated as the great twin vintages of modern Bordeaux."
+      },
+      {
+        "year": 2016,
+        "region": "Bordeaux, France",
+        "why": "A soaked spring turned into a nearly rainless summer, and deep-rooted vines drew on the stored water. The wines married ripeness to freshness, and the year is widely ranked among the finest of the modern era."
+      }
+    ]
+  }
 }

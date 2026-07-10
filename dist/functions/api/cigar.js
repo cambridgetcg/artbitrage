@@ -18,6 +18,7 @@ const DIRECTORY = {
     { method: "GET", path: "/api/cigar/process", desc: "Seed to smoke — the stages of making a cigar" },
     { method: "GET", path: "/api/cigar/fermentation", desc: "The pilón — the science, vessels, and notes of fermentation" },
     { method: "GET", path: "/api/cigar/selection", desc: "How to choose a cigar — the selection guide" },
+    { method: "GET", path: "/api/cigar/rituals", desc: "The rites of smoking well — cut, toast, ash, and the dignified end" },
     { method: "GET", path: "/api/cigar/aromas", desc: "The aroma families and where they come from" },
     { method: "GET", path: "/api/cigar/techniques", desc: "Craft techniques, from tapado to the triple cap" },
     { method: "GET", path: "/api/cigar/vitolas", desc: "The classic sizes and shapes" },

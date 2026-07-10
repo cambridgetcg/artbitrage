@@ -21,6 +21,7 @@ const ENDPOINTS = [
   { method: 'GET', path: '/api/wine/aromas', desc: 'The aroma families — fruit, then craft, then time' },
   { method: 'GET', path: '/api/wine/techniques', desc: 'Winemaking techniques and their effects' },
   { method: 'GET', path: '/api/wine/formats', desc: 'Bottle formats from Piccolo to Nebuchadnezzar' },
+  { method: 'GET', path: '/api/wine/vintages', desc: 'The legendary vintages — the years the weather signed the wine' },
   { method: 'GET', path: '/api/wine/random', desc: 'A random house, full object including its why' },
   { method: 'GET', path: '/api/wine/search?q=', desc: 'Case-insensitive search across brands, regions, stores and techniques' },
 ];

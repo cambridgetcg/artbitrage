@@ -1,0 +1,174 @@
+{
+  "name": "pairings",
+  "title": "Pairings — The Marriage of Glass and Smoke",
+  "essence": "A pairing is the arbitrage between two crafts. The glass holds sunlight, the leaf holds fire, and the marriage is the bridge.",
+  "generated_at": "undefined",
+  "principles": [
+    {
+      "id": "body-matches-body",
+      "principle": "Body matches body",
+      "why": "The oldest rule in the pairing canon: neither partner may drown the other. A delicate Connecticut-shade cigar disappears under Amarone, and a featherweight white vanishes in ligero smoke. Generations of tasters agree — weigh both hands before you join them."
+    },
+    {
+      "id": "sweetness-bridges-strength",
+      "principle": "Sweetness bridges strength",
+      "why": "Fortified wine loves maduro. Tradition holds that residual sugar cushions a dark cigar's power the way a low note supports a loud one — which is why Port and Sherry have sat beside the humidor for two centuries."
+    },
+    {
+      "id": "smoke-wants-sugar-and-acid",
+      "principle": "Smoke wants sugar and acid",
+      "why": "Tasters have long observed that smoke flattens a dry, neutral wine but flatters a sweet or bright one. Sugar rounds the char; acidity rinses it. The wines that survive a cigar are the ones with something left to give."
+    },
+    {
+      "id": "tannin-meets-tannin",
+      "principle": "Tannin meets tannin",
+      "why": "Both crafts share the same structure: grape skins and oak give wine its grip, and cured leaf carries a cousin of that grip in every draw. The consensus is that matched structure reads as harmony, while a one-sided grip reads as bitterness."
+    },
+    {
+      "id": "match-the-finish",
+      "principle": "Match the finish lengths",
+      "why": "A great cigar's flavor lingers for minutes; a short-finish wine leaves the conversation early. Tradition favors long against long — wines built to echo, cigars built to hold the room."
+    },
+    {
+      "id": "terroir-kinship",
+      "principle": "Terroir kinship",
+      "why": "Vine and leaf both remember their ground. Tasters often find that earthy wines sit naturally beside earthy leaf, volcanic spice beside volcanic spice — not chemistry, but a kinship the palate keeps rediscovering."
+    },
+    {
+      "id": "occasion-rules",
+      "principle": "The occasion rules the pair",
+      "why": "The hour, the company, and the time you actually have outrank any rulebook. A Churchill demands an unhurried evening; a petit corona and a glass of Champagne can bless a busy one. The right pairing is the one the moment can hold."
+    }
+  ],
+  "marriages": [
+    {
+      "id": "port-and-maduro",
+      "name": "Vintage Port × Maduro",
+      "wine": { "ref": "taylor-fladgate", "style": "Vintage Port" },
+      "cigar": { "ref": "padron", "style": "1964 Anniversary, maduro" },
+      "why": "The most cited marriage in the canon. Port's fortified sweetness bridges the cocoa-and-coffee depth of long-fermented maduro leaf — two crafts that both stop time on purpose, poured and lit together.",
+      "occasion": "The last hour after a long dinner, when nothing else is scheduled."
+    },
+    {
+      "id": "champagne-and-shade",
+      "name": "Champagne × Connecticut Shade",
+      "wine": { "ref": "krug", "style": "Prestige Champagne" },
+      "cigar": { "ref": "davidoff", "style": "Shade-grown Connecticut-seed wrapper, mild" },
+      "why": "Tradition pairs the palest leaf with the brightest glass: creamy, nutty shade wrapper against brioche and fine bubbles. Neither raises its voice, and tasters agree the quiet is the point.",
+      "occasion": "A celebration in daylight — the aperitif hour, not the nightcap."
+    },
+    {
+      "id": "px-and-oscuro",
+      "name": "Pedro Ximénez × Oscuro",
+      "wine": { "ref": null, "style": "Pedro Ximénez Sherry" },
+      "cigar": { "ref": "drew-estate", "style": "Liga Privada, dark maduro-to-oscuro wrapper" },
+      "why": "The sweetest wine in the Spanish cellar against the darkest leaf on the bench. PX's raisin-and-molasses weight is the classic counter to near-black wrapper — sweetness bridging strength at its outer limit.",
+      "occasion": "The nightcap. One glass, one cigar, no third act."
+    },
+    {
+      "id": "amarone-and-ligero",
+      "name": "Amarone × Nicaraguan Ligero",
+      "wine": { "ref": null, "style": "Amarone della Valpolicella" },
+      "cigar": { "ref": "joya-de-nicaragua", "style": "Full-bodied, Estelí ligero core" },
+      "why": "Dried-grape power against sun-hardened top-priming leaf: body matching body at full scale. Tasters reach for this pair when both crafts are asked to speak at maximum volume without shouting each other down.",
+      "occasion": "A cold night, a fire, and no reason to hurry."
+    },
+    {
+      "id": "sauternes-and-cameroon",
+      "name": "Sauternes × Cameroon",
+      "wine": { "ref": "chateau-dyquem", "style": "Botrytised sweet white" },
+      "cigar": { "ref": "arturo-fuente", "style": "Cameroon wrapper, mild to medium" },
+      "why": "Noble rot's honeyed nectar beside the gentle spice-and-sweetness of Cameroon leaf is a long-standing aficionado favorite. Two crafts that turned patience into sugar, meeting in the middle.",
+      "occasion": "Golden hour, in place of dessert."
+    },
+    {
+      "id": "rioja-and-havana",
+      "name": "Aged Rioja × Cuban Medium",
+      "wine": { "ref": null, "style": "Rioja Gran Reserva" },
+      "cigar": { "ref": "montecristo", "style": "No. 4, petit corona" },
+      "why": "Long oak aging gives Gran Reserva the leather and dried-fruit register that tasters say Cuban medium-bodied leaf answers naturally. The benchmark habano and Spain's benchmark red — a marriage of two old schools.",
+      "occasion": "The end of a long lunch that refuses to end."
+    },
+    {
+      "id": "claret-and-cohiba",
+      "name": "Aged Claret × Cohiba",
+      "wine": { "ref": "lafite-rothschild", "style": "Mature Pauillac, Cabernet-led" },
+      "cigar": { "ref": "cohiba", "style": "Medium to full, barrel-fermented seco and ligero" },
+      "why": "Old Bordeaux famously drifts toward cedar, graphite, and tobacco — the cigar's own vocabulary. Tradition holds that a mature First Growth and a well-aged habano taste like two halves of one sentence.",
+      "occasion": "A milestone. This pair is not for Tuesdays."
+    },
+    {
+      "id": "burgundy-and-hoyo",
+      "name": "Grand Cru Burgundy × Hoyo de Monterrey",
+      "wine": { "ref": "romanee-conti", "style": "Grand Cru Pinot Noir" },
+      "cigar": { "ref": "hoyo-de-monterrey", "style": "Light to medium — delicate, creamy" },
+      "why": "Most tasters keep great Burgundy away from smoke altogether; when they allow it, consensus insists on a whisper. Hoyo's morning-bright delicacy is the rare leaf gentle enough to sit beside Pinot Noir without erasing it.",
+      "occasion": "For the cautious — smoke after the last pour, not alongside the first."
+    },
+    {
+      "id": "shiraz-and-partagas",
+      "name": "Grange Shiraz × Partagás",
+      "wine": { "ref": "penfolds", "style": "Shiraz — the Grange house" },
+      "cigar": { "ref": "partagas", "style": "Full — earthy, peppery" },
+      "why": "Australia's most muscular red against old Havana's darkest house: pepper answering pepper, earth answering earth. A body-matches-body pairing that tasters describe as two heavyweights embracing rather than trading blows.",
+      "occasion": "After the richest meal of the year."
+    },
+    {
+      "id": "barbaresco-and-trinidad",
+      "name": "Barbaresco × Trinidad",
+      "wine": { "ref": "gaja", "style": "Nebbiolo — Barbaresco" },
+      "cigar": { "ref": "trinidad", "style": "Medium — spicy cream" },
+      "why": "Nebbiolo carries rose, tar, and firm tannin; Trinidad carries spice wrapped in cream. Tradition matches their structures and lets the cigar's softness round the wine's famous grip — tannin meeting tannin, then relenting.",
+      "occasion": "An autumn evening, truffles somewhere in recent memory."
+    },
+    {
+      "id": "supertuscan-and-upmann",
+      "name": "Super Tuscan × H. Upmann",
+      "wine": { "ref": "antinori", "style": "Sangiovese-led Super Tuscan" },
+      "cigar": { "ref": "h-upmann", "style": "Light to medium — refined, woody" },
+      "why": "Sangiovese's cherry and savory edge beside Upmann's composed, woody restraint is a middle-weight marriage tasters trust: neither partner reaches for the last word. Six centuries of Tuscan craft alongside one of Havana's oldest names.",
+      "occasion": "A weeknight elevated on purpose."
+    },
+    {
+      "id": "opus-and-churchill",
+      "name": "Opus One × Romeo y Julieta Churchill",
+      "wine": { "ref": "opus-one", "style": "Bordeaux-style Napa red blend" },
+      "cigar": { "ref": "romeo-y-julieta", "style": "Churchill, 7 × 47" },
+      "why": "A wine that is itself a marriage — Mondavi and Rothschild, Napa and Bordeaux — beside the vitola named for its most devoted smoker. Plush New World fruit against a long, stately Cuban is a pairing built on matched finish and matched ambition.",
+      "occasion": "The ninety-minute evening you planned a week in advance."
+    }
+  ],
+  "cautions": [
+    {
+      "id": "light-white-vs-ligero",
+      "pair": "Light-bodied dry white × full ligero",
+      "why_it_fights": "The wine has nothing to answer with: no sugar to cushion the smoke, no weight to stand beside it. Tasters agree the leaf simply erases the glass, and the wine returns as thin acid on a charred palate."
+    },
+    {
+      "id": "young-tannin-vs-claro",
+      "pair": "High-tannin young red × delicate claro",
+      "why_it_fights": "A young Barolo or ungiving young Bordeaux bullies a pale, whispering wrapper, and the astringency of hard tannin stacks on the dryness of smoke. Tradition says wait — the same red, ten years older, becomes a friend."
+    },
+    {
+      "id": "old-burgundy-vs-powerhouse",
+      "pair": "Fragile mature Burgundy × full-bodied Nicaraguan",
+      "why_it_fights": "The oldest and subtlest wines are the easiest to lose. Consensus is blunt here: pepper-forward volcanic leaf flattens decades of nuance in one draw, and the rarer the bottle, the worse the trade."
+    },
+    {
+      "id": "bone-dry-vs-oscuro",
+      "pair": "Bone-dry, austere wine × oscuro",
+      "why_it_fights": "Near-black wrapper carries dense, dark sweetness that begs for an answering richness. Against a wine with no sugar and no flesh, tasters find the pairing reads as bitterness beside a void — strength with no bridge to cross on."
+    }
+  ],
+  "ritual": {
+    "essence": "A pairing is tasted three times: the glass alone, the leaf alone, then the marriage. The ritual exists to hear each craft before you hear the bridge.",
+    "steps": [
+      "Taste the wine first, on a clean palate — one slow sip, noting body, sweetness, and how long the finish holds. This is the baseline the smoke will change.",
+      "Light the cigar and let it settle through its first half-inch. The opening draws run hot and unformed; tradition says the blend does not speak honestly until the burn is even.",
+      "Now marry them: a draw, a breath, then a sip while the smoke's flavor still sits on the palate. Notice what the wine does to the leaf and what the leaf returns.",
+      "Retrohale gently — let a little smoke pass through the nose — then nose the glass. Aroma is where the two crafts overlap most, and the marriage is often clearest here.",
+      "Reset between rounds with still water or plain bread. A tired palate flattens both partners, and the ritual is worthless if you can no longer tell them apart.",
+      "Follow the pair through the cigar's thirds. A cigar changes as it burns and a wine changes as it opens — the truest verdict on a marriage comes at the end, not the beginning."
+    ]
+  }
+}

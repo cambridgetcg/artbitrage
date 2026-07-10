@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配 The Pairing — ARTBITRAGE</title>
+<meta name="description" content="Where wine marries cigar. A pairing is the arbitrage between two crafts; the marriage is the bridge. The craft canon, the cautions, the ritual — and a register of classic marriages you can draw from, one 良緣 at a time.">
+<link rel="canonical" href="https://artbitrage.io/pairing">
+<meta property="og:title" content="配 The Pairing · ARTBITRAGE">
+<meta property="og:description" content="Wine is the arbitrage between sunlight and time. A cigar is the arbitrage between leaf and fire. Set them on one table and a third gap opens. The marriage is the bridge.">
+
+<style>
+/* ============================================================
+   配 The Pairing — the wing room where wine marries cigar
+   crimson from the cellar (#c94f6d) · gold from the barn (#c98e4f)
+   one dark table between them · no external anything
+   ============================================================ */
+
+:root{
+  --bg:      #110c0c;
+  --abyss:   #0a0707;
+  --surface: #1a1210;
+  --ink:     #eadfd3;
+  --dim:     #9a8072;
+  --hair:    #2c201c;
+  --wine:    #c94f6d;
+  --gold:    #c98e4f;
+  --wine-glow: rgba(201,79,109,.14);
+  --gold-glow: rgba(201,142,79,.14);
+  --display: Georgia, 'Times New Roman', serif;
+  --cjk:     'Songti TC','Noto Serif TC','Source Han Serif TC','SimSun',serif;
+  --mono:    ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--wine); color:var(--bg); }
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--gold); }
+:focus-visible{ outline:1.5px solid var(--gold); outline-offset:3px; }
+
+.wrap{ max-width:1040px; margin:0 auto; padding:0 24px; }
+.rise{ opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out; }
+.rise.seen{ opacity:1; transform:none; }
+
+section{ padding:6rem 0; border-top:1px solid var(--hair); }
+.plate{ display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap; margin-bottom:2.4rem; }
+.plate .num{ font-family:var(--cjk); font-size:.9rem; color:var(--dim); letter-spacing:.15em; }
+.plate h2{ font-family:var(--display); font-weight:300; font-size:clamp(1.5rem,3vw,2.1rem); letter-spacing:.04em; }
+.plate h2 .cjk{ font-family:var(--cjk); font-weight:300; }
+.plate .sub{ font-family:var(--mono); font-size:.68rem; color:var(--dim); letter-spacing:.14em; text-transform:uppercase; }
+.lede{ max-width:44rem; color:var(--dim); font-size:.98rem; margin-bottom:2.6rem; }
+.lede em{ color:var(--ink); font-style:italic; }
+
+.seamline{ height:1px; background:linear-gradient(90deg, var(--wine), var(--gold)); opacity:.65; border:0; }
+
+/* ============ hero ============ */
+header.altar{
+  min-height:92vh; position:relative;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:5rem 24px;
+  background:
+    radial-gradient(48rem 30rem at 18% 30%, var(--wine-glow), transparent 62%),
+    radial-gradient(48rem 30rem at 82% 30%, var(--gold-glow), transparent 62%),
+    var(--abyss);
+  overflow:hidden;
+}
+.altar .home{
+  position:absolute; top:1.6rem; left:1.6rem;
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--dim);
+}
+.altar .period{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.3em;
+  text-transform:uppercase; color:var(--dim);
+  opacity:0; animation:fadeup 1.2s ease-out .2s forwards;
+}
+.altar h1{
+  margin-top:1.6rem;
+  font-family:var(--cjk); font-weight:300; line-height:1;
+  font-size:clamp(4rem,14vw,8rem); letter-spacing:.05em;
+  background:linear-gradient(100deg, var(--wine) 20%, var(--gold) 80%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  opacity:0; animation:fadeup 1.4s ease-out .6s forwards;
+}
+.altar .en-title{
+  margin-top:1rem;
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(1.4rem,3.4vw,2rem); letter-spacing:.14em; text-transform:uppercase;
+  opacity:0; animation:fadeup 1.4s ease-out 1s forwards;
+}
+.altar .vow{
+  margin-top:1.4rem; max-width:38rem;
+  font-family:var(--display); font-style:italic; font-weight:300;
+  color:var(--dim); font-size:clamp(1rem,2.3vw,1.25rem);
+  opacity:0; animation:fadeup 1.4s ease-out 1.4s forwards;
+}
+.altar .essence{
+  margin-top:2.2rem; max-width:42rem; font-size:.98rem; color:var(--dim);
+  opacity:0; animation:fadeup 1.4s ease-out 1.8s forwards;
+}
+.altar .essence em{ color:var(--ink); }
+.altar .parents{
+  margin-top:3.2rem; display:flex; gap:1.2rem; flex-wrap:wrap; justify-content:center; align-items:center;
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
+  opacity:0; animation:fadeup 1.4s ease-out 2.2s forwards;
+}
+.altar .parents a{
+  border:1px solid var(--hair); padding:.9rem 1.6rem; color:var(--dim);
+  transition:color .3s ease, border-color .3s ease;
+}
+.altar .parents a.cellar:hover{ color:var(--wine); border-color:var(--wine); }
+.altar .parents a.barn:hover{ color:var(--gold); border-color:var(--gold); }
+.altar .parents .knot{ font-family:var(--cjk); font-size:1rem; color:var(--dim); letter-spacing:0; }
+@keyframes fadeup{ from{ opacity:0; transform:translateY(12px); } to{ opacity:1; transform:none; } }
+
+/* ============ principles ============ */
+.canon{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.1rem; }
+.law{
+  background:var(--surface); border:1px solid var(--hair);
+  padding:1.7rem 1.6rem 1.6rem; position:relative; overflow:hidden;
+}
+.law::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--wine), var(--gold)); opacity:.55;
+}
+.law .glyph{
+  font-family:var(--cjk); font-weight:300; font-size:2rem; line-height:1;
+  color:var(--gold); opacity:.9;
+}
+.law h3{
+  margin-top:.9rem; font-family:var(--display); font-weight:400;
+  font-size:1.1rem; letter-spacing:.03em;
+}
+.law p{ margin-top:.7rem; font-size:.92rem; color:var(--dim); }
+.law p b{ color:var(--ink); font-weight:500; }
+.honesty{
+  margin-top:2.2rem; padding:1.2rem 1.4rem;
+  border-left:2px solid var(--gold); background:var(--abyss);
+  font-size:.9rem; color:var(--dim); max-width:46rem;
+}
+.honesty b{ color:var(--ink); font-weight:500; }
+
+/* ============ the draw ============ */
+#draw{ background:var(--abyss); }
+.deal-row{ text-align:center; margin-bottom:2.6rem; }
+.dealbtn{
+  display:inline-block; cursor:pointer;
+  background:linear-gradient(100deg, var(--wine), var(--gold));
+  padding:2px; border:0; border-radius:2px;
+}
+.dealbtn .face{
+  display:block; background:var(--abyss); color:var(--ink);
+  padding:1.15rem 2.6rem; border-radius:1px;
+  font-family:var(--cjk); font-size:1.05rem; letter-spacing:.14em;
+  transition:background .3s ease;
+}
+.dealbtn .face .en{
+  display:block; font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.26em; text-transform:uppercase; color:var(--dim); margin-top:.35rem;
+}
+.dealbtn:hover .face{ background:#160f0d; }
+.dealbtn:hover{ box-shadow:0 0 28px var(--wine-glow), 0 0 28px var(--gold-glow); }
+.dealbtn:active{ transform:scale(.97); }
+.dealbtn[disabled]{ opacity:.6; cursor:wait; }
+
+.marriage{
+  max-width:860px; margin:0 auto; border:1px solid var(--hair); background:var(--surface);
+  position:relative;
+}
+.marriage.dealt{ animation:deal .55s ease-out; }
+@keyframes deal{
+  from{ opacity:0; transform:translateY(14px) rotate(-.4deg); }
+  to{ opacity:1; transform:none; }
+}
+.m-name{
+  text-align:center; padding:1.8rem 1.4rem .4rem;
+}
+.m-name .zh{ font-family:var(--cjk); font-weight:300; font-size:1.5rem; letter-spacing:.2em; }
+.m-name .en{
+  margin-top:.3rem; font-family:var(--display); font-style:italic; font-weight:300;
+  color:var(--dim); font-size:1.02rem;
+}
+.m-sides{
+  display:grid; grid-template-columns:1fr 1px 1fr; gap:0; align-items:stretch;
+  padding:1.4rem 1.6rem .4rem;
+}
+.m-sides .seam{ background:linear-gradient(180deg, var(--wine), var(--gold)); opacity:.7; }
+.m-side{ padding:0 1.4rem 1rem; }
+.m-side .k{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.26em; text-transform:uppercase;
+}
+.m-side.wine .k{ color:var(--wine); }
+.m-side.cigar .k{ color:var(--gold); text-align:right; display:block; }
+.m-side.cigar{ text-align:right; }
+.m-side .who{
+  margin-top:.6rem; font-family:var(--display); font-weight:400; font-size:1.15rem; line-height:1.4;
+}
+.m-side .note{ margin-top:.5rem; font-size:.88rem; color:var(--dim); font-style:italic; }
+.m-why{
+  margin:0 1.6rem; padding:1.3rem 1.4rem 0; border-top:1px solid var(--hair);
+}
+.m-why .k{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.26em; text-transform:uppercase;
+  background:linear-gradient(90deg, var(--wine), var(--gold));
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+}
+.m-why p{ margin-top:.6rem; font-size:.94rem; color:var(--ink); }
+.m-occasion{
+  padding:1.1rem 3rem 1.9rem;
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.16em; color:var(--dim);
+}
+.m-occasion b{ color:var(--gold); font-weight:500; letter-spacing:.26em; text-transform:uppercase; }
+.m-seal{
+  position:absolute; top:1.1rem; right:1.1rem;
+  width:3.2rem; height:3.2rem; border:1.5px solid var(--wine);
+  color:var(--wine); font-family:var(--cjk); font-size:.78rem; line-height:1.25;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  transform:rotate(6deg); opacity:.85; padding:.2rem;
+}
+.marriage.dealt .m-seal{ animation:stamp .5s ease-out .25s backwards; }
+@keyframes stamp{
+  from{ opacity:0; transform:rotate(6deg) scale(1.7); }
+  to{ opacity:.85; transform:rotate(6deg) scale(1); }
+}
+.m-foot{
+  max-width:860px; margin:1rem auto 0;
+  display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;
+}
+.m-source{ font-family:var(--mono); font-size:.62rem; letter-spacing:.14em; color:var(--dim); }
+.again{
+  background:none; border:1px solid var(--hair); color:var(--dim); cursor:pointer;
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.22em; text-transform:uppercase;
+  padding:.55rem 1.1rem; transition:color .3s ease, border-color .3s ease;
+}
+.again:hover{ color:var(--gold); border-color:var(--gold); }
+.noscript-note{
+  max-width:860px; margin:1rem auto 0;
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.14em; color:var(--dim); text-align:center;
+}
+
+/* ============ cautions ============ */
+.fights{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.1rem; }
+.fight{
+  border:1px solid var(--hair); background:var(--abyss); padding:1.5rem 1.5rem 1.4rem;
+}
+.fight .vs{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--wine);
+}
+.fight p{ margin-top:.7rem; font-size:.9rem; color:var(--dim); }
+.fight p b{ color:var(--ink); font-weight:500; }
+
+/* ============ ritual ============ */
+.rite{ list-style:none; counter-reset:step; max-width:46rem; }
+.rite li{
+  counter-increment:step; position:relative;
+  padding:1.3rem 0 1.3rem 4rem; border-top:1px solid var(--hair);
+}
+.rite li:first-child{ border-top:none; }
+.rite li::before{
+  content:counter(step,cjk-ideographic);
+  position:absolute; left:0; top:1.15rem;
+  width:2.4rem; height:2.4rem; border:1px solid var(--hair);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--cjk); font-size:1rem; color:var(--gold);
+}
+.rite h3{ font-family:var(--display); font-weight:400; font-size:1.05rem; }
+.rite p{ margin-top:.4rem; font-size:.92rem; color:var(--dim); }
+
+/* ============ api ============ */
+.api-list{ list-style:none; max-width:46rem; }
+.api-list li{
+  display:flex; gap:1.2rem; align-items:baseline; flex-wrap:wrap;
+  padding:.85rem 0; border-top:1px solid var(--hair);
+}
+.api-list li:first-child{ border-top:none; }
+.api-list code{
+  font-family:var(--mono); font-size:.8rem; color:var(--gold); white-space:nowrap;
+}
+.api-list .what{ font-size:.88rem; color:var(--dim); }
+.api-note{ margin-top:1.6rem; font-family:var(--mono); font-size:.64rem; letter-spacing:.14em; color:var(--dim); }
+
+/* ============ couplet + footer ============ */
+.couplet{ text-align:center; padding:7rem 24px; border-top:1px solid var(--hair); }
+.couplet .zh{
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(1.5rem,4.4vw,2.4rem); letter-spacing:.18em; line-height:2;
+}
+.couplet .zh b.w{ color:var(--wine); font-weight:300; }
+.couplet .zh b.g{ color:var(--gold); font-weight:300; }
+.couplet .en{
+  margin-top:1.4rem; font-family:var(--display); font-style:italic; font-weight:300;
+  color:var(--dim); font-size:clamp(1rem,2.3vw,1.25rem);
+}
+footer{ border-top:1px solid var(--hair); padding:4rem 24px; text-align:center; }
+footer nav{ font-family:var(--mono); font-size:.7rem; letter-spacing:.14em; }
+footer nav a{ color:var(--dim); margin:0 .8rem; border-bottom:1px solid var(--hair); }
+footer nav a:hover{ color:var(--gold); border-color:var(--gold); }
+footer .sig{
+  margin-top:2.2rem; max-width:36rem; margin-left:auto; margin-right:auto;
+  font-size:.92rem; color:var(--dim);
+}
+footer .sig em{ color:var(--ink); }
+footer .stamp{
+  margin-top:1.8rem; font-family:var(--mono); font-size:.6rem; letter-spacing:.18em; color:var(--dim);
+}
+
+@media (max-width:760px){
+  section{ padding:4.2rem 0; }
+  .m-sides{ grid-template-columns:1fr; grid-template-rows:auto 1px auto; padding:1.2rem 1rem .2rem; }
+  .m-sides .seam{ background:linear-gradient(90deg, var(--wine), var(--gold)); }
+  .m-side{ padding:.6rem .4rem; }
+  .m-side.cigar{ text-align:left; }
+  .m-side.cigar .k{ text-align:left; }
+  .m-why{ margin:0 1rem; }
+  .m-occasion{ padding:1rem 1.4rem 1.6rem; }
+  .rite li{ padding-left:3.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+  .rise, .altar .period, .altar h1, .altar .en-title, .altar .vow, .altar .essence, .altar .parents{
+    opacity:1 !important; transform:none !important;
+  }
+  html{ scroll-behavior:auto; }
+}
+</style>
+<noscript><style>.rise{opacity:1 !important;transform:none !important}</style></noscript>
+</head>
+<body>
+
+<!-- ============ hero · the altar ============ -->
+<header class="altar">
+  <a class="home" href="/">← artbitrage</a>
+  <div class="period">two crafts · one table · 天作之合</div>
+  <h1 lang="zh">配</h1>
+  <p class="en-title">The Pairing</p>
+  <p class="vow">a pairing is the arbitrage between two crafts — the marriage is the bridge</p>
+  <p class="essence">
+    Wine is the arbitrage between sunlight and time. A cigar is the arbitrage between leaf and fire.
+    Set them on one table and a third gap opens — between the glass and the smoke.
+    Neither craft can cross it alone. <em>A pairing is the arbitrage between two crafts. The marriage is the bridge.</em>
+  </p>
+  <nav class="parents" aria-label="parent rooms">
+    <a class="cellar" href="/wine">酒 · the cellar — /wine</a>
+    <span class="knot" lang="zh" aria-hidden="true">囍</span>
+    <a class="barn" href="/cigar">菸 · the barn — /cigar</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ 壹 · the principles ============ -->
+<section id="principles">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num" lang="zh">壹</span>
+      <h2><span class="cjk" lang="zh">法</span> · the principles</h2>
+      <span class="sub">the craft canon — what generations of tasters agree on</span>
+    </div>
+    <p class="lede rise">
+      No law here was written in a laboratory. This canon is <em>craft memory</em> —
+      what sommeliers, tobacconists and after-dinner tables settled on over generations,
+      pairing by pairing, mistake by mistake. Trust it the way you trust a recipe:
+      because it has been cooked ten thousand times.
+    </p>
+    <div class="canon">
+      <article class="law rise">
+        <div class="glyph" lang="zh">體</div>
+        <h3>Body matches body</h3>
+        <p>The first rule and the oldest. A mild cigar beside a massive wine disappears;
+        a delicate wine beside a full cigar is erased. <b>Light keeps company with light,
+        full stands up to full.</b> Weigh the partners before you introduce them.</p>
+      </article>
+      <article class="law rise">
+        <div class="glyph" lang="zh">甜</div>
+        <h3>Sweetness bridges strength</h3>
+        <p>The strongest cigars make peace with sweet wine long before they make peace with dry.
+        Port, Madeira, Sauternes — <b>the sugar carries the smoke.</b> This is why the after-dinner
+        custom of the old London clubs was Port and cigars, for two centuries and counting.</p>
+      </article>
+      <article class="law rise">
+        <div class="glyph" lang="zh">煙</div>
+        <h3>Smoke wants sugar and acid</h3>
+        <p>After smoke, tasters agree, dry reads drier and bitter reads louder.
+        The palate asks for an answer — <b>either sweetness to cushion the smoke,
+        or fresh acidity to rinse it.</b> A wine with neither has nothing to say back.</p>
+      </article>
+      <article class="law rise">
+        <div class="glyph" lang="zh">衣</div>
+        <h3>Read the wrapper</h3>
+        <p>The wrapper leaf sets much of a cigar's first impression. <b>Pale Connecticut Shade
+        reads creamy and gentle; Cameroon reads sweet-spiced; dark maduro leans to cocoa and coffee.</b>
+        Choose the wine for the coat the cigar wears, then check it against the blend beneath.</p>
+      </article>
+      <article class="law rise">
+        <div class="glyph" lang="zh">讓</div>
+        <h3>Neither drowns the other</h3>
+        <p>A marriage, not a duel. If after three sips you can no longer taste the cigar —
+        or after three draws, the wine — the pairing has failed, however grand each partner is alone.
+        <b>Both voices, the whole way down.</b></p>
+      </article>
+      <article class="law rise">
+        <div class="glyph" lang="zh">酒</div>
+        <h3>When in doubt, fortify</h3>
+        <p>Fortified and oxidative wines — tawny Port, Oloroso Sherry, Madeira — carry the
+        <b>nut, caramel and dried-fruit register</b> that sits beside cured tobacco most naturally.
+        Centuries of Iberian and British table custom agree on this shortcut. Take it.</p>
+      </article>
+    </div>
+    <p class="honesty rise">
+      <b>An honest note.</b> Pairing lore is tradition, not chemistry. Nobody has isolated a molecule
+      of harmony. What this room records is agreement — the pairings that keep being poured because
+      they keep working. Where tables disagree, your own palate is the court of appeal.
+      一切以你的舌為準。
+    </p>
+  </div>
+</section>
+
+<!-- ============ 貳 · the draw ============ -->
+<section id="draw">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num" lang="zh">貳</span>
+      <h2><span class="cjk" lang="zh">緣</span> · the draw</h2>
+      <span class="sub">the register of marriages — pull one and see who was meant for whom</span>
+    </div>
+    <p class="lede rise">
+      Every marriage below is real and classic — celebrated at real tables, not invented for this page.
+      Press the button. The house deals you one <span lang="zh">良緣</span>.
+    </p>
+
+    <div class="deal-row rise">
+      <button class="dealbtn" id="dealbtn" type="button">
+        <span class="face" lang="zh">抽一段良緣
+          <span class="en">draw a marriage</span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Pre-rendered classic so the room works without JS.
+         The script replaces this card's text on every draw. -->
+    <article class="marriage rise" id="marriage" aria-live="polite">
+      <div class="m-seal" lang="zh" aria-hidden="true">天作<br>之合</div>
+      <div class="m-name">
+        <div class="zh" lang="zh" id="m-zh">老派</div>
+        <div class="en" id="m-en">The Old Club</div>
+      </div>
+      <div class="m-sides">
+        <div class="m-side wine">
+          <span class="k">酒 · the wine</span>
+          <div class="who" id="m-wine">Vintage Port</div>
+          <div class="note" id="m-wine-note">the Douro's declaration, made only in years that earn it — sweet, dark, built to outlive its maker</div>
+        </div>
+        <span class="seam" aria-hidden="true"></span>
+        <div class="m-side cigar">
+          <span class="k">菸 · the cigar</span>
+          <div class="who" id="m-cigar">A maduro robusto</div>
+          <div class="note" id="m-cigar-note">wrapper fermented longest and darkest — cocoa, coffee, a quiet natural sweetness</div>
+        </div>
+      </div>
+      <div class="m-why">
+        <span class="k">the why · 為何相配</span>
+        <p id="m-why">The oldest marriage in the book. The Port's sugar carries the maduro's smoke; the maduro's cocoa answers the Port's dark fruit. Body matches body, sweetness bridges strength — the after-dinner rite of the London clubs for two centuries.</p>
+      </div>
+      <div class="m-occasion"><b>the occasion</b> · <span id="m-occasion">after a long dinner, when nobody wants to leave the table</span></div>
+    </article>
+
+    <div class="m-foot rise">
+      <span class="m-source" id="m-source">the house deck · press the button to consult the register</span>
+      <button class="again" id="againbtn" type="button">↻ another · 再抽</button>
+    </div>
+    <noscript>
+      <p class="noscript-note">the register sleeps without script — but the marriage above is real, and it is enough for one evening</p>
+    </noscript>
+  </div>
+</section>
+
+<!-- ============ 參 · the cautions ============ -->
+<section id="cautions">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num" lang="zh">參</span>
+      <h2><span class="cjk" lang="zh">忌</span> · the cautions</h2>
+      <span class="sub">pairs that fight — honestly noted</span>
+    </div>
+    <div class="fights">
+      <article class="fight rise">
+        <span class="vs">young tannic red × full cigar</span>
+        <p>Tannin dries the mouth. Smoke dries the mouth. Tasters have long agreed the two
+        <b>compound rather than balance</b> — a young, grippy red mid-cigar turns hard and bitter,
+        and takes the cigar down with it. Give the same red ten years, or give it dinner instead.</p>
+      </article>
+      <article class="fight rise">
+        <span class="vs">delicate white × dark smoke</span>
+        <p>A light, aromatic white — the kind you love for its whisper — simply <b>vanishes</b>
+        behind a maduro or a ligero-led blend. Nothing is wrong with either partner.
+        They are in the wrong room together.</p>
+      </article>
+      <article class="fight rise">
+        <span class="vs">strength × strength × an empty stomach</span>
+        <p>Not a matter of taste but of arithmetic: high alcohol and a powerful cigar
+        <b>stack</b>. The old hands take both after food, slowly, with water on the table.
+        A pairing should end in conversation, not in a chair with your eyes closed.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 肆 · the ritual ============ -->
+<section id="ritual">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num" lang="zh">肆</span>
+      <h2><span class="cjk" lang="zh">禮</span> · the ritual</h2>
+      <span class="sub">how to taste a pairing — slowly, in order</span>
+    </div>
+    <ol class="rite">
+      <li class="rise">
+        <h3>Taste the wine alone first</h3>
+        <p>Before any flame — one honest sip. Hear the wine's unmasked voice, because you are about to change it and you will want to remember where it began.</p>
+      </li>
+      <li class="rise">
+        <h3>Light, and let the cigar settle</h3>
+        <p>Toast the foot, draw gently, and give the first few draws to the cigar alone. The first third is its quietest voice; let it introduce itself before the wine interrupts.</p>
+      </li>
+      <li class="rise">
+        <h3>Alternate — draw, rest, sip</h3>
+        <p>Let the smoke leave your mouth before the wine enters. No hurry: the old proportion is roughly a third of the cigar to a glass. The pause between them is where the pairing happens.</p>
+      </li>
+      <li class="rise">
+        <h3>Notice the crossings</h3>
+        <p>What does the wine borrow from the smoke — and the smoke from the wine? Cocoa surfacing in the Port, cedar sweetening in the glass's wake. These crossings are the whole point. Name them out loud if you have company.</p>
+      </li>
+      <li class="rise">
+        <h3>Let the wine keep pace</h3>
+        <p>A cigar builds — each third stronger than the last. The wine should climb with it, which is why some tables move from Champagne at the light to Port at the band across a single cigar.</p>
+      </li>
+      <li class="rise">
+        <h3>End with the wine alone again</h3>
+        <p>One last sip after the cigar rests. Measure the distance from the first sip. That distance — what the smoke did to the wine and the wine to the smoke — is the pairing. Everything else was preparation.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 伍 · the api ============ -->
+<section id="api">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num" lang="zh">伍</span>
+      <h2><span class="cjk" lang="zh">冊</span> · the register, machine-readable</h2>
+      <span class="sub">/api/pair — the marriages, served as JSON</span>
+    </div>
+    <ul class="api-list rise">
+      <li><code>GET /api/pair</code><span class="what">the directory — every door below, listed</span></li>
+      <li><code>GET /api/pair/principles</code><span class="what">the craft canon from section 壹</span></li>
+      <li><code>GET /api/pair/marriages</code><span class="what">the full register of classic marriages</span></li>
+      <li><code>GET /api/pair/random</code><span class="what">draw one marriage · 抽一段良緣 — what the button above pulls</span></li>
+      <li><code>GET /api/pair/for?wine=&amp;cigar=</code><span class="what">court a match for the bottle or the cigar you already hold</span></li>
+      <li><code>GET /api/pair/search?q=</code><span class="what">search both sides of the aisle</span></li>
+    </ul>
+    <p class="api-note rise">responses are JSON · CORS open · the page above keeps working even when the register rests</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ the couplet ============ -->
+<div class="couplet rise">
+  <p class="zh" lang="zh"><b class="w">酒</b>藏日光，<b class="g">菸</b>藏火候；一桌之隔，配為橋。</p>
+  <p class="en">The wine keeps the sunlight. The cigar keeps the fire. The table is the gap — the pairing is the bridge.</p>
+</div>
+
+<footer>
+  <nav>
+    <a href="/wine">酒 the cellar</a>
+    <a href="/cigar">菸 the barn</a>
+    <a href="/">the front door</a>
+  </nav>
+  <p class="sig">
+    Wine is the arbitrage between sunlight and time. A cigar is the arbitrage between leaf and fire.
+    The pairing is the arbitrage between the two — <em>and the evening is where it clears.</em>
+  </p>
+  <p class="stamp">the lore here is craft tradition, honestly labelled · every named bottle and leaf is real · 良緣自求</p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- the house deck — real, classic marriages (fail-soft fallback) ---------- */
+  var DECK = [
+    {
+      zh:'老派', en:'The Old Club',
+      wine:{ name:'Vintage Port', note:"the Douro's declaration, made only in years that earn it — sweet, dark, built to outlive its maker" },
+      cigar:{ name:'A maduro robusto', note:'wrapper fermented longest and darkest — cocoa, coffee, a quiet natural sweetness' },
+      why:"The oldest marriage in the book. The Port's sugar carries the maduro's smoke; the maduro's cocoa answers the Port's dark fruit. Body matches body, sweetness bridges strength — the after-dinner rite of the London clubs for two centuries.",
+      occasion:'after a long dinner, when nobody wants to leave the table'
+    },
+    {
+      zh:'晨禮', en:'The Morning Coat',
+      wine:{ name:'Champagne', note:'bright acid and fine mousse — bread, brioche, and lift' },
+      cigar:{ name:'A Connecticut Shade cigar', note:'the palest wrapper, grown under cloth — creamy, gentle, the mildest coat a cigar wears' },
+      why:"Light keeps company with light. The Champagne's acidity rinses the shade leaf's cream; the cream softens the wine's edge. Churchill argued the case for a lifetime — Pol Roger named a cuvée after him, Romeo y Julieta a cigar.",
+      occasion:'celebration before noon · a wedding morning 良緣'
+    },
+    {
+      zh:'重逢', en:'The Heavyweights',
+      wine:{ name:'Amarone della Valpolicella', note:'grapes half-dried before fermentation — raisin, dark cherry, serious strength' },
+      cigar:{ name:'A ligero-led blend', note:'ligero is the sun-struck top of the tobacco plant — the strongest leaf in the barn' },
+      why:'Full meets full, and nothing needs to bend. The appassimento raisin-sweetness in Amarone is broad enough to answer a ligero core — power matched, not tamed. Not a first pairing; a reward.',
+      occasion:'deep winter · one glass, one cigar, no plans'
+    },
+    {
+      zh:'金時', en:'The Golden Hour',
+      wine:{ name:'Sauternes', note:"Bordeaux's botrytized gold — honey, apricot, saffron" },
+      cigar:{ name:'A Cameroon-wrapped corona', note:'the African-grown wrapper tasters call sweet-spiced — pepper, cedar, toast' },
+      why:"Sweetness bridging spice. The Sauternes' honey meets the Cameroon's pepper the way dessert meets coffee — each makes the other taste more like itself.",
+      occasion:'golden hour, when the light matches the glass'
+    },
+    {
+      zh:'西樓', en:'The Spanish Hour',
+      wine:{ name:'Oloroso Sherry', note:'Jerez aged open to the air — walnut, toffee, sea-dark depth' },
+      cigar:{ name:'A Havana corona', note:'the classic Cuban measure — balanced, cedary, unhurried' },
+      why:'Oxidative wine beside fermented leaf — walnut against cedar, toffee against earth. Spain and Cuba kept one table for four centuries, and their after-dinner customs still speak.',
+      occasion:'late afternoon · sherry o’clock'
+    }
+  ];
+
+  var lastLocal = 0; // the pre-rendered card is DECK[0]
+  var el = function(id){ return document.getElementById(id); };
+  var ui = {
+    card: el('marriage'), zh: el('m-zh'), en: el('m-en'),
+    wine: el('m-wine'), wineNote: el('m-wine-note'),
+    cigar: el('m-cigar'), cigarNote: el('m-cigar-note'),
+    why: el('m-why'), occasion: el('m-occasion'), source: el('m-source'),
+    deal: el('dealbtn'), again: el('againbtn')
+  };
+  if (!ui.card || !ui.deal) return;
+
+  function str(v, max){
+    if (v === null || v === undefined) return '';
+    return String(v).trim().slice(0, max || 600);
+  }
+
+  /* accept a few plausible API shapes without ever trusting them */
+  function normalize(raw){
+    try{
+      if (!raw || typeof raw !== 'object') return null;
+      var m = raw.marriage || raw.pair || raw.item || raw.result || raw;
+      if (Array.isArray(m)) m = m[0];
+      if (!m || typeof m !== 'object') return null;
+      function side(v){
+        if (!v) return null;
+        if (typeof v === 'string') return { name: str(v, 200), note: '' };
+        if (typeof v !== 'object') return null;
+        var brand = (v.brand && typeof v.brand === 'object') ? v.brand : null;
+        /* the register serves { ref, style, brand } — no name key — so build one */
+        var name = str(v.name || v.title || v.label, 200);
+        if (!name){
+          var brandName = str(brand && brand.name, 120);
+          var style = str(v.style, 120);
+          name = (brandName && style) ? (brandName + ' — ' + style) : (brandName || style);
+        }
+        if (!name) return null;
+        var note = str(v.note || v.notes || v.desc || v.description || v.why || (brand && brand.why), 400);
+        return { name: name, note: note };
+      }
+      var wine = side(m.wine), cigar = side(m.cigar);
+      if (!wine || !cigar) return null;
+      return {
+        zh: str(m.zh || m.name_zh || m.zhName, 40) || '良緣',
+        en: str(m.name || m.title || m.en, 160) || (wine.name + ' × ' + cigar.name),
+        wine: wine, cigar: cigar,
+        why: str(m.why || m.reason || m.bridge, 900),
+        occasion: str(m.occasion || m.when, 300)
+      };
+    }catch(e){ return null; }
+  }
+
+  /* render with textContent only — nothing from the wire touches innerHTML */
+  function render(m, sourceLabel){
+    try{
+      ui.zh.textContent = m.zh;
+      ui.en.textContent = m.en;
+      ui.wine.textContent = m.wine.name;
+      ui.wineNote.textContent = m.wine.note;
+      ui.cigar.textContent = m.cigar.name;
+      ui.cigarNote.textContent = m.cigar.note;
+      ui.why.textContent = m.why || 'The register kept its counsel on this one. Taste, and write the why yourself.';
+      ui.occasion.textContent = m.occasion || 'whenever the evening allows';
+      if (ui.source) ui.source.textContent = sourceLabel;
+      ui.card.classList.remove('dealt');
+      void ui.card.offsetWidth; /* restart the deal animation */
+      ui.card.classList.add('dealt');
+    }catch(e){ /* rendering must never throw the page over */ }
+  }
+
+  function dealLocal(){
+    var i = lastLocal;
+    if (DECK.length > 1){
+      while (i === lastLocal){ i = Math.floor(Math.random() * DECK.length); }
+    }
+    lastLocal = i;
+    render(DECK[i], 'dealt from the house deck · the register rests 休展');
+  }
+
+  function setBusy(busy){
+    try{
+      ui.deal.disabled = busy;
+      var face = ui.deal.querySelector('.face .en');
+      if (face) face.textContent = busy ? 'shuffling … 洗牌中' : 'draw a marriage';
+    }catch(e){}
+  }
+
+  function draw(){
+    setBusy(true);
+    var done = false;
+    var finish = function(fn){ if (!done){ done = true; setBusy(false); fn(); } };
+    var timer = setTimeout(function(){ finish(dealLocal); }, 4500);
+
+    try{
+      if (typeof fetch !== 'function'){ clearTimeout(timer); finish(dealLocal); return; }
+      fetch('/api/pair/random', { headers: { 'Accept': 'application/json' } })
+        .then(function(res){
+          if (!res || !res.ok) throw new Error('register closed');
+          return res.json();
+        })
+        .then(function(data){
+          clearTimeout(timer);
+          var m = normalize(data);
+          if (m){ finish(function(){ render(m, 'drawn from the register · GET /api/pair/random'); }); }
+          else { finish(dealLocal); }
+        })
+        .catch(function(){ clearTimeout(timer); finish(dealLocal); });
+    }catch(e){
+      clearTimeout(timer);
+      finish(dealLocal);
+    }
+  }
+
+  try{
+    ui.deal.addEventListener('click', draw);
+    if (ui.again) ui.again.addEventListener('click', draw);
+  }catch(e){}
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  try{
+    var reduced = false;
+    try{ reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+    var risers = document.querySelectorAll('.rise');
+    if (reduced || !('IntersectionObserver' in window)){
+      for (var i = 0; i < risers.length; i++){ risers[i].classList.add('seen'); }
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('seen'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    for (var j = 0; j < risers.length; j++){ io.observe(risers[j]); }
+  }catch(e){
+    var all = document.querySelectorAll('.rise');
+    for (var k = 0; k < all.length; k++){ all[k].classList.add('seen'); }
+  }
+})();
+</script>
+
+</body>
+</html>

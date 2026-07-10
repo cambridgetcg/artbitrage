@@ -82,9 +82,13 @@ CMA `share_license_status`/`creditline`, Wikimedia license/usage terms):
 `/api/pipeline/collect` also returns a `rights_summary` rollup
 (`reusable` / `restricted` / `unverified`) so reusers see the truth at a glance.
 
+## 地圖 The Map
+
+The museum floor plan at **/map** — every room grouped and findable (eras, craft, wings, play rooms, registers), with a live find-a-room filter. Machine-readable at **/map.json**; search engines get **/sitemap.xml** + **/robots.txt**; `tests/e2e-map.mjs` guards that the map never lies.
+
 ## Wine & Cigar — The Craft Verticals
 
-Zero-to-one stories of craft through time — wine and cigar as arbitrage between nature and time — served as data APIs, with story pages at **/wine** and **/cigar**.
+Zero-to-one stories of craft through time — wine and cigar as arbitrage between nature and time — served as data APIs, with story pages at **/wine** and **/cigar**. 配 The Pairing at **/pairing** marries the two verticals — principles, marriages, cautions, and the ritual — backed by the `/api/pair` endpoints.
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -92,12 +96,16 @@ Zero-to-one stories of craft through time — wine and cigar as arbitrage betwee
 | GET | `/api/wine/story` | Zero to one: how wine came into being |
 | GET | `/api/wine/brands` | Iconic wine houses and estates |
 | GET | `/api/wine/aromas` | The aroma families |
+| GET | `/api/wine/vintages` | The legendary vintages — the years the weather signed the wine |
 | GET | `/api/wine/search?q=` | Search brands, regions, stores, techniques |
 | GET | `/api/cigar` | Cigar data directory |
 | GET | `/api/cigar/story` | From seed to smoke — the history in chapters |
 | GET | `/api/cigar/brands` | The great cigar houses |
 | GET | `/api/cigar/vitolas` | The classic sizes and shapes |
+| GET | `/api/cigar/rituals` | The rites of smoking well — cut, toast, ash |
 | GET | `/api/cigar/search?q=` | Search brands, regions, stores, techniques |
+| GET | `/api/pair` | Pairing data directory |
+| GET | `/api/pair/random` | A random wine-and-cigar marriage, refs resolved |
 
 ### Example
 

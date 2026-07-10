@@ -432,6 +432,71 @@
       }
     ]
   },
+  "rituals": {
+    "essence": "A ritual is the arbitrage between burning a cigar and smoking one. The cigar is slow on purpose; the ceremony is the point.",
+    "rites": [
+      {
+        "id": "the-inspection",
+        "name": "The inspection and the cold draw",
+        "how": "Before any flame, look the wrapper over and pinch gently along the body for soft spots or hard knots. Then cut, and draw on the unlit cigar — the cold draw — testing the resistance and tasting the raw leaf.",
+        "why": "The cold draw is the only preview the fire allows. It confirms the draw is right and gives the first honest taste of the blend."
+      },
+      {
+        "id": "the-cut",
+        "name": "The cut",
+        "how": "Choose the instrument: the guillotine takes the whole face, the V-cut a clean wedge, the punch a small round opening. Whatever the tool, cut above the line of the cap — at the shoulder, never below it.",
+        "why": "The cap is the only thing anchoring the wrapper to the head. Cut below its line and the cigar can unravel in your hand."
+      },
+      {
+        "id": "toasting-the-foot",
+        "name": "Toasting the foot",
+        "how": "Hold the foot near the flame without letting it touch, rotating until the rim glows evenly. Only then bring the cigar to your lips and draw the fire home.",
+        "why": "An even start is an even burn. A cigar rushed into flame chars one side and runs, and the first minutes are spent correcting instead of tasting."
+      },
+      {
+        "id": "never-inhale",
+        "name": "Never inhale",
+        "how": "Draw the smoke into the mouth, let it rest on the palate, and release it. Experienced tasters sometimes push a little out through the nose — the retrohale — to read the aroma.",
+        "why": "Cigar smoke is not meant for the lungs. The palate and the nose are the instruments; everything the blender composed is legible there."
+      },
+      {
+        "id": "the-ash",
+        "name": "The ash",
+        "how": "Let the ash build to an inch or so, then roll or tap it gently into the tray before it falls on its own. A cigar is never flicked like a cigarette.",
+        "why": "A firm, long ash is the signature of well-rolled long filler. Tradition holds that it also shields the coal and keeps the burn cool — lore, but lore that generations of tasters keep repeating."
+      },
+      {
+        "id": "the-band",
+        "name": "The band question",
+        "how": "Leave the band on until the cigar has warmed well into its smoking; then, if you choose to remove it, slide it off gently. If it resists, leave it be.",
+        "why": "The etiquette — old custom read a displayed band as boasting — is tradition, not law. The practical part is real: heat softens the band's gum, and a warm band comes away without tearing the wrapper."
+      },
+      {
+        "id": "the-three-thirds",
+        "name": "The three thirds",
+        "how": "Read the cigar in thirds: the first introduces the blend, the second develops it, and the final third is the strongest and darkest.",
+        "why": "Blenders compose cigars to evolve, and the smoke drawn through the remaining leaf carries flavor and strength forward as it shortens. The end of a cigar is always more concentrated than its beginning."
+      },
+      {
+        "id": "the-resting-pace",
+        "name": "The resting pace",
+        "how": "Set the cigar down in the tray between draws and let it wait — about a minute is the customary rhythm.",
+        "why": "Drawing too often overheats the coal, and a hot cigar turns bitter. Rested, it stays cool and keeps telling the truth."
+      },
+      {
+        "id": "the-dignified-end",
+        "name": "The dignified end",
+        "how": "When you are finished, do not stub or crush the cigar. Lay it in the ashtray and let it go out on its own.",
+        "why": "Left alone, a cigar dies quietly within a few minutes; ground out, it releases its harshest smoke. Tradition adds that a thing which took years to make has earned an unhurried end."
+      },
+      {
+        "id": "the-relight",
+        "name": "The relight",
+        "how": "A cigar that has gone out may be relit within a few hours without shame. First purge it — blow gently outward through the cigar to expel the stale smoke — then knock off the loose ash and toast the foot as if for the first time.",
+        "why": "Stale smoke and tars gather at a dead coal. The purge and a fresh toast recover most of what the cigar was; leave it until tomorrow and less of it will answer."
+      }
+    ]
+  },
   "aromas": {
     "essence": "A cigar's aroma is the record of everything that happened to the leaf — the soil it drank, the heat it survived, the cedar it slept beside. The spectrum runs from fresh hay to dark espresso.",
     "families": [
