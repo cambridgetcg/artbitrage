@@ -16,6 +16,8 @@
     { id: 'modernism',     label: 'Modernism',         href: '/modernism' },
     { id: 'popart',        label: 'Pop Art',           href: '/popart' },
     { id: 'ai',            label: 'AI Art',            href: '/ai' },
+    { id: 'wine',          label: 'Wine',              href: '/wine' },
+    { id: 'cigar',         label: 'Cigar',             href: '/cigar' },
   ];
 
   var currentEra = document.body.getAttribute('data-era') || '';
@@ -115,6 +117,8 @@
     modernism: ['#666666', '#e74c3c', '#2c3e50'],
     popart: ['#ff1493', '#ffeb3b', '#00bcd4'],
     ai: ['#a78bfa', '#00f0ff', '#ff6b9d'],
+    wine: ['#c94f6d', '#722f37', '#d4af37'],
+    cigar: ['#c98e4f', '#8b5a2b', '#e3d3bc'],
   };
 
   var colors = particleColors[currentEra] || ['#ff6b9d', '#ffd700', '#00f0ff'];

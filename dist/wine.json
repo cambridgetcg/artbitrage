@@ -1,0 +1,598 @@
+{
+  "name": "wine",
+  "title": "Wine — The Long Trade of Sun and Time",
+  "essence": "Wine is the arbitrage between sunlight and time. Fermentation is the bridge.",
+  "generated_at": "undefined",
+  "story": {
+    "title": "Zero to One: How Wine Comes Into Being",
+    "essence": "From wild vine to poured glass — eight thousand years of humans learning to let sunlight, stored as sugar and handed to yeast, become something greater than the sum of grape and time.",
+    "chapters": [
+      {
+        "id": "first-jar",
+        "title": "The First Jar",
+        "period": "c. 6000 BCE",
+        "story": "In the South Caucasus — modern Georgia — Neolithic farmers buried clay vessels in the earth and let crushed grapes ferment inside them. Chemical traces in these qvevri are the oldest known evidence of winemaking, roughly eight thousand years old. Before the wheel found its axle, wine had found its jar."
+      },
+      {
+        "id": "two-strangers",
+        "title": "Two Strangers Meet",
+        "period": "biology, always",
+        "story": "Wine needs only two things to begin: ripe fruit and hungry yeast. Vitis vinifera stores a summer of sunlight as sugar, and wild Saccharomyces, riding on the grape's own skin, eats that sugar and breathes out alcohol. Nobody invented fermentation. Humans only noticed it, and learned not to interrupt."
+      },
+      {
+        "id": "wine-dark-sea",
+        "title": "The Wine-Dark Sea",
+        "period": "c. 3000 BCE – 400 CE",
+        "story": "Egypt pressed grapes for its priests, Greece gave the vine a god in Dionysus, and Rome carried both across an empire in sealed clay amphorae. Wine became trade, sacrament and daily bread at once. Where the legions marched, the vineyards followed."
+      },
+      {
+        "id": "patient-orders",
+        "title": "The Patient Orders",
+        "period": "c. 900 – 1400",
+        "story": "Through the Middle Ages, Benedictine and Cistercian monks in Burgundy kept the vine alive and studied it plot by plot. Tasting the difference one wall could make, they gave the world the idea of terroir — that place has a flavour. They were the first to believe the ground remembers."
+      },
+      {
+        "id": "the-ranking",
+        "title": "The Ranking",
+        "period": "1855",
+        "story": "For the Paris Exposition Universelle, on the order of Napoleon III, Bordeaux's brokers ranked the great châteaux by the prices their wines commanded. The 1855 Classification named the First Growths — Lafite, Latour, Margaux and Haut-Brion — and it still governs prestige today. A hierarchy of hillsides, written down and never quite erased."
+      },
+      {
+        "id": "root-louse",
+        "title": "The Root Louse",
+        "period": "1863 – 1890s",
+        "story": "A tiny American aphid, phylloxera, reached Europe and devoured the roots of nearly every vine on the continent. The cure was humbling: graft the noble European grape onto tough American rootstock, which resists the pest. Almost every vine in Europe now grows on borrowed roots."
+      },
+      {
+        "id": "invisible-workers",
+        "title": "The Invisible Workers",
+        "period": "1857 – 1866",
+        "story": "Louis Pasteur proved that fermentation is not chance but life — the work of living yeast — and that spoilage is the work of other microbes. His Études sur le vin turned winemaking from craft into a science that could be steered. He gave winemakers eyes to see what had always been at work."
+      },
+      {
+        "id": "judgment-of-paris",
+        "title": "The Judgment of Paris",
+        "period": "1976 – now",
+        "story": "In a 1976 blind tasting in Paris, French judges ranked California wines above famous Bordeaux and Burgundy, and did not know it until the envelopes opened. The result broke the assumption that great wine could come from only one place. Today great wine comes from six continents, and the vine keeps moving with the climate."
+      }
+    ]
+  },
+  "regions": [
+    {
+      "id": "bordeaux",
+      "name": "Bordeaux",
+      "country": "France",
+      "known_for": "Cabernet Sauvignon and Merlot blends",
+      "note": "The world's benchmark for age-worthy reds, split by the Gironde into the gravelly Left Bank and the clay-rich Right Bank."
+    },
+    {
+      "id": "burgundy",
+      "name": "Burgundy (Bourgogne)",
+      "country": "France",
+      "known_for": "Pinot Noir and Chardonnay",
+      "note": "The homeland of terroir, where single walled vineyards — climats — can each carry their own name, rank and price."
+    },
+    {
+      "id": "champagne",
+      "name": "Champagne",
+      "country": "France",
+      "known_for": "Sparkling wine",
+      "note": "Chalk soils and a cold northern climate turn sharp grapes into the world's most celebrated bubbles."
+    },
+    {
+      "id": "tuscany",
+      "name": "Tuscany",
+      "country": "Italy",
+      "known_for": "Sangiovese — Chianti and Brunello",
+      "note": "Rolling hills of Sangiovese, and the birthplace of the rule-breaking Super Tuscans."
+    },
+    {
+      "id": "piedmont",
+      "name": "Piedmont",
+      "country": "Italy",
+      "known_for": "Nebbiolo — Barolo and Barbaresco",
+      "note": "Fog-wrapped hills where Nebbiolo makes pale, powerful reds of rose, tar and iron."
+    },
+    {
+      "id": "rioja",
+      "name": "Rioja",
+      "country": "Spain",
+      "known_for": "Tempranillo",
+      "note": "Spain's classic red region, defined by long oak aging and a scale that runs from young Joven to venerable Gran Reserva."
+    },
+    {
+      "id": "douro",
+      "name": "Douro Valley",
+      "country": "Portugal",
+      "known_for": "Port and dry reds",
+      "note": "Terraced schist above a river gorge; the birthplace of fortified Port and, increasingly, serious dry wines."
+    },
+    {
+      "id": "napa",
+      "name": "Napa Valley",
+      "country": "United States",
+      "known_for": "Cabernet Sauvignon",
+      "note": "Warm, sun-sure Cabernet country that put the New World on the fine-wine map."
+    },
+    {
+      "id": "mosel",
+      "name": "Mosel",
+      "country": "Germany",
+      "known_for": "Riesling",
+      "note": "Vertiginous slate slopes above the river, growing featherlight Rieslings that balance sweetness against racing acidity."
+    },
+    {
+      "id": "mendoza",
+      "name": "Mendoza",
+      "country": "Argentina",
+      "known_for": "Malbec",
+      "note": "High-altitude vineyards in the rain shadow of the Andes, where Malbec found its deepest, plushest voice."
+    }
+  ],
+  "brands": [
+    {
+      "id": "chateau-margaux",
+      "name": "Château Margaux",
+      "origin": "Margaux, Bordeaux, France",
+      "style": "Cabernet Sauvignon–led red blend",
+      "why": "A First Growth in the 1855 Classification, Margaux is the most fragrant of Bordeaux's great estates — power wrapped in perfume. Its wines are built to outlive the people who lay them down."
+    },
+    {
+      "id": "lafite-rothschild",
+      "name": "Château Lafite Rothschild",
+      "origin": "Pauillac, Bordeaux, France",
+      "founded": 1868,
+      "style": "Cabernet Sauvignon–led red blend",
+      "why": "Ranked first among the First Growths in 1855 and owned by the Rothschild family since 1868, Lafite is a byword for Bordeaux at its most restrained and long-lived. Patience is its house style."
+    },
+    {
+      "id": "romanee-conti",
+      "name": "Domaine de la Romanée-Conti",
+      "origin": "Vosne-Romanée, Burgundy, France",
+      "style": "Grand Cru Pinot Noir",
+      "why": "From a few hallowed hectares in Burgundy, DRC makes the most coveted Pinot Noir on earth in tiny quantities. It is the standing argument that terroir, not scale, is where greatness hides."
+    },
+    {
+      "id": "krug",
+      "name": "Krug",
+      "origin": "Reims, Champagne, France",
+      "founded": 1843,
+      "style": "Prestige Champagne",
+      "why": "Founded by Joseph Krug in 1843 on the heretical idea that a house could make only prestige cuvées, Krug blends across many vintages for richness and depth. Every bottle is built like a small library of past harvests."
+    },
+    {
+      "id": "louis-roederer",
+      "name": "Louis Roederer",
+      "origin": "Reims, Champagne, France",
+      "founded": 1776,
+      "style": "Champagne — the Cristal house",
+      "why": "Founded in 1776, Roederer created Cristal in 1876 for Tsar Alexander II, reputedly in clear glass so nothing could be hidden in the punt. It remains a family house making some of Champagne's most precise wine."
+    },
+    {
+      "id": "antinori",
+      "name": "Marchesi Antinori",
+      "origin": "Tuscany, Italy",
+      "founded": 1385,
+      "style": "Sangiovese and Super Tuscan reds",
+      "why": "The Antinori family has made wine in Tuscany since 1385 — more than six centuries of unbroken craft. Their Tignanello helped invent the Super Tuscan, breaking the old rules to make greater wine."
+    },
+    {
+      "id": "gaja",
+      "name": "Gaja",
+      "origin": "Barbaresco, Piedmont, Italy",
+      "founded": 1859,
+      "style": "Nebbiolo — Barbaresco and Barolo",
+      "why": "Founded in 1859, Gaja turned Barbaresco from a rustic country wine into one of Italy's most sought-after names under Angelo Gaja. He proved Nebbiolo could stand beside the first growths of France."
+    },
+    {
+      "id": "vega-sicilia",
+      "name": "Vega Sicilia",
+      "origin": "Ribera del Duero, Spain",
+      "founded": 1864,
+      "style": "Tempranillo-based red — Único",
+      "why": "Founded in 1864, Vega Sicilia releases its flagship Único only in worthy years and only after a decade or more of aging. It made Ribera del Duero a name the world had to learn."
+    },
+    {
+      "id": "penfolds",
+      "name": "Penfolds",
+      "origin": "South Australia",
+      "founded": 1844,
+      "style": "Shiraz — the Grange house",
+      "why": "Founded by Dr Christopher Rawson Penfold in 1844, Penfolds created Grange in the 1950s and gave the New World a red that could age for half a century. It is Australia's benchmark bottle."
+    },
+    {
+      "id": "opus-one",
+      "name": "Opus One",
+      "origin": "Napa Valley, California, United States",
+      "founded": 1979,
+      "style": "Bordeaux-style red blend",
+      "why": "A 1979 partnership between Robert Mondavi of California and Baron Philippe de Rothschild of Château Mouton, Opus One fused two wine worlds into one bottle. It announced that Napa could speak the language of Bordeaux."
+    },
+    {
+      "id": "taylor-fladgate",
+      "name": "Taylor Fladgate",
+      "origin": "Douro Valley, Portugal",
+      "founded": 1692,
+      "style": "Vintage Port",
+      "why": "Trading since 1692, Taylor's is one of the oldest and most respected Port houses, famed for Vintage Ports declared only in the finest years. Fortification is its bridge — grape spirit halts the ferment and locks the wine in sweetness and time."
+    },
+    {
+      "id": "chateau-dyquem",
+      "name": "Château d'Yquem",
+      "origin": "Sauternes, Bordeaux, France",
+      "style": "Botrytised sweet white",
+      "why": "The only estate rated Premier Cru Supérieur in the 1855 Classification, d'Yquem is made from grapes shrivelled by noble rot and picked berry by berry over many passes through the vines. Decay, welcomed rather than fought, becomes nectar that can last a century."
+    }
+  ],
+  "collections": [
+    {
+      "id": "old-world-icons",
+      "name": "Old-World Icons",
+      "essence": "The estates that wrote the rules — centuries of place, patience and reputation in a glass.",
+      "brands": ["chateau-margaux", "lafite-rothschild", "romanee-conti", "antinori", "gaja"]
+    },
+    {
+      "id": "champagne-houses",
+      "name": "The Champagne Houses",
+      "essence": "Cold chalk and second ferments — where sharp grapes become the world's finest bubbles.",
+      "brands": ["krug", "louis-roederer"]
+    },
+    {
+      "id": "new-world-pioneers",
+      "name": "New-World Pioneers",
+      "essence": "The upstarts that proved great wine answers to no single country.",
+      "brands": ["penfolds", "opus-one"]
+    },
+    {
+      "id": "built-to-age",
+      "name": "Built to Age",
+      "essence": "Wines made for the cellar, whose truest self arrives only after years of waiting.",
+      "brands": ["vega-sicilia", "taylor-fladgate", "chateau-dyquem", "lafite-rothschild"]
+    },
+    {
+      "id": "sweet-and-fortified",
+      "name": "Sweet & Fortified",
+      "essence": "Where sugar is welcomed, not fermented away — the arbitrage between ripeness and time held still.",
+      "brands": ["taylor-fladgate", "chateau-dyquem"]
+    },
+    {
+      "id": "first-growths-1855",
+      "name": "The 1855 Classified",
+      "essence": "Estates ranked for the Paris Exposition on the order of Napoleon III — a hierarchy of hillsides that still stands.",
+      "brands": ["chateau-margaux", "lafite-rothschild", "chateau-dyquem"]
+    }
+  ],
+  "stores": [
+    {
+      "id": "berry-bros-rudd",
+      "name": "Berry Bros. & Rudd",
+      "location": "London, England",
+      "note": "Britain's oldest wine merchant, trading from St James's Street since 1698."
+    },
+    {
+      "id": "justerini-brooks",
+      "name": "Justerini & Brooks",
+      "location": "London, England",
+      "note": "A fine-wine merchant established in 1749, long a supplier to the British court."
+    },
+    {
+      "id": "hedonism-wines",
+      "name": "Hedonism Wines",
+      "location": "London, England",
+      "note": "A Mayfair temple of rare and large-format bottles, deep in back vintages."
+    },
+    {
+      "id": "acker",
+      "name": "Acker",
+      "location": "New York, United States",
+      "note": "America's oldest wine shop, dating to 1820, and a leading fine-wine auction house."
+    },
+    {
+      "id": "zachys",
+      "name": "Zachys",
+      "location": "Scarsdale, New York",
+      "note": "A renowned fine-wine retailer and auctioneer of great cellars."
+    },
+    {
+      "id": "kl-wine-merchants",
+      "name": "K&L Wine Merchants",
+      "location": "Redwood City, California",
+      "note": "A respected West Coast specialist known for direct-import Bordeaux and Champagne."
+    },
+    {
+      "id": "lavinia",
+      "name": "Lavinia",
+      "location": "Paris, France",
+      "note": "One of Europe's largest fine-wine emporiums, thousands of labels under one roof."
+    },
+    {
+      "id": "millesima",
+      "name": "Millésima",
+      "location": "Bordeaux, France",
+      "note": "A Bordeaux en primeur specialist with vast cellars beneath the city."
+    }
+  ],
+  "process": {
+    "essence": "Zero to one, from earth to glass. Every stage is a smaller gap the winemaker chooses how to bridge.",
+    "stages": [
+      {
+        "id": "terroir",
+        "stage": "01",
+        "title": "The Ground Decides",
+        "what": "Soil, slope, sunlight and climate combine into a single place with a single character; limestone, gravel, schist or clay each leave a signature.",
+        "why": "Before a grape grows, the site has already written half the wine. Great wine begins as geography."
+      },
+      {
+        "id": "viticulture",
+        "stage": "02",
+        "title": "The Vine's Year",
+        "what": "Growers prune in winter, train the canopy through spring, and manage the crop through summer so each vine ripens only what it can carry.",
+        "why": "A vine left to itself makes many poor grapes; disciplined, it makes few great ones. Quality is a choice made in the field."
+      },
+      {
+        "id": "ripening",
+        "stage": "03",
+        "title": "Ripening (Véraison)",
+        "what": "In late summer the grapes soften and change colour, sugar climbs, acidity falls, and tannins and aromas mature.",
+        "why": "This is sunlight becoming sugar — the raw material of every drop of alcohol to come. The whole wine waits on this exchange."
+      },
+      {
+        "id": "harvest",
+        "stage": "04",
+        "title": "The Decision to Pick",
+        "what": "Growers taste and test daily, then pick — by hand or machine — at the balance point between sugar, which becomes alcohol, and acidity, which keeps the wine fresh.",
+        "why": "A day early or late changes everything. Harvest is the single most irreversible choice of the year."
+      },
+      {
+        "id": "crush",
+        "stage": "05",
+        "title": "Breaking the Skin",
+        "what": "Grapes are gently crushed and usually parted from their stems, releasing the juice — the must — while reds keep their skins for colour and tannin.",
+        "why": "The barrier between sugar and yeast comes down. Fermentation can now begin."
+      },
+      {
+        "id": "fermentation",
+        "stage": "06",
+        "title": "Sugar Into Spirit",
+        "what": "Yeast consumes the grape sugars and produces alcohol and carbon dioxide, with heat and aroma as by-products, over days to weeks.",
+        "why": "This is the bridge itself — the moment grape juice becomes wine. Everything before is preparation; everything after is refinement."
+      },
+      {
+        "id": "pressing",
+        "stage": "07",
+        "title": "Parting Wine From Skin",
+        "what": "The new wine is drawn off and the remaining skins are pressed to recover the last, more tannic and concentrated juice.",
+        "why": "The winemaker decides how much of the press wine to keep — structure weighed against smoothness."
+      },
+      {
+        "id": "maturation",
+        "stage": "08",
+        "title": "The Long Wait",
+        "what": "Wine rests in stainless steel, oak or concrete for months or years, clarifying, softening and — in oak — gaining spice and a slow trickle of oxygen.",
+        "why": "Time rounds what was sharp. Here sunlight and time finish their trade."
+      },
+      {
+        "id": "blending",
+        "stage": "09",
+        "title": "The Winemaker's Signature",
+        "what": "Separate lots — different grapes, plots or barrels — are tasted and married into the final wine, or bottled alone.",
+        "why": "The blend is where craft becomes art. A great blend is more than the sum of its parts."
+      },
+      {
+        "id": "bottling",
+        "stage": "10",
+        "title": "Sealed for Time",
+        "what": "The wine is stabilised, sometimes filtered, and sealed under cork or screwcap to continue its slow evolution in glass.",
+        "why": "The bottle is a time capsule. What was made in one autumn can be opened decades later."
+      }
+    ]
+  },
+  "fermentation": {
+    "essence": "Fermentation is the bridge between sunlight and spirit. It is where grape juice decides to become wine.",
+    "science": "The engine is yeast — chiefly Saccharomyces cerevisiae. It eats the grape sugars, glucose and fructose, and in the absence of oxygen converts them into ethanol and carbon dioxide: roughly C6H12O6 becomes 2 C2H5OH plus 2 CO2, releasing heat and hundreds of aroma compounds along the way. Fermentation ends when the sugar runs out or the alcohol rises high enough to stop the yeast.",
+    "vessels": [
+      "Stainless steel tank — neutral and easily temperature-controlled; preserves bright, pure fruit.",
+      "Oak barrique (225 litres) — the classic Bordeaux barrel; lends tannin, vanilla and toast, and admits a slow trickle of oxygen.",
+      "Concrete egg — porous but flavour-neutral; its shape keeps the lees gently circulating without adding oak.",
+      "Amphora / qvevri — clay vessels, often buried in the earth; the oldest fermentation technology, unbroken in Georgia for some eight thousand years."
+    ],
+    "notes": [
+      "Temperature is the winemaker's main dial: cool ferments near 12–16°C protect delicate white aromas, while warmer reds near 25–30°C draw more colour and tannin from the skins.",
+      "Wild (ambient) yeast lives on the grapes and in the cellar and gives complex, unpredictable results; cultured yeast is added for a clean, reliable ferment the winemaker can steer.",
+      "Malolactic conversion is a second, bacterial fermentation that turns sharp malic acid into softer lactic acid, giving red wines suppleness and Chardonnay its buttery roundness.",
+      "In a red ferment the cap of skins that floats to the top is punched down or pumped over to keep colour, tannin and flavour flowing into the wine."
+    ]
+  },
+  "selection": {
+    "essence": "Choosing wine is arbitrage too — the gap between the label and the pleasure, bridged by a little knowledge.",
+    "guide": [
+      {
+        "factor": "Vintage",
+        "how": "The year on the label is a weather report. In marginal climates a great vintage can outshine a lesser one from the same estate; in warm, steady regions the year matters less."
+      },
+      {
+        "factor": "Region",
+        "how": "Region tells you the grape, the style and the rules behind them. Learn a handful of classic pairings — Burgundy for Pinot Noir, Mosel for Riesling, Barolo for Nebbiolo — and you can read a shelf at a glance."
+      },
+      {
+        "factor": "Producer",
+        "how": "A careful grower in a modest appellation beats a careless one in a famous one. Names you trust are the surest shortcut to a good bottle."
+      },
+      {
+        "factor": "Reading the label",
+        "how": "Look past the front. Alcohol hints at body and ripeness, the appellation signals origin and rules, and words like 'estate' or 'single vineyard' point to tighter control."
+      },
+      {
+        "factor": "Price and value",
+        "how": "Price rises faster than quality near the top. The sweet spot is usually just above a region's entry level, or in a great region's less-famous neighbour."
+      },
+      {
+        "factor": "The occasion",
+        "how": "Match the wine to the moment and the food, not the price tag. Acidity and bubbles cut through rich dishes; a quiet Tuesday rarely needs a First Growth."
+      },
+      {
+        "factor": "Storage and cellaring",
+        "how": "Most wine is made to drink now; only a fraction improves with age. Keep bottles cool, dark and on their side, and open age-worthy wines on their upward curve, not past it."
+      }
+    ]
+  },
+  "aromas": {
+    "essence": "A wine's scent is its whole biography — where the grape grew, how it fermented, how long it waited. Primary, secondary, tertiary: fruit, then craft, then time.",
+    "families": [
+      {
+        "family": "Fruit",
+        "notes": ["blackcurrant", "cherry", "plum", "citrus", "green apple", "peach", "tropical fruit"],
+        "source": "Primary — from the grape and its ripeness"
+      },
+      {
+        "family": "Floral",
+        "notes": ["violet", "rose", "elderflower", "orange blossom", "acacia"],
+        "source": "Primary — from the grape"
+      },
+      {
+        "family": "Herbal & Green",
+        "notes": ["bell pepper", "mint", "eucalyptus", "fresh-cut grass", "blackcurrant leaf"],
+        "source": "Primary — from the grape, pronounced in cooler climates"
+      },
+      {
+        "family": "Spice",
+        "notes": ["black pepper", "clove", "cinnamon", "nutmeg", "liquorice"],
+        "source": "Primary in some grapes, then deepened by oak and age"
+      },
+      {
+        "family": "Oak",
+        "notes": ["vanilla", "toast", "cedar", "coconut", "smoke", "mocha"],
+        "source": "Secondary — from barrel maturation"
+      },
+      {
+        "family": "Ferment",
+        "notes": ["brioche", "fresh bread", "butter", "cream", "biscuit"],
+        "source": "Secondary — from yeast, lees and malolactic conversion"
+      },
+      {
+        "family": "Earth & Mineral",
+        "notes": ["wet stone", "chalk", "forest floor", "graphite", "truffle"],
+        "source": "From terroir, drawn out with age"
+      },
+      {
+        "family": "Age",
+        "notes": ["leather", "tobacco", "dried fig", "honey", "mushroom", "petrol (in aged Riesling)"],
+        "source": "Tertiary — from years in the bottle"
+      }
+    ]
+  },
+  "techniques": [
+    {
+      "id": "whole-cluster",
+      "name": "Whole-Cluster Fermentation",
+      "what": "Fermenting with the grape stems left in rather than destemming.",
+      "effect": "Adds structure, a savoury lift and gentle tannin, and can bring a fresh, spicy perfume — used with care in Pinot Noir and Syrah."
+    },
+    {
+      "id": "carbonic-maceration",
+      "name": "Carbonic Maceration",
+      "what": "Whole, uncrushed grapes ferment from the inside in a carbon-dioxide-filled tank before their skins break.",
+      "effect": "Produces vivid colour, low tannin and bright, juicy fruit — the signature of young Beaujolais."
+    },
+    {
+      "id": "sur-lie",
+      "name": "Sur Lie Aging",
+      "what": "Leaving the wine to rest on its spent yeast cells, the lees, after fermentation.",
+      "effect": "Builds texture, a creamy weight and savoury, bready complexity — classic for Muscadet and fine Champagne."
+    },
+    {
+      "id": "batonnage",
+      "name": "Bâtonnage",
+      "what": "Stirring the settled lees back up through the wine during aging.",
+      "effect": "Deepens body and adds a rounder, nuttier richness, often seen in barrel-aged Chardonnay."
+    },
+    {
+      "id": "oak-regime",
+      "name": "Oak Regimes",
+      "what": "Choosing new versus used barrels, French versus American oak, and the level of toast.",
+      "effect": "Dials spice, vanilla, smoke and tannin up or down, and controls how much slow oxygen shapes the wine."
+    },
+    {
+      "id": "late-harvest",
+      "name": "Late Harvest",
+      "what": "Leaving grapes on the vine well past normal ripeness to concentrate their sugars.",
+      "effect": "Makes richer, often sweet wines with intense fruit — the natural sugar can outrun the yeast, leaving sweetness behind."
+    },
+    {
+      "id": "botrytis",
+      "name": "Noble Rot (Botrytis)",
+      "what": "Encouraging the benevolent fungus Botrytis cinerea to shrivel ripe grapes on the vine.",
+      "effect": "Concentrates sugar and acid and adds honeyed, saffron-like complexity — the secret of Sauternes and Tokaji."
+    },
+    {
+      "id": "solera",
+      "name": "Solera System",
+      "what": "Fractionally blending across stacked barrels so a little old wine seasons each new batch.",
+      "effect": "Creates a consistent house style and deep, oxidative character — the heart of Sherry and traditional Madeira."
+    },
+    {
+      "id": "methode-traditionnelle",
+      "name": "Méthode Traditionnelle",
+      "what": "Provoking a second fermentation inside the sealed bottle to trap the carbon dioxide.",
+      "effect": "Gives fine, persistent bubbles and, with lees aging, the toasty depth of true Champagne."
+    },
+    {
+      "id": "cold-soak",
+      "name": "Cold Maceration",
+      "what": "Chilling crushed red grapes on their skins before fermentation begins.",
+      "effect": "Draws out colour and aroma gently, in water rather than alcohol, for a more perfumed, deeply coloured red."
+    }
+  ],
+  "formats": [
+    {
+      "name": "Piccolo (Split)",
+      "volume": "187.5 ml",
+      "note": "A single glass; a quarter of a standard bottle, common for Champagne."
+    },
+    {
+      "name": "Demi (Half)",
+      "volume": "375 ml",
+      "note": "Half a standard bottle; enough for two, and quicker to mature."
+    },
+    {
+      "name": "Standard",
+      "volume": "750 ml",
+      "note": "The bottle the world agreed on; six to a case."
+    },
+    {
+      "name": "Magnum",
+      "volume": "1.5 L",
+      "note": "Two bottles in one; the connoisseur's format, ageing slower and more gracefully."
+    },
+    {
+      "name": "Jeroboam",
+      "volume": "3 L",
+      "note": "Four bottles, in the Champagne tradition."
+    },
+    {
+      "name": "Rehoboam",
+      "volume": "4.5 L",
+      "note": "Six bottles; named for a king of Judah."
+    },
+    {
+      "name": "Methuselah",
+      "volume": "6 L",
+      "note": "Eight bottles; named for the oldest man in the Bible."
+    },
+    {
+      "name": "Salmanazar",
+      "volume": "9 L",
+      "note": "Twelve bottles — a full case poured from one vessel."
+    },
+    {
+      "name": "Balthazar",
+      "volume": "12 L",
+      "note": "Sixteen bottles; named for one of the Magi."
+    },
+    {
+      "name": "Nebuchadnezzar",
+      "volume": "15 L",
+      "note": "Twenty bottles; named for the king of Babylon."
+    }
+  ]
+}
