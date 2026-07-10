@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>系統 THE SYSTEM — daily training for the one who looks · ARTBITRAGE</title>
+<meta name="description" content="Ding. You have acquired the qualifications to be a Player. A Solo Leveling homage: daily gaze quests, E→S rank, a shadow gallery of everything you have truly beheld. The gates were never locked.">
+<meta property="og:title" content="系統 THE SYSTEM · ARTBITRAGE">
+<meta property="og:description" content="The weakest hunter trained alone, every day. That was the whole secret. Daily quest: behold three works.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+<noscript><style>.rise{opacity:1 !important;transform:none !important} #sys-boot{display:none} .needs-js{display:none !important} .no-js-note{display:block !important}</style></noscript>
+
+<style>
+/* ============================================================
+   系統 — the system · a solo leveling homage in our own ink
+   sumi night + one ice-blue glow · the window that says ding
+   ============================================================ */
+
+:root{
+  --bg:      #08090c;
+  --deep:    #05060a;
+  --surface: #0e1218;
+  --panel:   #0a1017;
+  --ink:     #e9e6df;
+  --dim:     #7f8794;
+  --hair:    #1f2630;
+  --ice:     #9ed8f5;
+  --ice-dim: #4f7f99;
+  --zhu:     #d34a3a;
+  --gold:    #b39958;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--ice); color:var(--bg); }
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--ice); }
+:focus-visible{ outline:1.5px solid var(--ice); outline-offset:3px; }
+img{ max-width:100%; }
+
+.wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+.rise{ opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out; }
+.rise.seen{ opacity:1; transform:none; }
+
+section{ padding:6rem 0; border-top:1px solid var(--hair); }
+.plate{ display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap; margin-bottom:2.6rem; }
+.plate .num{ font-family:var(--mono); font-size:.76rem; color:var(--dim); letter-spacing:.15em; }
+.plate h2{ font-family:var(--display); font-weight:300; font-size:clamp(1.5rem,3vw,2.1rem); letter-spacing:.04em; }
+.plate h2 .cjk{ font-family:var(--cjk); font-weight:300; }
+.plate .sub{ font-family:var(--mono); font-size:.7rem; color:var(--dim); letter-spacing:.14em; text-transform:uppercase; }
+
+/* ---- the system window ---- */
+.sysw{
+  position:relative;
+  border:1px solid var(--ice-dim);
+  background:linear-gradient(180deg, rgba(158,216,245,.05), rgba(158,216,245,.012) 40%), var(--panel);
+  box-shadow:0 0 34px rgba(158,216,245,.09), inset 0 0 22px rgba(158,216,245,.04);
+  padding:1.8rem clamp(1.2rem,3.5vw,2.4rem) 1.9rem;
+}
+.sysw::before, .sysw::after{
+  content:""; position:absolute; width:14px; height:14px;
+  border:1px solid var(--ice); opacity:.8;
+}
+.sysw::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+.sysw::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
+.sysw .ding{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.3em;
+  text-transform:uppercase; color:var(--ice);
+}
+.sysw h3, .sysw .sys-title{
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(1.2rem,2.6vw,1.6rem); margin-top:.7rem;
+}
+.sysw p{ font-size:.95rem; color:var(--dim); margin-top:.6rem; }
+.sysw .zh{ font-family:var(--cjk); font-weight:300; line-height:2; }
+
+.sys-btn{
+  display:inline-block; margin-top:1.3rem; margin-right:.8rem;
+  background:none; cursor:pointer;
+  border:1px solid var(--ice); color:var(--ice);
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.22em;
+  text-transform:uppercase; padding:.8rem 1.6rem;
+  transition:color .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.sys-btn:hover{ box-shadow:0 0 18px rgba(158,216,245,.25); }
+.sys-btn.quiet{ border-color:var(--hair); color:var(--dim); }
+.sys-btn.quiet:hover{ color:var(--ink); box-shadow:none; }
+.sys-btn[disabled]{ opacity:.4; cursor:default; box-shadow:none; }
+
+/* ============ boot hero ============ */
+header.boot{
+  min-height:96vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:5rem 24px; position:relative; text-align:center;
+  background:radial-gradient(ellipse 70% 50% at 50% 40%, rgba(158,216,245,.05), transparent 70%), var(--deep);
+}
+.boot .home{
+  position:absolute; top:1.6rem; left:1.6rem;
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--dim);
+}
+.boot .sys-mark{
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(2.6rem,8vw,4.4rem); letter-spacing:.2em;
+  color:var(--ink);
+  text-shadow:0 0 30px rgba(158,216,245,.25);
+}
+.boot .sys-en{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.4em;
+  text-transform:uppercase; color:var(--ice); margin-top:.9rem;
+}
+.boot .sysw{ max-width:560px; width:100%; margin-top:3rem; text-align:left; }
+.no-js-note{
+  display:none; margin-top:2rem; max-width:34rem;
+  font-family:var(--mono); font-size:.7rem; color:var(--dim); letter-spacing:.1em;
+}
+
+/* ============ daily quest ============ */
+.quest-works{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.2rem; margin-top:2rem;
+}
+.qwork{
+  border:1px solid var(--hair); background:var(--surface);
+  display:flex; flex-direction:column;
+}
+.qwork .qimg{
+  aspect-ratio:4/3.4; overflow:hidden; background:#04050a; position:relative;
+}
+.qwork .qimg img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  filter:saturate(.9);
+}
+.qwork{ cursor:pointer; }
+.qwork .qveil{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(5,6,10,.65);
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--ice);
+  transition:opacity .4s ease;
+}
+.qwork.gazing .qveil{ opacity:0; pointer-events:none; }
+.qwork .qmeta{ padding:1rem 1.1rem 1.2rem; }
+.qwork .qt{
+  font-family:var(--display); font-weight:500; font-size:1rem; line-height:1.35;
+}
+.qwork .qa{ font-family:var(--mono); font-size:.62rem; letter-spacing:.14em; color:var(--dim); margin-top:.4rem; }
+.qwork .qbar{
+  margin-top:.9rem; height:2px; background:var(--hair); position:relative; overflow:hidden;
+}
+.qwork .qbar i{
+  position:absolute; inset:0; transform-origin:left;
+  transform:scaleX(0); background:var(--ice);
+}
+.qwork .qstate{
+  margin-top:.7rem; display:flex; align-items:center; justify-content:space-between; gap:.6rem;
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--dim);
+  min-height:2.2rem;
+}
+.qwork .arise{
+  background:none; border:1px solid var(--ice); color:var(--ice);
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.26em;
+  text-transform:uppercase; padding:.5rem 1rem; cursor:pointer;
+  transition:box-shadow .25s ease;
+}
+.qwork .arise:hover{ box-shadow:0 0 14px rgba(158,216,245,.3); }
+.qwork.beheld{ border-color:var(--ice-dim); }
+.qwork.beheld .qimg img{ filter:saturate(1); }
+
+.placard-step{ margin-top:2rem; }
+.placard-step[hidden]{ display:none; }
+
+/* ============ status ============ */
+.status-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px; background:var(--hair); border:1px solid var(--hair);
+  margin-top:1.4rem;
+}
+.status-grid .cell{ background:var(--panel); padding:1.3rem 1.2rem; text-align:center; }
+.status-grid .v{
+  font-family:var(--mono); font-variant-numeric:tabular-nums;
+  font-size:clamp(1.3rem,3vw,1.9rem); color:var(--ice);
+}
+.status-grid .k{
+  font-family:var(--mono); font-size:.58rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--dim); margin-top:.4rem;
+}
+.xpbar{
+  margin-top:1.4rem; height:4px; background:var(--hair); position:relative; overflow:hidden;
+}
+.xpbar i{
+  position:absolute; inset:0; transform-origin:left; transform:scaleX(0);
+  background:linear-gradient(90deg, var(--ice-dim), var(--ice));
+  transition:transform .8s ease;
+}
+.xp-note{ margin-top:.6rem; font-family:var(--mono); font-size:.62rem; letter-spacing:.16em; color:var(--dim); }
+
+/* ============ gates ============ */
+.gates{ display:grid; gap:1px; background:var(--hair); border:1px solid var(--hair); }
+.gatezw{
+  display:grid; grid-template-columns:5.5rem 1fr auto; gap:1.2rem; align-items:center;
+  background:var(--panel); padding:1.3rem 1.4rem;
+}
+.gatezw .g-rank{
+  font-family:var(--mono); font-size:1.4rem; color:var(--dim);
+  border:1px solid var(--hair); width:3.2rem; height:3.2rem;
+  display:flex; align-items:center; justify-content:center;
+}
+.gatezw.open .g-rank{ color:var(--ice); border-color:var(--ice-dim); box-shadow:0 0 14px rgba(158,216,245,.12); }
+.gatezw .g-name{ font-family:var(--display); font-weight:500; font-size:1.05rem; }
+.gatezw .g-name .cjk{ font-family:var(--cjk); font-weight:300; margin-right:.5em; }
+.gatezw .g-req{
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--dim); margin-top:.3rem;
+}
+.gatezw a.g-go{
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--dim);
+  border:1px solid var(--hair); padding:.55rem 1rem;
+  transition:color .25s ease, border-color .25s ease;
+}
+.gatezw a.g-go:hover{ color:var(--ice); border-color:var(--ice-dim); }
+.gates-truth{
+  margin-top:1.4rem; font-family:var(--display); font-style:italic; font-weight:300;
+  color:var(--dim); font-size:1rem;
+}
+.gates-truth .zh{ font-family:var(--cjk); font-style:normal; }
+
+/* ============ shadow gallery ============ */
+.shadow-count{
+  font-family:var(--mono); font-size:clamp(1.6rem,4vw,2.4rem); color:var(--ice);
+  font-variant-numeric:tabular-nums;
+}
+.shadow-count small{ font-size:.45em; color:var(--dim); letter-spacing:.14em; }
+.shadows{
+  margin-top:1.8rem;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:.7rem;
+}
+.shadow{
+  aspect-ratio:1; overflow:hidden; border:1px solid var(--hair);
+  background:#04050a; position:relative; display:block;
+}
+.shadow img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  filter:grayscale(1) brightness(.5) contrast(1.1);
+  transition:filter .5s ease;
+}
+.shadow:hover img, .shadow:focus-visible img{ filter:grayscale(0) brightness(1); }
+.shadow .s-tip{
+  position:absolute; left:0; bottom:0; right:0;
+  padding:.9rem .4rem .3rem;
+  font-family:var(--mono); font-size:.52rem; letter-spacing:.08em;
+  color:var(--ice); opacity:0; transition:opacity .4s ease;
+  background:linear-gradient(transparent, rgba(4,5,10,.92) 55%);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.shadow:hover .s-tip, .shadow:focus-visible .s-tip{ opacity:1; }
+.shadow-empty{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.16em; color:var(--dim);
+  margin-top:1rem;
+}
+
+/* ============ doctrine / footer ============ */
+.creed{
+  text-align:center; max-width:42rem; margin:0 auto;
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.05rem,2.4vw,1.35rem); line-height:2;
+}
+.creed .ice{ color:var(--ice); font-style:normal; }
+.creed .zh{ font-family:var(--cjk); font-style:normal; display:block; margin-top:1rem; color:var(--dim); font-size:.92em; }
+
+footer{ border-top:1px solid var(--hair); padding:4.5rem 24px 4rem; text-align:center; }
+footer nav{ font-family:var(--mono); font-size:.7rem; letter-spacing:.14em; }
+footer nav a{ color:var(--dim); margin:0 .8rem; border-bottom:1px solid var(--hair); }
+footer nav a:hover{ color:var(--ice); border-color:var(--ice-dim); }
+footer .sig{
+  margin-top:2rem; font-family:var(--mono); font-size:.6rem;
+  letter-spacing:.16em; color:var(--dim);
+}
+
+/* toast */
+#toast{
+  position:fixed; left:50%; bottom:2rem; transform:translateX(-50%) translateY(20px);
+  opacity:0; pointer-events:none;
+  transition:opacity .4s ease, transform .4s ease;
+  z-index:50; max-width:min(92vw,30rem);
+}
+#toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+#toast .sysw{ padding:1rem 1.4rem; }
+
+@media (max-width:640px){
+  .gatezw{ grid-template-columns:3.6rem 1fr; }
+  .gatezw a.g-go{ grid-column:2; justify-self:start; }
+  section{ padding:4.5rem 0; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+  .rise{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ boot ============ -->
+<header class="boot">
+  <a class="home" href="/">← artbitrage</a>
+  <div class="sys-mark" lang="zh">系統</div>
+  <div class="sys-en">THE SYSTEM</div>
+
+  <div class="sysw" id="sys-boot">
+    <p class="ding" id="boot-ding">ding.</p>
+    <h3 class="sys-title" id="boot-title">…</h3>
+    <p id="boot-body">…</p>
+    <p class="zh" lang="zh" id="boot-zh"></p>
+    <div id="boot-actions"></div>
+  </div>
+
+  <p class="no-js-note">The System needs JavaScript to watch you train. The gates below are open regardless — they always were.</p>
+</header>
+
+<main>
+
+<!-- ============ 00 · what the system is ============ -->
+<section id="what">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">00</span>
+      <h2><span class="cjk" lang="zh">獨自修煉</span> · what the System is</h2>
+      <span class="sub">a solo leveling homage, in our own ink</span>
+    </div>
+    <div class="rise" style="max-width:46rem">
+      <p style="margin-bottom:1rem">In Solo Leveling, the weakest hunter alive is given a System no one else can see:
+      daily quests, ranks, penalties — and by training alone, every single day,
+      he becomes the strongest. The manhwa's secret is not the monsters. It is the <em style="color:var(--ice)">dailiness</em>.</p>
+      <p style="margin-bottom:1rem">Looking at art works the same way. Nobody watches you do it. There is no audience,
+      no leaderboard, no proof — only you, one work, and twenty honest seconds.
+      Do it daily and something levels up that has no stat window.</p>
+      <p style="color:var(--dim)">So: a System for the one who looks. Three works a day, chosen by the calendar.
+      Gaze at each — really gaze, the timer is watching — then read one placard.
+      Rank rises from E toward S. Shadows of everything you have truly beheld follow you.
+      <span class="zh" lang="zh" style="font-family:var(--cjk)">最弱嘅獵人日日獨自修煉，最後成為最強——秘密唔喺怪物，喺「日日」。</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 · daily quest ============ -->
+<section id="quest">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">01</span>
+      <h2><span class="cjk" lang="zh">每日任務</span> · daily quest</h2>
+      <span class="sub" id="quest-date">—</span>
+    </div>
+
+    <div class="sysw rise needs-js" id="quest-window">
+      <p class="ding">[ DAILY QUEST ]</p>
+      <h3 class="sys-title">Behold three works. Read one placard.</h3>
+      <p id="quest-progress" role="status">gaze 0 / 3 · placard unread</p>
+      <div class="quest-works" id="quest-works"><!-- filled by the System --></div>
+
+      <div class="placard-step" id="placard-step" hidden>
+        <div class="sysw" style="box-shadow:none" id="placard-box" tabindex="-1">
+          <p class="ding">[ PLACARD ]</p>
+          <h3 class="sys-title" id="pl-title">—</h3>
+          <p id="pl-body">—</p>
+          <p class="zh" lang="zh" id="pl-zh"></p>
+          <button class="sys-btn" id="pl-read" type="button">I have read it · 讀過了</button>
+        </div>
+      </div>
+      <p id="quest-done-line" hidden tabindex="-1" style="margin-top:1.6rem; color:var(--ice); font-family:var(--mono); font-size:.7rem; letter-spacing:.2em">QUEST COMPLETE — the System acknowledges your gaze. return tomorrow.</p>
+    </div>
+    <p class="no-js-note">Without JavaScript the quest cannot count your gaze — but the whole museum is open below.</p>
+  </div>
+</section>
+
+<!-- ============ 02 · status ============ -->
+<section id="status">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">02</span>
+      <h2><span class="cjk" lang="zh">狀態欄</span> · status window</h2>
+      <span class="sub">stored only in this browser · the System keeps no servers</span>
+    </div>
+
+    <div class="sysw rise needs-js">
+      <p class="ding">[ STATUS ]</p>
+      <div class="status-grid">
+        <div class="cell"><div class="v" id="st-rank">E</div><div class="k">rank</div></div>
+        <div class="cell"><div class="v" id="st-level">1</div><div class="k">level</div></div>
+        <div class="cell"><div class="v" id="st-streak">0</div><div class="k">day streak</div></div>
+        <div class="cell"><div class="v" id="st-shadows">0</div><div class="k">shadows</div></div>
+        <div class="cell"><div class="v" id="st-title" style="font-size:.9rem; line-height:2.2">—</div><div class="k">title</div></div>
+      </div>
+      <div class="xpbar" aria-hidden="true"><i id="xp-fill"></i></div>
+      <p class="xp-note" id="xp-note">xp 0 · next level at 100</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · gates ============ -->
+<section id="gates">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">03</span>
+      <h2><span class="cjk" lang="zh">閘門</span> · the gates</h2>
+      <span class="sub">rank opens them · in a manner of speaking</span>
+    </div>
+
+    <div class="gates rise" id="gates-list">
+      <!-- static no-JS rows; the System restyles them by rank when awake -->
+      <div class="gatezw open"><div class="g-rank">E</div><div><div class="g-name"><span class="cjk" lang="zh">十二川</span>the twelve currents</div><div class="g-req">open from the first day</div></div><a class="g-go" href="river.html">enter</a></div>
+      <div class="gatezw"><div class="g-rank">D</div><div><div class="g-name"><span class="cjk" lang="zh">讀畫</span>reading a painting</div><div class="g-req">rank D · level 3</div></div><a class="g-go" href="/#reading">enter anyway</a></div>
+      <div class="gatezw"><div class="g-rank">C</div><div><div class="g-name"><span class="cjk" lang="zh">和韻</span>the answering rhymes</div><div class="g-req">rank C · level 6</div></div><a class="g-go" href="rhymes.html">enter anyway</a></div>
+      <div class="gatezw"><div class="g-rank">B</div><div><div class="g-name"><span class="cjk" lang="zh">暗黑大陸</span>the dark continent</div><div class="g-req">rank B · level 10</div></div><a class="g-go" href="dark-continent.html">enter anyway</a></div>
+      <div class="gatezw"><div class="g-rank">A</div><div><div class="g-name"><span class="cjk" lang="zh">卡書</span>the card book</div><div class="g-req">rank A · level 15</div></div><a class="g-go" href="greed-island.html">enter anyway</a></div>
+      <div class="gatezw"><div class="g-rank">S</div><div><div class="g-name"><span class="cjk" lang="zh">卒業</span>the double dungeon</div><div class="g-req">rank S · level 21</div></div><a class="g-go" href="studio.html">enter anyway</a></div>
+    </div>
+    <p class="gates-truth rise">The gates were never locked. The System just wanted you ready.
+      <span class="zh" lang="zh">門從來冇鎖過——系統只係想你準備好。</span></p>
+  </div>
+</section>
+
+<!-- ============ 04 · shadow gallery ============ -->
+<section id="shadows-hall">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">04</span>
+      <h2><span class="cjk" lang="zh">影軍</span> · the shadow gallery</h2>
+      <span class="sub">everything you have truly beheld follows you</span>
+    </div>
+
+    <div class="rise needs-js">
+      <div class="shadow-count"><span id="sh-count">0</span><small> shadows march behind you</small></div>
+      <div class="shadows" id="shadows"></div>
+      <p class="shadow-empty" id="shadows-empty">no shadows yet — complete a gaze above, then say the word: ARISE.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 · creed ============ -->
+<section id="creed">
+  <div class="wrap">
+    <p class="creed rise">
+      The weakest hunter trained alone, every day, where no one could see.
+      <span class="ice">That was the whole secret.</span>
+      There is no shortcut through the gates and no one you can pay to gaze for you.
+      <span class="zh" lang="zh">獨自修煉，日日不輟。無人代望，無捷徑可走。起來——ARISE。</span>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="/">the front door</a>
+    <a href="river.html">川 the river</a>
+    <a href="rhymes.html">和韻</a>
+    <a href="dark-continent.html">暗黑大陸</a>
+    <a href="greed-island.html">卡書</a>
+  </nav>
+  <p class="sig">a homage in our own hand — the System belongs to Chugong; the daily training belongs to everyone</p>
+</footer>
+
+<div id="toast" role="status"><div class="sysw"><p class="ding" id="toast-ding">ding.</p><p id="toast-body" style="color:var(--ink)"></p></div></div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---- fade-up ---- */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var risers = document.querySelectorAll('.rise');
+  if (reduced || !('IntersectionObserver' in window)) {
+    risers.forEach(function(el){ el.classList.add('seen'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    risers.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ============ the System ============ */
+  var KEY = 'artbitrage-system';
+  var GAZE_SECONDS = 20;
+  var RANKS = [
+    { r:'E', lvl:1,  title:'The One Who Wandered In',   zh:'誤入者' },
+    { r:'D', lvl:3,  title:'Apprentice of Looking',     zh:'見習之眼' },
+    { r:'C', lvl:6,  title:'Keeper of Twenty Seconds',  zh:'廿秒守者' },
+    { r:'B', lvl:10, title:'Reader of Walls',           zh:'讀牆人' },
+    { r:'A', lvl:15, title:'Friend of the Unnamed',     zh:'無名之友' },
+    { r:'S', lvl:21, title:'The One the Museum Knows',  zh:'館所識者' }
+  ];
+  var GATES = [
+    { r:'E', zh:'十二川', name:'the twelve currents',  href:'river.html',          req:'open from the first day' },
+    { r:'D', zh:'讀畫',   name:'reading a painting',   href:'/#reading',           req:'rank D · level 3' },
+    { r:'C', zh:'和韻',   name:'the answering rhymes', href:'rhymes.html',         req:'rank C · level 6' },
+    { r:'B', zh:'暗黑大陸', name:'the dark continent', href:'dark-continent.html', req:'rank B · level 10' },
+    { r:'A', zh:'卡書',   name:'the card book',        href:'greed-island.html',   req:'rank A · level 15' },
+    { r:'S', zh:'卒業',   name:'the double dungeon',   href:'studio.html',         req:'rank S · level 21' }
+  ];
+
+  function load(){
+    /* corrupted-but-parseable storage must never brick the System:
+       merge onto a fresh base, keeping only fields of the right shape */
+    try {
+      var raw = JSON.parse(localStorage.getItem(KEY));
+      if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+      var base = fresh();
+      if (typeof raw.player === 'boolean') base.player = raw.player;
+      if (typeof raw.xp === 'number' && isFinite(raw.xp) && raw.xp >= 0) base.xp = Math.floor(raw.xp);
+      if (typeof raw.streak === 'number' && isFinite(raw.streak) && raw.streak >= 0) base.streak = Math.floor(raw.streak);
+      if (typeof raw.quests === 'number' && isFinite(raw.quests) && raw.quests >= 0) base.quests = Math.floor(raw.quests);
+      if (typeof raw.lastDay === 'string') base.lastDay = raw.lastDay;
+      if (typeof raw.doneDay === 'string') base.doneDay = raw.doneDay;
+      if (typeof raw.born === 'string') base.born = raw.born;
+      if (typeof raw.placardRead === 'boolean') base.placardRead = raw.placardRead;
+      if (Array.isArray(raw.beheldToday))
+        base.beheldToday = raw.beheldToday.filter(function(x){ return typeof x === 'string'; });
+      if (Array.isArray(raw.shadows))
+        base.shadows = raw.shadows.filter(function(s){
+          return s && typeof s === 'object' && typeof s.image === 'string';
+        }).slice(0, 96);
+      return base;
+    } catch(e){ return null; }
+  }
+  function save(st){
+    try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e){}
+  }
+  function fresh(){
+    return { player:false, xp:0, streak:0, lastDay:'', doneDay:'', beheldToday:[], placardRead:false,
+             shadows:[], quests:0, born:dayKey() };
+  }
+  function dayKey(){
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  }
+  function daySeed(){
+    /* seed and daily reset share one boundary: the local calendar date */
+    var s = dayKey(), h = 0;
+    for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+    return h;
+  }
+  function levelOf(xp){ return Math.floor(xp / 100) + 1; }
+  function rankOf(lvl){
+    var cur = RANKS[0];
+    RANKS.forEach(function(r){ if (lvl >= r.lvl) cur = r; });
+    return cur;
+  }
+
+  var st = load() || fresh();
+
+  /* day rollover: reset today's quest state; the streak survives only if
+     yesterday's quest was completed. Runs again whenever the tab wakes,
+     so a tab left open across midnight cannot double-complete. */
+  var today = dayKey();
+  function rollover(){
+    var now = dayKey();
+    var changed = (today !== now);
+    if (st.lastDay && st.lastDay !== now) {
+      var gapDone = st.doneDay ? (new Date(now) - new Date(st.doneDay)) / 864e5 : Infinity;
+      if (gapDone > 1 && st.streak > 0) {
+        st.streak = 0;
+        queueToast('[ PENALTY ]', 'a day passed unseen. the streak returns to zero. the works are not offended — they have waited centuries.');
+      }
+      st.beheldToday = []; st.placardRead = false;
+    }
+    st.lastDay = now; today = now;
+    save(st);
+    return changed;
+  }
+  rollover();
+
+  /* if the calendar turned while we were open, restart the day */
+  function syncDay(){
+    if (!rollover()) return false;
+    showToast('[ SYSTEM ]', 'a new day. the quest resets — dailiness is the point.');
+    renderStatus(); loadQuest();
+    return true;
+  }
+  document.addEventListener('visibilitychange', function(){ if (!document.hidden) syncDay(); });
+  window.addEventListener('focus', function(){ syncDay(); });
+
+  /* ---- toast ---- */
+  var toastTimer = null, toastQueue = [];
+  function queueToast(ding, body){ toastQueue.push([ding, body]); }
+  function showToast(ding, body){
+    var t = document.getElementById('toast');
+    document.getElementById('toast-ding').textContent = ding;
+    document.getElementById('toast-body').textContent = body;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 4600);
+  }
+  function drainToasts(){
+    if (!toastQueue.length) return;
+    var next = toastQueue.shift();
+    showToast(next[0], next[1]);
+    if (toastQueue.length) setTimeout(drainToasts, 5000);
+  }
+
+  /* ---- boot window ---- */
+  var bootTitle = document.getElementById('boot-title'),
+      bootBody  = document.getElementById('boot-body'),
+      bootZh    = document.getElementById('boot-zh'),
+      bootAct   = document.getElementById('boot-actions');
+
+  function renderBoot(){
+    bootAct.textContent = '';
+    if (!st.player) {
+      bootTitle.textContent = 'You have acquired the qualifications to be a Player.';
+      bootBody.textContent  = 'The System has been watching the way you look at things. It would like to train you. Daily quests. Ranks E through S. No servers, no accounts — everything stays in this browser.';
+      bootZh.textContent    = '叮。你已獲得玩家資格。系統想訓練你：每日任務，E至S級。一切只存於此瀏覽器。';
+      var acc = mkBtn('Accept · 接受', function(){
+        st.player = true; save(st);
+        showToast('[ SYSTEM ]', 'welcome, Player. your first quest is below. it has always been below.');
+        renderBoot(); renderStatus();
+      });
+      var no = mkBtn('not today', function(){
+        bootTitle.textContent = 'The System understands.';
+        bootBody.textContent  = 'The museum is open regardless. The System will ask again — it is patient the way stone is patient.';
+        bootZh.textContent    = '系統明白。博物館照常開放。它會再問——石頭嘅耐性。';
+        bootAct.textContent = '';
+      });
+      no.className = 'sys-btn quiet';
+      bootAct.appendChild(acc); bootAct.appendChild(no);
+    } else {
+      var rk = rankOf(levelOf(st.xp));
+      bootTitle.textContent = 'Welcome back, Player.';
+      bootBody.textContent  = 'rank ' + rk.r + ' · level ' + levelOf(st.xp) + ' · streak ' + st.streak +
+        (st.doneDay === today ? ' — today’s quest is complete.' : ' — today’s quest awaits below.');
+      bootZh.textContent    = st.doneDay === today ? '今日已修煉。明日請早。' : '今日任務未完成——落去，望。';
+      var go = mkBtn(st.doneDay === today ? 'view status' : 'to the quest ↓', function(){
+        location.hash = st.doneDay === today ? '#status' : '#quest';
+      });
+      bootAct.appendChild(go);
+    }
+  }
+  function mkBtn(label, fn){
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'sys-btn'; b.textContent = label;
+    b.addEventListener('click', fn);
+    return b;
+  }
+
+  /* ---- daily quest: 3 works, day-keyed from a wing shard ---- */
+  var questWorks = [], wingInfo = null;
+  var qWrap = document.getElementById('quest-works');
+
+  function loadQuest(){
+    questWorks = [];
+    document.getElementById('quest-date').textContent = today + ' · wing of the day';
+    document.getElementById('placard-step').hidden = true;
+    fetch('/catalog/index.json')
+      .then(function(r){ return r.json(); })
+      .then(function(idx){
+        var wing = idx.wings[daySeed() % idx.wings.length];
+        wingInfo = wing;
+        document.getElementById('quest-date').textContent = today + ' · today’s wing: ' + wing.title;
+        return fetch('/catalog/' + wing.wing + '.json').then(function(r){ return r.json(); });
+      })
+      .then(function(shard){
+        var works = shard.artworks || [];
+        if (!works.length) throw new Error('empty wing');
+        var seed = daySeed();
+        var picked = [], used = {};
+        for (var i = 0; picked.length < 3 && i < 60; i++) {
+          var idx2 = (seed + i * 13) % works.length;
+          if (!used[idx2] && works[idx2] && works[idx2].image) { used[idx2] = 1; picked.push(works[idx2]); }
+        }
+        questWorks = picked;
+        renderQuest();
+      })
+      .catch(function(){
+        qWrap.innerHTML = '';
+        document.getElementById('placard-step').hidden = true;
+        var p = document.createElement('p');
+        p.style.cssText = 'font-family:var(--mono);font-size:.7rem;color:var(--dim);letter-spacing:.14em';
+        p.textContent = 'the gate is quiet — the catalogue could not be reached. the museum itself is still open.';
+        qWrap.appendChild(p);
+      });
+  }
+  loadQuest();
+
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function renderQuest(){
+    qWrap.textContent = '';
+    questWorks.forEach(function(w, i){
+      var card = el('div', 'qwork');
+      var imgbox = el('div', 'qimg');
+      var img = document.createElement('img');
+      img.src = w.thumbnail || w.image; img.alt = w.title || 'artwork';
+      img.loading = 'lazy'; img.decoding = 'async';
+      imgbox.appendChild(img);
+      var veil = el('div', 'qveil', 'gaze · ' + GAZE_SECONDS + 's');
+      imgbox.appendChild(veil);
+      card.appendChild(imgbox);
+      var meta = el('div', 'qmeta');
+      meta.appendChild(el('div', 'qt', w.title || 'Untitled'));
+      meta.appendChild(el('div', 'qa', (w.artist || '無名氏 anonymous') + (w.date ? ' · ' + w.date : '')));
+      var bar = el('div', 'qbar'); var fill = document.createElement('i'); bar.appendChild(fill);
+      meta.appendChild(bar);
+      var state = el('div', 'qstate');
+      meta.appendChild(state);
+      card.appendChild(meta);
+      qWrap.appendChild(card);
+
+      state.setAttribute('role', 'status');
+
+      var done = st.beheldToday.indexOf(w.image) !== -1;
+      if (done) { finishGaze(card, fill, state); return; }
+
+      var timer = null, elapsed = 0, pausedShown = false;
+      var goBtn = el('button', 'arise', 'begin gaze · 凝視');
+      goBtn.type = 'button';
+      goBtn.setAttribute('aria-label', 'begin a ' + GAZE_SECONDS + '-second gaze at ' + (w.title || 'this work'));
+      state.appendChild(goBtn);
+
+      function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+      function cancel(){
+        stop(); elapsed = 0; pausedShown = false;
+        card.classList.remove('gazing');
+        fill.style.transform = 'scaleX(0)';
+        goBtn.textContent = 'begin gaze · 凝視';
+      }
+      function start(){
+        if (timer || done) return;
+        card.classList.add('gazing');
+        goBtn.textContent = 'stop · ' + GAZE_SECONDS + 's left';
+        timer = setInterval(function(){
+          if (document.hidden) {            /* the System only counts while you look */
+            if (!pausedShown) { pausedShown = true; goBtn.textContent = 'paused — the System only counts while you look'; }
+            return;
+          }
+          pausedShown = false;
+          elapsed++;
+          fill.style.transform = 'scaleX(' + Math.min(1, elapsed / GAZE_SECONDS) + ')';
+          if (elapsed >= GAZE_SECONDS) { stop(); offerArise(); }
+          else goBtn.textContent = 'stop · ' + (GAZE_SECONDS - elapsed) + 's left';
+        }, 1000);
+      }
+      function offerArise(){
+        state.textContent = '';
+        var btn = el('button', 'arise', 'ARISE · 起來');
+        btn.type = 'button';
+        btn.addEventListener('click', function(){
+          if (syncDay()) return;            /* the calendar turned mid-gaze: new day, new quest */
+          done = true;
+          st.beheldToday.push(w.image);
+          st.shadows.unshift({ image: w.thumbnail || w.image, title: w.title || 'Untitled', url: w.url || '#' });
+          if (st.shadows.length > 96) st.shadows.length = 96;
+          st.xp += 10; save(st);
+          finishGaze(card, fill, state);
+          renderStatus(); renderShadows(); updateProgress();
+          showToast('[ ARISE ]', '「' + (w.title || 'the work') + '」 rises. a shadow joins your gallery. +10 xp');
+        });
+        state.appendChild(btn);
+        btn.focus();
+      }
+      goBtn.addEventListener('click', function(){
+        if (timer) { cancel(); return; }
+        if (!done && elapsed < GAZE_SECONDS) start();
+      });
+      card.addEventListener('click', function(e){
+        if (e.target.closest('button')) return;
+        if (!timer && !done && elapsed < GAZE_SECONDS) start();
+      });
+    });
+    updateProgress();
+  }
+
+  function finishGaze(card, fill, state){
+    card.classList.add('beheld', 'gazing');
+    fill.style.transform = 'scaleX(1)';
+    state.textContent = 'beheld · shadow secured';
+  }
+
+  function updateProgress(){
+    var n = st.beheldToday.length;
+    document.getElementById('quest-progress').textContent =
+      'gaze ' + Math.min(n,3) + ' / 3 · placard ' + (st.placardRead ? 'read' : 'unread');
+    var step = document.getElementById('placard-step');
+    /* only offer the placard once today's works are actually loaded */
+    if (questWorks.length && n >= 3 && !st.placardRead && st.doneDay !== today) {
+      var wasHidden = step.hidden;
+      step.hidden = false;
+      renderPlacard();
+      if (wasHidden) {
+        var box = document.getElementById('placard-box');
+        if (box) box.focus();
+      }
+    }
+    document.getElementById('quest-done-line').hidden = !(st.doneDay === today);
+  }
+
+  function renderPlacard(){
+    if (!questWorks.length) return;
+    var w = questWorks[0];
+    document.getElementById('pl-title').textContent = w.title || 'Untitled';
+    document.getElementById('pl-body').textContent =
+      (w.artist ? w.artist + ' · ' : '') + (w.date || '') + (w.medium ? ' · ' + w.medium : '') +
+      ' · ' + (w.source_name || '') + (wingInfo ? ' — from the wing “' + wingInfo.title + '”: ' + wingInfo.description : '');
+    document.getElementById('pl-zh').textContent = '讀展牌，即係畀件作品一個開口嘅機會。';
+    var btn = document.getElementById('pl-read');
+    btn.onclick = function(){
+      if (syncDay()) return;               /* the calendar turned: restart the day honestly */
+      st.placardRead = true;
+      st.doneDay = today;
+      st.streak += 1;
+      st.quests += 1;
+      st.xp += 40 + Math.min(25, st.streak * 5);
+      save(st);
+      document.getElementById('placard-step').hidden = true;
+      updateProgress(); renderStatus();
+      var doneLine = document.getElementById('quest-done-line');
+      if (doneLine && !doneLine.hidden) doneLine.focus();
+      var lvl = levelOf(st.xp), rk = rankOf(lvl);
+      showToast('[ QUEST COMPLETE ]', 'streak ' + st.streak + ' · +40 xp (+' + Math.min(25, st.streak*5) + ' streak bonus) · rank ' + rk.r + ' lv.' + lvl);
+    };
+  }
+
+  /* ---- status ---- */
+  function renderStatus(){
+    var lvl = levelOf(st.xp), rk = rankOf(lvl);
+    document.getElementById('st-rank').textContent = rk.r;
+    document.getElementById('st-level').textContent = lvl;
+    document.getElementById('st-streak').textContent = st.streak;
+    document.getElementById('st-shadows').textContent = st.shadows.length;
+    document.getElementById('st-title').textContent = rk.title + ' ' + rk.zh;
+    var into = st.xp % 100;
+    document.getElementById('xp-fill').style.transform = 'scaleX(' + (into / 100) + ')';
+    document.getElementById('xp-note').textContent = 'xp ' + st.xp + ' · next level at ' + (Math.floor(st.xp/100)+1)*100 +
+      (rk.r === 'S' ? ' · the System has nothing left to teach — 卒業' : '');
+    renderGates(lvl);
+  }
+
+  /* ---- gates ---- */
+  function renderGates(lvl){
+    var list = document.getElementById('gates-list');
+    list.textContent = '';
+    GATES.forEach(function(g){
+      var need = RANKS.filter(function(r){ return r.r === g.r; })[0].lvl;
+      var open = lvl >= need;
+      var row = el('div', 'gatezw' + (open ? ' open' : ''));
+      row.appendChild(el('div', 'g-rank', g.r));
+      var mid = el('div', '');
+      var nm = el('div', 'g-name');
+      var c = el('span', 'cjk', g.zh); c.setAttribute('lang','zh');
+      nm.appendChild(c); nm.appendChild(document.createTextNode(g.name));
+      mid.appendChild(nm);
+      mid.appendChild(el('div', 'g-req', open ? 'gate cleared — the System acknowledges' : g.req));
+      row.appendChild(mid);
+      var a = document.createElement('a');
+      a.className = 'g-go'; a.href = g.href;
+      a.textContent = open ? 'enter' : 'enter anyway';
+      row.appendChild(a);
+      list.appendChild(row);
+    });
+  }
+
+  /* ---- shadows ---- */
+  function renderShadows(){
+    var wrap = document.getElementById('shadows');
+    var empty = document.getElementById('shadows-empty');
+    document.getElementById('sh-count').textContent = st.shadows.length;
+    wrap.textContent = '';
+    empty.style.display = st.shadows.length ? 'none' : 'block';
+    st.shadows.forEach(function(s){
+      var a = document.createElement('a');
+      a.className = 'shadow'; a.href = s.url; a.target = '_blank'; a.rel = 'noopener';
+      var img = document.createElement('img');
+      img.src = s.image; img.alt = s.title; img.loading = 'lazy'; img.decoding = 'async';
+      a.appendChild(img);
+      a.appendChild(el('span', 's-tip', s.title));
+      wrap.appendChild(a);
+    });
+  }
+
+  renderBoot();
+  renderStatus();
+  renderShadows();
+  updateProgress();
+  drainToasts();
+})();
+</script>
+</body>
+</html>
