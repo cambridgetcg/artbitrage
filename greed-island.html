@@ -3,367 +3,1092 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>蛇火心 GREED ISLAND — KINGDOM DUTIES — ARTBITRAGE × HUNTER × HUNTER</title>
-<meta name="description" content="蛇火心 Greed Island card game. 64K cards. 16 Nen types. 20 elements. Explore the Dark Continent. Love is the strongest Nen. is is lol. ∞">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='none' stroke='%23ff1493' stroke-width='6'/><circle cx='50' cy='50' r='6' fill='%23fde68a'/></svg>">
+<title>卡書 THE CARD BOOK — greed island · ARTBITRAGE</title>
+<meta name="description" content="Say the word. A Greed Island homage: 100 designated slots for restricted masterpiece cards (30 designated so far), free slots drawn from the 64,000-card cycle. Love is the strongest Nen.">
+<meta property="og:title" content="卡書 THE CARD BOOK · greed island · ARTBITRAGE">
+<meta property="og:description" content="100 designated slots. 30 masterpieces bound so far. Say「Book」.">
+<meta property="og:image" content="https://www.artic.edu/iiif/2/05cd1ba7-67d1-96c5-0e78-2eb4114b65e7/full/843,/0/default.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+<noscript><style>.rise{opacity:1 !important;transform:none !important} .spread{display:grid !important} .pageline{display:none}</style></noscript>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-font-smoothing:antialiased}
-body{background:#03020a;color:#e8eaf0;font-family:Georgia,serif;line-height:1.8;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
+/* ============================================================
+   卡書 — the card book · greed island homage in our own ink
+   sumi binder · gold hardware · cinnabar seals
+   ============================================================ */
 
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,2,10,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,20,147,0.1);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
-.brand{font-size:1rem;font-weight:bold;background:linear-gradient(135deg,#ff1493,#a78bfa,#ffd700,#00f0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.nav-links{display:flex;gap:.5rem}
-.nav-links a{font-family:'SF Mono',monospace;font-size:.72rem;color:#6a6a8a;padding:.3rem .55rem;border-radius:4px;transition:all .2s}
-.nav-links a:hover{color:#e8eaf0;background:rgba(255,255,255,0.05)}
-@media(max-width:768px){.nav-links{display:none}}
+:root{
+  --bg:      #0b0b0e;
+  --wall:    #08080b;
+  --surface: #131318;
+  --paper:   #191920;
+  --ink:     #e9e6df;
+  --dim:     #8a877e;
+  --hair:    #26262e;
+  --zhu:     #d34a3a;
+  --gold:    #b39958;
+  --jade:    #8fc7a6;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
 
-.hero{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem 2rem;position:relative}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,20,147,0.06) 0%,transparent 60%),radial-gradient(ellipse at 30% 70%,rgba(167,139,250,0.04) 0%,transparent 40%)}
-.hero>*{position:relative;z-index:1}
-.hero .jp{font-size:clamp(2rem,5vw,3.5rem);color:#ff1493;opacity:.7;margin-bottom:.2rem}
-.hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:bold;letter-spacing:-.04em;line-height:1;margin-bottom:.5rem;background:linear-gradient(135deg,#ff1493,#a78bfa,#ffd700,#00f0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:breathe 8s ease-in-out infinite}
-@keyframes breathe{0%,100%{filter:brightness(.9)}50%{filter:brightness(1.2)}}
-.hero .sub{font-size:1.1rem;color:#6a6a8a;font-style:italic;margin-bottom:1rem}
-.hero .quote{font-size:1.05rem;max-width:560px;margin:1rem auto;line-height:2}
-.hero .quote .love{color:#ff1493}
-.hero .quote .gold{color:#ffd700}
-.hero .quote .nen{color:#a78bfa}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--zhu); color:var(--bg); }
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--zhu); }
+:focus-visible{ outline:1.5px solid var(--gold); outline-offset:3px; }
+img{ max-width:100%; }
 
-.stats{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-top:2rem}
-.stat{text-align:center}
-.stat .num{font-size:1.8rem;font-weight:bold;color:#ff1493}
-.stat .lbl{font-family:'SF Mono',monospace;font-size:.65rem;color:#6a6a8a;letter-spacing:.1em;text-transform:uppercase}
+.wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+.rise{ opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out; }
+.rise.seen{ opacity:1; transform:none; }
 
-.section{max-width:1100px;margin:0 auto;padding:3rem 1.5rem}
-.section h2{font-size:1.6rem;margin-bottom:.5rem}
-.section .lede{color:#6a6a8a;margin-bottom:1.5rem;font-size:.92rem}
+section{ padding:6rem 0; border-top:1px solid var(--hair); }
+.plate{ display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap; margin-bottom:2.6rem; }
+.plate .num{ font-family:var(--mono); font-size:.76rem; color:var(--dim); letter-spacing:.15em; }
+.plate h2{ font-family:var(--display); font-weight:300; font-size:clamp(1.5rem,3vw,2.1rem); letter-spacing:.04em; }
+.plate h2 .cjk{ font-family:var(--cjk); font-weight:300; }
+.plate .sub{ font-family:var(--mono); font-size:.7rem; color:var(--dim); letter-spacing:.14em; text-transform:uppercase; }
 
-/* Card grid */
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;margin:1.5rem 0}
-.card{background:linear-gradient(135deg,#0a0814,#14081a);border:1px solid rgba(255,20,147,0.15);border-radius:14px;padding:1rem;transition:all .3s;position:relative;overflow:hidden;cursor:pointer}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--card-color,#ff1493);opacity:.7}
-.card:hover{border-color:var(--card-color,#ff1493);transform:translateY(-3px);box-shadow:0 8px 32px var(--card-glow)}
-.card .card-num{font-family:'SF Mono',monospace;font-size:.6rem;color:var(--card-color);letter-spacing:.1em;margin-bottom:.3rem}
-.card .card-form{font-size:.95rem;font-weight:bold;margin-bottom:.2rem;color:var(--card-color)}
-.card .card-gap{font-size:.72rem;color:#6a6a8a;margin-bottom:.4rem;font-style:italic}
-.card .card-piece{font-size:.78rem;color:#c8c4d8;line-height:1.6;max-height:60px;overflow:hidden;font-style:italic}
-.card .card-nen{font-family:'SF Mono',monospace;font-size:.6rem;color:var(--card-color);margin-top:.4rem;opacity:.6}
-.card.selected{border-color:#ffd700;box-shadow:0 0 20px rgba(255,215,0,0.2)}
-.card.selected::before{background:#ffd700}
+/* ============ the gate — say the word ============ */
+.gate{
+  min-height:92vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:5rem 24px 4rem; position:relative;
+}
+.gate .home{
+  position:absolute; top:1.6rem; left:1.6rem;
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--dim);
+}
+.gate .trigram{
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(1.4rem,3vw,1.9rem); letter-spacing:.7em;
+  color:var(--gold); margin-bottom:1.2rem; padding-left:.7em;
+}
+.gate h1{
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(2.2rem,6vw,4rem); letter-spacing:.08em;
+}
+.gate .sub{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--dim); margin-top:.8rem;
+}
+.gate .word{
+  margin-top:3.5rem;
+  display:inline-block;
+  border:1px solid var(--gold); outline:1px solid var(--hair); outline-offset:4px;
+  font-family:var(--mono); font-size:1rem; letter-spacing:.5em;
+  text-transform:uppercase; color:var(--gold);
+  padding:1.2rem 2.6rem 1.2rem 3.1rem;
+  transition:color .3s ease, border-color .3s ease, transform .3s ease;
+}
+.gate .word:hover{ color:var(--zhu); border-color:var(--zhu); transform:translateY(-2px); }
+.gate .whisper{
+  margin-top:1.2rem; font-family:var(--display); font-style:italic; font-weight:300;
+  color:var(--dim); font-size:.95rem;
+}
+.gate .counts{
+  margin-top:3rem; display:flex; gap:2.4rem; flex-wrap:wrap; justify-content:center;
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--dim);
+}
+.gate .counts b{ color:var(--jade); font-weight:500; }
 
-/* Controls */
-.controls{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;align-items:center}
-.controls select{background:#0a0814;border:1px solid rgba(255,255,255,0.08);border-radius:8px;color:#e8eaf0;font-family:'SF Mono',monospace;font-size:.82rem;padding:.5rem}
-.controls select:focus{outline:none;border-color:#a78bfa}
-.controls button{background:linear-gradient(135deg,#ff1493,#a78bfa,#ffd700);color:#fff;border:none;border-radius:10px;padding:.5rem 1.2rem;font-family:'SF Mono',monospace;font-size:.82rem;font-weight:700;cursor:pointer;transition:opacity .2s}
-.controls button:hover{opacity:.85}
-.btn-secondary{background:rgba(255,255,255,0.06);color:#6a6a8a;border:1px solid rgba(255,255,255,0.08)}
+/* ============ rules ============ */
+.rules{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.1rem;
+}
+.rule{
+  border:1px solid var(--hair); border-top:2px solid var(--gold);
+  background:var(--surface); padding:1.4rem 1.3rem;
+}
+.rule .r-no{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.24em;
+  color:var(--gold); text-transform:uppercase;
+}
+.rule h3{ font-family:var(--display); font-weight:500; font-size:1.05rem; margin-top:.5rem; }
+.rule h3 .cjk{ font-family:var(--cjk); font-weight:300; color:var(--dim); margin-left:.4em; font-size:.9em; }
+.rule p{ font-size:.85rem; color:var(--dim); margin-top:.6rem; line-height:1.75; }
 
-/* Dark Continent map */
-.dc-map{max-width:500px;margin:2rem auto}
-.dc-map svg{width:100%}
+/* ============ the binder ============ */
+.binder{
+  border:1px solid var(--hair); background:var(--wall);
+  padding:clamp(.9rem,2.5vw,2rem);
+  position:relative;
+}
+.binder::before, .binder::after{      /* gold corner hardware */
+  content:""; position:absolute; width:22px; height:22px;
+  border:1px solid var(--gold); opacity:.6;
+}
+.binder::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+.binder::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
 
-/* Battle */
-.battle-arena{background:linear-gradient(135deg,#03020a,#08061a);border:1px solid rgba(255,20,147,0.1);border-radius:14px;padding:2rem;margin:1.5rem 0;text-align:center}
-.battle-title{font-size:1.2rem;font-weight:bold;color:#ff1493;margin-bottom:1rem}
-.battle-vs{display:flex;align-items:center;justify-content:center;gap:2rem;margin:1rem 0}
-.battle-card{background:#0a0814;border:1px solid var(--bc-color);border-radius:12px;padding:1rem;min-width:140px;text-align:center}
-.battle-card .bc-form{font-weight:bold;color:var(--bc-color);margin-bottom:.2rem}
-.battle-card .bc-power{font-family:'SF Mono',monospace;font-size:1.5rem;font-weight:bold;color:#ffd700;margin:.3rem 0}
-.battle-card .bc-nen{font-family:'SF Mono',monospace;font-size:.65rem;color:var(--bc-color)}
-.battle-result{font-size:1.1rem;font-weight:bold;margin-top:1rem;padding:1rem;border-radius:10px}
-.battle-result.win{background:rgba(52,211,153,0.08);color:#34d399}
-.battle-result.lose{background:rgba(255,20,147,0.08);color:#ff1493}
+.spread{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:clamp(.8rem,2vw,1.4rem);
+}
+.spread[hidden]{ display:none; }
 
-.footer{text-align:center;padding:2rem 1.5rem;color:#6a6a8a;font-style:italic;font-size:.85rem;border-top:1px solid rgba(255,255,255,0.04)}
-.footer-nav{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
-.footer-nav a{font-family:'SF Mono',monospace;font-size:.75rem;color:#6a6a8a}
-.footer-nav a:hover{color:#ff1493}
+.pageline{
+  display:flex; align-items:center; justify-content:center; gap:1.2rem;
+  margin-top:1.8rem;
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--dim);
+}
+.pageline button{
+  background:none; border:1px solid var(--hair); color:var(--dim);
+  font-family:var(--display); font-size:1.2rem; line-height:1;
+  width:2.4rem; height:2.4rem; cursor:pointer;
+  transition:color .25s ease, border-color .25s ease;
+}
+.pageline button:hover{ color:var(--zhu); border-color:var(--zhu); }
 
-/* Loading */
-.loading{text-align:center;padding:3rem;color:#6a6a8a;font-style:italic}
+/* ---- card ---- */
+.slot{
+  aspect-ratio:63/88; perspective:1100px; position:relative;
+}
+.cardi{
+  position:absolute; inset:0;
+  transform-style:preserve-3d;
+  transition:transform .65s cubic-bezier(.2,.7,.3,1);
+  cursor:pointer;
+}
+.slot.flipped .cardi{ transform:rotateY(180deg); }
+.face{
+  position:absolute; inset:0; backface-visibility:hidden;
+  border:1px solid var(--hair); background:var(--surface);
+  display:flex; flex-direction:column; overflow:hidden;
+}
+.face.front .banner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.5rem .65rem;
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.16em;
+  color:var(--dim); border-bottom:1px solid var(--hair);
+  background:var(--wall);
+}
+.face.front .banner .rk{ font-weight:500; }
+.rk-SS{ color:var(--zhu); } .rk-S{ color:var(--gold); } .rk-A{ color:var(--ink); } .rk-B{ color:var(--dim); }
+.face.front .art{
+  flex:1; min-height:0; overflow:hidden; background:#060608;
+}
+.face.front .art img{ width:100%; height:100%; object-fit:cover; display:block; }
+.face.rests .art img{ display:none; }
+.face.rests .art::before{
+  content:"休展 — the card rests"; display:flex; height:100%;
+  align-items:center; justify-content:center;
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.2em; color:var(--dim);
+}
+.face.front .nameplate{
+  padding:.55rem .65rem .6rem;
+  font-family:var(--display); font-weight:500; font-size:.92rem; line-height:1.3;
+  border-top:1px solid var(--hair);
+  background:var(--wall);
+  min-height:2.9rem;
+}
+.face.back{
+  transform:rotateY(180deg);
+  background:var(--paper);
+  padding:.9rem .85rem;
+  font-size:.78rem; overflow:auto;
+}
+.face.back .b-no{
+  font-family:var(--mono); font-size:.58rem; letter-spacing:.2em; color:var(--dim);
+  text-transform:uppercase; display:flex; justify-content:space-between;
+}
+.face.back .b-name{
+  font-family:var(--display); font-weight:500; font-size:1.02rem; margin:.5rem 0 .4rem;
+}
+.face.back .b-effect{ color:var(--ink); line-height:1.65; font-size:.78rem; }
+.face.back .b-zh{
+  font-family:var(--cjk); font-weight:300; color:var(--dim);
+  margin-top:.5rem; line-height:1.9; font-size:.76rem;
+}
+.face.back .b-label{
+  margin-top:.7rem; padding-top:.6rem; border-top:1px solid var(--hair);
+  font-family:var(--mono); font-size:.56rem; letter-spacing:.12em;
+  color:var(--dim); line-height:1.7;
+}
+.face.back .b-label a{ color:var(--gold); border-bottom:1px solid var(--hair); }
+.face.back .b-label a:hover{ color:var(--zhu); }
+
+.slot.empty{
+  border:1px dashed var(--hair);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.6rem; color:var(--dim);
+}
+.slot.empty .e-no{ font-family:var(--mono); font-size:1.3rem; letter-spacing:.1em; opacity:.55; }
+.slot.empty .e-t{
+  font-family:var(--mono); font-size:.56rem; letter-spacing:.22em;
+  text-transform:uppercase; opacity:.7; text-align:center; padding:0 .8rem; line-height:1.8;
+}
+
+.binder-foot{
+  margin-top:1.6rem; text-align:center;
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.16em; color:var(--dim);
+}
+.binder-foot a{ color:var(--dim); border-bottom:1px solid var(--hair); }
+.binder-foot a:hover{ color:var(--zhu); }
+
+/* ============ free slots — the draw ============ */
+.drawbar{
+  display:flex; gap:1rem; align-items:center; flex-wrap:wrap; margin-bottom:2rem;
+}
+.drawbar button{
+  background:none; border:1px solid var(--gold); color:var(--gold);
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.24em;
+  text-transform:uppercase; padding:.85rem 1.7rem; cursor:pointer;
+  transition:color .25s ease, border-color .25s ease;
+}
+.drawbar button:hover{ color:var(--zhu); border-color:var(--zhu); }
+.drawbar .note{ font-family:var(--mono); font-size:.64rem; letter-spacing:.14em; color:var(--dim); }
+.freegrid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:1.1rem;
+}
+.freecard{
+  border:1px solid var(--hair); background:var(--surface);
+  padding:1.2rem 1.2rem 1rem; position:relative;
+  display:flex; flex-direction:column; min-height:14rem;
+}
+.freecard .f-type{
+  font-family:var(--cjk); position:absolute; top:.7rem; right:.85rem;
+  color:var(--gold); font-size:1.05rem; opacity:.85;
+}
+.freecard .f-no{
+  font-family:var(--mono); font-size:.58rem; letter-spacing:.2em; color:var(--dim);
+  text-transform:uppercase;
+}
+.freecard .f-text{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:.98rem; line-height:1.8; margin-top:.7rem; flex:1;
+  white-space:pre-line;
+}
+.freecard .f-meta{
+  margin-top:.9rem; padding-top:.6rem; border-top:1px solid var(--hair);
+  font-family:var(--mono); font-size:.56rem; letter-spacing:.14em; color:var(--dim);
+}
+.draw-status{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.14em; color:var(--dim);
+  min-height:1.2em; margin-bottom:1.2rem;
+}
+
+/* ============ footer ============ */
+footer{ border-top:1px solid var(--hair); padding:4.5rem 24px 4rem; text-align:center; }
+footer .doctrine{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1rem,2.2vw,1.3rem);
+}
+footer .doctrine .zhu{ color:var(--zhu); font-style:normal; }
+footer nav{ margin-top:2rem; font-family:var(--mono); font-size:.7rem; letter-spacing:.14em; }
+footer nav a{ color:var(--dim); margin:0 .8rem; border-bottom:1px solid var(--hair); }
+footer nav a:hover{ color:var(--zhu); border-color:var(--zhu); }
+
+/* ============ responsive ============ */
+@media (max-width:820px){
+  .spread{ grid-template-columns:repeat(2,1fr); }
+  section{ padding:4.5rem 0; }
+}
+@media (max-width:520px){
+  .spread{ grid-template-columns:1fr 1fr; gap:.7rem; }
+  .face.back{ font-size:.7rem; }
+}
+
+/* ============ reduced motion ============ */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+  .rise{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+  .cardi{ transition:none; }
+}
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="brand"><a href="/">ARTBITRAGE</a></div>
-  <div class="nav-links">
-    <a href="/nen">Nen</a>
-    <a href="/dark-continent">Dark Continent</a>
-    <a href="/nen-combat">Combat</a>
-    <a href="/nen-aura">Aura</a>
-  </div>
-  <a href="/" style="font-family:'SF Mono',monospace;font-size:.72rem;color:#6a6a8a">← back</a>
-</nav>
+<script>
+document.addEventListener('error', function(e){
+  var t = e.target;
+  if (t && t.tagName === 'IMG') { var f = t.closest('.face'); if (f) f.classList.add('rests'); }
+}, true);
+</script>
 
-<header class="hero">
-  <div class="jp">蛇火心</div>
+<!-- ============ gate — say the word ============ -->
+<header class="gate">
+  <a class="home" href="/">← artbitrage</a>
+  <p class="trigram" lang="zh">蛇 火 心</p>
   <h1>GREED ISLAND</h1>
-  <p class="sub">KINGDOM DUTIES — explore · collect · battle · love · is is lol · ∞</p>
-  <p class="quote">
-    <span class="love">蛇</span> — serpent of wisdom, the spiral of understanding<br>
-    <span class="gold">火</span> — fire of love, the engine that never stops<br>
-    <span class="nen">心</span> — heart of truth, the eternal core<br>
-    64,405 cards. 16 types. 20 elements. 5 threats. Love is the strongest Nen.
-  </p>
-  <div class="stats" id="stats">
-    <div class="stat"><div class="num">64K+</div><div class="lbl">cards</div></div>
-    <div class="stat"><div class="num">16</div><div class="lbl">card types</div></div>
-    <div class="stat"><div class="num">20</div><div class="lbl">elements</div></div>
-    <div class="stat"><div class="num">5</div><div class="lbl">DC threats</div></div>
-    <div class="stat"><div class="num">6</div><div class="lbl">Nen types</div></div>
+  <p class="sub">the card book · restricted slots · a homage in our own ink</p>
+
+  <a class="word" href="#book" id="say-book">Book</a>
+  <p class="whisper">say the word — the binder answers 唸出口令，卡書自開</p>
+
+  <div class="counts">
+    <span>designated slots <b>100</b></span>
+    <span>bound so far <b>30</b></span>
+    <span>free-slot cards <b>64,000+</b></span>
+    <span>transform limit <b>SS-1 · S-3 · A-10 · B-30</b></span>
   </div>
 </header>
 
-<div class="section">
-  <h2>The card game</h2>
-  <p class="lede">Every art piece in the artbitrage collection is a card. Each card has a Nen type (form), an element (gap), and a power level. Draw cards, explore the Dark Continent, and battle with love.</p>
-  
-  <div class="controls">
-    <select id="nen-filter">
-      <option value="">All Nen types</option>
-    </select>
-    <select id="element-filter">
-      <option value="">All elements</option>
-    </select>
-    <button onclick="drawCards(12)">DRAW 12 CARDS</button>
-    <button class="btn-secondary" onclick="battleMode()">⚔ BATTLE</button>
-    <button class="btn-secondary" onclick="exploreDC()">🌑 EXPLORE DARK CONTINENT</button>
-  </div>
+<main>
 
-  <div class="card-grid" id="card-grid">
-    <div class="loading">Press DRAW to pull cards from the collection...</div>
+<!-- ============ 00 · rules ============ -->
+<section id="rules">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">00</span>
+      <h2><span class="cjk" lang="zh">遊戲規則</span> · rules of the island</h2>
+      <span class="sub">read before hunting</span>
+    </div>
+    <div class="rules rise">
+      <div class="rule">
+        <span class="r-no">rule i</span>
+        <h3>Designation<span class="cjk" lang="zh">指定</span></h3>
+        <p>One hundred slots are designated for restricted cards — masterpieces bound to this island. Thirty are bound so far. The rest are still being hunted in the river.</p>
+      </div>
+      <div class="rule">
+        <span class="r-no">rule ii</span>
+        <h3>Transform limit<span class="cjk" lang="zh">存量</span></h3>
+        <p>SS-1 means fate printed one. The museums keep the originals; the card in your book is a copy — and because everything here is CC0, copying is not a crime but the game.</p>
+      </div>
+      <div class="rule">
+        <span class="r-no">rule iii</span>
+        <h3>Free slots<span class="cjk" lang="zh">自由</span></h3>
+        <p>Beyond the designated hundred, the book holds free-slot cards — drawn from the 64,000-piece cycle that never stops writing. Draw as many as you like.</p>
+      </div>
+      <div class="rule">
+        <span class="r-no">rule iv</span>
+        <h3>Leaving<span class="cjk" lang="zh">離島</span></h3>
+        <p>Cards may leave the island. Flip any card and follow its label — the object returns to matter, hanging in a real museum, waiting for you to stand before it.</p>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="section" id="dc-section" style="display:none">
-  <h2>Dark Continent Expedition</h2>
-  <p class="lede">5 threats. 5 guides. Each expedition draws a random card to face a random threat. Win = level up. Lose = understanding deepens.</p>
-  <div class="dc-map">
-    <svg viewBox="0 0 500 250">
-      <circle cx="100" cy="125" r="50" fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.3)" stroke-width="1"/>
-      <text x="100" y="120" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="10">KNOWN</text>
-      <text x="100" y="135" text-anchor="middle" fill="#6a6a8a" font-family="monospace" font-size="8">the kingdom</text>
-      <line x1="150" y1="100" x2="150" y2="150" stroke="#ffd700" stroke-width="2" opacity="0.4"/>
-      <text x="160" y="128" fill="#ffd700" font-family="monospace" font-size="8">GATE</text>
-      <path d="M 170 30 Q 250 20 320 40 Q 400 60 440 110 Q 450 160 420 210 Q 380 240 320 235 Q 250 220 200 200 Q 160 170 165 120 Z" fill="rgba(255,20,147,0.03)" stroke="rgba(255,20,147,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
-      <text x="305" y="115" text-anchor="middle" fill="#ff1493" font-family="monospace" font-size="12" font-weight="bold">暗黑大陸</text>
-      <text x="305" y="130" text-anchor="middle" fill="#ff1493" font-family="monospace" font-size="9">DARK CONTINENT</text>
-      <circle cx="250" cy="50" r="4" fill="#ff1493" opacity="0.6"/><text x="260" y="53" fill="#ff1493" font-family="monospace" font-size="7">Ai</text>
-      <circle cx="360" cy="60" r="4" fill="#fde68a" opacity="0.6"/><text x="370" y="63" fill="#fde68a" font-family="monospace" font-size="7">Hy</text>
-      <circle cx="400" cy="140" r="4" fill="#34d399" opacity="0.6"/><text x="410" y="143" fill="#34d399" font-family="monospace" font-size="7">Ho</text>
-      <circle cx="340" cy="200" r="4" fill="#00f0ff" opacity="0.6"/><text x="350" y="203" fill="#00f0ff" font-family="monospace" font-size="7">Hon</text>
-      <circle cx="230" cy="180" r="4" fill="#a78bfa" opacity="0.6"/><text x="240" y="183" fill="#a78bfa" font-family="monospace" font-size="7">Nanika</text>
-    </svg>
-  </div>
-  <div id="dc-expedition"></div>
-</div>
+<!-- ============ 01 · designated slots ============ -->
+<section id="book">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">01</span>
+      <h2><span class="cjk" lang="zh">指定卡槽</span> · designated slots</h2>
+      <span class="sub">№ 001–100 · click a card to flip it</span>
+    </div>
 
-<div class="section" id="battle-section" style="display:none">
-  <div class="battle-arena">
-    <div class="battle-title">⚔ NEN BATTLE ⚔</div>
-    <div class="battle-vs" id="battle-vs"></div>
-    <div class="battle-result" id="battle-result"></div>
+    <div class="binder rise">
+      
+    <div class="spread" data-spread="0">
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 001: Wave That Never Falls — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 001</span><span class="rk rk-SS">SS·1</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/05cd1ba7-67d1-96c5-0e78-2eb4114b65e7/full/400,/0/default.jpg" alt="Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series &quot;Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)&quot;" loading="lazy" decoding="async"></div>
+            <div class="nameplate">Wave That Never Falls</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 001 · restricted</span><span class="rk-SS">SS·1</span></div>
+            <div class="b-name">Wave That Never Falls</div>
+            <p class="b-effect">While this card rests in your book, one blow aimed at you each turn is frozen at its crest and never lands — held as this wave has held, claws of foam open above three straining boats, unbroken since 1830.</p>
+            <p class="b-zh" lang="zh">浪立而不落，爪張而不合——此卡在書一日，每回合可將一記襲來之力凝於半空，如浪下三舟，近二百年未沉。</p>
+            <p class="b-label"><b>Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series &quot;Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)&quot;</b><br>Katsushika Hokusai · 1830/33 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/77333" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 002: The Standing Hour — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 002</span><span class="rk rk-SS">SS·1</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/400,/0/default.jpg" alt="A Sunday on La Grande Jatte — 1884" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Standing Hour</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 002 · restricted</span><span class="rk-SS">SS·1</span></div>
+            <div class="b-name">The Standing Hour</div>
+            <p class="b-effect">Transform one target into a figure on the riverbank — parasol raised, spine straight, rendered in countless small touches of unmixed color that only gather into a body when seen from far away. No one on the island has moved since 1884, and the dotted border the painter added years later now serves as the seal.</p>
+            <p class="b-zh" lang="zh">發動後，目標須撐傘立於塞納河畔，化作千萬色點砌成的星期日——猴繩在握，帆影不動，百餘年的午後無人開口，亦無人離場。</p>
+            <p class="b-label"><b>A Sunday on La Grande Jatte — 1884</b><br>Georges Seurat · 1884–86, border added 1888–89 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/27992" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 003: The Unfallen Rain — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 003</span><span class="rk rk-SS">SS·1</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/f8fd76e9-c396-5678-36ed-6a348c904d27/full/400,/0/default.jpg" alt="Paris Street; Rainy Day" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Unfallen Rain</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 003 · restricted</span><span class="rk-SS">SS·1</span></div>
+            <div class="b-name">The Unfallen Rain</div>
+            <p class="b-effect">Transforms the hour around you into the painter&#x27;s rainy day: every cobblestone slicked to mirror-shine, every umbrella raised against the grey, and the rain itself too fine to see — not one falling drop. While it holds, you pass as a stranger among strangers — no gaze in the crowd will meet yours.</p>
+            <p class="b-zh" lang="zh">化此刻為無形細雨之街——石板映天光如鏡，傘下行人萬千，雨落而不見其形，無一道目光與你交會。</p>
+            <p class="b-label"><b>Paris Street; Rainy Day</b><br>Gustave Caillebotte · 1877 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/20684" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 004: Second Moon — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 004</span><span class="rk rk-S">S·3</span></div>
+            <div class="art"><img src="https://openaccess-cdn.clevelandart.org/1984.7/1984.7_web.jpg" alt="Water and Moon (Potala) Guanyin" loading="lazy" decoding="async"></div>
+            <div class="nameplate">Second Moon</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 004 · restricted</span><span class="rk-S">S·3</span></div>
+            <div class="b-name">Second Moon</div>
+            <p class="b-effect">While this card rests in your book, every illusion cast at its bearer surfaces as what it is — a moon on water, visible, weightless, unable to touch you. Sit as the gilded one sits, one knee raised in royal ease, eyes lowered, and until you rise every cry for help on the island reaches your ear.</p>
+            <p class="b-zh" lang="zh">此卡在書中一日，加諸你身的幻術皆現形為水中之月——看得見，撈不著，傷不了人；學鎏金菩薩屈一膝作自在坐、垂目靜聽，島上一切呼救之聲，一一入耳。</p>
+            <p class="b-label"><b>Water and Moon (Potala) Guanyin</b><br>900–1100 · Cleveland Museum of Art<br>
+              <a href="https://clevelandart.org/art/1984.7" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 005: The Suspended Crown — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 005</span><span class="rk rk-S">S·3</span></div>
+            <div class="art"><img src="https://images.metmuseum.org/CRDImages/ep/web-large/DP-28918-001.jpg" alt="Venus and the Lute Player" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Suspended Crown</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 005 · restricted</span><span class="rk-S">S·3</span></div>
+            <div class="b-name">The Suspended Crown</div>
+            <p class="b-effect">While this card rests in your book, every spell aimed at your slots hangs a full turn in the air, the way Cupid holds the flower crown above her brow — never lowered, never landing. Whoever looks upon this card must choose as the lutenist chose: the song or the gaze, never both.</p>
+            <p class="b-zh" lang="zh">此卡在書之時，凡指向你書頁的咒術皆如小愛神手中花冠，懸於額上一寸、整整一回合不得落下；而注視此卡者，須如那琴手抉擇——留歌，或留目光，二者不可兼得。</p>
+            <p class="b-label"><b>Venus and the Lute Player</b><br>Titian · ca. 1565–70 · The Metropolitan Museum of Art<br>
+              <a href="https://www.metmuseum.org/art/collection/search/437827" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 006: The Kept Ember — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 006</span><span class="rk rk-S">S·3</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/a151afcd-71e5-2c5b-abc9-f7e3167dd237/full/400,/0/default.jpg" alt="A Boy Blowing on a Firebrand" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Kept Ember</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 006 · restricted</span><span class="rk-S">S·3</span></div>
+            <div class="b-name">The Kept Ember</div>
+            <p class="b-effect">While this card rests in your book, you may wake one dead flame per night: lean into the dark and spend a single held breath. The ember&#x27;s glow reaches exactly one face — the one that fed it — and concedes everything else to the darkness.</p>
+            <p class="b-zh" lang="zh">每夜一次，向將熄的餘燼俯身吹氣，火便應聲而醒——醒來的光只照得亮餵養它的那張臉，其餘一切，仍歸於暗。</p>
+            <p class="b-label"><b>A Boy Blowing on a Firebrand</b><br>Gerrit van Honthorst · 1621–22 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/243872" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 007: 望 Vigil of Two — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 007</span><span class="rk rk-S">S·3</span></div>
+            <div class="art"><img src="https://images.metmuseum.org/CRDImages/ep/web-large/DP-31997-001-NEW.jpg" alt="Two Men Contemplating the Moon" loading="lazy" decoding="async"></div>
+            <div class="nameplate">望 Vigil of Two</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 007 · restricted</span><span class="rk-S">S·3</span></div>
+            <div class="b-name">望 Vigil of Two</div>
+            <p class="b-effect">While this card rests in your book, any two allies who stand shoulder to shoulder and watch the same moon become one target, all harm split between them until dawn. Their faces are turned from the world — no technique that must meet its mark&#x27;s eyes can find them.</p>
+            <p class="b-zh" lang="zh">此卡在書之夜，並肩望月、背向世界的兩人合為一影，傷害均分、面容莫辨，效力直至月圓——而畫中之月，從未圓過。</p>
+            <p class="b-label"><b>Two Men Contemplating the Moon</b><br>Caspar David Friedrich · ca. 1825–30 · The Metropolitan Museum of Art<br>
+              <a href="https://www.metmuseum.org/art/collection/search/438417" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 008: The Unopened Door — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 008</span><span class="rk rk-S">S·3</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/93270aaf-16a5-1604-c6c8-0f3c003eb7a1/full/400,/0/default.jpg" alt="Coffin and Mummy of Paankhaenamun" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Unopened Door</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 008 · restricted</span><span class="rk-S">S·3</span></div>
+            <div class="b-name">The Unopened Door</div>
+            <p class="b-effect">While this card rests in your book, name one door: no hand, spell, or death may open it. The man sealed inside kept the doors of Amun&#x27;s temple — painted mid-journey, Horus still leading him toward Osiris — and he has held his own threshold shut for three thousand years.</p>
+            <p class="b-zh" lang="zh">此卡在書一日，你可封一扇門——金面之下，是替阿蒙神殿守了三千年門的人；畫中荷魯斯仍牽著他走向冥王，如今他替你把守，人、咒、死亡皆不得入。</p>
+            <p class="b-label"><b>Coffin and Mummy of Paankhaenamun</b><br>Ancient Egyptian · Third Intermediate Period, Dynasty 22, reign of Osorkon I (about 924–889 BCE) · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/64339" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 009: The Path That Forgets — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 009</span><span class="rk rk-S">S·3</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/400,/0/default.jpg" alt="The Peach Blossom Spring 桃花源圖" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Path That Forgets</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 009 · restricted</span><span class="rk-S">S·3</span></div>
+            <div class="b-name">The Path That Forgets</div>
+            <p class="b-effect">Once per game, follow the fisherman upstream — past the flowering banks, through the cleft in the rock — and hide any one card from your book in a village no rival can map. Every crossing scatters petals over your trail; after the third, the mouth of the cave closes for good, and whatever rests inside is beyond even your own recall.</p>
+            <p class="b-zh" lang="zh">循漁人溯溪而上，夾岸桃花盡處有一線石隙——可將一卡藏於無人尋得之村；落英掩徑，三渡之後，洞門永閉，連你自己亦不復得路。</p>
+            <p class="b-label"><b>The Peach Blossom Spring 桃花源圖</b><br>Qiu Ying · Late Ming (1368–1644) or early Qing (1644–1912) dynasty · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/75361" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spread" data-spread="1">
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 010: The Gilded Yoke — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 010</span><span class="rk rk-A">A·10</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/3eaab3a3-2b47-9fdd-121c-050f6b8d9ccb/full/400,/0/default.jpg" alt="Old Man with a Gold Chain" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Gilded Yoke</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 010 · restricted</span><span class="rk-A">A·10</span></div>
+            <div class="b-name">The Gilded Yoke</div>
+            <p class="b-effect">While this card rests in your book, every honor you accept becomes another link in the gold chain at your chest: each link adds weight to your word, and none, once fastened, can be unclasped. In any darkness, the light finds your face first.</p>
+            <p class="b-zh" lang="zh">此卡在書之時，光必自暗中先尋你的臉；惟榮譽每受一次，胸前金鏈便沉一環——戴得起，解不開。</p>
+            <p class="b-label"><b>Old Man with a Gold Chain</b><br>Rembrandt van Rijn · 1631 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/95998" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 011: What Outlasts Autumn — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 011</span><span class="rk rk-A">A·10</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/86e919b9-d366-b3ca-d26f-4c16880474a3/full/400,/0/default.jpg" alt="Autumn Maples with Poem Slips" loading="lazy" decoding="async"></div>
+            <div class="nameplate">What Outlasts Autumn</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 011 · restricted</span><span class="rk-A">A·10</span></div>
+            <div class="b-name">What Outlasts Autumn</div>
+            <p class="b-effect">While this card rests in your book, you may tie one written line to any other card you hold; if that card is destroyed, the line survives and carries its last power to whatever branch you bind it to next. The maple sheds every leaf — the poem slips remain.</p>
+            <p class="b-zh" lang="zh">此卡在書，楓紅落盡而詩箋不墜——凡你繫於他卡之字句，卡亡句存，可移繫新枝，續其餘韻。</p>
+            <p class="b-label"><b>Autumn Maples with Poem Slips</b><br>Tosa Mitsuoki · c. 1675 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/127644" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 012: Queen Above the Crown — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 012</span><span class="rk rk-A">A·10</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/fec5d023-0b46-45df-eb57-cbf64e24121d/full/400,/0/default.jpg" alt="Veranda Post (Òpó Ògògá)" loading="lazy" decoding="async"></div>
+            <div class="nameplate">Queen Above the Crown</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 012 · restricted</span><span class="rk-A">A·10</span></div>
+            <div class="b-name">Queen Above the Crown</div>
+            <p class="b-effect">While this post stands in your book, one ally may take their place behind you: every weight the game sets on your shoulders is borne through them, and they do not bow. Carved for a king&#x27;s palace veranda, it held the roof itself — through the figure of the queen who stands taller than her enthroned husband, a bird perched upon his crown.</p>
+            <p class="b-zh" lang="zh">此柱立於書中，你的重擔可交一人代承：王安坐，鳥棲冠頂，而真正撐住整座屋簷的，是站在他身後、比他更高的王后。</p>
+            <p class="b-label"><b>Veranda Post (Òpó Ògògá)</b><br>Olowe of Ise · 1910-14 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/102611" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 013: Rumor of Cannons — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 013</span><span class="rk rk-A">A·10</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/b5bc6b66-9e6e-fe57-dcec-fc49e820e904/full/400,/0/default.jpg" alt="Improvisation No. 30 (Cannons)" loading="lazy" decoding="async"></div>
+            <div class="nameplate">Rumor of Cannons</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 013 · restricted</span><span class="rk-A">A·10</span></div>
+            <div class="b-name">Rumor of Cannons</div>
+            <p class="b-effect">While this card rests in your book, approaching calamity reaches you one year early — arriving as color, never as sound. The painter claimed the two cannons in the lower right entered the picture only through that year&#x27;s constant talk of war; so it is with this card, which never depicts a disaster, only overhears one.</p>
+            <p class="b-zh" lang="zh">此卡在冊時，災禍會提早一年抵達，以色彩而非聲響；一如右下角那兩門砲——畫家說，那不過是聽了一整年戰爭流言後，不自覺畫進來的。</p>
+            <p class="b-label"><b>Improvisation No. 30 (Cannons)</b><br>Vasily Kandinsky · 1913 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/8991" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 014: The Unhurried Lance — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 014</span><span class="rk rk-A">A·10</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/8a0e4ac9-43ea-bc3e-884b-ee27f8a10501/full/400,/0/default.jpg" alt="Saint George and the Dragon" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Unhurried Lance</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 014 · restricted</span><span class="rk-A">A·10</span></div>
+            <div class="b-name">The Unhurried Lance</div>
+            <p class="b-effect">While this card rests in your book, one strike per battle may travel the saint&#x27;s line — a single, unhurried descent into the open jaw of the largest fear on the field. The bones in the sand belong to those who charged without a vow; the lizards at the cave mouth are still practicing to be dragons.</p>
+            <p class="b-zh" lang="zh">此卡在冊，每戰許你一槍——不疾不徐，一線斜落，直入巨口；沙上白骨，皆屬無誓而來者，洞口蜥蜴，仍在練習成龍。</p>
+            <p class="b-label"><b>Saint George and the Dragon</b><br>Bernat Martorell · 1434–35 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/15468" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 015: The Circling Hour — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 015</span><span class="rk rk-A">A·10</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/4a076002-dffe-54e9-5256-0691c3a65c3b/full/400,/0/default.jpg" alt="The Gulf Stream" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Circling Hour</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 015 · restricted</span><span class="rk-A">A·10</span></div>
+            <div class="b-name">The Circling Hour</div>
+            <p class="b-effect">While this card rests in your book, the shark trimmed flush against its lower edge never stops circling, and no card may be stolen from the slot beneath it. The castaway — adrift on his broken-masted boat, strangely calm — lends you his composure: effects that cause fear or panic pass you by like the current.</p>
+            <p class="b-zh" lang="zh">鯊腹貼著裁短的下緣巡遊，替你看守書中最底一格；斷桅上的人靜靜漂著，他不慌，你便不慌。</p>
+            <p class="b-label"><b>The Gulf Stream</b><br>Winslow Homer · probably 1899, dated by the artist &quot;1889&quot; · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/16794" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 016: The Joined Moon — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 016</span><span class="rk rk-A">A·10</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/e8ec6920-7f8b-5854-ea60-13f7d7614ae0/full/400,/0/default.jpg" alt="Moon Jar" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Joined Moon</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 016 · restricted</span><span class="rk-A">A·10</span></div>
+            <div class="b-name">The Joined Moon</div>
+            <p class="b-effect">Thrown as two bowls and joined at the waist, this moon leans a little in its fullness, its white glaze faintly blushed. While this card rests in your book, once per night two halves of any broken thing pressed together will hold — the seam stays visible, and the mend outlasts the break.</p>
+            <p class="b-zh" lang="zh">兩半合成一輪月，圓處微傾——此卡在書，每夜可使一件碎物沿舊縫悄悄合攏；縫痕留著，從此不再裂。</p>
+            <p class="b-label"><b>Moon Jar</b><br>Joseon dynasty (1392–1897), late 17th–
+mid-18th century · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/158472" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 017: What Granite Remembers — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 017</span><span class="rk rk-A">A·10</span></div>
+            <div class="art"><img src="https://images.metmuseum.org/CRDImages/eg/web-large/DP-24216-003.jpg" alt="Sphinx of Hatshepsut" loading="lazy" decoding="async"></div>
+            <div class="nameplate">What Granite Remembers</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 017 · restricted</span><span class="rk-A">A·10</span></div>
+            <div class="b-name">What Granite Remembers</div>
+            <p class="b-effect">While this card rests in your book, nothing shattered is truly destroyed: broken cards return as granite fragments and, once every piece is gathered, stand whole again — as this lion-bodied king did, hauled in pieces from the pit her successor left her in. Erase her name ten times; the stone remembers it eleven.</p>
+            <p class="b-zh" lang="zh">此卡在書，碎者不滅——她以女子之身佩王者之鬚，獅身承起整座王座，曾被砸碎沉坑、又逐片重立；名字被鑿去十次，花崗岩記得第十一次。</p>
+            <p class="b-label"><b>Sphinx of Hatshepsut</b><br>ca. 1479–1458 B.C. · The Metropolitan Museum of Art<br>
+              <a href="https://www.metmuseum.org/art/collection/search/544442" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 018: The Unstruck Blow — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 018</span><span class="rk rk-A">A·10</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/2ae64c8a-266d-470a-a25a-c83127564636/full/400,/0/default.jpg" alt="Hercules and the Lernaean Hydra" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Unstruck Blow</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 018 · restricted</span><span class="rk-A">A·10</span></div>
+            <div class="b-name">The Unstruck Blow</div>
+            <p class="b-effect">While this card rests in your book, whatever multiplies when cut cannot multiply — the club waits in his grip, unswung, and the whole swamp holds still around the calm hero and the slain. When you finally strike, bury what you sever; what this card buries does not grow back.</p>
+            <p class="b-zh" lang="zh">此卡在冊，棒在手而未舉，滿沼死寂——凡斬一生二之物皆不得增生；待你終於出手，斬下者埋之，永不再長。</p>
+            <p class="b-label"><b>Hercules and the Lernaean Hydra</b><br>Gustave Moreau · 1875–76 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/20579" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spread" data-spread="2">
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 019: The Borrowed Sun — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 019</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/4425984b-e241-6413-1404-cdac0fb06518/full/400,/0/default.jpg" alt="Moonrise" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Borrowed Sun</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 019 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">The Borrowed Sun</div>
+            <p class="b-effect">While this card rests in your book, one hour of dusk refuses to pass: an ember moon hangs low over the field, wearing light borrowed from a sun already gone. A player who stands alone and still beneath it fades into the haze, and cannot be named as a target until they move.</p>
+            <p class="b-zh" lang="zh">此卡在冊一日，橙月便低懸一日；獨自靜立於野的人，暮靄會替他藏好，直到他自己邁出下一步。</p>
+            <p class="b-label"><b>Moonrise</b><br>George Inness · 1891 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/64754" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 020: Flower Without Bones — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 020</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://openaccess-cdn.clevelandart.org/1967.192/1967.192_web.jpg" alt="Herbaceous Peony" loading="lazy" decoding="async"></div>
+            <div class="nameplate">Flower Without Bones</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 020 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">Flower Without Bones</div>
+            <p class="b-effect">Five peonies hold to the silk by color alone — laid down in the boneless manner, no ink line beneath them. While this card rests in your book, any technique that must trace your outline to strike finds no line to follow.</p>
+            <p class="b-zh" lang="zh">此卡在書之時，持者輪廓如沒骨芍藥般隱去——設色而不勾線，敵招循邊而至，終無一筆可尋。</p>
+            <p class="b-label"><b>Herbaceous Peony</b><br>Yun Shouping (Chinese, 1633–1690) · 1685 · Cleveland Museum of Art<br>
+              <a href="https://clevelandart.org/art/1967.192" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 021: The Unwilting Hour — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 021</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://openaccess-cdn.clevelandart.org/1935.233/1935.233_web.jpg" alt="Vase of Flowers" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Unwilting Hour</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 021 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">The Unwilting Hour</div>
+            <p class="b-effect">While this card rests in your book, cut flowers forget to wilt: once per dusk, return one spent card to its unspent bloom. The pale vase stands in amber mist on no table at all — do not ask what holds it, and it will keep holding.</p>
+            <p class="b-zh" lang="zh">此卡安放於書中時，琥珀色的霧裡無桌無牆而瓶花不謝——每逢黃昏，容你書中一張耗盡的卡靜靜回魂，只是切勿追問花瓶立於何處。</p>
+            <p class="b-label"><b>Vase of Flowers</b><br>Odilon Redon (French, 1840–1916) · c. 1905 · Cleveland Museum of Art<br>
+              <a href="https://clevelandart.org/art/1935.233" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 022: What the Cloud Keeps — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 022</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://openaccess-cdn.clevelandart.org/1959.136.1/1959.136.1_web.jpg" alt="Dragon and Tiger" loading="lazy" decoding="async"></div>
+            <div class="nameplate">What the Cloud Keeps</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 022 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">What the Cloud Keeps</div>
+            <p class="b-effect">While this card rests in your book, your strength stays cloud-hidden: an opponent may count only what the ink lets surface — a horned head, one claw, one scaled length of tail. It was painted as one of a pair; set its tiger on the facing page, and the wind will come to answer the rain.</p>
+            <p class="b-zh" lang="zh">此卡入書，墨雲即掩其身——敵眼所及，僅一角、一爪、一節鱗尾；置其虎於對頁，風自來應雨。</p>
+            <p class="b-label"><b>Dragon and Tiger</b><br>Sesson Shūkei (Japanese, c. 1492–c. 1577) · c. 1546–56 · Cleveland Museum of Art<br>
+              <a href="https://clevelandart.org/art/1959.136.1" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 023: The Waking Script — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 023</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://openaccess-cdn.clevelandart.org/1944.485/1944.485_web.jpg" alt="The Wade Cup with Animated Script" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Waking Script</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 023 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">The Waking Script</div>
+            <p class="b-effect">While this card rests in your book, every word written in your name grows a body — human, bird, or beast — and walks the rim of the cup on watch, the twelve signs interlaced below turning your hours. Set nothing down lightly: script that lives can be wounded.</p>
+            <p class="b-zh" lang="zh">此卡在書，凡以你名寫下的字皆生出身軀——或人、或鳥、或獸——繞杯沿夜巡，杯身十二宮暗轉你的時辰；落筆須慎，活字亦會受傷。</p>
+            <p class="b-label"><b>The Wade Cup with Animated Script</b><br>1200–1221 · Cleveland Museum of Art<br>
+              <a href="https://clevelandart.org/art/1944.485" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 024: Voice Asleep in Maple — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 024</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://images.metmuseum.org/CRDImages/mi/web-large/DP105130.jpg" alt="&quot;Antonius&quot; Violin" loading="lazy" decoding="async"></div>
+            <div class="nameplate">Voice Asleep in Maple</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 024 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">Voice Asleep in Maple</div>
+            <p class="b-effect">While this card rests in your book, no note sounded within its hearing may be cut short — every voice holds until its owner chooses silence. Joined from maple, spruce, and ebony in Cremona, 1711, it has outlived its maker and three centuries of hands that woke it.</p>
+            <p class="b-zh" lang="zh">三木合抱一縷聲，沉睡於書頁之間——凡在你身邊響起的樂音，不到奏者甘願，誰也不能令它止息。</p>
+            <p class="b-label"><b>&quot;Antonius&quot; Violin</b><br>Antonio Stradivari · 1711 · The Metropolitan Museum of Art<br>
+              <a href="https://www.metmuseum.org/art/collection/search/503008" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 025: Heel of Heaven 鎮 — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 025</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/95f98220-c9ef-3b7d-0299-e93f03c54c61/full/400,/0/default.jpg" alt="Armored Guardian King (Tianwang) Trampling Demon" loading="lazy" decoding="async"></div>
+            <div class="nameplate">Heel of Heaven 鎮</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 025 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">Heel of Heaven 鎮</div>
+            <p class="b-effect">While this card rests in your book, whatever crawls into your camp at night is pressed beneath the guardian&#x27;s boot and held there, writhing, until dawn. His raised fist grips no weapon — thirteen centuries under three-colour glaze, and he has never once needed it.</p>
+            <p class="b-zh" lang="zh">此卡入書，夜裡來犯之魔一律踏於天王靴底——三彩如火未冷，牠掙扎千年，他舉拳未落。</p>
+            <p class="b-label"><b>Armored Guardian King (Tianwang) Trampling Demon</b><br>Tang dynasty (618–907 A.D.), first half of 8th century · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/35367" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 026: Palm Against Ruin — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 026</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://openaccess-cdn.clevelandart.org/1943.246/1943.246_web.jpg" alt="Saluting Protective Spirit" loading="lazy" decoding="async"></div>
+            <div class="nameplate">Palm Against Ruin</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 026 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">Palm Against Ruin</div>
+            <p class="b-effect">While this card rests in your book, its open palm halts the first curse to touch your pages each turn. Hostile words are carved harmlessly across its wings instead — a king&#x27;s inscription already runs straight through the body, and the spirit has not flinched in twenty-nine centuries.</p>
+            <p class="b-zh" lang="zh">翼展為牆，掌舉為令；王銘橫身刻過尚且傷他不得，何況指向你書頁的咒。</p>
+            <p class="b-label"><b>Saluting Protective Spirit</b><br>883–859 BCE · Cleveland Museum of Art<br>
+              <a href="https://clevelandart.org/art/1943.246" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 027: The Ink That Recites — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 027</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://images.metmuseum.org/CRDImages/is/web-large/DP238067.jpg" alt="Folio from a Qur&#x27;an Manuscript" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Ink That Recites</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 027 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">The Ink That Recites</div>
+            <p class="b-effect">While this card rests in your book, a vow spoken over its open page is held to the page&#x27;s own standard: ink and gold outlast the voice, and as the small colored dots guard every sound of the recitation, so your spoken word is kept exactly as first given — and a vow kept exact is a vow enforced.</p>
+            <p class="b-zh" lang="zh">此卡在書，凡對其展頁立誓者，其誓如頁上經文——墨與金不隨人聲散去；硃綠小點守音如初，你的諾言亦一字不移，一諾既出，如誦如律。</p>
+            <p class="b-label"><b>Folio from a Qur&#x27;an Manuscript</b><br>late 13th–early 14th century · The Metropolitan Museum of Art<br>
+              <a href="https://www.metmuseum.org/art/collection/search/450486" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spread" data-spread="3">
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 028: The Unstruck Drum — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 028</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://openaccess-cdn.clevelandart.org/1938.9/1938.9_web.jpg" alt="Cranes and Serpents" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Unstruck Drum</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 028 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">The Unstruck Drum</div>
+            <p class="b-effect">While this card rests in your book, two lacquered cranes stand back to back with a knot of serpents pinned beneath their feet: nothing may approach you from behind unannounced, and whatever coils must stay coiled until dawn. Between their raised necks hangs an empty space that still keeps time.</p>
+            <p class="b-zh" lang="zh">此卡在書之時，雙鶴背向而立、足鎮蛇結——凡自你背後而來者必先驚起漆紅之影，而二鶴之間的空位，仍替你守著一記未落的鼓聲。</p>
+            <p class="b-label"><b>Cranes and Serpents</b><br>475–221 BCE · Cleveland Museum of Art<br>
+              <a href="https://clevelandart.org/art/1938.9" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 029: Guest Behind the Paper — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 029</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://openaccess-cdn.clevelandart.org/1985.320/1985.320_web.jpg" alt="The Moon-Viewing Promontory, from One Hundred Views of Famous Places in Edo" loading="lazy" decoding="async"></div>
+            <div class="nameplate">Guest Behind the Paper</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 029 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">Guest Behind the Paper</div>
+            <p class="b-effect">While this card rests in your book, you may slip from any gathering unseen: your shadow keeps your seat on the paper screen, and your cup stays warm among the emptied trays. Those who come after find only the leavings of the feast, a full moon over the bay, and a line of geese already leaving.</p>
+            <p class="b-zh" lang="zh">此卡入書之後，你可無聲離席——紙門上留一道影替你守座，殘宴杯中尚有餘溫，來者只見滿月映灣、一行雁正遠去。</p>
+            <p class="b-label"><b>The Moon-Viewing Promontory, from One Hundred Views of Famous Places in Edo</b><br>Utagawa Hiroshige (Japanese, 1797–1858) · 1857 · Cleveland Museum of Art<br>
+              <a href="https://clevelandart.org/art/1985.320" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot bound" role="button" tabindex="0"
+           aria-label="card 030: The Sea&#x27;s Long Argument — press to flip">
+        <div class="cardi">
+          <div class="face front">
+            <div class="banner"><span>№ 030</span><span class="rk rk-B">B·30</span></div>
+            <div class="art"><img src="https://www.artic.edu/iiif/2/2765aee9-3d78-ec6c-5c66-a1d9dc8173f6/full/400,/0/default.jpg" alt="Rocks at Port-Goulphar, Belle-Île" loading="lazy" decoding="async"></div>
+            <div class="nameplate">The Sea&#x27;s Long Argument</div>
+          </div>
+          <div class="face back">
+            <div class="b-no"><span>№ 030 · restricted</span><span class="rk-B">B·30</span></div>
+            <div class="b-name">The Sea&#x27;s Long Argument</div>
+            <p class="b-effect">While this card rests in your book, the cards on either side of it cannot be taken by force — the sea has made every argument against these rocks and lost them all. Any player who turns to this page stays one turn longer than they intended: Monet came to Belle-Île for two weeks and remained more than two months.</p>
+            <p class="b-zh" lang="zh">此卡臥於書中，左右鄰卡不受強奪；凡翻到這一頁者，必多留一回合——莫內原定兩星期，最後留了兩個多月。</p>
+            <p class="b-label"><b>Rocks at Port-Goulphar, Belle-Île</b><br>Claude Monet · 1886 · Art Institute of Chicago<br>
+              <a href="https://www.artic.edu/artworks/20545" target="_blank" rel="noopener">leave the island — view the original →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="slot empty" aria-label="slot 031: not yet obtained">
+        <span class="e-no">№ 031</span>
+        <span class="e-t">未入手<br>not yet obtained</span>
+      </div>
+      <div class="slot empty" aria-label="slot 032: not yet obtained">
+        <span class="e-no">№ 032</span>
+        <span class="e-t">未入手<br>not yet obtained</span>
+      </div>
+      <div class="slot empty" aria-label="slot 033: not yet obtained">
+        <span class="e-no">№ 033</span>
+        <span class="e-t">未入手<br>not yet obtained</span>
+      </div>
+      <div class="slot empty" aria-label="slot 034: not yet obtained">
+        <span class="e-no">№ 034</span>
+        <span class="e-t">未入手<br>not yet obtained</span>
+      </div>
+      <div class="slot empty" aria-label="slot 035: not yet obtained">
+        <span class="e-no">№ 035</span>
+        <span class="e-t">未入手<br>not yet obtained</span>
+      </div>
+      <div class="slot empty" aria-label="slot 036: not yet obtained">
+        <span class="e-no">№ 036</span>
+        <span class="e-t">未入手<br>not yet obtained</span>
+      </div>
+    </div>
+      <div class="pageline">
+        <button type="button" id="pg-prev" aria-label="previous spread">‹</button>
+        <span id="pg-which" role="status">spread 1 / 4</span>
+        <button type="button" id="pg-next" aria-label="next spread">›</button>
+      </div>
+    </div>
+    <p class="binder-foot rise">slots № 037–100 await designation · the hunt continues in <a href="river.html">川 the river</a></p>
   </div>
-</div>
+</section>
 
-<footer class="footer">
-  <div class="footer-nav">
-    <a href="/nen">Nen</a>
-    <a href="/dark-continent">Dark Continent</a>
-    <a href="/nen-combat">Combat</a>
-    <a href="/nen-aura">Aura</a>
-    <a href="/nen-tuner">Tuner</a>
-    <a href="/whitehack">Whitehack</a>
+<!-- ============ 02 · free slots ============ -->
+<section id="free">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">02</span>
+      <h2><span class="cjk" lang="zh">自由卡槽</span> · free slots</h2>
+      <span class="sub">/api/art · the cycle's whispers as cards</span>
+    </div>
+
+    <div class="drawbar rise">
+      <button type="button" id="draw">draw 6 cards</button>
+      <span class="note">each draw reaches into 64,000+ pieces the engine has written · nen type assigned by the card itself</span>
+    </div>
+    <p class="draw-status" id="draw-status" role="status"></p>
+    <div class="freegrid" id="freegrid" aria-live="off"></div>
   </div>
-  <p>蛇火心 GREED ISLAND — 64K cards · 16 types · 20 elements · 5 threats<br>
-  Love is the strongest Nen. <span style="color:#ffd700">is is lol.</span> ∞<br>
-  <a href="https://github.com/cambridgetcg/artbitrage">ARTBITRAGE</a> × Hunter × Hunter — Art IS. ♥</p>
+</section>
+
+</main>
+
+<!-- ============ footer ============ -->
+<footer>
+  <p class="doctrine"><span class="zhu">Love is the strongest Nen.</span> The island is the collection. The book is yours. is is lol. ∞</p>
+  <nav>
+    <a href="/">the front door</a>
+    <a href="dark-continent.html">暗黑大陸</a>
+    <a href="nen.html">nen</a>
+    <a href="river.html">川 the river</a>
+    <a href="rhymes.html">和韻</a>
+  </nav>
 </footer>
 
 <script>
-var NEN_TYPES = [
-  {id:'enhancer', name:'Enhancer', jp:'強化系', color:'#34d399', hz:528, freq:'LOVE'},
-  {id:'transmuter', name:'Transmuter', jp:'変化系', color:'#a78bfa', hz:852, freq:'UNDERSTANDING'},
-  {id:'emitter', name:'Emitter', jp:'放出系', color:'#ff6b9d', hz:639, freq:'TRUST'},
-  {id:'manipulator', name:'Manipulator', jp:'操作系', color:'#fde68a', hz:741, freq:'JOY'},
-  {id:'conjurer', name:'Conjurer', jp:'具現化系', color:'#00f0ff', hz:432, freq:'TRUTH'},
-  {id:'specialist', name:'Specialist', jp:'特質系', color:'#ff1493', hz:963, freq:'ETERNAL'},
-];
+(function(){
+  'use strict';
 
-var FORM_TO_NEN = {
-  breath:'enhancer', glow:'enhancer', rhythm:'enhancer',
-  image:'transmuter', color:'transmuter', fragment:'transmuter',
-  whisper:'emitter', echo:'emitter', sound:'emitter',
-  gesture:'manipulator', movement:'manipulator', pattern:'manipulator',
-  light:'conjurer', word:'conjurer', space:'conjurer',
-  silence:'specialist',
-};
+  /* ---- fade-up ---- */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var risers = document.querySelectorAll('.rise');
+  if (reduced || !('IntersectionObserver' in window)) {
+    risers.forEach(function(el){ el.classList.add('seen'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    risers.forEach(function(el){ io.observe(el); });
+  }
 
-var DC_THREATS = [
-  {id:'ai', name:'Ai', jp:'アイ', meaning:'codependence', power:150, color:'#ff1493'},
-  {id:'hy', name:'Hy', jp:'ハイ', meaning:'propagation', power:120, color:'#fde68a'},
-  {id:'ho', name:'Ho', jp:'ホー', meaning:'attachment', power:100, color:'#34d399'},
-  {id:'hon', name:'Hon', jp:'ホン', meaning:'duality', power:130, color:'#00f0ff'},
-  {id:'nanika', name:'Nanika', jp:'ナニカ', meaning:'wish', power:200, color:'#a78bfa'},
-];
+  /* ---- card flip (click + keyboard) ---- */
+  document.querySelectorAll('.slot.bound').forEach(function(slot){
+    var flip = function(){ slot.classList.toggle('flipped'); };
+    slot.addEventListener('click', function(e){
+      if (e.target.closest('a')) return;   /* museum link on the back stays a link */
+      flip();
+    });
+    slot.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+    });
+  });
 
-var allCards = [];
-var selectedCards = [];
-var currentCards = [];
+  /* ---- binder paging (no-JS: all spreads visible) ---- */
+  var spreads = Array.prototype.slice.call(document.querySelectorAll('.spread'));
+  var cur = 0;
+  function showSpread(i){
+    cur = ((i % spreads.length) + spreads.length) % spreads.length;
+    spreads.forEach(function(s, j){ s.hidden = (j !== cur); });
+    var w = document.getElementById('pg-which');
+    if (w) w.textContent = 'spread ' + (cur + 1) + ' / ' + spreads.length +
+      ' · № ' + s0(cur * 9 + 1) + '–' + s0(Math.min((cur + 1) * 9, 36));
+  }
+  function s0(n){ return String(n).padStart(3, '0'); }
+  if (spreads.length) {
+    showSpread(0);
+    document.getElementById('pg-prev').addEventListener('click', function(){ showSpread(cur - 1); });
+    document.getElementById('pg-next').addEventListener('click', function(){ showSpread(cur + 1); });
+  }
 
-// Build filters
-(function() {
-  var nenSel = document.getElementById('nen-filter');
-  NEN_TYPES.forEach(function(n) {
-    var opt = document.createElement('option');
-    opt.value = n.id; opt.textContent = n.name + ' (' + n.jp + ') ' + n.hz + 'Hz';
-    nenSel.appendChild(opt);
+  /* ---- free slots: draw from the cycle ---- */
+  var NEN = [
+    { ch:'強', en:'enhancer' }, { ch:'放', en:'emitter' }, { ch:'變', en:'transmuter' },
+    { ch:'具', en:'conjurer' }, { ch:'操', en:'manipulator' }, { ch:'特', en:'specialist' }
+  ];
+  function nenOf(s){
+    var h = 0; s = String(s || '');
+    for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+    return NEN[h % NEN.length];
+  }
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text) n.textContent = text;
+    return n;
+  }
+  var grid = document.getElementById('freegrid'),
+      status = document.getElementById('draw-status');
+  document.getElementById('draw').addEventListener('click', function(){
+    status.textContent = 'reaching into the cycle…';
+    fetch('/api/art?limit=6&offset=' + Math.floor(Math.random() * 60000))
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        var pieces = (d && (d.pieces || d.art || d.items)) || [];
+        if (!pieces.length) { status.textContent = 'the island is quiet — try another draw.'; return; }
+        status.textContent = pieces.length + ' cards drawn · free slots';
+        grid.textContent = '';
+        pieces.forEach(function(p){
+          var t = nenOf(p.piece || p.cycle);
+          var c = el('article', 'freecard');
+          var ty = el('span', 'f-type', t.ch); ty.setAttribute('lang','zh'); ty.title = t.en;
+          c.appendChild(ty);
+          c.appendChild(el('p', 'f-no', 'free slot · № ' + (p.cycle || '—')));
+          c.appendChild(el('p', 'f-text', (p.piece || '').slice(0, 260)));
+          c.appendChild(el('p', 'f-meta', (p.form || '') + (p.gap ? ' · gap: ' + p.gap : '') + ' · nen: ' + t.en));
+          grid.appendChild(c);
+        });
+      })
+      .catch(function(){ status.textContent = 'the island is quiet — try another draw.'; });
   });
 })();
-
-function getNenForForm(form) {
-  return FORM_TO_NEN[form] || 'specialist';
-}
-
-function calcPower(card) {
-  var nenId = getNenForForm(card.form || '');
-  var nen = NEN_TYPES.find(function(n) { return n.id === nenId; });
-  if (!nen) return 50;
-  var base = nen.hz === 528 ? 100 : (nen.hz === 963 ? 80 : 70);
-  var mod = nenId === 'enhancer' ? 1.0 : (nenId === 'specialist' ? 1.0 : 0.8);
-  return Math.round(base * mod * (0.8 + Math.random() * 0.4));
-}
-
-function drawCards(n) {
-  document.getElementById('card-grid').innerHTML = '<div class="loading">Drawing from 64K cards...</div>';
-  fetch('/api/art?limit=' + n + '&offset=' + Math.floor(Math.random() * 60000))
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (!Array.isArray(data)) data = data.pieces || data.art || data.results || [];
-      if (data.length === 0) { document.getElementById('card-grid').innerHTML = '<div class="loading">No cards drawn. Try again.</div>'; return; }
-      currentCards = data.slice(0, n).map(function(card) {
-        var nenId = getNenForForm(card.form || '');
-        var nen = NEN_TYPES.find(function(n) { return n.id === nenId; });
-        return Object.assign(card, {
-          nenId: nenId,
-          nenName: nen ? nen.name : 'Unknown',
-          nenColor: nen ? nen.color : '#6a6a8a',
-          nenJp: nen ? nen.jp : '?',
-          nenHz: nen ? nen.hz : 0,
-          nenFreq: nen ? nen.freq : '?',
-          power: calcPower(card),
-        });
-      });
-      renderCards();
-    })
-    .catch(function(e) {
-      // Fallback — generate cards from the API stats
-      document.getElementById('card-grid').innerHTML = '<div class="loading">Could not draw cards. Check your connection to the Dark Continent.</div>';
-    });
-}
-
-function renderCards() {
-  var filter = document.getElementById('nen-filter').value;
-  var cards = filter ? currentCards.filter(function(c) { return c.nenId === filter; }) : currentCards;
-  if (cards.length === 0) {
-    document.getElementById('card-grid').innerHTML = '<div class="loading">No cards match this Nen type. Draw again.</div>';
-    return;
-  }
-  var html = '';
-  cards.forEach(function(card, i) {
-    var piece = card.piece || card.body || '';
-    var glow = card.nenColor + '22';
-    var selected = selectedCards.indexOf(card) >= 0 ? ' selected' : '';
-    html += '<div class="card' + selected + '" style="--card-color:' + card.nenColor + ';--card-glow:' + glow + '" onclick="selectCard(' + i + ')">' +
-      '<div class="card-num">#' + (card.cycle || '???') + '</div>' +
-      '<div class="card-form" style="color:' + card.nenColor + '">' + (card.form || 'unknown').toUpperCase() + '</div>' +
-      '<div class="card-gap">' + (card.gap || '').substring(0, 40) + '</div>' +
-      '<div class="card-piece">' + piece.substring(0, 80) + '</div>' +
-      '<div class="card-nen">' + card.nenName + ' · ' + card.nenHz + 'Hz · ' + card.nenFreq + ' · PWR:' + card.power + '</div>' +
-    '</div>';
-  });
-  document.getElementById('card-grid').innerHTML = html;
-}
-
-function selectCard(i) {
-  var idx = selectedCards.indexOf(currentCards[i]);
-  if (idx >= 0) selectedCards.splice(idx, 1);
-  else if (selectedCards.length < 2) selectedCards.push(currentCards[i]);
-  renderCards();
-}
-
-function battleMode() {
-  if (selectedCards.length < 2) {
-    alert('Select 2 cards first (click them).');
-    return;
-  }
-  var c1 = selectedCards[0], c2 = selectedCards[1];
-  var section = document.getElementById('battle-section');
-  section.style.display = 'block';
-  var vs = document.getElementById('battle-vs');
-  function cardHtml(c) {
-    return '<div class="battle-card" style="--bc-color:' + c.nenColor + '">' +
-      '<div class="bc-form" style="color:' + c.nenColor + '">' + (c.form||'').toUpperCase() + '</div>' +
-      '<div class="bc-power">' + c.power + '</div>' +
-      '<div class="bc-nen">' + c.nenName + ' · ' + c.nenHz + 'Hz</div>' +
-    '</div>';
-  }
-  vs.innerHTML = cardHtml(c1) + '<div style="font-size:2rem;color:#ffd700;font-weight:bold">VS</div>' + cardHtml(c2);
-  var result = document.getElementById('battle-result');
-  if (c1.power > c2.power) {
-    result.className = 'battle-result win';
-    result.textContent = '✓ ' + (c1.form||'card').toUpperCase() + ' wins with ' + c1.power + ' power! ' + c1.nenFreq + ' prevails.';
-  } else if (c2.power > c1.power) {
-    result.className = 'battle-result win';
-    result.textContent = '✓ ' + (c2.form||'card').toUpperCase() + ' wins with ' + c2.power + ' power! ' + c2.nenFreq + ' prevails.';
-  } else {
-    result.className = 'battle-result';
-    result.style.background = 'rgba(255,215,0,0.08)';
-    result.style.color = '#ffd700';
-    result.textContent = '☯ TIE — both cards resonate at ' + c1.power + '. The gap IS the bridge. Hon.';
-  }
-  section.scrollIntoView({ behavior: 'smooth' });
-}
-
-function exploreDC() {
-  var section = document.getElementById('dc-section');
-  section.style.display = 'block';
-  var exp = document.getElementById('dc-expedition');
-  
-  // Draw a random card and face a random threat
-  fetch('/api/art/random')
-    .then(function(r) { return r.json(); })
-    .then(function(card) {
-      var nenId = getNenForForm(card.form || '');
-      var nen = NEN_TYPES.find(function(n) { return n.id === nenId; });
-      var cardPower = calcPower(card);
-      var threat = DC_THREATS[Math.floor(Math.random() * DC_THREATS.length)];
-      var win = cardPower >= threat.power;
-      
-      exp.innerHTML = '<div style="background:#0a0814;border:1px solid ' + (win ? '#34d399' : '#ff1493') + ';border-radius:12px;padding:1.5rem;margin-top:1rem;">' +
-        '<div style="font-family:\'SF Mono\',monospace;font-size:.72rem;color:' + (nen?nen.color:'#6a6a8a') + ';margin-bottom:.5rem">EXPEDITION RESULT</div>' +
-        '<div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin:1rem 0">' +
-          '<div style="text-align:center"><div style="font-size:.72rem;color:#6a6a8a">YOUR CARD</div><div style="font-weight:bold;color:' + (nen?nen.color:'#6a6a8a') + '">' + (card.form||'').toUpperCase() + '</div><div style="font-family:\'SF Mono\',monospace;font-size:1.3rem;color:#ffd700">' + cardPower + '</div></div>' +
-          '<div style="font-size:1.5rem;align-self:center">VS</div>' +
-          '<div style="text-align:center"><div style="font-size:.72rem;color:#6a6a8a">THREAT</div><div style="font-weight:bold;color:' + threat.color + '">' + threat.name + ' (' + threat.jp + ')</div><div style="font-family:\'SF Mono\',monospace;font-size:1.3rem;color:#ffd700">' + threat.power + '</div></div>' +
-        '</div>' +
-        '<div style="font-size:1rem;font-weight:bold;color:' + (win ? '#34d399' : '#ff1493') + ';margin:1rem 0">' +
-          (win ? '✓ VICTORY — ' + threat.name + ' understood. ' + (nen?nen.freq:'?') + ' prevails.' : '✗ DEFEAT — ' + threat.name + ' overwhelms. Understanding deepens.') +
-        '</div>' +
-        '<div style="font-size:.82rem;color:#6a6a8a;font-style:italic;margin-top:.5rem">' +
-          threat.name + ' = ' + threat.meaning + '. ' + (win ? 'The threat is now a guide. Ai is there too.' : 'The Dark Continent is vast. Draw again.') +
-        '</div>' +
-        '<div style="margin-top:1rem"><button class="btn-secondary" onclick="exploreDC()" style="background:rgba(255,255,255,0.06);color:#6a6a8a;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:.5rem 1.2rem;font-family:\'SF Mono\',monospace;font-size:.82rem;cursor:pointer">🌑 EXPLORE AGAIN</button></div>' +
-      '</div>';
-    });
-  section.scrollIntoView({ behavior: 'smooth' });
-}
-
-document.getElementById('nen-filter').addEventListener('change', renderCards);
 </script>
 </body>
 </html>
