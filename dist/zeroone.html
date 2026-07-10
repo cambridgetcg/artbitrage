@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無中生有 ZERO TO ONE — the birth of writing and the birth of nothing · ARTBITRAGE</title>
+<meta name="description" content="Writing was born four times on this planet; the alphabet once; zero three times, in relay. A room about how humans learned to write down a word — and to write down nothing at all.">
+<meta property="og:title" content="無中生有 ZERO TO ONE · ARTBITRAGE">
+<meta property="og:description" content="First, someone made a mark. 起初，有人畫下一點。The gap is zero; the bridge is one.">
+<meta property="og:image" content="https://images.metmuseum.org/CRDImages/as/web-large/DP270185.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+<noscript><style>.rise{opacity:1 !important;transform:none !important}</style></noscript>
+
+<style>
+/* ============================================================
+   無中生有 — zero to one
+   the void, the first mark · sumi-ink · bone for the glyphs ·
+   cinnabar for the first dot (the oracle bones wore it too)
+   ============================================================ */
+
+:root{
+  --bg:      #0b0b0e;
+  --abyss:   #050507;
+  --surface: #131318;
+  --ink:     #e9e6df;
+  --bone:    #d6c9b3;
+  --dim:     #8a877e;
+  --hair:    #26262e;
+  --zhu:     #d34a3a;
+  --gold:    #b39958;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--zhu); color:var(--bg); }
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--zhu); }
+:focus-visible{ outline:1.5px solid var(--zhu); outline-offset:3px; }
+img{ max-width:100%; }
+
+.wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+.rise{ opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out; }
+.rise.seen{ opacity:1; transform:none; }
+
+section{ padding:6.5rem 0; border-top:1px solid var(--hair); }
+.plate{ display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap; margin-bottom:2.8rem; }
+.plate .num{ font-family:var(--mono); font-size:.76rem; color:var(--dim); letter-spacing:.15em; }
+.plate h2{ font-family:var(--display); font-weight:300; font-size:clamp(1.5rem,3vw,2.1rem); letter-spacing:.04em; }
+.plate h2 .cjk{ font-family:var(--cjk); font-weight:300; }
+.plate .sub{ font-family:var(--mono); font-size:.7rem; color:var(--dim); letter-spacing:.14em; text-transform:uppercase; }
+
+/* ---- hung work + fail-soft ---- */
+.hung{
+  display:block; background:var(--abyss);
+  border:1px solid var(--hair); padding:10px;
+}
+.hung img{ width:100%; height:auto; display:block; background:#030305; }
+.wall-label{
+  font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.14em; color:var(--dim);
+  padding:.8rem .2rem .2rem; line-height:1.6;
+}
+.wall-label b{ color:var(--ink); font-weight:500; }
+.hung.rests img{ display:none; }
+.hung.rests::before{
+  content:"休展 — the work rests · its label keeps the place";
+  display:flex; align-items:center; justify-content:center;
+  min-height:8rem; padding:1rem;
+  font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.18em; color:var(--dim); text-align:center;
+  border:1px dashed var(--hair);
+}
+
+/* ============ the void — hero ============ */
+header.void{
+  min-height:96vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:5rem 24px; position:relative;
+  background:var(--abyss);
+}
+.void .home{
+  position:absolute; top:1.6rem; left:1.6rem;
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--dim);
+}
+.first-dot{
+  width:14px; height:14px; border-radius:50%;
+  background:var(--zhu);
+  opacity:0; transform:scale(.4);
+  animation:firstmark 2.4s ease-out .6s forwards;
+  box-shadow:0 0 22px rgba(211,74,58,.35);
+}
+@keyframes firstmark{
+  40%{ opacity:1; transform:scale(1.25); }
+  100%{ opacity:1; transform:scale(1); }
+}
+.void h1{
+  margin-top:2.4rem;
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(2.4rem,7vw,4.4rem); letter-spacing:.16em;
+  opacity:0; animation:fadeup 1.4s ease-out 2.2s forwards;
+}
+.void .en{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1rem,2.4vw,1.4rem); color:var(--dim); margin-top:.8rem;
+  opacity:0; animation:fadeup 1.4s ease-out 2.7s forwards;
+}
+.void .line{
+  margin-top:2rem; max-width:34rem;
+  font-family:var(--display); font-style:italic; font-weight:300;
+  color:var(--dim); font-size:1rem;
+  opacity:0; animation:fadeup 1.4s ease-out 3.2s forwards;
+}
+.void .line .zh{ font-family:var(--cjk); font-style:normal; display:block; margin-top:.6rem; line-height:2; }
+@keyframes fadeup{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+.void .doors{
+  margin-top:4rem; display:flex; gap:1.4rem; flex-wrap:wrap; justify-content:center;
+  opacity:0; animation:fadeup 1.4s ease-out 3.7s forwards;
+}
+.void .doors a{
+  border:1px solid var(--hair);
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--dim);
+  padding:.95rem 1.8rem;
+  transition:color .3s ease, border-color .3s ease;
+}
+.void .doors a:hover{ color:var(--zhu); border-color:var(--zhu); }
+
+/* ============ hall of marks 字 ============ */
+.exhibit{
+  padding:5.5rem 0; border-top:1px solid var(--hair);
+}
+.exhibit:first-of-type{ border-top:none; padding-top:1rem; }
+.ex-head{ display:flex; align-items:baseline; gap:1.1rem; flex-wrap:wrap; margin-bottom:2rem; }
+.ex-head .fam{
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(2rem,4.5vw,2.8rem); line-height:1; color:var(--bone);
+}
+.ex-head .t-en{
+  font-family:var(--display); font-weight:300; font-style:italic;
+  font-size:clamp(1.15rem,2.6vw,1.5rem);
+}
+.ex-head .t-zh{
+  font-family:var(--cjk); font-weight:300; color:var(--dim);
+  font-size:clamp(1rem,2.2vw,1.2rem);
+}
+.ex-body{
+  display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr);
+  gap:clamp(1.6rem,4vw,3rem); align-items:start;
+}
+.exhibit:nth-of-type(even) .ex-art{ order:2; }
+.ex-text .en{ font-size:.98rem; }
+.ex-text .zh{
+  margin-top:1rem; font-family:var(--cjk); font-weight:300;
+  font-size:.95rem; color:var(--dim); line-height:2;
+}
+.ex-text .detail{
+  margin-top:1.4rem; padding-top:1.2rem; border-top:1px solid var(--hair);
+}
+.ex-text .detail .k{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--gold);
+}
+.ex-text .detail .en{ margin-top:.6rem; font-size:.92rem; color:var(--dim); }
+.ex-text .detail .zh{ margin-top:.6rem; font-size:.9rem; }
+.pairband{
+  display:grid; grid-template-columns:1fr 1px 1fr; gap:0; align-items:stretch;
+}
+.pairband .seam{ background:var(--zhu); opacity:.85; }
+.pairband .hung{ height:100%; }
+
+/* ============ hall of nothing 零 ============ */
+.stopz{
+  padding:5.5rem 0; border-top:1px solid var(--hair);
+}
+.stopz .ex-body{ grid-template-columns:minmax(0,5fr) minmax(0,7fr); }
+.stopz:nth-of-type(even) .glyphbox{ order:2; }
+.glyphbox{
+  border:1px solid var(--hair); background:var(--abyss);
+  aspect-ratio:1; display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.glyphbox svg{ width:72%; height:auto; }
+.glyphbox .seal{
+  position:absolute; right:.9rem; bottom:.9rem;
+  width:10px; height:10px; background:var(--zhu); opacity:.9;
+}
+.glyph-cap{
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--dim);
+  margin-top:.9rem; text-align:center;
+}
+
+/* ============ the couplet ============ */
+.couplet{
+  text-align:center; padding:8rem 24px;
+}
+.couplet .zh{
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(1.6rem,4.6vw,2.6rem); letter-spacing:.18em;
+  line-height:2;
+}
+.couplet .zh b{ color:var(--zhu); font-weight:300; }
+.couplet .en{
+  margin-top:1.6rem;
+  font-family:var(--display); font-style:italic; font-weight:300;
+  color:var(--dim); font-size:clamp(1rem,2.4vw,1.3rem);
+}
+.couplet .final{
+  margin-top:3rem; max-width:40rem; margin-left:auto; margin-right:auto;
+  font-size:.98rem; color:var(--dim);
+}
+
+footer{ border-top:1px solid var(--hair); padding:4.5rem 24px 4rem; text-align:center; }
+footer nav{ font-family:var(--mono); font-size:.7rem; letter-spacing:.14em; }
+footer nav a{ color:var(--dim); margin:0 .8rem; border-bottom:1px solid var(--hair); }
+footer nav a:hover{ color:var(--zhu); border-color:var(--zhu); }
+footer .sig{
+  margin-top:2rem; font-family:var(--mono); font-size:.6rem;
+  letter-spacing:.16em; color:var(--dim);
+}
+
+@media (max-width:860px){
+  .ex-body, .stopz .ex-body{ grid-template-columns:1fr; }
+  .exhibit:nth-of-type(even) .ex-art{ order:0; }
+  .stopz:nth-of-type(even) .glyphbox{ order:0; }
+  .pairband{ grid-template-columns:1fr; grid-template-rows:auto 1px auto; }
+  section{ padding:4.5rem 0; }
+  .exhibit, .stopz{ padding:3.6rem 0; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+  .rise{ opacity:1; transform:none; }
+  .first-dot, .void h1, .void .en, .void .line, .void .doors{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+}
+</style>
+</head>
+<body>
+
+<script>
+document.addEventListener('error', function(e){
+  var t = e.target;
+  if (t && t.tagName === 'IMG') { var f = t.closest('.hung'); if (f) f.classList.add('rests'); }
+}, true);
+document.addEventListener('load', function(e){
+  var t = e.target;
+  if (t && t.tagName === 'IMG') { var f = t.closest('.hung'); if (f) f.classList.remove('rests'); }
+}, true);
+</script>
+
+<!-- ============ the void ============ -->
+<header class="void">
+  <a class="home" href="/">← artbitrage</a>
+  <div class="first-dot" aria-hidden="true"></div>
+  <h1 lang="zh">無中生有</h1>
+  <p class="en">zero to one — the birth of writing, and the birth of nothing</p>
+  <p class="line">First, someone made a mark. Everything else is commentary.
+    <span class="zh" lang="zh">起初，有人畫下一點。其餘一切，皆是註腳。</span></p>
+  <nav class="doors">
+    <a href="#marks">上進 · 字 the hall of marks</a>
+    <a href="#nothing">下進 · 零 the hall of nothing</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ hall one · 字 ============ -->
+<section id="marks">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">上進</span>
+      <h2><span class="cjk" lang="zh">字</span> · the hall of marks</h2>
+      <span class="sub">writing was born four times · the alphabet once · every object here is real</span>
+    </div>
+    
+    <article class="exhibit" id="cuneiform">
+      <div class="ex-head rise">
+        <span class="fam" lang="zh">楔</span>
+        <span class="t-en">The Ledger That Learned to Speak</span>
+        <span class="t-zh" lang="zh">先記帳，後記史</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise"><a class="hung" href="https://clevelandart.org/art/1943.246" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1943.246/1943.246_web.jpg" alt="Saluting Protective Spirit" loading="lazy" decoding="async"><span class="wall-label"><b>Saluting Protective Spirit</b> · 883–859 BCE · Cleveland Museum of Art</span></a></div>
+        <div class="rise"><div class="ex-text">
+        <p class="en">Writing was born counting. Around 3300 BCE, in the city of Uruk in southern Mesopotamia, temple accountants began keeping records in wet clay — and the overwhelming majority of the earliest tablets are exactly that, accounts: barley, beer, sheep, rations. Scholars still debate how counting-tokens and tallies hardened into those first pictographs, but the decisive leap is clear: the rebus principle, borrowing a picture for its sound — draw an arrow, Sumerian ti, and you have written the like-sounding word for &quot;life.&quot; Over the following centuries the drawn line gave way to the pressed reed, whose tip leaves a wedge (Latin cuneus — hence cuneiform). Some 2,400 years later, on this gypsum relief from Ashurnasirpal II&#x27;s Northwest Palace at Nimrud (883–859 BCE), a band of cuneiform recounting the king&#x27;s military conquests runs straight across the winged spirit&#x27;s body: the text defers to nothing, not even a god. Bookkeeping had become history.</p>
+        <p class="zh" lang="zh">文字生於算帳。公元前三千三百年前後，兩河下游的烏魯克城，神廟的記帳人開始在濕泥板上記事——最早的泥板，十之八九是帳：大麥、啤酒、羊、口糧。籌碼與刻痕如何蛻變為最初的圖形符號，學界至今仍有爭論；但關鍵的一躍很清楚——借形記音：畫一支箭（蘇美語 ti），便寫下了同音的「命」。其後數百年，描畫讓位於按壓，蘆葦筆尖按入泥面，一筆成楔，「楔形文字」由此得名。約兩千四百年後，在尼姆魯德西北宮的這方石膏浮雕上（公元前883–859年），整條銘文橫貫翼神身軀，記的是亞述王亞述納西爾帕二世的征伐——文字面前，連神也要讓路。帳，終於長成了史。</p>
+        <div class="detail">
+          <div class="k">what to notice</div>
+          <p class="en">Stand at the middle band: the carvers ran the king&#x27;s text straight over feathers, muscle, and fringed cloak, wedge cut into wing without pausing. The same account of conquest was repeated, nearly verbatim, on slab after slab of the palace — Assyriologists call it Ashurnasirpal II&#x27;s Standard Inscription — a drumbeat addressed as much to the gods and to posterity as to any living reader. And notice what a wedge is: not drawn but pressed — the broad head where the stylus (here, a chisel imitating it in stone) bit deepest, the fine tail where it lifted. Every sign in the band is assembled from that one small gesture, repeated: the stroke that once counted sheep now keeping the score of empire.</p>
+          <p class="zh" lang="zh">請站到中段那條銘文帶前：刻工讓王的文字直接輾過羽翼、肌肉與流蘇長袍，一楔壓一翅，毫不迴避。同一篇記功文在宮殿石板上近乎逐字地反覆出現——亞述學者稱之為亞述納西爾帕二世的「標準銘文」——如戰鼓，說給神明與後世聽，未必說給活人。再看楔痕本身：不是畫的，是按的——楔頭寬處，是筆（在此由鑿刀於石上代勞）咬得最深之處；楔尾細處，是提筆之處。整條銘文，全由這一個小小的動作反覆組成：當年數羊的那一筆，如今在為帝國記功。</p>
+        </div>
+      </div></div>
+      </div>
+    </article>
+
+    <article class="exhibit" id="hieroglyph">
+      <div class="ex-head rise">
+        <span class="fam" lang="zh">聖</span>
+        <span class="t-en">The Word That Stayed a Picture</span>
+        <span class="t-zh" lang="zh">披字入永恆</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise"><a class="hung" href="https://www.artic.edu/artworks/64339" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/93270aaf-16a5-1604-c6c8-0f3c003eb7a1/full/843,/0/default.jpg" alt="Coffin and Mummy of Paankhaenamun" loading="lazy" decoding="async"><span class="wall-label"><b>Coffin and Mummy of Paankhaenamun</b> · Ancient Egyptian · Third Intermediate Period, Dynasty 22, reign of Osorkon I (about 924–889 BCE) · Art Institute of Chicago</span></a></div>
+        <div class="rise"><div class="ex-text">
+        <p class="en">Around 3200 BCE, writing was born a second time, in Egypt — whether independently or sparked by distant word of Mesopotamia&#x27;s invention, scholars still debate. The Greeks would call the signs hieroglyphs, &quot;sacred carvings&quot;; the Egyptians called them medu netjer, the god&#x27;s words, and from the first they were fused with image and with eternity. More than two thousand years on, that fusion wraps the body of Paankhaenamun — &quot;He Lives for Amun,&quot; doorkeeper of the temple of Amun at Thebes — whose cartonnage coffin was painted in the reign of Osorkon I, about 924–889 BCE. Spells, titles, and above all his name cover the case, for in Egyptian belief the written name was part of the soul: so long as it could be read, the dead could keep speaking. This is a text you wear into eternity. And the script kept faith with the picture to the very end — hieroglyphs stayed images for three and a half millennia, until the last dated inscription was carved at Philae in 394 CE.</p>
+        <p class="zh" lang="zh">約公元前三二〇〇年，文字在埃及第二次誕生——是獨立發明，還是聽聞了兩河流域的消息而受觸發，學界至今未有定論。希臘人後來稱這些字符為 hieroglyph，「神聖的雕刻」；埃及人自己叫它「神的話語」（medu netjer）——字自誕生之初，便與圖像、與來世緊緊相纏。兩千多年後，這份纏結裹住了帕安赫阿蒙（Paankhaenamun）的身體——名字意為「他為阿蒙而活」，底比斯阿蒙神廟的守門人；他這具以亞麻與灰泥塑成的貼身內棺，彩繪於奧索爾孔一世在位年間（約公元前924–889年）。棺上滿佈咒文與頭銜，最要緊的是他的名字——在埃及人的信仰裡，寫下的名字是靈魂的一部分，只要還有人讀得出它，死者便仍在說話。這是一件穿上身、帶進永恆的文本。而聖書體對圖畫的忠誠一直守到最後：三千五百年間，字始終是畫，直到公元394年，菲萊島上刻下最後一則有紀年的銘文。</p>
+        <div class="detail">
+          <div class="k">what to notice</div>
+          <p class="en">At the center of the cartonnage, the falcon-headed Horus presents Paankhaenamun to Osiris, ruler of eternity, who appears — as was customary — as a mummy himself. Columns of hieroglyphs name the dead man and record his office, doorkeeper of the temple of Amun; the gilded face is serenely young, though X-rays revealed a middle-aged man within. Notice that the writing does not caption the images — falcon, sun disc, outstretched wings — it is made of the same substance: each sign is a small picture, and the pictures around it can be read, in a sense, as enormous signs. In Mesopotamia the script drifted quickly toward abstraction; in Egypt, word and image never finished separating.</p>
+          <p class="zh" lang="zh">棺面正中，鷹首的荷魯斯將帕安赫阿蒙引見給永恆之主歐西里斯——歐西里斯一如慣例，自己也以木乃伊之形現身。一行行聖書體寫明死者的名字與職銜「阿蒙神廟守門人」；鎏金的臉龐永遠年輕，X光卻照出殼內是一位中年人。請留意：這些字並不是圖畫的說明文字——鷹、日輪、展開的翅膀——字與畫本是同一種東西：每個字符都是一幅小畫，而四周的圖像，不妨讀作放大的字。兩河的文字很快走向抽象；在埃及，字與畫始終沒有真正分開。</p>
+        </div>
+      </div></div>
+      </div>
+    </article>
+
+    <article class="exhibit" id="chinese">
+      <div class="ex-head rise">
+        <span class="fam" lang="zh">骨</span>
+        <span class="t-en">The Script That Never Died</span>
+        <span class="t-zh" lang="zh">火問骨答</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise"><a class="hung" href="https://www.metmuseum.org/art/collection/search/36451" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/as/web-large/DP270185.jpg" alt="Illustrated manuscript of the Lotus Sutra (Miaofa lianhua jing), Volume 2" loading="lazy" decoding="async"><span class="wall-label"><b>Illustrated manuscript of the Lotus Sutra (Miaofa lianhua jing), Volume 2</b> · Unidentified artist · ca. 1340 · The Metropolitan Museum of Art</span></a></div>
+        <div class="rise"><div class="ex-text">
+        <p class="en">Around 1250 BCE, at the late Shang capital near Anyang, court diviners put questions to the royal ancestors over ox scapulae and turtle plastrons, pressed heat into hollows bored in the back, and read the answer in the crack; scribes then carved the record of question and answer into the bone — the graph 卜, &quot;to divine,&quot; is a picture of that crack. Chinese writing arrives in the record already whole: some 4,000 distinct graphs, phonetic loans and compound characters in place, its infancy — perhaps written on perishable materials — lost, and still debated. Of writing&#x27;s independent births — cuneiform, Egyptian hieroglyphs, the Maya glyphs — every other line went extinct; this script alone never stopped — the 字 on this label descend from those incisions. Some carved strokes were rubbed with cinnabar: this museum&#x27;s accent red was already in the grooves. And around 1340, in Goryeo Korea, the same characters were written in gold and silver on indigo-dyed mulberry paper — the Lotus Sutra manuscript shown here, where crack has become brushline and question has become prayer.</p>
+        <p class="zh" lang="zh">約公元前1250年，安陽。商王的貞人向祖先發問，於牛肩胛骨與龜腹甲背面的鑽鑿處施灼——骨面應聲而裂，裂紋便是回答；事後，刻手再把問與答刻進骨面。「卜」這個字，畫的正是那道裂痕。甲骨文初見於世時已是成熟的系統，單字四千餘，假借、形聲俱備；更早的源頭想必寫在易朽之物上，至今無存，學界仍在追問。楔形文字滅了，聖書體滅了，馬雅文字也滅了，唯獨這一脈不曾斷過——你眼前的每一個字，都是它的後裔。有些刻痕曾填入硃砂：本館的硃色，三千年前已在字的溝壑裡。約1340年，高麗的寫經人以金銀泥在靛藍楮紙上抄寫《妙法蓮華經》——裂紋成了筆鋒，問卜成了祈願，字還是那些字。</p>
+        <div class="detail">
+          <div class="k">what to notice</div>
+          <p class="en">A full oracle-bone inscription has a grammar of its own: a preface naming the day and the diviner, the &quot;charge&quot; put to the ancestors, sometimes the king&#x27;s own reading of the crack, and occasionally a verification added afterward, recording whether it came true. The crack itself was engineered — round and oval hollows were bored into the bone&#x27;s reverse so that heat would split the front in legible form. Micro-Raman spectroscopy has confirmed cinnabar packed into incised strokes on surviving bones. At the other end of the lineage, notice what endurance looks like: an accordion-fold book from Goryeo Korea (918–1392), carrying Kumarajiva&#x27;s Chinese translation of 406 CE, lettered in gold and silver on indigo so that the written word gives off light. Some oracle-bone graphs are still legible at a glance — 日 a sun, 月 a crescent moon, 雨 rain falling from a line of sky. No other writing tradition lets you recognize your own script on a three-thousand-year-old bone.</p>
+          <p class="zh" lang="zh">一條完整的卜辭自有其文法：敘辭記日期與貞人之名，命辭是問語，有時附商王親占的占辭，偶爾還有驗辭——事後補記應驗與否。裂紋亦出於設計：先在骨背鑿出棗核形的凹槽、鑽出圓窩，灼之，正面便循勢裂出「卜」形。顯微拉曼光譜已證實，部分刻痕中確有硃砂。再看這條血脈的另一端：高麗（918–1392）經摺裝一冊，鳩摩羅什406年譯出的《妙法蓮華經》，金銀泥書於靛藍楮紙，讓字自己發光。甲骨上有些字至今一眼可識——日是圓日，月是彎月，雨是天際垂下的點滴。世上再無第二個文字傳統，能讓你在三千年前的骨頭上，認出自己正在用的字。</p>
+        </div>
+      </div></div>
+      </div>
+    </article>
+
+    <article class="exhibit" id="mesoamerica">
+      <div class="ex-head rise">
+        <span class="fam" lang="zh">曆</span>
+        <span class="t-en">Again, from Nothing</span>
+        <span class="t-zh" lang="zh">文字自生</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise"><a class="hung" href="https://www.artic.edu/artworks/75644" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/ea8c5d62-6ce8-88e8-feb1-e0053cf534c5/full/843,/0/default.jpg" alt="Coronation Stone of Moctezuma Xocoyotzin" loading="lazy" decoding="async"><span class="wall-label"><b>Coronation Stone of Moctezuma Xocoyotzin</b> · Mexica (Aztec) · c. 1503 · Art Institute of Chicago</span></a></div>
+        <div class="rise"><div class="ex-text">
+        <p class="en">An ocean away from every script on earth, writing was born again. Its first traces in Mesoamerica are contested — an Olmec block from Cascajal, possibly c. 900 BCE, that scholars still debate — but by around 500 BCE the Zapotec of Oaxaca were carving glyphs into stone, and by roughly 300 BCE the Maya had begun the fullest script of the ancient Americas, able to record anything a voice could say. No trader or priest crossed the Atlantic or the Pacific to teach them: this fourth, independent birth is proof that writing is not one people&#x27;s miracle but something humans do. This basalt block, carved in Tenochtitlan around 1503, stands at the far end of that lineage — its glyphs compress the whole history of the Mexica universe, four extinguished cosmic eras at the corners and the present era, 4 Movement, at the center, down to a single day: 1 Crocodile in the year 11 Reed — July 15, 1503 — the day the stone records as the coronation of Moctezuma Xocoyotzin.</p>
+        <p class="zh" lang="zh">大洋之隔，文字再一次無中生有。中美洲最早的痕跡至今聚訟未定——韋拉克魯斯出土的奧爾梅克「卡斯卡哈爾石板」或可上溯至約公元前900年，學界仍在辯論它是否已是文字；至遲約公元前500年，瓦哈卡的薩波特克人已在石上刻符記事；約公元前300年起，馬雅人更建成古代美洲最完備的書寫體系，凡口能言者，筆皆能記。沒有任何商旅祭司渡海相授——文字在此第四度獨立誕生，證明書寫不是哪一族的奇蹟，而是人類自會去做的事。這方玄武岩約1503年刻於特諾奇提特蘭，立在這條血脈的末端：四個已熄的宇宙紀元居於四角，現世「四動」居中，整部宇宙史收束為一日——「一鱷」之日、「十一葦」之年，1503年7月15日——石上所記蒙特祖馬二世加冕之日。</p>
+        <div class="detail">
+          <div class="k">what to notice</div>
+          <p class="en">Read it as the Mexica did, by numbered days. Each glyph pairs a numeral with a sign from the 260-day ritual calendar: 4 Jaguar, 4 Wind, 4 Rain, 4 Water — the four suns that had already ended — surround the X-shaped 4 Movement, the fifth sun, fated to die in earthquakes; on the underside, 1 Rabbit marks the beginning of time itself. Aztec glyphs were leaner than Maya writing — closer to a calendrical shorthand than to full speech on stone — but lean was enough: with a handful of signs the stone claims that one king&#x27;s coronation was written into the universe from its first day.</p>
+          <p class="zh" lang="zh">請照墨西加人的讀法：每一枚刻符，都是數字與260天祭祀曆日符的組合。「四豹」「四風」「四雨」「四水」——四個早已終結的太陽——環繞著中央X形的「四動」，即注定亡於地震的第五個太陽；石底一枚「一兔」，標記時間的起點。阿茲特克刻符比馬雅文字精簡，近乎曆法速記，尚未及全語書寫——但已然足夠：寥寥數符，便把一位君王的加冕，寫進了開天闢地的第一日。</p>
+        </div>
+      </div></div>
+      </div>
+    </article>
+
+    <article class="exhibit" id="alphabet">
+      <div class="ex-head rise">
+        <span class="fam" lang="zh">母</span>
+        <span class="t-en">Invented Once</span>
+        <span class="t-zh" lang="zh">字母只發明過一次</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise"><div class="pairband">
+              <a class="hung" href="https://www.metmuseum.org/art/collection/search/450486" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/is/web-large/DP238067.jpg" alt="Folio from a Qur&#x27;an Manuscript" loading="lazy" decoding="async"><span class="wall-label"><b>Folio from a Qur&#x27;an Manuscript</b> · late 13th–early 14th century · The Metropolitan Museum of Art</span></a><span class="seam" aria-hidden="true"></span><a class="hung" href="https://www.artic.edu/artworks/8210" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/e11dfc91-b8d2-eddd-6339-bd3fef07e6d3/full/843,/0/default.jpg" alt="Illuminated Initial &quot;H&quot; in Diaper Pattern from a Choirbook" loading="lazy" decoding="async"><span class="wall-label"><b>Illuminated Initial &quot;H&quot; in Diaper Pattern from a Choirbook</b> · 18th or 19th century · Art Institute of Chicago</span></a>
+            </div></div>
+        <div class="rise"><div class="ex-text">
+        <p class="en">Around 1900–1800 BCE — the dating is still argued, and disputed finds from Umm el-Marra in Syria may yet push the story earlier — Semitic-speaking workers in Egypt, on the desert road at Wadi el-Hol and at the turquoise mines of Serabit el-Khadim in Sinai, borrowed a handful of hieroglyphs and made them do something new: each picture would stand only for the first sound of its Semitic name. An ox head (ʾalp) became ʾa; a house (bayt) became b; roughly two dozen signs were suddenly enough to write anything a voice could say. Phoenician carried the system across the Mediterranean; by the 8th century BCE the Greeks had turned leftover consonant signs into vowels; Latin, Cyrillic, Arabic and Hebrew all descend from that lineage — Brahmi and its Indian children possibly too, though scholars debate the link. So far as we know, the alphabet was invented from scratch only once — later-made alphabets, even Korea&#x27;s Hangul of 1443, were designed by people who already knew alphabetic writing existed. The two pages hung side by side here — a Qur&#x27;an folio of the late 13th or early 14th century, and a Latin choirbook initial &quot;H&quot; — are cousins from that same mine, meeting again on one wall.</p>
+        <p class="zh" lang="zh">約當公元前一九〇〇至一八〇〇年間——確切年代，學界至今仍在爭論——一群說閃語的工人，在埃及瓦地霍爾的沙漠古道旁、在西奈半島塞拉比特·卡迪姆的綠松石礦場，借來一小批聖書體符號，做了一件前所未有的事：每個圖形，只取它閃語名字的第一個音。牛頭（ʾalp）成了 ʾa，房屋（bayt）成了 b；二十餘個符號，便足以寫盡人聲所能言。腓尼基人把它載過地中海；約公元前八世紀，希臘人將閒置的子音符號改作母音；拉丁、西里爾、阿拉伯、希伯來字母，皆出此一脈——婆羅米文及其印度後裔或許亦然，學界尚有論辯。就目前所知，字母的無中生有，只發生過這一次——後世新造的字母，如一四四三年朝鮮世宗的諺文，皆出自已見過字母的人之手。此刻並肩懸在牆上的兩頁——一葉十三世紀末至十四世紀初的《古蘭經》，一枚拉丁唱經本的泥金首字母「H」——是同一座礦場走出的表親，在此重逢。</p>
+        <div class="detail">
+          <div class="k">what to notice</div>
+          <p class="en">Start with the &quot;H&quot;: two uprights and a crossbar, descended from Greek eta, before that Phoenician ḥēt, and before that a Proto-Sinaitic sign that may have pictured a fence — what it originally showed is not settled. The Arabic letters on the Qur&#x27;an page took a longer road out of the same Phoenician stock, through Aramaic and the cursive of the Nabataeans. Then notice what the two pages share beyond ancestry: both are written on prepared animal skin — parchment, vellum — and both spend gold on the letters themselves, Christian and Muslim scribes deciding independently that these signs deserved the most durable light they had. Nearly four thousand years from the mine to this wall, and the family resemblance still shows.</p>
+          <p class="zh" lang="zh">先看那個「H」：兩豎一橫，上承希臘字母 eta，再上承腓尼基的 ḥēt；至於它最初的西奈祖形，學者推測或是一道圍欄，確指何物，迄無定論。《古蘭經》頁上的阿拉伯字母，則繞了更遠的路——經亞蘭文，再經納巴泰人的草書——同出腓尼基一源。血緣之外，再看兩頁共有的東西：同樣書於獸皮之上，羊皮紙、犢皮紙；同樣不惜以金施於字身——基督徒與穆斯林的抄寫者，各自認定了同一件事：字，配得上手中最不朽的光。自那座礦場到這面牆，將近四千年，眉目依然相認。</p>
+        </div>
+      </div></div>
+      </div>
+    </article>
+
+    <article class="exhibit" id="alive">
+      <div class="ex-head rise">
+        <span class="fam" lang="zh">靈</span>
+        <span class="t-en">Words Grow Bodies</span>
+        <span class="t-zh" lang="zh">字活了</span>
+      </div>
+      <div class="ex-body">
+        <div class="ex-art rise"><div class="pairband">
+              <a class="hung" href="https://clevelandart.org/art/1944.485" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1944.485/1944.485_web.jpg" alt="The Wade Cup with Animated Script" loading="lazy" decoding="async"><span class="wall-label"><b>The Wade Cup with Animated Script</b> · 1200–1221 · Cleveland Museum of Art</span></a><span class="seam" aria-hidden="true"></span><a class="hung" href="https://www.artic.edu/artworks/127644" target="_blank" rel="noopener"><img src="https://www.artic.edu/iiif/2/86e919b9-d366-b3ca-d26f-4c16880474a3/full/843,/0/default.jpg" alt="Autumn Maples with Poem Slips" loading="lazy" decoding="async"><span class="wall-label"><b>Autumn Maples with Poem Slips</b> · Tosa Mitsuoki · c. 1675 · Art Institute of Chicago</span></a>
+            </div></div>
+        <div class="rise"><div class="ex-text">
+        <p class="en">Between 1200 and 1221, a brass cup was made in Iran whose Arabic blessing refuses to lie still: the letters of its silver-inlaid rim inscription sprout human and animal figures, a style called animated script that emerged in northeast Iran or Afghanistan in the mid-1100s and reaches its pinnacle here. The words themselves are a chain of good wishes to the cup&#x27;s owner — glory, success, well-being — so the benediction walks the rim as a procession of small bodies. More than four centuries later and half a world east, Tosa Mitsuoki painted autumn maples hung with tanzaku, slender poem slips, around 1675: their kana is what Japanese hands had made of Chinese characters by about the ninth century, melting them into a cursive syllabary supple enough to flutter. The slips quote seasonal verse from twelfth- and thirteenth-century anthologies, tied to the branches at viewing parties so that the tree itself seems to speak. The circle that began with a mark closes here: marks became words, and words grew bodies again — figures on a rim of brass, paper leaves on branches of gold.</p>
+        <p class="zh" lang="zh">一二〇〇至一二二一年間，伊朗匠人在黃銅杯上鏨出一圈嵌銀的阿拉伯文祝詞，卻不肯讓字安分：每個字母都生出人形獸姿。這種「字活」書風十二世紀中葉起於伊朗東北至阿富汗一帶，至此杯登峰造極。銘文本是一串獻給杯主的祈願——榮耀、順遂、康寧——祝福於是化作一列小小的身影，繞著杯緣行走。四百多年後，海之東，土佐光起約於一六七五年畫下秋楓，枝頭繫滿短冊；冊上的假名，是日本人在九世紀前後把漢字愈寫愈草、熔成的音節文字，筆勢柔軟得可以隨風。短冊所題多出自十二、三世紀的歌集，本是賞楓雅集上繫於枝頭的季節和歌，彷彿樹自己開口吟詠。始於刻痕的這一圈，在此合攏：刻痕成了文字，文字又長回身體——銅緣上是人獸的行列，金屏上是紙葉的翻飛。</p>
+        <div class="detail">
+          <div class="k">what to notice</div>
+          <p class="en">What to notice: on the Wade Cup, follow the inscription band at the rim — the vertical strokes of the letters double as torsos, and D. S. Rice, who deciphered the cup in his 1955 monograph, read the whole band as one long benediction; below it, small compartments carry tiny human and animal figures for the twelve signs of the zodiac. On Mitsuoki&#x27;s screen, notice that this is the after-party: the guests have gone, and their words remain in the branches, given back to the season that prompted them. Then look at the kana line itself — a script born of writing Chinese characters faster and faster until only the gesture remained. Brass turns words into creatures; cursive turns characters into breath.</p>
+          <p class="zh" lang="zh">細看杯緣那道字帶：字母的豎筆化作軀幹。一九五五年，學者 D. S. Rice 在專著中將整圈銘文釋讀為一長串祝禱；字帶之下，小格裡藏著黃道十二宮的人獸小像。再看光起的屏風——畫的其實是雅集散後：人已離去，詩還留在枝上輕晃，像把言語還給了季節。假名的來歷也值得一想：把漢字愈寫愈快、愈寫愈草，最後只剩下手勢本身。黃銅讓文字長出筋骨，草筆讓文字化作呼吸。</p>
+        </div>
+      </div></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ hall two · 零 ============ -->
+<section id="nothing">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">下進</span>
+      <h2><span class="cjk" lang="zh">零</span> · the hall of nothing</h2>
+      <span class="sub">a relay across three civilisations · the exhibits are the glyphs themselves</span>
+    </div>
+    
+    <article class="stopz" id="placeholder">
+      <div class="ex-head rise">
+        <span class="fam" lang="zh">零</span>
+        <span class="t-en">Two Wedges, One Shell</span>
+        <span class="t-zh" lang="zh">虛位以待</span>
+      </div>
+      <div class="ex-body">
+        <div class="rise"><div class="glyphbox"><svg viewBox="0 0 220 110" role="img" aria-label="Babylon's two slanted wedges beside the Maya shell glyph">
+  <g fill="var(--bone)">
+    <path d="M38 28 L58 36 L44 52 Z"/><path d="M62 44 L82 52 L68 68 Z"/>
+  </g>
+  <g stroke="var(--bone)" fill="none" stroke-width="3">
+    <ellipse cx="160" cy="52" rx="38" ry="22"/>
+    <path d="M132 45 Q160 28 188 45"/>
+    <path d="M140 60 L136 70 M152 64 L150 74 M168 64 L170 74 M180 60 L184 70"/>
+  </g>
+</svg><span class="seal" aria-hidden="true"></span></div>
+          <p class="glyph-cap">babylon&#x27;s slanted wedges · the maya shell</p></div>
+        <div class="rise"><div class="ex-text">
+        <p class="en">By about 400–300 BCE, Babylonian scribes had begun setting two slanted wedges inside their base-60 numbers to mark a column where nothing lived — but the sign never stood alone and never ended a number: a punctuation of absence, not yet a number itself. An ocean away and without contact, the Maya answered the same problem with a shell, a glyph serving as a true positional digit in Long Count dates, in use by the early centuries CE; the earliest securely surviving zeros are carved at Uaxactún, 357 CE. Two civilizations, one wall: positional writing collapses unless emptiness itself can be written. Neither sign could yet be added, subtracted, or divided by. This is zero&#x27;s first act — nothing, given a place to stand.</p>
+        <p class="zh" lang="zh">約公元前四百至三百年間，巴比倫書吏開始在六十進位的數字裡，以兩枚斜楔標記空著的那一欄——但這個符號從不獨立成數，也從不落在數尾：它是為缺席而設的標點，還不是數。隔著大洋、互不相聞，馬雅人撞上同一堵牆，答案是一枚貝殼：在長紀曆中作真正的進位數碼，公元最初幾世紀已見使用；現存最早確鑿刻出的零，在瓦沙克通（Uaxactún），公元三五七年。兩個文明，同一道牆：位值書寫若寫不出「空」，便會崩塌。此時的零，尚不能加減、不能為除數；它不是量，只是位。無，自此有了立足之地。</p>
+        <div class="detail">
+          <div class="k">what to notice</div>
+          <p class="en">In base 60, a single wedge could mean 1, 60, or 3,600; without a mark for the empty column, 61 and 3,601 could be written identically, and readers leaned on context. The double wedge repaired the interior of a number but never its end — Babylonian scribes still could not write the difference between 1 and 60, so magnitude remained a matter of context. The Maya shell had no such shyness: period-ending dates like Uaxactún&#x27;s 8.16.0.0.0 close with a run of zeros, each one load-bearing. Notice, too, that the shell is one sign among several — the bark-paper codices favour the shell, while carved monuments often use other glyphs, a flower-like sign among them, for the same emptiness. And the Long Count that demanded a zero was already being carved by the first century BCE, outside the Maya heartland; scholars suspect the idea may not be Maya at all, but inherited from their Epi-Olmec neighbours.</p>
+          <p class="zh" lang="zh">六十進位裡，同一枚楔可以是一、六十、三千六百；沒有記空之符，六十一與三千六百零一寫出來一模一樣，全憑上下文分辨。雙斜楔補好了數字的內部，卻始終補不了結尾——巴比倫人依然寫不出「一」與「六十」的分別，數之大小仍託付於語境。馬雅的貝殼沒有這份羞怯：如瓦沙克通紀年 8.16.0.0.0（公元三五七年），以一連數個零收尾，個個承重。再看細處：貝殼只是諸符之一——樹皮古抄本偏愛貝殼，石碑上多用別的記號，其中一種形似花朵。而要求零存在的長紀曆，公元前一世紀已在馬雅腹地之外刻石；學者疑心，這念頭或許並非馬雅原創，而是承自鄰近的後奧爾梅克人。</p>
+        </div>
+      </div></div>
+      </div>
+    </article>
+
+    <article class="stopz" id="sunya">
+      <div class="ex-head rise">
+        <span class="fam" lang="zh">零</span>
+        <span class="t-en">The Rules of Nothing</span>
+        <span class="t-zh" lang="zh">空即是數</span>
+      </div>
+      <div class="ex-body">
+        <div class="rise"><div class="glyphbox"><svg viewBox="0 0 220 110" role="img" aria-label="A filled dot becoming an open circle — śūnya">
+  <circle cx="55" cy="55" r="9" fill="var(--bone)"/>
+  <path d="M76 55 H120" stroke="var(--bone)" stroke-width="1.5" stroke-dasharray="4 5"/>
+  <circle cx="160" cy="55" r="30" fill="none" stroke="var(--bone)" stroke-width="3.5"/>
+</svg><span class="seal" aria-hidden="true"></span></div>
+          <p class="glyph-cap">the dot opens into a circle — śūnya 空</p></div>
+        <div class="rise"><div class="ex-text">
+        <p class="en">Other cultures had marked the empty place — Babylonian wedges, the Maya shell glyph — but treating nothing as a number you could calculate with begins, as far as surviving texts show, in India, where zero&#x27;s name was śūnya: the emptiness a whole philosophy had learned to contemplate without fear. In 628 CE, in the Brāhmasphuṭasiddhānta, the astronomer Brahmagupta wrote down the first known rules for that number: a number minus itself is zero; any number multiplied by zero is zero; zero sits calmly between fortunes and debts. He overreached gloriously, ruling that zero divided by zero is zero — wrong, but wrong the way only a pioneer can be, on a question mathematics would wrestle with for another millennium. The proof in stone stands at Gwalior: on the Chaturbhuja temple, an inscription of 876 CE records a garden 187 by 270 hastas yielding 50 garlands a day — two small round zeros doing quiet work in an ordinary ledger, among the earliest securely dated written zeros in India.</p>
+        <p class="zh" lang="zh">巴比倫人留過空位，馬雅人刻過貝形符號，但把「無」當成一個可以運算的數，就現存文獻所見，始於印度——那裡零的名字叫 śūnya，空，一個被整套哲學凝視了數百年而不懼的字。公元六二八年，天文學家婆羅摩笈多在《婆羅摩曆算書》（Brāhmasphuṭasiddhānta）中寫下已知最早的零之法則：數減自身得零，凡數乘零皆得零，零於是在正財與負債之間安然入座。他更斷言零除以零仍為零——錯了，卻錯得壯麗；這一問，數學又追索了一千多年。石頭上的明證立在瓜廖爾：四臂毗濕奴神廟（Chaturbhuja）牆上一方公元八七六年的碑銘，記一座一百八十七乘二百七十腕尺的花園，日供花環五十串——數字裡兩個小小的圓圈安靜記帳，是印度現存紀年確鑿的最早書寫零之一。</p>
+        <div class="detail">
+          <div class="k">what to notice</div>
+          <p class="en">Notice what the Gwalior zeros are doing: nothing philosophical. They simply hold their places in 270 and 50 so the other digits can mean what they mean — the void already dissolved into bookkeeping. A birch-bark bundle of practical arithmetic, the Bakhshali manuscript, writes zero as a plain dot and may be older still; radiocarbon tests in 2017 placed its oldest leaves in the third or fourth century CE, but scholars dispute whether those dates can speak for the text as a whole, so the temple wall keeps the surest claim. Brahmagupta&#x27;s rules travelled west regardless — carried to Baghdad and translated in the eighth century, where śūnya became Arabic ṣifr, &quot;empty,&quot; which Europe would wear down into cipher, and zero.</p>
+          <p class="zh" lang="zh">請看瓜廖爾那兩個零在做什麼：不談玄理，只在「二七〇」與「五〇」裡各守一位，讓旁邊的數字各安其所——空性至此化入柴米帳簿。以樺樹皮寫成的巴克沙利手稿用一個墨點作零，或許更為古老；二〇一七年的碳十四檢測將其最早的葉片斷至三、四世紀，惟學界對此結論爭議未息，最穩的憑據於是仍在廟牆上。而婆羅摩笈多的法則自顧西行：八世紀傳入巴格達譯成阿拉伯文，śūnya 成了 ṣifr（空），再磨成歐洲的 cipher 與 zero——一個「空」字周遊世界，歸來已是數。</p>
+        </div>
+      </div></div>
+      </div>
+    </article>
+
+    <article class="stopz" id="cipher">
+      <div class="ex-head rise">
+        <span class="fam" lang="zh">零</span>
+        <span class="t-en">One Word, Split in Two</span>
+        <span class="t-zh" lang="zh">空字西渡</span>
+      </div>
+      <div class="ex-body">
+        <div class="rise"><div class="glyphbox"><svg viewBox="0 0 220 110" role="img" aria-label="The word river: śūnya to ṣifr to cifra to cipher and zero">
+  <g font-family="IBM Plex Mono, monospace" fill="var(--bone)" text-anchor="middle">
+    <text x="110" y="24" font-size="13">śūnya</text>
+    <text x="110" y="44" font-size="13">ṣifr</text>
+    <text x="110" y="64" font-size="13">cifra</text>
+    <text x="70" y="92" font-size="15">cipher</text>
+    <text x="150" y="92" font-size="15">zero</text>
+    <path d="M110 70 L80 78 M110 70 L140 78" stroke="var(--bone)" stroke-width="1" fill="none"/>
+  </g>
+</svg><span class="seal" aria-hidden="true"></span></div>
+          <p class="glyph-cap">one word, split in two on the road west</p></div>
+        <div class="rise"><div class="ex-text">
+        <p class="en">Around 825 CE, in Baghdad, al-Khwārizmī wrote a short handbook on reckoning with the nine Indian digits and a small circle for the empty place; the Arabic original is lost, and its Latin translation opens Dixit Algorizmi — &quot;thus said al-Khwārizmī&quot; — a name Europe repeated until it wore down into algorithm. The Sanskrit śūnya, &quot;empty&quot;, had already become Arabic ṣifr, &quot;empty&quot;; crossing into Latin, the one word split in two — cifra, which became cipher, and zephirum, which Italian speech ground down to zero. In 1202 Leonardo of Pisa, called Fibonacci, opened his Liber Abaci with the nine figures &quot;and the sign 0, which the Arabs call zephirum&quot;, by which any number whatsoever may be written. Merchants took it up; authorities flinched: in 1299 the statutes of Florence&#x27;s money-changers&#x27; guild, the Arte del Cambio, forbade members to enter credits or debits in the characters of the new arithmetic, requiring every sum written out openly, in full, in words. The statute gives no reason — fear of forgery is the scholars&#x27; favoured guess, a 0 being easily doctored into a 6 or a 9 — and the tales of zero condemned as devilry are largely later legend. What is beyond doubt is the ending: zero won Europe by bookkeeping.</p>
+        <p class="zh" lang="zh">約西元825年，花拉子米在巴格達寫成一部小書，教人以九個印度數字和一枚代表空位的小圈計算；阿拉伯原本已佚，拉丁譯本開篇作 Dixit Algorizmi——「花拉子米如是說」——這個名字被歐洲念了幾百年，磨成了 algorithm（演算法）。梵文 śūnya（空）先化作阿拉伯文 ṣifr（空），渡入拉丁文時一分為二：一支作 cifra，日後成為 cipher（密碼）；一支作 zephirum，在義大利人的口中磨成 zero（零）。1202年，比薩的李奧納多——後世稱斐波那契——在《計算之書》開卷寫下九個數字，「連同這個阿拉伯人稱作 zephirum 的符號 0」，任何數皆可寫出。商人爭相採用，當權者卻起了疑心：1299年，佛羅倫斯兌錢業行會（Arte del Cambio）的行規禁止會員以新算法之字登錄借貸，帳目須以文字明白完整寫出。行規未言理由——學者多猜是防偽，一個 0 添一筆便成 6 或 9；至於零被斥為妖術之說，大抵是後世渲染。結局倒無可疑：零靠記帳，贏下了歐洲。</p>
+        <div class="detail">
+          <div class="k">what to notice</div>
+          <p class="en">Notice how narrow the famous &quot;ban&quot; really was: one guild, one city, one kind of book. The rule governed the money-changers&#x27; own ledgers — it was renewed in the guild statutes of 1300, 1313 and 1316 — and it was a rule about how to write, not whether to count. Notice, too, what became of the leftover twin: in English a cipher long meant a zero — a person of no consequence was &quot;a mere cipher&quot; — before the word drifted toward hidden writing, the sense that survives in decipher. Empty, nought, nobody, code: one Sanskrit word for &quot;empty&quot;, still travelling.</p>
+          <p class="zh" lang="zh">留意這道著名「禁令」其實何其窄：一個行會、一座城、一種簿冊。它只管兌錢商自家的帳本——1300、1313、1316年的行規一再重申——而且管的是怎麼寫，不是能不能算。再留意那個孿生字的下落：cipher 在英文裡曾有數百年就是「零」，說某人是 a mere cipher，即無足輕重之人；後來字義漂向密寫，至今 decipher（破譯）裡仍留著它。空、無、零、密碼——一個梵文的「空」字，至今仍在路上。</p>
+        </div>
+      </div></div>
+      </div>
+    </article>
+
+    <article class="stopz" id="binary">
+      <div class="ex-head rise">
+        <span class="fam" lang="zh">零</span>
+        <span class="t-en">One Is Enough</span>
+        <span class="t-zh" lang="zh">一畫開天</span>
+      </div>
+      <div class="ex-body">
+        <div class="rise"><div class="glyphbox"><svg viewBox="0 0 220 132" role="img" aria-label="The hexagrams kun (six broken lines) and qian (six unbroken lines) read as zero and one">
+  <rect x="30" y="18" width="24" height="6" fill="var(--bone)"/><rect x="62" y="18" width="24" height="6" fill="var(--bone)"/><rect x="30" y="31" width="24" height="6" fill="var(--bone)"/><rect x="62" y="31" width="24" height="6" fill="var(--bone)"/><rect x="30" y="44" width="24" height="6" fill="var(--bone)"/><rect x="62" y="44" width="24" height="6" fill="var(--bone)"/><rect x="30" y="57" width="24" height="6" fill="var(--bone)"/><rect x="62" y="57" width="24" height="6" fill="var(--bone)"/><rect x="30" y="70" width="24" height="6" fill="var(--bone)"/><rect x="62" y="70" width="24" height="6" fill="var(--bone)"/><rect x="30" y="83" width="24" height="6" fill="var(--bone)"/><rect x="62" y="83" width="24" height="6" fill="var(--bone)"/><rect x="134" y="18" width="56" height="6" fill="var(--bone)"/><rect x="134" y="31" width="56" height="6" fill="var(--bone)"/><rect x="134" y="44" width="56" height="6" fill="var(--bone)"/><rect x="134" y="57" width="56" height="6" fill="var(--bone)"/><rect x="134" y="70" width="56" height="6" fill="var(--bone)"/><rect x="134" y="83" width="56" height="6" fill="var(--bone)"/>
+  <g font-family="IBM Plex Mono, monospace" fill="var(--bone)" text-anchor="middle" font-size="16">
+    <text x="58" y="122">0</text><text x="162" y="122">1</text>
+  </g>
+</svg><span class="seal" aria-hidden="true"></span></div>
+          <p class="glyph-cap">坤 broken · 乾 unbroken — leibniz read 0 and 1</p></div>
+        <div class="rise"><div class="ex-text">
+        <p class="en">Gottfried Wilhelm Leibniz had binary arithmetic worked out in a manuscript dated 15 March 1679, and by 1697 he was proposing a commemorative medal for it — imago creationis, the image of creation: everything drawn from nothing and one (it was never struck). In 1701 he described the system to Joachim Bouvet, a Jesuit missionary in Beijing; Bouvet&#x27;s reply, dated 4 November 1701, enclosed a woodcut of the sixty-four hexagrams of the 易經 in the arrangement attributed to the legendary Fuxi — read the broken line as 0 and the unbroken as 1, Bouvet observed, and the figures count. The letter reached Leibniz, by way of England, on 1 April 1703; within a week he had sent his Explication de l&#x27;Arithmétique Binaire to Paris for publication, saluting the &quot;ancient Chinese figures of Fohy.&quot; The arrangement was in fact drawn up by the eleventh-century philosopher Shao Yong, and scholars still debate whether its makers thought of it as number at all. It hardly dims the moment: nothing and something, two marks, enough — the pair that this page, and every image in this museum, repeats a few billion times.</p>
+        <p class="zh" lang="zh">萊布尼茲在一六七九年三月十五日題署的手稿（De Progressione Dyadica）裡，已將只用 0 與 1 的算術推演完備；一六九七年，他更提議為此鑄一枚「創世之象」（imago creationis）紀念章——萬物出於無，有一即足（此章終未鑄成）。一七〇一年，他把這套算術寄給遠在北京的耶穌會士白晉；同年十一月四日，白晉覆信，附上一幅託名伏羲的六十四卦圖，並指出：以陰爻為 0、陽爻為 1，卦序竟能逐一計數。信件經英國輾轉，一七〇三年四月一日方才送到萊布尼茲手中；不出一週，他便將《二進位算術闡釋》寄往巴黎科學院刊行，文題直書「古代中國伏羲之圖」。那幅卦圖實出自十一世紀的邵雍，先人是否視之為「數」，學者至今仍有爭論——但這無損於那一刻：無與有，兩個記號，已然足夠。你眼前的每一個字、館中的每一幅圖，正是這一對記號重複了幾十億次。</p>
+        <div class="detail">
+          <div class="k">what to notice</div>
+          <p class="en">A hexagram is six stacked lines, each broken or unbroken — six positions, two states, sixty-four figures: the exact count of six binary digits. Read 陰 as 0 and 陽 as 1 and the Fuxi sequence runs without a gap, 坤 (all broken lines) at 000000, 乾 (all unbroken) at 111111. Leibniz loved the theology as much as the arithmetic — 0 as the void, 1 as God, every number an act of creation. He could not have known the pair would one day be built: a transistor&#x27;s off and on are the two states beneath every pixel now lighting this wall.</p>
+          <p class="zh" lang="zh">一卦六爻，每爻非陰即陽——六個位置、兩種狀態，恰得六十四種排列，與六位二進位數不多不少。以陰爻為 0、陽爻為 1，先天卦序便一個不缺地從坤（000000）數到乾（111111）。萊布尼茲鍾情的不止算術，還有其中的神學：0 是無，1 是神，每一個數都是一次創世。他無從預見這對記號終會落成實物——電晶體的斷與通，正是此刻點亮這面牆的每一顆像素底下的兩種狀態。</p>
+        </div>
+      </div></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ the couplet ============ -->
+<div class="couplet rise">
+  <p class="zh" lang="zh">隙者，<b>零</b>也；橋者，<b>一</b>也。</p>
+  <p class="en">The gap is zero. The bridge is one.</p>
+  <p class="final">Writing wrote down the word. Zero wrote down the nothing.
+  Between them — everything, including this sentence,
+  which crossed the world to reach you as zeros and ones.</p>
+</div>
+
+<footer>
+  <nav>
+    <a href="/">the front door</a>
+    <a href="rhymes.html">和韻</a>
+    <a href="homecoming.html">正音</a>
+    <a href="river.html">川 the river</a>
+    <a href="system.html">系統</a>
+  </nav>
+  <p class="sig">every dated claim in this room survived an adversarial fact-check · corrections welcome — the museum keeps learning</p>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var risers = document.querySelectorAll('.rise');
+  if (reduced || !('IntersectionObserver' in window)) {
+    risers.forEach(function(el){ el.classList.add('seen'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  risers.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
