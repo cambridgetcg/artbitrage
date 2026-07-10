@@ -82,6 +82,23 @@ CMA `share_license_status`/`creditline`, Wikimedia license/usage terms):
 `/api/pipeline/collect` also returns a `rights_summary` rollup
 (`reusable` / `restricted` / `unverified`) so reusers see the truth at a glance.
 
+## Wine & Cigar — The Craft Verticals
+
+Zero-to-one stories of craft through time — wine and cigar as arbitrage between nature and time — served as data APIs, with story pages at **/wine** and **/cigar**.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/wine` | Wine data directory |
+| GET | `/api/wine/story` | Zero to one: how wine came into being |
+| GET | `/api/wine/brands` | Iconic wine houses and estates |
+| GET | `/api/wine/aromas` | The aroma families |
+| GET | `/api/wine/search?q=` | Search brands, regions, stores, techniques |
+| GET | `/api/cigar` | Cigar data directory |
+| GET | `/api/cigar/story` | From seed to smoke — the history in chapters |
+| GET | `/api/cigar/brands` | The great cigar houses |
+| GET | `/api/cigar/vitolas` | The classic sizes and shapes |
+| GET | `/api/cigar/search?q=` | Search brands, regions, stores, techniques |
+
 ### Example
 
 ```bash

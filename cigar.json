@@ -1,0 +1,641 @@
+{
+  "name": "cigar",
+  "title": "Cigar — Patience Made Smoke",
+  "essence": "A cigar is the arbitrage between leaf and fire. Patience made smoke.",
+  "generated_at": "undefined",
+  "story": {
+    "title": "From Seed to Smoke — the zero to one of the cigar",
+    "essence": "A cigar is a plant taught to burn slowly. The gap between a green leaf and a gray ash is five years wide. Everything in between is the craft.",
+    "chapters": [
+      {
+        "id": "before-the-name",
+        "title": "Before the name",
+        "period": "before 1492",
+        "story": "Tobacco is American. For thousands of years the peoples of the Caribbean and Mesoamerica grew it, dried it, and burned it as ritual — a carved relief at Palenque shows a Maya figure drawing smoke from a rolled tube. The Taíno of Cuba called their rolled leaves by a word the world would inherit: cohiba. Smoke was not leisure. It was prayer made visible."
+      },
+      {
+        "id": "first-contact",
+        "title": "First contact",
+        "period": "1492",
+        "story": "In November 1492, on Cuba, two of Columbus's crew — Rodrigo de Jerez and Luis de Torres — watched Taíno people drink smoke from burning rolls of leaf. Jerez carried the habit home to Spain, and the story goes the Inquisition jailed him for it: only the devil, they reasoned, gives a man the power to exhale smoke. Two worlds met in a single breath. The cigar was the bridge."
+      },
+      {
+        "id": "seville-and-smoke",
+        "title": "Seville and smoke",
+        "period": "1500s–1700s",
+        "story": "Spain made tobacco a crown monopoly and funneled Cuban leaf through Seville, where the great Royal Tobacco Factory rose in the eighteenth century — later the setting of Bizet's Carmen. Around 1560 the French diplomat Jean Nicot sent leaf to the court of France; nicotine still carries his name. Europe learned to smoke before it learned why."
+      },
+      {
+        "id": "havana-rises",
+        "title": "Havana rises",
+        "period": "1817–1900",
+        "story": "In 1817 a royal decree ended the monopoly, and Cuba was free to roll and sell its own. The great houses followed: H. Upmann in 1844, Partagás in 1845, Hoyo de Monterrey in 1865, Romeo y Julieta in 1875. From 1865, lectores read novels and news aloud to the rollers at their benches — Dumas was a favorite, and one factory's cigars took the name Montecristo. The golden age of Havana was a factory full of listening hands."
+      },
+      {
+        "id": "exile-and-embargo",
+        "title": "Exile and embargo",
+        "period": "1959–1962",
+        "story": "The revolution of 1959 nationalized the factories, and in 1962 the United States embargoed the island — though President Kennedy first sent Pierre Salinger to gather some 1,200 H. Upmann petit coronas the night before he signed. The great families scattered: to the Dominican Republic, to Honduras, to Nicaragua, to the Canary Islands, carrying seed and memory. The gap between homeland and craft opened wide. The exiles rolled across it."
+      },
+      {
+        "id": "the-new-world",
+        "title": "The new world answers",
+        "period": "1960s–1990s",
+        "story": "In exile the craft took new root: Padrón in Miami from 1964, Joya de Nicaragua in Estelí from 1968, the Fuentes rebuilding in the Dominican Republic. The boom of the 1990s — Cigar Aficionado launched in 1992 — remade the industry, and in 1995 Fuente Fuente OpusX proved a great wrapper could grow in Dominican soil. Cuba was no longer the only answer. It became one answer among several true ones."
+      },
+      {
+        "id": "the-leaf-now",
+        "title": "The leaf now",
+        "period": "2000s–present",
+        "story": "Nicaragua's volcanic valleys now stand beside Vuelta Abajo in the reckoning of the world's best leaf, and small factories treat blending the way winemakers treat vineyards. A cigar still cannot be hurried: seed to smoke remains a matter of years. In an accelerating world, the cigar is a deliberate slowness. The leaf is."
+      }
+    ]
+  },
+  "regions": [
+    {
+      "id": "vuelta-abajo",
+      "name": "Vuelta Abajo",
+      "country": "Cuba",
+      "known_for": "The most celebrated tobacco land on earth — wrapper, binder, and filler for habanos",
+      "note": "A small zone of Pinar del Río around San Juan y Martínez and San Luis, where red sand and soft climate grow every leaf a Cuban cigar needs."
+    },
+    {
+      "id": "partido",
+      "name": "Partido",
+      "country": "Cuba",
+      "known_for": "Shade-grown wrapper leaf",
+      "note": "Close to Havana, its fields tented in cloth; the fine, elastic wrappers of the classic habano are grown here."
+    },
+    {
+      "id": "cibao-valley",
+      "name": "Cibao Valley",
+      "country": "Dominican Republic",
+      "known_for": "The heart of one of the world's largest premium-cigar industries",
+      "note": "Around Santiago de los Caballeros, exile houses rebuilt after 1959; for decades more premium cigars shipped from here than anywhere else, and it still vies with Nicaragua for that crown."
+    },
+    {
+      "id": "esteli",
+      "name": "Estelí",
+      "country": "Nicaragua",
+      "known_for": "Dark, powerful ligero from black volcanic soil",
+      "note": "The engine of the modern full-bodied cigar; strength with a pepper edge that blenders reach for when they want thunder."
+    },
+    {
+      "id": "jalapa",
+      "name": "Jalapa Valley",
+      "country": "Nicaragua",
+      "known_for": "Sweeter, more elegant leaf",
+      "note": "Estelí's counterweight — the same country, a gentler soil; blenders marry the two the way a chef balances heat and sugar."
+    },
+    {
+      "id": "danli",
+      "name": "Danlí and the Jamastrán Valley",
+      "country": "Honduras",
+      "known_for": "Rich, earthy leaf and a deep factory tradition",
+      "note": "Honduras's cigar capital, settled by Cuban exiles; its tobacco carries weight and a dry, woody depth."
+    },
+    {
+      "id": "san-andres",
+      "name": "San Andrés Valley",
+      "country": "Mexico",
+      "known_for": "San Andrés maduro wrapper",
+      "note": "In Veracruz, a native leaf that ferments dark and sweet — the chocolate-and-earth wrapper behind many of the great modern maduros."
+    },
+    {
+      "id": "connecticut-river-valley",
+      "name": "Connecticut River Valley",
+      "country": "United States",
+      "known_for": "Connecticut Shade wrapper and Connecticut Broadleaf",
+      "note": "Under cloth tents grows the pale, silky shade wrapper; in open sun grows the thick broadleaf that becomes classic maduro."
+    },
+    {
+      "id": "ecuador",
+      "name": "Ecuador",
+      "country": "Ecuador",
+      "known_for": "Wrapper grown under natural cloud",
+      "note": "A permanent high overcast does the work of shade tents; Ecuadorian Connecticut and Habano wrappers now dress cigars worldwide."
+    },
+    {
+      "id": "bahia",
+      "name": "Bahia",
+      "country": "Brazil",
+      "known_for": "Mata Fina and Mata Norte — dark, naturally sweet leaf",
+      "note": "Brazilian sun-grown tobacco ferments into some of the sweetest maduro character in the blender's palette."
+    }
+  ],
+  "brands": [
+    {
+      "id": "cohiba",
+      "name": "Cohiba",
+      "origin": "Cuba",
+      "founded": 1966,
+      "style": "Medium to full — grassy, honeyed, unmistakably Cuban",
+      "why": "Born at the El Laguito factory as Fidel Castro's private and diplomatic cigar, unavailable to the public until 1982. Its seco and ligero take a rare extra fermentation in barrels — patience layered on patience, and it carries the Taíno word for tobacco itself."
+    },
+    {
+      "id": "montecristo",
+      "name": "Montecristo",
+      "origin": "Cuba",
+      "founded": 1935,
+      "style": "Medium — tangy cocoa and wood, the benchmark habano",
+      "why": "Named for the Dumas novel the lectores read aloud to the rollers, it became the best-selling habano in the world. The Montecristo No. 4 is the cigar by which countless smokers learned what Cuba tastes like."
+    },
+    {
+      "id": "partagas",
+      "name": "Partagás",
+      "origin": "Cuba",
+      "founded": 1845,
+      "style": "Full — earthy, peppery, deep",
+      "why": "Don Jaime Partagás built his factory in the heart of Havana, and the house has stood for the dark, powerful end of the Cuban spectrum ever since. Few names say 'old Havana' with more authority."
+    },
+    {
+      "id": "h-upmann",
+      "name": "H. Upmann",
+      "origin": "Cuba",
+      "founded": 1844,
+      "style": "Light to medium — refined, woody, composed",
+      "why": "Founded by Herman Upmann, a German banker who loved cigars enough to move to Havana for them. Its petit coronas were the ones President Kennedy secured the night before signing the embargo — elegance certified at the highest level."
+    },
+    {
+      "id": "romeo-y-julieta",
+      "name": "Romeo y Julieta",
+      "origin": "Cuba",
+      "founded": 1875,
+      "style": "Medium — aromatic, balanced, romantic by name and nature",
+      "why": "Winston Churchill smoked them so devotedly that the marque named its 7 x 47 vitola after him, and the Churchill became a size the whole industry uses. A love story from Verona, retold in leaf."
+    },
+    {
+      "id": "hoyo-de-monterrey",
+      "name": "Hoyo de Monterrey",
+      "origin": "Cuba",
+      "founded": 1865,
+      "style": "Light to medium — delicate, creamy, morning-bright",
+      "why": "José Gener named it for the gate of his Vuelta Abajo plantation — the 'hollow' of Monterrey, a low river-fed field of superb wrapper. It is the proof that a Cuban cigar can whisper and still be heard."
+    },
+    {
+      "id": "trinidad",
+      "name": "Trinidad",
+      "origin": "Cuba",
+      "style": "Medium — spicy cream, rolled in small numbers",
+      "why": "For decades it existed only as a gift of the Cuban state, handed to diplomats and never sold; the public could not buy one until 1998. Scarcity was its first fame, but the cigar kept the reputation the mystery began."
+    },
+    {
+      "id": "davidoff",
+      "name": "Davidoff",
+      "origin": "Switzerland / Dominican Republic",
+      "style": "Mild to medium — immaculate construction, quiet complexity",
+      "why": "Zino Davidoff, the great Geneva tobacconist, turned retail into philosophy and helped teach the world to store cigars in humidors. The brand was rolled in Cuba until 1990, then remade itself in the Dominican Republic without losing its polish."
+    },
+    {
+      "id": "arturo-fuente",
+      "name": "Arturo Fuente",
+      "origin": "United States / Dominican Republic",
+      "founded": 1912,
+      "style": "Mild to full across lines — Dominican mastery, Cameroon sweetness",
+      "why": "Founded in Tampa by a Cuban emigrant and rebuilt through fires and exile by four generations of one family. In 1995 the Fuente Fuente OpusX proved a world-class wrapper could be grown in Dominican soil — a thing the industry had called impossible."
+    },
+    {
+      "id": "padron",
+      "name": "Padrón",
+      "origin": "Cuba / Nicaragua",
+      "founded": 1964,
+      "style": "Full — cocoa, coffee, and box-pressed depth",
+      "why": "José Orlando Padrón left Cuba, started in Miami with a few hundred saved dollars and one roller, and bet everything on Nicaraguan sun-grown leaf. The 1964 Anniversary Series set the standard by which modern full-bodied cigars are judged."
+    },
+    {
+      "id": "joya-de-nicaragua",
+      "name": "Joya de Nicaragua",
+      "origin": "Nicaragua",
+      "founded": 1968,
+      "style": "Medium to full — rustic strength with volcanic spice",
+      "why": "Nicaragua's first premium cigar factory, standing in Estelí through revolution and war. Every Nicaraguan cigar made since owes something to the door this house opened."
+    },
+    {
+      "id": "drew-estate",
+      "name": "Drew Estate",
+      "origin": "United States / Nicaragua",
+      "founded": 1996,
+      "style": "Experimental to full — from infused ACID to the dark Liga Privada",
+      "why": "Jonathan Drew went to Estelí with almost nothing and built one of the largest factories in Nicaragua on a single idea: the cigar was not finished evolving. The traditionalists frowned, then quietly took notes."
+    }
+  ],
+  "collections": [
+    {
+      "id": "havana-founders",
+      "name": "The Havana Founders",
+      "essence": "The nineteenth-century houses that made Havana the capital of smoke. The names on these bands are older than most nations' constitutions.",
+      "brands": ["h-upmann", "partagas", "hoyo-de-monterrey", "romeo-y-julieta"]
+    },
+    {
+      "id": "diplomatic-pouch",
+      "name": "The Diplomatic Pouch",
+      "essence": "Cigars born as instruments of state — rolled for presidents and gifted to the world before the world was allowed to buy them.",
+      "brands": ["cohiba", "trinidad"]
+    },
+    {
+      "id": "the-exiles",
+      "name": "The Exiles",
+      "essence": "Cuban-born families who lost the island and kept the craft. The gap between homeland and memory — they rolled across it.",
+      "brands": ["padron", "arturo-fuente"]
+    },
+    {
+      "id": "nicaraguan-wave",
+      "name": "The Nicaraguan Wave",
+      "essence": "Black volcanic soil, sun-hardened ligero, and the factories of Estelí — the new world's answer to Vuelta Abajo.",
+      "brands": ["joya-de-nicaragua", "padron", "drew-estate"]
+    },
+    {
+      "id": "the-gentle-door",
+      "name": "The Gentle Door",
+      "essence": "Where to begin: composed, mild-to-medium cigars that reward attention without demanding endurance.",
+      "brands": ["davidoff", "h-upmann", "hoyo-de-monterrey", "montecristo"]
+    },
+    {
+      "id": "the-long-night",
+      "name": "The Long Night",
+      "essence": "Full-bodied, slow-burning cigars for the unhurried hour after dinner — strength with something to say.",
+      "brands": ["padron", "partagas", "drew-estate", "cohiba"]
+    }
+  ],
+  "stores": [
+    {
+      "id": "jj-fox",
+      "name": "James J. Fox",
+      "location": "19 St James's Street, London",
+      "note": "Cigars have been sold on this site since 1787, when it traded as Robert Lewis. Winston Churchill's ledger and his favorite chair are still kept in the shop's small museum."
+    },
+    {
+      "id": "davidoff-geneva",
+      "name": "Davidoff of Geneva",
+      "location": "Geneva",
+      "note": "The Davidoff family shop where Zino Davidoff grew up among the leaves and later taught the world that a cigar deserves a humidor. Retail as scholarship."
+    },
+    {
+      "id": "la-casa-del-habano",
+      "name": "La Casa del Habano",
+      "location": "Havana and worldwide",
+      "note": "The official franchise network of Habanos S.A. — the sanctioned houses of the Cuban cigar, with walk-in humidors and rolling demonstrations from Havana outward."
+    },
+    {
+      "id": "partagas-havana",
+      "name": "The Partagás shop, Havana",
+      "location": "Havana",
+      "note": "The store attached to the old Real Fábrica de Tabacos Partagás, behind the Capitolio — a pilgrimage site where the smoke of the nineteenth century still seems to hang."
+    },
+    {
+      "id": "casa-fuente",
+      "name": "Casa Fuente",
+      "location": "Las Vegas",
+      "note": "The Fuente family's lounge and shop in the Forum Shops at Caesars Palace — the rare place built by the growers themselves, OpusX behind glass."
+    },
+    {
+      "id": "iwan-ries",
+      "name": "Iwan Ries & Co.",
+      "location": "Chicago",
+      "note": "A family tobacco house trading since 1857 — one of the oldest in America, five generations deep."
+    },
+    {
+      "id": "nat-sherman",
+      "name": "Nat Sherman Townhouse",
+      "location": "New York",
+      "note": "Founded in 1930, its 42nd Street Townhouse was New York's cathedral of tobacco until it closed in 2020. Gone, and still named with reverence."
+    }
+  ],
+  "process": {
+    "essence": "From a seed smaller than a grain of sand to a finished cigar is a matter of years. Nothing in the chain can be rushed; every stage is a form of waiting done correctly.",
+    "stages": [
+      {
+        "id": "seed",
+        "stage": "seed",
+        "title": "The seedbed",
+        "what": "Tobacco seeds — thousands fit in a spoon — are germinated in protected seedbeds and trays for about 45 days until the seedlings can stand the field.",
+        "why": "Everything the cigar will become is already in this dust. The grower's first job is simply to keep the future alive."
+      },
+      {
+        "id": "field",
+        "stage": "field",
+        "title": "The field",
+        "what": "Seedlings are transplanted and grown for two to three months — in full sun for filler and dark wrapper, or under cloth tents (tapado) for fine shade wrapper.",
+        "why": "Sun thickens the leaf and loads it with oils and strength; shade keeps it thin, elastic, and even. The light decides the leaf's destiny."
+      },
+      {
+        "id": "harvest",
+        "stage": "harvest",
+        "title": "The priming",
+        "what": "Leaves are picked by hand, two or three at a time, from the bottom of the plant upward as each level ripens — volado low, seco in the middle, ligero at the top.",
+        "why": "Position is character: the highest leaves take the most sun and carry the most power. A plant is harvested the way a story is read — in order."
+      },
+      {
+        "id": "curing",
+        "stage": "curing",
+        "title": "The curing barn",
+        "what": "Leaves are sewn in pairs and hung on poles in the casa de tabaco, air-curing for 45 to 60 days as green turns gold, then brown.",
+        "why": "Curing removes water and chlorophyll. The leaf dies slowly and deliberately, which is the only way it can be useful."
+      },
+      {
+        "id": "fermentation",
+        "stage": "fermentation",
+        "title": "The pilón",
+        "what": "Cured leaves are moistened and stacked into pilones — dense piles that heat themselves from within — then torn down, turned, and rebuilt, again and again over months.",
+        "why": "Fermentation is what makes tobacco smokable: harshness and ammonia leave, aroma arrives. This is the cigar's true birth."
+      },
+      {
+        "id": "aging",
+        "stage": "aging",
+        "title": "The sleep",
+        "what": "Fermented leaf is baled — traditionally in palm-bark tercios — and rested in aging rooms for months or years before anyone rolls it.",
+        "why": "Time rounds what fire and heat began. Great factories sit on warehouses of sleeping leaf the way banks sit on gold."
+      },
+      {
+        "id": "sorting",
+        "stage": "sorting",
+        "title": "The despalillo",
+        "what": "Workers strip the central stem from each leaf and grade the leaf by size, color, and texture — wrapper apart from binder, binder apart from filler.",
+        "why": "A cigar is built from chosen leaves, not available ones. Sorting is where standards become physical."
+      },
+      {
+        "id": "blending",
+        "stage": "blending",
+        "title": "The blend",
+        "what": "The master blender writes the recipe: how much ligero for strength, seco for aroma, volado for an even burn, and which binder and wrapper complete it.",
+        "why": "No single leaf is a cigar. The blend is the composition — the difference between noise and music."
+      },
+      {
+        "id": "rolling",
+        "stage": "rolling",
+        "title": "The torcedor",
+        "what": "At the bench, filler is bunched into the binder, pressed in molds, then dressed in the wrapper and finished — in the Cuban manner — with a triple cap.",
+        "why": "Years of agriculture pass through two human hands in a few minutes. The roller is where the leaf becomes the object."
+      },
+      {
+        "id": "resting",
+        "stage": "resting",
+        "title": "The marriage",
+        "what": "Finished cigars rest in the escaparate — the cool cedar aging room — until their moistures equalize and the blend settles; then they are color-sorted, banded, and boxed.",
+        "why": "A just-rolled cigar is an argument still in progress. Rest lets the leaves agree with each other before the fire asks its question."
+      }
+    ]
+  },
+  "fermentation": {
+    "essence": "Fermentation is the arbitrage between a cured leaf and a smokable one. The pile heats itself, the harshness leaves as ammonia, and what remains is aroma. Without it, tobacco is just a dry plant.",
+    "science": "Cured leaves are moistened and stacked into pilones — piles whose own weight and moisture ignite enzymatic and microbial activity. The core temperature climbs to roughly 100–140°F as ammonia and other impurities are driven off, nicotine softens, and the leaf's sugars and acids are transformed. Before the pile overheats, workers tear it down, rotate the leaves from outside to center, and rebuild it — over and over, for weeks at a time. Most leaf ferments at least twice; thick, dark leaf destined for maduro ferments longer and hotter. It is composting steered just short of destruction, and it is what makes tobacco smokable.",
+    "vessels": [
+      "Casa de tabaco — the air-curing barn where the leaf first browns",
+      "Pilón — the self-heating fermentation pile, the cigar's true crucible",
+      "Tercio — the palm-bark bale in which fermented leaf sleeps",
+      "Cedar-lined aging rooms, where time finishes what heat began",
+      "Oak barrels — used for rare extra fermentations of the finest leaf",
+      "Escaparate — the cool room where finished cigars marry before boxing"
+    ],
+    "notes": [
+      "Push a hand into a working pilón and it is hot — the leaf burning without fire.",
+      "The smell of ammonia leaving the pile is the smell of harshness departing.",
+      "Turn the pilón or lose it: an unturned pile overheats and cooks the crop.",
+      "Maduro is not a dye but a duration — darker because it fermented longer.",
+      "Curing dries the leaf. Fermentation civilizes it."
+    ]
+  },
+  "selection": {
+    "essence": "Choosing a cigar is reading a leaf before the fire does. Look, touch, and be honest about the hour you have.",
+    "guide": [
+      {
+        "factor": "Wrapper",
+        "how": "Look for even color, a faint oily sheen, and fine veins — no cracks, tears, or dry patches. The wrapper is a large share of the flavor and all of the first impression."
+      },
+      {
+        "factor": "Construction",
+        "how": "Pinch gently along the body: it should give evenly, with no soft voids or hard knots. A well-made cigar feels consistent from foot to head."
+      },
+      {
+        "factor": "Draw",
+        "how": "A good draw pulls like sipping through a straw — neither a fight nor a free fall. Too tight will not smoke; too loose will burn hot and fast."
+      },
+      {
+        "factor": "Size for the hour",
+        "how": "A robusto asks about 45 minutes; a Churchill wants ninety or more. Choose the cigar to fit the time you actually have — a rushed cigar is a wasted one."
+      },
+      {
+        "factor": "Strength versus body",
+        "how": "Strength is nicotine; body is the weight of flavor; they are not the same. Start mild-to-medium and climb as your palate learns the map."
+      },
+      {
+        "factor": "Storage",
+        "how": "Keep cigars in a humidor at 65–70% relative humidity and around 65–70°F. Too dry, it burns hot and bitter; too wet, it draws badly and risks mold. A cigar is alive until it is lit."
+      },
+      {
+        "factor": "Source",
+        "how": "Buy from reputable merchants. Counterfeit Cubans are an industry of their own; provenance is part of the purchase."
+      },
+      {
+        "factor": "Rest",
+        "how": "A cigar that has just traveled is out of balance. Let it rest in your humidor for a few weeks before lighting — the blend re-settles, and the cigar you smoke is the one the blender intended."
+      }
+    ]
+  },
+  "aromas": {
+    "essence": "A cigar's aroma is the record of everything that happened to the leaf — the soil it drank, the heat it survived, the cedar it slept beside. The spectrum runs from fresh hay to dark espresso.",
+    "families": [
+      {
+        "family": "Earth",
+        "notes": ["wet soil", "forest floor", "mushroom", "must"],
+        "source": "Terroir and deep fermentation — the leaf remembering its ground; strongest in Cuban and Nicaraguan filler."
+      },
+      {
+        "family": "Wood",
+        "notes": ["cedar", "oak", "sandalwood"],
+        "source": "Years spent in cedar-lined aging rooms and cedar boxes; the wood breathes into the leaf."
+      },
+      {
+        "family": "Spice",
+        "notes": ["black pepper", "red pepper", "clove", "cinnamon"],
+        "source": "Ligero — the sun-hardened top primings — and volcanic soils, Estelí's above all."
+      },
+      {
+        "family": "Sweet",
+        "notes": ["dried fruit", "raisin", "honey", "molasses"],
+        "source": "The leaf's natural sugars, concentrated by the long, hot fermentations that make a maduro."
+      },
+      {
+        "family": "Cream and nut",
+        "notes": ["almond", "cashew", "butter", "fresh bread"],
+        "source": "Shade-grown Connecticut-seed wrappers and gentle seco leaf — mildness with texture."
+      },
+      {
+        "family": "Leather",
+        "notes": ["cured leather", "saddle", "tobacco barn"],
+        "source": "Extended aging of filler leaf; the smell of time itself doing its work."
+      },
+      {
+        "family": "Coffee and cocoa",
+        "notes": ["espresso", "dark chocolate", "cocoa nib"],
+        "source": "Dark, thick wrappers — San Andrés and Connecticut Broadleaf maduro — whose hot fermentation creates roast-like depths."
+      },
+      {
+        "family": "Grass and floral",
+        "notes": ["fresh hay", "green tea", "white flowers"],
+        "source": "Young leaf, pale claro wrappers, and the flash-cured green of candela — the bright end of the spectrum."
+      }
+    ]
+  },
+  "techniques": [
+    {
+      "id": "entubado",
+      "name": "Entubado bunching",
+      "what": "Each filler leaf is rolled into its own slender tube before the tubes are gathered into the bunch — the slowest, most exacting way to build a cigar's interior.",
+      "effect": "Open, even airflow through every leaf: the best draw a cigar can have, and the fullest expression of the blend."
+    },
+    {
+      "id": "book-bunching",
+      "name": "Book and accordion bunching",
+      "what": "Filler leaves are laid flat and folded like the pages of a book, or with edges pleated inward accordion-style, then rolled into the binder.",
+      "effect": "Faster than entubado and reliable in skilled hands; the accordion fold preserves air channels that plain folding can crush."
+    },
+    {
+      "id": "triple-cap",
+      "name": "The triple cap",
+      "what": "The head of the cigar is finished with three overlapping turns of cap leaf — the classic Cuban signature, visible as three fine seams.",
+      "effect": "The head survives cutting cleanly, and the wrapper stays anchored to the last inch."
+    },
+    {
+      "id": "box-pressing",
+      "name": "Box-pressing",
+      "what": "Cigars are pressed square-shouldered, a shape born when Cuban cigars were packed tightly in trunks and kept it as a virtue.",
+      "effect": "A softer feel in the hand, a slightly opened draw, and a slower, cooler burn along the flattened sides."
+    },
+    {
+      "id": "tapado",
+      "name": "Shade growing (tapado)",
+      "what": "Wrapper plants are raised under vast cloth tents that soften the sun.",
+      "effect": "Thin, elastic, fine-veined leaves of even color — the silk of the cigar world."
+    },
+    {
+      "id": "sun-grown",
+      "name": "Sun growing",
+      "what": "Plants stand in full, unfiltered sun.",
+      "effect": "Thicker leaves, heavier oils, more sugar and strength — the raw material of filler, and of dark, sweet maduro wrappers."
+    },
+    {
+      "id": "priming",
+      "name": "Priming by position",
+      "what": "Leaves are harvested by their height on the stalk, a few at a time, over successive passes: volado at the bottom, seco in the middle, ligero at the crown.",
+      "effect": "Each priming is a distinct ingredient — burn, aroma, power — kept separate from field to blending bench."
+    },
+    {
+      "id": "blending",
+      "name": "Blending ligero, seco, and volado",
+      "what": "The blender composes the filler: ligero for strength at the core, seco for aroma around it, volado to carry the burn.",
+      "effect": "Balance. A cigar of pure ligero would barely stay lit and would flatten the smoker; the blend makes power drinkable."
+    },
+    {
+      "id": "cedar-aging",
+      "name": "Aging in Spanish cedar",
+      "what": "Leaf, and later finished cigars, rest in rooms and boxes lined with Spanish cedar, the cigar's traditional companion wood.",
+      "effect": "Cedar breathes with the humidity, discourages the tobacco beetle, and lends the quiet woody note smokers know before the first light."
+    },
+    {
+      "id": "candela-cure",
+      "name": "Candela flash-curing",
+      "what": "Wrapper leaf is heat-cured in a matter of days instead of weeks, locking the chlorophyll before it can fade.",
+      "effect": "A green wrapper with a light, grassy, faintly sweet taste — the brightest, strangest color a cigar can wear."
+    }
+  ],
+  "vitolas": [
+    {
+      "name": "Petit Corona",
+      "length_in": 5.1,
+      "ring_gauge": 42,
+      "note": "The short classic — a complete Cuban statement in about half an hour."
+    },
+    {
+      "name": "Corona",
+      "length_in": 5.6,
+      "ring_gauge": 42,
+      "note": "The historical yardstick of the habano; every other size is described by how it departs from this one."
+    },
+    {
+      "name": "Corona Gorda",
+      "length_in": 5.6,
+      "ring_gauge": 46,
+      "note": "A corona with broader shoulders — more filler, more volume of smoke, the same measured pace."
+    },
+    {
+      "name": "Robusto",
+      "length_in": 4.9,
+      "ring_gauge": 50,
+      "note": "Short, thick, and generous — the modern favorite; roughly 45 minutes of full flavor."
+    },
+    {
+      "name": "Toro",
+      "length_in": 6.0,
+      "ring_gauge": 50,
+      "note": "The new world's workhorse — a robusto given room to develop its argument."
+    },
+    {
+      "name": "Churchill",
+      "length_in": 7.0,
+      "ring_gauge": 47,
+      "note": "Named for the man who smoked Romeo y Julieta by the thousand; a long, stately evening of a cigar."
+    },
+    {
+      "name": "Double Corona",
+      "length_in": 7.6,
+      "ring_gauge": 49,
+      "note": "The grand format — nearly two hours, and a blend with time enough to change its mind twice."
+    },
+    {
+      "name": "Torpedo / Pirámide",
+      "length_in": 6.1,
+      "ring_gauge": 52,
+      "note": "A tapered head that concentrates the smoke; the cut decides the draw, so cut with intention."
+    },
+    {
+      "name": "Lancero",
+      "length_in": 7.5,
+      "ring_gauge": 38,
+      "note": "Long and slender — the wrapper dominates the blend, so only confident wrapper leaf dares this shape."
+    },
+    {
+      "name": "Perfecto",
+      "length_in": 5.0,
+      "ring_gauge": 48,
+      "note": "Closed at both ends and swelling in the middle; dimensions vary by maker — a shape from the cigar's ornate past, kept alive by rollers who like a challenge."
+    }
+  ],
+  "wrappers": [
+    {
+      "name": "Candela",
+      "shade": "Green",
+      "flavor": "Grassy, light, faintly sweet — chlorophyll locked in by flash heat-curing."
+    },
+    {
+      "name": "Claro",
+      "shade": "Pale tan",
+      "flavor": "Delicate and neutral, often shade-grown; it lets the filler speak first."
+    },
+    {
+      "name": "Colorado Claro",
+      "shade": "Light brown",
+      "flavor": "Dry, subtle sweetness with a soft woody note — the classic 'natural' wrapper."
+    },
+    {
+      "name": "Colorado",
+      "shade": "Reddish brown",
+      "flavor": "Aromatic and balanced — the middle of the spectrum, where fragrance peaks."
+    },
+    {
+      "name": "Colorado Maduro",
+      "shade": "Dark reddish brown",
+      "flavor": "Richer and rounder, leaning toward the dark end without its full weight."
+    },
+    {
+      "name": "Maduro",
+      "shade": "Dark brown",
+      "flavor": "Cocoa, coffee, and natural sweetness — the reward of longer, hotter fermentation."
+    },
+    {
+      "name": "Oscuro",
+      "shade": "Near black",
+      "flavor": "Earthy, dense, and dark-sweet — top-priming leaf fermented longest of all."
+    }
+  ]
+}

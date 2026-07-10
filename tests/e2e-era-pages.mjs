@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
-const ERA_PAGES = ['prehistoric','medieval','renaissance','baroque','romanticism','impressionism','modernism','popart','ai'];
+const ERA_PAGES = ['prehistoric','medieval','renaissance','baroque','romanticism','impressionism','modernism','popart','ai','wine','cigar'];
 
 function lastScript(html) {
   const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]);
