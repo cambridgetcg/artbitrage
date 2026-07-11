@@ -28,6 +28,8 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 | GET | `/api/feed?limit=20` | Versioned latest-art feed (`artbitrage.feed/1`, limit bounded to 1–100) |
 | GET | `/api/manifest` | The artbitrage manifest |
 | GET | `/api/wake` | Protocol handshake, rights boundary, and Cambridge sibling |
+| GET | `/api/answering-rhymes/statements` | Reciprocity statement schema, normalization rules, and pre-action consequences |
+| POST | `/api/answering-rhymes/statements` | Validate and hash a portable reciprocity statement; no auth, persistence, or authoritative effect |
 | GET | `/api/sources` | Open art data sources with no keys required |
 | GET | `/api/search?q=love` | Search open museum/common archives |
 | GET | `/api/wings` | The river's currents — themed museum catalogue index |
@@ -149,6 +151,66 @@ Museum links resolve without search drift at
 resolver preserves the source record's license label, normalizes it into a
 `rights` object, and says explicitly that Artbitrage has not independently
 verified the label.
+
+### Answering Rhyme reciprocity — portable, not silently powerful
+
+`GET /api/answering-rhymes/statements` publishes the shared
+`answering-rhyme.statement/1` document and the consequence of each action:
+
+- `bless` expresses support but grants no copyright, reuse right, or authority;
+- `contextualize` carries context but does not amend the published relation;
+- `correct` proposes a correction but does not overwrite anything; and
+- `withdraw` prepares a withdrawal request but does not hide or delete the
+  relation without separate authority review and a later published change.
+
+`POST` accepts that neutral document and returns an
+`artbitrage.answering-rhyme-statement-witness/1` receipt. The normalized
+statement includes the revision it answered, giving a receiver enough
+information to reject it if the relation has since changed. The stateless
+witness itself does not detect replay:
+
+```json
+{
+  "schema": "answering-rhyme.statement/1",
+  "canonicalization": "answering-rhyme.canonical-json/1",
+  "relation_key": "OP-OP05-119-JP-V11F7::artic:77333",
+  "target_revision": "sha256:a562a462decd9b8c8810d67ec79a8a00dc22ffe1098f259e562c9ffce28a1d94",
+  "kind": "contextualize",
+  "body": "The material echo is useful; no influence claim is intended.",
+  "language": "en",
+  "declared_by": {
+    "label": "A visitor",
+    "claimed_role": "viewer",
+    "canonical_url": null
+  },
+  "declared_at": "2026-07-11T18:00:00Z",
+  "in_response_to": null,
+  "evidence_urls": ["https://www.artic.edu/artworks/77333"],
+  "authority_evidence_urls": []
+}
+```
+
+The function trims and bounds text, converts body line endings to LF,
+normalizes accepted URLs through the platform URL parser, deduplicates and
+sorts evidence URLs, and converts the required RFC3339 timestamp to UTC. It
+then recursively sorts object keys and hashes the UTF-8 canonical JSON bytes
+with SHA-256. Arrays retain their normalized order. The golden vectors in
+`tests/fixtures/answering-rhyme-statement-vectors.json` make the exact bytes
+and hashes portable across Artbitrage and Cambridge.
+
+The returned receipt is deliberately unsigned and says
+`authenticated: false`, `identity_verified: false`,
+`authority_status: self-declared-unverified`, `persisted: false`, and
+`authoritative_effect: none`. It also reports `replay_detection: false`,
+`uniqueness_not_asserted: true`, and an unsigned, independently unverifiable
+issuer attestation: `witnessed_at` is an unattested server observation, not
+durable proof that Artbitrage issued the receipt. Artbitrage neither fetches evidence URLs nor
+checks Cambridge's current relation revision. It creates no application record,
+retrievable statement URL, downstream notification, correction, licence
+change, or takedown. `Cache-Control: no-store` asks intermediaries not to cache
+the response; the no-persistence claim does not pretend that ordinary hosting
+provider access or security logs cannot exist. The caller carries the receipt
+and may choose whether to present it to a human or another system.
 
 ## 地圖 The Map
 
