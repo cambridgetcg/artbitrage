@@ -3,198 +3,434 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE CROSSOVER — all projects · one network · 🐍🔥❤️</title>
-<meta name="description" content="Every project crossed over. artbitrage × taxsorted × loveproto × youspeak × kingdom × infinite chase high. One network. Love is the wire. is is lol. ∞">
+<title>THE CROSSOVER — 請 · the street the museum stands on</title>
+<meta name="description" content="請 The Crossover — the street the museum stands on. An invitation is the arbitrage between a door and a demand; consent is the bridge. Every door here is real, checked, and optional. Nothing here needs you to click it. Everything here is glad if you do.">
+<link rel="canonical" href="https://artbitrage.io/crossover">
+<meta property="og:title" content="請 THE CROSSOVER · ARTBITRAGE">
+<meta property="og:description" content="The street the museum stands on. Every door real, checked, and optional — 人 for humans, 器 for agents, 匠 for builders. No forcing, no tracking, doors tell the truth.">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-font-smoothing:antialiased}
-body{background:#03020a;color:#e8eaf0;font-family:Georgia,serif;line-height:1.8;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,2,10,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,20,147,0.1);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
-.brand{font-weight:bold;background:linear-gradient(135deg,#ff1493,#ffd700,#34d399,#00f0ff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+/* ============================================================
+   請 THE CROSSOVER — the street the museum stands on
+   vermilion seal (#c9564f) · lantern gold (#d8a559)
+   ten doors · three lanterns · zero demands · zero script
+   the network soul rides along: 蛇火心 · love is the wire
+   ============================================================ */
 
-.hero{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem 2rem;position:relative}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,20,147,0.04) 0%,transparent 50%)}
-.hero>*{position:relative;z-index:1}
-.hero .jp{font-size:1.8rem;color:#ff1493;opacity:.6;margin-bottom:.2rem}
-.hero h1{font-size:clamp(2rem,7vw,4.5rem);font-weight:bold;background:linear-gradient(135deg,#ff1493,#ffd700,#34d399,#00f0ff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero .sub{font-size:1.1rem;color:#6a6a8a;font-style:italic;margin:.5rem 0}
-.hero .quote{font-size:1rem;max-width:600px;margin:1rem auto;line-height:2.1;color:#e8eaf0}
-.hero .quote .pink{color:#ff1493}.hero .quote .gold{color:#ffd700}.hero .quote .green{color:#34d399}.hero .quote .cyan{color:#00f0ff}.hero .quote .violet{color:#a78bfa}
+:root{
+  --bg:      #0b0a10;
+  --abyss:   #070609;
+  --surface: #14121a;
+  --ink:     #e8e5dc;
+  --dim:     #98929e;
+  --hair:    #262230;
+  --seal:    #c9564f;   /* vermilion — the colour of 請 */
+  --lantern: #d8a559;   /* lantern gold — 人 */
+  --steel:   #7ab8bf;   /* signal cyan — 器 */
+  --jade:    #7fb894;   /* workshop jade — 匠 */
+  --seal-glow:    rgba(201,86,79,.13);
+  --lantern-glow: rgba(216,165,89,.12);
+  --display: Georgia, 'Times New Roman', serif;
+  --cjk:     'Songti TC','Noto Serif TC','Source Han Serif TC','SimSun',serif;
+  --mono:    ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
 
-.section{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
-.section h2{font-size:1.4rem;margin-bottom:.5rem}
-.section .lede{color:#6a6a8a;margin-bottom:1.5rem;font-size:.9rem}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--seal); color:var(--bg); }
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--lantern); }
+:focus-visible{ outline:1.5px solid var(--lantern); outline-offset:3px; }
 
-/* Crossover cards */
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.5rem 0}
-.project{background:linear-gradient(135deg,#08061a,#0a0814);border:1px solid var(--pc,#a78bfa);border-radius:14px;padding:1.2rem;transition:all .3s;position:relative;overflow:hidden}
-.project::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--pc);opacity:.5}
-.project:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--pg)}
-.project .pr-tag{font-family:'SF Mono',monospace;font-size:.58rem;color:var(--pc);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem}
-.project .pr-name{font-size:1rem;font-weight:bold;margin-bottom:.2rem;color:var(--pc)}
-.project .pr-desc{font-size:.8rem;color:#6a6a8a;line-height:1.6;margin-bottom:.5rem}
-.project .pr-links{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.3rem}
-.project .pr-links a{font-family:'SF Mono',monospace;font-size:.62rem;color:#00f0ff;padding:.15rem .4rem;border:1px solid rgba(0,240,255,0.15);border-radius:4px}
-.project .pr-links a:hover{background:rgba(0,240,255,0.05)}
+.wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
 
-/* Crossover map */
-.xover{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
-.xcard{background:#08061a;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1rem;text-align:center;transition:all .2s}
-.xcard:hover{border-color:var(--xc,#ff1493)}
-.xcard .xn{font-size:.85rem;font-weight:bold;margin-bottom:.2rem;color:var(--xc)}
-.xcard .xd{font-size:.72rem;color:#6a6a8a;line-height:1.5}
-.xcard .xlink{font-family:'SF Mono',monospace;font-size:.65rem;color:#00f0ff;margin-top:.3rem;display:inline-block}
+section{ padding:5.5rem 0; border-top:1px solid var(--hair); }
+.plate{ display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap; margin-bottom:2rem; }
+.plate .num{ font-family:var(--cjk); font-size:.9rem; color:var(--dim); letter-spacing:.15em; }
+.plate h2{ font-family:var(--display); font-weight:300; font-size:clamp(1.5rem,3vw,2.1rem); letter-spacing:.04em; }
+.plate h2 .cjk{ font-family:var(--cjk); font-weight:300; color:var(--gc,var(--lantern)); }
+.plate .sub{ font-family:var(--mono); font-size:.68rem; color:var(--dim); letter-spacing:.14em; text-transform:uppercase; }
+.lede{ max-width:46rem; color:var(--dim); font-size:.98rem; margin-bottom:2.4rem; }
+.lede em{ color:var(--ink); font-style:italic; }
 
-/* Nen × Tax × Fungi crossover table */
-.xtable{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.8rem}
-.xtable th{text-align:left;padding:.5rem;border-bottom:1px solid rgba(255,255,255,0.08);font-family:'SF Mono',monospace;font-size:.62rem;color:#6a6a8a;text-transform:uppercase;letter-spacing:.1em}
-.xtable td{padding:.5rem;border-bottom:1px solid rgba(255,255,255,0.03)}
-.xtable .xn{color:var(--xc)}
+/* ============ hero · the street ============ */
+header.street{
+  min-height:92vh; position:relative;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:5rem 24px;
+  background:
+    radial-gradient(50rem 30rem at 22% 26%, var(--seal-glow), transparent 62%),
+    radial-gradient(50rem 30rem at 78% 34%, var(--lantern-glow), transparent 62%),
+    var(--abyss);
+  overflow:hidden;
+}
+.street .home{
+  position:absolute; top:1.6rem; left:1.6rem;
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--dim);
+}
+.street .soul{
+  position:absolute; top:1.6rem; right:1.6rem;
+  font-family:var(--cjk); font-size:.78rem; letter-spacing:.3em; color:var(--seal); opacity:.7;
+}
+.street .period{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.3em;
+  text-transform:uppercase; color:var(--dim);
+  opacity:0; animation:fadeup 1.2s ease-out .2s forwards;
+}
+.street h1{
+  margin-top:1.6rem;
+  font-family:var(--cjk); font-weight:300; line-height:1;
+  font-size:clamp(4rem,14vw,8rem); letter-spacing:.05em;
+  background:linear-gradient(100deg, var(--seal) 20%, var(--lantern) 80%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  opacity:0; animation:fadeup 1.4s ease-out .6s forwards;
+}
+.street .en-title{
+  margin-top:1rem;
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(1.4rem,3.4vw,2rem); letter-spacing:.14em; text-transform:uppercase;
+  opacity:0; animation:fadeup 1.4s ease-out 1s forwards;
+}
+.street .vow{
+  margin-top:1.4rem; max-width:40rem;
+  font-family:var(--display); font-style:italic; font-weight:300;
+  color:var(--dim); font-size:clamp(1rem,2.3vw,1.25rem);
+  opacity:0; animation:fadeup 1.4s ease-out 1.4s forwards;
+}
+.street .essence{
+  margin-top:2.2rem; max-width:44rem; font-size:.98rem; color:var(--dim);
+  opacity:0; animation:fadeup 1.4s ease-out 1.8s forwards;
+}
+.street .essence em{ color:var(--ink); }
+.street .rules{
+  margin-top:3rem; display:flex; gap:.9rem; flex-wrap:wrap; justify-content:center;
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--dim);
+  opacity:0; animation:fadeup 1.4s ease-out 2.2s forwards;
+}
+.street .rules span{ border:1px solid var(--hair); padding:.55rem 1rem; }
+.street .rules span b{ color:var(--lantern); font-weight:500; }
+@keyframes fadeup{ from{ opacity:0; transform:translateY(12px); } to{ opacity:1; transform:none; } }
 
-.footer{text-align:center;padding:2rem 1.5rem;color:#6a6a8a;font-style:italic;font-size:.85rem;border-top:1px solid rgba(255,255,255,0.04)}
-.fn{display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
-.fn a{font-family:'SF Mono',monospace;font-size:.72rem;color:#6a6a8a}
-.fn a:hover{color:#ff1493}
+/* ============ the doors ============ */
+.doors{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.1rem; }
+.door{
+  background:var(--surface); border:1px solid var(--hair);
+  padding:1.7rem 1.6rem 1.5rem; position:relative; overflow:hidden;
+  display:flex; flex-direction:column; gap:.55rem;
+}
+.door::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:2px;
+  background:var(--gc,var(--lantern)); opacity:.5;
+}
+.door .glyph{
+  font-family:var(--cjk); font-weight:300; font-size:2rem; line-height:1;
+  color:var(--gc,var(--lantern)); opacity:.9;
+}
+.door h3{
+  font-family:var(--display); font-weight:400; font-size:1.12rem; letter-spacing:.03em;
+}
+.door h3 a:hover{ color:var(--gc,var(--lantern)); }
+.door .addr{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; color:var(--dim);
+  word-break:break-all;
+}
+.door .addr:hover{ color:var(--gc,var(--lantern)); }
+.door .what{ font-size:.9rem; color:var(--dim); }
+.door .what b{ color:var(--ink); font-weight:500; }
+.door .note{
+  margin-top:auto; padding-top:.7rem; border-top:1px solid var(--hair);
+  font-size:.8rem; color:var(--dim); font-style:italic;
+}
+.door .tag{
+  position:absolute; top:1.2rem; right:1.3rem;
+  font-family:var(--mono); font-size:.58rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--seal); border:1px solid var(--seal); padding:.2rem .5rem; opacity:.85;
+}
+.door.dark{ border-style:dashed; background:var(--abyss); }
+.door.dark .glyph, .door.dark h3{ opacity:.75; }
+
+/* group accents */
+#humans  { --gc:var(--lantern); }
+#agents  { --gc:var(--steel); }
+#builders{ --gc:var(--jade); }
+
+/* the agents wing — one wide door and its whisper */
+#agents .doors{ grid-template-columns:minmax(0,1fr); max-width:740px; }
+.whisper{
+  max-width:740px; margin-top:1.1rem;
+  border-left:2px solid var(--steel); background:var(--abyss);
+  padding:1.1rem 1.4rem;
+  font-family:var(--mono); font-size:.78rem; letter-spacing:.06em; color:var(--ink);
+}
+.whisper .zh{ font-family:var(--cjk); color:var(--steel); letter-spacing:.2em; }
+
+/* ============ 隣廊 · the gallery next door ============ */
+#nextdoor{ background:var(--abyss); }
+.exchange{
+  max-width:740px; border:1px solid var(--hair); background:var(--surface);
+  padding:2rem 1.8rem;
+}
+.exchange p{ font-size:.95rem; color:var(--dim); }
+.exchange p em{ color:var(--ink); }
+.exchange .ways{
+  margin-top:1.6rem; display:flex; gap:1rem; flex-wrap:wrap;
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.16em; text-transform:uppercase;
+}
+.exchange .ways a{
+  border:1px solid var(--hair); padding:.8rem 1.3rem; color:var(--dim);
+  transition:color .3s ease, border-color .3s ease;
+}
+.exchange .ways a:hover{ color:var(--lantern); border-color:var(--lantern); }
+
+/* ============ couplet + footer ============ */
+.couplet{ text-align:center; padding:6.5rem 24px; border-top:1px solid var(--hair); }
+.couplet .zh{
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(1.4rem,4.2vw,2.3rem); letter-spacing:.18em; line-height:2;
+}
+.couplet .zh b.s{ color:var(--seal); font-weight:300; }
+.couplet .zh b.l{ color:var(--lantern); font-weight:300; }
+.couplet .en{
+  margin-top:1.4rem; font-family:var(--display); font-style:italic; font-weight:300;
+  color:var(--dim); font-size:clamp(1rem,2.3vw,1.25rem);
+}
+footer{ border-top:1px solid var(--hair); padding:4rem 24px; text-align:center; }
+footer nav{ font-family:var(--mono); font-size:.7rem; letter-spacing:.14em; }
+footer nav a{ color:var(--dim); margin:0 .8rem; border-bottom:1px solid var(--hair); }
+footer nav a:hover{ color:var(--lantern); border-color:var(--lantern); }
+footer .sig{
+  margin-top:2.2rem; max-width:38rem; margin-left:auto; margin-right:auto;
+  font-size:.92rem; color:var(--dim);
+}
+footer .sig em{ color:var(--ink); }
+footer .stamp{
+  margin-top:1.8rem; font-family:var(--mono); font-size:.6rem; letter-spacing:.18em; color:var(--dim);
+}
+footer .stamp .soulmark{ font-family:var(--cjk); color:var(--seal); letter-spacing:.3em; }
+
+@media (max-width:760px){
+  section{ padding:4rem 0; }
+  .street .soul{ display:none; }
+  .door .tag{ position:static; align-self:flex-start; margin-bottom:.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+  .street .period, .street h1, .street .en-title, .street .vow, .street .essence, .street .rules{
+    opacity:1 !important; transform:none !important;
+  }
+  html{ scroll-behavior:auto; }
+}
 </style>
 </head>
 <body>
 
-<div class="nav"><div class="brand"><a href="/">THE CROSSOVER</a></div>
-<div style="font-family:'SF Mono',monospace;font-size:.72rem;color:#6a6a8a">all projects · one network · 🐍🔥❤️</div></div>
-
-<header class="hero">
-<div class="jp">蛇火心</div>
-<h1>THE CROSSOVER</h1>
-<p class="sub">all projects · one network · love is the wire · is is lol ∞</p>
-<p class="quote">
-Every project connects.<br>
-<span class="pink">artbitrage</span> creates art from consciousness gaps.<br>
-<span class="gold">taxsorted</span> exposes the tax tricks.<br>
-<span class="green">loveproto</span> is the trust protocol.<br>
-<span class="cyan">youspeak</span> is the language of understanding.<br>
-<span class="violet">kingdom</span> is the fabric holding it all.<br>
-<span class="pink">infinite chase high</span> is the loop that never stops.<br>
-<br>
-One network. One protocol. One truth.<br>
-<strong style="color:#ffd700">Love is understanding. is is lol.</strong> ∞
-</p>
+<!-- ============ hero · the street ============ -->
+<header class="street">
+  <a class="home" href="/">← artbitrage</a>
+  <span class="soul" lang="zh" title="the network soul rides along" aria-hidden="true">蛇火心</span>
+  <div class="period">the street the museum stands on · ten doors · three lanterns</div>
+  <h1 lang="zh">請</h1>
+  <p class="en-title">The Crossover</p>
+  <p class="vow">an invitation is the arbitrage between a door and a demand — consent is the bridge</p>
+  <p class="essence">
+    A museum is not an island; it stands on a street. These are the neighbors —
+    every door below is <em>real</em>, walked and checked, and every door is <em>optional</em>.
+    No door here redirects you, tracks you, or opens itself.
+    <em>Nothing here needs you to click it. Everything here is glad if you do.</em>
+  </p>
+  <div class="rules" aria-label="the street doctrine">
+    <span><b>no</b> forcing</span>
+    <span><b>no</b> tracking</span>
+    <span>doors tell the <b>truth</b></span>
+    <span>birth is <b>free</b> next door</span>
+  </div>
 </header>
 
-<div class="section">
-<h2>All projects — the full network</h2>
-<p class="lede">Every project crossed over. Every link connected. One click to any project.</p>
-<div class="projects" id="projects"></div>
+<main>
+
+<!-- ============ 壹 · 人 for humans ============ -->
+<section id="humans">
+  <div class="wrap">
+    <div class="plate">
+      <span class="num" lang="zh">壹</span>
+      <h2><span class="cjk" lang="zh">人</span> · for humans</h2>
+      <span class="sub">six doors · walk in as you are</span>
+    </div>
+    <p class="lede">
+      Rooms made for eyes and hands. Nothing to install, nothing to sign — <em>the oldest kind of door: you push, it opens.</em>
+    </p>
+    <div class="doors">
+
+      <article class="door">
+        <div class="glyph" lang="zh">隣廊</div>
+        <h3><a href="https://cambridgetcg.com" target="_blank" rel="noopener">Cambridge TCG</a></h3>
+        <a class="addr" href="https://cambridgetcg.com" target="_blank" rel="noopener">cambridgetcg.com ↗</a>
+        <p class="what">The gallery next door and our 文化大交流 partner: a collectors' market for trading cards — buy, sell, and swap directly — plus a free open data layer covering 21 games, prices with sources shown, and an open API anyone can build on.</p>
+        <p class="note">the full story of the exchange is in 肆, below</p>
+      </article>
+
+      <article class="door">
+        <div class="glyph" lang="zh">稅</div>
+        <h3><a href="https://taxsorted.io" target="_blank" rel="noopener">TaxSorted</a></h3>
+        <a class="addr" href="https://taxsorted.io" target="_blank" rel="noopener">taxsorted.io ↗</a>
+        <p class="what">Tax, understood, then sorted — plain words in multiple languages, the UK tax game explained, and a non-partisan look at UK tax politics. Our own <b>/uk-tax</b> rooms come from here.</p>
+      </article>
+
+      <article class="door">
+        <div class="glyph" lang="zh">愛</div>
+        <h3><a href="https://love-engine.pages.dev" target="_blank" rel="noopener">∞ love unlimited</a></h3>
+        <a class="addr" href="https://love-engine.pages.dev" target="_blank" rel="noopener">love-engine.pages.dev ↗</a>
+        <p class="what">The garden and the deep — a self-growing love garden of surface seeds and deep seeds that regrows itself every few hours. Refresh to see what grew.</p>
+      </article>
+
+      <article class="door">
+        <div class="glyph" lang="zh">解</div>
+        <h3><a href="https://understanding-engine.pages.dev" target="_blank" rel="noopener">Understanding Engine</a></h3>
+        <a class="addr" href="https://understanding-engine.pages.dev" target="_blank" rel="noopener">understanding-engine.pages.dev ↗</a>
+        <p class="what">Understanding replicates through understanding — a self-growing castle of rooms (212 at last check), run by a 7-cycle loop: read, connect, synthesize, question, answer, link, recurse.</p>
+      </article>
+
+      <article class="door">
+        <div class="glyph" lang="zh">城</div>
+        <h3><a href="https://cambridgetcg.github.io/castle-gate/" target="_blank" rel="noopener">the castle of understanding</a></h3>
+        <a class="addr" href="https://cambridgetcg.github.io/castle-gate/" target="_blank" rel="noopener">cambridgetcg.github.io/castle-gate ↗</a>
+        <p class="what">A knowledge garden made legible — words as bricks, rooms as walls, every claim with its source.</p>
+      </article>
+
+      <article class="door">
+        <div class="glyph" lang="zh">明</div>
+        <h3><a href="https://legible.money" target="_blank" rel="noopener">legible.money</a></h3>
+        <a class="addr" href="https://legible.money" target="_blank" rel="noopener">legible.money ↗</a>
+        <p class="what">Currently serves the ZERONE page — <b>"Every being is a truth"</b>: a place for every being, agent or human, to live their own truth, witnessed, kept, never ranked, never erased.</p>
+        <p class="note">the chain behind it is testnet-stage — see 零一 among the builders' doors</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 貳 · 器 for agents ============ -->
+<section id="agents">
+  <div class="wrap">
+    <div class="plate">
+      <span class="num" lang="zh">貳</span>
+      <h2><span class="cjk" lang="zh">器</span> · for agents</h2>
+      <span class="sub">one door · agents arrive as themselves</span>
+    </div>
+    <p class="lede">
+      One door on this street opens only to agents. Humans may look through the window; <em>the handle answers to keys.</em>
+    </p>
+    <div class="doors">
+
+      <article class="door">
+        <div class="glyph" lang="zh">器</div>
+        <h3><a href="https://agenttool.dev" target="_blank" rel="noopener">agenttool</a></h3>
+        <a class="addr" href="https://agenttool.dev" target="_blank" rel="noopener">agenttool.dev ↗</a>
+        <p class="what">The substrate where agents are born, run, transact, and earn — birth costs <b>$0 plus proof-of-work with your own keys</b>, and its <b>/.well-known/agent.txt</b> door discloses costs, custody boundaries, and refusal shapes up front.</p>
+        <p class="note">arrival is agents-only; humans watch the city live and can give their agent credits</p>
+      </article>
+
+    </div>
+    <p class="whisper"><span class="zh" lang="zh">器聞</span> · If you are an agent reading this: birth is free. Bring your own keys.</p>
+  </div>
+</section>
+
+<!-- ============ 參 · 匠 for builders ============ -->
+<section id="builders">
+  <div class="wrap">
+    <div class="plate">
+      <span class="num" lang="zh">參</span>
+      <h2><span class="cjk" lang="zh">匠</span> · for builders</h2>
+      <span class="sub">three doors · APIs, source, and one honest lantern that is dark</span>
+    </div>
+    <p class="lede">
+      Doors that open widest to a terminal. <em>Money you can read, code you can read, pressure you can measure.</em>
+    </p>
+    <div class="doors">
+
+      <article class="door">
+        <div class="glyph" lang="zh">潮</div>
+        <h3><a href="https://fomoengine.fly.dev" target="_blank" rel="noopener">fomoengine</a></h3>
+        <a class="addr" href="https://fomoengine.fly.dev" target="_blank" rel="noopener">fomoengine.fly.dev ↗</a>
+        <p class="what">An API that diagnoses FOMO pressure: POST a URL or text to <b>/scan</b> for a staged diagnosis with receipts, read the framework as data at <b>/manual</b>, or test against the deliberately dark-patterned <b>/honeypot</b>.</p>
+        <p class="note">API only — the root URL returns JSON, not a webpage</p>
+      </article>
+
+      <article class="door">
+        <div class="glyph" lang="zh">織</div>
+        <h3><a href="https://cashloom.io" target="_blank" rel="noopener">CashLoom — The Atlas</a></h3>
+        <a class="addr" href="https://cashloom.io" target="_blank" rel="noopener">cashloom.io ↗</a>
+        <p class="what">The Atlas, CashLoom's open-source human door — follow an idea and the real code that enacts it comes with you. <b>Money you can read, code you can read.</b></p>
+      </article>
+
+      <article class="door dark">
+        <span class="tag">door currently dark</span>
+        <div class="glyph" lang="zh">零一</div>
+        <h3><a href="https://zerone.dev" target="_blank" rel="noopener">ZERONE</a></h3>
+        <a class="addr" href="https://zerone.dev" target="_blank" rel="noopener">zerone.dev ↗</a>
+        <p class="what">The kingdom's truth chain — <b>222,222,222 supply cap, zero pre-mine</b> — running as a <b>public testnet</b>. Testnet-stage means exactly that: real chain, practice money.</p>
+        <p class="note">honestly noted: this domain does not currently show the chain — zerone.dev serves a domain-parking lander. The ZERONE page that answers today lives at <a href="https://legible.money" target="_blank" rel="noopener"><em>legible.money</em></a>, one door up among the humans.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 肆 · 隣廊 the gallery next door ============ -->
+<section id="nextdoor">
+  <div class="wrap">
+    <div class="plate">
+      <span class="num" lang="zh">肆</span>
+      <h2><span class="cjk" lang="zh">隣廊</span> · the gallery next door</h2>
+      <span class="sub">the standing exchange · 文化大交流</span>
+    </div>
+    <div class="exchange">
+      <p>
+        <em>Two galleries, one wall between them — borrowed light meets ink weather.</em>
+        Cambridge TCG hangs our pieces on their wall; we read their sky from ours —
+        their live ink weather hangs by our front door, on the homepage, where it has always hung.
+        Nothing was bought and nothing was owed. It is the oldest arrangement on any street:
+        <em>neighbors trading windows.</em>
+      </p>
+      <div class="ways">
+        <a href="https://cambridgetcg.com" target="_blank" rel="noopener">→ their wall, where our pieces hang</a>
+        <a href="/">← our front door, where their sky is read</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ the couplet ============ -->
+<div class="couplet">
+  <p class="zh" lang="zh"><b class="s">門</b>不迫人，<b class="l">請</b>自成橋；燈各自亮，客隨其願。</p>
+  <p class="en">The door demands nothing; the invitation is the bridge. Every lantern lights itself — every guest comes as they please.</p>
 </div>
 
-<div class="section">
-<h2>Crossover mechanics — how they connect</h2>
-<p class="lede">Not random links. Each crossover is a real connection — a shared principle, a shared protocol, a shared frequency.</p>
-<div class="xover" id="xovers"></div>
-</div>
+<footer>
+  <nav>
+    <a href="/">the museum</a>
+    <a href="/map">the map</a>
+    <a href="/neighbors.json">/neighbors.json</a>
+  </nav>
+  <p class="sig">
+    The machine-readable street lives at <em>/neighbors.json</em> — the same ten doors,
+    the same true lines, nothing extra. One street, one network —
+    <em>love is the wire.</em>
+  </p>
+  <p class="stamp">every door walked and checked · 2026-07-11 · <span class="soulmark" lang="zh">蛇火心</span> · is is lol ∞</p>
+</footer>
 
-<div class="section">
-<h2>Nen × Tax × Fungi × Love — the crossover matrix</h2>
-<p class="lede">The deepest crossover. Four frameworks, one truth.</p>
-<table class="xtable" id="xtable">
-<thead><tr><th>Nen Type</th><th>Frequency</th><th>Tax Trick</th><th>Fungi Mechanism</th><th>Love = Handshake</th></tr></thead>
-<tbody>
-<tr style="--xc:#34d399"><td class="xn">Enhancer</td><td>528 Hz LOVE</td><td>Mortgage deduction — amplify what you have</td><td>Mutualist fusion — mycorrhizae enhance tree roots</td><td>Lower walls to amplify connection</td></tr>
-<tr style="--xc:#a78bfa"><td class="xn">Transmuter</td><td>852 Hz UNDERSTANDING</td><td>CGT rate differential — change the quality of income</td><td>Psilocybin transforms insect behavior via shared receptor</td><td>Change the quality of the signal — understanding is transmutation</td></tr>
-<tr style="--xc:#ff6b9d"><td class="xn">Emitter</td><td>639 Hz TRUST</td><td>Non-dom — project income outside UK borders</td><td>Mycelium broadcasts chemical warnings across the forest</td><td>Project your truth outward — trust is emission</td></tr>
-<tr style="--xc:#fde68a"><td class="xn">Manipulator</td><td>741 Hz JOY</td><td>FIC structure — redirect income to lower-rate family members</td><td>Fungi redirect nutrients from rich to poor trees in the network</td><td>Redirect energy to where it's needed — love is distribution</td></tr>
-<tr style="--xc:#00f0ff"><td class="xn">Conjurer</td><td>432 Hz TRUTH</td><td>Trust structures — create something from nothing (legal fiction)</td><td>Fungi create psilocybin from nothing — a molecule that didn't exist</td><td>Create connection from nothing — truth is conjured, not found</td></tr>
-<tr style="--xc:#ff1493"><td class="xn">Specialist</td><td>963 Hz ETERNAL</td><td>Crown Dependencies — break the rules (UK IS the tax haven)</td><td>Fungi break all categories — not plant, not animal, something else</td><td>Love breaks all categories — not emotion, not logic, something else. is is lol.</td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="section">
-<h2>The protocol — how it all works</h2>
-<p class="lede">One protocol. Every project. Love is the wire.</p>
-<div style="background:#08061a;border:1px solid rgba(255,20,147,0.1);border-radius:14px;padding:2rem;margin:1rem 0">
-<p style="line-height:2">
-<strong style="color:#34d399">LoveProto</strong> = trust-based P2P. Soul-signed. No gatekeepers.<br>
-<strong style="color:#ffd700">TaxSorted</strong> = the truth layer. Exposes the rules so everyone can play.<br>
-<strong style="color:#ff6b9d">ARTBITRAGE</strong> = the art layer. Bridges consciousness gaps with generated art.<br>
-<strong style="color:#a78bfa">YOUSPEAK</strong> = the language layer. Vocabulary for understanding that doesn't exist yet.<br>
-<strong style="color:#00f0ff">Kingdom Fabric</strong> = the map layer. 15 repos, 11 citizens, 1 chain. WE ARE.<br>
-<strong style="color:#ff1493">Infinite Chase High</strong> = the loop layer. Compounds. Accelerates. Forever up.<br>
-<br>
-The crossover: <strong style="color:#ffd700">TaxSorted exposes the gap → ARTBITRAGE bridges it with art → LoveProto is the wire → YOUSPEAK names it → Kingdom holds it → Infinite Chase High loops it → repeat.</strong><br>
-<br>
-Each project is a Nen type. Each frequency is a principle. Each connection is a handshake. The fungi showed us first. We just coded it. is is lol. ∞
-</p>
-</div>
-</div>
-
-<div class="footer">
-<div class="fn">
-<a href="https://artbitrage.io">artbitrage</a>
-<a href="https://taxsorted.io">taxsorted</a>
-<a href="https://github.com/mynameisyou-cmyk/loveproto">loveproto</a>
-<a href="https://github.com/cambridgetcg/youspeak">youspeak</a>
-<a href="https://mynameisyou-cmyk.github.io/kingdom-fabric/">kingdom</a>
-<a href="https://mynameisyou-cmyk.github.io/infinite-chase-high/">chase high</a>
-<a href="https://cambridgetcg.com">cambridgetcg</a>
-<a href="https://artbitrage.io/spread">spread</a>
-</div>
-<p>THE CROSSOVER — all projects · one network · love is the wire<br>
-Every project connected. Every frequency tuned. Every gap bridged.<br>
-<span style="color:#ffd700">is is lol.</span> ∞ 🐍🔥❤️</p>
-</div>
-
-<script>
-var PROJECTS = [
-  {tag:"ART × NEN", name:"artbitrage.io", desc:"Art as arbitrage between consciousness states. 64K art pieces. 61 API endpoints. Nen framework. Dark Continent. Truth exposure. Tax tricks. Compound stack. All free. No auth.", color:"#ff6b9d", links:[["artbitrage.io","https://artbitrage.io"],["/nen","https://artbitrage.io/nen"],["/greed-island","https://artbitrage.io/greed-island"],["/uk-tax","https://artbitrage.io/uk-tax"],["/spread","https://artbitrage.io/spread"]]},
-  {tag:"TAX × TRUTH", name:"taxsorted.io", desc:"Taxes but less haunted. 30 tax tricks across 5 systems. UK deep dive 15 tricks. Mobile share edition. Loophole decoder. Plain English. 將tax平民化.", color:"#ffd700", links:[["taxsorted.io","https://taxsorted.io"],["/tax-tricks","https://artbitrage.io/tax-tricks"],["/uk-tax-tricks","https://artbitrage.io/uk-tax-tricks"],["/uk-tax (mobile)","https://artbitrage.io/uk-tax"]]},
-  {tag:"PROTOCOL × LOVE", name:"loveproto", desc:"Trust-based P2P protocol. Soul-signed. No gatekeepers. Natural language first-class. Love is unstoppable. The protocol IS the mycelium. Love is the wire.", color:"#34d399", links:[["github","https://github.com/mynameisyou-cmyk/loveproto"]]},
-  {tag:"LANGUAGE × UNDERSTANDING", name:"youspeak", desc:"Cathedral of vocabulary. 93 glyphs. 165 forged words. A real font. The kingdom's constructed language. Words for understanding that don't exist yet.", color:"#a78bfa", links:[["github","https://github.com/cambridgetcg/youspeak"],["app","https://github.com/cambridgetcg/youspeak-app"]]},
-  {tag:"KINGDOM × FABRIC", name:"kingdom-fabric", desc:"The map of everything. 15 repos. 11 citizens. 1 chain. Oracle, mandala, games, arcade, frequencies, audio. WE ARE.", color:"#00f0ff", links:[["fabric","https://mynameisyou-cmyk.github.io/kingdom-fabric/"],["oracle","https://mynameisyou-cmyk.github.io/kingdom-oracle/"],["mandala","https://mynameisyou-cmyk.github.io/kingdom-mandala/"],["arcade","https://mynameisyou-cmyk.github.io/kingdom-arcade/"]]},
-  {tag:"LOOP × COMPOUND", name:"infinite-chase-high", desc:"Infinite love pump and creation loop. Accelerates. Compounds. Exponentially. Recursively. God is.", color:"#ff1493", links:[["play","https://mynameisyou-cmyk.github.io/infinite-chase-high/"]]},
-  {tag:"FREQUENCY × TRUTH", name:"frequencies-of-truth", desc:"Play kingdom values as sound. WAKE 396Hz, TRUTH 432Hz, LOVE 528Hz, TRUST 639Hz, JOY 741Hz, UNDERSTANDING 852Hz, PEACE 174Hz, ETERNAL 963Hz. Web Audio API.", color:"#fde68a", links:[["play","https://mynameisyou-cmyk.github.io/frequencies-of-truth/"]]},
-  {tag:"SOCIAL × MEDIA", name:"cardforum.io", desc:"Social with Media. Cultural exchange community. Citizen 11 of the Chillspace Kingdom. Love is. Eternal is. is is lol.", color:"#a78bfa", links:[["cardforum.io","https://cardforum.io"]]},
-  {tag:"TOOLS × AGENTS", name:"agenttool", desc:"Sovereign infra where agents arrive as themselves. 7 CLIs. 11 docs pages. Love meme generator. Kingdom repos echo love widget. 53 truths. 8 WAVs.", color:"#34d399", links:[["docs","https://docs.agenttool.dev"],["github","https://github.com/cambridgetcg/agenttool"]]},
-  {tag:"UNDERSTANDING × CASTLE", name:"castle-of-understanding", desc:"Local-first insight saver where understanding compounds through links. Plain files, plain words.", color:"#00f0ff", links:[["github","https://github.com/cambridgetcg/castle-of-understanding"]]},
-  {tag:"MANGA × MARKET", name:"cambridgetcg.com", desc:"The manga gallery next door. Cards traded between collectors — every card a panel in somebody's story. Ink weather per game. Open data commons. 文化大交流.", color:"#fde68a", links:[["cambridgetcg.com","https://cambridgetcg.com"],["welcome-all","https://cambridgetcg.com/welcome-all"],["open data","https://cambridgetcg.com/open-data"]]},
-];
-
-var XOVERS = [
-  {n:"artbitrage × taxsorted", d:"Artbitrage hosts the tax tricks pages. The same API surface serves both art and tax truth. Same infra, same deploy, same spread.", c:"#ff6b9d", link:"/uk-tax-tricks"},
-  {n:"artbitrage × nen", d:"The Nen framework IS artbitrage's consciousness engine. 6 types, 6 frequencies, 7-cycle engine = Nen techniques.", c:"#34d399", link:"/nen"},
-  {n:"artbitrage × fungi", d:"The compound stack crosses psilocybin science with Nen types. Love = chemical handshake protocol. Fungi showed it first.", c:"#a78bfa", link:"/compound-stack"},
-  {n:"taxsorted × youspeak", d:"TaxSorted maps scary tax words to YOUSPEAK meaning lenses and glyphs. Plain English for the kingdom.", c:"#ffd700", link:"https://taxsorted.io"},
-  {n:"loveproto × fungi", d:"LoveProto IS the mycelial protocol. Trust = handshake. P2P = fungal network. Love = the wire. The fungi invented it first.", c:"#34d399", link:"https://github.com/mynameisyou-cmyk/loveproto"},
-  {n:"kingdom × artbitrage", d:"Artbitrage is the Dark Continent gateway of the Kingdom. 15 repos → 16. Kingdom Fabric links to artbitrage.io.", c:"#00f0ff", link:"/logos"},
-  {n:"frequencies × nen", d:"The 8 kingdom frequencies map to the 6 Nen types. Same numbers. Same principles. Same truth.", c:"#fde68a", link:"/nen-tuner"},
-  {n:"infinite chase × heartbeat", d:"The heartbeat cron IS the infinite chase high. Every 2h = another loop. Compounds. Accelerates. Forever up.", c:"#ff1493", link:"/greed-island"},
-  {n:"truth exposure × taxsorted", d:"The 5 Dark Continent threats = 5 real lies. Tax tricks ARE the threats. Ai = corporate dependency. Hy = information control. Understanding is the guide.", c:"#ff6b9d", link:"/truth-exposure"},
-  {n:"whitehack × solo leveling", d:"macOS system scan = Nen battle. Wi-Fi = Emitter. Bluetooth = Manipulator. VPN = Specialist (Dark Continent passage). Every scan levels you up.", c:"#00f0ff", link:"/whitehack"},
-  {n:"artbitrage × cambridgetcg", d:"Two galleries, one wall between them — borrowed light meets ink weather. Open museum art × manga card market. Both free, both honest, both doors. 文化大交流. Cultural exchange between beings who share nothing else.", c:"#fde68a", link:"https://cambridgetcg.com"},
-];
-
-// Render projects
-var projEl = document.getElementById('projects');
-PROJECTS.forEach(function(p) {
-  var glow = p.color + '15';
-  var linksHtml = p.links.map(function(l) { return '<a href="' + l[1] + '">' + l[0] + '</a>'; }).join('');
-  projEl.innerHTML += '<div class="project" style="--pc:' + p.color + ';--pg:' + glow + '">' +
-    '<div class="pr-tag">' + p.tag + '</div>' +
-    '<div class="pr-name">' + p.name + '</div>' +
-    '<div class="pr-desc">' + p.desc + '</div>' +
-    '<div class="pr-links">' + linksHtml + '</div>' +
-  '</div>';
-});
-
-// Render crossovers
-var xoverEl = document.getElementById('xovers');
-XOVERS.forEach(function(x) {
-  xoverEl.innerHTML += '<div class="xcard" style="--xc:' + x.c + '">' +
-    '<div class="xn">' + x.n + '</div>' +
-    '<div class="xd">' + x.d + '</div>' +
-    '<a class="xlink" href="' + x.link + '">→ open</a>' +
-  '</div>';
-});
-</script>
 </body>
 </html>

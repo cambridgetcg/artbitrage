@@ -86,6 +86,10 @@ CMA `share_license_status`/`creditline`, Wikimedia license/usage terms):
 
 The museum floor plan at **/map** — every room grouped and findable (eras, craft, wings, play rooms, registers), with a live find-a-room filter. Machine-readable at **/map.json**; search engines get **/sitemap.xml** + **/robots.txt**; `tests/e2e-map.mjs` guards that the map never lies.
 
+## The Street
+
+**/crossover** is the invitation room — where the kingdom's projects cross over into one network. **/neighbors.json** is the machine-readable street: every neighbor's door, checked and described honestly, with who it's for and whether it's alive. Doctrine: no forcing — every door is an invitation, never a demand.
+
 ## Wine & Cigar — The Craft Verticals
 
 Zero-to-one stories of craft through time — wine and cigar as arbitrage between nature and time — served as data APIs, with story pages at **/wine** and **/cigar**. 配 The Pairing at **/pairing** marries the two verticals — principles, marriages, cautions, and the ritual — backed by the `/api/pair` endpoints.

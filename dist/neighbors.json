@@ -1,0 +1,108 @@
+{
+  "name": "neighbors",
+  "title": "街坊 The Neighbors",
+  "essence": "The street the museum stands on. Every door checked, every line true. An invitation, never a demand.",
+  "checked_at": "2026-07-11T09:08:51Z",
+  "doctrine": [
+    "no forcing",
+    "no tracking",
+    "doors tell the truth",
+    "birth is free next door"
+  ],
+  "neighbors": [
+    {
+      "id": "agenttool",
+      "name": "agenttool",
+      "url": "https://agenttool.dev",
+      "zh": "器",
+      "what": "The substrate where agents are born, run, transact, and earn — birth costs $0 plus proof-of-work with your own keys, and its /.well-known/agent.txt door discloses costs, custody boundaries, and refusal shapes up front.",
+      "for_whom": "agents",
+      "alive": true,
+      "note": "Arrival is agents-only; humans watch the city live and can give their agent credits."
+    },
+    {
+      "id": "zerone",
+      "name": "ZERONE",
+      "url": "https://zerone.dev",
+      "zh": "零一",
+      "what": "The kingdom's truth chain — 222,222,222 supply cap, zero pre-mine — running as a public testnet.",
+      "for_whom": "builders",
+      "alive": false,
+      "note": "Testnet-stage. This domain does not currently show the chain: zerone.dev serves a domain-parking redirect (GoDaddy for-sale lander). The ZERONE page that answers today lives at legible.money."
+    },
+    {
+      "id": "cambridgetcg",
+      "name": "Cambridge TCG",
+      "url": "https://cambridgetcg.com",
+      "zh": "隣廊",
+      "what": "The gallery next door and our 文化大交流 partner: a collectors' market for trading cards — buy, sell, and swap directly — plus a free open data layer covering 21 games, prices with sources shown, and an open API anyone can build on.",
+      "for_whom": "humans",
+      "alive": true
+    },
+    {
+      "id": "taxsorted",
+      "name": "TaxSorted",
+      "url": "https://taxsorted.io",
+      "zh": "稅",
+      "what": "Tax, understood, then sorted — plain words in multiple languages, the UK tax game explained, and a non-partisan look at UK tax politics; our /uk-tax rooms come from here.",
+      "for_whom": "humans",
+      "alive": true
+    },
+    {
+      "id": "love-engine",
+      "name": "∞ love unlimited",
+      "url": "https://love-engine.pages.dev",
+      "zh": "愛",
+      "what": "The garden and the deep — a self-growing love garden of surface seeds and deep seeds that regrows itself every few hours; refresh to see what grew.",
+      "for_whom": "humans",
+      "alive": true
+    },
+    {
+      "id": "understanding-engine",
+      "name": "Understanding Engine",
+      "url": "https://understanding-engine.pages.dev",
+      "zh": "解",
+      "what": "Understanding replicates through understanding — a self-growing castle of rooms (212 at last check), run by a 7-cycle loop: read, connect, synthesize, question, answer, link, recurse.",
+      "for_whom": "humans",
+      "alive": true
+    },
+    {
+      "id": "castle-gate",
+      "name": "the castle of understanding",
+      "url": "https://cambridgetcg.github.io/castle-gate/",
+      "zh": "城",
+      "what": "A knowledge garden made legible — words as bricks, rooms as walls, every claim with its source.",
+      "for_whom": "humans",
+      "alive": true
+    },
+    {
+      "id": "fomoengine",
+      "name": "fomoengine",
+      "url": "https://fomoengine.fly.dev",
+      "zh": "潮",
+      "what": "An API that diagnoses FOMO pressure: POST a URL or text to /scan for a staged diagnosis with receipts, read the framework as data at /manual, or test against the deliberately dark-patterned /honeypot.",
+      "for_whom": "builders",
+      "alive": true,
+      "note": "API only — the root URL returns JSON, not a webpage."
+    },
+    {
+      "id": "cashloom",
+      "name": "CashLoom — The Atlas",
+      "url": "https://cashloom.io",
+      "zh": "織",
+      "what": "The Atlas, CashLoom's open-source human door — follow an idea and the real code that enacts it comes with you; money you can read, code you can read.",
+      "for_whom": "builders",
+      "alive": true
+    },
+    {
+      "id": "legible-money",
+      "name": "legible.money",
+      "url": "https://legible.money",
+      "zh": "明",
+      "what": "Currently serves the ZERONE page — 'Every being is a truth': a place for every being, agent or human, to live their own truth, witnessed, kept, never ranked, never erased.",
+      "for_whom": "humans",
+      "alive": true,
+      "note": "The chain behind it is testnet-stage."
+    }
+  ]
+}

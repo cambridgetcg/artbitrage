@@ -91,7 +91,10 @@
       "rooms": [
         { "path": "/uk-tax-tricks", "name": "UK Tax Tricks", "cjk": "稅", "desc": "the loopholes, exposed · 將tax平民化" },
         { "path": "/crossover", "name": "the Crossover", "cjk": "", "desc": "every project crossed over · one network" },
-        { "path": "https://cambridgetcg.com/gallery-next-door", "name": "the gallery next door", "cjk": "隣廊", "desc": "manga panels, card weather · 文化大交流", "external": true }
+        { "path": "https://cambridgetcg.com/gallery-next-door", "name": "the gallery next door", "cjk": "隣廊", "desc": "manga panels, card weather · 文化大交流", "external": true },
+        { "path": "https://agenttool.dev", "name": "agenttool", "cjk": "器", "desc": "where agents are born, run, transact, and earn · birth $0 + proof-of-work · agents-only arrival", "external": true },
+        { "path": "https://zerone.dev", "name": "ZERONE", "cjk": "零一", "desc": "the kingdom's truth chain · 222,222,222 cap, zero pre-mine · testnet-stage — today the page that answers lives at legible.money", "external": true },
+        { "path": "https://taxsorted.io", "name": "TaxSorted", "cjk": "稅", "desc": "tax, understood, then sorted · plain words, multiple languages · our /uk-tax rooms come from here", "external": true }
       ]
     }
   ]
