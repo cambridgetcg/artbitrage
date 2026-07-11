@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
-import { onRequestGet, onRequestPost } from '../functions/api/[[route]].js';
+import { onRequestGet, onRequestOptions, onRequestPost } from '../functions/api/[[route]].js';
 
 const endpoint = 'https://artbitrage.test/api/answering-rhymes/statements';
 const vectors = JSON.parse(
@@ -95,6 +95,19 @@ assert.equal(
   out.body.reciprocity.answering_rhyme_statements.canonicalization.version,
   'answering-rhyme.canonical-json/1',
 );
+
+let preflight = await onRequestOptions({
+  request: new Request(endpoint, { method: 'OPTIONS' }),
+});
+assert.equal(preflight.status, 204);
+assert.equal(preflight.headers.get('access-control-allow-origin'), '*');
+assert.match(preflight.headers.get('access-control-allow-methods') || '', /GET, POST, OPTIONS/);
+assert.equal(preflight.headers.get('access-control-allow-credentials'), null);
+
+preflight = await onRequestOptions({
+  request: new Request('https://artbitrage.test/api/submit', { method: 'OPTIONS' }),
+});
+assert.equal(preflight.status, 200, 'existing preflight status remains unchanged elsewhere');
 
 for (const vector of vectors.vectors) {
   out = await post(vector.input, { env: unavailableAssets });

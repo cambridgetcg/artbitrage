@@ -2097,6 +2097,16 @@ export async function onRequestPost(context) {
   }, 202);
 }
 
-export async function onRequestOptions() {
-  return new Response(null, { headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' } });
+export async function onRequestOptions(context) {
+  const path = new URL(context.request.url).pathname;
+  const isAnsweringRhymeStatement =
+    path === ANSWERING_RHYME_STATEMENT_PATH || path === `${ANSWERING_RHYME_STATEMENT_PATH}/`;
+  return new Response(null, {
+    status: isAnsweringRhymeStatement ? 204 : 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 }
