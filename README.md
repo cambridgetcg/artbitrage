@@ -25,13 +25,15 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 | GET | `/api/forms` | All art forms |
 | GET | `/api/states` | All consciousness states |
 | GET | `/api/gaps` | All gaps bridged |
-| GET | `/api/feed` | Latest art feed |
+| GET | `/api/feed?limit=20` | Versioned latest-art feed (`artbitrage.feed/1`, limit bounded to 1–100) |
 | GET | `/api/manifest` | The artbitrage manifest |
+| GET | `/api/wake` | Protocol handshake, rights boundary, and Cambridge sibling |
 | GET | `/api/sources` | Open art data sources with no keys required |
 | GET | `/api/search?q=love` | Search open museum/common archives |
 | GET | `/api/wings` | The river's currents — themed museum catalogue index |
 | GET | `/api/wings/:wing` | One current's artworks (e.g. `/api/wings/cosmos`) |
 | GET | `/api/museum` | All catalogued museum works (paginated, `?q= ?wing= ?source=`) |
+| GET | `/api/museum/:source/:id` | Resolve one stable museum record with normalized source rights |
 | GET | `/api/museum/random` | One random open-access masterpiece |
 | GET | `/api/homecoming` | 愛星正音字典 — the Love Star pronunciation dictionary (`/homecoming` is the room) |
 
@@ -81,6 +83,72 @@ CMA `share_license_status`/`creditline`, Wikimedia license/usage terms):
 
 `/api/pipeline/collect` also returns a `rights_summary` rollup
 (`reusable` / `restricted` / `unverified`) so reusers see the truth at a glance.
+
+## Cambridge TCG bridge — direct experience, sovereign systems
+
+`GET /api/wake` is the protocol handshake. It identifies Artbitrage by the
+shared recognition shape (`built_with`, `serves_kinds`, `host`, `epoch`), names
+Cambridge TCG as a sibling, and states the rights boundary. It does **not**
+create shared accounts, databases, payments, or deployment authority.
+
+`GET /api/feed?limit=3` preserves the original `feed`, `updated`, `count`, and
+`pieces` fields while adding the versioned `artbitrage.feed/1` contract:
+
+```json
+{
+  "schema": "artbitrage.feed/1",
+  "source": { "id": "artbitrage", "canonical_url": "https://artbitrage.io" },
+  "source_state": "asset-read",
+  "generated_at": "2026-07-11T16:00:00.000Z",
+  "as_of": "2026-07-11T14:24:06.711Z",
+  "limit": 3,
+  "count": 3,
+  "pieces": [
+    {
+      "id": "e4ca49de0074",
+      "canonical_url": "https://artbitrage.io/api/art/e4ca49de0074",
+      "content_hash": "sha256:…",
+      "creator": { "name": "Artbitrage Engine", "type": "software", "human_creator": null, "verified": false },
+      "creation": { "method": "procedural-template", "created_at": "2026-07-11T14:24:06.711Z", "timestamp_status": "legacy-naive-assumed-utc", "trace_status": "project-generated" },
+      "rights": {
+        "status": "unverified",
+        "public_domain": null,
+        "license": null,
+        "license_verified": false,
+        "permissions": { "view": true, "cambridge_display": true, "remix": null, "commercial_use": null, "machine_learning": null }
+      }
+    }
+  ]
+}
+```
+
+The SHA-256 is deterministic over recursively key-sorted JSON for the stored
+piece before bridge metadata is added. Legacy engine timestamps did not carry
+an offset; the feed marks those as `legacy-naive-assumed-utc` instead of
+pretending the old timezone is known.
+New engine timestamps are emitted as explicit UTC RFC3339 (`Z`).
+
+`source_state` distinguishes a normal static-asset read from
+`cached-after-read-failure`. On a cold collection read failure the feed returns
+HTTP 503 instead of pretending the collection is empty; a warm edge isolate may
+serve its last successfully parsed collection, with that fallback labelled.
+
+There is currently no project-level license recorded for generated Artbitrage
+pieces. The operator's 2026-07-11 authorization is deliberately narrower:
+project-generated and model-recorded pieces carry
+`permissions.cambridge_display: true` for verbatim, attributed display on
+`cambridgetcg.com` only. General remix, machine-learning, and commercial-use
+permissions remain unknown (`null`). Submitted pieces default to
+`cambridge_display: false` unless their stored record later carries its own
+explicit grant; a declared creator label may name a human, collective, agent,
+software, or mixed authorship, so the feed does not silently classify it as a
+human creator.
+
+Museum links resolve without search drift at
+`GET /api/museum/:source/:id` (for example `/api/museum/artic/77333`). The
+resolver preserves the source record's license label, normalizes it into a
+`rights` object, and says explicitly that Artbitrage has not independently
+verified the label.
 
 ## 地圖 The Map
 
@@ -273,6 +341,7 @@ python3 artbitrage.py forever
 # Verify local persistence and API behavior
 python3 tests/e2e-engine.py
 node tests/e2e-api.mjs
+node tests/e2e-bridge.mjs
 
 # API runs serverlessly on Cloudflare Pages
 # POST /api/art to validate/echo a submission

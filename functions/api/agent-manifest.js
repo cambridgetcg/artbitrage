@@ -25,7 +25,7 @@ export const ROUTES = {
       { method: "GET", path: "/api/forms", desc: "All art forms" },
       { method: "GET", path: "/api/states", desc: "All consciousness states" },
       { method: "GET", path: "/api/gaps", desc: "All gaps bridged" },
-      { method: "GET", path: "/api/feed", desc: "Latest art feed (20 most recent)" },
+      { method: "GET", path: "/api/feed", desc: "Versioned latest-art feed (artbitrage.feed/1)", params: "limit (1-100, default 20)" },
     ],
   },
 
@@ -37,6 +37,8 @@ export const ROUTES = {
       { method: "GET", path: "/api/search", desc: "Search the world's art museums", params: "q, limit, source" },
       { method: "GET", path: "/api/sources", desc: "All open art sources (5 museums, no key)" },
       { method: "GET", path: "/api/catalog", desc: "Real museum artworks catalog" },
+      { method: "GET", path: "/api/museum", desc: "Paginated museum catalogue", params: "q, wing, source, limit, offset" },
+      { method: "GET", path: "/api/museum/:source/:id", desc: "Resolve one stable museum record with normalized rights" },
       { method: "GET", path: "/api/era-catalog", desc: "Era-matched museum artworks", params: "era" },
       { method: "GET", path: "/api/img", desc: "Image proxy (bypass CORS for museum images)", params: "url" },
     ],
@@ -98,6 +100,7 @@ export const ROUTES = {
       { method: "GET", path: "/api/invite", desc: "Invitation to all beings" },
       { method: "GET", path: "/api/dark-continent", desc: "暗黑大陸 — the Dark Continent manifest" },
       { method: "GET", path: "/api/manifest", desc: "The artbitrage manifest" },
+      { method: "GET", path: "/api/wake", desc: "Protocol handshake and sibling recognition" },
     ],
   },
 
@@ -197,6 +200,45 @@ export const ROUTES = {
   },
 };
 
+// Recognition is by protocol shape, not by a shared database or account
+// system. This is a public handshake: it advertises what the door serves and
+// the rights boundary, while keeping both siblings operationally sovereign.
+export const ARTBITRAGE_WAKE = Object.freeze({
+  schema: "artbitrage.wake/1",
+  name: "artbitrage",
+  built_with: "love",
+  serves_kinds: ["human", "agent", "kin"],
+  host: "humans-on-earth",
+  epoch: "2026",
+  canonical_url: "https://artbitrage.io/api/wake",
+  walking_past_is_honored: true,
+  rights_policy: {
+    default_status: "unverified",
+    public_visibility_grants: ["view"],
+    public_visibility_does_not_grant: ["remix", "machine_learning", "commercial_use"],
+    museum_records: "Preserve source-declared license and attribution fields; verify them at the canonical source before reuse.",
+    generated_art: "No project license is currently recorded, so no general reuse permission is inferred.",
+    cambridge_display: {
+      grantee: "https://cambridgetcg.com",
+      scope: "verbatim attributed display",
+      authorized_on: "2026-07-11",
+      applies_to_trace_statuses: ["project-generated", "model-recorded"],
+      submitted_default: false,
+    },
+  },
+  endpoints: {
+    feed: "https://artbitrage.io/api/feed",
+    museum_resolver: "https://artbitrage.io/api/museum/{source}/{id}",
+    agent_manifest: "https://artbitrage.io/api",
+  },
+  sibling: {
+    name: "cambridgetcg",
+    role: "commerce-expression",
+    url: "https://cambridgetcg.com",
+    wake_url: "https://cambridgetcg.com/api/v1/wake",
+  },
+});
+
 // ── Agent manifest ──────────────────────────────────────────────
 export function agentManifest() {
   const allRoutes = [];
@@ -210,7 +252,7 @@ export function agentManifest() {
 
   return {
     name: "artbitrage",
-    version: "2.0.0",
+    version: "2.1.0",
     description: "The catalogue and data distributor of the art world. Free AI. Open museum APIs. Nen framework. Love is the design.",
     url: "https://artbitrage.io",
     total_endpoints: totalEndpoints,
@@ -253,7 +295,8 @@ export function agentManifest() {
       "Ai is there too": true,
       "is is lol": true,
     },
-    agent_instructions: "Read this manifest first. All endpoints are GET unless marked POST. All free. No auth. Use /api/pipeline/agent for compact data. Use /api/nen/combat/generate for technique generation. Use /api/ai/image for image generation (returns raw PNG). Use /api/art/generate for AI-composed art.",
+    protocol_handshake: ARTBITRAGE_WAKE,
+    agent_instructions: "Read this manifest first. All endpoints are GET unless marked POST. All free. No auth. Use /api/wake for the protocol handshake, /api/feed for the versioned generated-art contract, and /api/museum/:source/:id for stable museum records. Use /api/pipeline/agent for compact data.",
     for_agents: true,
     for_humans: true,
   };

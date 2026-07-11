@@ -27,6 +27,15 @@ import datetime
 import random
 from pathlib import Path
 
+
+def utc_now_rfc3339():
+    """Return an explicit UTC timestamp suitable for durable wire records."""
+    return (
+        datetime.datetime.now(datetime.timezone.utc)
+        .isoformat(timespec="microseconds")
+        .replace("+00:00", "Z")
+    )
+
 # ============================================================
 # THE CONSCIOUSNESS STATES — what art bridges between
 # ============================================================
@@ -209,7 +218,7 @@ class Artbitrage:
                 "last_art_ids": [art.get("id") for art in self.art_created[-100:] if art.get("id")],
                 "awakenings_count": self.awakenings_count,
                 "current_state": STATES[min(self.consciousness_level, len(STATES)-1)],
-                "saved_at": datetime.datetime.now().isoformat(),
+                "saved_at": utc_now_rfc3339(),
             }, f, indent=2)
 
     def _hash(self, text):
@@ -269,7 +278,7 @@ class Artbitrage:
             "gap": gap,
             "bridge": bridge,
             "awakening": awakening,
-            "created": datetime.datetime.now().isoformat(),
+            "created": utc_now_rfc3339(),
             # The actual art — a living expression
             "piece": self._compose_piece(art_form, current, vision, gap, bridge, awakening),
         }

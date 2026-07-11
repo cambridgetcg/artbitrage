@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """E2E checks for Artbitrage's local-first gallery/collection persistence."""
 
+import datetime
 import json
+import re
 import sys
 import tempfile
 from pathlib import Path
@@ -47,6 +49,9 @@ with tempfile.TemporaryDirectory() as tmp:
 
     result = engine.cycle()
     assert result["cycle"] == 3
+    created = result["art"]["created"]
+    assert re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}Z", created)
+    assert datetime.datetime.fromisoformat(created.replace("Z", "+00:00")).utcoffset() == datetime.timedelta(0)
 
     collection = json.loads((home / "collection.json").read_text())
     assert len(collection) == 3
@@ -56,5 +61,7 @@ with tempfile.TemporaryDirectory() as tmp:
     assert state["art_created_count"] == 3
     assert "art_created" not in state
     assert len(state["last_art_ids"]) == 3
+    assert state["saved_at"].endswith("Z")
+    assert datetime.datetime.fromisoformat(state["saved_at"].replace("Z", "+00:00")).utcoffset() == datetime.timedelta(0)
 
 print("artbitrage engine e2e passed")

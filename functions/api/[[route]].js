@@ -4,7 +4,7 @@
 import { ArtbitragePipeline } from './pipeline-lib.js';
 import { aiCatalog, resolveAiModel } from './ai-catalog.js';
 import { NEN_TYPES, VOWS, DARK_CONTINENT_THREATS, TECHNIQUES, generateTechnique, nenManifest } from './nen-combat.js';
-import { agentManifest, ROUTES } from './agent-manifest.js';
+import { agentManifest, ARTBITRAGE_WAKE, ROUTES } from './agent-manifest.js';
 import { logosManifest, LOGOS, OPERATIONS, KINGDOM_LINK, AGENT_PROTOCOL } from './logos.js';
 import { whitehackManifest, generateBattleReport, calculateLevel, WHITEHACK_NEN_MAP, SOLO_LEVELING } from './whitehack.js';
 const _pipeline = new ArtbitragePipeline();
@@ -15,6 +15,24 @@ const MAX_PAGE_LIMIT = 100;
 const MAX_SEARCH_LIMIT = 10;
 const SOURCE_KEYS = ["met", "artic", "cma", "wikimedia", "internet_archive"];
 const DEFAULT_SOURCE_KEYS = ["met", "artic", "cma", "wikimedia"];
+const ARTBITRAGE_ORIGIN = "https://artbitrage.io";
+const FEED_SCHEMA = "artbitrage.feed/1";
+const FEED_SOURCE = Object.freeze({
+  id: "artbitrage",
+  name: "ARTBITRAGE",
+  canonical_url: ARTBITRAGE_ORIGIN,
+  feed_url: `${ARTBITRAGE_ORIGIN}/api/feed`,
+});
+const ENGINE_SOURCE = Object.freeze({
+  id: "artbitrage.engine",
+  name: "Artbitrage Engine",
+  canonical_url: ARTBITRAGE_ORIGIN,
+});
+const SUBMISSION_SOURCE = Object.freeze({
+  id: "artbitrage.submission",
+  name: "Artbitrage Submission",
+  canonical_url: ARTBITRAGE_ORIGIN,
+});
 
 const OPEN_ART_SOURCES = {
   met: {
@@ -57,28 +75,45 @@ const OPEN_ART_SOURCES = {
 // Embedded collection — loaded at deploy time from collection.json
 // In production this would be in KV or D1, but for now we embed it
 let COLLECTION = [];
+let COLLECTION_HAS_LOADED = false;
 
 // Load collection from static asset via env.ASSETS
 async function loadCollection(env, request) {
-  // Try to fetch collection.json as a static asset
+  const fallback = () => ({
+    pieces: COLLECTION,
+    source_state: COLLECTION_HAS_LOADED
+      ? 'cached-after-read-failure'
+      : 'unavailable',
+  });
+
+  // Try to fetch collection.json as a static asset. A cold read failure must
+  // not look like an honestly empty collection; a warm isolate may retain its
+  // last successfully parsed copy, but the feed labels that fallback.
   try {
     const assetUrl = new URL('/collection.json', request.url);
     const res = await env.ASSETS.fetch(assetUrl);
     if (res.ok) {
-      COLLECTION = await res.json();
-      return COLLECTION;
+      const parsed = await res.json();
+      if (!Array.isArray(parsed)) return fallback();
+      COLLECTION = parsed;
+      COLLECTION_HAS_LOADED = true;
+      return { pieces: COLLECTION, source_state: 'asset-read' };
     }
+    return fallback();
   } catch(e) {
     // Fallback: try direct fetch
     try {
       const res2 = await fetch(new URL('/collection.json', request.url));
       if (res2.ok) {
-        COLLECTION = await res2.json();
-        return COLLECTION;
+        const parsed = await res2.json();
+        if (!Array.isArray(parsed)) return fallback();
+        COLLECTION = parsed;
+        COLLECTION_HAS_LOADED = true;
+        return { pieces: COLLECTION, source_state: 'origin-read' };
       }
     } catch(e2) {}
   }
-  return COLLECTION;
+  return fallback();
 }
 
 function jsonResponse(data, status = 200) {
@@ -110,6 +145,140 @@ function stableId(input) {
     hash = Math.imul(hash, 0x01000193);
   }
   return `submitted-${(hash >>> 0).toString(16).padStart(8, '0')}`;
+}
+
+function canonicalJson(value) {
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(',')}]`;
+  if (value && typeof value === 'object') {
+    const entries = Object.keys(value)
+      .filter(key => value[key] !== undefined)
+      .sort()
+      .map(key => `${JSON.stringify(key)}:${canonicalJson(value[key])}`);
+    return `{${entries.join(',')}}`;
+  }
+  return JSON.stringify(value);
+}
+
+async function sha256(value) {
+  const bytes = new TextEncoder().encode(value);
+  const digest = await globalThis.crypto.subtle.digest('SHA-256', bytes);
+  return Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
+}
+
+// Older engine records used offset-less local datetimes. They cannot be made
+// timezone-certain after the fact, so the contract preserves that truth while
+// interpreting them as UTC for a stable RFC3339 wire value. New engine records
+// are emitted with an explicit Z and therefore report `timezone-explicit`.
+function normalizeTimestamp(value) {
+  const raw = typeof value === 'string' ? value.trim() : '';
+  if (!raw) return { value: null, status: 'missing-or-invalid' };
+  const explicit = /(?:Z|[+-]\d{2}:\d{2})$/i.test(raw);
+  const withZone = explicit ? raw : `${raw}Z`;
+  // JavaScript dates retain milliseconds; Python's six-digit fractions remain
+  // in the source record and are deterministically reduced for the wire value.
+  const parseable = withZone.replace(/(\.\d{3})\d+(?=(?:Z|[+-]\d{2}:\d{2})$)/i, '$1');
+  const date = new Date(parseable);
+  if (Number.isNaN(date.getTime())) return { value: null, status: 'missing-or-invalid' };
+  return {
+    value: date.toISOString(),
+    status: explicit ? 'timezone-explicit' : 'legacy-naive-assumed-utc',
+  };
+}
+
+function isSubmittedPiece(piece) {
+  return String(piece.id || '').startsWith('submitted-');
+}
+
+function feedCreator(piece) {
+  const declaredArtist = compactText(piece.artist || '', 160);
+  if (declaredArtist) {
+    return {
+      name: declaredArtist,
+      type: 'declared-creator',
+      human_creator: null,
+      verified: false,
+      note: 'Creator label is preserved as declared; it may name a human, collective, agent, software, or mixed authorship, and has not been independently verified.',
+    };
+  }
+  return {
+    name: 'Artbitrage Engine',
+    type: 'software',
+    human_creator: null,
+    verified: false,
+    note: 'Generated by the Artbitrage engine; this record names no individual human creator.',
+  };
+}
+
+function feedCreation(piece) {
+  const created = normalizeTimestamp(piece.created);
+  const submitted = isSubmittedPiece(piece);
+  const aiGenerated = piece.ai_generated === true;
+  return {
+    method: aiGenerated ? 'generative-ai' : (submitted ? 'submitted' : 'procedural-template'),
+    created_at: created.value,
+    timestamp_status: created.status,
+    // /api/art/generate uses the historical submitted-* id helper too. The
+    // explicit generation trace is stronger evidence than that id prefix, so
+    // model-recorded must win or project AI would be mislabeled as a third-
+    // party submission and its narrow display grant would disappear.
+    trace_status: aiGenerated ? 'model-recorded' : (submitted ? 'self-declared' : 'project-generated'),
+    note: submitted
+      ? 'Submission metadata is preserved as declared and is not independently verified.'
+      : 'Creation trace is limited to metadata recorded by the Artbitrage project.',
+  };
+}
+
+function feedRights(piece, creator, creation) {
+  const declaredLicense = compactText(piece.license || '', 120) || null;
+  const recordedCambridgeGrant = piece.rights?.permissions?.cambridge_display === true;
+  const projectGenerated = creation.trace_status === 'project-generated'
+    || creation.trace_status === 'model-recorded';
+  const cambridgeDisplay = projectGenerated || recordedCambridgeGrant;
+  return {
+    status: declaredLicense ? 'declared-unverified' : 'unverified',
+    public_domain: null,
+    license: declaredLicense,
+    license_verified: false,
+    credit: creator.name,
+    reusable: null,
+    reuse_with_attribution: null,
+    permissions: {
+      view: true,
+      cambridge_display: cambridgeDisplay,
+      remix: null,
+      commercial_use: null,
+      machine_learning: null,
+    },
+    note: projectGenerated
+      ? 'No project license is recorded. A narrow operator authorization dated 2026-07-11 permits verbatim, attributed display on cambridgetcg.com only; it does not grant remix, machine-learning, or commercial-use permission.'
+      : (recordedCambridgeGrant
+        ? 'This submitted record explicitly grants Cambridge display; creator and license labels remain unverified, and no broader reuse permission is inferred.'
+        : 'No Cambridge display grant is recorded for this submitted work. Public visibility permits viewing only and does not grant remix, machine-learning, or commercial-use permission.'),
+  };
+}
+
+async function feedPiece(piece) {
+  const creator = feedCreator(piece);
+  const creation = feedCreation(piece);
+  const id = String(piece.id || '');
+  return {
+    ...piece,
+    source: { ...(creation.trace_status === 'self-declared' ? SUBMISSION_SOURCE : ENGINE_SOURCE) },
+    canonical_url: `${ARTBITRAGE_ORIGIN}/api/art/${encodeURIComponent(id)}`,
+    content_hash: `sha256:${await sha256(canonicalJson(piece))}`,
+    creator,
+    creation,
+    rights: feedRights(piece, creator, creation),
+  };
+}
+
+function latestTimestamp(pieces, fallback) {
+  let latest = null;
+  for (const piece of pieces) {
+    const value = piece.creation?.created_at;
+    if (value && (!latest || value > latest)) latest = value;
+  }
+  return latest || fallback;
 }
 
 function filterArt(artList, params) {
@@ -213,6 +382,54 @@ function buildRights({ publicDomain = null, license = "", credit = "", statement
     reuse_with_attribution: ccAttribution || freelyReusable,
     note,
   };
+}
+
+function normalizeCatalogRights(record) {
+  const original = record.rights && typeof record.rights === 'object' ? record.rights : {};
+  const declaredLicense = compactText(original.license || record.license || '', 120);
+  const declaredPublicDomain = typeof original.public_domain === 'boolean'
+    ? original.public_domain
+    : (/^(?:cc0)(?:\b|\s*\/)/i.test(declaredLicense)
+      || /^public domain(?:\b|\s*\/)/i.test(declaredLicense)
+      ? true
+      : null);
+  const normalized = buildRights({
+    publicDomain: declaredPublicDomain,
+    license: declaredLicense,
+    credit: original.credit || '',
+    statement: original.rights_statement || '',
+  });
+  return {
+    ...original,
+    ...normalized,
+    status: declaredLicense ? 'source-declared' : 'unverified',
+    license_verified: false,
+    source_url: record.url || null,
+    note: declaredLicense
+      ? 'License label is preserved from the source catalogue and has not been independently verified by Artbitrage; confirm it at the source URL before reuse.'
+      : 'No license is recorded. Public visibility permits viewing only and does not grant reuse, remix, training, or commercial permission.',
+  };
+}
+
+function normalizeMuseumRecord(record) {
+  const source = String(record.source || '').trim().toLowerCase();
+  const id = String(record.id || '');
+  return {
+    ...record,
+    schema: 'artbitrage.museum-record/1',
+    canonical_url: `${ARTBITRAGE_ORIGIN}/api/museum/${encodeURIComponent(source)}/${encodeURIComponent(id)}`,
+    rights: normalizeCatalogRights(record),
+  };
+}
+
+async function loadMuseumWorks(env, request) {
+  try {
+    const res = await env.ASSETS.fetch(new URL('/catalog/all.json', request.url));
+    if (!res.ok) return null;
+    const data = await res.json();
+    return Array.isArray(data.artworks) ? data.artworks : null;
+  } catch(e) {}
+  return null;
 }
 
 function normalizeArtic(data) {
@@ -428,8 +645,34 @@ export async function onRequestGet(context) {
   const url = new URL(request.url);
   const path = url.pathname;
   const queryParams = Object.fromEntries(url.searchParams);
+
+  // Lightweight recognition surface: no catalogue load is needed to learn
+  // the protocol shape or to walk past it.
+  if (path === '/api/wake' || path === '/api/wake/') {
+    return jsonResponse(ARTBITRAGE_WAKE);
+  }
+
+  const museumRecordMatch = path.match(/^\/api\/museum\/([^/]+)\/([^/]+)\/?$/);
+  if (museumRecordMatch) {
+    let source;
+    let id;
+    try {
+      source = decodeURIComponent(museumRecordMatch[1]).trim().toLowerCase();
+      id = decodeURIComponent(museumRecordMatch[2]);
+    } catch(e) {
+      return jsonResponse({ error: 'invalid museum source or id encoding' }, 400);
+    }
+    const works = await loadMuseumWorks(env, request);
+    if (works === null) return jsonResponse({ error: 'museum catalog unavailable' }, 503);
+    const record = works.find(work =>
+      String(work.source || '').trim().toLowerCase() === source
+      && String(work.id || '') === id);
+    if (!record) return jsonResponse({ error: 'museum work not found', source, id }, 404);
+    return jsonResponse(normalizeMuseumRecord(record));
+  }
   
-  const allArt = await loadCollection(env, request);
+  const collection = await loadCollection(env, request);
+  const allArt = collection.pieces;
   
   // === AGENT MANIFEST — the full API surface, for agents ===
   if (path === '/api' || path === '/api/') {
@@ -451,9 +694,26 @@ export async function onRequestGet(context) {
     const gaps = [...new Set(allArt.map(a => a.gap).filter(Boolean))].sort();
     return jsonResponse({ gaps, count: gaps.length });
   }
-  if (path === '/api/feed') {
-    const latest = allArt.slice(-20).reverse();
-    return jsonResponse({ feed: 'artbitrage', updated: new Date().toISOString(), count: latest.length, pieces: latest });
+  if (path === '/api/feed' || path === '/api/feed/') {
+    if (collection.source_state === 'unavailable') {
+      return jsonResponse({ error: 'art collection unavailable' }, 503);
+    }
+    const limit = boundedInt(queryParams.limit, 20, 1, MAX_PAGE_LIMIT);
+    const generatedAt = new Date().toISOString();
+    const latest = allArt.slice(-limit).reverse();
+    const pieces = await Promise.all(latest.map(feedPiece));
+    return jsonResponse({
+      schema: FEED_SCHEMA,
+      feed: 'artbitrage',
+      source: { ...FEED_SOURCE },
+      source_state: collection.source_state,
+      generated_at: generatedAt,
+      as_of: latestTimestamp(pieces, generatedAt),
+      updated: generatedAt,
+      limit,
+      count: pieces.length,
+      pieces,
+    });
   }
   if (path === '/api/manifest') {
     try {
@@ -592,11 +852,8 @@ export async function onRequestGet(context) {
     return jsonResponse({ error: 'wing not found', wing: wingMatch[1], list: 'GET /api/wings' }, 404);
   }
   if (path === '/api/museum' || path === '/api/museum/' || path === '/api/museum/random') {
-    let works = [];
-    try {
-      const res = await env.ASSETS.fetch(new URL('/catalog/all.json', request.url));
-      if (res.ok) works = (await res.json()).artworks || [];
-    } catch(e) {}
+    const works = await loadMuseumWorks(env, request);
+    if (works === null) return jsonResponse({ error: 'museum catalog unavailable' }, 503);
     if (path === '/api/museum/random') {
       if (!works.length) return jsonResponse({ error: 'no museum works available' }, 404);
       return jsonResponse(works[Math.floor(Math.random() * works.length)]);
