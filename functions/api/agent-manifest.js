@@ -237,8 +237,8 @@ export const ANSWERING_RHYME_STATEMENT_CONTRACT = Object.freeze({
     encoding: "UTF-8",
     object_keys: "recursively sorted lexically before JSON serialization",
     arrays: "retain normalized order; evidence URL sets are trimmed, deduplicated, and lexically sorted during normalization",
-    strings: "Unicode NFC; surrounding whitespace removed; body line endings normalized to LF",
-    timestamps: "RFC3339 with an explicit offset, normalized to UTC milliseconds",
+    strings: "Unicode NFC; surrounding whitespace removed; body line endings normalized to LF; unpaired UTF-16 surrogates rejected before Unicode-scalar counting",
+    timestamps: "RFC3339 with an explicit offset, normalized to UTC milliseconds; the normalized UTC year must remain within 0001-9999",
     digest: "SHA-256 over canonical JSON bytes, serialized as sha256:<64 lowercase hexadecimal characters>",
   },
   limits: {
