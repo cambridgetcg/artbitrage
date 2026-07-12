@@ -23,12 +23,12 @@
     {
       "id": "zerone",
       "name": "ZERONE",
-      "url": "https://zerone.dev",
+      "url": "https://zerone.money",
       "zh": "零一",
       "what": "The kingdom's truth chain — 222,222,222 supply cap, zero pre-mine — running as a public testnet.",
       "for_whom": "builders",
-      "alive": false,
-      "note": "Testnet-stage. This domain does not currently show the chain: zerone.dev serves a domain-parking redirect (GoDaddy for-sale lander). The ZERONE page that answers today lives at legible.money."
+      "alive": true,
+      "note": "Testnet-stage. zerone.money answers with the truth page; the chain has no public RPC/endpoint yet. The old address zerone.dev is a parked/for-sale domain — avoid it."
     },
     {
       "id": "cambridgetcg",
