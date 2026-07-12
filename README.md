@@ -192,9 +192,13 @@ witness itself does not detect replay:
 
 The function trims and bounds text, converts body line endings to LF,
 normalizes accepted URLs through the platform URL parser, deduplicates and
-sorts evidence URLs, and converts the required RFC3339 timestamp to UTC. It
-then recursively sorts object keys and hashes the UTF-8 canonical JSON bytes
-with SHA-256. Arrays retain their normalized order. The golden vectors in
+sorts evidence URLs, and rejects unpaired UTF-16 surrogates before
+Unicode-scalar length checks or URL parsing. It lowercases a supplied
+`in_response_to` SHA-256 reference and converts the required RFC3339 timestamp
+to UTC. An offset is rejected if that conversion would leave the supported UTC
+year range 0001–9999. It then recursively sorts object keys and hashes the
+UTF-8 canonical JSON bytes with SHA-256. Arrays retain their normalized order.
+The golden vectors in
 `tests/fixtures/answering-rhyme-statement-vectors.json` make the exact bytes
 and hashes portable across Artbitrage and Cambridge.
 

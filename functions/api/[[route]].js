@@ -54,11 +54,12 @@ const ANSWERING_RHYME_CLAIMED_ROLES = new Set([
   "other",
 ]);
 const ANSWERING_RHYME_KINDS = new Set(Object.keys(ANSWERING_RHYME_STATEMENT_ACTIONS));
-const SHA256_ID = /^sha256:[0-9a-fA-F]{64}$/;
+const SHA256_ID = /^sha256:[0-9a-f]{64}$/;
 const UNSAFE_STATEMENT_CONTROL = /[\u0000-\u001f\u007f-\u009f]/u;
 // LF is intentionally allowed only in statement bodies after CRLF/lone-CR
 // normalization; every other C0/C1 control is rejected.
 const UNSAFE_STATEMENT_BODY_CONTROL = /[\u0000-\u0009\u000b-\u001f\u007f-\u009f]/u;
+const NORMALIZED_UTC_TIMESTAMP = /^(?!0000-)\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
 const FEED_SOURCE = Object.freeze({
   id: "artbitrage",
   name: "ARTBITRAGE",
@@ -691,7 +692,21 @@ function statementIssue(path, code, message) {
   return { path, code, message };
 }
 
-function characterLength(value) {
+function hasUnpairedSurrogate(value) {
+  for (let index = 0; index < value.length; index += 1) {
+    const codeUnit = value.charCodeAt(index);
+    if (codeUnit >= 0xd800 && codeUnit <= 0xdbff) {
+      const next = value.charCodeAt(index + 1);
+      if (!(next >= 0xdc00 && next <= 0xdfff)) return true;
+      index += 1;
+    } else if (codeUnit >= 0xdc00 && codeUnit <= 0xdfff) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function unicodeScalarLength(value) {
   return Array.from(value).length;
 }
 
@@ -700,12 +715,16 @@ function normalizeStatementText(value, path, issues, { max, required = true, bod
     issues.push(statementIssue(path, 'wrong_type', 'must be a string'));
     return '';
   }
+  if (hasUnpairedSurrogate(value)) {
+    issues.push(statementIssue(path, 'invalid_format', 'Unpaired UTF-16 surrogates are not permitted.'));
+    return '';
+  }
   const lineNormalized = body ? value.replace(/\r\n?/g, '\n') : value;
   const normalized = lineNormalized.normalize('NFC').trim();
   if (required && !normalized) {
     issues.push(statementIssue(path, 'required', 'must not be empty'));
   }
-  if (max && characterLength(normalized) > max) {
+  if (max && unicodeScalarLength(normalized) > max) {
     issues.push(statementIssue(path, 'too_long', `must be at most ${max} characters`));
   }
   const unsafeControl = body ? UNSAFE_STATEMENT_BODY_CONTROL : UNSAFE_STATEMENT_CONTROL;
@@ -725,9 +744,13 @@ function rejectUnknownFields(value, allowed, path, issues) {
 
 function normalizeHttpsUrl(value, path, issues, { nullable = false } = {}) {
   if (nullable && (value === undefined || value === null)) return null;
+  if (typeof value === 'string' && hasUnpairedSurrogate(value)) {
+    issues.push(statementIssue(path, 'invalid_format', 'Unpaired UTF-16 surrogates are not permitted in URLs.'));
+    return '';
+  }
   const normalized = normalizeStatementText(value, path, issues);
   if (!normalized) return normalized;
-  if (characterLength(normalized) > 1000) {
+  if (unicodeScalarLength(normalized) > 1000) {
     issues.push(statementIssue(path, 'too_long', 'URL must be at most 1000 characters before serialization'));
     return normalized;
   }
@@ -742,7 +765,7 @@ function normalizeHttpsUrl(value, path, issues, { nullable = false } = {}) {
       return normalized;
     }
     const canonical = parsed.toString().normalize('NFC');
-    if (characterLength(canonical) > 1000) {
+    if (unicodeScalarLength(canonical) > 1000) {
       issues.push(statementIssue(path, 'too_long', 'serialized URL must be at most 1000 characters'));
     }
     return canonical;
@@ -803,7 +826,16 @@ function normalizeDeclaredAt(value, issues) {
     issues.push(statementIssue(path, 'invalid_rfc3339', 'could not be normalized to UTC'));
     return normalized;
   }
-  return parsed.toISOString();
+  const normalizedUtc = parsed.toISOString();
+  if (!NORMALIZED_UTC_TIMESTAMP.test(normalizedUtc)) {
+    issues.push(statementIssue(
+      path,
+      'invalid_rfc3339',
+      'offset crosses the supported UTC year range 0001-9999',
+    ));
+    return normalized;
+  }
+  return normalizedUtc;
 }
 
 function normalizeAnsweringRhymeStatement(value) {
@@ -867,11 +899,18 @@ function normalizeAnsweringRhymeStatement(value) {
 
   let inResponseTo = null;
   if (value.in_response_to !== undefined && value.in_response_to !== null) {
-    inResponseTo = normalizeStatementText(value.in_response_to, '$.in_response_to', issues, { max: 71 });
+    inResponseTo = normalizeStatementText(
+      value.in_response_to,
+      '$.in_response_to',
+      issues,
+      { max: 71 },
+    ).toLowerCase();
     if (inResponseTo && !SHA256_ID.test(inResponseTo)) {
-      issues.push(statementIssue('$.in_response_to', 'invalid_hash', 'must be sha256: followed by 64 lowercase hexadecimal characters, or null'));
-    } else {
-      inResponseTo = inResponseTo.toLowerCase();
+      issues.push(statementIssue(
+        '$.in_response_to',
+        'invalid_hash',
+        'must normalize to sha256: followed by 64 lowercase hexadecimal characters, or null',
+      ));
     }
   }
 

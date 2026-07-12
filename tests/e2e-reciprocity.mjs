@@ -74,6 +74,8 @@ assert.equal(out.body.schema, 'artbitrage.answering-rhyme-statement-contract/1')
 assert.equal(out.body.accepts_schema, 'answering-rhyme.statement/1');
 assert.equal(out.body.returns_schema, 'artbitrage.answering-rhyme-statement-witness/1');
 assert.equal(out.body.canonicalization.version, 'answering-rhyme.canonical-json/1');
+assert.match(out.body.canonicalization.timestamps, /0001-9999/);
+assert.match(out.body.canonicalization.strings, /unpaired UTF-16 surrogates rejected/i);
 assert.deepEqual(out.body.kinds, ['bless', 'contextualize', 'correct', 'withdraw']);
 assert.equal(out.body.limits.request_bytes, 16384);
 assert.equal(out.body.limits.target_revision_characters, 100);
@@ -197,6 +199,30 @@ out = await post({ ...base, body: 'control\u0000character' });
 assert.equal(out.response.status, 400);
 assert.ok(out.body.issues.some(issue => issue.code === 'control_character'));
 
+for (const surrogate of ['\ud800', '\udfff']) {
+  out = await post({ ...base, body: `unpaired surrogate ${surrogate}` });
+  assert.equal(out.response.status, 400, 'unpaired surrogate is rejected in free text');
+  assert.ok(out.body.issues.some(
+    issue => issue.path === '$.body'
+      && issue.code === 'invalid_format'
+      && /unpaired UTF-16 surrogate/i.test(issue.message),
+  ));
+
+  out = await post({
+    ...base,
+    declared_by: {
+      ...base.declared_by,
+      canonical_url: `https://example.test/${surrogate}`,
+    },
+  });
+  assert.equal(out.response.status, 400, 'unpaired surrogate is rejected before URL parsing');
+  assert.ok(out.body.issues.some(
+    issue => issue.path === '$.declared_by.canonical_url'
+      && issue.code === 'invalid_format'
+      && /unpaired UTF-16 surrogate/i.test(issue.message),
+  ));
+}
+
 out = await post({ ...base, relation_key: 'unsafe\nkey' });
 assert.equal(out.response.status, 400, 'LF is a control outside body text');
 assert.ok(out.body.issues.some(issue => issue.path === '$.relation_key' && issue.code === 'control_character'));
@@ -209,6 +235,13 @@ out = await post({
 assert.equal(out.response.status, 200);
 assert.equal(out.body.statement.kind, 'bless');
 assert.equal(out.body.statement.declared_by.claimed_role, 'viewer');
+
+out = await post({
+  ...base,
+  in_response_to: `  SHA256:${'A'.repeat(64)}  `,
+});
+assert.equal(out.response.status, 200, 'trimmed uppercase hash prefix and hex are accepted');
+assert.equal(out.body.statement.in_response_to, `sha256:${'a'.repeat(64)}`);
 
 out = await post({
   ...base,
@@ -279,5 +312,18 @@ assert.ok(out.body.issues.some(issue => issue.path === '$.evidence_urls' && issu
 out = await post({ ...base, declared_at: '2026-02-30T12:00:00Z' });
 assert.equal(out.response.status, 400);
 assert.ok(out.body.issues.some(issue => issue.path === '$.declared_at'));
+
+for (const declaredAt of [
+  '0001-01-01T00:00:00+23:00',
+  '9999-12-31T23:59:59-23:59',
+]) {
+  out = await post({ ...base, declared_at: declaredAt });
+  assert.equal(out.response.status, 400, `${declaredAt}: UTC year boundary crossing is rejected`);
+  assert.ok(out.body.issues.some(
+    issue => issue.path === '$.declared_at'
+      && issue.code === 'invalid_rfc3339'
+      && /supported UTC year range 0001-9999/.test(issue.message),
+  ));
+}
 
 console.log('artbitrage reciprocity e2e passed');
