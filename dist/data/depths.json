@@ -1,0 +1,622 @@
+{
+ "name": "深 the Depths",
+ "description": "One work at a time, five strata down: the feeling, the hands, the world, the paint, the afterlife. Context is not trivia — it is where the feeling comes from.",
+ "built": "2026-07-13",
+ "verification": {
+  "method": "each work researched by one web-reading agent, every load-bearing claim then adversarially fact-checked by an independent agent against primary sources; 5 corrections applied, 1 precise figure downgraded to 'reported'",
+  "as_of": "2026-07-13",
+  "sources": "every fact carries its source URL"
+ },
+ "strata_legend": {
+  "feeling": "what it does to the one looking — testimony, not taxonomy",
+  "hands": "the artist's life at the exact moment of making",
+  "world": "politics, money, daily life around the easel",
+  "paint": "the actual materials — their cost, chemistry, and slow betrayals",
+  "afterlife": "sales, thefts, journeys — how it reached now"
+ },
+ "works": [
+  {
+   "slug": "starry-night",
+   "glyph": "星",
+   "title": "The Starry Night",
+   "artist": "Vincent van Gogh",
+   "year": "1889",
+   "one_line": "the night sky as weather of the soul — painted by day, from a barred room",
+   "location_now": "Museum of Modern Art, New York",
+   "image": "https://artbitrage.io/art/starry-night-moma.jpg",
+   "thumb": "https://artbitrage.io/art/starry-night-moma-t.jpg",
+   "feelings": [
+    "turbulence",
+    "awe",
+    "longing",
+    "solace"
+   ],
+   "strata": {
+    "feeling": {
+     "text": "Stand before it and the sky will not hold still. Eleven stars and a fat lemon moon pulse inside their own haloes while the blue between them rolls up into scrolls — you feel wind before you can name it. Below, a village sleeps, small and warm-windowed; a cypress rears between you and all that motion like a dark flame. It is agitation and comfort at once: the night is enormous, and the night is watching over the houses. Strangest of all, the agitation is real physics. In 2006 researchers showed that the flicker of light across his most troubled-period paintings matches the statistics of turbulent flow, and in 2024 a study of the fourteen swirls found Kolmogorov's law of turbulence — written half a century after his death — hiding in the brushwork. The picture does not depict turbulence; it performs it.",
+     "feelings": [
+      "turbulence",
+      "awe",
+      "longing",
+      "solace"
+     ]
+    },
+    "hands": {
+     "text": "He had been inside Saint-Paul-de-Mausole about six weeks. The ear was six months healed: he had cut into it in Arles on the night of 23 December 1888, and after neighbours petitioned to have him confined, he chose the asylum himself, signing in on 8 May 1889. Theo paid for two small cells with barred windows — one to sleep in, one to paint in. From the bedroom he watched the dawn: 'This morning I saw the countryside from my window a long time before sunrise, with nothing but the morning star, which looked very big.' That star was Venus, truly blazing that spring. He was not allowed to paint upstairs, so around 18 June he built the night by daylight, in the studio below, partly from memory — real Venus, real Alpilles hills, an invented village, a cypress pulled close. To Theo he called it only 'a new study of a starry sky.'",
+     "facts": [
+      {
+       "claim": "Van Gogh cut off part of his left ear in Arles on the night of 23 December 1888, after a breakdown while living with Gauguin.",
+       "source": "https://www.vangoghmuseum.nl/en/art-and-stories/vincent-van-gogh-faq/why-did-vincent-van-gogh-cut-off-his-ear"
+      },
+      {
+       "claim": "In February 1889 his Arles neighbours petitioned to have him institutionalised, and he was confined in the Arles hospital before choosing the asylum.",
+       "source": "https://www.lib.berkeley.edu/about/news/van-Gogh-ear"
+      },
+      {
+       "claim": "He voluntarily entered the asylum of Saint-Paul-de-Mausole near Saint-Rémy on 8 May 1889; Theo arranged two adjoining cells with barred windows, the second used as a studio.",
+       "source": "https://vangoghroute.com/france/saint-remy/saint-paul-de-mausole/"
+      },
+      {
+       "claim": "In letter 777 (c. 31 May–6 June 1889) he described watching the morning star from his window long before sunrise.",
+       "source": "https://vangoghletters.org/vg/letters/let777/letter.html"
+      },
+      {
+       "claim": "On or about 18 June 1889 he told Theo he had painted 'a new study of a starry sky' (letter 782), adding that work 'occupies and distracts me – which I need very much'.",
+       "source": "https://vangoghletters.org/vg/letters/let782/letter.html"
+      },
+      {
+       "claim": "The picture was painted by day in his ground-floor studio around mid-June 1889; the view from his east-facing bedroom window held wheat fields and hills, while the village was invented and the cypress exaggerated and pulled close.",
+       "source": "https://en.wikipedia.org/wiki/The_Starry_Night"
+      },
+      {
+       "claim": "Astronomical research confirms Venus was visible at dawn in Provence in spring 1889, near its maximum brightness.",
+       "source": "https://en.wikipedia.org/wiki/The_Starry_Night"
+      }
+     ]
+    },
+    "world": {
+     "text": "France spent 1889 throwing itself a hundredth-birthday party. In Paris the Exposition Universelle opened in May — the centennial fair of the Revolution — and the just-finished Eiffel Tower took in nearly twelve thousand visitors a day; thirty-two million people passed through the fair by autumn. Theo, who paid Vincent's bills from his art-dealer salary, had married Jo Bonger in Amsterdam that April. Seven hundred kilometres south, Provence kept older time: wheat, olives, cicadas, the mistral wind. Saint-Rémy was a small town under the Alpilles, and the asylum — a monastery centuries old, run by Dr Théophile Peyron, once a navy doctor — had rooms to spare, which is how Vincent got a second cell for a studio. While the modern world rode elevators up iron latticework, he walked out with an orderly to paint, and in his year there made roughly 150 paintings.",
+     "facts": [
+      {
+       "claim": "The Exposition Universelle ran in Paris from 6 May to 31 October 1889 (the Eiffel Tower itself opened to visitors 15 May), marking the centennial of the French Revolution; it drew 32,250,297 visitors, 1,953,122 of them up the tower — almost 12,000 a day.",
+       "source": "https://en.wikipedia.org/wiki/Exposition_Universelle_(1889)"
+      },
+      {
+       "claim": "Theo van Gogh married Johanna (Jo) Bonger in Amsterdam on 17 April 1889, three weeks before Vincent entered the asylum.",
+       "source": "https://en.wikipedia.org/wiki/Johanna_van_Gogh-Bonger"
+      },
+      {
+       "claim": "The asylum, a former monastery set among wheat fields, vineyards and olive trees, was run by Dr Théophile Peyron, a former naval doctor.",
+       "source": "https://vangoghroute.com/france/saint-remy/saint-paul-de-mausole/"
+      },
+      {
+       "claim": "In his year at Saint-Rémy Van Gogh produced about 150 paintings and around 100 drawings.",
+       "source": "https://vangoghroute.com/france/saint-remy/saint-paul-de-mausole/"
+      }
+     ]
+    },
+    "paint": {
+     "text": "The sky is two blues doing different jobs: synthetic ultramarine — the cheap factory-made successor to ground lapis lazuli — for the deep night, and cobalt blue, pricier and cooler, for the bright swirls and the air around the moon. The moon and stars glow with Indian yellow over zinc yellow; emerald green, an arsenic pigment, threads around the moon; ochre, lead white and Prussian blue do quieter work in the village and the cypress. Scientists from RIT and MoMA mapped every pigment with multispectral imaging. One worry hides in the stars: zinc yellow is a chromate, chemical kin of the chrome yellow that X-ray work in 2011 caught browning in his Sunflowers under light. The stars we see now are likely dimmer than the ones he painted. These were modern industrial colours, some only decades old, ordered from Paris on Theo's money.",
+     "pigments": [
+      {
+       "name": "Synthetic (artificial) ultramarine",
+       "note": "The deep blue night sky around the stars; a cheap industrial version of the lapis lazuli blue that had once cost more than gold.",
+       "source": "https://colourlex.com/project/van-gogh-starry-night/"
+      },
+      {
+       "name": "Cobalt blue",
+       "note": "The brighter swirling sky and the area around the moon; an expensive cobalt-aluminate blue invented in 1802.",
+       "source": "https://colourlex.com/project/van-gogh-starry-night/"
+      },
+      {
+       "name": "Indian yellow",
+       "note": "The deeper golden glow of moon and stars.",
+       "source": "https://colourlex.com/project/van-gogh-starry-night/"
+      },
+      {
+       "name": "Zinc yellow",
+       "note": "In the moon and stars; a zinc-chromate yellow prone to darkening with light — the stars were likely once brighter.",
+       "source": "https://colourlex.com/project/van-gogh-starry-night/"
+      },
+      {
+       "name": "Emerald green",
+       "note": "Green strokes around the moon; a copper-arsenic pigment, brilliant and poisonous.",
+       "source": "https://colourlex.com/project/van-gogh-starry-night/"
+      },
+      {
+       "name": "Prussian blue",
+       "note": "Likely mixed into the dark green of the cypress.",
+       "source": "https://colourlex.com/project/van-gogh-starry-night/"
+      },
+      {
+       "name": "Yellow ochre and lead white",
+       "note": "The quieter earths and pale bodies of strokes through village and sky.",
+       "source": "https://colourlex.com/project/van-gogh-starry-night/"
+      }
+     ],
+     "facts": [
+      {
+       "claim": "Multispectral imaging by Rochester Institute of Technology and MoMA (Zhao, Berns, Taplin, Coddington) mapped the pigments: ultramarine and cobalt blue in the sky, Indian yellow and zinc yellow in the moon and stars, possibly cadmium yellow in the brightest halos.",
+       "source": "https://colourlex.com/project/van-gogh-starry-night/"
+      },
+      {
+       "claim": "X-ray studies published in 2011 showed that chrome yellow (lead chromate) in Van Gogh's paintings darkens under light through photo-reduction of the chromium — the chemistry behind his fading yellows.",
+       "source": "https://www.sciencedaily.com/releases/2011/02/110214142340.htm"
+      },
+      {
+       "claim": "The painting is oil on canvas, 73.7 x 92.1 cm.",
+       "source": "https://en.wikipedia.org/wiki/The_Starry_Night"
+      }
+     ]
+    },
+    "afterlife": {
+     "text": "He sent it to Theo in Paris that autumn and never sold it. Theo died in January 1891, six months after Vincent, and the canvas passed to Theo's widow, Jo van Gogh-Bonger, who spent her life making the world see her brother-in-law. She sold it in 1900 to the poet Julien Leclercq; it went to the painter Émile Schuffenecker, then back to Jo, then through Rotterdam's Oldenzeel Gallery to Georgette van Stolk, who kept it from 1906 to 1938. The dealer Paul Rosenberg bought it and in 1940 fled Paris ahead of the Nazis. In 1941 the young Museum of Modern Art traded him two Cézannes and a Toulouse-Lautrec for it, paid for by the bequest of Lillie P. Bliss — a founder who died in 1931, never owned a Van Gogh, and wrote a will that let her pictures be sold to catch the next ones. It has hung in New York ever since — and now physicists queue in front of it too.",
+     "facts": [
+      {
+       "claim": "Provenance: Theo van Gogh; his widow Jo van Gogh-Bonger; sold 1900 to Julien Leclercq; to Émile Schuffenecker 1901; repurchased by Jo; via Oldenzeel Gallery, Rotterdam, to Georgette P. van Stolk (1906–1938); to dealer Paul Rosenberg, who fled Nazi-occupied France to New York in 1940.",
+       "source": "https://en.wikipedia.org/wiki/The_Starry_Night"
+      },
+      {
+       "claim": "MoMA acquired the painting in 1941 from Rosenberg by exchanging two Cézannes and a Toulouse-Lautrec; the credit line reads 'Acquired through the Lillie P. Bliss Bequest (by exchange)'.",
+       "source": "https://www.moma.org/collection/works/79802"
+      },
+      {
+       "claim": "Lillie P. Bliss, one of MoMA's three female founders, died in 1931 two years after the museum opened; her bequest permitted works to be sold or exchanged to acquire new ones, which funded The Starry Night.",
+       "source": "https://en.wikipedia.org/wiki/Lillie_P._Bliss"
+      },
+      {
+       "claim": "In 2006, Aragón and colleagues showed the luminance fluctuations in Van Gogh's troubled-period paintings, including The Starry Night, match Kolmogorov's statistical theory of turbulence.",
+       "source": "https://arxiv.org/abs/physics/0606246"
+      },
+      {
+       "claim": "A 2024 study in Physics of Fluids analysed the painting's 14 swirls and found the -5/3 Kolmogorov power law of turbulence, plus Batchelor scaling in the brushstrokes.",
+       "source": "https://pubs.aip.org/aip/pof/article-abstract/36/9/095140/3312767/Hidden-turbulence-in-van-Gogh-s-The-Starry-Night"
+      }
+     ]
+    }
+   },
+   "quotes": [
+    {
+     "text": "This morning I saw the countryside from my window a long time before sunrise with nothing but the morning star, which looked very big.",
+     "who": "Vincent van Gogh, letter 777 to Theo, Saint-Rémy-de-Provence, c. 31 May–6 June 1889",
+     "where": "https://vangoghletters.org/vg/letters/let777/letter.html"
+    },
+    {
+     "text": "That doesn't stop me having a tremendous need for, shall I say the word — for religion — so I go outside at night to paint the stars.",
+     "who": "Vincent van Gogh, letter 691 to Theo, Arles, c. 29 September 1888",
+     "where": "https://vangoghletters.org/vg/letters/let691/letter.html"
+    },
+    {
+     "text": "Once again I'm allowing myself to do stars too big, &c., new setback, and I've enough of that.",
+     "who": "Vincent van Gogh, letter 822 to Émile Bernard, Saint-Rémy-de-Provence, c. 26 November 1889 — his own late verdict on the picture",
+     "where": "https://vangoghletters.org/vg/letters/let822/letter.html"
+    }
+   ]
+  },
+  {
+   "slug": "fighting-temeraire",
+   "glyph": "帆",
+   "title": "The Fighting Temeraire",
+   "artist": "J.M.W. Turner",
+   "year": "1839",
+   "one_line": "a warship towed to the breakers — sail dies, steam pulls, the sky salutes",
+   "location_now": "National Gallery, London · Room 40 (as of 2026-07)",
+   "image": "https://artbitrage.io/art/jmw-turner.jpg",
+   "thumb": "https://artbitrage.io/art/jmw-turner-t.jpg",
+   "feelings": [
+    "elegy",
+    "farewell",
+    "defiance",
+    "pride",
+    "twilight"
+   ],
+   "strata": {
+    "feeling": {
+     "text": "You see the ghost first. A tall ship the colour of moonlight, sails furled, masts bare as winter trees, pulled along by a squat black tug that coughs fire and soot. Half the picture is sunset — copper, gold, ash — and its long rays slant back toward the old ship like a goodbye. People go quiet in front of it. It is a funeral for something made of wood and rope, and it works on you like the death of a person. But it is not only grief: the ship rides high, white and gold, dignified to the last, too proud to look broken. A thin new moon hangs in the clear blue on the left. One age ends in glory; another, small and busy and smoking, drags it away.",
+     "feelings": [
+      "elegy",
+      "farewell",
+      "defiance",
+      "pride",
+      "twilight"
+     ]
+    },
+    "hands": {
+     "text": "Turner was sixty-three, rich, famous and solitary, living over his own dusty gallery in Queen Anne Street, where a visitor found brilliant pictures 'shining out of the dirt and neglect'. He almost certainly never saw the tow — he may not even have been in England that September, since he usually spent late summer sketching in Europe. He read about it afterwards: the last great Trafalgar ship but one, sold out of the Navy and dragged to a breaker's yard. He worked fast, with four other large canvases to finish for the 1839 Royal Academy, and painted it over a discarded canvas that already carried a big sail — X-rays still show it under the tug. He hung it with borrowed lines about a flag that no longer flew. Then he would not let it go: not for £5,000, not for a blank cheque. 'My Darling', he called it.",
+     "facts": [
+      {
+       "claim": "Turner probably learned of the ship's fate from press reports in late September 1838 and 'must have worked fairly swiftly' on the picture for the spring 1839 Royal Academy, where he showed four other paintings of about the same size.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      },
+      {
+       "claim": "It is unlikely Turner witnessed the tow — he may not even have been in England at the time; he usually travelled in Europe in August and September. Later legends that he saw it from Greenwich, Blackwall Reach, a Margate steamer or a Bermondsey pier are unfounded, and Turner never claimed to be an eye-witness.",
+       "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
+      },
+      {
+       "claim": "Exhibited at the Royal Academy in 1839 as 'The Fighting Temeraire, tugged to her last Berth to be broken up, 1838', with lines Turner adapted from Thomas Campbell's 'Ye Mariners of England': 'The flag which braved the battle and the breeze, / No longer owns her.'",
+       "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
+      },
+      {
+       "claim": "In a pencil draft letter of about 1845, refusing another loan of the picture, Turner wrote that 'no consid[eratio]ns of money or favour can induce me to lend my Darling again'.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      },
+      {
+       "claim": "In 1848 the American collector James Lenox, calling with the dealer Thomas Griffith, reputedly offered £5,000 and then a blank cheque; Turner refused, having by then determined to leave the picture to the nation (recorded by C.R. Leslie).",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      },
+      {
+       "claim": "Lady Trevelyan, visiting Turner's Queen Anne Street gallery around 1844, recalled faded, barely weather-tight walls, furniture thick with dust, and 'the glorious Temeraire lighting up another corner'.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      }
+     ]
+    },
+    "world": {
+     "text": "The Temeraire was built from the wood of over 5,000 oaks at Chatham and launched in 1798. At Trafalgar, 21 October 1805, she sailed directly astern of Nelson's Victory; when the flagship was about to be boarded from the Redoutable, the Temeraire's broadside saved her — while her other side hammered the Fougueux — and she took both French ships as prizes. Then came peace, and the slow humiliation of every wooden warship: eighteen years moored off Sheerness as a floating supply store. In June 1838 the Admiralty ordered her sold. She went at auction for £5,530 to a Rotherhithe ship-breaker, stripped of masts and guns, and on 5–6 September two small steam tugs walked her some 55 miles up the Thames on the spring tide. It was the year steam arrived everywhere at once: Victoria newly crowned, steamships crossing the Atlantic that April, the London–Birmingham railway opening that same September. Everyone could feel which way the wind no longer mattered.",
+     "facts": [
+      {
+       "claim": "Designed as a 98-gun ship of the line, built of the wood of over 5,000 oaks in the Royal Navy's dockyard at Chatham, and launched there on 11 September 1798.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      },
+      {
+       "claim": "At Trafalgar (21 October 1805), under Captain Eliab Harvey and stationed immediately astern of the Victory, the Temeraire saved Nelson's flagship from being boarded from the Redoutable by firing a larboard broadside into her, while simultaneously firing her other side into the Fougueux; she took both French ships as prizes.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      },
+      {
+       "claim": "From 1820 she lay moored off Sheerness, chiefly as a victualling ship, never moving for eighteen years; by 1838, 14 of the 27 ships in Nelson's Trafalgar fleet had already been sold to be broken up.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      },
+      {
+       "claim": "Sold by Dutch auction on 16 August 1838 at the Navy Board offices in Somerset House to John Beatson, Rotherhithe ship-breaker and timber merchant, for £5,530 — the Navy had first stripped her of masts, yards, guns, anchors and stores, leaving a 2,110-ton empty hull.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      },
+      {
+       "claim": "The tow took place on 5–6 September 1838, by the steam tugs Samson and London hired from the Thames Steam Towing Company, timed to the spring tides after the 4 September full moon; she was probably secure at Beatson's wharf before 3 pm on 6 September.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      },
+      {
+       "claim": "Turner's sun sets in the wrong direction — a ship coming up the Thames heads west, so the sunset could not lie astern of her in the east; James Dafforne first pointed out the 'glaring error' in 1877, sparking a lively but inconclusive correspondence in The Times.",
+       "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
+      },
+      {
+       "claim": "He also took deliberate liberties: the mastless hulk is shown with her three lower masts in and partly rigged, her black-and-yellow paintwork turned white and gold, only one tug shown pulling (the second just visible in the distance), and the tug's funnel moved in front of its mast so the smoke streams back through the Temeraire's masts.",
+       "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
+      },
+      {
+       "claim": "In April 1838 the Sirius and Brunel's purpose-built Great Western made the first Atlantic crossings under steam, arriving in New York a day apart (22 and 23 April).",
+       "source": "https://en.wikipedia.org/wiki/SS_Great_Western"
+      },
+      {
+       "claim": "The London and Birmingham Railway, the first intercity line built into London, fully opened on 17 September 1838 — eleven days after the Temeraire reached the breaker's yard.",
+       "source": "https://en.wikipedia.org/wiki/London_and_Birmingham_Railway"
+      },
+      {
+       "claim": "Queen Victoria was crowned at Westminster Abbey on 28 June 1838, ten weeks before the tow; the People's Charter demanding the vote for working men was published the same year.",
+       "source": "https://en.wikipedia.org/wiki/Coronation_of_Queen_Victoria"
+      }
+     ]
+    },
+    "paint": {
+     "text": "It is oil on a second-hand canvas: under the tug, X-rays show a large sail Turner had once laid in and abandoned. The sunset is built physically — thick ridges of paint for the sun and clouds, standing proud of the surface, with thin coloured glazes floated over them. Turner famously grabbed new factory-made colours almost as soon as the chemists produced them; the chrome yellows of the industrial age glow through this period of his skies. A popular story says this sky blazed with iodine scarlet, a gorgeous mercury red that dies in daylight, and was already fading by 1859 — yet the Gallery's own examiners call the sunset 'unusually intact', so hold that story loosely. And the Tambora legend fails here on arithmetic: volcanic reddening shows in paintings only for about three years after an eruption, and Tambora blew in 1815. This sunset needed no volcano. It is pure invention — the real tow ended by mid-afternoon.",
+     "pigments": [
+      {
+       "name": "Lead white",
+       "note": "The sun's disc and the ridged clouds are 'applied so thickly in places that the paint stands proud from the canvas' — white-lead impasto doing the work of light itself.",
+       "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
+      },
+      {
+       "name": "Chrome yellow (lead chromate)",
+       "note": "The new industrial yellow of Turner's lifetime; analyses of his late work show him using the fresh synthetic colours — chrome yellow for the bright yellows, cobalt blue, emerald green — as an early adopter.",
+       "source": "https://chsopensource.org/j-m-w-turner-1775-1851-technical-art-examination/"
+      },
+      {
+       "name": "Iodine scarlet (mercuric iodide)",
+       "note": "A brilliant but notoriously fugitive red in Turner's palette. Popular accounts place it in this sky and say the reds were fading by 1859 — but the National Gallery's technical notes call the sunset 'unusually intact', so the claim is unverified.",
+       "source": "https://www.artistsnetwork.com/artist-life/the-fugitive-color/"
+      },
+      {
+       "name": "Megilp (mastic resin and oil gel)",
+       "note": "The buttery gelled medium British painters of the period stirred into oil paint to make impasto stand up; documented in Townsend's studies of nineteenth-century British practice, though no public analysis names it in this specific canvas.",
+       "source": "https://www.tate.org.uk/documents/443/tate_papers_2_joyce_townsend_the_materials_used_by_british_oil_painters_in_the_FnHX0Xu.pdf"
+      }
+     ],
+     "facts": [
+      {
+       "claim": "Oil on canvas, 90.7 × 121.6 cm.",
+       "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
+      },
+      {
+       "claim": "An X-radiograph shows a large sail, on a much bigger scale, where the tug's mast, rigging and funnel now lie — Turner reused a discarded canvas on which he had laid in a large sailing-boat.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      },
+      {
+       "claim": "The dramatic sunset effects were 'achieved by the use of impasto and glazes' and are 'unusually intact': the picture has not been cleaned or varnished since arriving with the Turner Bequest in 1856; surface dirt was removed in 1945, and flaking paint forced a lining in 1963. The stretcher is probably original. Full technical examination: Martin Wyld and Ashok Roy, in Egerton 1995.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      },
+      {
+       "claim": "'Turner did use new pigments soon after they became available' — he is the standing example of an artist adopting the century's new synthetic colours quickly (Joyce Townsend, Tate Papers).",
+       "source": "https://www.tate.org.uk/documents/443/tate_papers_2_joyce_townsend_the_materials_used_by_british_oil_painters_in_the_FnHX0Xu.pdf"
+      },
+      {
+       "claim": "Volcanic-sunset claims mostly fail here: reddened skies show in paintings only for the eruption year plus about three after (Zerefos), and Tambora blew in 1815 — 24 years too early. One narrow door remains: Cosigüina erupted January 1835, and Turner began the picture around October 1838 — only the sky's earliest layers could carry that tint. The blaze is best credited to Turner.",
+       "source": "https://www.smithsonianmag.com/science-nature/how-paintings-sunsets-immortalize-past-volcanic-eruptions-180950254/"
+      },
+      {
+       "claim": "The sunset is Turner's invention on its own terms too: by an expert reckoning from the 1838 tide-tables (van der Merwe and Robson), the Temeraire was secured in her last berth by about 3 pm, several hours before sunset in early September.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      }
+     ]
+    },
+    "afterlife": {
+     "text": "Turner kept his Darling until he died in December 1851, leaving it to the nation. After the wrangling over his will, it entered the National Gallery with the Turner Bequest in 1856, among the first of his pictures hung — and it has essentially never left. The ship herself had a quieter afterlife: her timbers became two bishop's chairs and a communion table in St Mary's church, Rotherhithe, a few hundred yards from where she was broken up. The painting kept gathering the country around it. In 2005, BBC radio listeners voted it the Greatest Painting in Britain — nearly 32,000 votes, a comfortable ten thousand ahead of Constable's Hay Wain. In Skyfall, Bond meets his new quartermaster on a bench in front of it — two men contemplating old warships. And since 2020 it has ridden in nearly every British pocket, printed on the £20 note beside Turner's self-portrait and his line 'Light is therefore colour'. It hangs in Room 40 — as of this writing; it moves.",
+     "facts": [
+      {
+       "claim": "Turner refused all offers for the picture — reputedly £5,000 and then a blank cheque from James Lenox in 1848 — 'because he intended to leave it to the nation'; he kept it until his death in 1851.",
+       "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
+      },
+      {
+       "claim": "It entered the National Gallery with the Turner Bequest in 1856 and was among the first paintings of the Bequest to be hung; it remains one of the Gallery's most popular paintings.",
+       "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
+      },
+      {
+       "claim": "Timbers from the broken-up Temeraire were made into a communion table and two bishop's chairs, still in St Mary's Church, Rotherhithe, near Beatson's yard.",
+       "source": "https://en.wikipedia.org/wiki/St_Mary%27s_Church,_Rotherhithe"
+      },
+      {
+       "claim": "Voted Greatest Painting in Britain in the 2005 BBC Radio 4 Today poll (announced on air 5 September 2005). Contemporary coverage reports nearly 32,000 votes, about ten thousand ahead of Constable's The Hay Wain; precise counts were never officially published.",
+       "source": "https://en.wikipedia.org/wiki/Greatest_Painting_in_Britain_Vote"
+      },
+      {
+       "claim": "It was the focal point of a scene in the 2012 James Bond film Skyfall, in which 007 meets his new quartermaster Q in front of the painting at the National Gallery.",
+       "source": "https://www.nationalgallery.org.uk/news/national-gallerys-iconic-work-featured-on-new-bank-of-england-20-note"
+      },
+      {
+       "claim": "On 22 April 2016 the Bank of England governor Mark Carney announced at Turner Contemporary, Margate, that the painting would feature on the new £20 note, together with Turner's c. 1799 self-portrait, his signature, and the quote 'Light is therefore colour'; the polymer note entered circulation in February 2020.",
+       "source": "https://www.nationalgallery.org.uk/news/national-gallerys-iconic-work-featured-on-new-bank-of-england-20-note"
+      },
+      {
+       "claim": "The £20 note details as issued: Turner self-portrait of c. 1799 with The Fighting Temeraire behind, the quote from an 1818 lecture, and his signature in facsimile; introduced February 2020.",
+       "source": "https://en.wikipedia.org/wiki/The_Fighting_Temeraire"
+      },
+      {
+       "claim": "Hangs in Room 40 of the National Gallery, London (the Gallery's live page, checked 13 July 2026; 2016 sources said Room 34 — it moves).",
+       "source": "https://www.nationalgallery.org.uk/news/national-gallerys-iconic-work-featured-on-new-bank-of-england-20-note"
+      }
+     ]
+    }
+   },
+   "quotes": [
+    {
+     "text": "…a noble river-piece by J.M.W. Turner, Esq., R.A., 'The Fighting Temeraire' — as grand a picture as ever figured on the walls of any academy, or came from the easel of any painter. The old Temeraire is dragged to her last home by a little, spiteful, diabolical steamer.",
+     "who": "William Makepeace Thackeray",
+     "where": "Fraser's Magazine, June 1839"
+    },
+    {
+     "text": "…no consid[eratio]ns of money or favour can induce me to lend my Darling again",
+     "who": "J.M.W. Turner",
+     "where": "pencil draft of a letter in a sketchbook, c. 1845"
+    },
+    {
+     "text": "There is something in the contemplation of such a scene which affects us almost as deeply as the death of a human being.",
+     "who": "Morning Chronicle",
+     "where": "review of the Royal Academy exhibition, 7 May 1839"
+    }
+   ]
+  },
+  {
+   "slug": "the-concert",
+   "glyph": "空",
+   "title": "The Concert",
+   "artist": "Johannes Vermeer",
+   "year": "c. 1664",
+   "one_line": "three musicians nobody has heard since 1990 — the most valuable silence in the world",
+   "location_now": "missing since 18 March 1990 — its frame waits, empty, in the Dutch Room of the Gardner Museum, Boston",
+   "image": "https://artbitrage.io/art/vanished-the-concert.jpg",
+   "thumb": "https://artbitrage.io/art/vanished-the-concert-t.jpg",
+   "feelings": [
+    "silence",
+    "absence",
+    "stillness",
+    "longing",
+    "elegy"
+   ],
+   "strata": {
+    "feeling": {
+     "text": "Three people are making music you will never hear: a young woman at a harpsichord, a man with his back to us and a lute across his lap, a singer keeping time with one raised hand. The room is all held breath — Vermeer gives you the instant just before or just after sound. Behind them hangs a rowdy brothel scene, Baburen's Procuress, appetite and noise locked inside the stillness. One scholar calls the mood 'an impalpable air of reticence and introspection, unique among genre painters.' Since 18 March 1990 the picture holds a second silence: in the Gardner Museum's Dutch Room its gilded frame hangs empty on the wall, and people stand before the emptiness the way they once stood before the paint. The absence has become part of the work.",
+     "feelings": [
+      "silence",
+      "absence",
+      "stillness",
+      "longing",
+      "elegy"
+     ]
+    },
+    "hands": {
+     "text": "Delft, around 1664. Vermeer is in his early thirties, living in his mother-in-law Maria Thins's house on the Oude Langendijk — the Catholic corner of a Protestant town, beside a hidden Jesuit church. His studio is the upstairs front room, lit from the north. The house is crowded: Catharina will bear fifteen children, and eleven are alive when he dies. He works with almost unreasonable slowness — perhaps three paintings a year — for a small circle of Delft buyers, above all Pieter van Ruijven and his wife Maria de Knuijt. At thirty he was elected a head of the painters' Guild of Saint Luke, and re-elected the next year. He even painted his own household into the picture: the Baburen brothel scene on the back wall most likely belonged to Maria Thins herself.",
+     "facts": [
+      {
+       "claim": "Vermeer lived in Maria Thins's house on the Oude Langendijk in Delft, almost next to a hidden Jesuit church, and stayed there for life.",
+       "source": "https://en.wikipedia.org/wiki/Johannes_Vermeer"
+      },
+      {
+       "claim": "His studio was the front room of the second floor, facing north.",
+       "source": "https://www.essentialvermeer.com/delft/delft_today/oude_langendijck.html"
+      },
+      {
+       "claim": "Catharina Bolnes bore 15 children, four buried before baptism; 11 were living at Vermeer's death.",
+       "source": "https://en.wikipedia.org/wiki/Johannes_Vermeer"
+      },
+      {
+       "claim": "He probably produced about three paintings a year on order; his chief patrons were Pieter van Ruijven and Maria de Knuijt.",
+       "source": "https://en.wikipedia.org/wiki/Johannes_Vermeer"
+      },
+      {
+       "claim": "In 1662 Vermeer was elected head of Delft's Guild of Saint Luke and was re-elected in 1663, 1670 and 1671.",
+       "source": "https://en.wikipedia.org/wiki/Johannes_Vermeer"
+      },
+      {
+       "claim": "The Dirck van Baburen 'Procuress' shown on the back wall of The Concert most likely belonged to Vermeer's mother-in-law Maria Thins, who kept a discreet collection of Utrecht Caravaggists.",
+       "source": "https://www.essentialvermeer.com/catalogue/concert.html"
+      }
+     ]
+    },
+    "world": {
+     "text": "The Concert was painted at the high tide of the Dutch Golden Age. The Republic was the richest trading nation in Europe; ordinary households bought pictures, and Delft — a canal town of potteries and breweries — supported a whole guild of painters. It did not last. War with England came in 1665, and 1672 became the rampjaar, the disaster year: France under Louis XIV invaded together with England and the German bishoprics of Münster and Cologne. In The Hague a mob lynched the statesmen Johan and Cornelis de Witt. The economy broke and never fully recovered, and the art market went down with it — Vermeer, a dealer as well as a painter, was left holding stock nobody would buy. He could not sell 'any of his art,' his widow wrote, and three years after the crash he was dead.",
+     "facts": [
+      {
+       "claim": "In 1672 the Dutch Republic was attacked simultaneously by France under Louis XIV, England, and the bishoprics of Münster and Cologne.",
+       "source": "https://en.wikipedia.org/wiki/Rampjaar"
+      },
+      {
+       "claim": "On 20 August 1672 a mob killed Johan and Cornelis de Witt; the Dutch economy never fully recovered from the crisis.",
+       "source": "https://en.wikipedia.org/wiki/Rampjaar"
+      },
+      {
+       "claim": "The art market collapsed in 1672 and Vermeer — dealer as well as painter — was ruined, left holding stock nobody would buy. No formal bankruptcy occurred in his lifetime: the insolvency (cessio bonorum) was petitioned by his widow Catharina in April 1676, months after his death.",
+       "source": "https://en.wikipedia.org/wiki/Rampjaar"
+      },
+      {
+       "claim": "Vermeer inherited the family art-dealing business from his father and was left sitting with other masters' paintings he was dealing in when the war killed the market.",
+       "source": "https://www.essentialvermeer.com/vermeer's_life_04.html"
+      },
+      {
+       "claim": "In July 1675, months before his death, Vermeer borrowed 1,000 guilders from an Amsterdam merchant.",
+       "source": "https://www.essentialvermeer.com/vermeer's_life_04.html"
+      }
+     ]
+    },
+    "paint": {
+     "text": "The Concert is oil on canvas, about 72.5 by 64.7 centimetres. Vermeer's great extravagance was blue: natural ultramarine, ground from lapis lazuli carried from Afghanistan, a pigment costlier than gold in the seventeenth century. Other painters saved it for a robe; Vermeer worked it into shadows, whitewashed walls, and gray mixtures of lead white, bone black and raw umber, so that his daylight glows in a way cheaper azurite never could. Around the blue sat a small, disciplined palette — lead-tin yellow for warm lights, madder lake for red glazes, green earth in shadowed flesh. The habit was ruinous arithmetic: exorbitant blue, perhaps three pictures a year, eleven children to feed. When he died in December 1675, aged 43, the baker held a bill of 617 guilders — roughly three years of bread — and his widow settled it with two paintings.",
+     "pigments": [
+      {
+       "name": "Natural ultramarine",
+       "note": "Ground and washed from lapis lazuli imported from Afghanistan; more expensive than gold in the 17th century. Vermeer, unusually, laid it into shadows, jugs, walls and gray tones, not just blue things.",
+       "source": "https://www.vermeerdelft.nl/en/blogs/vermeer-use-of-colour-ultramarine"
+      },
+      {
+       "name": "Lead white",
+       "note": "The body of his daylight; mixed with bone black and raw umber into grays that Vermeer seeded with ultramarine for a luminosity 'which cannot be produced otherwise.'",
+       "source": "https://www.essentialvermeer.com/palette/palette_ultramarine.html"
+      },
+      {
+       "name": "Lead-tin yellow",
+       "note": "His characteristic warm yellow for lit fabrics and highlights.",
+       "source": "https://www.essentialvermeer.com/palette/palette_lead-tin_yellow.html"
+      },
+      {
+       "name": "Madder lake",
+       "note": "A transparent red glaze made from the root of the madder plant.",
+       "source": "https://www.essentialvermeer.com/palette/palette_madder_lake.html"
+      },
+      {
+       "name": "Green earth",
+       "note": "A quiet Vermeer signature, used to cool and soften shadowed flesh tones.",
+       "source": "https://www.essentialvermeer.com/palette/palette_green_earth.html"
+      },
+      {
+       "name": "Bone black and raw umber",
+       "note": "The dark half of his gray mixtures, blended with lead white and a touch of ultramarine.",
+       "source": "https://www.essentialvermeer.com/palette/palette_ultramarine.html"
+      }
+     ],
+     "facts": [
+      {
+       "claim": "The Concert is dated c. 1664 and measures 72.5 x 64.7 cm.",
+       "source": "https://en.wikipedia.org/wiki/The_Concert_(Vermeer)"
+      },
+      {
+       "claim": "Natural ultramarine was made from lapis lazuli imported from Afghanistan and was more expensive than gold in the 17th century.",
+       "source": "https://www.vermeerdelft.nl/en/blogs/vermeer-use-of-colour-ultramarine"
+      },
+      {
+       "claim": "No other 17th-century artist employed the exorbitantly expensive ultramarine so lavishly; only about 34 paintings are universally attributed to Vermeer today (a handful more are disputed, giving counts up to about 37).",
+       "source": "https://en.wikipedia.org/wiki/Johannes_Vermeer"
+      },
+      {
+       "claim": "Vermeer owed baker Hendrick van Buyten 617 guilders and 6 stuivers — about three years of bread — and in February 1676 his widow transferred two paintings to the baker against the debt.",
+       "source": "https://www.essentialvermeer.com/vermeer's_life_04.html"
+      },
+      {
+       "claim": "Vermeer died in December 1675 aged 43 and was buried in Delft's Oude Kerk; sources disagree on the exact day (13-15 December).",
+       "source": "https://en.wikipedia.org/wiki/Johannes_Vermeer"
+      },
+      {
+       "claim": "Vermeer's widow Catharina petitioned for bankruptcy in April 1676; on 30 September 1676 the microscopist Antonie van Leeuwenhoek was appointed trustee of the estate.",
+       "source": "https://www.essentialvermeer.com/vermeer's_life_04.html"
+      }
+     ]
+    },
+    "afterlife": {
+     "text": "The painting's early history is murky; by the 1860s it belonged to Théophile Thoré-Bürger, the French critic who rescued Vermeer from oblivion. At his estate sale in Paris in 1892, Isabella Stewart Gardner had an agent bid for her, signalling with a wave of her handkerchief, and beat the Louvre — for about $5,000. It hung in her Boston museum until 1:24 a.m. on 18 March 1990, when two men in police uniforms and false moustaches talked their way in. 'Gentlemen, this is a robbery.' They duct-taped the two guards to a pipe and a workbench in the basement and spent 81 minutes taking thirteen works, worth some $500 million. The empty frames still hang in the Dutch Room. The reward stands at $10 million; the statute of limitations has expired; the FBI says it knows who the thieves were and that both are dead — it never released the names. The Concert, valued around $250 million, is widely called the most valuable stolen artwork still missing.",
+     "facts": [
+      {
+       "claim": "Isabella Stewart Gardner bought The Concert at the 1892 Paris auction of Théophile Thoré-Bürger's estate, bidding through an agent she signalled with her handkerchief, outbidding the Louvre and the National Gallery; accounts of the price vary between $5,000 and $6,000.",
+       "source": "https://www.artinsociety.com/vermeerrsquos-concert-the-gardner-collection-and-the-art-heist-of-the-century.html"
+      },
+      {
+       "claim": "At 1:24 a.m. on 18 March 1990, two men in police uniforms claiming to respond to a disturbance were let in through the museum's employee entrance; the guards were restrained in the basement.",
+       "source": "https://www.gardnermuseum.org/about/theft"
+      },
+      {
+       "claim": "The thieves announced 'Gentlemen, this is a robbery,' duct-taped the guards to a pipe and workbench in the basement, and spent 81 minutes taking 13 works now valued at about $500 million.",
+       "source": "https://www.smithsonianmag.com/smart-news/five-things-know-about-isabella-stewart-gardner-art-heist-180977448/"
+      },
+      {
+       "claim": "The thieves, wearing false moustaches, spent one hour and twenty-one minutes in the galleries; the guards were bound with duct tape and taped to pipes in the basement.",
+       "source": "https://www.essentialvermeer.com/fakes_thefts_school_of_delft_lost_sp/vermeer_theft_05.html"
+      },
+      {
+       "claim": "Empty frames still hang in the Dutch Room gallery, both in homage to the missing works and as placeholders for their return.",
+       "source": "https://www.gardnermuseum.org/blog/five-frames-left-behind"
+      },
+      {
+       "claim": "In 2017 the museum doubled its reward from $5 million to $10 million, and its trustees later extended the $10 million offer indefinitely (plus $100,000 for the Napoleonic eagle finial).",
+       "source": "https://www.gardnermuseum.org/isabella-stewart-gardner-museums-board-trustees-extends-10-million-reward-return-13-works-stolen"
+      },
+      {
+       "claim": "The statute of limitations expired in 1995; no arrests, nothing recovered. The FBI said in 2013 it knew the thieves' identities and in 2015 that both were dead — it never released names. The names in circulation (Reissfelder, DiMuzio) come from Boston Globe reporting and a leaked internal FBI theory, and the identification remains disputed.",
+       "source": "https://www.smithsonianmag.com/smart-news/five-things-know-about-isabella-stewart-gardner-art-heist-180977448/"
+      },
+      {
+       "claim": "The Concert is thought to be the most valuable artwork currently unrecovered, with a value estimated at US$250 million — a figure traced to investigative reporters Stephen Kurkjian (Master Thieves, 2015) and Ulrich Boser (The Gardner Heist, 2009).",
+       "source": "https://en.wikipedia.org/wiki/The_Concert_(Vermeer)"
+      },
+      {
+       "claim": "Artnet News likewise headlines The Concert as 'The World's Most Valuable Stolen Painting.'",
+       "source": "https://news.artnet.com/art-world/the-hunt-vermeer-the-concert-heist-2451948"
+      },
+      {
+       "claim": "The 1990 Gardner theft remains the largest art heist in modern history; the FBI's value estimate rose from $200 million in 1990 to $500 million.",
+       "source": "https://en.wikipedia.org/wiki/Isabella_Stewart_Gardner_Museum_theft"
+      }
+     ]
+    }
+   },
+   "quotes": [
+    {
+     "text": "During the ruinous war with France he not only was unable to sell any of his art but also, to his great detriment, was left sitting with the paintings of other masters that he was dealing in... owing to the great burden of his children, having no means of his own, he lapsed into such decay and decadence, which he had so taken to heart that, as if he had fallen into a frenzy, in a day and a half he went from being healthy to being dead.",
+     "who": "Catharina Bolnes, Vermeer's widow, in her bankruptcy petition, 1676",
+     "where": "https://www.essentialvermeer.com/vermeer's_life_04.html"
+    },
+    {
+     "text": "Gentlemen, this is a robbery.",
+     "who": "One of the two thieves, to the Gardner Museum's night guards, 18 March 1990",
+     "where": "https://www.smithsonianmag.com/smart-news/five-things-know-about-isabella-stewart-gardner-art-heist-180977448/"
+    },
+    {
+     "text": "One day, with enough careful observing, I knew I would solve the riddle of this painting. Now, I never will unless the painting is returned.",
+     "who": "Lloyd Schwartz, poet and critic, on The Concert",
+     "where": "https://www.wbur.org/news/2018/08/27/lastseen-vermeer-the-concert"
+    }
+   ]
+  }
+ ],
+ "api": {
+  "list": "GET /api/depths",
+  "one": "GET /api/depths/:slug"
+ },
+ "related": {
+  "feelings": "/feelings",
+  "atlas": "/atlas",
+  "ledger": "/ledger"
+ }
+}

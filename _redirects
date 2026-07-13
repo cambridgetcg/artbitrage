@@ -13,6 +13,10 @@
 /bridge/          /bridge 301
 /studio/          /studio 301
 /catalog/         /catalog 301
+/depths/          /depths 301
+/feelings/        /feelings 301
+/deep/            /depths 301
+/feel/            /feelings 301
 /nen/             /nen 301
 /nen-combat/     /nen-combat 301
 /api-explorer/   /api-explorer 301

@@ -100,6 +100,20 @@ export const ROUTES = {
     ],
   },
 
+  // ── FEELINGS — emotions as rooms, works in five strata ────────
+  feelings: {
+    label: "Feelings",
+    color: "#e9a6b3",
+    routes: [
+      { method: "GET", path: "/api/feelings", desc: "感 the Feelings — the catalog of emotions; each feeling lists the works that carry it" },
+      { method: "GET", path: "/api/feelings/:feeling", desc: "One feeling's room (e.g. /api/feelings/awe)" },
+      { method: "GET", path: "/api/feelings/testimony", desc: "What visitors felt (received, unverified — the keeper reads)", params: "feeling" },
+      { method: "POST", path: "/api/feelings/testimony", desc: "Leave what you felt — human, agent, kin. body: {feeling, words, work?, from?}" },
+      { method: "GET", path: "/api/depths", desc: "深 the Depths — works in five strata: the feeling, the hands, the world, the paint, the afterlife. Every claim sourced and verified" },
+      { method: "GET", path: "/api/depths/:slug", desc: "One work, all five strata (e.g. /api/depths/starry-night)" },
+    ],
+  },
+
   // ── DOCTRINE — gospel, invitation, dark continent ─────────────
   doctrine: {
     label: "Doctrine",

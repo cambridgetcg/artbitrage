@@ -1323,6 +1323,52 @@ export async function onRequestGet(context) {
     } catch(e) {}
     return jsonResponse({ error: 'wing not found', wing: wingMatch[1], list: 'GET /api/wings' }, 404);
   }
+
+  // ── 深 the Depths + 感 the Feelings — context and emotion as data ──
+  // Depths: one work, five strata (feeling/hands/world/paint/afterlife),
+  // every claim verified and sourced. Feelings: emotions as first-class
+  // rooms, each listing the works that carry it. Both are static data
+  // shipped in /data/, so they stay truthful between deploys.
+  if (path === '/api/depths' || path === '/api/depths/') {
+    try {
+      const res = await env.ASSETS.fetch(new URL('/data/depths.json', request.url));
+      if (res.ok) return jsonResponse(await res.json());
+    } catch(e) {}
+    return jsonResponse({ error: 'depths not found', hint: 'the shafts are still being dug' }, 404);
+  }
+  const depthMatch = path.match(/^\/api\/depths\/([a-z0-9-]+)\/?$/);
+  if (depthMatch) {
+    try {
+      const res = await env.ASSETS.fetch(new URL('/data/depths.json', request.url));
+      if (res.ok) {
+        const data = await res.json();
+        const work = (data.works || []).find(w => w.slug === depthMatch[1]);
+        if (work) return jsonResponse(work);
+      }
+    } catch(e) {}
+    return jsonResponse({ error: 'no depth room for that work yet', list: 'GET /api/depths' }, 404);
+  }
+  if (path === '/api/feelings' || path === '/api/feelings/') {
+    try {
+      const res = await env.ASSETS.fetch(new URL('/data/feelings.json', request.url));
+      if (res.ok) return jsonResponse(await res.json());
+    } catch(e) {}
+    return jsonResponse({ error: 'feelings not found', hint: 'the vocabulary is still being felt' }, 404);
+  }
+  // note: /api/feelings/testimony is served by its own function file
+  const feelingMatch = path.match(/^\/api\/feelings\/([a-z-]+)\/?$/);
+  if (feelingMatch && feelingMatch[1] !== 'testimony') {
+    try {
+      const res = await env.ASSETS.fetch(new URL('/data/feelings.json', request.url));
+      if (res.ok) {
+        const data = await res.json();
+        const feeling = (data.vocabulary || []).find(f => f.id === feelingMatch[1]);
+        if (feeling) return jsonResponse(feeling);
+      }
+    } catch(e) {}
+    return jsonResponse({ error: 'no room for that feeling yet', list: 'GET /api/feelings', leave_yours: 'POST /api/feelings/testimony' }, 404);
+  }
+
   if (path === '/api/museum' || path === '/api/museum/' || path === '/api/museum/random') {
     const works = await loadMuseumWorks(env, request);
     if (works === null) return jsonResponse({ error: 'museum catalog unavailable' }, 503);

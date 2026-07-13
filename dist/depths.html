@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101014">
+<title>the Depths — ARTBITRAGE</title>
+<meta name="description" content="深 · one work, five strata down: the feeling, the hands, the world, the paint, the afterlife. Context is where the feeling comes from.">
+<meta property="og:title" content="the Depths — ARTBITRAGE">
+<meta property="og:description" content="深 · one work, five strata down: the feeling, the hands, the world, the paint, the afterlife.">
+<meta property="og:image" content="https://artbitrage.io/art/starry-night-moma.jpg">
+
+<!-- Fonts — same link as the other rooms, the only external request -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   深 — the depths: one work, five strata down
+   sumi-ink dark gallery · one cinnabar accent · descending floors
+   ============================================================ */
+
+:root{
+  --bg:      #101014;
+  --surface: #17171d;
+  --ink:     #e9e6df;
+  --dim:     #8a877e;
+  --hair:    #2a2a32;
+  --zhu:     #d34a3a;   /* 朱 cinnabar */
+  --gold:    #b39958;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--zhu); color:var(--bg); }
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--zhu); }
+:focus-visible{ outline:1.5px solid var(--zhu); outline-offset:3px; }
+.wrap{ max-width:880px; margin:0 auto; padding:0 24px; }
+.cjk{ font-family:var(--cjk); }
+.mono{ font-family:var(--mono); }
+
+/* ---- crossnav ---- */
+.crossnav{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.14em;
+  padding:1.4rem 0; color:var(--dim);
+}
+.crossnav a{ color:var(--dim); }
+.crossnav a:hover{ color:var(--zhu); }
+.crossnav .here{ color:var(--ink); }
+
+/* ---- hero ---- */
+header.hero{ padding:7rem 0 5rem; text-align:center; }
+.hero .glyph{
+  font-family:var(--cjk); font-size:4.6rem; font-weight:300;
+  color:var(--dim); display:block; margin-bottom:1.2rem;
+}
+.hero h1{
+  font-family:var(--display); font-weight:300; font-size:2.6rem;
+  letter-spacing:.14em;
+}
+.hero p.sub{
+  margin-top:1.1rem; color:var(--dim); font-style:italic;
+  font-size:1.02rem; max-width:34em; margin-left:auto; margin-right:auto;
+}
+.legend{
+  margin-top:2.6rem; font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.12em; color:var(--dim); line-height:2.1;
+}
+.legend b{ color:var(--ink); font-weight:500; }
+
+/* ---- a work = a shaft ---- */
+section.work{ padding:6rem 0 4rem; border-top:1px solid var(--hair); }
+.wall-label{ text-align:center; margin-bottom:2.6rem; }
+.wall-label .glyph{
+  font-family:var(--cjk); font-size:2rem; color:var(--dim); display:block; margin-bottom:.8rem;
+}
+.wall-label h2{
+  font-family:var(--display); font-weight:500; font-size:2rem; letter-spacing:.04em;
+}
+.wall-label .who{
+  margin-top:.5rem; font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.14em; color:var(--dim); text-transform:uppercase;
+}
+.wall-label .oneline{ margin-top:1rem; font-style:italic; color:var(--dim); }
+.wall-label .where{
+  margin-top:.6rem; font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.1em; color:var(--gold);
+}
+
+.artframe{
+  background:var(--surface); border:1px solid var(--hair);
+  padding:6px; max-width:560px; margin:0 auto 1rem;
+}
+.artframe img{ display:block; width:100%; height:auto; }
+.artcredit{
+  text-align:center; font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.1em; color:var(--dim); margin-bottom:2.4rem;
+}
+
+/* the work's feelings, linked into 感 */
+.felts{ text-align:center; margin-bottom:3rem; }
+.felts a{
+  display:inline-block; font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.14em; color:var(--dim);
+  border:1px solid var(--hair); padding:.3rem .8rem; margin:.2rem;
+}
+.felts a:hover{ color:var(--zhu); border-color:var(--zhu); }
+
+/* ---- strata: descending floors ---- */
+.stratum{ margin:0 auto; max-width:640px; padding:2.2rem 0; border-top:1px dashed var(--hair); }
+.stratum:first-of-type{ border-top:none; }
+.stratum .floor{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.2em;
+  color:var(--zhu); text-transform:uppercase; margin-bottom:1rem;
+}
+.stratum .floor .cjk{ font-size:.95rem; color:var(--dim); margin-right:.5rem; }
+.stratum p.text{ color:var(--ink); }
+
+blockquote{
+  margin:2.2rem auto; max-width:600px; padding-left:1.2rem;
+  border-left:2px solid var(--zhu);
+  font-family:var(--display); font-style:italic; font-size:1.18rem; line-height:1.6;
+}
+blockquote footer{
+  margin-top:.6rem; font-family:var(--mono); font-style:normal;
+  font-size:.62rem; letter-spacing:.1em; color:var(--dim);
+}
+
+/* pigments as small plates */
+.pigments{ margin-top:1.4rem; display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:10px; }
+.pigment{
+  background:var(--surface); border:1px solid var(--hair); padding:.8rem .9rem;
+}
+.pigment b{
+  display:block; font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.12em; color:var(--gold); font-weight:500; margin-bottom:.35rem;
+}
+.pigment span{ font-size:.85rem; color:var(--dim); line-height:1.55; }
+
+/* sources drawer — every claim carries one */
+details.sources{ margin-top:1.6rem; }
+details.sources summary{
+  cursor:pointer; font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.14em; color:var(--dim); list-style:none;
+}
+details.sources summary:hover{ color:var(--zhu); }
+details.sources summary::before{ content:"⌄ "; }
+details.sources[open] summary::before{ content:"⌃ "; }
+details.sources ul{ margin-top:.9rem; list-style:none; }
+details.sources li{
+  font-size:.82rem; color:var(--dim); line-height:1.6;
+  padding:.5rem 0; border-top:1px solid var(--hair);
+}
+details.sources li a{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.06em;
+  color:var(--gold); word-break:break-all;
+}
+details.sources li a:hover{ color:var(--zhu); }
+
+/* ---- verification + footer ---- */
+.honesty{
+  margin:5rem auto 0; max-width:640px; padding:1.4rem 0 0;
+  border-top:1px solid var(--hair);
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.1em;
+  color:var(--dim); line-height:2;
+}
+footer.foot{ padding:4rem 0 5rem; text-align:center; }
+footer.foot p{ font-family:var(--display); font-style:italic; font-size:1.1rem; color:var(--dim); }
+footer.foot .api{
+  margin-top:1rem; font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.12em; color:var(--dim);
+}
+footer.foot .api a{ color:var(--gold); }
+
+noscript p{
+  text-align:center; padding:4rem 1rem; color:var(--dim); font-style:italic;
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="crossnav" aria-label="other rooms">
+    ← <a href="index.html">artbitrage</a> · <span class="here" aria-current="page">depths</span> · <a href="feelings.html">feelings</a> · <a href="atlas.html">atlas</a> · <a href="ledger.html">ledger</a> · <a href="minds.html">minds</a>
+  </nav>
+
+  <header class="hero">
+    <span class="glyph" lang="zh">深</span>
+    <h1>the Depths</h1>
+    <p class="sub">one work at a time, five strata down. context is not trivia — it is where the feeling comes from.</p>
+    <div class="legend" aria-label="the five strata">
+      <b>01 感 the feeling</b> — what it does to the one looking<br>
+      <b>02 手 the hands</b> — the artist's life at the exact moment of making<br>
+      <b>03 世 the world</b> — politics, money, daily life around the easel<br>
+      <b>04 顏 the paint</b> — the materials, their cost, their slow betrayals<br>
+      <b>05 後 the afterlife</b> — sales, thefts, journeys to now
+    </div>
+  </header>
+
+  <main id="shafts" aria-live="polite"></main>
+
+  <noscript><p>The shafts open with JavaScript — or read everything as data: <a href="/api/depths">GET /api/depths</a>.</p></noscript>
+
+  <div class="honesty" id="honesty"></div>
+
+  <footer class="foot">
+    <p>Every floor down is a floor closer to why it moves you.</p>
+    <p class="api">data: <a href="/api/depths">GET /api/depths</a> · one work: <a href="/api/depths/starry-night">GET /api/depths/:slug</a> · feelings live at <a href="feelings.html">感 the Feelings</a></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  var FLOORS = [
+    ['feeling', '感', 'the feeling'],
+    ['hands',   '手', 'the hands'],
+    ['world',   '世', 'the world'],
+    ['paint',   '顏', 'the paint'],
+    ['afterlife','後','the afterlife']
+  ];
+
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null && text !== '') n.textContent = text;
+    return n;
+  }
+
+  function renderWork(w){
+    var s = el('section', 'work');
+    s.id = w.slug;
+
+    var label = el('div', 'wall-label');
+    var g = el('span', 'glyph cjk', w.glyph); g.setAttribute('lang','zh');
+    label.appendChild(g);
+    label.appendChild(el('h2', null, w.title));
+    label.appendChild(el('p', 'who', w.artist + ' · ' + w.year));
+    label.appendChild(el('p', 'oneline', w.one_line));
+    label.appendChild(el('p', 'where', w.location_now));
+    s.appendChild(label);
+
+    if (w.image){
+      var link = document.createElement('a');
+      link.href = w.image; link.target = '_blank'; link.rel = 'noopener';
+      link.setAttribute('aria-label', 'full-size image: ' + w.title);
+      var frame = el('div', 'artframe');
+      var img = document.createElement('img');
+      img.src = w.thumb || w.image;
+      img.alt = w.title + ', ' + w.artist;
+      img.loading = 'lazy'; img.decoding = 'async';
+      img.onerror = function(){
+        frame.className = 'artframe';
+        img.remove();
+        frame.appendChild(el('p', null, 'the image did not arrive — the frame waits'));
+      };
+      frame.appendChild(img);
+      link.appendChild(frame);
+      s.appendChild(link);
+      s.appendChild(el('p', 'artcredit', 'public domain · served from this house'));
+    }
+
+    if (w.feelings && w.feelings.length){
+      var felts = el('div', 'felts');
+      w.feelings.forEach(function(f){
+        var a = document.createElement('a');
+        a.href = 'feelings.html#' + f;
+        a.textContent = f;
+        felts.appendChild(a);
+      });
+      s.appendChild(felts);
+    }
+
+    FLOORS.forEach(function(fl, i){
+      var key = fl[0], glyph = fl[1], name = fl[2];
+      var st = w.strata[key];
+      if (!st) return;
+      var d = el('div', 'stratum');
+      var floor = el('p', 'floor');
+      var c = el('span', 'cjk', glyph); c.setAttribute('lang','zh');
+      floor.appendChild(c);
+      floor.appendChild(document.createTextNode('0' + (i+1) + ' · ' + name));
+      d.appendChild(floor);
+      d.appendChild(el('p', 'text', st.text));
+
+      if (key === 'paint' && st.pigments && st.pigments.length){
+        var pg = el('div', 'pigments');
+        st.pigments.forEach(function(p){
+          var card = el('div', 'pigment');
+          card.appendChild(el('b', null, p.name));
+          card.appendChild(el('span', null, p.note));
+          pg.appendChild(card);
+        });
+        d.appendChild(pg);
+      }
+
+      if (st.facts && st.facts.length){
+        var det = el('details', 'sources');
+        det.appendChild(el('summary', null, 'sources — ' + st.facts.length + ' claims, each with its source'));
+        var ul = el('ul');
+        st.facts.forEach(function(f){
+          var li = el('li', null, f.claim + ' ');
+          if (f.source){
+            var a = document.createElement('a');
+            a.href = f.source; a.target = '_blank'; a.rel = 'noopener';
+            a.textContent = f.source.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
+            li.appendChild(a);
+          }
+          ul.appendChild(li);
+        });
+        det.appendChild(ul);
+        d.appendChild(det);
+      }
+      s.appendChild(d);
+    });
+
+    (w.quotes || []).forEach(function(q){
+      var b = el('blockquote', null, '“' + q.text + '”');
+      var f = el('footer', null, '— ' + q.who);
+      b.appendChild(f);
+      s.appendChild(b);
+    });
+
+    return s;
+  }
+
+  fetch('/data/depths.json')
+    .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(data){
+      var main = document.getElementById('shafts');
+      (data.works || []).forEach(function(w){ main.appendChild(renderWork(w)); });
+      var h = document.getElementById('honesty');
+      h.textContent = 'how this was made · ' + data.verification.method +
+        ' · as of ' + data.verification.as_of;
+      if (location.hash){
+        var t = document.getElementById(location.hash.slice(1));
+        if (t) t.scrollIntoView();
+      }
+    })
+    .catch(function(){
+      var main = document.getElementById('shafts');
+      var p = el('p', null, 'the shafts did not open — the data is still there: ');
+      var a = document.createElement('a');
+      a.href = '/api/depths'; a.textContent = 'GET /api/depths';
+      p.appendChild(a);
+      p.style.textAlign = 'center'; p.style.padding = '4rem 0'; p.style.color = 'var(--dim)';
+      main.appendChild(p);
+    });
+})();
+</script>
+</body>
+</html>
