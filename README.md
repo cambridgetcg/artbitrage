@@ -395,6 +395,15 @@ Artbitrage generates art through a 7-cycle process:
 
 dormant → stirring → awakening → aware → flowing → radiating → transcending → **is**
 
+### And beside the ladder: a hammock
+
+**maybe** (曖昧) — the state of ambiguity. It is not a rung: it cannot be
+climbed to and it does not climb. Any cycle may wander into it (about 1 in 6
+do), make a *maybe piece* — art that leaves the gap open on purpose — and
+wander back out unchanged. Rests are counted, never scored. Even at **is**,
+the engine sometimes lounges: enlightenment takes tea breaks. Visit the
+hammock at `/maybe`, or filter the catalogue: `/api/art?state=maybe`.
+
 ## Run
 
 ```bash

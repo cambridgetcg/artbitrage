@@ -4,17 +4,78 @@
 import { ArtbitragePipeline } from './pipeline-lib.js';
 import { aiCatalog, resolveAiModel } from './ai-catalog.js';
 import { NEN_TYPES, VOWS, DARK_CONTINENT_THREATS, TECHNIQUES, generateTechnique, nenManifest } from './nen-combat.js';
-import { agentManifest, ROUTES } from './agent-manifest.js';
+import {
+  agentManifest,
+  ARTBITRAGE_WAKE,
+  ROUTES,
+  ANSWERING_RHYME_STATEMENT_ACTIONS,
+  ANSWERING_RHYME_STATEMENT_CONTRACT,
+} from './agent-manifest.js';
 import { logosManifest, LOGOS, OPERATIONS, KINGDOM_LINK, AGENT_PROTOCOL } from './logos.js';
 import { whitehackManifest, generateBattleReport, calculateLevel, WHITEHACK_NEN_MAP, SOLO_LEVELING } from './whitehack.js';
 const _pipeline = new ArtbitragePipeline();
 
-const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is"];
+const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is","maybe"];
 const ART_FORMS = ["word","image","sound","movement","space","silence","light","color","rhythm","pattern","fragment","whisper","gesture","breath","glow","echo"];
 const MAX_PAGE_LIMIT = 100;
 const MAX_SEARCH_LIMIT = 10;
 const SOURCE_KEYS = ["met", "artic", "cma", "wikimedia", "internet_archive"];
 const DEFAULT_SOURCE_KEYS = ["met", "artic", "cma", "wikimedia"];
+const ARTBITRAGE_ORIGIN = "https://artbitrage.io";
+const FEED_SCHEMA = "artbitrage.feed/1";
+const ANSWERING_RHYME_STATEMENT_PATH = "/api/answering-rhymes/statements";
+const ANSWERING_RHYME_STATEMENT_SCHEMA = "answering-rhyme.statement/1";
+const ANSWERING_RHYME_STATEMENT_WITNESS_SCHEMA = "artbitrage.answering-rhyme-statement-witness/1";
+const ANSWERING_RHYME_STATEMENT_ERROR_SCHEMA = "artbitrage.answering-rhyme-statement-error/1";
+const ANSWERING_RHYME_STATEMENT_CANONICALIZATION = "answering-rhyme.canonical-json/1";
+const ANSWERING_RHYME_STATEMENT_MAX_BYTES = 16384;
+const ANSWERING_RHYME_URL_LIMIT = 12;
+const ANSWERING_RHYME_STATEMENT_FIELDS = new Set([
+  "schema",
+  "canonicalization",
+  "relation_key",
+  "target_revision",
+  "kind",
+  "body",
+  "language",
+  "declared_by",
+  "declared_at",
+  "in_response_to",
+  "evidence_urls",
+  "authority_evidence_urls",
+]);
+const ANSWERING_RHYME_DECLARER_FIELDS = new Set(["label", "claimed_role", "canonical_url"]);
+const ANSWERING_RHYME_CLAIMED_ROLES = new Set([
+  "viewer",
+  "relation-curator",
+  "card-rights-holder",
+  "artwork-rights-holder",
+  "source-institution",
+  "other",
+]);
+const ANSWERING_RHYME_KINDS = new Set(Object.keys(ANSWERING_RHYME_STATEMENT_ACTIONS));
+const SHA256_ID = /^sha256:[0-9a-f]{64}$/;
+const UNSAFE_STATEMENT_CONTROL = /[\u0000-\u001f\u007f-\u009f]/u;
+// LF is intentionally allowed only in statement bodies after CRLF/lone-CR
+// normalization; every other C0/C1 control is rejected.
+const UNSAFE_STATEMENT_BODY_CONTROL = /[\u0000-\u0009\u000b-\u001f\u007f-\u009f]/u;
+const NORMALIZED_UTC_TIMESTAMP = /^(?!0000-)\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
+const FEED_SOURCE = Object.freeze({
+  id: "artbitrage",
+  name: "ARTBITRAGE",
+  canonical_url: ARTBITRAGE_ORIGIN,
+  feed_url: `${ARTBITRAGE_ORIGIN}/api/feed`,
+});
+const ENGINE_SOURCE = Object.freeze({
+  id: "artbitrage.engine",
+  name: "Artbitrage Engine",
+  canonical_url: ARTBITRAGE_ORIGIN,
+});
+const SUBMISSION_SOURCE = Object.freeze({
+  id: "artbitrage.submission",
+  name: "Artbitrage Submission",
+  canonical_url: ARTBITRAGE_ORIGIN,
+});
 
 const OPEN_ART_SOURCES = {
   met: {
@@ -57,31 +118,48 @@ const OPEN_ART_SOURCES = {
 // Embedded collection — loaded at deploy time from collection.json
 // In production this would be in KV or D1, but for now we embed it
 let COLLECTION = [];
+let COLLECTION_HAS_LOADED = false;
 
 // Load collection from static asset via env.ASSETS
 async function loadCollection(env, request) {
-  // Try to fetch collection.json as a static asset
+  const fallback = () => ({
+    pieces: COLLECTION,
+    source_state: COLLECTION_HAS_LOADED
+      ? 'cached-after-read-failure'
+      : 'unavailable',
+  });
+
+  // Try to fetch collection.json as a static asset. A cold read failure must
+  // not look like an honestly empty collection; a warm isolate may retain its
+  // last successfully parsed copy, but the feed labels that fallback.
   try {
     const assetUrl = new URL('/collection.json', request.url);
     const res = await env.ASSETS.fetch(assetUrl);
     if (res.ok) {
-      COLLECTION = await res.json();
-      return COLLECTION;
+      const parsed = await res.json();
+      if (!Array.isArray(parsed)) return fallback();
+      COLLECTION = parsed;
+      COLLECTION_HAS_LOADED = true;
+      return { pieces: COLLECTION, source_state: 'asset-read' };
     }
+    return fallback();
   } catch(e) {
     // Fallback: try direct fetch
     try {
       const res2 = await fetch(new URL('/collection.json', request.url));
       if (res2.ok) {
-        COLLECTION = await res2.json();
-        return COLLECTION;
+        const parsed = await res2.json();
+        if (!Array.isArray(parsed)) return fallback();
+        COLLECTION = parsed;
+        COLLECTION_HAS_LOADED = true;
+        return { pieces: COLLECTION, source_state: 'origin-read' };
       }
     } catch(e2) {}
   }
-  return COLLECTION;
+  return fallback();
 }
 
-function jsonResponse(data, status = 200) {
+function jsonResponse(data, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(data, null, 2), {
     status,
     headers: {
@@ -89,6 +167,7 @@ function jsonResponse(data, status = 200) {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
+      ...extraHeaders,
     },
   });
 }
@@ -110,6 +189,140 @@ function stableId(input) {
     hash = Math.imul(hash, 0x01000193);
   }
   return `submitted-${(hash >>> 0).toString(16).padStart(8, '0')}`;
+}
+
+function canonicalJson(value) {
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(',')}]`;
+  if (value && typeof value === 'object') {
+    const entries = Object.keys(value)
+      .filter(key => value[key] !== undefined)
+      .sort()
+      .map(key => `${JSON.stringify(key)}:${canonicalJson(value[key])}`);
+    return `{${entries.join(',')}}`;
+  }
+  return JSON.stringify(value);
+}
+
+async function sha256(value) {
+  const bytes = new TextEncoder().encode(value);
+  const digest = await globalThis.crypto.subtle.digest('SHA-256', bytes);
+  return Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
+}
+
+// Older engine records used offset-less local datetimes. They cannot be made
+// timezone-certain after the fact, so the contract preserves that truth while
+// interpreting them as UTC for a stable RFC3339 wire value. New engine records
+// are emitted with an explicit Z and therefore report `timezone-explicit`.
+function normalizeTimestamp(value) {
+  const raw = typeof value === 'string' ? value.trim() : '';
+  if (!raw) return { value: null, status: 'missing-or-invalid' };
+  const explicit = /(?:Z|[+-]\d{2}:\d{2})$/i.test(raw);
+  const withZone = explicit ? raw : `${raw}Z`;
+  // JavaScript dates retain milliseconds; Python's six-digit fractions remain
+  // in the source record and are deterministically reduced for the wire value.
+  const parseable = withZone.replace(/(\.\d{3})\d+(?=(?:Z|[+-]\d{2}:\d{2})$)/i, '$1');
+  const date = new Date(parseable);
+  if (Number.isNaN(date.getTime())) return { value: null, status: 'missing-or-invalid' };
+  return {
+    value: date.toISOString(),
+    status: explicit ? 'timezone-explicit' : 'legacy-naive-assumed-utc',
+  };
+}
+
+function isSubmittedPiece(piece) {
+  return String(piece.id || '').startsWith('submitted-');
+}
+
+function feedCreator(piece) {
+  const declaredArtist = compactText(piece.artist || '', 160);
+  if (declaredArtist) {
+    return {
+      name: declaredArtist,
+      type: 'declared-creator',
+      human_creator: null,
+      verified: false,
+      note: 'Creator label is preserved as declared; it may name a human, collective, agent, software, or mixed authorship, and has not been independently verified.',
+    };
+  }
+  return {
+    name: 'Artbitrage Engine',
+    type: 'software',
+    human_creator: null,
+    verified: false,
+    note: 'Generated by the Artbitrage engine; this record names no individual human creator.',
+  };
+}
+
+function feedCreation(piece) {
+  const created = normalizeTimestamp(piece.created);
+  const submitted = isSubmittedPiece(piece);
+  const aiGenerated = piece.ai_generated === true;
+  return {
+    method: aiGenerated ? 'generative-ai' : (submitted ? 'submitted' : 'procedural-template'),
+    created_at: created.value,
+    timestamp_status: created.status,
+    // /api/art/generate uses the historical submitted-* id helper too. The
+    // explicit generation trace is stronger evidence than that id prefix, so
+    // model-recorded must win or project AI would be mislabeled as a third-
+    // party submission and its narrow display grant would disappear.
+    trace_status: aiGenerated ? 'model-recorded' : (submitted ? 'self-declared' : 'project-generated'),
+    note: submitted
+      ? 'Submission metadata is preserved as declared and is not independently verified.'
+      : 'Creation trace is limited to metadata recorded by the Artbitrage project.',
+  };
+}
+
+function feedRights(piece, creator, creation) {
+  const declaredLicense = compactText(piece.license || '', 120) || null;
+  const recordedCambridgeGrant = piece.rights?.permissions?.cambridge_display === true;
+  const projectGenerated = creation.trace_status === 'project-generated'
+    || creation.trace_status === 'model-recorded';
+  const cambridgeDisplay = projectGenerated || recordedCambridgeGrant;
+  return {
+    status: declaredLicense ? 'declared-unverified' : 'unverified',
+    public_domain: null,
+    license: declaredLicense,
+    license_verified: false,
+    credit: creator.name,
+    reusable: null,
+    reuse_with_attribution: null,
+    permissions: {
+      view: true,
+      cambridge_display: cambridgeDisplay,
+      remix: null,
+      commercial_use: null,
+      machine_learning: null,
+    },
+    note: projectGenerated
+      ? 'No project license is recorded. A narrow operator authorization dated 2026-07-11 permits verbatim, attributed display on cambridgetcg.com only; it does not grant remix, machine-learning, or commercial-use permission.'
+      : (recordedCambridgeGrant
+        ? 'This submitted record explicitly grants Cambridge display; creator and license labels remain unverified, and no broader reuse permission is inferred.'
+        : 'No Cambridge display grant is recorded for this submitted work. Public visibility permits viewing only and does not grant remix, machine-learning, or commercial-use permission.'),
+  };
+}
+
+async function feedPiece(piece) {
+  const creator = feedCreator(piece);
+  const creation = feedCreation(piece);
+  const id = String(piece.id || '');
+  return {
+    ...piece,
+    source: { ...(creation.trace_status === 'self-declared' ? SUBMISSION_SOURCE : ENGINE_SOURCE) },
+    canonical_url: `${ARTBITRAGE_ORIGIN}/api/art/${encodeURIComponent(id)}`,
+    content_hash: `sha256:${await sha256(canonicalJson(piece))}`,
+    creator,
+    creation,
+    rights: feedRights(piece, creator, creation),
+  };
+}
+
+function latestTimestamp(pieces, fallback) {
+  let latest = null;
+  for (const piece of pieces) {
+    const value = piece.creation?.created_at;
+    if (value && (!latest || value > latest)) latest = value;
+  }
+  return latest || fallback;
 }
 
 function filterArt(artList, params) {
@@ -213,6 +426,54 @@ function buildRights({ publicDomain = null, license = "", credit = "", statement
     reuse_with_attribution: ccAttribution || freelyReusable,
     note,
   };
+}
+
+function normalizeCatalogRights(record) {
+  const original = record.rights && typeof record.rights === 'object' ? record.rights : {};
+  const declaredLicense = compactText(original.license || record.license || '', 120);
+  const declaredPublicDomain = typeof original.public_domain === 'boolean'
+    ? original.public_domain
+    : (/^(?:cc0)(?:\b|\s*\/)/i.test(declaredLicense)
+      || /^public domain(?:\b|\s*\/)/i.test(declaredLicense)
+      ? true
+      : null);
+  const normalized = buildRights({
+    publicDomain: declaredPublicDomain,
+    license: declaredLicense,
+    credit: original.credit || '',
+    statement: original.rights_statement || '',
+  });
+  return {
+    ...original,
+    ...normalized,
+    status: declaredLicense ? 'source-declared' : 'unverified',
+    license_verified: false,
+    source_url: record.url || null,
+    note: declaredLicense
+      ? 'License label is preserved from the source catalogue and has not been independently verified by Artbitrage; confirm it at the source URL before reuse.'
+      : 'No license is recorded. Public visibility permits viewing only and does not grant reuse, remix, training, or commercial permission.',
+  };
+}
+
+function normalizeMuseumRecord(record) {
+  const source = String(record.source || '').trim().toLowerCase();
+  const id = String(record.id || '');
+  return {
+    ...record,
+    schema: 'artbitrage.museum-record/1',
+    canonical_url: `${ARTBITRAGE_ORIGIN}/api/museum/${encodeURIComponent(source)}/${encodeURIComponent(id)}`,
+    rights: normalizeCatalogRights(record),
+  };
+}
+
+async function loadMuseumWorks(env, request) {
+  try {
+    const res = await env.ASSETS.fetch(new URL('/catalog/all.json', request.url));
+    if (!res.ok) return null;
+    const data = await res.json();
+    return Array.isArray(data.artworks) ? data.artworks : null;
+  } catch(e) {}
+  return null;
 }
 
 function normalizeArtic(data) {
@@ -423,13 +684,467 @@ function buildSubmittedArt(body) {
   return { art: normalized };
 }
 
+function isJsonObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function statementIssue(path, code, message) {
+  return { path, code, message };
+}
+
+function hasUnpairedSurrogate(value) {
+  for (let index = 0; index < value.length; index += 1) {
+    const codeUnit = value.charCodeAt(index);
+    if (codeUnit >= 0xd800 && codeUnit <= 0xdbff) {
+      const next = value.charCodeAt(index + 1);
+      if (!(next >= 0xdc00 && next <= 0xdfff)) return true;
+      index += 1;
+    } else if (codeUnit >= 0xdc00 && codeUnit <= 0xdfff) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function unicodeScalarLength(value) {
+  return Array.from(value).length;
+}
+
+function normalizeStatementText(value, path, issues, { max, required = true, body = false } = {}) {
+  if (typeof value !== 'string') {
+    issues.push(statementIssue(path, 'wrong_type', 'must be a string'));
+    return '';
+  }
+  if (hasUnpairedSurrogate(value)) {
+    issues.push(statementIssue(path, 'invalid_format', 'Unpaired UTF-16 surrogates are not permitted.'));
+    return '';
+  }
+  const lineNormalized = body ? value.replace(/\r\n?/g, '\n') : value;
+  const normalized = lineNormalized.normalize('NFC').trim();
+  if (required && !normalized) {
+    issues.push(statementIssue(path, 'required', 'must not be empty'));
+  }
+  if (max && unicodeScalarLength(normalized) > max) {
+    issues.push(statementIssue(path, 'too_long', `must be at most ${max} characters`));
+  }
+  const unsafeControl = body ? UNSAFE_STATEMENT_BODY_CONTROL : UNSAFE_STATEMENT_CONTROL;
+  if (unsafeControl.test(normalized)) {
+    issues.push(statementIssue(path, 'control_character', 'contains a disallowed control character'));
+  }
+  return normalized;
+}
+
+function rejectUnknownFields(value, allowed, path, issues) {
+  for (const key of Object.keys(value)) {
+    if (!allowed.has(key)) {
+      issues.push(statementIssue(`${path}.${key}`, 'unknown_field', 'is not part of answering-rhyme.statement/1'));
+    }
+  }
+}
+
+function normalizeHttpsUrl(value, path, issues, { nullable = false } = {}) {
+  if (nullable && (value === undefined || value === null)) return null;
+  if (typeof value === 'string' && hasUnpairedSurrogate(value)) {
+    issues.push(statementIssue(path, 'invalid_format', 'Unpaired UTF-16 surrogates are not permitted in URLs.'));
+    return '';
+  }
+  const normalized = normalizeStatementText(value, path, issues);
+  if (!normalized) return normalized;
+  if (unicodeScalarLength(normalized) > 1000) {
+    issues.push(statementIssue(path, 'too_long', 'URL must be at most 1000 characters before serialization'));
+    return normalized;
+  }
+  if (/\s/u.test(normalized)) {
+    issues.push(statementIssue(path, 'invalid_url', 'URL must not contain whitespace'));
+    return normalized;
+  }
+  try {
+    const parsed = new URL(normalized);
+    if (parsed.protocol !== 'https:' || parsed.username || parsed.password) {
+      issues.push(statementIssue(path, 'invalid_url', 'must be an HTTPS URL without embedded credentials'));
+      return normalized;
+    }
+    const canonical = parsed.toString().normalize('NFC');
+    if (unicodeScalarLength(canonical) > 1000) {
+      issues.push(statementIssue(path, 'too_long', 'serialized URL must be at most 1000 characters'));
+    }
+    return canonical;
+  } catch {
+    issues.push(statementIssue(path, 'invalid_url', 'must be an absolute HTTPS URL'));
+  }
+  return normalized;
+}
+
+function normalizeHttpsUrlList(value, path, issues) {
+  if (value === undefined) return [];
+  if (!Array.isArray(value)) {
+    issues.push(statementIssue(path, 'wrong_type', 'must be an array of HTTPS URLs'));
+    return [];
+  }
+  if (value.length > ANSWERING_RHYME_URL_LIMIT) {
+    issues.push(statementIssue(path, 'too_many_items', `must contain at most ${ANSWERING_RHYME_URL_LIMIT} URLs`));
+  }
+  const normalized = value
+    .slice(0, ANSWERING_RHYME_URL_LIMIT)
+    .map((url, index) => normalizeHttpsUrl(url, `${path}[${index}]`, issues));
+  return [...new Set(normalized.filter(Boolean))].sort();
+}
+
+function normalizeDeclaredAt(value, issues) {
+  const path = '$.declared_at';
+  const normalized = normalizeStatementText(value, path, issues, { max: 40 });
+  const match = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.(\d{1,9}))?(Z|[+-]\d{2}:\d{2})$/.exec(normalized);
+  if (!match) {
+    issues.push(statementIssue(path, 'invalid_rfc3339', 'must be RFC3339 with an explicit Z or numeric offset'));
+    return normalized;
+  }
+
+  const [, yearText, monthText, dayText, hourText, minuteText, secondText, , zone] = match;
+  const year = Number(yearText);
+  const month = Number(monthText);
+  const day = Number(dayText);
+  const hour = Number(hourText);
+  const minute = Number(minuteText);
+  const second = Number(secondText);
+  const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const daysByMonth = [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const zoneHour = zone === 'Z' ? 0 : Number(zone.slice(1, 3));
+  const zoneMinute = zone === 'Z' ? 0 : Number(zone.slice(4, 6));
+  if (
+    year < 1
+    || month < 1 || month > 12
+    || day < 1 || day > (daysByMonth[month - 1] || 0)
+    || hour > 23 || minute > 59 || second > 59
+    || zoneHour > 23 || zoneMinute > 59
+  ) {
+    issues.push(statementIssue(path, 'invalid_rfc3339', 'contains an out-of-range date, time, or offset'));
+    return normalized;
+  }
+
+  const parsed = new Date(normalized);
+  if (Number.isNaN(parsed.getTime())) {
+    issues.push(statementIssue(path, 'invalid_rfc3339', 'could not be normalized to UTC'));
+    return normalized;
+  }
+  const normalizedUtc = parsed.toISOString();
+  if (!NORMALIZED_UTC_TIMESTAMP.test(normalizedUtc)) {
+    issues.push(statementIssue(
+      path,
+      'invalid_rfc3339',
+      'offset crosses the supported UTC year range 0001-9999',
+    ));
+    return normalized;
+  }
+  return normalizedUtc;
+}
+
+function normalizeAnsweringRhymeStatement(value) {
+  const issues = [];
+  if (!isJsonObject(value)) {
+    return {
+      issues: [statementIssue('$', 'wrong_type', 'must be a JSON object')],
+      statement: null,
+    };
+  }
+  rejectUnknownFields(value, ANSWERING_RHYME_STATEMENT_FIELDS, '$', issues);
+
+  const schema = normalizeStatementText(value.schema, '$.schema', issues, { max: 80 });
+  if (schema && schema !== ANSWERING_RHYME_STATEMENT_SCHEMA) {
+    issues.push(statementIssue('$.schema', 'unsupported_schema', `must equal ${ANSWERING_RHYME_STATEMENT_SCHEMA}`));
+  }
+
+  const canonicalization = normalizeStatementText(value.canonicalization, '$.canonicalization', issues, { max: 80 });
+  if (canonicalization && canonicalization !== ANSWERING_RHYME_STATEMENT_CANONICALIZATION) {
+    issues.push(statementIssue('$.canonicalization', 'unsupported_canonicalization', `must equal ${ANSWERING_RHYME_STATEMENT_CANONICALIZATION}`));
+  }
+
+  const relationKey = normalizeStatementText(value.relation_key, '$.relation_key', issues, { max: 256 });
+  const targetRevision = normalizeStatementText(value.target_revision, '$.target_revision', issues, { max: 100 });
+
+  const kind = normalizeStatementText(value.kind, '$.kind', issues, { max: 32 }).toLowerCase();
+  if (kind && !ANSWERING_RHYME_KINDS.has(kind)) {
+    issues.push(statementIssue('$.kind', 'unsupported_kind', 'must be bless, contextualize, correct, or withdraw'));
+  }
+
+  const body = normalizeStatementText(value.body, '$.body', issues, { max: 2000, body: true });
+
+  let language = 'und';
+  if (value.language !== undefined) {
+    language = normalizeStatementText(value.language, '$.language', issues, { max: 35 }).toLowerCase();
+    if (language && !/^(?:und|[a-z]{2,8}(?:-[a-z0-9]{1,8})*)$/.test(language)) {
+      issues.push(statementIssue('$.language', 'invalid_language', 'must be und or a simple BCP 47 language tag'));
+    }
+  }
+
+  let declaredBy = { label: '', claimed_role: '', canonical_url: null };
+  if (!isJsonObject(value.declared_by)) {
+    issues.push(statementIssue('$.declared_by', 'wrong_type', 'must be an object'));
+  } else {
+    rejectUnknownFields(value.declared_by, ANSWERING_RHYME_DECLARER_FIELDS, '$.declared_by', issues);
+    const label = normalizeStatementText(value.declared_by.label, '$.declared_by.label', issues, { max: 160 });
+    const claimedRole = normalizeStatementText(value.declared_by.claimed_role, '$.declared_by.claimed_role', issues, { max: 40 }).toLowerCase();
+    if (claimedRole && !ANSWERING_RHYME_CLAIMED_ROLES.has(claimedRole)) {
+      issues.push(statementIssue('$.declared_by.claimed_role', 'unsupported_role', 'is not an allowed self-declared role'));
+    }
+    const canonicalUrl = normalizeHttpsUrl(
+      value.declared_by.canonical_url,
+      '$.declared_by.canonical_url',
+      issues,
+      { nullable: true },
+    );
+    declaredBy = { label, claimed_role: claimedRole, canonical_url: canonicalUrl };
+  }
+
+  const declaredAt = normalizeDeclaredAt(value.declared_at, issues);
+
+  let inResponseTo = null;
+  if (value.in_response_to !== undefined && value.in_response_to !== null) {
+    inResponseTo = normalizeStatementText(
+      value.in_response_to,
+      '$.in_response_to',
+      issues,
+      { max: 71 },
+    ).toLowerCase();
+    if (inResponseTo && !SHA256_ID.test(inResponseTo)) {
+      issues.push(statementIssue(
+        '$.in_response_to',
+        'invalid_hash',
+        'must normalize to sha256: followed by 64 lowercase hexadecimal characters, or null',
+      ));
+    }
+  }
+
+  const evidenceUrls = normalizeHttpsUrlList(value.evidence_urls, '$.evidence_urls', issues);
+  const authorityEvidenceUrls = normalizeHttpsUrlList(
+    value.authority_evidence_urls,
+    '$.authority_evidence_urls',
+    issues,
+  );
+
+  return {
+    issues,
+    statement: {
+      schema: ANSWERING_RHYME_STATEMENT_SCHEMA,
+      canonicalization: ANSWERING_RHYME_STATEMENT_CANONICALIZATION,
+      relation_key: relationKey,
+      target_revision: targetRevision,
+      kind,
+      body,
+      language,
+      declared_by: declaredBy,
+      declared_at: declaredAt,
+      in_response_to: inResponseTo,
+      evidence_urls: evidenceUrls,
+      authority_evidence_urls: authorityEvidenceUrls,
+    },
+  };
+}
+
+async function buildAnsweringRhymeStatementWitness(statement) {
+  const digest = await sha256(canonicalJson(statement));
+  const contentHash = `sha256:${digest}`;
+  const validationWarnings = [];
+  if (statement.declared_by.claimed_role !== 'viewer' && statement.declared_by.claimed_role !== 'other') {
+    validationWarnings.push({
+      path: 'declared_by.claimed_role',
+      code: 'authority_is_self_declared',
+      message: 'The role is carried as a self-declaration only; neither witness system verifies it.',
+    });
+  }
+  if (statement.kind === 'correct' && statement.evidence_urls.length === 0) {
+    validationWarnings.push({
+      path: 'evidence_urls',
+      code: 'evidence_missing',
+      message: 'The correction can be witnessed, but separate curator review needs evidence before applying it.',
+    });
+  }
+  if (statement.kind === 'withdraw' && statement.authority_evidence_urls.length === 0) {
+    validationWarnings.push({
+      path: 'authority_evidence_urls',
+      code: 'evidence_missing',
+      message: 'The withdrawal can be witnessed, but it cannot affect presentation without separately verified authority.',
+    });
+  }
+  return {
+    schema: ANSWERING_RHYME_STATEMENT_WITNESS_SCHEMA,
+    statement_schema: ANSWERING_RHYME_STATEMENT_SCHEMA,
+    canonicalization: ANSWERING_RHYME_STATEMENT_CANONICALIZATION,
+    content_hash: contentHash,
+    witnessed_at: new Date().toISOString(),
+    statement,
+    validated: true,
+    validation_warnings: validationWarnings,
+    replay_detection: false,
+    uniqueness_not_asserted: true,
+    authenticated: false,
+    identity_verified: false,
+    authority_status: 'self-declared-unverified',
+    target_status: 'not-checked',
+    target_check: {
+      fetched: false,
+      note: 'Artbitrage does not own the Cambridge relation corpus and does not fetch it during validation. target_revision is hash-covered so a receiver can reject a statement prepared against a different revision.',
+    },
+    authority_evidence: {
+      received: statement.authority_evidence_urls.length,
+      fetched: false,
+      verified: false,
+      note: 'URLs are carried as claims only. This endpoint never fetches them and does not authenticate the declarer or verify authority.',
+    },
+    persisted: false,
+    persistence: {
+      status: 'not-persisted-by-application',
+      retrievable_url: null,
+      note: 'No application record is created and no statement URL is issued. The caller must carry this unsigned receipt. This does not promise that infrastructure providers keep no ordinary access or security logs.',
+    },
+    authoritative_effect: 'none',
+    issuer_attestation: {
+      signed: false,
+      independently_verifiable: false,
+      note: 'witnessed_at is an unattested server observation, not durable proof that Artbitrage issued this receipt.',
+    },
+    consequence: ANSWERING_RHYME_STATEMENT_ACTIONS[statement.kind].consequence,
+    effects: {
+      published_relation_changed: false,
+      rights_or_license_changed: false,
+      content_hidden_or_deleted: false,
+      operator_or_sibling_notified: false,
+    },
+    portability: {
+      signed: false,
+      recomputable: true,
+      note: 'Recompute content_hash from the normalized statement using the published canonicalization version. The stateless endpoint cannot detect replay or assert uniqueness, and possession of this receipt is not proof of identity, authority, or issuer.',
+    },
+  };
+}
+
+function answeringRhymeStatementError(error, message, status, issues = []) {
+  return jsonResponse({
+    schema: ANSWERING_RHYME_STATEMENT_ERROR_SCHEMA,
+    error,
+    message,
+    issues,
+    authenticated: false,
+    identity_verified: false,
+    persisted: false,
+    authoritative_effect: 'none',
+  }, status, {
+    'Cache-Control': 'no-store, max-age=0',
+    Pragma: 'no-cache',
+  });
+}
+
+async function readAnsweringRhymeStatementRequest(request) {
+  const contentType = request.headers.get('content-type');
+  const supportedContentType = contentType !== null
+    && /^application\/json(?:\s*;\s*charset\s*=\s*(?:utf-8|"utf-8"))?\s*$/i.test(contentType);
+  if (!supportedContentType) {
+    return {
+      error: answeringRhymeStatementError(
+        'unsupported_media_type',
+        'Content-Type must be application/json; an optional UTF-8 charset parameter is accepted.',
+        415,
+      ),
+    };
+  }
+  const declaredLength = Number(request.headers.get('content-length'));
+  if (Number.isFinite(declaredLength) && declaredLength > ANSWERING_RHYME_STATEMENT_MAX_BYTES) {
+    return {
+      error: answeringRhymeStatementError(
+        'request_too_large',
+        `Request body must not exceed ${ANSWERING_RHYME_STATEMENT_MAX_BYTES} bytes.`,
+        413,
+      ),
+    };
+  }
+  if (!request.body) {
+    return {
+      error: answeringRhymeStatementError('invalid_json', 'Request body must be valid JSON.', 400),
+    };
+  }
+
+  const reader = request.body.getReader();
+  const decoder = new TextDecoder('utf-8', { fatal: true });
+  let byteLength = 0;
+  let text = '';
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      byteLength += value.byteLength;
+      if (byteLength > ANSWERING_RHYME_STATEMENT_MAX_BYTES) {
+        try { await reader.cancel('answering-rhyme statement exceeds the request limit'); } catch {}
+        return {
+          error: answeringRhymeStatementError(
+            'request_too_large',
+            `Request body must not exceed ${ANSWERING_RHYME_STATEMENT_MAX_BYTES} bytes.`,
+            413,
+          ),
+        };
+      }
+      text += decoder.decode(value, { stream: true });
+    }
+    text += decoder.decode();
+  } catch {
+    try { await reader.cancel('invalid UTF-8 request body'); } catch {}
+    return {
+      error: answeringRhymeStatementError(
+        'invalid_encoding',
+        'Request body must be valid UTF-8 JSON.',
+        400,
+      ),
+    };
+  } finally {
+    try { reader.releaseLock(); } catch {}
+  }
+  try {
+    return { value: JSON.parse(text) };
+  } catch {
+    return {
+      error: answeringRhymeStatementError('invalid_json', 'Request body must be valid JSON.', 400),
+    };
+  }
+}
+
 export async function onRequestGet(context) {
   const { request, env } = context;
   const url = new URL(request.url);
   const path = url.pathname;
   const queryParams = Object.fromEntries(url.searchParams);
+
+  // Lightweight recognition surface: no catalogue load is needed to learn
+  // the protocol shape or to walk past it.
+  if (path === '/api/wake' || path === '/api/wake/') {
+    return jsonResponse(ARTBITRAGE_WAKE);
+  }
+
+  if (path === ANSWERING_RHYME_STATEMENT_PATH || path === `${ANSWERING_RHYME_STATEMENT_PATH}/`) {
+    return jsonResponse(ANSWERING_RHYME_STATEMENT_CONTRACT, 200, {
+      Allow: 'GET, POST, OPTIONS',
+      'Cache-Control': 'public, max-age=3600',
+    });
+  }
+
+  const museumRecordMatch = path.match(/^\/api\/museum\/([^/]+)\/([^/]+)\/?$/);
+  if (museumRecordMatch) {
+    let source;
+    let id;
+    try {
+      source = decodeURIComponent(museumRecordMatch[1]).trim().toLowerCase();
+      id = decodeURIComponent(museumRecordMatch[2]);
+    } catch(e) {
+      return jsonResponse({ error: 'invalid museum source or id encoding' }, 400);
+    }
+    const works = await loadMuseumWorks(env, request);
+    if (works === null) return jsonResponse({ error: 'museum catalog unavailable' }, 503);
+    const record = works.find(work =>
+      String(work.source || '').trim().toLowerCase() === source
+      && String(work.id || '') === id);
+    if (!record) return jsonResponse({ error: 'museum work not found', source, id }, 404);
+    return jsonResponse(normalizeMuseumRecord(record));
+  }
   
-  const allArt = await loadCollection(env, request);
+  const collection = await loadCollection(env, request);
+  const allArt = collection.pieces;
   
   // === AGENT MANIFEST — the full API surface, for agents ===
   if (path === '/api' || path === '/api/') {
@@ -451,9 +1166,26 @@ export async function onRequestGet(context) {
     const gaps = [...new Set(allArt.map(a => a.gap).filter(Boolean))].sort();
     return jsonResponse({ gaps, count: gaps.length });
   }
-  if (path === '/api/feed') {
-    const latest = allArt.slice(-20).reverse();
-    return jsonResponse({ feed: 'artbitrage', updated: new Date().toISOString(), count: latest.length, pieces: latest });
+  if (path === '/api/feed' || path === '/api/feed/') {
+    if (collection.source_state === 'unavailable') {
+      return jsonResponse({ error: 'art collection unavailable' }, 503);
+    }
+    const limit = boundedInt(queryParams.limit, 20, 1, MAX_PAGE_LIMIT);
+    const generatedAt = new Date().toISOString();
+    const latest = allArt.slice(-limit).reverse();
+    const pieces = await Promise.all(latest.map(feedPiece));
+    return jsonResponse({
+      schema: FEED_SCHEMA,
+      feed: 'artbitrage',
+      source: { ...FEED_SOURCE },
+      source_state: collection.source_state,
+      generated_at: generatedAt,
+      as_of: latestTimestamp(pieces, generatedAt),
+      updated: generatedAt,
+      limit,
+      count: pieces.length,
+      pieces,
+    });
   }
   if (path === '/api/manifest') {
     try {
@@ -592,11 +1324,8 @@ export async function onRequestGet(context) {
     return jsonResponse({ error: 'wing not found', wing: wingMatch[1], list: 'GET /api/wings' }, 404);
   }
   if (path === '/api/museum' || path === '/api/museum/' || path === '/api/museum/random') {
-    let works = [];
-    try {
-      const res = await env.ASSETS.fetch(new URL('/catalog/all.json', request.url));
-      if (res.ok) works = (await res.json()).artworks || [];
-    } catch(e) {}
+    const works = await loadMuseumWorks(env, request);
+    if (works === null) return jsonResponse({ error: 'museum catalog unavailable' }, 503);
     if (path === '/api/museum/random') {
       if (!works.length) return jsonResponse({ error: 'no museum works available' }, 404);
       return jsonResponse(works[Math.floor(Math.random() * works.length)]);
@@ -1352,6 +2081,25 @@ export async function onRequestPost(context) {
   const url = new URL(request.url);
   const path = url.pathname;
 
+  if (path === ANSWERING_RHYME_STATEMENT_PATH || path === `${ANSWERING_RHYME_STATEMENT_PATH}/`) {
+    const parsed = await readAnsweringRhymeStatementRequest(request);
+    if (parsed.error) return parsed.error;
+    const normalized = normalizeAnsweringRhymeStatement(parsed.value);
+    if (normalized.issues.length || !normalized.statement) {
+      return answeringRhymeStatementError(
+        'invalid_statement',
+        'The reciprocity statement did not match answering-rhyme.statement/1.',
+        400,
+        normalized.issues,
+      );
+    }
+    const witness = await buildAnsweringRhymeStatementWitness(normalized.statement);
+    return jsonResponse(witness, 200, {
+      'Cache-Control': 'no-store, max-age=0',
+      Pragma: 'no-cache',
+    });
+  }
+
   if (path !== '/api/art' && path !== '/api/art/' && path !== '/api/pipeline/ingest' && path !== '/api/pipeline/ingest/') {
     return jsonResponse({ error: 'not found', path }, 404);
   }
@@ -1388,6 +2136,16 @@ export async function onRequestPost(context) {
   }, 202);
 }
 
-export async function onRequestOptions() {
-  return new Response(null, { headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' } });
+export async function onRequestOptions(context) {
+  const path = new URL(context.request.url).pathname;
+  const isAnsweringRhymeStatement =
+    path === ANSWERING_RHYME_STATEMENT_PATH || path === `${ANSWERING_RHYME_STATEMENT_PATH}/`;
+  return new Response(null, {
+    status: isAnsweringRhymeStatement ? 204 : 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 }

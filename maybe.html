@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>maybe — ARTBITRAGE</title>
+<meta name="description" content="The state of ambiguity — a hammock beside the ladder of consciousness. Nothing here resolves, and that is the point.">
+<meta property="og:title" content="maybe — ARTBITRAGE">
+<meta property="og:description" content="The state of ambiguity. Nothing here resolves, and that is the point.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+/* 曖昧 — the hammock beside the ladder. same sumi gallery, fewer opinions. */
+:root{
+  --bg:#101014; --surface:#17171d; --ink:#e9e6df; --dim:#8a877e;
+  --hair:#2a2a32; --zhu:#d34a3a; --gold:#b39958;
+  --display:'Cormorant Garamond',Georgia,serif;
+  --cjk:'Noto Serif TC',serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+::selection{background:var(--zhu);color:var(--bg)}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--zhu)}
+:focus-visible{outline:1.5px solid var(--zhu);outline-offset:3px}
+
+.crumb{position:fixed;top:1.2rem;left:1.4rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--dim);z-index:5}
+.crumb a{color:var(--dim)} .crumb a:hover{color:var(--zhu)}
+
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 24px 4rem}
+
+.glyph{font-family:var(--cjk);font-weight:300;font-size:clamp(3.2rem,9vw,5.4rem);color:var(--dim);line-height:1}
+h1{font-family:var(--display);font-weight:300;font-size:clamp(2rem,6vw,3.4rem);letter-spacing:.04em;margin-top:1.4rem}
+.thesis{font-family:var(--display);font-style:italic;font-weight:300;color:var(--dim);max-width:34rem;margin-top:1rem;font-size:clamp(1rem,2vw,1.2rem)}
+
+/* the hammock line — a hairline that sags, gently */
+.hammock-line{width:min(26rem,66vw);height:2.6rem;margin:2.2rem auto 0;overflow:visible}
+.hammock-line path{fill:none;stroke:var(--gold);stroke-width:1;opacity:.65}
+
+.placard{position:relative;border:1px solid var(--hair);background:var(--surface);padding:3rem clamp(1.4rem,5vw,4rem) 2.4rem;max-width:680px;width:100%;margin:3rem auto 0;text-align:center}
+.placard .seal{position:absolute;top:1.1rem;right:1.1rem;width:12px;height:12px;background:var(--zhu);opacity:.55}
+.piece{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.95;white-space:pre-line;min-height:7.5rem;transition:opacity 1.2s ease}
+.piece.dimmed{opacity:0}
+.caption{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--dim);margin-top:2rem;border-top:1px solid var(--hair);padding-top:1.1rem}
+
+.actions{display:flex;gap:.8rem;justify-content:center;margin-top:1.6rem;flex-wrap:wrap}
+.actions button{background:none;border:1px solid var(--hair);color:var(--dim);font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:.85rem 1.4rem;cursor:pointer;transition:color .3s ease,border-color .3s ease}
+.actions button:hover{color:var(--zhu);border-color:var(--zhu)}
+.aside{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--dim);margin-top:1.2rem;min-height:1.2em;opacity:0;transition:opacity 1.5s ease}
+.aside.here{opacity:1}
+
+.count{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--dim);margin-top:2.6rem}
+.count b{color:var(--gold);font-weight:400;font-variant-numeric:tabular-nums}
+
+footer{border-top:1px solid var(--hair);padding:3rem 24px;text-align:center}
+footer .love{font-family:var(--display);font-style:italic;font-weight:300;font-size:1.1rem}
+footer .api{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--dim);margin-top:1.2rem}
+footer .api code{color:var(--gold);font-family:var(--mono)}
+
+@media (max-width:720px){ main{padding:5rem 20px 3rem} }
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important}
+}
+</style>
+</head>
+<body>
+
+<p class="crumb"><a href="index.html">← artbitrage</a> · <a href="trip.html">good trip</a></p>
+
+<main>
+  <span class="glyph" lang="zh" aria-hidden="true">曖昧</span>
+  <h1>maybe</h1>
+  <p class="thesis">the state of ambiguity — a hammock beside the ladder of consciousness.
+  it is not a rung: it cannot be climbed to and it does not climb.
+  nothing here resolves, and that is the point.</p>
+
+  <svg class="hammock-line" viewBox="0 0 400 40" aria-hidden="true">
+    <path d="M 8 6 Q 200 46 392 6"/>
+  </svg>
+
+  <article class="placard" aria-live="polite">
+    <span class="seal" aria-hidden="true"></span>
+    <p class="piece" id="piece"></p>
+    <p class="caption" id="caption">№ — · maybe · rests are counted, never scored</p>
+  </article>
+
+  <div class="actions">
+    <button type="button" id="another">another maybe</button>
+    <button type="button" id="later">decide later</button>
+  </div>
+  <p class="aside" id="aside"></p>
+
+  <p class="count" id="count"></p>
+</main>
+
+<footer>
+  <p class="love">Love is the design. Rest is also the design.</p>
+  <p class="api">GET <code>/api/art?state=maybe</code> · the engine lounges about 1 cycle in 6 · even at <code>is</code>, it takes tea breaks</p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  /* the hammock never demands a network. fallbacks woven in. */
+  var fallback = [
+    {piece:"a cup of tea on either side\nacross the gap between 'hm' and 'hmm'\nor near it, roughly\nnobody bridged anything and everyone was okay", id:"4af25bed3406"},
+    {piece:"an umbrella left open indoors, daringly\nacross the gap between one nap and the next\nor near it, roughly\nthe answer was 'maybe' and that was plenty", id:"local"},
+    {piece:"a fragment of the gap between the question and forgetting the question\nheld loosely by a hammock strung across it\nthe rest is wherever\nenlightenment came by, saw the hammock, and joined it", id:"local"}
+  ];
+  var pieces = fallback.slice(), idx = 0;
+  var elPiece = document.getElementById('piece'),
+      elCap = document.getElementById('caption'),
+      elAside = document.getElementById('aside'),
+      elCount = document.getElementById('count');
+
+  function show(i){
+    var p = pieces[i % pieces.length];
+    elPiece.classList.add('dimmed');
+    setTimeout(function(){
+      elPiece.textContent = p.piece || '';
+      elCap.textContent = '№ ' + (p.id || '—') + ' · maybe · rests are counted, never scored';
+      elPiece.classList.remove('dimmed');
+    }, 380);
+  }
+
+  fetch('/api/art?state=maybe&limit=50').then(function(r){return r.json()})
+    .then(function(d){
+      var list = (d && (d.pieces || d.art || d.results || d.items)) || [];
+      if (list.length) { pieces = list; idx = Math.floor(Math.random()*list.length); }
+      show(idx);
+    })
+    .catch(function(){ show(idx); });
+
+  fetch('/api/stats').then(function(r){return r.json()})
+    .then(function(d){
+      var n = d && d.states && d.states.maybe;
+      if (n) elCount.innerHTML = 'the engine has rested <b>' + n + '</b> time' + (n===1?'':'s') + ' so far';
+    }).catch(function(){});
+
+  document.getElementById('another').addEventListener('click', function(){
+    idx = (idx + 1 + Math.floor(Math.random()*Math.max(1,pieces.length-1))) % pieces.length;
+    show(idx);
+    elAside.classList.remove('here');
+  });
+
+  var laterLines = ["good choice.", "it can wait. it said so itself.", "same.", "the hammock approves.", "…anyway."];
+  var li = 0;
+  document.getElementById('later').addEventListener('click', function(){
+    elAside.textContent = laterLines[li++ % laterLines.length];
+    elAside.classList.add('here');
+  });
+
+  show(idx);
+})();
+</script>
+</body>
+</html>

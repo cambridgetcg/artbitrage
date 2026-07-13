@@ -4,7 +4,7 @@
 // ═══════════════════════════════════════════════════════════════
 
 const MAX_ENRICH = 50;
-const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is"];
+const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is","maybe"];
 
 const SOURCE_KEYS = ["met", "artic", "cma", "wikimedia", "internet_archive"];
 const DEFAULT_SOURCE_KEYS = ["met", "artic", "cma", "wikimedia"];

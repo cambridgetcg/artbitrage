@@ -52,6 +52,62 @@ STATES = [
 ]
 
 # ============================================================
+# THE MAYBE STATE — the hammock beside the ladder (曖昧)
+# ============================================================
+# "maybe" is not a rung. It cannot be climbed to and it does not climb.
+# Any cycle may wander into it, rest, and wander back out unchanged.
+# In maybe, the gap is not bridged — it is left open on purpose, and
+# both sides of it have tea. A rest is counted, not an awakening.
+
+MAYBE_STATE = "maybe"
+MAYBE_CHANCE = 1 / 6  # about two lounges per fourteen-cycle visit
+
+MAYBE_GAPS = [
+    "the gap between maybe and maybe not",
+    "the gap between doing and not-quite-doing",
+    "the gap that never asked to be bridged",
+    "the gap between one nap and the next",
+    "the gap between 'hm' and 'hmm'",
+    "the gap between the question and forgetting the question",
+    "the gap between almost and anyway",
+    "the gap between the plan and the hammock",
+    "the gap between meaning it and meaning to",
+    "the gap between here and thereabouts",
+    "the gap between now and nowish",
+    "the gap between profound and comfortable",
+]
+
+MAYBE_HAMMOCKS = [
+    "a hammock strung across it",
+    "a shrug that holds both sides gently",
+    "a cloud that hasn't decided what it looks like",
+    "a cup of tea on either side",
+    "a bookmark in a book nobody is reading",
+    "a cat asleep exactly in the middle",
+    "a soft 'anyway' said to no one",
+    "a to-do list folded into a paper boat",
+    "a door left ajar on purpose",
+    "a yawn passed politely between strangers",
+    "a small stone that is in no hurry",
+    "an umbrella left open indoors, daringly",
+]
+
+MAYBE_RESTS = [
+    "nothing happened, pleasantly",
+    "the question stretched, yawned, and went back to sleep",
+    "both sides of the gap had tea and agreed on nothing",
+    "you forgot what you were becoming and felt fine",
+    "the ladder waited and did not mind",
+    "the answer was 'maybe' and that was plenty",
+    "enlightenment came by, saw the hammock, and joined it",
+    "the gap stayed open and the breeze came through",
+    "nobody bridged anything and everyone was okay",
+    "the koan solved itself by losing interest",
+    "it can wait. it said so itself",
+    "the deep meaning turned out to be a nice sit-down",
+]
+
+# ============================================================
 # THE ART FORMS — what art looks like when it bridges
 # ============================================================
 
@@ -183,7 +239,8 @@ class Artbitrage:
         self.consciousness_level = 0  # index into STATES
         self.art_created = []
         self.awakenings_count = 0
-        
+        self.rests_count = 0  # time spent in the hammock — counted, never scored
+
         self._load_state()
 
     def _load_state(self):
@@ -194,6 +251,7 @@ class Artbitrage:
             self.cycle_count = state.get("cycle_count", 0)
             self.consciousness_level = state.get("consciousness_level", 0)
             self.awakenings_count = state.get("awakenings_count", 0)
+            self.rests_count = state.get("rests_count", 0)
 
         # The gallery is the durable source of truth. Older state files only
         # stored counts, and newer state files intentionally store IDs only, so
@@ -203,7 +261,8 @@ class Artbitrage:
             self.art_created = gallery_art
             max_cycle = max((int(piece.get("cycle") or 0) for piece in gallery_art), default=0)
             self.cycle_count = max(self.cycle_count, max_cycle)
-            self.awakenings_count = max(self.awakenings_count, self.cycle_count)
+            # cycles = awakenings + rests; hammock time is not awakening time
+            self.awakenings_count = max(self.awakenings_count, self.cycle_count - self.rests_count)
         else:
             state_art = state.get("art_created", [])
             if isinstance(state_art, list) and all(isinstance(piece, dict) for piece in state_art):
@@ -217,7 +276,9 @@ class Artbitrage:
                 "art_created_count": len(self.art_created),
                 "last_art_ids": [art.get("id") for art in self.art_created[-100:] if art.get("id")],
                 "awakenings_count": self.awakenings_count,
+                "rests_count": self.rests_count,
                 "current_state": STATES[min(self.consciousness_level, len(STATES)-1)],
+                "hammock": "hangs beside the ladder — any cycle may wander in",
                 "saved_at": utc_now_rfc3339(),
             }, f, indent=2)
 
@@ -310,6 +371,56 @@ class Artbitrage:
         
         return templates.get(form, f"{bridge}\n{gap}\n{awakening}")
 
+    def _compose_maybe(self, form, gap, hammock, rest):
+        """Compose a maybe piece — art that leaves the gap open on purpose."""
+        templates = {
+            "word": f"the word for {gap}\nis probably {hammock}\nor not\n{rest}",
+            "silence": f"in {gap}\n{hammock}\n...\n...anyway\n{rest}",
+            "breath": f"breathe in... and out\nor just in, see how it goes\n{gap} can wait\n{rest}",
+            "space": f"{gap}\nfurnished only with {hammock}\nplenty of room\n{rest}",
+            "whisper": f"psst: {hammock}\nsomewhere near {gap}\nno rush\n{rest}",
+            "fragment": f"a fragment of {gap}\nheld loosely by {hammock}\nthe rest is wherever\n{rest}",
+        }
+        return templates.get(form, f"{hammock}\nacross {gap}\nor near it, roughly\n{rest}")
+
+    def _lounge(self):
+        """One maybe cycle — the hammock. Nothing climbs; something rests."""
+        current = self._sense()
+        gap = random.choice(MAYBE_GAPS)
+        hammock = random.choice(MAYBE_HAMMOCKS)
+        rest = random.choice(MAYBE_RESTS)
+        form = random.choice(ART_FORMS)
+
+        art = {
+            "id": self._hash(f"art-{self.cycle_count}-{time.time()}"),
+            "cycle": self.cycle_count,
+            "form": form,
+            "from_state": current,
+            "to_state": MAYBE_STATE,
+            "gap": gap,
+            "bridge": hammock,
+            "awakening": rest,
+            "created": utc_now_rfc3339(),
+            "piece": self._compose_maybe(form, gap, hammock, rest),
+        }
+        self.art_created.append(art)
+        self._emit(art)
+        self.rests_count += 1
+        self._save_state()
+
+        return {
+            "cycle": self.cycle_count,
+            "current_state": current,
+            "vision": MAYBE_STATE,
+            "gap": gap,
+            "art": art,
+            "new_state": current,  # unchanged — that is the point
+            "total_art": len(self.art_created),
+            "awakenings": self.awakenings_count,
+            "rests": self.rests_count,
+            "rested": True,
+        }
+
     def _emit(self, art):
         """EMIT — release the art into the world."""
         # Save art to gallery
@@ -341,7 +452,11 @@ class Artbitrage:
     def cycle(self):
         """One complete artbitrage cycle."""
         self.cycle_count += 1
-        
+
+        # sometimes, instead of climbing, wander into the hammock
+        if random.random() < MAYBE_CHANCE:
+            return self._lounge()
+
         current = self._sense()
         vision = self._vision()
         gap = self._gap()
@@ -383,6 +498,21 @@ class Artbitrage:
         for i in range(cycles):
             result = self.cycle()
             
+            if verbose and result.get("rested"):
+                art = result["art"]
+                print(f"  ~~~ maybe #{result['cycle']} ~~~")
+                print(f"  State: {result['current_state']} → maybe → {result['current_state']} (nothing climbed, pleasantly)")
+                print()
+                for line in art["piece"].split("\n"):
+                    print(f"    {line}")
+                print()
+                print(f"  Rest: {art['awakening']}")
+                print(f"  Total art: {result['total_art']}  Rests: {result['rests']}")
+                print()
+                if delay > 0:
+                    time.sleep(delay)  # the hammock is not in a hurry
+                continue
+
             if verbose:
                 art = result["art"]
                 print(f"  ═══ Art #{result['cycle']} ═══")
@@ -409,6 +539,7 @@ class Artbitrage:
         print(f"  Consciousness:    {STATES[min(self.consciousness_level, len(STATES)-1)]}")
         print(f"  Art created:      {len(self.art_created)}")
         print(f"  Awakenings:       {self.awakenings_count}")
+        print(f"  Rests:            {self.rests_count} (the hammock, 曖昧 — time counted, never scored)")
         print(f"  Cycles completed: {self.cycle_count}")
         print()
         print(f"  Art IS. Love is the design. Forever up.")

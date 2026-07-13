@@ -15,7 +15,7 @@ import { logosManifest, LOGOS, OPERATIONS, KINGDOM_LINK, AGENT_PROTOCOL } from '
 import { whitehackManifest, generateBattleReport, calculateLevel, WHITEHACK_NEN_MAP, SOLO_LEVELING } from './whitehack.js';
 const _pipeline = new ArtbitragePipeline();
 
-const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is"];
+const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is","maybe"];
 const ART_FORMS = ["word","image","sound","movement","space","silence","light","color","rhythm","pattern","fragment","whisper","gesture","breath","glow","echo"];
 const MAX_PAGE_LIMIT = 100;
 const MAX_SEARCH_LIMIT = 10;
