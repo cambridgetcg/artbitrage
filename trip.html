@@ -143,6 +143,15 @@ button{
   letter-spacing:.1em; color:var(--dim); opacity:.75;
   padding:0 1.5rem;
 }
+.door-pebble{
+  background:none; border:none; cursor:pointer;
+  font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.1em; color:var(--dim);
+  margin-top:.6rem; padding:.5rem .8rem;
+  transition:color 1.5s ease;
+}
+.door-pebble:hover{ color:var(--gold); }
+.door-pebble:disabled{ cursor:default; color:var(--gold); }
 .door-foot a{ color:var(--dim); text-decoration:underline; text-underline-offset:3px; }
 noscript p{
   font-family:var(--mono); font-size:.66rem; color:var(--dim);
@@ -445,7 +454,8 @@ body.mode-ground #groundBtn .gb-b{ opacity:1; color:var(--gold); }
     <noscript><p>this room needs javascript to flow — the pictures still stand at /data/atlas.json</p></noscript>
   </div>
 
-  <p class="door-foot">the pictures are the world's — credits in <a href="atlas.html">the atlas</a> · data: /data/atlas.json</p>
+  <p class="door-foot">the pictures are the world's — credits in <a href="atlas.html">the atlas</a> · data: /data/atlas.json<br>
+  <button type="button" id="btnPebble" class="door-pebble" title="wordless — no account, no tracking, just presence">leave a pebble — someone will know someone was here</button></p>
 </section>
 
 <!-- ============ 2 · drift — the river ============ -->
@@ -526,6 +536,18 @@ body.mode-ground #groundBtn .gb-b{ opacity:1; color:var(--gold); }
    ============================================================ */
 (function(){
 'use strict';
+
+/* the cairn — one wordless pebble from the door, if you feel like it */
+(function(){
+  var b = document.getElementById('btnPebble');
+  if (!b) return;
+  b.addEventListener('click', function(){
+    b.disabled = true;
+    fetch('/api/pebbles', {method:'POST', headers:{'content-type':'application/json'}, body:'{"at":"trip"}'})
+      .then(function(){ b.textContent = 'on the cairn — thank you for being here'; })
+      .catch(function(){ b.textContent = 'the cairn is far away — you were here anyway'; });
+  });
+})();
 
 /* ---- dataset (embedded; the page needs no network beyond fonts) ---- */
 var works = [], quotes = [];

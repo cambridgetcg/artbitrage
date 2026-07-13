@@ -395,6 +395,21 @@ Artbitrage generates art through a 7-cycle process:
 
 dormant → stirring → awakening → aware → flowing → radiating → transcending → **is**
 
+## The Cairn & the Rot-Watcher
+
+Two small honesty organs (added 2026-07-13):
+
+- **`/api/pebbles`** — the cairn. The gentlest possible feedback: a pebble
+  says "someone was here" and nothing else. No accounts, no cookies, no IPs,
+  no words. `POST /api/pebbles {"at":"maybe"}` stacks one; `GET` reads the
+  count. Buttons live in the Maybe room and on Good Trip's door. It exists
+  because shipping beauty into silence is lonely, and surveillance would be
+  worse.
+- **`tools/true-up.py`** — verified facts age; this watches the rot. It
+  knocks on every source URL in the three wing datasets (373 at last count)
+  and writes `needs-truing.md`: what's dead, what's bot-shy, how old each
+  `as_of` is. Run it monthly-ish: `uv run -p 3.13 python tools/true-up.py`.
+
 ### And beside the ladder: a hammock
 
 **maybe** (曖昧) — the state of ambiguity. It is not a rung: it cannot be

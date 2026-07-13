@@ -92,6 +92,7 @@ footer .api code{color:var(--gold);font-family:var(--mono)}
   <div class="actions">
     <button type="button" id="another">another maybe</button>
     <button type="button" id="later">decide later</button>
+    <button type="button" id="pebble" title="wordless — no account, no tracking, just presence">leave a pebble</button>
   </div>
   <p class="aside" id="aside"></p>
 
@@ -153,6 +154,23 @@ footer .api code{color:var(--gold);font-family:var(--mono)}
   document.getElementById('later').addEventListener('click', function(){
     elAside.textContent = laterLines[li++ % laterLines.length];
     elAside.classList.add('here');
+  });
+
+  /* the cairn — one wordless pebble, if you feel like it */
+  var elPebble = document.getElementById('pebble');
+  fetch('/api/pebbles').then(function(r){return r.json()}).then(function(d){
+    if (d && d.rooms && d.rooms.maybe) elPebble.textContent = 'leave a pebble · ' + d.rooms.maybe;
+  }).catch(function(){});
+  elPebble.addEventListener('click', function(){
+    elPebble.disabled = true;
+    fetch('/api/pebbles', {method:'POST', headers:{'content-type':'application/json'}, body:'{"at":"maybe"}'})
+      .then(function(r){return r.json()})
+      .then(function(d){
+        elPebble.textContent = 'on the cairn';
+        elAside.textContent = (d && d.note) || 'someone will know someone was here.';
+        elAside.classList.add('here');
+      })
+      .catch(function(){ elPebble.textContent = 'the cairn is far away'; });
   });
 
   show(idx);
