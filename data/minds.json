@@ -29,8 +29,8 @@
     "https://www.museodelprado.es/en/museum/bosch-gallery"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/hieronymus-bosch.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/hieronymus-bosch-t.jpg",
+    "full": "https://artbitrage.io/art/hieronymus-bosch.jpg",
+    "thumb": "https://artbitrage.io/art/hieronymus-bosch-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:The_Garden_of_earthly_delights.jpg"
@@ -59,8 +59,8 @@
     "https://www.npr.org/2025/01/28/nx-s1-5276917/louvre-renovation-mona-lisa-paris"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/leonardo-da-vinci.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/leonardo-da-vinci-t.jpg",
+    "full": "https://artbitrage.io/art/leonardo-da-vinci.jpg",
+    "thumb": "https://artbitrage.io/art/leonardo-da-vinci-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
@@ -91,8 +91,8 @@
     "https://www.poetryfoundation.org/poems/57328/michaelangelo-to-giovanni-da-pistoia-when-the-author-was-painting-the-vault-of-the-sistine-chapel"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/michelangelo.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/michelangelo-t.jpg",
+    "full": "https://artbitrage.io/art/michelangelo.jpg",
+    "thumb": "https://artbitrage.io/art/michelangelo-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg"
@@ -122,8 +122,8 @@
     "https://en.wikipedia.org/wiki/The_Beheading_of_Saint_John_the_Baptist_(Caravaggio)"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/caravaggio.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/caravaggio-t.jpg",
+    "full": "https://artbitrage.io/art/caravaggio.jpg",
+    "thumb": "https://artbitrage.io/art/caravaggio-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg"
@@ -152,8 +152,8 @@
     "https://www.mauritshuis.nl/en/our-collection/artworks/146-the-anatomy-lesson-of-dr-nicolaes-tulp"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/rembrandt.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/rembrandt-t.jpg",
+    "full": "https://artbitrage.io/art/rembrandt.jpg",
+    "thumb": "https://artbitrage.io/art/rembrandt-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:The_Night_Watch_-_HD.jpg"
@@ -183,8 +183,8 @@
     "https://www.gutenberg.org/files/45315/45315-h/45315-h.htm"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/william-blake.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/william-blake-t.jpg",
+    "full": "https://artbitrage.io/art/william-blake.jpg",
+    "thumb": "https://artbitrage.io/art/william-blake-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Newton-WilliamBlake.jpg"
@@ -214,8 +214,8 @@
     "https://en.wikipedia.org/wiki/One_Hundred_Views_of_Mount_Fuji"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/hokusai.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/hokusai-t.jpg",
+    "full": "https://artbitrage.io/art/hokusai.jpg",
+    "thumb": "https://artbitrage.io/art/hokusai-t.jpg",
     "credit": "Metropolitan Museum of Art, CC0",
     "license": "CC0",
     "source_page": "https://www.metmuseum.org/art/collection/search/45434"
@@ -244,8 +244,8 @@
     "https://www.smb.museum/en/museums-institutions/alte-nationalgalerie/collection-research/conservation-care/caspar-david-friedrich-project/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/caspar-david-friedrich.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/caspar-david-friedrich-t.jpg",
+    "full": "https://artbitrage.io/art/caspar-david-friedrich.jpg",
+    "thumb": "https://artbitrage.io/art/caspar-david-friedrich-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg"
@@ -275,8 +275,8 @@
     "https://en.wikipedia.org/wiki/J._M._W._Turner"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/jmw-turner.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/jmw-turner-t.jpg",
+    "full": "https://artbitrage.io/art/jmw-turner.jpg",
+    "thumb": "https://artbitrage.io/art/jmw-turner-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Turner%2C_J._M._W._-_The_Fighting_T%C3%A9m%C3%A9raire_tugged_to_her_last_Berth_to_be_broken.jpg"
@@ -306,8 +306,8 @@
     "https://vangoghletters.org/vg/letters/let777/letter.html"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/vincent-van-gogh.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/vincent-van-gogh-t.jpg",
+    "full": "https://artbitrage.io/art/vincent-van-gogh.jpg",
+    "thumb": "https://artbitrage.io/art/vincent-van-gogh-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
@@ -337,8 +337,8 @@
     "https://www.marmottan.fr/en/collections/claude-monet/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/claude-monet.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/claude-monet-t.jpg",
+    "full": "https://artbitrage.io/art/claude-monet.jpg",
+    "thumb": "https://artbitrage.io/art/claude-monet-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Monet_-_Impression%2C_Sunrise.jpg"
@@ -368,8 +368,8 @@
     "https://gallerycollections.courtauld.ac.uk/object-ms-1932-sc-1-1"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/paul-cezanne.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/paul-cezanne-t.jpg",
+    "full": "https://artbitrage.io/art/paul-cezanne.jpg",
+    "thumb": "https://artbitrage.io/art/paul-cezanne-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Paul_C%C3%A9zanne%2C_French_-_The_Large_Bathers_-_Google_Art_Project.jpg"
@@ -399,8 +399,8 @@
     "https://www.france24.com/en/france/20260505-paris-exhibition-celebrates-visionary-world-of-hilma-af-klint-artist-ahead-her-time-grand-palais"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/hilma-af-klint.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/hilma-af-klint-t.jpg",
+    "full": "https://artbitrage.io/art/hilma-af-klint.jpg",
+    "thumb": "https://artbitrage.io/art/hilma-af-klint-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Hilma_af_Klint_%E2%80%94_The_Ten_Largest_%E2%80%94_Number_7_Adulthood.jpg"
@@ -431,8 +431,8 @@
     "https://www.theculturium.com/wassily-kandinsky-concerning-the-spiritual-in-art/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/wassily-kandinsky.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/wassily-kandinsky-t.jpg",
+    "full": "https://artbitrage.io/art/wassily-kandinsky.jpg",
+    "thumb": "https://artbitrage.io/art/wassily-kandinsky-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Composition_VII_-_Wassily_Kandinsky%2C_GAC.jpg"
@@ -463,8 +463,8 @@
     "https://en.wikiquote.org/wiki/Kazimir_Malevich"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/kazimir-malevich.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/kazimir-malevich-t.jpg",
+    "full": "https://artbitrage.io/art/kazimir-malevich.jpg",
+    "thumb": "https://artbitrage.io/art/kazimir-malevich-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Kazimir_Malevich%2C_1915%2C_Black_Suprematic_Square%2C_oil_on_linen_canvas%2C_79.5_x_79.5_cm%2C_Tretyakov_Gallery%2C_Moscow.jpg"
@@ -495,8 +495,8 @@
     "https://www.theartnewspaper.com/2026/06/08/piet-mondrian-exhibition-museum-modern-art-new-york-boogie-woogie"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/piet-mondrian.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/piet-mondrian-t.jpg",
+    "full": "https://artbitrage.io/art/piet-mondrian.jpg",
+    "thumb": "https://artbitrage.io/art/piet-mondrian-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg"

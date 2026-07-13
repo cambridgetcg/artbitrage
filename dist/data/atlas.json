@@ -29,8 +29,8 @@
    ],
    "link": "https://www.louvre.fr/en/visit/hours-admission",
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/mona-lisa.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/mona-lisa-t.jpg",
+    "full": "https://artbitrage.io/art/mona-lisa.jpg",
+    "thumb": "https://artbitrage.io/art/mona-lisa-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; artist Leonardo da Vinci d. 1519)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
@@ -55,8 +55,8 @@
     "https://news.artnet.com/art-world/louvre-delacroix-restoration-2479081"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/liberty-leading-the-people.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/liberty-leading-the-people-t.jpg",
+    "full": "https://artbitrage.io/art/liberty-leading-the-people.jpg",
+    "thumb": "https://artbitrage.io/art/liberty-leading-the-people-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Delacroix d. 1863)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Eug%C3%A8ne_Delacroix_-_Le_28_Juillet._La_Libert%C3%A9_guidant_le_peuple.jpg"
@@ -82,8 +82,8 @@
     "https://en.wikipedia.org/wiki/The_Raft_of_the_Medusa"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/raft-of-the-medusa.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/raft-of-the-medusa-t.jpg",
+    "full": "https://artbitrage.io/art/raft-of-the-medusa.jpg",
+    "thumb": "https://artbitrage.io/art/raft-of-the-medusa-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Géricault d. 1824)",
     "source_page": "https://commons.wikimedia.org/wiki/File:JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_%28Museo_del_Louvre%2C_1818-19%29.jpg"
@@ -111,8 +111,8 @@
     "https://exhibitions.paris/exhibition/renoir-and-love-a-joyful-modernity-1865-1885-musee-dorsay/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/bal-du-moulin-de-la-galette.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/bal-du-moulin-de-la-galette-t.jpg",
+    "full": "https://artbitrage.io/art/bal-du-moulin-de-la-galette.jpg",
+    "thumb": "https://artbitrage.io/art/bal-du-moulin-de-la-galette-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Renoir d. 1919)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Pierre-Auguste_Renoir%2C_Le_Moulin_de_la_Galette.jpg"
@@ -138,8 +138,8 @@
     "https://www.visitparisregion.com/en/musee-de-l-orangerie"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/water-lilies-cycle.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/water-lilies-cycle-t.jpg",
+    "full": "https://artbitrage.io/art/water-lilies-cycle.jpg",
+    "thumb": "https://artbitrage.io/art/water-lilies-cycle-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Monet d. 1926, within the 1955 cutoff)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_The_Water_Lilies_-_Setting_Sun_-_Google_Art_Project.jpg"
@@ -166,8 +166,8 @@
     "https://www.smithsonianmag.com/smart-news/the-public-is-watching-as-conservators-carefully-restore-a-rembrandt-masterpiece-to-its-former-glory-180985534/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/the-night-watch.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/the-night-watch-t.jpg",
+    "full": "https://artbitrage.io/art/the-night-watch.jpg",
+    "thumb": "https://artbitrage.io/art/the-night-watch-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Rembrandt d. 1669)",
     "source_page": "https://commons.wikimedia.org/wiki/File:The_Night_Watch_-_HD.jpg"
@@ -194,8 +194,8 @@
     "https://www.vangoghmuseum.nl/en/about/news-and-press/news/20250827-van-gogh-museums-future-in-doubt"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/sunflowers-amsterdam.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sunflowers-amsterdam-t.jpg",
+    "full": "https://artbitrage.io/art/sunflowers-amsterdam.jpg",
+    "thumb": "https://artbitrage.io/art/sunflowers-amsterdam-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Van Gogh d. 1890)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg"
@@ -222,8 +222,8 @@
     "https://en.thevalue.com/articles/vermeer-girl-with-a-pearl-earring-painting-2026-exhibition-nakanoshima-museum-of-art-osaka"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/girl-with-a-pearl-earring.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/girl-with-a-pearl-earring-t.jpg",
+    "full": "https://artbitrage.io/art/girl-with-a-pearl-earring.jpg",
+    "thumb": "https://artbitrage.io/art/girl-with-a-pearl-earring-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Vermeer d. 1675)",
     "source_page": "https://commons.wikimedia.org/wiki/File:1665_Girl_with_a_Pearl_Earring.jpg"
@@ -250,8 +250,8 @@
     "https://ny1.com/nyc/all-boroughs/ap-top-news/2026/06/16/uffizi-gallery-unveils-new-arrangement-for-botticellis-birth-of-venus-and-primavera"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/birth-of-venus.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/birth-of-venus-t.jpg",
+    "full": "https://artbitrage.io/art/birth-of-venus.jpg",
+    "thumb": "https://artbitrage.io/art/birth-of-venus-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Botticelli d. 1510)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg"
@@ -277,8 +277,8 @@
     "https://abcnews.com/International/wireStory/uffizi-gallery-unveils-new-arrangement-botticellis-birth-venus-133926207"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/primavera.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/primavera-t.jpg",
+    "full": "https://artbitrage.io/art/primavera.jpg",
+    "thumb": "https://artbitrage.io/art/primavera-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Botticelli d. 1510)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Botticelli-primavera.jpg"
@@ -305,8 +305,8 @@
     "https://untolditaly.com/how-to-buy-tickets-for-the-accademia-gallery-florence/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/david.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/david-t.jpg",
+    "full": "https://artbitrage.io/art/david.jpg",
+    "thumb": "https://artbitrage.io/art/david-t.jpg",
     "credit": "Rijksmuseum via Wikimedia Commons, CC0",
     "license": "CC0 (Rijksmuseum dedication of a 19th-century Brogi albumen print; sculpture itself PD, Michelangelo d. 1564)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Detail_van_de_David_van_Michelangelo_in_Florence_FIRENZE_-_Accademia_di_Belle_Arti_-_Particolare_del_David_di_Michelangiolo._%28titel_op_object%29%2C_RP-F-F01184-K.jpg"
@@ -333,8 +333,8 @@
     "https://www.vaticannews.va/en/vatican-city/news/2026-02/restoration-work-michelangelo-last-judgment-sistine-chapel.html"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/sistine-chapel-ceiling.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sistine-chapel-ceiling-t.jpg",
+    "full": "https://artbitrage.io/art/sistine-chapel-ceiling.jpg",
+    "thumb": "https://artbitrage.io/art/sistine-chapel-ceiling-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Michelangelo d. 1564)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Last_Judgement_%28Michelangelo%29.jpg"
@@ -359,8 +359,8 @@
     "https://www.museodelprado.es/en/the-collection/art-work/las-meninas/9fdc7800-9ade-48b0-ab8b-edee94ea877f"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/las-meninas.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/las-meninas-t.jpg",
+    "full": "https://artbitrage.io/art/las-meninas.jpg",
+    "thumb": "https://artbitrage.io/art/las-meninas-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Velázquez d. 1660)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Las_Meninas%2C_by_Diego_Vel%C3%A1zquez%2C_from_Prado_in_Google_Earth.jpg"
@@ -386,8 +386,8 @@
     "https://www.afpradomuseum.org/the-garden-of-earthly-delights-bosch/history"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/garden-of-earthly-delights.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/garden-of-earthly-delights-t.jpg",
+    "full": "https://artbitrage.io/art/garden-of-earthly-delights.jpg",
+    "thumb": "https://artbitrage.io/art/garden-of-earthly-delights-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Bosch d. 1516)",
     "source_page": "https://commons.wikimedia.org/wiki/File:The_Garden_of_Earthly_Delights_by_Bosch_High_Resolution.jpg"
@@ -438,8 +438,8 @@
     "https://www.nationalgallery.org.uk/paintings/vincent-van-gogh-sunflowers"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/sunflowers-london.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/sunflowers-london-t.jpg",
+    "full": "https://artbitrage.io/art/sunflowers-london.jpg",
+    "thumb": "https://artbitrage.io/art/sunflowers-london-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Van Gogh d. 1890)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_127.jpg"
@@ -466,8 +466,8 @@
     "https://www.smithsonianmag.com/smart-news/all-nine-of-jan-van-eycks-surviving-portraits-are-coming-together-for-the-very-first-time-in-history-180988003/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/arnolfini-portrait.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/arnolfini-portrait-t.jpg",
+    "full": "https://artbitrage.io/art/arnolfini-portrait.jpg",
+    "thumb": "https://artbitrage.io/art/arnolfini-portrait-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; van Eyck d. 1441)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Van_Eyck_-_Arnolfini_Portrait.jpg"
@@ -493,8 +493,8 @@
     "https://www.tate.org.uk/press/press-releases/tate-britain-welcomes-home-ophelia"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/ophelia.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/ophelia-t.jpg",
+    "full": "https://artbitrage.io/art/ophelia.jpg",
+    "thumb": "https://artbitrage.io/art/ophelia-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Millais d. 1896)",
     "source_page": "https://commons.wikimedia.org/wiki/File:John_Everett_Millais_-_Ophelia_-_Google_Art_Project.jpg"
@@ -520,8 +520,8 @@
     "https://schlossbelvedere.com/guides/klimt-the-kiss-where-and-how-to-see-it/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/the-kiss.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/the-kiss-t.jpg",
+    "full": "https://artbitrage.io/art/the-kiss.jpg",
+    "thumb": "https://artbitrage.io/art/the-kiss-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Klimt d. 1918)",
     "source_page": "https://commons.wikimedia.org/wiki/File:The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg"
@@ -546,8 +546,8 @@
     "https://kunsthistorischesmuseums.com/attractions/the-tower-of-babel/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/tower-of-babel.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/tower-of-babel-t.jpg",
+    "full": "https://artbitrage.io/art/tower-of-babel.jpg",
+    "thumb": "https://artbitrage.io/art/tower-of-babel-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Bruegel d. 1569)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project_-_edited.jpg"
@@ -573,8 +573,8 @@
     "https://www.metmuseum.org/exhibitions/caspar-david-friedrich-the-soul-of-nature"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/wanderer-above-the-sea-of-fog.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/wanderer-above-the-sea-of-fog-t.jpg",
+    "full": "https://artbitrage.io/art/wanderer-above-the-sea-of-fog.jpg",
+    "thumb": "https://artbitrage.io/art/wanderer-above-the-sea-of-fog-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Friedrich d. 1840)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg"
@@ -600,8 +600,8 @@
     "https://www.munch.no/en/The-Scream/where-can-i-see-the-scream/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/the-scream.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/the-scream-t.jpg",
+    "full": "https://artbitrage.io/art/the-scream.jpg",
+    "thumb": "https://artbitrage.io/art/the-scream-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Munch d. 1944, 70y p.m.a. expired 2015)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Edvard_Munch,_1893,_The_Scream,_oil,_tempera_and_pastel_on_cardboard,_91_x_73_cm,_National_Gallery_of_Norway.jpg"
@@ -628,8 +628,8 @@
     "https://www.theartnewspaper.com/2026/04/29/eu-imposes-sanctions-on-mikhail-piotrovsky-director-of-russias-state-hermitage-museum"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/return-of-the-prodigal-son.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/return-of-the-prodigal-son-t.jpg",
+    "full": "https://artbitrage.io/art/return-of-the-prodigal-son.jpg",
+    "thumb": "https://artbitrage.io/art/return-of-the-prodigal-son-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Rembrandt d. 1669)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Rembrandt_Harmensz_van_Rijn_-_Return_of_the_Prodigal_Son_-_Google_Art_Project.jpg"
@@ -656,8 +656,8 @@
     "https://untolditaly.com/how-to-buy-tickets-for-the-last-supper-milan/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/the-last-supper.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/the-last-supper-t.jpg",
+    "full": "https://artbitrage.io/art/the-last-supper.jpg",
+    "thumb": "https://artbitrage.io/art/the-last-supper-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Leonardo d. 1519)",
     "source_page": "https://commons.wikimedia.org/wiki/File:%C3%9Altima_Cena_-_Da_Vinci_5.jpg"
@@ -683,8 +683,8 @@
     "https://www.moma.org/visit/itineraries/unmissables"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/starry-night-moma.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/starry-night-moma-t.jpg",
+    "full": "https://artbitrage.io/art/starry-night-moma.jpg",
+    "thumb": "https://artbitrage.io/art/starry-night-moma-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; van Gogh d. 1890)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
@@ -754,8 +754,8 @@
     "https://www.moma.org/calendar/galleries/5110"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/water-lilies-moma.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/water-lilies-moma-t.jpg",
+    "full": "https://artbitrage.io/art/water-lilies-moma.jpg",
+    "thumb": "https://artbitrage.io/art/water-lilies-moma-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Monet d. 1926)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Reflections_of_Clouds_on_the_Water-Lily_Pond.jpg"
@@ -781,8 +781,8 @@
     "https://collectionapi.metmuseum.org/public/collection/v1/objects/11417"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/washington-crossing-the-delaware.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/washington-crossing-the-delaware-t.jpg",
+    "full": "https://artbitrage.io/art/washington-crossing-the-delaware.jpg",
+    "thumb": "https://artbitrage.io/art/washington-crossing-the-delaware-t.jpg",
     "credit": "Metropolitan Museum of Art, CC0",
     "license": "CC0 (Met Open Access; Leutze d. 1868)",
     "source_page": "https://www.metmuseum.org/art/collection/search/11417"
@@ -809,8 +809,8 @@
     "https://www.metmuseum.org/essays/hokusai-great-wave"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/great-wave-met.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/great-wave-met-t.jpg",
+    "full": "https://artbitrage.io/art/great-wave-met.jpg",
+    "thumb": "https://artbitrage.io/art/great-wave-met-t.jpg",
     "credit": "Metropolitan Museum of Art, CC0",
     "license": "CC0 (Met Open Access; Hokusai d. 1849)",
     "source_page": "https://www.metmuseum.org/art/collection/search/45434"
@@ -837,8 +837,8 @@
     "https://www.theartnewspaper.com/2026/05/14/neue-galerie-metropolitan-museum-merger"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/adele-bloch-bauer-i.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/adele-bloch-bauer-i-t.jpg",
+    "full": "https://artbitrage.io/art/adele-bloch-bauer-i.jpg",
+    "thumb": "https://artbitrage.io/art/adele-bloch-bauer-i-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Klimt d. 1918)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt_-_Portr%C3%A4t_der_Adele_Bloch-Bauer_I_(1907).jpg"
@@ -864,8 +864,8 @@
     "https://www.theartnewspaper.com/2023/07/03/leonardo-da-vinci-national-gallery-washington-relocation-renovations"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/ginevra-de-benci.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/ginevra-de-benci-t.jpg",
+    "full": "https://artbitrage.io/art/ginevra-de-benci.jpg",
+    "thumb": "https://artbitrage.io/art/ginevra-de-benci-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; Leonardo d. 1519)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci_-_Ginevra_de%27_Benci_-_Google_Art_Project.jpg"
@@ -892,8 +892,8 @@
     "https://www.artic.edu/visit/collection-updates"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/american-gothic.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/american-gothic-t.jpg",
+    "full": "https://artbitrage.io/art/american-gothic.jpg",
+    "thumb": "https://artbitrage.io/art/american-gothic-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art; PD-old-70 and US 95-year term expired 2026-01-01)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg"
@@ -942,8 +942,8 @@
     "https://www.artic.edu/articles/969/la-grande-jatte-frame-by-frame"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/a-sunday-on-la-grande-jatte.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/a-sunday-on-la-grande-jatte-t.jpg",
+    "full": "https://artbitrage.io/art/a-sunday-on-la-grande-jatte.jpg",
+    "thumb": "https://artbitrage.io/art/a-sunday-on-la-grande-jatte-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art, PD-old-70)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Georges_Seurat_-_A_Sunday_on_La_Grande_Jatte_--_1884_-_Google_Art_Project.jpg"
@@ -969,8 +969,8 @@
     "https://www.barnesfoundation.org/press/press-release/matisse-and-renoir-new-encounters-at-the-barnes"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/le-bonheur-de-vivre.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/le-bonheur-de-vivre-t.jpg",
+    "full": "https://artbitrage.io/art/le-bonheur-de-vivre.jpg",
+    "thumb": "https://artbitrage.io/art/le-bonheur-de-vivre-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art, PD-old-70)",
     "source_page": "https://commons.wikimedia.org/wiki/File:La_Joie_de_vivre,_par_Henri_Matisse.jpg"
@@ -997,8 +997,8 @@
     "https://www.getty.edu/art/collection/gallery/113Z8J"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/irises-getty.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/irises-getty-t.jpg",
+    "full": "https://artbitrage.io/art/irises-getty.jpg",
+    "thumb": "https://artbitrage.io/art/irises-getty-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art, PD-old-70)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Irises-Vincent_van_Gogh.jpg"
@@ -1024,8 +1024,8 @@
     "https://www.mfa.org/gallery/impressionism-and-beyond"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/where-do-we-come-from-gauguin.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/where-do-we-come-from-gauguin-t.jpg",
+    "full": "https://artbitrage.io/art/where-do-we-come-from-gauguin.jpg",
+    "thumb": "https://artbitrage.io/art/where-do-we-come-from-gauguin-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art, PD-old-70)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Gauguin_-_Where_Do_We_Come_From%3F_What_Are_We%3F_Where_Are_We_Going%3F_(1897-98).jpg"
@@ -1073,8 +1073,8 @@
     "https://casafiatdecultura.com.br/evento/renoir-na-casa-fiat-de-cultura/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/rosa-e-azul-masp.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/rosa-e-azul-masp-t.jpg",
+    "full": "https://artbitrage.io/art/rosa-e-azul-masp.jpg",
+    "thumb": "https://artbitrage.io/art/rosa-e-azul-masp-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art, PD-old-70)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Pink_and_Blue,_the_Cahen_d%27Anvers_Girls,_by_Pierre-Auguste_Renoir,_1881,_oil_on_canvas_-_Museu_de_Arte_de_S%C3%A3o_Paulo_-_DSC07230.jpg"
@@ -1101,8 +1101,8 @@
     "https://en.wikipedia.org/wiki/Sh%C5%8Drin-zu_by%C5%8Dbu"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/pine-trees-tohaku.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/pine-trees-tohaku-t.jpg",
+    "full": "https://artbitrage.io/art/pine-trees-tohaku.jpg",
+    "thumb": "https://artbitrage.io/art/pine-trees-tohaku-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art, PD-old-70)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Hasegawa_Tohaku_-_Pine_Trees_(Sh%C5%8Drin-zu_by%C5%8Dbu)_-_right_hand_screen.jpg"
@@ -1129,8 +1129,8 @@
     "https://www.ohara.or.jp/en/"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/annunciation-el-greco-ohara.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/annunciation-el-greco-ohara-t.jpg",
+    "full": "https://artbitrage.io/art/annunciation-el-greco-ohara.jpg",
+    "thumb": "https://artbitrage.io/art/annunciation-el-greco-ohara-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art, PD-old-70)",
     "source_page": "https://commons.wikimedia.org/wiki/File:El_GRECO_(Domenikos_Theotokopoulos)_-_Annunciation_-_Google_Art_Project.jpg"
@@ -1156,8 +1156,8 @@
     "https://www.taipeitimes.com/News/front/archives/2025/07/31/2003841214"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/jadeite-cabbage.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/jadeite-cabbage-t.jpg",
+    "full": "https://artbitrage.io/art/jadeite-cabbage.jpg",
+    "thumb": "https://artbitrage.io/art/jadeite-cabbage-t.jpg",
     "credit": "National Palace Museum Open Data via Wikimedia Commons, CC0",
     "license": "CC0 (photograph, National Palace Museum Open Data); underlying 19th-century work public domain",
     "source_page": "https://commons.wikimedia.org/wiki/File:Jadeite_Cabbage.jpg"
@@ -1183,8 +1183,8 @@
     "https://en.wikipedia.org/wiki/Along_the_River_During_the_Qingming_Festival"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/along-the-river-qingming.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/along-the-river-qingming-t.jpg",
+    "full": "https://artbitrage.io/art/along-the-river-qingming.jpg",
+    "thumb": "https://artbitrage.io/art/along-the-river-qingming-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art, PD-old)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Along_the_River_During_the_Qingming_Festival_(detail_of_original).jpg"
@@ -1210,8 +1210,8 @@
     "https://en.wikipedia.org/wiki/Salvator_Mundi_(Leonardo)"
    ],
    "image": {
-    "full": "https://artbitrage-art.s3.amazonaws.com/art/salvator-mundi.jpg",
-    "thumb": "https://artbitrage-art.s3.amazonaws.com/art/salvator-mundi-t.jpg",
+    "full": "https://artbitrage.io/art/salvator-mundi.jpg",
+    "thumb": "https://artbitrage.io/art/salvator-mundi-t.jpg",
     "credit": "Wikimedia Commons, public domain (PD-Art)",
     "license": "Public domain (PD-Art, PD-old-70)",
     "source_page": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci,_Salvator_Mundi,_c.1500,_oil_on_walnut,_45.4_%C3%97_65.6_cm.jpg"
