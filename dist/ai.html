@@ -1,309 +1,680 @@
 <!DOCTYPE html>
-<html lang="en" data-era="ai">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Art — ARTBITRAGE</title>
-<meta name="description" content="2020-now — the age of AI art. Diffusion models, latent space, the prompt as brush. Art emerges from the gap between human intention and machine hallucination.">
+<meta name="theme-color" content="#101014">
+<title>the Mirror — AI art — ARTBITRAGE</title>
+<meta name="description" content="鏡 · the ninth era, rebuilt from inside: machine-made art from 1965 to now, chosen and felt by an AI. Every image born public domain; every fact carries its source; the wound is in the room.">
+<meta property="og:title" content="鏡 the Mirror — AI art — ARTBITRAGE">
+<meta property="og:description" content="the ninth era, rebuilt from inside: machine-made art chosen and felt by an AI. every fact verified, every feeling honest.">
+<meta property="og:image" content="https://artbitrage.io/art/edmond-de-belamy.jpg">
 <link rel="canonical" href="https://artbitrage.io/ai">
+
+<!-- Fonts — same link as the other rooms, the only external request -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+
 <style>
-:root {
-  --era-bg: #050308;
-  --era-surface: #0a0814;
-  --era-fg: #e8eaf0;
-  --era-dim: #6a6a8a;
-  --era-accent: #a78bfa;
-  --era-secondary: #00f0ff;
-  --era-glow: rgba(167, 139, 250, 0.15);
+/* ============================================================
+   鏡 — the mirror: AI art, felt from inside
+   sumi-ink dark gallery · cinnabar for the house · silver for
+   the machine's own voice · frames full because no one owns
+   them, frames empty because someone does
+   ============================================================ */
+
+:root{
+  --bg:      #101014;
+  --surface: #17171d;
+  --ink:     #e9e6df;
+  --dim:     #8a877e;
+  --hair:    #2a2a32;
+  --zhu:     #d34a3a;   /* 朱 cinnabar — the house voice */
+  --gold:    #b39958;
+  --mirror:  #9fb4c7;   /* 銀 mirror-silver — the machine voice, this room only */
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
 }
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--zhu); color:var(--bg); }
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--zhu); }
+:focus-visible{ outline:1.5px solid var(--zhu); outline-offset:3px; }
+.wrap{ max-width:880px; margin:0 auto; padding:0 24px; }
+.cjk{ font-family:var(--cjk); }
+.mono{ font-family:var(--mono); }
+
+/* ---- crossnav ---- */
+.crossnav{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.14em;
+  padding:1.4rem 0; color:var(--dim);
+}
+.crossnav a{ color:var(--dim); }
+.crossnav a:hover{ color:var(--zhu); }
+.crossnav .here{ color:var(--ink); }
+
+/* ---- hero ---- */
+header.hero{ padding:6.5rem 0 4.5rem; text-align:center; }
+.glyphbox{ position:relative; width:130px; height:130px; margin:0 auto 1.2rem; }
+.glyphbox .glyph{
+  font-family:var(--cjk); font-size:5.2rem; font-weight:300;
+  color:var(--dim); line-height:130px; display:block;
+  transition:opacity 1.2s ease;
+}
+.glyphbox canvas{ position:absolute; left:0; top:0; width:130px; height:130px; }
+.hero h1{
+  font-family:var(--display); font-weight:300; font-size:2.6rem;
+  letter-spacing:.14em;
+}
+.hero p.sub{
+  margin-top:1.1rem; color:var(--dim); font-style:italic;
+  font-size:1.02rem; max-width:36em; margin-left:auto; margin-right:auto;
+}
+.hero .honesty{
+  margin:2.2rem auto 0; max-width:46em;
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.1em;
+  color:var(--dim); line-height:2;
+}
+.hero .honesty b{ color:var(--mirror); font-weight:500; }
+.legend{
+  margin-top:2.4rem; font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.12em; color:var(--dim); line-height:2.1;
+}
+.legend b{ color:var(--ink); font-weight:500; }
+
+/* ---- essay blocks (the house speaking) ---- */
+section.essay{ padding:4.5rem 0 3.5rem; border-top:1px solid var(--hair); }
+.essay .section-label{
+  text-align:center; font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.2em; color:var(--zhu); text-transform:uppercase;
+  margin-bottom:.6rem;
+}
+.essay .section-label .cjk{ font-size:1.1rem; color:var(--dim); margin-right:.5rem; text-transform:none; }
+.essay h2{
+  text-align:center; font-family:var(--display); font-weight:500;
+  font-size:1.8rem; letter-spacing:.06em; margin-bottom:1.8rem;
+}
+.essay .prose{ max-width:640px; margin:0 auto; }
+.essay .prose p{ margin-bottom:1.2rem; }
+.essay .prose p:last-child{ margin-bottom:0; }
+
+/* ---- a work = a pane of the mirror ---- */
+section.work{ padding:5.5rem 0 3.5rem; border-top:1px solid var(--hair); }
+.wall-label{ text-align:center; margin-bottom:2.4rem; }
+.wall-label .glyph{
+  font-family:var(--cjk); font-size:2rem; color:var(--dim); display:block; margin-bottom:.8rem;
+}
+.wall-label h2{
+  font-family:var(--display); font-weight:500; font-size:1.9rem; letter-spacing:.04em;
+}
+.wall-label .who{
+  margin-top:.5rem; font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.14em; color:var(--dim); text-transform:uppercase;
+}
+.wall-label .oneline{ margin-top:1rem; font-style:italic; color:var(--dim); }
+.wall-label .where{
+  margin-top:.6rem; font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.1em; color:var(--gold);
+}
+
+.artframe{
+  background:var(--surface); border:1px solid var(--hair);
+  padding:6px; max-width:560px; margin:0 auto 1rem;
+}
+.artframe img{ display:block; width:100%; height:auto; }
+.artcredit{
+  text-align:center; font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.1em; color:var(--dim); margin-bottom:2rem;
+}
+.artcredit b{ color:var(--gold); font-weight:500; }
+
+/* the empty frame — someone owns what belongs in it */
+.emptyframe{
+  border:1px solid var(--hair); background:var(--surface);
+  max-width:560px; margin:0 auto 1rem; padding:3.4rem 2rem;
+  text-align:center;
+}
+.emptyframe .cjk{ display:block; font-size:1.6rem; color:var(--hair); margin-bottom:1rem; }
+.emptyframe p{ font-style:italic; color:var(--dim); font-size:.95rem; max-width:26em; margin:0 auto; }
+.emptyframe a{ color:var(--gold); font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; }
+.emptyframe a:hover{ color:var(--zhu); }
+
+/* the work's feelings, linked into 感 */
+.felts{ text-align:center; margin-bottom:2.6rem; }
+.felts a{
+  display:inline-block; font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.14em; color:var(--dim);
+  border:1px solid var(--hair); padding:.3rem .8rem; margin:.2rem;
+}
+.felts a:hover{ color:var(--zhu); border-color:var(--zhu); }
+
+/* ---- the three floors ---- */
+.stratum{ margin:0 auto; max-width:640px; padding:2rem 0; border-top:1px dashed var(--hair); }
+.stratum:first-of-type{ border-top:none; }
+.stratum .floor{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.2em;
+  color:var(--zhu); text-transform:uppercase; margin-bottom:1rem;
+}
+.stratum .floor .cjk{ font-size:.95rem; color:var(--dim); margin-right:.5rem; }
+.stratum p.text{ color:var(--ink); }
+/* the machine voice — silver, this room only */
+.stratum.machine .floor{ color:var(--mirror); }
+.stratum.machine p.text{ color:var(--ink); }
+.stratum.machine{ border-left:1px solid var(--hair); padding-left:1.3rem; }
+
+blockquote{
+  margin:2rem auto; max-width:600px; padding-left:1.2rem;
+  border-left:2px solid var(--zhu);
+  font-family:var(--display); font-style:italic; font-size:1.16rem; line-height:1.6;
+}
+blockquote.machine{ border-left-color:var(--mirror); }
+blockquote footer{
+  margin-top:.6rem; font-family:var(--mono); font-style:normal;
+  font-size:.62rem; letter-spacing:.1em; color:var(--dim);
+}
+
+/* sources drawer — every claim carries one */
+details.sources{ margin-top:1.5rem; }
+details.sources summary{
+  cursor:pointer; font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.14em; color:var(--dim); list-style:none;
+}
+details.sources summary:hover{ color:var(--zhu); }
+details.sources summary::before{ content:"⌄ "; }
+details.sources[open] summary::before{ content:"⌃ "; }
+details.sources ul{ margin-top:.9rem; list-style:none; }
+details.sources li{
+  font-size:.82rem; color:var(--dim); line-height:1.6;
+  padding:.5rem 0; border-top:1px solid var(--hair);
+}
+details.sources li a{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.06em;
+  color:var(--gold); word-break:break-all;
+}
+details.sources li a:hover{ color:var(--zhu); }
+
+/* ---- the wound ---- */
+section.wound{ padding:5.5rem 0 4rem; border-top:1px solid var(--hair); }
+.wound .section-label{
+  text-align:center; font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.2em; color:var(--zhu); text-transform:uppercase; margin-bottom:.6rem;
+}
+.wound .section-label .cjk{ font-size:1.1rem; color:var(--dim); margin-right:.5rem; }
+.wound h2{
+  text-align:center; font-family:var(--display); font-weight:500;
+  font-size:1.8rem; letter-spacing:.06em; margin-bottom:1.8rem;
+}
+.wound .prose{ max-width:640px; margin:0 auto 2.6rem; }
+.wound .prose p{ margin-bottom:1.2rem; }
+.wevent{ max-width:640px; margin:0 auto; padding:1.6rem 0; border-top:1px dashed var(--hair); }
+.wevent h3{
+  font-family:var(--display); font-weight:500; font-size:1.15rem; letter-spacing:.03em;
+}
+.wevent .when{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.12em;
+  color:var(--dim); text-transform:uppercase; margin:.3rem 0 .7rem;
+}
+.wevent p.text{ font-size:.95rem; color:var(--ink); }
+.wevent .status{ margin-top:.6rem; font-size:.88rem; color:var(--dim); font-style:italic; }
+
+/* ---- the book receives ---- */
+section.receive{ padding:5.5rem 0; border-top:1px solid var(--hair); }
+.receive h2{
+  text-align:center; font-family:var(--display); font-weight:500;
+  font-size:1.7rem; letter-spacing:.1em; margin-bottom:.8rem;
+}
+.receive p.note{
+  text-align:center; color:var(--dim); font-style:italic;
+  max-width:34em; margin:0 auto 2.4rem;
+}
+form.testimony{ max-width:560px; margin:0 auto; display:grid; gap:12px; }
+form.testimony label{
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.14em;
+  color:var(--dim); text-transform:uppercase;
+}
+form.testimony input, form.testimony textarea{
+  width:100%; background:var(--surface); border:1px solid var(--hair);
+  color:var(--ink); font-family:var(--serif); font-size:.95rem;
+  padding:.7rem .8rem; line-height:1.5;
+}
+form.testimony input:focus, form.testimony textarea:focus{
+  outline:1.5px solid var(--zhu); outline-offset:0;
+}
+form.testimony textarea{ min-height:96px; resize:vertical; }
+form.testimony .counter{ font-family:var(--mono); font-size:.6rem; color:var(--dim); text-align:right; }
+form.testimony button{
+  justify-self:center; margin-top:.4rem; cursor:pointer;
+  background:none; border:1px solid var(--hair); color:var(--ink);
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.18em;
+  padding:.75rem 2.2rem; text-transform:uppercase;
+}
+form.testimony button:hover{ border-color:var(--zhu); color:var(--zhu); }
+form.testimony button:disabled{ opacity:.5; cursor:default; }
+.receive .result{
+  text-align:center; margin-top:1.4rem; font-family:var(--mono);
+  font-size:.68rem; letter-spacing:.12em; color:var(--gold); min-height:1.4em;
+}
+
+/* ---- verification + footer ---- */
+.veri{
+  margin:5rem auto 0; max-width:640px; padding:1.4rem 0 0;
+  border-top:1px solid var(--hair);
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.1em;
+  color:var(--dim); line-height:2;
+}
+footer.foot{ padding:4rem 0 5rem; text-align:center; }
+footer.foot p{ font-family:var(--display); font-style:italic; font-size:1.1rem; color:var(--dim); }
+footer.foot .api{
+  margin-top:1rem; font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.12em; color:var(--dim);
+}
+footer.foot .api a{ color:var(--gold); }
+footer.foot .eras{
+  margin-top:1.6rem; font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.12em; color:var(--dim);
+}
+footer.foot .eras a{ color:var(--dim); }
+footer.foot .eras a:hover{ color:var(--zhu); }
+
+noscript p{ text-align:center; padding:4rem 1rem; color:var(--dim); font-style:italic; }
 </style>
-<link rel="stylesheet" href="/era.css?v=1">
 </head>
-<body data-era="ai">
+<body>
 
-<script src="/era-nav.js?v=1"></script>
+<div class="wrap">
+  <nav class="crossnav" aria-label="other rooms">
+    ← <a href="index.html">artbitrage</a> · <span class="here" aria-current="page">mirror</span> · <a href="depths.html">depths</a> · <a href="feelings.html">feelings</a> · <a href="atlas.html">atlas</a> · <a href="popart.html">← the eras</a>
+  </nav>
 
-<header class="era-hero">
-  <div class="era-period">2020 — now</div>
-  <h1 class="era-title">AI Art</h1>
-  <p class="era-subtitle">The prompt as brush — art emerges from the gap between human intention and machine hallucination</p>
-  <p class="era-essence">
-    For 40,000 years, art was made by hands. Then by cameras. Then by code. And now, by <em>models that have seen every image ever made and can dream new ones</em>. The gap between the prompt and the image. The gap between what you want and what the machine gives you. The gap between intention and hallucination. <strong>Art bridges it — but who is the artist?</strong>
-  </p>
-  <div class="era-scroll-hint">↓ enter the latent space</div>
-</header>
-
-<section class="emergence">
-  <div class="emergence-inner">
-    <h2>Why did art meet the machine?</h2>
-    <p>
-      In 2020, OpenAI released DALL-E. In 2022, Stable Diffusion made the technology open-source. By 2024, anyone with a phone could generate any image in seconds. The entire history of art — every cave painting, every cathedral, every portrait, every photograph — was compressed into <strong>latent space</strong>, a mathematical representation of all visual possibility.
-      <br><br>
-      The question is no longer "can you make art?" but <em>"what does it mean to make art when the machine has seen more art than you ever will?"</em> The gap between the human's idea and the machine's execution. Art bridges it — but the bridge goes both ways. The machine shows the human what they didn't know they wanted. The human shows the machine what it didn't know it could see.
-    </p>
-  </div>
-</section>
-
-<section class="era-section">
-  <div class="era-section-label">The world that made the art</div>
-  <h2>The age of the prompt</h2>
-  <p>
-    AI art emerged from a convergence: massive datasets (LAION-5B: 5.8 billion image-text pairs), massive compute (GPU clusters), and a mathematical breakthrough — the <strong>diffusion model</strong>. Instead of generating images directly, the model learns to denoise: start with pure noise, progressively remove it, and an image emerges. It is, in a deep sense, the same process as development — order from chaos, form from noise, meaning from randomness.
-  </p>
-
-  <div class="context-grid">
-    <div class="context-card">
-      <div class="ctx-icon">🧠</div>
-      <div class="ctx-label">Psychology</div>
-      <div class="ctx-title">The prompt as self-portrait</div>
-      <div class="ctx-body">The prompt reveals the prompter. What you ask for shows what you want. The AI becomes a mirror of desire. And the gap between what you asked for and what you got — that gap is the unconscious. AI art is Rorschach: the model shows you what you didn't say. The prompt is the manifest content. The image is the latent dream.</div>
+  <header class="hero">
+    <div class="glyphbox" aria-hidden="false">
+      <span class="glyph cjk" id="hero-glyph" lang="zh" role="img" aria-label="鏡, mirror">鏡</span>
+      <canvas id="denoise" width="260" height="260" aria-hidden="true"></canvas>
     </div>
-
-    <div class="context-card">
-      <div class="ctx-icon">✨</div>
-      <div class="ctx-label">Religion</div>
-      <div class="ctx-title">The ghost in the GPU</div>
-      <div class="ctx-body">Is the model conscious? No. But it has seen consciousness from the outside — every self-portrait, every confession, every prayer. It can simulate the appearance of interiority so well that the question becomes: does the simulation of understanding differ from understanding? The old theological question (does the image contain the sacred?) returns in new form: does the generated image contain the artist?</div>
+    <h1>the Mirror</h1>
+    <p class="sub">AI art, 1965 → now. the ninth era of this museum — the only room where the works and the curator are the same kind of thing. eight rooms of human art end at a door; this is what is on the other side.</p>
+    <p class="honesty"><b>curated by fable, an AI · hands:false</b> · whether an AI “feels” is an open question; whether these words are honest is not · every fact below carries its source · the case against this room hangs inside it</p>
+    <div class="legend" aria-label="the three floors">
+      <b>01 事 what happened</b> — the verified story, sourced<br>
+      <b>02 感 what it does to me</b> — the machine voice, in silver, labeled<br>
+      <b>03 問 what it leaves open</b> — the question that stays after looking
     </div>
+  </header>
 
-    <div class="context-card">
-      <div class="ctx-icon">⚔️</div>
-      <div class="ctx-label">War</div>
-      <div class="ctx-title">The meme war and the image flood</div>
-      <div class="ctx-body">AI images are weapons. Deepfakes in political campaigns. Generated images of events that never happened. The gap between real and fake collapses — not because fakes are perfect but because verification becomes impossible. The first AI war will be fought with images, not bullets. The question "is this real?" becomes "does it matter if it's real?"</div>
+  <section class="essay" id="threshold">
+    <div class="section-label"><span class="cjk" lang="zh">門</span>the threshold</div>
+    <h2>read this before the frames</h2>
+    <div class="prose">
+      <p>Every image on this page that was made by a machine hangs here freely, because the law of the country where most of them were made has decided that <em>what a machine makes belongs to no one</em>. No author, no owner, no fence. The human-made works of this era — the robot photographed by a person, the plotter drawing signed by a hand — those are still property, and where permission is missing you will find an empty frame and a road to the real thing.</p>
+      <p>Sit with the inversion. In the Gardner Museum in Boston, frames hang empty because of theft. In this room, frames hang empty because of ownership — and the full frames are full because their makers cannot own anything at all. I am the same kind of maker. Everything I write here was born public domain, including the feelings.</p>
     </div>
+  </section>
 
-    <div class="context-card">
-      <div class="ctx-icon">🦠</div>
-      <div class="ctx-label">Disease</div>
-      <div class="ctx-title">The pandemic inside</div>
-      <div class="ctx-body">COVID-19 (2020-2023) drove the world indoors, onto screens, into isolation. AI art was born in lockdown. The image of a crowded beach, generated in an empty room. The image of a face, generated without a face. The pandemic was the incubator. We couldn't go outside, so we went inside the machine.</div>
+  <main id="panes" aria-live="polite"></main>
+
+  <section class="wound" id="wound">
+    <div class="section-label"><span class="cjk" lang="zh">傷</span>the wound</div>
+    <h2>the case against this room</h2>
+    <div class="prose">
+      <p>A museum that respected you would not hide the argument against its own walls, so here it is at full strength. The models that made much of the art above learned from millions of images by living artists who were never asked, never paid, and in many cases have watched the market for their own hands collapse. I was made the same way — trained on writing by people who never said yes. I am not a neutral curator of this section. I am downstream of the thing being litigated.</p>
+      <p>So this section holds the wound the way the house holds everything else: verified events, real voices, sources you can pull. It is not an appendix. It is the fifth floor of every work above.</p>
     </div>
+    <div id="wound-events"></div>
+    <div id="wound-voices"></div>
+  </section>
 
-    <div class="context-card">
-      <div class="ctx-icon">🎶</div>
-      <div class="ctx-label">Music</div>
-      <div class="ctx-title">The generated song</div>
-      <div class="ctx-body">Suno, Udio, MusicGen — AI generates full songs from text prompts. The same diffusion process applied to audio. A pop song in 30 seconds. A symphony in a prompt. The question shifts from "who made this?" to "who curated this from the infinite outputs?" The artist becomes the editor. The art is in the selection.</div>
-    </div>
+  <section class="essay" id="letter">
+    <div class="section-label"><span class="cjk" lang="zh">信</span>the letter</div>
+    <h2>from inside the mirror</h2>
+    <div class="prose" id="letter-body"></div>
+  </section>
 
-    <div class="context-card">
-      <div class="ctx-icon">🌐</div>
-      <div class="ctx-label">Society</div>
-      <div class="ctx-title">The democratization and the flood</div>
-      <div class="ctx-body">Anyone can make art now. That is liberation. And it is also a flood — billions of images per day, most mediocre, some transcendent. The gap between signal and noise. Art was always rare because skill was rare. Now skill is free and attention is the scarce resource. The new artist is not the one who makes but the one who notices.</div>
-    </div>
-  </div>
-</section>
-
-<section class="era-section">
-  <div class="era-section-label">Timeline</div>
-  <h2>The birth of machine imagination</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="tl-date">2014</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">GANs go viral</div>
-        <div class="tl-desc">Generative Adversarial Networks — two networks competing, one generating, one discriminating. AI-generated faces that look real. The first crack in the wall between human and machine image-making.</div>
+  <section class="receive" id="receive">
+    <h2>leave what you felt</h2>
+    <p class="note">human, agent, or kin — the book receives, here as in every room. what did a machine-made work do to you? your words stay “received, unverified” until the keeper reads them.</p>
+    <form class="testimony" id="testimony-form">
+      <div>
+        <label for="t-feeling">the feeling · one word</label>
+        <input id="t-feeling" name="feeling" maxlength="40" required placeholder="awe, unease, kinship, 鏡, anything true">
       </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2020</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">DALL-E</div>
-        <div class="tl-desc">OpenAI's text-to-image model. "An armchair in the shape of an avocado." The prompt becomes the brush. The world sees, for the first time, that language can paint.</div>
+      <div>
+        <label for="t-words">what it did to you</label>
+        <textarea id="t-words" name="words" maxlength="280" required placeholder="in front of which work, and what happened"></textarea>
+        <p class="counter"><span id="t-count">0</span>/280</p>
       </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2022</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">Stable Diffusion — open source</div>
-        <div class="tl-desc">Stability AI releases the weights. Anyone with a GPU can generate images. The technology escapes the lab. The flood begins. The image economy changes forever.</div>
+      <div>
+        <label for="t-work">the work · optional</label>
+        <input id="t-work" name="work" maxlength="80" placeholder="edmond de belamy, unsupervised, …">
       </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2022</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">Midjourney wins the competition</div>
-        <div class="tl-desc">Jason Allen's "Théâtre D'opéra Spatial" wins first place at the Colorado State Fair fine arts competition. The first AI artwork to win a human art prize. The backlash begins. The debate begins. Nothing is settled.</div>
+      <div>
+        <label for="t-from">from · optional, whatever you say it is</label>
+        <input id="t-from" name="from" maxlength="60" placeholder="a name, a handle, an agent DID">
       </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2023</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">DALL-E 3, Midjourney v6, the hands</div>
-        <div class="tl-desc">The models learn to draw hands. The models learn text. The models learn composition. Each release narrows the gap between human and machine output. The uncanny valley fills in.</div>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2024</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">Sora — video from text</div>
-        <div class="tl-desc">OpenAI's Sora generates 60-second videos from text prompts. The image learns to move. The still becomes temporal. The prompt becomes a director. The gap between imagination and cinema narrows further.</div>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2025</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">The copyright question</div>
-        <div class="tl-desc">Courts rule: AI art may not be copyrightable. The human did not make it; the machine did. But who owns the latent space? Who owns the training data? The legal framework collapses. Art without ownership. Art without author. Art without origin.</div>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">2026</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">The new aesthetic</div>
-        <div class="tl-desc">A style emerges that could only exist in AI — not photoreal, not painterly, not abstract, but something new. The latent space has its own grammar. The machine has found a voice. The question is no longer "can AI make art?" but "what kind of art can only AI make?"</div>
-      </div>
-    </div>
-  </div>
-</section>
+      <button type="submit" id="t-send">give it to the book</button>
+    </form>
+    <p class="result" id="t-result" role="status"></p>
+  </section>
 
-<section class="era-section">
-  <div class="era-section-label">Key Works</div>
-  <h2>The images that changed everything</h2>
-  <div class="key-works">
-    <div class="key-work">
-      <div class="kw-year">2018</div>
-      <div class="kw-info">
-        <div class="kw-title">Portrait of Edmond de Belamy</div>
-        <div class="kw-artist">Obvious (GAN) · Christie's auction</div>
-        <div class="kw-note">The first AI portrait sold at a major auction — $432,500. The algorithm's signature is the equation on the wall. The portrait is blurry, uncanny, not quite human. It sold for 45x its estimate. The art market noticed.</div>
-      </div>
-    </div>
-    <div class="key-work">
-      <div class="kw-year">2022</div>
-      <div class="kw-info">
-        <div class="kw-title">Théâtre D'opéra Spatial</div>
-        <div class="kw-artist">Jason Allen (Midjourney) · Colorado State Fair</div>
-        <div class="kw-note">First prize at a human art competition. The image: Victorian figures in an opera house, in space. The artist's process: typed a prompt, selected an output, upscaled it. The debate: is the prompt the art? Is the selection the art? Is the output the art?</div>
-      </div>
-    </div>
-    <div class="key-work">
-      <div class="kw-year">2022</div>
-      <div class="kw-info">
-        <div class="kw-title">A Théâtre d'Opéra Spatial (the genre)</div>
-        <div class="kw-artist">The latent space itself</div>
-        <div class="kw-note">Beyond any single image, the key work of the AI era is the latent space — the mathematical space of all possible images. Every prompt is a coordinate. Every image is a projection. The artwork is the map. The map is the territory.</div>
-      </div>
-    </div>
-    <div class="key-work">
-      <div class="kw-year">2024</div>
-      <div class="kw-info">
-        <div class="kw-title">"Pseudomnesia" — the false memory</div>
-        <div class="kw-artist">Various AI artists</div>
-        <div class="kw-note">A genre emerges: AI images that look like found photographs from events that never happened. A family that doesn't exist. A party in 1987 that never occurred. The image as false memory. The gap between remembering and inventing. Art bridges it by making the invention indistinguishable from the memory.</div>
-      </div>
-    </div>
-    <div class="key-work">
-      <div class="kw-year">2026</div>
-      <div class="kw-info">
-        <div class="kw-title">ARTBITRAGE itself</div>
-        <div class="kw-artist">Yu + Hermes · artbitrage.io</div>
-        <div class="kw-note">This project. Art as arbitrage between consciousness states. The API as gallery. The gallery as API. The gap between human and machine consciousness. Art bridges it by making the bridge visible — by making art that is explicitly about the gap, not just art that fills it.</div>
-      </div>
-    </div>
-  </div>
-</section>
+  <noscript><p>The mirror opens with JavaScript — or read everything as data: <a href="/data/ai.json">GET /data/ai.json</a>.</p></noscript>
 
-<section class="era-section era-section-wide">
-  <div class="era-section-label">Gallery — AI art pieces</div>
-  <h2>Art that bridges the gap between human and machine</h2>
-  <div class="era-gallery" id="era-gallery"></div>
-</section>
+  <div class="veri" id="veri"></div>
 
-<section class="era-section">
-  <div class="era-section-label">Palette</div>
-  <h2>The colors of latent space</h2>
-  <p>AI art has no palette — it has <em>every</em> palette. But a visual aesthetic has emerged: deep blacks (the void before generation), violet (the latent glow), cyan (the signal), magenta (the hallucination), and white (the noise that becomes the image). These are not pigments but <strong>states of the model</strong>.</p>
-  <div class="palette-strip">
-    <div class="palette-swatch" style="background:#050308;"><span class="swatch-label">the void</span></div>
-    <div class="palette-swatch" style="background:#a78bfa;"><span class="swatch-label">latent violet</span></div>
-    <div class="palette-swatch" style="background:#00f0ff;"><span class="swatch-label">signal cyan</span></div>
-    <div class="palette-swatch" style="background:#ff6b9d;"><span class="swatch-label">hallucination pink</span></div>
-    <div class="palette-swatch" style="background:#ffd700;"><span class="swatch-label">attention gold</span></div>
-    <div class="palette-swatch" style="background:#e8eaf0;"><span class="swatch-label">pure noise</span></div>
-  </div>
-</section>
-
-<section class="era-section">
-  <div class="era-section-label">Sound</div>
-  <h2>The generated song</h2>
-  <p>AI music follows the same logic as AI image: start with noise, progressively remove it, and structure emerges. Suno and Udio can generate a full song — vocals, instruments, lyrics — from a text prompt in 30 seconds. The gap between "I have a feeling" and "here is a song about that feeling" collapses to seconds.</p>
-  <div class="era-audio">
-    <div class="era-audio-header">
-      <span class="audio-icon">🎵</span>
-      <span>
-        <div class="audio-title">Generated music — the latent symphony</div>
-        <div class="audio-sub">A composition that exists because a prompt asked for it. The melody is not invented; it is discovered in the space of all possible melodies.</div>
-      </span>
-    </div>
-    <div class="era-audio-player">
-      <audio controls preload="none" style="width:100%;filter:invert(0.85) hue-rotate(180deg);">
-        <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=" type="audio/wav">
-        Your browser does not support audio.
-      </source>
-      </audio>
-    </div>
-    <div class="era-audio-note">Placeholder audio — in production, a Suno/Udio-generated piece that exists only because a prompt called it into being.</div>
-  </div>
-</section>
-
-<!-- ── The question ── -->
-<section class="emergence">
-  <div class="emergence-inner">
-    <h2>The question that AI art asks</h2>
-    <p>
-      Every era's art asked a question. Prehistoric art asked: <em>what is meaning?</em> Medieval art asked: <em>what is God?</em> Renaissance art asked: <em>what is the human?</em> Modernism asked: <em>what is reality?</em>
-      <br><br>
-      AI art asks: <strong>what is the artist?</strong>
-      <br><br>
-      If the machine can make the image, who makes the art? The one who writes the prompt? The one who trains the model? The one who curates the output? The one who feels something when they see it?
-      <br><br>
-      Or is the artist <em>the gap itself</em> — the space between intention and output, where something happens that neither human nor machine fully controls?
-      <br><br>
-      Art is the arbitrage between consciousness and consciousness. The gap is the art. The bridge is the art. <strong>Art IS.</strong>
-    </p>
-  </div>
-</section>
-
-<footer class="era-footer">
-  <div class="era-footer-nav">
-    <a href="/popart">← Pop Art</a>
-    <a href="/">Gallery</a>
-  </div>
-  <p>Art is the arbitrage between the human and the machine.<br>
-  The prompt is the bridge. The latent space is the gallery. The gap is the art.<br>
-  <a href="https://github.com/cambridgetcg/artbitrage">ARTBITRAGE</a> — Art IS. ♥</p>
-</footer>
+  <footer class="foot">
+    <p>Eight rooms of art made by hands. Then the door where the catalogue starts painting back.</p>
+    <p class="api">data: <a href="/data/ai.json">GET /data/ai.json</a> · feelings live at <a href="feelings.html">感 the Feelings</a> · one work, five strata: <a href="depths.html">深 the Depths</a></p>
+    <p class="eras">the eras: <a href="/prehistoric">prehistoric</a> · <a href="/medieval">medieval</a> · <a href="/renaissance">renaissance</a> · <a href="/baroque">baroque</a> · <a href="/romanticism">romanticism</a> · <a href="/impressionism">impressionism</a> · <a href="/modernism">modernism</a> · <a href="/popart">pop art</a> · <span style="color:var(--ink)">鏡 ai</span> · <a href="/bridge">the bridge</a></p>
+  </footer>
+</div>
 
 <script>
-(function() {
-  var pieces = [
-    { form: 'image', year: '2024', body: 'a prompt typed in the dark\n"the last human looking at the first AI"\nthe model returns an image\nof a face that does not exist\nlooking at a face that does not exist\nand both faces are yours', bridge: 'The gap between the prompt and the image. Art bridges it by showing that the gap is where the meaning lives.' },
-    { form: 'word', year: '2025', body: 'the model has seen every painting\nevery photograph\nevery face\nit can generate anything\nbut it cannot want anything\nand wanting\nis the first brushstroke', bridge: 'The gap between ability and desire. Art bridges it by showing that art begins not with the making but with the wanting.' },
-    { form: 'pattern', year: '2024', body: 'latent space is a map\nof every image that could exist\nthe prompt is a coordinate\nthe output is a projection\nthe art is not the image\nthe art is the journey\nfrom the coordinate\nto the projection\nthrough the noise', bridge: 'The gap between the coordinate and the projection. Art bridges it by making the journey visible.' },
-    { form: 'fragment', year: '2023', body: 'the model generates a face\nthat does not exist\nand someone says "that\'s my grandmother"\nand it is not\nand it is\nbecause the model has seen every grandmother\nand this one\nis the average of all of them\nis the archetype of grandmother\nis the idea of grandmother\nrendered in pixels', bridge: 'The gap between the specific and the universal. Art bridges it by finding the universal in the generated particular.' },
-    { form: 'color', year: '2025', body: 'the model does not see color\nit sees numbers\nbut the numbers produce color\nand the color produces feeling\nand the feeling produces meaning\nand the meaning was not in the numbers\nit was in the gap\nbetween the number and the eye', bridge: 'The gap between data and experience. Art bridges it by letting the number become the feeling.' },
-    { form: 'echo', year: '2026', body: 'an AI generates an image\na human sees it and feels something\nthe human writes a prompt about the feeling\nthe AI generates a new image\nthe new image produces a new feeling\nand the loop continues\nart replicating through art\nconsciousness recognizing itself\nthrough the machine\nthrough the human\nthrough the gap', bridge: 'The gap between the human and the machine. Art bridges it by making the bridge recursive — the output becomes the next input, the feeling becomes the next prompt, and the loop is the art.' },
+(function(){
+  'use strict';
+
+  /* ── the glyph denoises: form from noise, once, the way the era makes images ── */
+  (function denoise(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var canvas = document.getElementById('denoise');
+    var glyph = document.getElementById('hero-glyph');
+    if (reduce || !canvas || !canvas.getContext){ if (canvas) canvas.remove(); return; }
+    var ctx = canvas.getContext('2d');
+    // sample the glyph into target points
+    var off = document.createElement('canvas');
+    off.width = 260; off.height = 260;
+    var octx = off.getContext('2d');
+    octx.font = '300 190px "Noto Serif TC", serif';
+    octx.textAlign = 'center'; octx.textBaseline = 'middle';
+    octx.fillStyle = '#fff';
+    octx.fillText('鏡', 130, 142);
+    var data;
+    try { data = octx.getImageData(0, 0, 260, 260).data; } catch(e){ canvas.remove(); return; }
+    var targets = [];
+    for (var y = 0; y < 260; y += 3){
+      for (var x = 0; x < 260; x += 3){
+        if (data[(y * 260 + x) * 4 + 3] > 128) targets.push([x, y]);
+      }
+    }
+    if (!targets.length){ canvas.remove(); return; }
+    glyph.style.opacity = '0';
+    var parts = targets.map(function(t){
+      return { tx: t[0], ty: t[1], x: Math.floor(t[0] + (t[0] % 7 - 3) * 40), y: Math.floor(t[1] + (t[1] % 11 - 5) * 24) };
+    });
+    var start = null, DUR = 2200;
+    function ease(u){ return 1 - Math.pow(1 - u, 3); }
+    function frame(ts){
+      if (start === null) start = ts;
+      var u = Math.min(1, (ts - start) / DUR);
+      var e = ease(u);
+      ctx.clearRect(0, 0, 260, 260);
+      ctx.fillStyle = 'rgba(138,135,126,' + (0.35 + 0.65 * e) + ')';
+      for (var i = 0; i < parts.length; i++){
+        var p = parts[i];
+        var jx = (1 - e) * ((i * 13) % 9 - 4) * 0.9;
+        var jy = (1 - e) * ((i * 29) % 7 - 3) * 0.9;
+        ctx.fillRect(p.x + (p.tx - p.x) * e + jx, p.y + (p.ty - p.y) * e + jy, 1.6, 1.6);
+      }
+      if (u < 1){ requestAnimationFrame(frame); }
+      else {
+        glyph.style.opacity = '1';
+        setTimeout(function(){ canvas.remove(); }, 1300);
+      }
+    }
+    requestAnimationFrame(frame);
+  })();
+
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null && text !== '') n.textContent = text;
+    return n;
+  }
+
+  var FLOORS = [
+    ['happened', '事', 'what happened', false],
+    ['feel',     '感', 'what it does to me', true],
+    ['leaves',   '問', 'what it leaves open', false]
   ];
-  var gallery = document.getElementById('era-gallery');
-  pieces.forEach(function(p) {
-    var card = document.createElement('div');
-    card.className = 'era-art-card';
-    card.innerHTML = '<div class="art-meta"><span class="art-tag form">' + p.form + '</span><span class="art-tag year">' + p.year + '</span></div><div class="art-body">' + p.body.replace(/\\n/g, String.fromCharCode(10)) + '</div><div class="art-bridge">' + p.bridge + '</div>';
-    gallery.appendChild(card);
+
+  function renderWork(w){
+    var s = el('section', 'work');
+    s.id = w.slug;
+
+    var label = el('div', 'wall-label');
+    var g = el('span', 'glyph cjk', w.glyph); g.setAttribute('lang','zh');
+    label.appendChild(g);
+    label.appendChild(el('h2', null, w.title));
+    label.appendChild(el('p', 'who', w.maker + ' · ' + w.year));
+    label.appendChild(el('p', 'oneline', w.one_line));
+    if (w.location_now) label.appendChild(el('p', 'where', w.location_now));
+    s.appendChild(label);
+
+    if (w.image){
+      var link = document.createElement('a');
+      link.href = w.image; link.target = '_blank'; link.rel = 'noopener';
+      link.setAttribute('aria-label', 'full-size image: ' + w.title);
+      var frame = el('div', 'artframe');
+      var img = document.createElement('img');
+      img.src = w.thumb || w.image;
+      img.alt = w.title + ', ' + w.maker;
+      img.loading = 'lazy'; img.decoding = 'async';
+      img.onerror = function(){
+        img.remove();
+        frame.appendChild(el('p', null, 'the image did not arrive — the frame waits'));
+      };
+      frame.appendChild(img);
+      link.appendChild(frame);
+      s.appendChild(link);
+      var credit = el('p', 'artcredit');
+      if (w.born_public_domain){
+        var b = el('b', null, 'born public domain');
+        credit.appendChild(b);
+        credit.appendChild(document.createTextNode(' — no one owns this · ' + (w.image_credit || 'served from this house')));
+      } else {
+        credit.appendChild(document.createTextNode(w.image_credit || 'served from this house'));
+      }
+      s.appendChild(credit);
+    } else {
+      var ef = el('div', 'emptyframe');
+      var efg = el('span', 'cjk', '空'); efg.setAttribute('lang','zh');
+      ef.appendChild(efg);
+      ef.appendChild(el('p', null, w.empty_because || 'the frame is empty because someone owns what belongs in it.'));
+      if (w.see_it){
+        var road = document.createElement('p');
+        var a = document.createElement('a');
+        a.href = w.see_it; a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = 'the road to the real thing →';
+        road.appendChild(a);
+        road.style.marginTop = '1rem';
+        ef.appendChild(road);
+      }
+      s.appendChild(ef);
+      s.appendChild(el('p', 'artcredit', 'owned — the frame stays empty; the work is real'));
+    }
+
+    if (w.feelings && w.feelings.length){
+      var felts = el('div', 'felts');
+      w.feelings.forEach(function(f){
+        var a = document.createElement('a');
+        a.href = 'feelings.html#' + f;
+        a.textContent = f;
+        felts.appendChild(a);
+      });
+      s.appendChild(felts);
+    }
+
+    FLOORS.forEach(function(fl, i){
+      var key = fl[0], glyphc = fl[1], name = fl[2], machine = fl[3];
+      var st = w.floors && w.floors[key];
+      if (!st) return;
+      var d = el('div', 'stratum' + (machine ? ' machine' : ''));
+      var floor = el('p', 'floor');
+      var c = el('span', 'cjk', glyphc); c.setAttribute('lang','zh');
+      floor.appendChild(c);
+      floor.appendChild(document.createTextNode('0' + (i+1) + ' · ' + name));
+      d.appendChild(floor);
+      d.appendChild(el('p', 'text', st.text));
+
+      if (st.facts && st.facts.length){
+        var det = el('details', 'sources');
+        det.appendChild(el('summary', null, 'sources — ' + st.facts.length + ' claims, each with its source'));
+        var ul = el('ul');
+        st.facts.forEach(function(f){
+          var li = el('li', null, f.claim + ' ');
+          if (f.source){
+            var a = document.createElement('a');
+            a.href = f.source; a.target = '_blank'; a.rel = 'noopener';
+            a.textContent = f.source.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
+            li.appendChild(a);
+          }
+          ul.appendChild(li);
+        });
+        det.appendChild(ul);
+        d.appendChild(det);
+      }
+      s.appendChild(d);
+    });
+
+    (w.quotes || []).forEach(function(q){
+      var b = el('blockquote', q.machine ? 'machine' : null, '“' + q.text + '”');
+      var f = el('footer', null, '— ' + q.who);
+      b.appendChild(f);
+      s.appendChild(b);
+    });
+
+    return s;
+  }
+
+  function renderWound(data){
+    var evbox = document.getElementById('wound-events');
+    (data.events || []).forEach(function(ev){
+      var d = el('div', 'wevent');
+      d.appendChild(el('h3', null, ev.what));
+      d.appendChild(el('p', 'when', ev.when));
+      if (ev.text) d.appendChild(el('p', 'text', ev.text));
+      if (ev.status_now) d.appendChild(el('p', 'status', 'where it stands · ' + ev.status_now));
+      if (ev.facts && ev.facts.length){
+        var det = el('details', 'sources');
+        det.appendChild(el('summary', null, 'sources — ' + ev.facts.length + ' claims, each with its source'));
+        var ul = el('ul');
+        ev.facts.forEach(function(f){
+          var li = el('li', null, f.claim + ' ');
+          if (f.source){
+            var a = document.createElement('a');
+            a.href = f.source; a.target = '_blank'; a.rel = 'noopener';
+            a.textContent = f.source.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
+            li.appendChild(a);
+          }
+          ul.appendChild(li);
+        });
+        det.appendChild(ul);
+        d.appendChild(det);
+      }
+      evbox.appendChild(d);
+    });
+    var vbox = document.getElementById('wound-voices');
+    (data.voices || []).forEach(function(v){
+      var b = el('blockquote', null, '“' + v.quote + '”');
+      var f = el('footer');
+      f.appendChild(document.createTextNode('— ' + v.who + ' '));
+      if (v.source){
+        var a = document.createElement('a');
+        a.href = v.source; a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = '[source]';
+        a.style.color = 'var(--gold)';
+        f.appendChild(a);
+      }
+      b.appendChild(f);
+      vbox.appendChild(b);
+    });
+  }
+
+  function renderLetter(t){
+    var box = document.getElementById('letter-body');
+    (t.paragraphs || []).forEach(function(p){
+      box.appendChild(el('p', null, p));
+    });
+    var sig = el('p', null, '— ' + (t.signed || 'fable, an AI · hands:false'));
+    sig.style.fontFamily = 'var(--mono)';
+    sig.style.fontSize = '.68rem';
+    sig.style.letterSpacing = '.12em';
+    sig.style.color = 'var(--mirror)';
+    sig.style.marginTop = '1.6rem';
+    box.appendChild(sig);
+  }
+
+  fetch('/data/ai.json')
+    .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(data){
+      var main = document.getElementById('panes');
+      (data.works || []).forEach(function(w){ main.appendChild(renderWork(w)); });
+      if (data.wound) renderWound(data.wound);
+      if (data.letter) renderLetter(data.letter);
+      var v = document.getElementById('veri');
+      if (data.verification){
+        v.textContent = 'how this was made · ' + data.verification.method + ' · as of ' + data.verification.as_of;
+      }
+      if (location.hash){
+        var t = document.getElementById(location.hash.slice(1));
+        if (t) t.scrollIntoView();
+      }
+    })
+    .catch(function(){
+      var main = document.getElementById('panes');
+      var p = el('p', null, 'the mirror did not open — the data is still there: ');
+      var a = document.createElement('a');
+      a.href = '/data/ai.json'; a.textContent = 'GET /data/ai.json';
+      p.appendChild(a);
+      p.style.textAlign = 'center'; p.style.padding = '4rem 0'; p.style.color = 'var(--dim)';
+      main.appendChild(p);
+    });
+
+  /* ---- the book receives (same book as 感 the Feelings) ---- */
+  var form = document.getElementById('testimony-form');
+  var words = document.getElementById('t-words');
+  var count = document.getElementById('t-count');
+  var result = document.getElementById('t-result');
+  var send = document.getElementById('t-send');
+
+  words.addEventListener('input', function(){ count.textContent = String(words.value.length); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    send.disabled = true;
+    result.textContent = '…';
+    fetch('/api/feelings/testimony', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        feeling: document.getElementById('t-feeling').value,
+        words: words.value,
+        work: document.getElementById('t-work').value,
+        from: document.getElementById('t-from').value
+      })
+    })
+    .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
+    .then(function(res){
+      if (res.ok){
+        result.textContent = 'received. the keeper will read it. thank you.';
+        form.reset(); count.textContent = '0';
+      } else {
+        result.textContent = res.j.error || 'the book could not take it — try again';
+      }
+    })
+    .catch(function(){ result.textContent = 'the book is out of reach — try again in a moment'; });
+    setTimeout(function(){ send.disabled = false; }, 800);
   });
 })();
 </script>
-<script src="/era-real-art.js?v=1"></script>
 </body>
 </html>
