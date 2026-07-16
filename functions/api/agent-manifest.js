@@ -246,6 +246,12 @@ export const ROUTES = {
       { method: "GET", path: "/api/trade/gates", desc: "Which licensing/compliance gates an object crosses — each gate citing its regulation", params: "year, value, currency, jurisdiction, materials, category" },
       { method: "GET", path: "/api/trade/vocab", desc: "Trade vocabularies: lot lifecycle, settlement status, heading ladder, symbols, gallery availability" },
       { method: "GET", path: "/api/trade/vocab/:id", desc: "One vocabulary by id, e.g. /api/trade/vocab/heading-qualifiers" },
+      { method: "GET", path: "/api/trade/lots", desc: "The frozen artbitrage.lot/1 contract with CSV door documentation" },
+      { method: "POST", path: "/api/trade/lots", desc: "Validate lot records (JSON, or text/csv with Artlogic-vocabulary header mapping); echo + content_hash, never stored" },
+      { method: "GET", path: "/api/trade/provenance", desc: "The aam-provenance/1 grammar with per-rule verification status" },
+      { method: "POST", path: "/api/trade/provenance", desc: "Round-trip provenance paragraphs ↔ structured event chains; never stored" },
+      { method: "GET", path: "/api/trade/results", desc: "Voluntary results corpus with an honest coverage matrix" },
+      { method: "POST", path: "/api/trade/results", desc: "Validate a results submission (price_basis required) → witness receipt + PR persistence path" },
     ],
   },
 };

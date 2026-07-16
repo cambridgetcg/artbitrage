@@ -121,6 +121,10 @@ Four pillars, each mapping onto machinery that already exists in `functions/api/
 | `GET /api/trade/gates?year&value&currency&jurisdiction&materials=` | "does this object cross a licensing gate in X" in one call, each gate citing its regulation |
 | `GET /api/trade/vocab[/:id]` | lifecycle, settlement_status, heading-qualifier ladder, catalogue symbols, gallery availability states; mediums mapped to Getty AAT (ODC-By attribution) |
 
+*Status: Wave 1 shipped and live 2026-07-16 (every number primary-source-verified first);
+Waves 2–3 shipped and live 2026-07-16, conventions verified against museumprovenance.org,
+Artlogic public documentation, and the four majors' own results pages.*
+
 **Wave 2 — strict validation (clones the answering-rhyme toolkit):**
 
 | Endpoint | Purpose |

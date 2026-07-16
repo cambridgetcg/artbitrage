@@ -55,11 +55,17 @@ Every reference record carries `source_url`, effective dates, and a truth status
 | GET | `/api/trade/thresholds?jurisdiction&kind` | Dated compliance constants (AML, export, import, VAT), each citing its source |
 | GET | `/api/trade/gates?year&value&currency&jurisdiction&materials=` | Which licensing/compliance gates an object crosses — one call, regulations cited |
 | GET | `/api/trade/vocab[/:id]` | Trade vocabularies: lot lifecycle, settlement status, heading ladder, symbols, gallery availability |
+| GET\|POST | `/api/trade/lots` | `artbitrage.lot/1` validation — JSON or a CSV door mapped to the Artlogic header vocabulary; echo + `content_hash`, never stored |
+| GET\|POST | `/api/trade/provenance` | `aam-provenance/1` round-trip: paragraph ↔ structured event chain (semicolon = direct transfer, verified) |
+| GET\|POST | `/api/trade/results` | Voluntary results corpus — `price_basis` required, witness receipt, PR persistence path; never scraped |
 
 ```bash
 curl "https://artbitrage.io/api/trade/fees/compute?hammer=100000&house=sothebys&location=new-york"
-curl "https://artbitrage.io/api/trade/arr?price=80000&currency=EUR&artist_death_year=1985"
-curl "https://artbitrage.io/api/trade/gates?year=1890&value=200000&currency=EUR&jurisdiction=uk&materials=ivory_elephant"
+curl "https://artbitrage.io/api/trade/arr?price=80000&currency=GBP&artist_death_year=1985"
+curl "https://artbitrage.io/api/trade/gates?year=1890&value=200000&currency=GBP&jurisdiction=uk&materials=ivory_elephant"
+curl -X POST "https://artbitrage.io/api/trade/provenance" -H 'Content-Type: application/json' \
+  -d '{"display_string": "Private collection, Hong Kong; purchased by the present owner, 1998."}'
+curl -X POST "https://artbitrage.io/api/trade/lots" -H 'Content-Type: text/csv' --data-binary @artlogic-export.csv
 ```
 
 ## Open Source Search
