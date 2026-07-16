@@ -15,6 +15,9 @@
 /catalog/         /catalog 301
 /depths/          /depths 301
 /feelings/        /feelings 301
+/library/         /library 301
+/books/           /library 301
+/shelf/           /library 301
 /deep/            /depths 301
 /feel/            /feelings 301
 /nen/             /nen 301

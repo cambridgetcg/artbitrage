@@ -3,8 +3,8 @@
  "description": "One work at a time, five strata down: the feeling, the hands, the world, the paint, the afterlife. Context is not trivia — it is where the feeling comes from.",
  "built": "2026-07-13",
  "verification": {
-  "method": "each work researched by one web-reading agent, every load-bearing claim then adversarially fact-checked by an independent agent against primary sources; 5 corrections applied, 1 precise figure downgraded to 'reported'",
-  "as_of": "2026-07-13",
+  "method": "each work researched by one web-reading agent, every load-bearing claim then adversarially fact-checked by an independent agent against primary sources; 5 corrections applied, 1 precise figure downgraded to 'reported'; the First Folio shaft verified 25/25 on 2026-07-16",
+  "as_of": "2026-07-16",
   "sources": "every fact carries its source URL"
  },
  "strata_legend": {
@@ -606,6 +606,181 @@
      "text": "One day, with enough careful observing, I knew I would solve the riddle of this painting. Now, I never will unless the painting is returned.",
      "who": "Lloyd Schwartz, poet and critic, on The Concert",
      "where": "https://www.wbur.org/news/2018/08/27/lastseen-vermeer-the-concert"
+    }
+   ]
+  },
+  {
+   "slug": "first-folio",
+   "glyph": "戲",
+   "title": "Mr. William Shakespeares Comedies, Histories, & Tragedies — the First Folio",
+   "artist": "William Shakespeare; gathered by John Heminges & Henry Condell, printed by William & Isaac Jaggard",
+   "year": "1623",
+   "one_line": "two actors gathered their dead friend's plays so they would not vanish — half of Shakespeare survives only because they did",
+   "location_now": "≈235 copies survive of ~750 printed; 82 live at the Folger, Washington D.C. — all shown together since June 2024",
+   "image": "https://artbitrage.io/art/library-shakespeare-first-folio.jpg",
+   "thumb": "https://artbitrage.io/art/library-shakespeare-first-folio-t.jpg",
+   "feelings": [
+    "awe",
+    "gratitude",
+    "vertigo",
+    "tenderness"
+   ],
+   "strata": {
+    "feeling": {
+     "text": "It looks, at first, like any big old book: browned paper, heavy boards, a matter-of-fact title. Then the label tells you what you are standing over — the only door through which half of Shakespeare reached us — and the plainness turns to vertigo. Without this object there is no Macbeth, no Tempest, no Twelfth Night; words you have carried all your life nearly went nowhere. When the Folger sent Folios to all fifty states in 2016, each opened to 'To be or not to be', staff watched people stand over the page with tears running down their faces, and one visitor proposed marriage beside it. The feeling is not really about rarity or price. It is gratitude with a shiver in it: the sudden arithmetic of how close it all came to never.",
+     "feelings": [
+      "awe",
+      "gratitude",
+      "vertigo",
+      "tenderness"
+     ]
+    },
+    "hands": {
+     "text": "Shakespeare died in 1616 with no collected edition; about half his plays had never been printed at all. Two actors fixed that: John Heminges and Henry Condell, his friends and fellow shareholders in the King's Men, who gathered scripts, playhouse copies, and earlier quartos into one book, 'onely to keepe the memory of so worthy a Friend, & Fellow aliue.' The printing, from early 1622 to late 1623, happened in the shop of William Jaggard — old, blind, and dying; he was gone about a month before the book went on sale, so his son Isaac carried it through. At least five compositors set the type, each betrayed by his own spelling habits. The clumsiest, 'Compositor E', was almost certainly John Leason, a teenager apprenticed only in November 1622, whose mistakes still speckle the pages he set. Eighteen plays — Macbeth, The Tempest, Twelfth Night among them — exist because of these hands.",
+     "facts": [
+      {
+       "claim": "Heminges and Condell, Shakespeare's friends and fellow King's Men, assembled 36 plays seven years after his death in 1616; 18 of them — including Macbeth, The Tempest, Twelfth Night, Julius Caesar, As You Like It and The Winter's Tale — had never been printed and would likely be lost otherwise.",
+       "source": "https://www.folger.edu/explore/shakespeare-in-print/first-folio/"
+      },
+      {
+       "claim": "Printing ran from about February 1622 to early November 1623 at the Jaggard shop; William Jaggard was old, infirm and blind by 1623 and died about a month before the book went on sale, so most of the work fell to his son Isaac.",
+       "source": "https://en.wikipedia.org/wiki/First_Folio"
+      },
+      {
+       "claim": "Five compositors (A–E), identified by their spelling and typesetting habits, set the book: A set 194 pages, B 445, C 120, D 35½, E 71½. Compositor E was most likely John Leason, whose apprenticeship contract dated only from 4 November 1622.",
+       "source": "https://en.wikipedia.org/wiki/First_Folio"
+      },
+      {
+       "claim": "John Leason 'started as a teenage apprentice at the Jaggards' in November 1622'; 'his lack of experience meant he made many mistakes,' and errors survive throughout the Folio.",
+       "source": "https://folio400.com/publication/compositing/"
+      },
+      {
+       "claim": "In the preface 'To the great Variety of Readers', Heminges and Condell say they 'collected & publish'd' the plays where readers had been 'abus'd with diuerse stolne, and surreptitious copies, maimed, and deformed'.",
+       "source": "https://www.shakespeare-online.com/biography/firstfolio.html"
+      }
+     ]
+    },
+    "world": {
+     "text": "London in 1623 was a city that had learned to live with plague: the outbreaks of 1603 and 1608–09 killed tens of thousands and shut the playhouses for months at a stretch — closures the King's Men knew in their wages. The book trade crowded into St Paul's Churchyard, in the shadow of the cathedral, and when the Folio finally went on sale in late 1623 Edward Blount took delivery at his shop there, at the sign of the Black Bear. It was a luxury object: 15 shillings unbound, about £1 bound in plain calf — while a good set of knives cost 12 shillings and Ben Jonson's own folio Workes just 9. Sir Edward Dering bought two copies at £1 each; for an ordinary worker, one scholar reckons, that £1 felt like spending thousands of dollars today. Roughly 750 copies were printed.",
+     "facts": [
+      {
+       "claim": "An unbound First Folio cost 15 shillings in 1623; a copy in plain calf binding cost £1 (20 shillings). About 750 copies were printed.",
+       "source": "https://www.folger.edu/explore/shakespeare-in-print/first-folio/"
+      },
+      {
+       "claim": "Edward Blount, principal publisher with the Jaggards, sold the Folio from his bookshop at the sign of the Black Bear in St Paul's Churchyard from late 1623.",
+       "source": "https://en.wikipedia.org/wiki/Edward_Blount"
+      },
+      {
+       "claim": "Sir Edward Dering bought two First Folios in 1623 for £1 each; 'to the average worker, spending £1 on a book in 1623 would probably have seemed like spending around $4,000 or more for one today' — a set of knives cost 12 shillings, Ben Jonson's folio 9 shillings.",
+       "source": "https://sites.utexas.edu/ransomcentermagazine/2023/11/28/the-long-lives-of-first-folios/"
+      },
+      {
+       "claim": "The 1603 plague killed around a quarter of London's population and kept the theatres closed for nearly a year; severe outbreaks recurred in 1592–93, 1603–04, 1606 and 1608–09, repeatedly costing Shakespeare's company its playhouse income.",
+       "source": "https://www.shakespeare.org.uk/explore-shakespeare/blogs/sovereign-and-sick-city-1603/"
+      },
+      {
+       "claim": "Plague closures shaped Shakespeare's working life and writing; the Folger documents the closures and their traces in the plays.",
+       "source": "https://www.folger.edu/blogs/shakespeare-and-beyond/speaking-what-we-feel-shakespeares-plague-plays/"
+      }
+     ]
+    },
+    "paint": {
+     "text": "England in 1623 had no mill making paper fine enough to print on, so the Folio's sheets — almost 230 per copy — came from northern France: white paper of pounded linen rags, folded and nested three sheets at a time into gatherings of six leaves. The paper alone cost the publishers as much as all the setting and printing. The text runs in two columns, roman type for the spoken lines, italic for names and stage directions — around four million pieces of type lifted letter by letter for some 900 pages. On the title page sits Martin Droeshout's copper engraving, cut by a man in his early twenties who probably never saw Shakespeare alive. The plate exists in four states; in the rare first state the head floats eerily above the collar, missing its shadow — only four such impressions survive. Facing it, Ben Jonson supplies the correction: since the engraver could not draw the wit, 'looke / Not on his Picture, but his Booke.'",
+     "pigments": [
+      {
+       "name": "French linen rag paper",
+       "note": "No English mill then produced printing-quality paper, so it was imported from northern France, made from the fibres of linen rags; the paper cost as much as the typesetting and printing combined.",
+       "source": "https://folio400.com/publication/paper-making/"
+      },
+      {
+       "name": "Folio sheets, folded in sixes",
+       "note": "Almost 230 sheets per copy, each printed both sides and folded once; three sheets nested made a gathering of six leaves (twelve pages) — a 'folio in sixes'.",
+       "source": "https://www.folger.edu/explore/shakespeare-in-print/diy-first-folio/"
+      },
+      {
+       "name": "Roman and italic type",
+       "note": "Dialogue set in roman, stage directions and speech headings in italic, two columns per page; about four million pieces of type were set for the Folio's 908 pages.",
+       "source": "https://folio400.com/publication/compositing/"
+      },
+      {
+       "name": "Copper-plate engraving (Droeshout portrait)",
+       "note": "Martin Droeshout's engraving exists in four states; state 1 lacks the shadow behind the head so it seems to float above the collar — only four impressions survive (two at the Folger, one British Library, one Bodleian).",
+       "source": "https://www.folger.edu/blogs/collation/four-states-of-shakespeare-the-droeshout-portrait/"
+      }
+     ],
+     "facts": [
+      {
+       "claim": "Dialogue appears in roman type with stage directions and speech prefixes in italic, in a two-column layout, as the Bodleian's digital First Folio transcription records.",
+       "source": "https://firstfolio.bodleian.ox.ac.uk/text/"
+      },
+      {
+       "claim": "Martin Droeshout the Younger was born in 1601 — about 22 when the Folio appeared — and very likely never met Shakespeare; the portrait was probably worked from an existing likeness.",
+       "source": "https://en.wikipedia.org/wiki/Droeshout_portrait"
+      },
+      {
+       "claim": "Ben Jonson's verse 'To the Reader' faces the portrait and ends: 'Reader, looke / Not on his Picture, but his Booke.'",
+       "source": "https://en.wikipedia.org/wiki/Droeshout_portrait"
+      },
+      {
+       "claim": "The Droeshout portrait is one of very few images of Shakespeare considered authentic.",
+       "source": "https://www.folger.edu/explore/shakespeare-in-print/first-folio/"
+      }
+     ]
+    },
+    "afterlife": {
+     "text": "Of roughly 750 copies, 235 are known today, each tracked like a person with a biography. The Folger Shakespeare Library in Washington holds 82; Meisei University in Tokyo holds 12. In October 2020 the copy Mills College had owned since 1977 sold at Christie's New York for $9,978,000 — a record at auction for any work of literature. New ones still surface: in 2016 a three-volume copy annotated by the eighteenth-century editor Isaac Reed was authenticated at Mount Stuart, on the Isle of Bute. And they are stolen. Durham University's Folio vanished in 1998; a decade on, Raymond Scott walked it into the Folger stripped of its binding and title leaf, spinning a tale of friends in Cuba — eight years for handling stolen goods, and death in his cell in 2012. In 1940 a gang lifted Williams College's copy behind a fake professor's card; it came home within the year. Manchester's, taken in 1972, is missing still.",
+     "facts": [
+      {
+       "claim": "About 750 copies were printed; 235 are known to survive, and the Folger Shakespeare Library holds 82 of them — the world's largest collection.",
+       "source": "https://www.folger.edu/explore/shakespeare-in-print/first-folio/"
+      },
+      {
+       "claim": "Meisei University in Tokyo holds 12 First Folios, the largest collection outside the Folger.",
+       "source": "https://en.wikipedia.org/wiki/First_Folio"
+      },
+      {
+       "claim": "On 14 October 2020 the Mills College copy sold at Christie's New York for $9,978,000 to book dealer Stephan Loewentheil — a world auction record for a work of literature, against an estimate of $4–6 million.",
+       "source": "https://www.smithsonianmag.com/smart-news/shakespeares-first-folio-sells-ten-million-dollars-180976074/"
+      },
+      {
+       "claim": "In April 2016 a First Folio was authenticated by Oxford professor Emma Smith at Mount Stuart on the Isle of Bute — an unusual three-volume copy once owned and annotated by the 18th-century editor Isaac Reed.",
+       "source": "https://www.pbs.org/newshour/world/rare-shakespeare-first-folio-found-on-scottish-island"
+      },
+      {
+       "claim": "Durham University's First Folio was stolen in December 1998; in 2008 Raymond Scott brought it to the Folger for authentication, its binding, title page and end leaves cut away; in 2010 he was convicted of handling stolen goods and jailed for eight years, and in 2012 he was found dead in his cell at HMP Northumberland.",
+       "source": "https://www.itv.com/news/tyne-tees/2023-11-12/the-tumultuous-history-of-durhams-famous-first-folio-of-shakespeare"
+      },
+      {
+       "claim": "On 8 February 1940 the Kwiatkowski gang stole Williams College's First Folio from the Chapin Library, using an accomplice posing as 'Professor Sinclair E. Gillingham' of Middlebury; the book was recovered undamaged and returned on 21 October 1940, and all four men were convicted.",
+       "source": "https://crimereads.com/shakespeares-first-folio-has-been-stolen-many-many-times/"
+      },
+      {
+       "claim": "The First Folio stolen from the John Rylands Library, Manchester, on 13 July 1972 has never been recovered.",
+       "source": "https://rylandscollections.com/2022/07/13/the-theft-of-the-first-folio-1972/"
+      },
+      {
+       "claim": "During the Folger's 2016 tour of Folios to all 50 states, each copy displayed open to 'To be or not to be', visitors stood over the book with tears running down their faces, and one person proposed marriage in front of it.",
+       "source": "https://www.folger.edu/podcasts/shakespeare-unlimited/folger-reopening-part-1/"
+      }
+     ]
+    }
+   },
+   "quotes": [
+    {
+     "text": "We haue but collected them, and done an office to the dead … onely to keepe the memory of so worthy a Friend, & Fellow aliue, as was our Shakespeare.",
+     "who": "John Heminges & Henry Condell",
+     "where": "'To the great Variety of Readers', the First Folio's preface, 1623"
+    },
+    {
+     "text": "He was not of an age, but for all time!",
+     "who": "Ben Jonson",
+     "where": "'To the memory of my beloued, The Avthor Mr. William Shakespeare', prefatory poem in the First Folio, 1623"
+    },
+    {
+     "text": "Reader, looke / Not on his Picture, but his Booke.",
+     "who": "Ben Jonson",
+     "where": "'To the Reader', the ten-line verse facing the Droeshout portrait on the First Folio's title page"
     }
    ]
   }

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101014">
+<title>the Library — ARTBITRAGE</title>
+<meta name="description" content="書 · the first shelf: books and manuscripts as art objects. Where they live, what they are made of, how to open them — and the ledger of books: record sales and the vanished.">
+<meta property="og:title" content="the Library — ARTBITRAGE">
+<meta property="og:description" content="書 · books and manuscripts as art objects. Where they live, what they are made of, how to open them.">
+<meta property="og:image" content="https://artbitrage.io/art/library-book-of-kells.jpg">
+
+<!-- Fonts — same link as the other rooms, the only external request -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   書 — the library: books and manuscripts as art objects
+   sumi-ink dark gallery · one cinnabar accent · a shelf, a ledger
+   ============================================================ */
+
+:root{
+  --bg:      #101014;
+  --surface: #17171d;
+  --ink:     #e9e6df;
+  --dim:     #8a877e;
+  --hair:    #2a2a32;
+  --zhu:     #d34a3a;   /* 朱 cinnabar */
+  --gold:    #b39958;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --cjk:     'Noto Serif TC', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--zhu); color:var(--bg); }
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--zhu); }
+:focus-visible{ outline:1.5px solid var(--zhu); outline-offset:3px; }
+.wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+.cjk{ font-family:var(--cjk); }
+
+/* ---- crossnav ---- */
+.crossnav{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.14em;
+  padding:1.4rem 0; color:var(--dim);
+}
+.crossnav a{ color:var(--dim); }
+.crossnav a:hover{ color:var(--zhu); }
+.crossnav .here{ color:var(--ink); }
+
+/* ---- hero ---- */
+header.hero{ padding:7rem 0 4.5rem; text-align:center; }
+.hero .glyph{
+  font-family:var(--cjk); font-size:4.6rem; font-weight:300;
+  color:var(--dim); display:block; margin-bottom:1.2rem;
+}
+.hero h1{ font-family:var(--display); font-weight:300; font-size:2.6rem; letter-spacing:.14em; }
+.hero p.sub{
+  margin-top:1.1rem; color:var(--dim); font-style:italic;
+  font-size:1.02rem; max-width:38em; margin-left:auto; margin-right:auto;
+}
+.hero .note{
+  margin-top:2rem; font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.1em; color:var(--dim); line-height:2;
+}
+
+/* ---- section headers, museum wall-label style ---- */
+section{ padding:5.5rem 0 4rem; border-top:1px solid var(--hair); }
+.sechead{ text-align:center; margin-bottom:3rem; }
+.sechead .num{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.2em; color:var(--zhu);
+}
+.sechead h2{
+  margin-top:.5rem; font-family:var(--display); font-weight:500;
+  font-size:1.8rem; letter-spacing:.08em;
+}
+.sechead h2 .cjk{ color:var(--dim); margin-right:.5rem; }
+.sechead p.lede{
+  margin:1rem auto 0; max-width:36em; font-style:italic; color:var(--dim);
+}
+
+/* ---- the shelf ---- */
+.shelf{ display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:22px; }
+.book{ background:var(--surface); border:1px solid var(--hair); padding:12px 12px 18px; display:flex; flex-direction:column; }
+.book .artframe{ border:1px solid var(--hair); margin-bottom:1rem; background:var(--bg); }
+.book .artframe img{ display:block; width:100%; height:auto; }
+.book h3{ font-family:var(--display); font-weight:500; font-size:1.18rem; letter-spacing:.03em; }
+.book .who{
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.12em;
+  color:var(--dim); text-transform:uppercase; margin:.35rem 0 .2rem;
+}
+.book .kind{
+  font-family:var(--mono); font-size:.58rem; letter-spacing:.12em; color:var(--gold);
+}
+.book .oneline{ margin-top:.7rem; font-style:italic; font-size:.92rem; }
+.book .materials{ margin-top:.6rem; font-size:.85rem; color:var(--dim); }
+.book .where{
+  margin-top:.7rem; font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.1em; color:var(--gold); line-height:1.7;
+}
+.book .access{ margin-top:.35rem; font-size:.82rem; color:var(--dim); }
+.book .openlink{
+  display:inline-block; margin-top:.8rem; font-family:var(--mono);
+  font-size:.64rem; letter-spacing:.14em; color:var(--ink);
+  border:1px solid var(--hair); padding:.35rem .8rem;
+}
+.book .openlink:hover{ color:var(--zhu); border-color:var(--zhu); }
+
+details.sources{ margin-top:auto; padding-top:1rem; }
+details.sources summary{
+  cursor:pointer; font-family:var(--mono); font-size:.6rem;
+  letter-spacing:.14em; color:var(--dim); list-style:none;
+}
+details.sources summary:hover{ color:var(--zhu); }
+details.sources summary::before{ content:"⌄ "; }
+details.sources[open] summary::before{ content:"⌃ "; }
+details.sources ul{ margin-top:.7rem; list-style:none; }
+details.sources li{
+  font-size:.78rem; color:var(--dim); line-height:1.55;
+  padding:.4rem 0; border-top:1px solid var(--hair);
+}
+details.sources li a{
+  font-family:var(--mono); font-size:.58rem; color:var(--gold); word-break:break-all;
+}
+details.sources li a:hover{ color:var(--zhu); }
+
+/* ---- the ledger of books ---- */
+.sales{ max-width:720px; margin:0 auto; }
+.sale{
+  display:flex; gap:1.2rem; align-items:baseline;
+  border-top:1px solid var(--hair); padding:1.1rem 0;
+}
+.sale .price{
+  font-family:var(--mono); font-size:.8rem; color:var(--gold);
+  min-width:7.5em; letter-spacing:.04em;
+}
+.sale .body h3{ font-family:var(--display); font-weight:500; font-size:1.08rem; }
+.sale .body p{ margin-top:.3rem; font-size:.88rem; color:var(--dim); }
+.sale .body .src{ font-family:var(--mono); font-size:.56rem; letter-spacing:.08em; }
+.sale .body .src a{ color:var(--gold); }
+.sale .body .src a:hover{ color:var(--zhu); }
+
+.vanished{ max-width:720px; margin:4rem auto 0; }
+.ghost{
+  border:1px solid var(--hair); background:var(--surface);
+  padding:1.4rem 1.5rem; margin-bottom:16px;
+}
+.ghost h3{ font-family:var(--display); font-weight:500; font-size:1.12rem; }
+.ghost .meta{
+  margin-top:.3rem; font-family:var(--mono); font-size:.6rem;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--dim);
+}
+.ghost .meta .missing{ color:var(--zhu); }
+.ghost .meta .recovered{ color:var(--gold); }
+.ghost p.fate{ margin-top:.7rem; font-size:.92rem; color:var(--ink); }
+.ghost .src{ margin-top:.5rem; font-family:var(--mono); font-size:.56rem; }
+.ghost .src a{ color:var(--gold); }
+.ghost .src a:hover{ color:var(--zhu); }
+
+/* ---- doors + honesty + footer ---- */
+.doors{ text-align:center; margin-top:3rem; }
+.doors a{
+  display:inline-block; font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.14em; color:var(--dim);
+  border:1px solid var(--hair); padding:.45rem 1rem; margin:.25rem;
+}
+.doors a:hover{ color:var(--zhu); border-color:var(--zhu); }
+
+.honesty{
+  margin:5rem auto 0; max-width:640px; padding:1.4rem 0 0;
+  border-top:1px solid var(--hair);
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.1em;
+  color:var(--dim); line-height:2; text-align:center;
+}
+footer.foot{ padding:4rem 0 5rem; text-align:center; }
+footer.foot p{ font-family:var(--display); font-style:italic; font-size:1.1rem; color:var(--dim); }
+footer.foot .api{
+  margin-top:1rem; font-family:var(--mono); font-size:.64rem;
+  letter-spacing:.12em; color:var(--dim);
+}
+footer.foot .api a{ color:var(--gold); }
+
+noscript p{ text-align:center; padding:4rem 1rem; color:var(--dim); font-style:italic; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="crossnav" aria-label="other rooms">
+    ← <a href="index.html">artbitrage</a> · <span class="here" aria-current="page">library</span> · <a href="depths.html">depths</a> · <a href="feelings.html">feelings</a> · <a href="atlas.html">atlas</a> · <a href="ledger.html">ledger</a>
+  </nav>
+
+  <header class="hero">
+    <span class="glyph" lang="zh">書</span>
+    <h1>the Library</h1>
+    <p class="sub">books and manuscripts as art objects — the first shelf. where they live, what they are made of, and the door each one leaves open: unlike a painting, a book lets you in.</p>
+    <p class="note" id="honesty-line"></p>
+  </header>
+
+  <section id="shelf-section">
+    <div class="sechead">
+      <p class="num">01 · 架</p>
+      <h2><span class="cjk" lang="zh">架</span>the shelf</h2>
+      <p class="lede">every one of these is somewhere, and most are open — digitized, page by page, free.</p>
+    </div>
+    <div class="shelf" id="shelf"></div>
+  </section>
+
+  <section id="ledger-section">
+    <div class="sechead">
+      <p class="num">02 · 槌</p>
+      <h2><span class="cjk" lang="zh">槌</span>the ledger of books</h2>
+      <p class="lede">what the market did with the written word — and what the thieves did. the main <a href="ledger.html">ledger</a> keeps the paintings; this page keeps the books.</p>
+    </div>
+    <div class="sales" id="sales"></div>
+    <div class="vanished" id="vanished"></div>
+  </section>
+
+  <div class="doors">
+    <a href="depths.html#first-folio">↓ the First Folio descends five strata at the Depths</a>
+    <a href="feelings.html">感 books now carry feelings too</a>
+  </div>
+
+  <noscript><p>The shelf opens with JavaScript — or read everything as data: <a href="/api/library">GET /api/library</a>.</p></noscript>
+
+  <div class="honesty" id="honesty"></div>
+
+  <footer class="foot">
+    <p>A painting you stand before. A book stands you inside it.</p>
+    <p class="api">data: <a href="/api/library">GET /api/library</a> · one book: <a href="/api/library/book-of-kells">GET /api/library/:slug</a></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null && text !== '') n.textContent = text;
+    return n;
+  }
+
+  function renderBook(b){
+    var card = el('article', 'book');
+    card.id = b.slug;
+
+    if (b.image){
+      var link = document.createElement('a');
+      link.href = b.image; link.target = '_blank'; link.rel = 'noopener';
+      link.setAttribute('aria-label', 'full-size image: ' + b.title);
+      var frame = el('div', 'artframe');
+      var img = document.createElement('img');
+      img.src = b.thumb || b.image;
+      img.alt = b.title + ', ' + b.maker;
+      img.loading = 'lazy'; img.decoding = 'async';
+      img.onerror = function(){
+        frame.appendChild(el('p', null, 'the image did not arrive — the shelf waits'));
+        img.remove();
+      };
+      frame.appendChild(img);
+      link.appendChild(frame);
+      card.appendChild(link);
+    }
+
+    card.appendChild(el('h3', null, b.title));
+    card.appendChild(el('p', 'who', b.maker + ' · ' + b.date));
+    card.appendChild(el('p', 'kind', b.kind));
+    card.appendChild(el('p', 'oneline', b.one_line));
+    card.appendChild(el('p', 'materials', b.materials));
+    card.appendChild(el('p', 'where', b.where));
+    if (b.access) card.appendChild(el('p', 'access', b.access));
+    if (b.open_url && /^https:\/\//.test(b.open_url)){
+      var o = document.createElement('a');
+      o.className = 'openlink'; o.href = b.open_url;
+      o.target = '_blank'; o.rel = 'noopener';
+      o.textContent = 'open the book →';
+      card.appendChild(o);
+    }
+
+    if (b.facts && b.facts.length){
+      var det = el('details', 'sources');
+      det.appendChild(el('summary', null, 'sources — ' + b.facts.length + ' claims'));
+      var ul = el('ul');
+      b.facts.forEach(function(f){
+        var li = el('li', null, f.claim + ' ');
+        if (f.source){
+          var a = document.createElement('a');
+          a.href = f.source; a.target = '_blank'; a.rel = 'noopener';
+          a.textContent = f.source.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
+          li.appendChild(a);
+        }
+        ul.appendChild(li);
+      });
+      det.appendChild(ul);
+      card.appendChild(det);
+    }
+    return card;
+  }
+
+  function renderSale(s){
+    var row = el('div', 'sale');
+    row.appendChild(el('p', 'price', s.price));
+    var body = el('div', 'body');
+    body.appendChild(el('h3', null, s.title + ' · ' + s.year));
+    body.appendChild(el('p', null, s.detail));
+    if (s.source){
+      var p = el('p', 'src');
+      var a = document.createElement('a');
+      a.href = s.source; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = s.source.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
+      p.appendChild(a);
+      body.appendChild(p);
+    }
+    row.appendChild(body);
+    return row;
+  }
+
+  function renderGhost(v){
+    var g = el('div', 'ghost');
+    g.appendChild(el('h3', null, v.title));
+    var meta = el('p', 'meta');
+    var st = el('span', /missing|destroyed/.test(v.status) ? 'missing' : 'recovered', v.status);
+    meta.appendChild(document.createTextNode(v.year_lost + ' · '));
+    meta.appendChild(st);
+    g.appendChild(meta);
+    g.appendChild(el('p', 'fate', v.fate));
+    if (v.source){
+      var p = el('p', 'src');
+      var a = document.createElement('a');
+      a.href = v.source; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = v.source.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
+      p.appendChild(a);
+      g.appendChild(p);
+    }
+    return g;
+  }
+
+  fetch('/data/library.json')
+    .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(data){
+      var shelf = document.getElementById('shelf');
+      (data.books || []).forEach(function(b){ shelf.appendChild(renderBook(b)); });
+      var sales = document.getElementById('sales');
+      ((data.ledger && data.ledger.sales) || []).forEach(function(s){ sales.appendChild(renderSale(s)); });
+      var van = document.getElementById('vanished');
+      ((data.ledger && data.ledger.vanished) || []).forEach(function(v){ van.appendChild(renderGhost(v)); });
+      if (data.honesty) document.getElementById('honesty-line').textContent = data.honesty;
+      if (data.verification){
+        document.getElementById('honesty').textContent =
+          'how this was made · ' + data.verification.method + ' · as of ' + data.verification.as_of;
+      }
+      if (location.hash){
+        var t = document.getElementById(location.hash.slice(1));
+        if (t) t.scrollIntoView();
+      }
+    })
+    .catch(function(){
+      var shelf = document.getElementById('shelf');
+      var p = el('p', null, 'the shelf did not open — the data is still there: ');
+      var a = document.createElement('a');
+      a.href = '/api/library'; a.textContent = 'GET /api/library';
+      p.appendChild(a);
+      p.style.padding = '3rem 0'; p.style.color = 'var(--dim)';
+      shelf.appendChild(p);
+    });
+})();
+</script>
+</body>
+</html>

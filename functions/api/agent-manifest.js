@@ -100,6 +100,16 @@ export const ROUTES = {
     ],
   },
 
+  // ── LIBRARY — books and manuscripts as art objects ────────────
+  library: {
+    label: "Library",
+    color: "#b39958",
+    routes: [
+      { method: "GET", path: "/api/library", desc: "書 the Library — the first shelf: monumental books and manuscripts, where they live, materials, how to open them; plus the ledger of books (record sales, the vanished)" },
+      { method: "GET", path: "/api/library/:slug", desc: "One book (e.g. /api/library/book-of-kells)" },
+    ],
+  },
+
   // ── FEELINGS — emotions as rooms, works in five strata ────────
   feelings: {
     label: "Feelings",

@@ -1,0 +1,788 @@
+{
+ "name": "書 the Library",
+ "description": "Books and manuscripts as art objects — the first shelf. Where they live, what they are made of, and the door each one leaves open: unlike a painting, a book lets you in.",
+ "built": "2026-07-16",
+ "honesty": "curated and researched by web-reading agents, then adversarially fact-checked against the holding institutions' live pages; 10 corrections applied before shipping. locations move — every claim is dated.",
+ "verification": {
+  "method": "one researcher per list, every load-bearing claim re-checked by an independent adversarial agent against primary sources (institutions, auction houses); 10 corrections applied",
+  "as_of": "2026-07-16"
+ },
+ "books": [
+  {
+   "slug": "book-of-kells",
+   "title": "The Book of Kells",
+   "maker": "Columban monks of Iona and Kells, scribes unknown",
+   "date": "c. 800",
+   "kind": "illuminated manuscript (Insular Gospel book)",
+   "where": "Old Library, Trinity College Dublin, Dublin, Ireland",
+   "access": "On display daily in the Old Library until the end of 2027, then in Trinity's restored Printing House while the Old Library closes for construction (to c. 2030); all 680 pages are free to browse online in Trinity's Digital Collections.",
+   "materials": "Calf vellum written in iron-gall ink and painted with pigments including orpiment yellow, red lead, and indigo, now bound in four volumes.",
+   "one_line": "Twelve centuries on, its tangled golden letters still make strangers queue around a courtyard just to stand near one open page.",
+   "open_url": "https://digitalcollections.tcd.ie/concern/works/hm50tr726",
+   "facts": [
+    {
+     "claim": "It contains the four Gospels in Latin and was made around 800 AD by monks of the Columban community of Iona and Kells.",
+     "source": "https://en.wikipedia.org/wiki/Book_of_Kells"
+    },
+    {
+     "claim": "The Book of Kells stays on display in the Old Library until the end of 2027; during the construction phase (to c. 2030) it moves to Trinity's restored Printing House.",
+     "source": "https://www.tcd.ie/old-library-campaign/faq/"
+    },
+    {
+     "claim": "All 340 folios (680 pages) have been rescanned in high resolution and are free to view in Trinity's Digital Collections.",
+     "source": "https://digitalcollections.tcd.ie/concern/works/hm50tr726"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-book-of-kells.jpg",
+   "thumb": "https://artbitrage.io/art/library-book-of-kells-t.jpg"
+  },
+  {
+   "slug": "diamond-sutra",
+   "title": "The Diamond Sutra of 868 AD",
+   "maker": "Commissioned by Wang Jie 'for universal free distribution'; block-cutters unknown",
+   "date": "11 May 868",
+   "kind": "woodblock-printed scroll — the world's oldest dated complete printed book",
+   "where": "British Library, London, UK (Or.8210/P.2)",
+   "access": "Shown periodically in the British Library's Treasures Gallery (free entry); the whole scroll is digitized and free to view on the International Dunhuang Programme site.",
+   "materials": "Seven panels of mulberry-paper printed from carved woodblocks and pasted into a scroll about five metres long, with a woodcut frontispiece of the Buddha.",
+   "one_line": "The oldest printed book we can date ends with a wish that it be given away free — and its colophon names the day: 11 May 868.",
+   "open_url": "https://idp.bl.uk/collection/51FDAEAFB4A24E2E9981692A98130BC8/",
+   "facts": [
+    {
+     "claim": "Its colophon dates it precisely to 11 May 868, making it the earliest surviving dated complete printed book, made by woodblock centuries before Gutenberg.",
+     "source": "https://idp.bl.uk/collection/51FDAEAFB4A24E2E9981692A98130BC8/"
+    },
+    {
+     "claim": "It lay sealed in the 'Library Cave' (Cave 17) at the Mogao Grottoes near Dunhuang for about 900 years until the cave was opened in 1900; Aurel Stein acquired it in 1907.",
+     "source": "https://www.smithsonianmag.com/smart-news/Five-things-to-know-about-diamond-sutra-worlds-oldest-dated-printed-book-180959052/"
+    },
+    {
+     "claim": "The commissioning line reads that Wang Jie had it made 'for universal free distribution' on behalf of his parents.",
+     "source": "https://www.smithsonianmag.com/smart-news/Five-things-to-know-about-diamond-sutra-worlds-oldest-dated-printed-book-180959052/"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-diamond-sutra.jpg",
+   "thumb": "https://artbitrage.io/art/library-diamond-sutra-t.jpg"
+  },
+  {
+   "slug": "gutenberg-bible",
+   "title": "The Gutenberg Bible (Library of Congress vellum copy)",
+   "maker": "Johannes Gutenberg, Mainz",
+   "date": "c. 1455",
+   "kind": "incunable — the first substantial European book printed with movable metal type",
+   "where": "Library of Congress, Thomas Jefferson Building, Washington, D.C., USA",
+   "access": "On permanent display at the entrance to the Great Hall of the Jefferson Building, free to anyone who walks in; a complete vellum copy (Göttingen's) is fully digitized online.",
+   "materials": "Three volumes printed in black ink from movable metal type on vellum, with hand-painted initials added after printing.",
+   "one_line": "The book that taught Europe to print stands in a public hallway in Washington, and a conservator still turns its page every three months.",
+   "open_url": "https://www.gutenbergdigital.de/",
+   "facts": [
+    {
+     "claim": "The Library of Congress copy is one of only a handful of complete vellum copies in the world, alongside those in Göttingen, Paris, and London.",
+     "source": "https://guides.loc.gov/gutenberg/questions"
+    },
+    {
+     "claim": "It was kept by Benedictine monasteries for nearly five centuries — mostly the Abbey of St Blaise in Germany's Black Forest, moving to St Paul's Abbey in Carinthia, Austria only in 1809 — and was purchased for the nation by an Act of Congress in 1930.",
+     "source": "https://guides.loc.gov/gutenberg/copy-history"
+    },
+    {
+     "claim": "It sits in a conservation display case in the Great Hall; staff rotate the volume every six months and turn to a new page opening every three months.",
+     "source": "https://blogs.loc.gov/loc/2018/09/gutenberg-bible-to-be-presented-in-new-display-case-designed-for-conservation/"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-gutenberg-bible.jpg",
+   "thumb": "https://artbitrage.io/art/library-gutenberg-bible-t.jpg"
+  },
+  {
+   "slug": "shakespeare-first-folio",
+   "title": "Shakespeare's First Folio (1623)",
+   "maker": "William Shakespeare; compiled by John Heminge and Henry Condell, printed by Isaac Jaggard and Edward Blount",
+   "date": "1623",
+   "kind": "first collected edition (folio)",
+   "where": "Folger Shakespeare Library, Washington, D.C., USA — 82 copies, the world's largest collection",
+   "access": "Since the Folger's June 2024 reopening, all 82 of its First Folios are displayed together in one glowing vault case, free to visit; the Bodleian's copy is fully digitized and free to read online.",
+   "materials": "Rag paper printed with handset metal type in a folio format, originally sold bound in plain calf over boards.",
+   "one_line": "Two actors gathered their dead friend's plays so they would not vanish — and half of Shakespeare exists only because they did.",
+   "open_url": "https://firstfolio.bodleian.ox.ac.uk/",
+   "facts": [
+    {
+     "claim": "The Folger holds 82 of the roughly 235 known surviving copies — more than a third of all First Folios in existence.",
+     "source": "https://www.npr.org/2024/06/19/nx-s1-4950096/folger-shakespeare-library-renovation"
+    },
+    {
+     "claim": "After a four-year, $80.5 million renovation, the Folger reopened in June 2024 with all 82 copies on public display together for the first time.",
+     "source": "https://www.folger.edu/about-us/press/folger-open-june21-2024/"
+    },
+    {
+     "claim": "The 1623 Folio printed 36 plays, eighteen of which — including Macbeth, Twelfth Night, and The Tempest — had never been printed before and might otherwise be lost.",
+     "source": "https://www.folger.edu/visit/exhibitions/shakespeare-exhibition/"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-shakespeare-first-folio.jpg",
+   "thumb": "https://artbitrage.io/art/library-shakespeare-first-folio-t.jpg"
+  },
+  {
+   "slug": "codex-leicester",
+   "title": "The Codex Leicester",
+   "maker": "Leonardo da Vinci",
+   "date": "c. 1508–1510",
+   "kind": "autograph scientific notebook",
+   "where": "Private collection of Bill Gates, Seattle, Washington, USA",
+   "access": "No permanent public venue: since 1994 its owner has lent it for roughly annual exhibitions at museums around the world (Uffizi, Minneapolis Institute of Art, North Carolina Museum of Art, and others).",
+   "materials": "Eighteen loose double sheets of linen paper — 72 pages — written in iron-gall ink in Leonardo's right-to-left mirror script, with marginal diagrams.",
+   "one_line": "A left-handed man's mirror-written notebook about why water moves and why the dark part of the moon faintly glows — still traveling the world, still privately owned.",
+   "facts": [
+    {
+     "claim": "Bill Gates bought it at Christie's New York on 11 November 1994 for $30,802,500 — then the highest price ever paid for a book.",
+     "source": "https://en.wikipedia.org/wiki/Codex_Leicester"
+    },
+    {
+     "claim": "Its 72 pages are dominated by studies of water, and include Leonardo's correct explanation of earthshine — the ghostly glow on the moon's dark portion — about a century before Kepler confirmed it.",
+     "source": "https://en.wikipedia.org/wiki/Codex_Leicester"
+    },
+    {
+     "claim": "Gates has the codex exhibited publicly roughly once a year in a different city worldwide.",
+     "source": "https://en.wikipedia.org/wiki/Codex_Leicester"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-codex-leicester.jpg",
+   "thumb": "https://artbitrage.io/art/library-codex-leicester-t.jpg"
+  },
+  {
+   "slug": "tale-of-genji-scrolls",
+   "title": "The Tale of Genji Illustrated Scrolls (Genji Monogatari Emaki)",
+   "maker": "Unknown Heian court artists illustrating Murasaki Shikibu's novel",
+   "date": "c. 1120–1140",
+   "kind": "illustrated handscroll (emaki), National Treasure of Japan",
+   "where": "Tokugawa Art Museum, Nagoya, Japan (three scrolls), with one scroll at the Gotoh Museum, Tokyo",
+   "access": "Too fragile for permanent display — the Tokugawa Art Museum shows selected scenes for a short window each late November (all its scenes were shown together in November 2025 for the first time in a decade); the museum's site introduces every scene.",
+   "materials": "Ink and thick mineral color on paper handscrolls, painted in the built-up tsukuri-e technique with calligraphed text sections on decorated paper.",
+   "one_line": "The world's first great novel, painted within about a century of its writing — and Japan still rations the sight of it to a few November days a year.",
+   "open_url": "https://www.tokugawa-art-museum.jp/en/about/treasures/painting/",
+   "facts": [
+    {
+     "claim": "These are the oldest surviving illustrated scrolls of The Tale of Genji, produced in the first half of the 12th century, only about a century after Murasaki Shikibu wrote the novel.",
+     "source": "https://www.tokugawa-art-museum.jp/en/about/treasures/painting/"
+    },
+    {
+     "claim": "The surviving set is divided between the Tokugawa Art Museum in Nagoya and the Gotoh Museum in Tokyo, and both portions are designated National Treasures.",
+     "source": "https://hyakkei.style/en/art/2409_010-en/"
+    },
+    {
+     "claim": "Because of their fragility the scrolls are shown only briefly, in a special display during the latter half of November each year; a full showing in November 2025 marked the museum's 90th anniversary.",
+     "source": "https://www.tokyoartbeat.com/en/events/-/National-Treasure-The-Tale-of-Genji-Illustrated-Scrolls/the-tokugawa-art-museum/2025-11-15"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-tale-of-genji-scrolls.jpg",
+   "thumb": "https://artbitrage.io/art/library-tale-of-genji-scrolls-t.jpg"
+  },
+  {
+   "slug": "birds-of-america",
+   "title": "The Birds of America",
+   "maker": "John James Audubon, engraved and colored by Robert Havell Jr.",
+   "date": "1827–1838",
+   "kind": "double-elephant folio of 435 hand-colored aquatint plates",
+   "where": "University of Pittsburgh Library System (Archives & Special Collections, Hillman Library), Pittsburgh, USA — one of about 120 surviving complete sets",
+   "access": "Pitt's complete Darlington set is digitized in high resolution and free to zoom into online; the original plates can be seen through the library's Archives & Special Collections.",
+   "materials": "Hand-colored aquatint engravings on double-elephant sheets of handmade paper roughly a metre tall, printed from copper plates.",
+   "one_line": "Audubon insisted every bird be printed life-size, so the book grew to a metre tall — and the flamingo still has to bow its neck to fit the page.",
+   "open_url": "https://digital.library.pitt.edu/collection/audubons-birds-america",
+   "facts": [
+    {
+     "claim": "The work comprises 435 life-size, hand-colored plates issued to subscribers between 1827 and 1838.",
+     "source": "https://digital.library.pitt.edu/collection/audubons-birds-america"
+    },
+    {
+     "claim": "Only about 120 complete sets are known to exist, and the University of Pittsburgh holds one of them, acquired by William M. Darlington in the nineteenth century.",
+     "source": "https://www.pittwire.pitt.edu/pittwire/features-articles/pitt-audubon-collection-birds-america"
+    },
+    {
+     "claim": "Pitt librarians conserved and scanned every plate and launched the free digital archive in 2008, linking each image to Audubon's own species accounts.",
+     "source": "https://www.dlib.org/dlib/july08/07featured-collection.html"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-birds-of-america.jpg",
+   "thumb": "https://artbitrage.io/art/library-birds-of-america-t.jpg"
+  },
+  {
+   "slug": "don-quixote-1605",
+   "title": "El ingenioso hidalgo don Quixote de la Mancha (first edition)",
+   "maker": "Miguel de Cervantes; printed by Juan de la Cuesta for bookseller Francisco de Robles, Madrid",
+   "date": "1605",
+   "kind": "first edition (editio princeps) of the first modern novel",
+   "where": "Biblioteca Nacional de España, Madrid, Spain",
+   "access": "The princeps is kept in the BNE's Cervantes collection vault and brought out for exhibitions; every page is free to read in the library's 'Quijote interactivo' online facsimile.",
+   "materials": "Rag paper printed with handset type in quarto, issued unbound for buyers to have bound themselves.",
+   "one_line": "The first modern novel sold out so fast in 1605 that its printer had to set it all over again within months.",
+   "open_url": "https://archive.org/details/elingeniosohi00cerv",
+   "facts": [
+    {
+     "claim": "The first part was printed by Juan de la Cuesta in Madrid and went on sale in January 1605; the Biblioteca Nacional de España preserves copies among the roughly 28 surviving examples of the princeps.",
+     "source": "https://www.bne.es/es/colecciones/cervantes/ingenioso-hidalgo-don-quixote-mancha"
+    },
+    {
+     "claim": "The BNE's free 'Quijote interactivo' presents all 1,282 pages of the 1605 and 1615 first editions as a page-turning digital facsimile.",
+     "source": "https://www.bne.es/es/quijote/"
+    },
+    {
+     "claim": "Don Quixote's two parts (1605 and 1615) are widely regarded as the first modern novel and remain among the most translated books ever written.",
+     "source": "https://www.britannica.com/topic/Don-Quixote-novel"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-don-quixote-1605.jpg",
+   "thumb": "https://artbitrage.io/art/library-don-quixote-1605-t.jpg"
+  },
+  {
+   "slug": "songs-of-innocence-and-experience",
+   "title": "Songs of Innocence and of Experience",
+   "maker": "William Blake, printed and hand-colored with Catherine Blake",
+   "date": "1794 (combined issue)",
+   "kind": "illuminated book in relief etching — every copy unique",
+   "where": "Copies dispersed worldwide; a celebrated copy (Copy Z, Rosenwald Collection) is at the Library of Congress, Washington, D.C., USA",
+   "access": "Many of the surviving hand-colored copies are digitized side by side, free, at the William Blake Archive; institutional copies (Library of Congress, Fitzwilliam, British Museum) can be seen by appointment or in exhibitions.",
+   "materials": "Relief-etched copper plates printed on paper, then hand-finished in watercolor by William and Catherine Blake, so no two copies match.",
+   "one_line": "Blake wrote, etched, printed, and painted every copy himself — a whole publishing house of one visionary, singing of the tyger and the lamb.",
+   "open_url": "https://blakearchive.org/work/songsie",
+   "facts": [
+    {
+     "claim": "Blake combined Songs of Innocence (1789) with Songs of Experience in 1794 to show 'the Two Contrary States of the Human Soul', producing each copy by his own invented method of relief etching.",
+     "source": "https://blakearchive.org/work/songsie"
+    },
+    {
+     "claim": "Because each copy was individually printed and hand-colored by Blake and his wife Catherine, every surviving copy differs in coloring, ordering, and contents.",
+     "source": "https://blakearchive.org/work/songsie"
+    },
+    {
+     "claim": "The Blake Archive provides free, high-resolution reproductions of numerous copies held by institutions including the Library of Congress and the Fitzwilliam Museum.",
+     "source": "https://blakearchive.org/work/songsie"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-songs-of-innocence-and-experience.jpg",
+   "thumb": "https://artbitrage.io/art/library-songs-of-innocence-and-experience-t.jpg"
+  },
+  {
+   "slug": "leaves-of-grass-1855",
+   "title": "Leaves of Grass (first edition)",
+   "maker": "Walt Whitman, self-published in Brooklyn",
+   "date": "1855",
+   "kind": "first edition of America's founding book of free verse",
+   "where": "Library of Congress, Washington, D.C., USA — multiple first-edition copies in the Rare Book and Special Collections Division",
+   "access": "Requestable in the LOC Rare Book Reading Room; the Walt Whitman Archive presents the whole 1855 edition free online, page by page and copy by copy.",
+   "materials": "Cloth-bound quarto on paper, its green cover gold-stamped with sprouting letters, with an engraved portrait of Whitman in place of his name.",
+   "one_line": "A Brooklyn printer's poet put his portrait where his name should be and let the poems introduce themselves — about 795 copies became American literature.",
+   "open_url": "https://whitmanarchive.org/published-writings/leaves-of-grass/1855",
+   "facts": [
+    {
+     "claim": "Whitman self-published the first edition in Brooklyn in July 1855, without his name on the title page; roughly 795 copies were printed and surviving copies differ in binding and states.",
+     "source": "https://whitmanarchive.org/published-writings/leaves-of-grass/1855"
+    },
+    {
+     "claim": "The Library of Congress holds first-edition copies whose variant bindings and states are recorded in its catalog.",
+     "source": "https://www.loc.gov/item/03023679/"
+    },
+    {
+     "claim": "Emerson answered the unknown poet with the most famous welcome in American letters: 'I greet you at the beginning of a great career.'",
+     "source": "https://whitmanarchive.org/published-writings/leaves-of-grass/1855"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-leaves-of-grass-1855.jpg",
+   "thumb": "https://artbitrage.io/art/library-leaves-of-grass-1855-t.jpg"
+  },
+  {
+   "slug": "voynich-manuscript",
+   "title": "The Voynich Manuscript (Beinecke MS 408)",
+   "maker": "Unknown",
+   "date": "early 15th century (vellum carbon-dated 1404–1438)",
+   "kind": "cipher manuscript — undeciphered",
+   "where": "Beinecke Rare Book & Manuscript Library, Yale University, New Haven, USA",
+   "access": "Fully digitized and free to browse in Yale's digital collections; the original appears in occasional Beinecke exhibitions, and an unrestricted facsimile can be requested in the reading room.",
+   "materials": "About 240 vellum pages, including large fold-outs, written in ink in an unknown script and painted with botanical, astronomical, and bathing scenes.",
+   "one_line": "Six hundred years of readers, codebreakers, and computers have opened it — and not one of them has read a single sentence.",
+   "open_url": "https://collections.library.yale.edu/catalog/2002046",
+   "facts": [
+    {
+     "claim": "Radiocarbon dating places the vellum between 1404 and 1438, yet its script and language have never been identified or deciphered.",
+     "source": "https://beinecke.library.yale.edu/collections/highlights/voynich-manuscript"
+    },
+    {
+     "claim": "Rare-book dealer Wilfrid Voynich acquired it in 1912; it came to Yale's Beinecke Library in 1969 as MS 408.",
+     "source": "https://beinecke.library.yale.edu/collections/highlights/voynich-manuscript"
+    },
+    {
+     "claim": "Yale has published complete high-resolution scans of every page, free for anyone to study.",
+     "source": "https://collections.library.yale.edu/catalog/2002046"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-voynich-manuscript.jpg",
+   "thumb": "https://artbitrage.io/art/library-voynich-manuscript-t.jpg"
+  },
+  {
+   "slug": "tres-riches-heures",
+   "title": "Les Très Riches Heures du duc de Berry",
+   "maker": "Paul, Jean, and Herman de Limbourg for Jean, Duke of Berry; completed by Jean Colombe",
+   "date": "c. 1411–1416, completed c. 1485–1486",
+   "kind": "illuminated book of hours — often called the king of manuscripts",
+   "where": "Musée Condé, Château de Chantilly, Chantilly, France",
+   "access": "Too fragile for permanent display and, by the terms of the Duke of Aumale's bequest, it may never leave Chantilly; after restoration it was shown unbound in a once-in-a-lifetime exhibition (June–October 2025), and a facsimile represents it in the Cabinet des Livres.",
+   "materials": "Fine vellum painted in ground mineral pigments — including ultramarine from lapis lazuli — heightened with gold, later bound in red morocco.",
+   "one_line": "Three brothers painted the twelve months of medieval life, died with their duke in a plague year before finishing, and left the most beautiful calendar ever made.",
+   "facts": [
+    {
+     "claim": "The Limbourg brothers began it for Jean de Berry around 1411–1416; all three brothers and the duke died in 1416, and Jean Colombe completed the manuscript some seventy years later.",
+     "source": "https://chateaudechantilly.fr/en/evenement/les-tres-riches-heures-du-duc-de-berry/"
+    },
+    {
+     "claim": "It was restored via the C2RMF laboratories at the Louvre (unbound, studied, and conserved from 2023), ahead of the 2025 Chantilly exhibition.",
+     "source": "https://www.fondationetrillard.ch/en/project-restoration-exhibition-tres-riches-heures-duc-de-berry-chateau-de-chantilly"
+    },
+    {
+     "claim": "In the exhibition of 7 June – 5 October 2025 the unbound calendar bifolia were displayed all at once — the first and probably last time the public will see the pages this way before rebinding.",
+     "source": "https://chateaudechantilly.fr/exposition-les-tres-riches-heures-du-duc-de-berry/"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-tres-riches-heures.jpg",
+   "thumb": "https://artbitrage.io/art/library-tres-riches-heures-t.jpg"
+  },
+  {
+   "slug": "shahnameh-of-shah-tahmasp",
+   "title": "The Shahnameh of Shah Tahmasp",
+   "maker": "Ferdowsi's epic, illustrated by the royal Tabriz workshop under Shah Ismail I and Shah Tahmasp I, with masters including Sultan Muhammad",
+   "date": "c. 1522–1540",
+   "kind": "Persian illuminated manuscript — the summit of Safavid painting",
+   "where": "Dispersed: 78 painted folios at the Metropolitan Museum of Art, New York; the largest remaining group at the Museum of Contemporary Art, Tehran",
+   "access": "The Met's folios are open-access online and rotate on view in its Islamic art galleries; the Tehran group is exhibited periodically at the Museum of Contemporary Art.",
+   "materials": "Polished paper painted in opaque watercolor, ink, gold, and silver, with the Persian text in fine nastaliq script.",
+   "one_line": "Persia's Book of Kings, painted by a court's finest hands over decades — then broken apart in the 1970s, so its heroes now live an ocean apart.",
+   "open_url": "https://www.metmuseum.org/essays/the-shahnama-of-shah-tahmasp",
+   "facts": [
+    {
+     "claim": "As created it ran to 759 folios with 258 miniatures, painted in the imperial workshop at Tabriz in the 1520s–1540s.",
+     "source": "https://en.wikipedia.org/wiki/Shahnameh_of_Shah_Tahmasp"
+    },
+    {
+     "claim": "Owner Arthur Houghton broke the manuscript up from the 1970s; 78 of its painted folios are now in the Metropolitan Museum of Art.",
+     "source": "https://www.metmuseum.org/essays/the-shahnama-of-shah-tahmasp"
+    },
+    {
+     "claim": "In 1994 the remaining bound portion was returned to Iran in exchange for Willem de Kooning's painting Woman III, and it now belongs to the Museum of Contemporary Art, Tehran.",
+     "source": "https://en.wikipedia.org/wiki/Shahnameh_of_Shah_Tahmasp"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-shahnameh-of-shah-tahmasp.jpg",
+   "thumb": "https://artbitrage.io/art/library-shahnameh-of-shah-tahmasp-t.jpg"
+  },
+  {
+   "slug": "timbuktu-manuscripts",
+   "title": "The Timbuktu Manuscripts",
+   "maker": "Generations of West African scholars and scribes, including Ahmad Baba al-Timbukti",
+   "date": "13th–19th centuries (with some earlier fragments)",
+   "kind": "hundreds of thousands of Arabic and Ajami manuscripts of scholarship",
+   "where": "Mostly in Bamako, Mali, safeguarded by SAVAMA-DCI and family libraries after the 2012–13 evacuation; others with the Ahmed Baba Institute, Timbuktu",
+   "access": "The physical collections are held in conservation houses in Bamako; hundreds of thousands of digitized pages are free to read in HMML's online Reading Room (vHMML) and in Google Arts & Culture's Mali Magic.",
+   "materials": "Handwritten inks and colored pigments on imported rag paper, kept loose-leaf inside tooled leather satchels and bindings.",
+   "one_line": "When war came in 2012, librarians and families smuggled a whole city's library to safety by boat, truck, and donkey — footlocker by footlocker.",
+   "open_url": "https://hmml.org/about/global-operations/mali/",
+   "facts": [
+    {
+     "claim": "About 350,000 manuscripts were spirited out of Timbuktu to Bamako in 2012–13 under Abdel Kader Haidara's network to save them from occupying militants.",
+     "source": "https://en.wikipedia.org/wiki/Timbuktu_Manuscripts"
+    },
+    {
+     "claim": "HMML, working with SAVAMA-DCI in Bamako, has digitized manuscripts from dozens of evacuated Timbuktu family libraries and makes them freely available online.",
+     "source": "https://hmml.org/about/global-operations/mali/"
+    },
+    {
+     "claim": "The manuscripts span the 13th–19th centuries (with some earlier fragments) and cover astronomy, mathematics, law, medicine, poetry, and commerce — written evidence of Africa's deep scholarly tradition.",
+     "source": "https://hmml.org/stories/hmml-digitizes-timbuktus-historic-manuscript-collections/"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-timbuktu-manuscripts.jpg",
+   "thumb": "https://artbitrage.io/art/library-timbuktu-manuscripts-t.jpg"
+  },
+  {
+   "slug": "blue-quran",
+   "title": "The Blue Qur'an",
+   "maker": "Unknown calligraphers, most likely of Kairouan, North Africa",
+   "date": "late 9th – early 10th century",
+   "kind": "Qur'an manuscript in gold on indigo parchment",
+   "where": "Largest surviving group (67 folios) at the Raqqada National Museum of Islamic Art near Kairouan, Tunisia; single leaves in the Bardo (Tunis), Met, Aga Khan Museum, Doha, and elsewhere",
+   "access": "Folios are on display at Raqqada and in the Islamic galleries of major museums worldwide; individual leaves can be viewed online through museum collections such as Discover Islamic Art and the Met.",
+   "materials": "Sheep parchment dyed deep indigo blue, lettered in gold Kufic script with silver verse markers now oxidized dark.",
+   "one_line": "Someone dyed an entire flock's worth of parchment midnight blue and wrote scripture across it in gold — a night sky you can read.",
+   "open_url": "https://islamicart.museumwnf.org/database_item.php?id=object;ISL;tn;Mus01;2;en",
+   "facts": [
+    {
+     "claim": "The manuscript originally ran to around 600 folios; most stayed in Kairouan until modern times, and roughly 100 dispersed folios now sit in museums and private collections worldwide.",
+     "source": "https://en.wikipedia.org/wiki/Blue_Quran"
+    },
+    {
+     "claim": "Sixty-seven folios are held and displayed at the Raqqada National Museum of Islamic Art near Kairouan, where the codex is thought to have been made.",
+     "source": "https://carthagemagazine.com/raqqada-national-museum-of-islamic-art-in-kairouan-tunisia/"
+    },
+    {
+     "claim": "Its gold Kufic script on indigo-dyed parchment makes it one of the most luxurious Qur'an manuscripts ever produced, an aesthetic some link to Byzantine imperial purple codices.",
+     "source": "https://en.wikipedia.org/wiki/Blue_Quran"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-blue-quran.jpg",
+   "thumb": "https://artbitrage.io/art/library-blue-quran-t.jpg"
+  },
+  {
+   "slug": "popol-vuh",
+   "title": "The Popol Vuh (Ximénez manuscript)",
+   "maker": "K'iche' Maya authors; sole surviving text transcribed by Fray Francisco Ximénez",
+   "date": "1701–1703 (recording a 16th-century K'iche' text with far older roots)",
+   "kind": "manuscript — the only surviving text of the K'iche' Maya creation epic",
+   "where": "Newberry Library, Chicago, USA (Vault Ayer MS 1515)",
+   "access": "Anyone 14 or older may request to sit with the original in the Newberry's reading room (30 minutes, for preservation); the whole manuscript is digitized free via the Library of Congress and the Newberry.",
+   "materials": "Handwritten ink on paper, with K'iche' Mayan and Spanish in parallel columns.",
+   "one_line": "The Maya story of how the world was made survives in exactly one handwritten copy — and the library that keeps it will let you sit with it for half an hour.",
+   "open_url": "https://www.loc.gov/item/2021668226",
+   "facts": [
+    {
+     "claim": "Between 1701 and 1703 the Dominican priest Francisco Ximénez transcribed the Popol Vuh at Chichicastenango, Guatemala, in parallel K'iche' and Spanish; every edition in the world derives from this single manuscript.",
+     "source": "https://www.newberry.org/collection/research-guide/popol-vuh"
+    },
+    {
+     "claim": "Edward E. Ayer acquired the manuscript and it has been at the Newberry Library since the early 20th century as Ayer MS 1515.",
+     "source": "https://www.newberry.org/collection/research-guide/popol-vuh"
+    },
+    {
+     "claim": "For preservation, readers may spend a maximum of 30 minutes with the original — but anyone 14 or older may ask to see it.",
+     "source": "https://www.newberry.org/collection/research-guide/popol-vuh"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-popol-vuh.jpg",
+   "thumb": "https://artbitrage.io/art/library-popol-vuh-t.jpg"
+  },
+  {
+   "slug": "yongle-encyclopedia",
+   "title": "The Yongle Dadian (Yongle Encyclopedia)",
+   "maker": "Commissioned by the Yongle Emperor; compiled by more than 2,000 Ming scholars",
+   "date": "completed 1408 (surviving volumes mostly from the 1562–1567 recopying)",
+   "kind": "handwritten imperial encyclopedia — the largest paper encyclopedia ever made",
+   "where": "Scattered worldwide; the largest holding (224 volumes) at the National Library of China, Beijing, including 62 stored at the National Palace Museum, Taipei",
+   "access": "Volumes appear in NLC exhibitions; the NLC's free 'Yongle Canon' high-definition image database and the Library of Congress's digitized 41 volumes are open to everyone online.",
+   "materials": "Large volumes of fine white paper handwritten in ink with red rulings and headings, bound in yellow silk-covered boards.",
+   "one_line": "An emperor ordered all knowledge copied into 11,095 handwritten volumes; six centuries of fire, war, and theft have left us barely one in twenty-five.",
+   "open_url": "https://www.loc.gov/collections/yongle-da-dian/about-this-collection/",
+   "facts": [
+    {
+     "claim": "Completed in 1408, the encyclopedia filled 11,095 handwritten volumes — about 370 million characters — and was never printed.",
+     "source": "https://www.loc.gov/collections/yongle-da-dian/about-this-collection/"
+    },
+    {
+     "claim": "Slightly over 400 volumes survive worldwide — under 4 percent — nearly all from the Jiajing-era manuscript copy of 1562–1567.",
+     "source": "https://www.chinadaily.com.cn/a/202303/06/WS64055c69a31057c47ebb2805.html"
+    },
+    {
+     "claim": "The National Library of China holds 224 volumes (62 of them stored in Taipei), and the Library of Congress has digitized all 41 volumes in its own collection for free access.",
+     "source": "https://blogs.loc.gov/international-collections/2023/04/yongle-encyclopedia-volumes-fully-digitized/"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-yongle-encyclopedia.jpg",
+   "thumb": "https://artbitrage.io/art/library-yongle-encyclopedia-t.jpg"
+  },
+  {
+   "slug": "gilgamesh-flood-tablet",
+   "title": "The Flood Tablet (Epic of Gilgamesh, Tablet XI)",
+   "maker": "Assyrian scribes copying the standard version attributed to Sin-leqi-unninni, from the Library of Ashurbanipal, Nineveh",
+   "date": "7th century BC",
+   "kind": "cuneiform clay tablet",
+   "where": "British Museum, London, UK (K.3375), Room 55",
+   "access": "On display in Room 55 (Mesopotamia galleries), free to visit; the object record and images are on the museum's collection website.",
+   "materials": "A palm-sized tablet of baked clay impressed on both sides with dense columns of Akkadian cuneiform.",
+   "one_line": "A clay tablet the size of your hand carries the flood story a thousand years older than Genesis — and made its first translator leap from his chair.",
+   "open_url": "https://www.britishmuseum.org/collection/object/W_K-3375",
+   "facts": [
+    {
+     "claim": "Tablet XI of the Epic of Gilgamesh, from Ashurbanipal's 7th-century BC library at Nineveh, tells how the god Ea warned Utu-napishtim to build a boat before a great flood.",
+     "source": "https://www.britishmuseum.org/collection/object/W_K-3375"
+    },
+    {
+     "claim": "In 1872 George Smith, a British Museum assistant, read the tablet's flood narrative and caused a sensation with its striking parallels to the Genesis flood.",
+     "source": "https://tyndalehouse.com/2024/10/09/the-flood-tablet/"
+    },
+    {
+     "claim": "The tablet (K.3375) is displayed in Room 55 of the British Museum.",
+     "source": "https://omnika.org/artifacts/k-3375-gilgamesh-tablet-xi"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-gilgamesh-flood-tablet.jpg",
+   "thumb": "https://artbitrage.io/art/library-gilgamesh-flood-tablet-t.jpg"
+  },
+  {
+   "slug": "book-of-the-dead-of-ani",
+   "title": "The Papyrus of Ani (Book of the Dead)",
+   "maker": "Theban scribes and painters for the royal scribe Ani",
+   "date": "c. 1250 BC (19th Dynasty)",
+   "kind": "painted papyrus scroll — the finest surviving Book of the Dead",
+   "where": "British Museum, London, UK (EA 10470)",
+   "access": "The light-sensitive sheets are shown selectively in the Egyptian galleries and study exhibitions rather than all at once; every sheet is photographed on the museum's free collection website.",
+   "materials": "A papyrus scroll 23.5 metres long, written in cursive hieroglyphs and painted in vivid mineral colors.",
+   "one_line": "A 3,270-year-old guidebook for the dead, painted for a scribe named Ani, showing the moment his heart is weighed against a feather.",
+   "open_url": "https://www.britishmuseum.org/collection/object/Y_EA10470-3",
+   "facts": [
+    {
+     "claim": "The papyrus, about 23.5 metres long, was made in Thebes around 1250 BC for the royal scribe Ani and is considered the finest surviving Book of the Dead.",
+     "source": "https://en.wikipedia.org/wiki/Papyrus_of_Ani"
+    },
+    {
+     "claim": "E. A. Wallis Budge acquired it in 1888 and had it cut into 37 sheets for transport and mounting at the British Museum.",
+     "source": "https://en.wikipedia.org/wiki/Papyrus_of_Ani"
+    },
+    {
+     "claim": "Its most famous scene shows the Weighing of the Heart: Anubis balances Ani's heart against the feather of Maat while Thoth records the verdict.",
+     "source": "https://www.britishmuseum.org/collection/object/Y_EA10470-3"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-book-of-the-dead-of-ani.jpg",
+   "thumb": "https://artbitrage.io/art/library-book-of-the-dead-of-ani-t.jpg"
+  },
+  {
+   "slug": "lindisfarne-gospels",
+   "title": "The Lindisfarne Gospels",
+   "maker": "Eadfrith, Bishop of Lindisfarne — one artist-scribe for the whole book",
+   "date": "c. 700",
+   "kind": "illuminated manuscript (Insular Gospel book)",
+   "where": "British Library, London, UK (Cotton MS Nero D.IV)",
+   "access": "Regularly shown in the British Library's free Treasures Gallery with page openings rotated; digitized images are returning online in stages as the library restores services after its 2023 cyber-attack.",
+   "materials": "Vellum written in insular script with carpet pages painted in a wide palette of local and imported pigments, plus a later Old English gloss in ink between the lines.",
+   "one_line": "One man on a tidal island drew every line of it — and 250 years later a priest wrote between those lines the oldest English version of the Gospels.",
+   "open_url": "https://www.bl.uk/collection/digitised-manuscripts-archives",
+   "facts": [
+    {
+     "claim": "A 10th-century colophon records that the book was made by one man, Eadfrith, Bishop of Lindisfarne, around the year 700.",
+     "source": "https://en.wikipedia.org/wiki/Lindisfarne_Gospels"
+    },
+    {
+     "claim": "Around the 950s–960s the priest Aldred added a word-for-word Old English gloss between the Latin lines — the oldest surviving English rendering of the Gospels.",
+     "source": "https://en.wikipedia.org/wiki/Lindisfarne_Gospels"
+    },
+    {
+     "claim": "It is kept at the British Library as Cotton MS Nero D.IV and displayed among the treasures in the Sir John Ritblat Gallery.",
+     "source": "https://www.atlasobscura.com/places/british-library-treasures-gallery"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-lindisfarne-gospels.jpg",
+   "thumb": "https://artbitrage.io/art/library-lindisfarne-gospels-t.jpg"
+  },
+  {
+   "slug": "codex-sinaiticus",
+   "title": "The Codex Sinaiticus",
+   "maker": "Unknown scribes, probably working in a major Christian scriptorium",
+   "date": "mid-4th century",
+   "kind": "parchment codex — the oldest complete New Testament",
+   "where": "Split four ways: the largest part (347 leaves) at the British Library, London; other leaves at Leipzig University Library, St Catherine's Monastery (Sinai), and the National Library of Russia, St Petersburg",
+   "access": "A volume is shown in the British Library's free Treasures Gallery; the entire codex from all four holding institutions is virtually reunited and free to read at codexsinaiticus.org.",
+   "materials": "Fine parchment written in Greek in four columns of unadorned majuscule (capital) letters, in iron-gall ink.",
+   "one_line": "The oldest complete New Testament was scattered across four countries — and the internet quietly put it back together in 2009.",
+   "open_url": "https://codexsinaiticus.org/en/",
+   "facts": [
+    {
+     "claim": "Handwritten in Greek in the mid-4th century, it contains the oldest complete copy of the New Testament together with much of the Greek Old Testament.",
+     "source": "https://codexsinaiticus.org/en/"
+    },
+    {
+     "claim": "Its leaves are divided among the British Library (347 leaves), Leipzig University Library, St Catherine's Monastery at Sinai, and the National Library of Russia.",
+     "source": "https://codexsinaiticus.org/en/"
+    },
+    {
+     "claim": "A joint project of the four institutions digitized every surviving page and reunited the codex online in 2009 for free worldwide access.",
+     "source": "https://codexsinaiticus.org/en/"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-codex-sinaiticus.jpg",
+   "thumb": "https://artbitrage.io/art/library-codex-sinaiticus-t.jpg"
+  },
+  {
+   "slug": "hunminjeongeum-haerye",
+   "title": "Hunminjeongeum Haerye",
+   "maker": "King Sejong the Great and the scholars of the Hall of Worthies (Jiphyeonjeon)",
+   "date": "1446",
+   "kind": "printed book — the manual that introduced and explains hangul",
+   "where": "Kansong Art Museum, Seoul, South Korea",
+   "access": "Shown in special Kansong exhibitions rather than continuously — most recently at the museum's new Daegu branch (September 2024 – May 2025); reproductions and displays also at the National Hangeul Museum in Seoul.",
+   "materials": "Woodblock-printed ink on mulberry paper, bound in the traditional stitched Korean style.",
+   "one_line": "The rare book in which an alphabet explains itself: why each hangul letter is shaped like the mouth that speaks it, so 'a wise man can learn it in a morning.'",
+   "facts": [
+    {
+     "claim": "Published in 1446 to promulgate the new Korean alphabet, the Haerye ('explanations and examples') sets out the design logic of hangul, whose consonants mirror the shapes of the speech organs.",
+     "source": "https://en.wikipedia.org/wiki/Hunminjeongeum_Haerye"
+    },
+    {
+     "claim": "The Kansong copy, rediscovered in 1940 and saved by collector Jeon Hyeong-pil, is a National Treasure of Korea and was inscribed in UNESCO's Memory of the World register in 1997.",
+     "source": "https://en.wikipedia.org/wiki/Hunminjeongeum_Haerye"
+    },
+    {
+     "claim": "It was exhibited at the new Kansong Art Museum Daegu from 3 September 2024 through 25 May 2025, paired with a contemporary sound-art installation.",
+     "source": "https://tisch.nyu.edu/itp/news/fall-2024/yeseul-song--itp-faculty-member--opens-large-scale-installation-.html"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-hunminjeongeum-haerye.jpg",
+   "thumb": "https://artbitrage.io/art/library-hunminjeongeum-haerye-t.jpg"
+  },
+  {
+   "slug": "dresden-codex",
+   "title": "The Dresden Codex",
+   "maker": "Maya scribes, probably in Yucatán",
+   "date": "12th–14th century (SLUB itself says late Postclassic, c. 1300–1521)",
+   "kind": "Maya screenfold codex — the oldest surviving book of the Americas",
+   "where": "SLUB Dresden (Saxon State and University Library), Dresden, Germany",
+   "access": "On permanent display at the centre of the treasury of SLUB's Book Museum, in an armoured glass case; fully digitized and described on the library's website.",
+   "materials": "Thirty-nine leaves of fig-bark (amate) paper coated with fine lime plaster, folded screenfold-style and painted on both sides in black, red, and Maya blue.",
+   "one_line": "Of all the thousands of Maya books, colonial fires spared just four — and the oldest one lies open, both sides at once, in a Dresden vault.",
+   "open_url": "https://www.slub-dresden.de/en/explore/manuscripts/the-dresden-maya-codex",
+   "facts": [
+    {
+     "claim": "The Dresden Codex is one of only four surviving Maya codices — the Maya Codex of Mexico, authenticated in 2018, is older, one of only a handful of Maya codices to escape destruction.",
+     "source": "https://www.slub-dresden.de/en/explore/manuscripts/the-dresden-maya-codex"
+    },
+    {
+     "claim": "Its 39 bark-paper leaves are exhibited in two strips totalling 3.56 metres between glass panes in the treasury of the SLUB Book Museum, under strict climate and light control.",
+     "source": "https://www.slub-dresden.de/en/explore/manuscripts/the-dresden-maya-codex/material-conservation-presentation"
+    },
+    {
+     "claim": "Its astronomical tables track Venus and predict eclipses with remarkable precision, making it a key source for understanding Maya science.",
+     "source": "https://www.slub-dresden.de/en/explore/manuscripts/the-dresden-maya-codex/content"
+    }
+   ],
+   "image": "https://artbitrage.io/art/library-dresden-codex.jpg",
+   "thumb": "https://artbitrage.io/art/library-dresden-codex-t.jpg"
+  }
+ ],
+ "ledger": {
+  "note": "the ledger of books — sales and the vanished; the paintings' ledger lives at /ledger",
+  "sales": [
+   {
+    "title": "First printing of the U.S. Constitution",
+    "detail": "One of only two first printings (1787) left in private hands sold at Sotheby's New York in November 2021 to Citadel founder Ken Griffin, who outbid the 17,000-strong crypto collective ConstitutionDAO and lent the document to Crystal Bridges Museum. It set the record for any book, manuscript, or printed text ever sold at auction.",
+    "price": "$43.2 million",
+    "year": "2021",
+    "source": "Sotheby's; Smithsonian Magazine (smithsonianmag.com/smart-news/rare-us-constitution-printing-sets-record-with-432m-sale-180979096)"
+   },
+   {
+    "title": "Codex Sassoon — the oldest near-complete Hebrew Bible",
+    "detail": "The roughly 1,100-year-old parchment codex, missing only about eight of its 792 pages, sold at Sotheby's New York in May 2023 in under six minutes of bidding. Former U.S. ambassador Alfred H. Moses bought it for the American Friends of ANU and donated it to the ANU Museum of the Jewish People in Tel Aviv — the most valuable manuscript ever auctioned.",
+    "price": "$38.1 million",
+    "year": "2023",
+    "source": "Sotheby's; Times of Israel (timesofisrael.com/codex-sassoon-oldest-near-complete-hebrew-bible-purchased-for-38-1-million); NPR"
+   },
+   {
+    "title": "Codex Leicester — Leonardo da Vinci's notebook",
+    "detail": "Leonardo's 72-page scientific notebook on water, astronomy, and the glow of 'planetshine' sold at Christie's New York on 11 November 1994 to Bill Gates for $30,802,500. It held the title of most expensive book ever sold for nearly three decades, and Gates long lent it out for public exhibition, roughly once a year — the last documented showings were the Uffizi and the British Library in 2018–19.",
+    "price": "$30.8 million",
+    "year": "1994",
+    "source": "Christie's; CNBC (cnbc.com/2019/04/02/micrsoft-billionaire-bill-gates-paid-30-million-for-this-book); Wikipedia: Codex Leicester"
+   },
+   {
+    "title": "Magna Carta, 1297 exemplification",
+    "detail": "The only Magna Carta in private hands — Edward I's 1297 confirmation, previously owned by Ross Perot — sold at Sotheby's New York in December 2007 to philanthropist David Rubenstein, who bought it specifically to keep it in America. It remains on display in its own gallery at the National Archives in Washington.",
+    "price": "$21.3 million",
+    "year": "2007",
+    "source": "NPR (npr.org/2007/12/18/17371559/magna-carta-copy-sells-at-auction-for-21-3-million); CNN"
+   },
+   {
+    "title": "Bay Psalm Book — the first book printed in British North America",
+    "detail": "One of eleven surviving copies of the 1640 psalter, sold by Boston's Old South Church at Sotheby's New York in November 2013, again to David Rubenstein, who pledged to tour it around the country. At $14,165,000 it set a new world auction record for any printed book.",
+    "price": "$14.165 million",
+    "year": "2013",
+    "source": "Sotheby's; Fine Books & Collections (finebooksmagazine.com); Forbes"
+   },
+   {
+    "title": "Rothschild Prayerbook",
+    "detail": "The sumptuously illuminated Flemish book of hours (c. 1505-1510), once confiscated by the Nazis and restituted to the Rothschilds, sold at Christie's New York in January 2014 to Australian businessman Kerry Stokes — reaffirming the auction record for an illuminated manuscript it first set in 1999. It has since been shown at the National Library of Australia.",
+    "price": "$13.6 million",
+    "year": "2014",
+    "source": "Christie's; Wikipedia: Rothschild Prayerbook; Forbes"
+   },
+   {
+    "title": "Audubon's The Birds of America (Hesketh copy)",
+    "detail": "A complete first-edition double-elephant folio from the collection of the 2nd Baron Hesketh sold at Sotheby's London on 7 December 2010 for £7,321,250 (about $11.5 million) to London dealer Michael Tollemache, who called it 'priceless'. It was then the most expensive printed book ever auctioned.",
+    "price": "£7.32 million (~$11.5 million)",
+    "year": "2010",
+    "source": "Sotheby's; Guinness World Records; Today/AP (today.com/popculture/rare-birds-america-book-sells-11-5m)"
+   },
+   {
+    "title": "Shakespeare's First Folio (Mills College copy)",
+    "detail": "A complete 1623 First Folio, owned since 1977 by Mills College in Oakland, sold at Christie's New York on 14 October 2020 after a six-minute phone battle to rare-book dealer Stephan Loewentheil for $9,978,000 — the auction record for any work of literature.",
+    "price": "$9.98 million",
+    "year": "2020",
+    "source": "Christie's; NPR (npr.org/2020/10/14/923565263); Antiques Trade Gazette"
+   },
+   {
+    "title": "St Cuthbert Gospel — the oldest intact European book",
+    "detail": "The pocket-sized 7th-century Gospel of John, found in St Cuthbert's coffin in 1104 and still in its original red leather binding, was bought by the British Library from the British Jesuits in April 2012 for £9 million — the library's largest-ever fundraising campaign, anchored by a £4.5 million National Heritage Memorial Fund grant.",
+    "price": "£9 million",
+    "year": "2012",
+    "source": "British Library; National Heritage Memorial Fund (nhmf.org.uk); Medievalists.net"
+   },
+   {
+    "title": "Gutenberg Bible, Old Testament volume (Doheny copy)",
+    "detail": "The Estelle Doheny copy, sold on behalf of the Archdiocese of Los Angeles at Christie's New York in October 1987, went to Tokyo bookseller Maruzen for $5.39 million — more than double the previous record for a printed book. It now lives at Keio University, the only Gutenberg in Asia.",
+    "price": "$5.39 million",
+    "year": "1987",
+    "source": "Washington Post (washingtonpost.com/archive/lifestyle/1987/10/24/bible-price-sets-record); UPI; Wikipedia: Gutenberg Bible"
+   }
+  ],
+  "vanished": [
+   {
+    "title": "The Transylvania University heist — Audubon's Birds of America",
+    "fate": "In December 2004, four Kentucky students aged 19 and 20 walked into Transylvania University's special-collections room, tasered and bound librarian Betty Jean Gooch, and tried to make off with Audubon's Birds of America folios, a first-edition Darwin, and a 1425 illuminated manuscript. They dropped the enormous Audubon volumes on the stairs mid-escape, were caught within months after emailing Christie's for an appraisal, and each served about seven years in federal prison. The story became the 2018 film American Animals, in which the four thieves — and Ms. Gooch — appear as themselves.",
+    "year_lost": "2004",
+    "status": "recovered",
+    "source": "CNBC (cnbc.com/2021/08/15/inside-the-2004-6-million-transy-book-heist); Wikipedia: Transylvania University book heist"
+   },
+   {
+    "title": "The Feltham 'Mission Impossible' book heist",
+    "fate": "On a January night in 2017, thieves bored through the skylights of a customs warehouse near Heathrow and rappelled forty feet down, dodging the alarms, to steal more than 160 rare books bound for a California book fair — Copernicus, Galileo, Newton — worth over £2.5 million. The burglars were a Romanian organised-crime crew working from a shopping list. Three years later, in September 2020, police found every volume still in its transport packaging, buried in a crawlspace beneath the floor tiles of a house in rural Moldavia, Romania.",
+    "year_lost": "2017",
+    "status": "recovered",
+    "source": "Eurojust (eurojust.europa.eu/news/justicedone-rare-books-recovered-romania); Antiques Trade Gazette; Wikipedia: Feltham book heist"
+   },
+   {
+    "title": "The Codex Calixtinus theft",
+    "fate": "In July 2011 the 12th-century Codex Calixtinus — the illuminated pilgrim's guide to the Camino de Santiago — simply vanished from the archives of Santiago de Compostela cathedral, and for a year Spain feared it was gone for good. It turned up in July 2012 wrapped in a plastic bag in a garage in the town next door, hoarded by Manuel Fernández Castiñeiras, a disgruntled former cathedral electrician who had also squirrelled away about €2.4 million skimmed from the cathedral. He was sentenced to ten years; the codex went home.",
+    "year_lost": "2011",
+    "status": "recovered",
+    "source": "Medievalists.net (medievalists.net/2011/07/codex-calixtinus-stolen-from-santiago-de-compostela); Wikipedia: Codex Calixtinus"
+   },
+   {
+    "title": "E. Forbes Smiley III and the razored maps",
+    "fate": "Forbes Smiley was one of the most trusted rare-map dealers in America until June 2005, when a librarian at Yale's Beinecke Library spotted an X-Acto blade he had dropped on the reading-room floor. He confessed to slicing 97 precious maps out of atlases and books at Yale, Harvard, the Boston and New York Public Libraries, the Newberry, and the British Library, and was sentenced to 42 months and served about three years. The libraries say nearly 250 of their maps are actually missing — many of the rest were never traced.",
+    "year_lost": "circa 1998-2005",
+    "status": "partially recovered",
+    "source": "Harvard Crimson (thecrimson.com/article/2006/6/30/map-dealer-admits-to-97-thefts); Yale Daily News; Wikipedia: Forbes Smiley"
+   },
+   {
+    "title": "The Girolamini Library, looted by its own director",
+    "fate": "Marino Massimo De Caro was appointed director of Naples' 16th-century Girolamini Library in 2011 and set about emptying it: cameras switched off at night, ownership stamps scrubbed, crates of Renaissance treasures shipped to auction houses across Europe. Between 1,500 and 4,000 volumes were taken — he also commissioned a notorious forgery of Galileo's Sidereus Nuncius. He was sentenced to seven years, and though carabinieri recovered thousands of books from warehouses and salerooms, volumes are still being traced and reclaimed.",
+    "year_lost": "2011-2012",
+    "status": "partially recovered",
+    "source": "ILAB (ilab.org/article/massive-thefts-at-the-girolamini-library-in-naples); Hyperallergic; ARCA art-crime blog"
+   },
+   {
+    "title": "The Carnegie Library of Pittsburgh insider thefts",
+    "fate": "For a quarter century, from 1992 to 2017, archivist Greg Priore — the sole keeper of the library's rare Oliver Room — walked out with books, maps, and razored-out plates worth more than $8 million, passing them to John Schulman of the respected Caliban Book Shop, who quietly sold them on to unsuspecting collectors. An insurance appraisal finally exposed the hollowed-out collection. Both men pleaded guilty in 2020 and received home confinement; some treasures came back, but many, dispersed across the world's book trade, never have.",
+    "year_lost": "1992-2017",
+    "status": "partially recovered",
+    "source": "Smithsonian Magazine (smithsonianmag.com/arts-culture/theft-carnegie-library-books-maps-artworks-180975506); Pittsburgh Post-Gazette"
+   },
+   {
+    "title": "The burning of the Library of Louvain",
+    "fate": "On 25 August 1914, German troops sacking the Belgian town of Louvain set fire to the university library in its 14th-century cloth hall; within ten hours some 230,000-300,000 books, about 950 medieval manuscripts, and 800 incunabula were ash. The outrage was so great that the Treaty of Versailles ordered Germany to refill the shelves, and the world donated a new library — which German shelling burned again in 1940. The original manuscripts are gone forever; only the lesson survived.",
+    "year_lost": "1914",
+    "status": "destroyed",
+    "source": "Lit Hub (lithub.com/one-of-europes-great-libraries-didnt-stand-a-chance-in-either-of-the-world-wars); Wikipedia: Sack of Louvain"
+   }
+  ]
+ },
+ "api": {
+  "list": "GET /api/library",
+  "one": "GET /api/library/:slug"
+ },
+ "related": {
+  "depths": "/depths#first-folio",
+  "feelings": "/feelings",
+  "ledger": "/ledger"
+ }
+}

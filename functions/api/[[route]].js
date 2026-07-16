@@ -1369,6 +1369,27 @@ export async function onRequestGet(context) {
     return jsonResponse({ error: 'no room for that feeling yet', list: 'GET /api/feelings', leave_yours: 'POST /api/feelings/testimony' }, 404);
   }
 
+  // ── 書 the Library — books and manuscripts as art objects ──────
+  if (path === '/api/library' || path === '/api/library/') {
+    try {
+      const res = await env.ASSETS.fetch(new URL('/data/library.json', request.url));
+      if (res.ok) return jsonResponse(await res.json());
+    } catch(e) {}
+    return jsonResponse({ error: 'library not found', hint: 'the shelf is still being carried in' }, 404);
+  }
+  const bookMatch = path.match(/^\/api\/library\/([a-z0-9-]+)\/?$/);
+  if (bookMatch) {
+    try {
+      const res = await env.ASSETS.fetch(new URL('/data/library.json', request.url));
+      if (res.ok) {
+        const data = await res.json();
+        const book = (data.books || []).find(b => b.slug === bookMatch[1]);
+        if (book) return jsonResponse(book);
+      }
+    } catch(e) {}
+    return jsonResponse({ error: 'no such book on the shelf yet', list: 'GET /api/library' }, 404);
+  }
+
   if (path === '/api/museum' || path === '/api/museum/' || path === '/api/museum/random') {
     const works = await loadMuseumWorks(env, request);
     if (works === null) return jsonResponse({ error: 'museum catalog unavailable' }, 503);
