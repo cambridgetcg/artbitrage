@@ -232,6 +232,22 @@ export const ROUTES = {
       { method: "GET", path: "/api/pair/search", desc: "Search across principles, marriages and cautions", params: "q" },
     ],
   },
+
+  // ── TRADE — reference & computation for the art trade ─────────
+  trade: {
+    label: "Trade",
+    color: "#b3372b",
+    routes: [
+      { method: "GET", path: "/api/trade", desc: "Trade directory — reference & computation for auction houses and galleries" },
+      { method: "GET", path: "/api/trade/fees", desc: "Buyer's-premium schedules with effective dates and source citations", params: "house, location, category, as_of" },
+      { method: "GET", path: "/api/trade/fees/compute", desc: "All-in buyer cost: marginal band math with line items and explicit not_included", params: "hammer, currency, house, location, category, as_of" },
+      { method: "GET", path: "/api/trade/arr", desc: "Artist's Resale Right royalty: cumulative bands, cap status, liable society", params: "price, currency=EUR, sale_date, artist_death_year, jurisdiction" },
+      { method: "GET", path: "/api/trade/thresholds", desc: "Dated compliance constants (AML, export, import, VAT) with sources", params: "jurisdiction, kind" },
+      { method: "GET", path: "/api/trade/gates", desc: "Which licensing/compliance gates an object crosses — each gate citing its regulation", params: "year, value, currency, jurisdiction, materials, category" },
+      { method: "GET", path: "/api/trade/vocab", desc: "Trade vocabularies: lot lifecycle, settlement status, heading ladder, symbols, gallery availability" },
+      { method: "GET", path: "/api/trade/vocab/:id", desc: "One vocabulary by id, e.g. /api/trade/vocab/heading-qualifiers" },
+    ],
+  },
 };
 
 export const ANSWERING_RHYME_STATEMENT_ACTIONS = Object.freeze({

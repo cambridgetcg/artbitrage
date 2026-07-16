@@ -1,0 +1,2041 @@
+{
+ "name": "ARTBITRAGE Trade",
+ "title": "Trade — reference & computation for auction houses and galleries",
+ "essence": "Artlogic manages; artbitrage speaks. No keys, no database, no funds, no take-rate.",
+ "generated_at": "2026-07-16",
+ "provenance": "Every number verified against primary sources (house Conditions of Business PDFs, legislation.gov.uk, gov.uk, ACE via UK Government Web Archive, ADAGP, Getty) by an 11-family verification pass on 2026-07-16; workflow wf_cd77c080-03f. Statuses: verified = primary source fetched and read; source-declared = stated by one primary-ish source; contested = sources conflict (both cited in notes).",
+ "coverage": {
+  "included": "Buyer's-premium schedules: Sotheby's (NY/London/HK/Paris), Christie's (7 salesrooms + wine), Bonhams (US/UK standard), Phillips (all salesrooms incl. watches/jewels/priority-bidding), China Guardian, Poly Auction. ARR UK+France. UK AML/VAT/export, EU AML/import. 7 material gates. 6 vocabularies.",
+  "known_gaps": [
+   "Sotheby's Geneva/Singapore/UAE/Cologne/Milan bands exist on their help page but were not verified against individual CoB PDFs",
+   "Sotheby's Wine & Spirits schedule (flat 24% + 1% overhead premium) not yet encoded",
+   "Bonhams category-specific schedules (Arms & Armour, Coins, Motor Cars, Motorcycles, Wine) are NOT the standard tiers encoded here",
+   "Christie's-owned Gooding & Company vehicle schedule deliberately omitted (outside art-trade scope)",
+   "Seller's commission everywhere: negotiated deal terms, never schedulable — deliberately absent"
+  ]
+ },
+ "disclosure": {
+  "informational_only": true,
+  "legal_advice": false,
+  "note": "Reference arithmetic over cited public schedules. Confirm against the primary source before invoicing. Never legal, tax, or valuation advice."
+ },
+ "fee_schedules": [
+  {
+   "id": "sothebys-newyork-standard-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "sothebys",
+   "location": "new-york",
+   "currency": "USD",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 2000000,
+     "rate": 0.28
+    },
+    {
+     "over": 2000000,
+     "up_to": 8000000,
+     "rate": 0.22
+    },
+    {
+     "over": 8000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [
+    {
+     "name": "overhead premium",
+     "basis": "hammer price",
+     "rate": 0.01,
+     "status": "wine-and-spirits-lots-only"
+    }
+   ],
+   "effective_from": "2026-02-13",
+   "effective_to": null,
+   "source_url": "https://www.sothebys.com/en/docs/pdf/ny-cob-for-buyers-bp-update-2-2026.pdf",
+   "source_title": "Sotheby's Conditions of Business for Buyers for New York (BP update Feb 2026)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read the CoB PDF (linked from sothebys.com/en/buy-sell#conditions-of-business) page 1 verbatim: 'Effective as of February 13, 2026, Buyer's Premium rate for all auctions except Wine and Spirits is 28% of the Hammer Price for a Hammer Price up to and including $2,000,000, 22% of any amount of the Hammer Price in excess of $2,000,000 and up to and including $8,000,000, and 15% of any amount of the Hammer Price in excess of $8,000,000.' Rates are MA"
+  },
+  {
+   "id": "sothebys-london-standard-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "sothebys",
+   "location": "london",
+   "currency": "GBP",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1500000,
+     "rate": 0.28
+    },
+    {
+     "over": 1500000,
+     "up_to": 6000000,
+     "rate": 0.22
+    },
+    {
+     "over": 6000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [
+    {
+     "name": "overhead premium",
+     "basis": "hammer price",
+     "rate": 0.01,
+     "status": "wine-and-spirits-lots-only"
+    }
+   ],
+   "effective_from": "2026-02-13",
+   "effective_to": null,
+   "source_url": "https://www.sothebys.com/en/docs/pdf/conditions-of-business-for-buyers-london-feb-2026-updates104581-1.pdf",
+   "source_title": "Sotheby's Conditions of Business for Buyers at Auction for London (Feb 2026 updates)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Effective date stated verbatim only in the NY CoB; this salesroom's CoB says 'current' — 13 Feb 2026 per press corroboration.  Read the CoB PDF page 1 verbatim: 'The current Buyer's Premium rate for all auctions (except Wine and Spirits) is 28% of the Hammer Price for a Hammer Price up to and including £1,500,000, 22% of any amount of the Hammer Price in excess of £1,500,000 up to and including £6,000,000, and 15% of any amount of the Hammer Price in excess of £6,000,000.' Marginal application. Overhead Premium defined for Wine and Spirits Lots only, 1% of Hammer Price."
+  },
+  {
+   "id": "sothebys-hongkong-standard-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "sothebys",
+   "location": "hong-kong",
+   "currency": "HKD",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 15000000,
+     "rate": 0.28
+    },
+    {
+     "over": 15000000,
+     "up_to": 60000000,
+     "rate": 0.22
+    },
+    {
+     "over": 60000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [
+    {
+     "name": "overhead premium",
+     "basis": "hammer price",
+     "rate": 0.01,
+     "status": "wine-and-spirits-lots-only"
+    }
+   ],
+   "effective_from": "2026-02-13",
+   "effective_to": null,
+   "source_url": "https://www.sothebys.com/en/docs/pdf/conditions-of-business-for-buyers-hk-en-feb-2026-updates104449-1.pdf",
+   "source_title": "Sotheby's Conditions of Business for Buyers at Auction for Hong Kong (Feb 2026 updates)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Effective date stated verbatim only in the NY CoB; this salesroom's CoB says 'current' — 13 Feb 2026 per press corroboration.  Read the CoB PDF page 1 verbatim: 'The current Buyer's Premium rate for all auctions (except Wine and Spirits) is 28% of the Hammer Price for a Hammer Price up to and including HK$15,000,000, and 22% of any amount of the Hammer Price in excess of HK$15,000,000 up to and including HK$60,000,000, and 15% of any amount of the Hammer Price in excess of HK$60,000,000.' Marginal application. Overhead Premium defined for Wine and Spirits Lots only, 1% o"
+  },
+  {
+   "id": "sothebys-paris-standard-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "sothebys",
+   "location": "paris",
+   "currency": "EUR",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1750000,
+     "rate": 0.28
+    },
+    {
+     "over": 1750000,
+     "up_to": 7000000,
+     "rate": 0.22
+    },
+    {
+     "over": 7000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [
+    {
+     "name": "overhead premium",
+     "basis": "hammer price",
+     "rate": 0.01,
+     "status": "wine-and-spirits-lots-only"
+    }
+   ],
+   "effective_from": "2026-02-13",
+   "effective_to": null,
+   "source_url": "https://www.sothebys.com/en/docs/pdf/2025-01-06-france-cob-for-buyers-en-feb-2026-updates106111-1.pdf",
+   "source_title": "Sotheby's Conditions of Business for Buyers at Auction for Paris Sales (Feb 2026 updates)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Effective date stated verbatim only in the NY CoB; this salesroom's CoB says 'current' — 13 Feb 2026 per press corroboration.  Read the CoB PDF page 1 verbatim: 'The current Buyer's Premium rate for all auctions (except Wine and Spirits) is 28% of the Hammer Price for a Hammer Price up to and including €1,750,000, 22% of any amount of the Hammer Price in excess of €1,750,000 up to and including €7,000,000, and 15% of any amount of the Hammer Price in excess of €7,000,000.' Marginal application. Overhead Premium defined for Wine and Spirits Lots only, 1% of Hammer Price."
+  },
+  {
+   "id": "christies-newyork-standard-2025",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "christies",
+   "location": "new-york",
+   "currency": "USD",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1500000,
+     "rate": 0.27
+    },
+    {
+     "over": 1500000,
+     "up_to": 8000000,
+     "rate": 0.22
+    },
+    {
+     "over": 8000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2025-09-01",
+   "effective_to": null,
+   "source_url": "https://www.christies.com/help/buying-guide-important-information/financial-information",
+   "source_title": "Christie's Buying Guide — Financial information (Buyer's premium)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Double-confirmed from two Christie's primary documents fetched 2026-07-16: the financial-information page (table: 27.0% up to $1,500,000; 22.0% $1,500,001-$8,000,000; 15.0% $8,000,001 and above, 'Effective 1 September 2025') and the current NY Live Conditions of Sale PDF (christies.com/pdf/Live/LiveConditionsOfSale-NewYork-6June2026%20Clean.pdf, Section D1: '27% of the hammer price up to and including US$1,500,000, 22.0% on that part of the hamme",
+   "payment_deadline_days": 7
+  },
+  {
+   "id": "christies-london-standard-2025",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "christies",
+   "location": "london",
+   "currency": "GBP",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1000000,
+     "rate": 0.27
+    },
+    {
+     "over": 1000000,
+     "up_to": 6000000,
+     "rate": 0.22
+    },
+    {
+     "over": 6000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2025-09-01",
+   "effective_to": null,
+   "source_url": "https://www.christies.com/help/buying-guide-important-information/financial-information",
+   "source_title": "Christie's Buying Guide — Financial information (Buyer's premium)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Double-confirmed from two Christie's primary documents fetched 2026-07-16: the financial-information page (27.0% up to £1,000,000; 22.0% £1,000,001-£6,000,000; 15.0% £6,000,001 and above, 'Effective 1 September 2025') and the current London Conditions of Sale PDF (christies.com/pdf/Live/ConditionsOfSale-London-23APRIL26.pdf: '27% of the hammer price up to and including £1,000,000, 22% on that part of the hammer price over £1,000,000 and up to and",
+   "payment_deadline_days": 7
+  },
+  {
+   "id": "christies-hongkong-standard-2025",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "christies",
+   "location": "hong-kong",
+   "currency": "HKD",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 10000000,
+     "rate": 0.27
+    },
+    {
+     "over": 10000000,
+     "up_to": 60000000,
+     "rate": 0.22
+    },
+    {
+     "over": 60000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2025-09-01",
+   "effective_to": null,
+   "source_url": "https://www.christies.com/help/buying-guide-important-information/financial-information",
+   "source_title": "Christie's Buying Guide — Financial information (Buyer's premium)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from Christie's own financial-information page fetched 2026-07-16: 27.0% up to HK$10,000,000; 22.0% HK$10,000,001-HK$60,000,000; 15.0% HK$60,000,001 and above, effective 1 September 2025. Hong Kong Conditions of Sale PDF (ConditionsOfSale-HongKong-English_7MAY26.pdf) exists but was not separately parsed; payment deadline and any deposit policy for HK not verified here.",
+   "payment_deadline_days": null
+  },
+  {
+   "id": "christies-paris-standard-2025",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "christies",
+   "location": "paris",
+   "currency": "EUR",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1200000,
+     "rate": 0.27
+    },
+    {
+     "over": 1200000,
+     "up_to": 7000000,
+     "rate": 0.22
+    },
+    {
+     "over": 7000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2025-09-01",
+   "effective_to": null,
+   "source_url": "https://www.christies.com/help/buying-guide-important-information/financial-information",
+   "source_title": "Christie's Buying Guide — Financial information (Buyer's premium)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from Christie's own financial-information page fetched 2026-07-16: 27.0% up to EUR 1,200,000; 22.0% EUR 1,200,001-7,000,000; 15.0% EUR 7,000,001 and above, effective 1 September 2025. Rates quoted exclusive of local taxes (French TVA applies on premium). Paris COS PDF not separately parsed; payment deadline not verified here. Note Retromobile (Gooding Christie's) sales use the separate Gooding schedule.",
+   "payment_deadline_days": null
+  },
+  {
+   "id": "christies-geneva-standard-2025",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "christies",
+   "location": "geneva",
+   "currency": "CHF",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1200000,
+     "rate": 0.27
+    },
+    {
+     "over": 1200000,
+     "up_to": 6500000,
+     "rate": 0.22
+    },
+    {
+     "over": 6500000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2025-09-01",
+   "effective_to": null,
+   "source_url": "https://www.christies.com/help/buying-guide-important-information/financial-information",
+   "source_title": "Christie's Buying Guide — Financial information (Buyer's premium)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from Christie's own financial-information page fetched 2026-07-16: 27.0% up to CHF 1,200,000; 22.0% CHF 1,200,001-6,500,000; 15.0% CHF 6,500,001 and above, effective 1 September 2025. Geneva COS PDF (ConditionsOfSale-Geneva-23APRIL2026.pdf) exists but was not separately parsed; payment deadline not verified here.",
+   "payment_deadline_days": null
+  },
+  {
+   "id": "christies-shanghai-standard-2025",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "christies",
+   "location": "shanghai",
+   "currency": "CNY",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 8500000,
+     "rate": 0.27
+    },
+    {
+     "over": 8500000,
+     "up_to": 50000000,
+     "rate": 0.22
+    },
+    {
+     "over": 50000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2025-09-01",
+   "effective_to": null,
+   "source_url": "https://www.christies.com/help/buying-guide-important-information/financial-information",
+   "source_title": "Christie's Buying Guide — Financial information (Buyer's premium)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from Christie's own financial-information page fetched 2026-07-16: 27.0% up to CNY 8,500,000; 22.0% CNY 8,500,001-50,000,000; 15.0% CNY 50,000,001 and above, effective 1 September 2025. deposit_required left null: mainland deposit/registration requirements are plausible (per trade-module research) but were NOT verified from the Shanghai COS PDF in this pass — do not assume either way for invoice math.",
+   "payment_deadline_days": null
+  },
+  {
+   "id": "christies-dubai-standard-2025",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "christies",
+   "location": "dubai",
+   "currency": "USD",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1500000,
+     "rate": 0.27
+    },
+    {
+     "over": 1500000,
+     "up_to": 8000000,
+     "rate": 0.22
+    },
+    {
+     "over": 8000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2025-09-01",
+   "effective_to": null,
+   "source_url": "https://www.christies.com/help/buying-guide-important-information/financial-information",
+   "source_title": "Christie's Buying Guide — Financial information (Buyer's premium)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from Christie's own financial-information page fetched 2026-07-16: Dubai schedule is denominated in US dollars on Christie's own table (27.0% up to $1,500,000; 22.0% $1,500,001-$8,000,000; 15.0% $8,000,001 and above), effective 1 September 2025. Only an online-only Dubai COS was listed on the Conditions of Sale page; not separately parsed.",
+   "payment_deadline_days": null
+  },
+  {
+   "id": "christies-wine-global-2022",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "christies",
+   "location": "all-except-shanghai",
+   "currency": null,
+   "category": "wine",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": null,
+     "rate": 0.25
+    }
+   ],
+   "extras": [],
+   "effective_from": "2022-02-07",
+   "effective_to": null,
+   "source_url": "https://www.christies.com/help/buying-guide-important-information/financial-information",
+   "source_title": "Christie's Buying Guide — Financial information (Wine buyer's premium)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from Christie's own financial-information page fetched 2026-07-16: 'COMPLETE BUYER'S PREMIUM SCHEDULE FOR WINE (Effective 7 February 2022)': Global Sales, except Shanghai: 25.0%, no threshold (flat on entire hammer price). Currency null because the flat rate applies in each salesroom's local currency. Still the current schedule as of fetch date; wine is explicitly carved out of the 1 Sept 2025 standard schedule.",
+   "payment_deadline_days": null
+  },
+  {
+   "id": "christies-wine-shanghai-2022",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "christies",
+   "location": "shanghai",
+   "currency": "CNY",
+   "category": "wine",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": null,
+     "rate": 0.2
+    }
+   ],
+   "extras": [],
+   "effective_from": "2022-02-07",
+   "effective_to": null,
+   "source_url": "https://www.christies.com/help/buying-guide-important-information/financial-information",
+   "source_title": "Christie's Buying Guide — Financial information (Wine buyer's premium)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from Christie's own financial-information page fetched 2026-07-16: wine schedule, Shanghai: 20.0%, no threshold (flat), effective 7 February 2022.",
+   "payment_deadline_days": null
+  },
+  {
+   "id": "bonhams-us-standard-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "bonhams",
+   "location": "us",
+   "currency": "USD",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "rate": 0.28,
+     "over": 0,
+     "up_to": 50000
+    },
+    {
+     "rate": 0.27,
+     "over": 50000,
+     "up_to": 1000000
+    },
+    {
+     "rate": 0.21,
+     "over": 1000000,
+     "up_to": 6000000
+    },
+    {
+     "rate": 0.145,
+     "over": 6000000,
+     "up_to": null
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-07-16",
+   "effective_to": null,
+   "source_url": "https://www.bonhams.com/how-to-buy/buyers-premium-united-states/",
+   "source_title": "Bonhams : Buyer's premium, United States",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Source states no effective date; effective_from is the retrieval date. Applies to: All sales categories excluding Arms & Armour, Coins & Medals, Motor Cars, Motorcycles, and Wine & Whisky.  Fetched the primary bonhams.com US premium page 2026-07-16 and read the schedule verbatim: 28% on first $50,000; 27% over $50k up to and including $1,000,000; 21% over $1m up to and including $6,000,000; 14.5% above $6,000,000. Matches the reported figures exactly. Category exceptions stated on the same page: Coins & Medals flat 20% of hammer; Motor Cars (excl. Automobilia) 12% on first $250,000 then 10%; Motorcycles 15% on first $100,000 then 10",
+   "applies_to": "All sales categories excluding Arms & Armour, Coins & Medals, Motor Cars, Motorcycles, and Wine & Whisky"
+  },
+  {
+   "id": "bonhams-uk-standard-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "bonhams",
+   "location": "uk",
+   "currency": "GBP",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "rate": 0.28,
+     "over": 0,
+     "up_to": 40000
+    },
+    {
+     "rate": 0.27,
+     "over": 40000,
+     "up_to": 800000
+    },
+    {
+     "rate": 0.21,
+     "over": 800000,
+     "up_to": 4500000
+    },
+    {
+     "rate": 0.145,
+     "over": 4500000,
+     "up_to": null
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-07-16",
+   "effective_to": null,
+   "source_url": "https://www.bonhams.com/how-to-buy/buyers-premium-united-kingdom/",
+   "source_title": "Bonhams : Buyer's premium, United Kingdom",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Source states no effective date; effective_from is the retrieval date. Applies to: All sales categories excluding Wine & Whisky, Coins & Medals, and Motor Cars & Motorcycles.  Fetched the primary bonhams.com UK premium page 2026-07-16 and read the schedule verbatim: 28% on first £40,000; 27% over £40k up to and including £800,000; 21% over £800k up to and including £4,500,000; 14.5% above £4,500,000. Matches the reported figures exactly. Category exceptions stated on the same page: Wine & Whisky flat 24% of hammer; Motor Cars & Motorcycles 15% on first £500,000 then 12% over £500,001. The page also reproduces the Artis",
+   "applies_to": "All sales categories excluding Wine & Whisky, Coins & Medals, and Motor Cars & Motorcycles"
+  },
+  {
+   "id": "phillips-newyork-standard-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "phillips",
+   "location": "new-york",
+   "currency": "USD",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 2000000,
+     "rate": 0.29
+    },
+    {
+     "over": 2000000,
+     "up_to": 8000000,
+     "rate": 0.22
+    },
+    {
+     "over": 8000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-04-12",
+   "effective_to": null,
+   "source_url": "https://www.dist.phillips.com/content/web/docs/forms/BuyersPremium.pdf",
+   "source_title": "",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Fetched and read Phillips' official rate-card PDF ('Phillips' Buyer's Premium Rates — Effective 12 April 2026', dist.phillips.com) in full. NY standard: 29% up to and including US$2,000,000; 22% on portion above $2m up to and including $8m; 15% on portion exceeding $8m, for live and timed online auctions. Matches the reported figures exactly. Internal cross-check passed: the PDF's London VAT-inclusive standard rates (34.8/26.4/18) are exactly 1.2",
+   "applies_to": "live, timed-online"
+  },
+  {
+   "id": "phillips-newyork-priority-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "phillips",
+   "location": "new-york",
+   "currency": "USD",
+   "category": "priority-bidding",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 2000000,
+     "rate": 0.25
+    },
+    {
+     "over": 2000000,
+     "up_to": 8000000,
+     "rate": 0.2
+    },
+    {
+     "over": 8000000,
+     "up_to": null,
+     "rate": 0.14
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-04-12",
+   "effective_to": null,
+   "source_url": "https://www.dist.phillips.com/content/web/docs/forms/BuyersPremium.pdf",
+   "source_title": "",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Exact 25/20/14 tiers read directly in the primary rate-card PDF (column 'Priority Bidding Rates — live auctions only'). Per the brief's concern, the mechanism was confirmed on TWO additional Phillips-owned pages: phillips.com/article/160527128/priority-bidding-for-live-auctions ('written binding bids... no less than 48 hours in advance of an auction's start time... equal to or greater than the lot's published low estimate', live auctions all cate",
+   "applies_to": "live"
+  },
+  {
+   "id": "phillips-newyork-watches-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "phillips",
+   "location": "new-york",
+   "currency": "USD",
+   "category": "watches",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 2000000,
+     "rate": 0.27
+    },
+    {
+     "over": 2000000,
+     "up_to": 8000000,
+     "rate": 0.21
+    },
+    {
+     "over": 8000000,
+     "up_to": null,
+     "rate": 0.145
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-04-12",
+   "effective_to": null,
+   "source_url": "https://www.dist.phillips.com/content/web/docs/forms/BuyersPremium.pdf",
+   "source_title": "",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Rate-card PDF (read directly, p.2) states NY Watches: 27% up to and including US$2,000,000; 21% on portion above $2m to $8m; 14.5% exceeding $8m — i.e. the SAME $2m/$8m thresholds as the standard schedule. Structure corroborated by a second primary document read directly, 'Geneva Guide for Prospective Buyers: Watches — Effective as of 12 April 2026' (27/21/14.5 at CHF 1.6m/7m). Watches are excluded from Priority Bidding (both live and timed onlin",
+   "applies_to": "live, timed-online"
+  },
+  {
+   "id": "phillips-london-standard-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "phillips",
+   "location": "london",
+   "currency": "GBP",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1500000,
+     "rate": 0.29
+    },
+    {
+     "over": 1500000,
+     "up_to": 6000000,
+     "rate": 0.22
+    },
+    {
+     "over": 6000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-04-12",
+   "effective_to": null,
+   "source_url": "https://www.dist.phillips.com/content/web/docs/forms/BuyersPremium.pdf",
+   "source_title": "",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from rate-card PDF p.1 (LONDON table): 29% up to and including GBP 1,500,000; 22% on portion to GBP 6,000,000; 15% above. VAT-inclusive standard rates stated as 34.8%, 26.4% and 18% — exactly 1.2x the ex-VAT tiers (20% UK VAT), internally consistent.",
+   "applies_to": "live, timed-online"
+  },
+  {
+   "id": "phillips-london-priority-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "phillips",
+   "location": "london",
+   "currency": "GBP",
+   "category": "priority-bidding",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1500000,
+     "rate": 0.25
+    },
+    {
+     "over": 1500000,
+     "up_to": 6000000,
+     "rate": 0.2
+    },
+    {
+     "over": 6000000,
+     "up_to": null,
+     "rate": 0.14
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-04-12",
+   "effective_to": null,
+   "source_url": "https://www.dist.phillips.com/content/web/docs/forms/BuyersPremium.pdf",
+   "source_title": "",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from rate-card PDF p.1 (LONDON table, Priority Bidding column). Mechanism confirmed on Phillips-owned article pages (see phillips-newyork-priority-2026 notes); scheme details deferred to applicable Conditions of Sale.",
+   "applies_to": "live"
+  },
+  {
+   "id": "phillips-paris-standard-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "phillips",
+   "location": "paris",
+   "currency": "EUR",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1750000,
+     "rate": 0.29
+    },
+    {
+     "over": 1750000,
+     "up_to": 7000000,
+     "rate": 0.22
+    },
+    {
+     "over": 7000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-04-12",
+   "effective_to": null,
+   "source_url": "https://www.dist.phillips.com/content/web/docs/forms/BuyersPremium.pdf",
+   "source_title": "",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from rate-card PDF p.1 (PARIS table): standard 29/22/15 and priority 25/20/14 at EUR 1,750,000 / 7,000,000 thresholds. Priority conditions identical to other locations (live auctions only).",
+   "applies_to": "live, timed-online"
+  },
+  {
+   "id": "phillips-geneva-jewels-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "phillips",
+   "location": "geneva",
+   "currency": "CHF",
+   "category": "jewels",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1600000,
+     "rate": 0.29
+    },
+    {
+     "over": 1600000,
+     "up_to": 7000000,
+     "rate": 0.22
+    },
+    {
+     "over": 7000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-04-12",
+   "effective_to": null,
+   "source_url": "https://www.dist.phillips.com/content/web/docs/forms/BuyersPremium.pdf",
+   "source_title": "",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from rate-card PDF p.2 (GENEVA JEWELS table): standard 29/22/15 and priority 25/20/14 at CHF 1,600,000 / 7,000,000 thresholds. Priority is live auctions only.",
+   "applies_to": "live, timed-online"
+  },
+  {
+   "id": "phillips-geneva-watches-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "phillips",
+   "location": "geneva",
+   "currency": "CHF",
+   "category": "watches",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 1600000,
+     "rate": 0.27
+    },
+    {
+     "over": 1600000,
+     "up_to": 7000000,
+     "rate": 0.21
+    },
+    {
+     "over": 7000000,
+     "up_to": null,
+     "rate": 0.145
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-04-12",
+   "effective_to": null,
+   "source_url": "https://www.dist.phillips.com/content/web/docs/forms/Guide_for_Prospective_Buyers_GVA.pdf",
+   "source_title": "",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Verified in TWO primary Phillips documents read directly: the rate-card PDF p.3 (GENEVA WATCHES) and the 'Geneva Guide for Prospective Buyers: Watches — Effective as of 12 April 2026' (verbatim: '27% of the hammer price up to and including CHF1,600,000, 21% of the portion... above CHF1,600,000 up to and including CHF7,000,000 and 14.5% of the portion... above CHF7,000,000'). Guide also states the 8.1% VAT treatment.",
+   "applies_to": "live, timed-online"
+  },
+  {
+   "id": "phillips-hongkong-standard-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "phillips",
+   "location": "hong-kong",
+   "currency": "HKD",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 15000000,
+     "rate": 0.29
+    },
+    {
+     "over": 15000000,
+     "up_to": 60000000,
+     "rate": 0.22
+    },
+    {
+     "over": 60000000,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-04-12",
+   "effective_to": null,
+   "source_url": "https://www.dist.phillips.com/content/web/docs/forms/BuyersPremium.pdf",
+   "source_title": "",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from rate-card PDF p.2 (HONG KONG table): standard 29/22/15 and priority 25/20/14 at HK$15,000,000 / 60,000,000 thresholds. Priority is live auctions only. No local-tax footnote appears on the Hong Kong table in the PDF.",
+   "applies_to": "live, timed-online"
+  },
+  {
+   "id": "phillips-hongkong-watches-2026",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "phillips",
+   "location": "hong-kong",
+   "currency": "HKD",
+   "category": "watches",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 15000000,
+     "rate": 0.27
+    },
+    {
+     "over": 15000000,
+     "up_to": 60000000,
+     "rate": 0.21
+    },
+    {
+     "over": 60000000,
+     "up_to": null,
+     "rate": 0.145
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-04-12",
+   "effective_to": null,
+   "source_url": "https://www.dist.phillips.com/content/web/docs/forms/BuyersPremium.pdf",
+   "source_title": "",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read directly from rate-card PDF p.3 (HONG KONG WATCHES): 27% to HK$15,000,000; 21% on portion to HK$60,000,000; 14.5% above. Same thresholds as the HK standard schedule.",
+   "applies_to": "live, timed-online"
+  },
+  {
+   "id": "china-guardian-beijing-standard-2020",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "china-guardian",
+   "location": "beijing",
+   "currency": "CNY",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2020-12-07",
+   "effective_to": null,
+   "source_url": "https://www.cguardian.com/pmzn/qtfw/pmgz/index.shtml",
+   "source_title": "拍卖规则 — 中国嘉德国际拍卖有限公司 (Auction Rules, China Guardian)",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Fetched the official rules page directly. Art. 46: '买受人应支付本公司相当于落槌价百分之十五的佣金' — flat 15% of hammer price, no bands and no stated carve-outs for online/wine/special sessions. Art. 36: deposit required before receiving a paddle; amount is announced by the house before each auction ('保证金的数额由本公司在拍卖日前公布') and may be reduced/waived, so no fixed typical amount exists in the standing rules; unsuccessful bidders refunded within 10 working days. Art. 47: fu",
+   "payment_deadline_days": 30,
+   "deposit": {
+    "required": true,
+    "typical_amount_cny": null
+   }
+  },
+  {
+   "id": "poly-auction-beijing-standard",
+   "schema": "artbitrage.fee-schedule/1",
+   "house": "poly-auction",
+   "location": "beijing",
+   "currency": "CNY",
+   "category": "standard",
+   "rate_application": "marginal",
+   "bands": [
+    {
+     "over": 0,
+     "up_to": null,
+     "rate": 0.15
+    }
+   ],
+   "extras": [],
+   "effective_from": "2026-07-16",
+   "effective_to": null,
+   "source_url": "https://www.polypm.com.cn/laws/",
+   "source_title": "拍卖规则 — 北京保利国际拍卖有限公司 (Auction Rules, Poly Auction Beijing)",
+   "status": "source-declared",
+   "verified_at": "2026-07-16",
+   "notes": "No effective date stated; effective_from is the retrieval date.  polypm.com.cn (all subdomains incl. www/en/wap) is DNS-unreachable from this verification environment (ENOTFOUND; sandbox also blocks direct curl and web.archive.org), so the primary page content was read via the r.jina.ai rendering proxy of the exact primary URL — hence source-declared, not verified. Art. 47: '买受人应支付本公司相当于落槌价百分之十五的酬金' — flat 15% of hammer price, no tiers. Art. 34: deposit required before receiving a paddle; specific amount annou",
+   "payment_deadline_days": 30,
+   "deposit": {
+    "required": true,
+    "typical_amount_cny": null
+   }
+  }
+ ],
+ "arr": [
+  {
+   "id": "uk-arr-2006-regs-gbp-2024",
+   "schema": "artbitrage.arr-schedule/1",
+   "jurisdiction": "uk",
+   "currency_basis": "GBP",
+   "threshold": 1000,
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 50000,
+     "rate": 0.04
+    },
+    {
+     "over": 50000,
+     "up_to": 200000,
+     "rate": 0.03
+    },
+    {
+     "over": 200000,
+     "up_to": 350000,
+     "rate": 0.01
+    },
+    {
+     "over": 350000,
+     "up_to": 500000,
+     "rate": 0.005
+    },
+    {
+     "over": 500000,
+     "up_to": null,
+     "rate": 0.0025
+    }
+   ],
+   "cap": 12500,
+   "term_pma_years": 70,
+   "liable": "Seller and the 'relevant person' are jointly and severally liable (reg 13(1)); relevant person = art market professional acting in priority order: seller's agent, else buyer's agent, else the buyer",
+   "societies": [
+    "DACS",
+    "ACS (Artists' Collecting Society)"
+   ],
+   "exemptions": "Right does not apply where the seller acquired the work directly from the artist less than 3 years before the resale and the resale price is £10,000 or less (bought-as-stock exemption, reg 12; figure converted from EUR 10,000 to £10,000 on 2024-04-01)",
+   "effective_from": "2024-04-01",
+   "transitional": "IMPORTANT: UK basis switched from EUR to GBP effective 2024-04-01 (SI 2023/1285), applying to contracts of sale dated on/after 2024-04-01. The *_eur field names below are legacy family-shape names; for the UK the values are GBP amounts. Pre-2024-04-01 contracts use the old EUR basis (threshold EUR 1,000, cap EUR 12,500, ECB conversion).",
+   "variances": [
+    {
+     "jurisdiction": "France",
+     "note": "Threshold EUR 750 excl. VAT (vs UK GBP 1,000); same 4/3/1/0.5/0.25% cumulative scale in EUR; cap EUR 12,500; ADAGP collects; extra exemption for first resale within 3 years of direct purchase from the artist at <= EUR 10,000"
+    },
+    {
+     "jurisdiction": "EU (general)",
+     "note": "EU/EEA states remain on the EUR basis of Directive 2001/84/EC (default threshold up to EUR 3,000, most states set lower); the UK alone moved to a GBP basis on 2024-04-01, so cross-border UK/EU invoice math must not mix currencies"
+    }
+   ],
+   "source_url": "https://www.legislation.gov.uk/uksi/2006/346",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Fetched and read three primary sources on 2026-07-16: (1) legislation.gov.uk revised SI 2006/346 — threshold £1,000 (reg 12(3)(b)), GBP bands in Schedule 1, £12,500 cap (Sch 1 para 2), joint and several liability (reg 13(1)), term = duration of copyright (reg 3(2)); (2) the amending SI 2023/1285 (The Design Right, Artist's Resale Right and Copyright (Amendment) Regulations 2023) — confirms every E"
+  },
+  {
+   "id": "france-arr-adagp",
+   "schema": "artbitrage.arr-schedule/1",
+   "jurisdiction": "france",
+   "currency_basis": "EUR",
+   "threshold": 750,
+   "bands": [
+    {
+     "over": 0,
+     "up_to": 50000,
+     "rate": 0.04
+    },
+    {
+     "over": 50000,
+     "up_to": 200000,
+     "rate": 0.03
+    },
+    {
+     "over": 200000,
+     "up_to": 350000,
+     "rate": 0.01
+    },
+    {
+     "over": 350000,
+     "up_to": 500000,
+     "rate": 0.005
+    },
+    {
+     "over": 500000,
+     "up_to": null,
+     "rate": 0.0025
+    }
+   ],
+   "cap": 12500,
+   "term_pma_years": 70,
+   "liable": "Seller owes the royalty; the art market professional involved in the sale is responsible for payment (CPI art. L122-8); a professional must be involved as seller, buyer or intermediary, and the sale must occur on French territory or be subject to French VAT",
+   "societies": [
+    "ADAGP"
+   ],
+   "exemptions": "No royalty on the first resale within 3 years of direct purchase from the artist where the resale price is EUR 10,000 or less; sales by the artist or heirs as initial sale are out of scope",
+   "effective_from": null,
+   "transitional": "EUR 750 excluding VAT",
+   "variances": [
+    {
+     "jurisdiction": "United Kingdom",
+     "note": "UK left the EUR basis on 2024-04-01: threshold £1,000, cap £12,500, GBP bands — do not apply French EUR figures to UK sales or vice versa"
+    }
+   ],
+   "source_url": "https://www.adagp.fr/en/adagp-role-and-missions/copyrights-managed-adagp/resale-right",
+   "status": "source-declared",
+   "verified_at": "2026-07-16",
+   "notes": "Fetched ADAGP's own resale-right page on 2026-07-16 (the French collecting society — primary-ish): threshold EUR 750 excl. VAT, 4/3/1/0.5/0.25% tranches, EUR 12,500 cap, life+70 term, professional-involvement requirement, 3-year/EUR-10,000 first-resale exemption. Marked source-declared rather than verified because the underlying legislation (Code de la propriete intellectuelle art. L122-8 / R122-*"
+  }
+ ],
+ "thresholds": [
+  {
+   "id": "uk-aml-amp",
+   "jurisdiction": "uk",
+   "kind": "aml",
+   "trigger": 10000,
+   "trigger_currency": "GBP",
+   "effective_from": "2026-06-30",
+   "linked_transactions": true,
+   "regulator": "HMRC",
+   "regulation": "MLR 2017 reg 14 as amended by SI 2026/621 reg 9",
+   "fees": [
+    {
+     "name": "application (one-off)",
+     "amount_gbp": 300
+    },
+    {
+     "name": "per-premises (registration and annual declaration)",
+     "amount_gbp": 400
+    },
+    {
+     "name": "approval test per person",
+     "amount_gbp": 40
+    }
+   ],
+   "superseded": {
+    "trigger": 10000,
+    "currency": "EUR",
+    "until": "2026-06-29",
+    "note": "pre-30-June-2026 statutory wording; HMRC guidance page (updated 2024-08-06) still shows euros — statute controls"
+   },
+   "source_url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/14",
+   "status": "contested",
+   "verified_at": "2026-07-16",
+   "notes": "CONFLICT: legislation.gov.uk reg 14 (latest revised) reads '£10,000'; footnote F2 confirms substitution '(30.6.2026) by The Money Laundering and Terrorist Financing (Amendment) Regulations 2026 (S.I. 2026/621), regs. 1(2), 9', and I fetched SI 2026/621 reg 9 directly: \"for '10,000 euros', in each place it occurs, substitute '£10,000'\". However HMRC guidance https://www.gov.uk/guidance/money-launde"
+  },
+  {
+   "id": "eu-aml-5amld",
+   "jurisdiction": "eu",
+   "kind": "aml",
+   "trigger": 10000,
+   "trigger_currency": "EUR",
+   "linked_transactions": true,
+   "regulator": "Member-state national AML supervisors (obliged entities under Directive (EU) 2015/849 Art 2(1)(3)(i)-(j), as inserted by Directive (EU) 2018/843, 5AMLD)",
+   "regulation": "Directive (EU) 2015/849 Art 2(1)(3)(i)-(j) as amended by 5AMLD",
+   "source_url": "https://www.legislation.gov.uk/eudr/2015/849/article/2",
+   "status": "source-declared",
+   "verified_at": "2026-07-16",
+   "notes": "EUR-Lex itself was unreachable (three URL forms — /legal-content/EN/TXT/, /TXT/HTML/, /eli/dir/2018/843/oj/eng — all returned empty content to the fetcher), so this is read from legislation.gov.uk's official copy of the consolidated directive (revised as of 09/07/2018), which quotes points (i) and (j) verbatim with 'EUR 10 000 or more' and 'a series of linked transactions'. Marked source-declared "
+  },
+  {
+   "id": "uk-vat-art",
+   "jurisdiction": "uk",
+   "kind": "vat",
+   "import_vat_art": {
+    "rate": "5% effective",
+    "mechanism": "Qualifying works of art, antiques (100+ years old) and collectors' items are entered at a reduced import valuation: calculate the value for duty, add any additional costs, multiply the total by 25%, then apply the standard 20% VAT rate — 'By applying the 20% rate to the value it reduces the effective VAT rate to 5%' (gov.uk, How to value goods for import VAT)"
+   },
+   "margin_scheme_note": "Under the UK VAT margin scheme for second-hand goods, works of art, antiques and collectors' items, the seller accounts for VAT at 16.67% (one-sixth) of the difference between the purchase price and the selling price rather than on the full selling price.",
+   "regulation": "UK VAT valuation rules for imported works of art; VAT margin scheme",
+   "source_url": "https://www.gov.uk/guidance/how-to-value-goods-for-import-vat",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Mechanism and 5% effective rate quoted verbatim from the primary gov.uk valuation guidance (page last updated 1 Oct 2022); corroborated by HMRC internal manual IMPS05200 in search results. Margin scheme sentence verified verbatim from https://www.gov.uk/vat-margin-schemes: 'You pay VAT at 16.67% (one-sixth) on the difference.' No commencement date is stated on either page, so effective_from is nul"
+  },
+  {
+   "id": "uk-export-ogel",
+   "jurisdiction": "uk",
+   "kind": "export",
+   "currency": "GBP",
+   "age_rule_years": 50,
+   "waverley": true,
+   "threshold_semantics": "An individual ACE export licence is required when the object's value (as declared for Customs; matching sets/pairs valued together) EQUALS OR EXCEEDS the threshold. Below the threshold the OGEL covers the export and no individual licence is needed. All limits apply to objects manufactured or produced more than 50 years before exportation.",
+   "regulation": "Open General Export Licence (Objects of Cultural Interest) dated 1 January 2021, granted under Article 2 of the Export of Objects of Cultural Interest (Control) Order 2003 (SI 2003/2759)",
+   "categories": [
+    {
+     "id": "any-article-not-in-categories-below-catch-all",
+     "category": "Any article not in categories below (catch-all)",
+     "threshold": 65000,
+     "age_condition": "over 50 years of age"
+    },
+    {
+     "id": "archaeological-material-found-in-uk-soil-or-uk-territorial-w",
+     "category": "Archaeological material found in UK soil or UK territorial waters",
+     "threshold": 0,
+     "age_condition": "over 50 years of age"
+    },
+    {
+     "id": "any-document-or-manuscript-not-being-printed-matter",
+     "category": "Any document or manuscript (not being printed matter)",
+     "threshold": 0,
+     "age_condition": "over 50 years of age"
+    },
+    {
+     "id": "any-archive-of-manuscripts-and-documents-in-any-medium-creat",
+     "category": "Any archive of manuscripts and documents in any medium (created/accumulated by an individual, family, corporate body or institution)",
+     "threshold": 0,
+     "age_condition": "over 50 years of age"
+    },
+    {
+     "id": "architectural-scientific-or-engineering-drawing-produced-by-",
+     "category": "Architectural, scientific or engineering drawing produced by hand",
+     "threshold": 0,
+     "age_condition": "over 50 years of age"
+    },
+    {
+     "id": "photographic-positive-or-negative-or-any-assemblage-of-such-",
+     "category": "Photographic positive or negative, or any assemblage of such photographs",
+     "threshold": 10000,
+     "age_condition": "over 50 years of age"
+    },
+    {
+     "id": "textile-excluding-carpets-and-tapestries",
+     "category": "Textile (excluding carpets and tapestries)",
+     "threshold": 12000,
+     "age_condition": "over 50 years of age"
+    },
+    {
+     "id": "portrait-or-other-article-consisting-of-or-including-a-repre",
+     "category": "Portrait or other article consisting of or including a representation of the likeness of any British historical personage (made otherwise than by photography, excluding coins)",
+     "threshold": 10000,
+     "age_condition": "over 50 years of age"
+    },
+    {
+     "id": "firearm-over-100-years-of-age-and-any-other-arms-or-armour-o",
+     "category": "Firearm over 100 years of age, and any other arms or armour over 50 years of age",
+     "threshold": 35000,
+     "age_condition": "firearms over 100 years; other arms/armour over 50 years"
+    },
+    {
+     "id": "firearm-between-50-and-100-years-of-age",
+     "category": "Firearm between 50 and 100 years of age",
+     "threshold": 65000,
+     "age_condition": "50-100 years of age"
+    },
+    {
+     "id": "painting-in-oil-or-tempera-excluding-any-portrait-of-a-briti",
+     "category": "Painting in oil or tempera (excluding any portrait of a British historical personage)",
+     "threshold": 180000,
+     "age_condition": "over 50 years of age"
+    }
+   ],
+   "source_url": "https://webarchive.nationalarchives.gov.uk/ukgwa/20250601000000mp_/https://www.artscouncil.org.uk/media/22895/download?attachment",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Read the full table from ACE's own PDF (canonical live URL https://www.artscouncil.org.uk/media/22895/download?attachment= — the live artscouncil.org.uk blocks all automated fetchers with Cloudflare 403, so the byte-identical UK Government Web Archive copy of ACE's own URL was fetched instead; Wayback Machine was IP-throttled). Values cross-checked against three other ACE-authored documents: stand"
+  },
+  {
+   "id": "uk-ni-export-eu-categories",
+   "jurisdiction": "uk-northern-ireland",
+   "kind": "export",
+   "currency": "GBP",
+   "age_rule_years": 50,
+   "waverley": true,
+   "threshold_semantics": "For cultural goods exported DIRECTLY from Northern Ireland to non-EU countries, an EU licence (issued by ACE) is required at or above these values, in addition to UK rules. NOT applicable to Great Britain exports.",
+   "regulation": "eu-licence-issued-by-ace (Regulation (EC) No 116/2009, applicable in NI under the Windsor Framework, in addition to the UK licence)",
+   "categories": [
+    {
+     "id": "archaeological-objects-excavations-finds-on-land-or-under-wa",
+     "category": "Archaeological objects (excavations/finds on land or under water, archaeological sites or collections)",
+     "threshold": 0,
+     "age_condition": "more than 100 years old"
+    },
+    {
+     "id": "elements-forming-an-integral-part-of-artistic-historical-or-",
+     "category": "Elements forming an integral part of artistic, historical or religious monuments which have been dismembered",
+     "threshold": 0,
+     "age_condition": "more than 100 years old"
+    },
+    {
+     "id": "pictures-and-paintings-executed-entirely-by-hand-other-than-",
+     "category": "Pictures and paintings executed entirely by hand (other than categories 4 or 5)",
+     "threshold": 128795,
+     "age_condition": "more than 50 years old and not belonging to their originators"
+    },
+    {
+     "id": "watercolours-gouaches-and-pastels-executed-entirely-by-hand",
+     "category": "Watercolours, gouaches and pastels executed entirely by hand",
+     "threshold": 25759,
+     "age_condition": "more than 50 years old and not belonging to their originators"
+    },
+    {
+     "id": "mosaics-other-than-categories-1-or-2-and-drawings-executed-e",
+     "category": "Mosaics (other than categories 1 or 2) and drawings executed entirely by hand",
+     "threshold": 12879,
+     "age_condition": "more than 50 years old and not belonging to their originators"
+    },
+    {
+     "id": "original-engravings-prints-serigraphs-and-lithographs-with-t",
+     "category": "Original engravings, prints, serigraphs and lithographs with their respective plates, and original posters",
+     "threshold": 12879,
+     "age_condition": "more than 50 years old and not belonging to their originators"
+    },
+    {
+     "id": "original-sculptures-or-statuary-and-copies-produced-by-the-s",
+     "category": "Original sculptures or statuary and copies produced by the same process (other than category 1)",
+     "threshold": 42932,
+     "age_condition": "more than 50 years old and not belonging to their originators"
+    },
+    {
+     "id": "photographs-films-and-negatives-thereof",
+     "category": "Photographs, films and negatives thereof",
+     "threshold": 12879,
+     "age_condition": "more than 50 years old and not belonging to their originators"
+    },
+    {
+     "id": "incunabula-and-manuscripts-including-maps-and-musical-scores",
+     "category": "Incunabula and manuscripts, including maps and musical scores, singly or in collections",
+     "threshold": 0,
+     "age_condition": "more than 50 years old and not belonging to their originators"
+    },
+    {
+     "id": "books-singly-or-in-collections",
+     "category": "Books, singly or in collections",
+     "threshold": 42932,
+     "age_condition": "more than 100 years old"
+    },
+    {
+     "id": "printed-maps",
+     "category": "Printed maps",
+     "threshold": 12879,
+     "age_condition": "more than 200 years old"
+    },
+    {
+     "id": "archives-and-any-elements-thereof-of-any-kind-or-medium",
+     "category": "Archives and any elements thereof, of any kind or medium",
+     "threshold": 0,
+     "age_condition": "more than 50 years old"
+    },
+    {
+     "id": "collections-and-specimens-from-zoological-botanical-mineralo",
+     "category": "Collections and specimens from zoological, botanical, mineralogical or anatomical collections; collections of historical, palaeontological, ethnographic or numismatic interest",
+     "threshold": 42932,
+     "age_condition": "none stated (collectors' pieces per CJEU Case 252/84)"
+    },
+    {
+     "id": "means-of-transport",
+     "category": "Means of transport",
+     "threshold": 42932,
+     "age_condition": "more than 75 years old"
+    },
+    {
+     "id": "any-other-antique-items-not-in-categories-1-14-toys-games-gl",
+     "category": "Any other antique items not in categories 1-14 (toys, games, glassware, gold/silversmiths' wares, furniture, optical/photographic/cinematographic apparatus, musical instruments, clocks and watches, articles of wood, pottery, tapestries, carpets, wallpaper, arms)",
+     "threshold": 42932,
+     "age_condition": "between 50 and 100 years old for the listed types; any other antique items more than 100 years old"
+    }
+   ],
+   "source_url": "https://webarchive.nationalarchives.gov.uk/ukgwa/20250601000000mp_/https://www.artscouncil.org.uk/media/22895/download?attachment",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Same primary document as the main record (ACE's own PDF via the UK Government Web Archive copy of ACE's URL). These are the sterling expressions of the euro thresholds in Annex I of Regulation (EC) No 116/2009 (EUR 150,000 / 30,000 / 15,000 / 50,000) as stated by ACE. The document states no effective date for these GBP conversions, hence effective_from null. Included to prevent a known confusion: "
+  },
+  {
+   "id": "eu-import-2019-880",
+   "jurisdiction": "eu",
+   "kind": "import",
+   "regulation": "Regulation (EU) 2019/880 on the introduction and import of cultural goods",
+   "applicable_from": "2025-06-28",
+   "age_semantics": "strictly more than age_min_years",
+   "parts": [
+    {
+     "part": "B",
+     "instrument": "licence",
+     "age_min_years": 250,
+     "age_wording": "More than 250 years old",
+     "value_min_eur": null,
+     "value_wording": "Whatever the value",
+     "categories": [
+      "(c) products of archaeological excavations (including regular and clandestine) or of archaeological discoveries on land or underwater",
+      "(d) elements of artistic or historical monuments or archaeological sites which have been dismembered"
+     ]
+    },
+    {
+     "part": "C",
+     "instrument": "statement",
+     "age_min_years": 200,
+     "age_wording": "More than 200 years old",
+     "value_min_eur": 18000,
+     "value_wording": "EUR 18 000 or more per item",
+     "categories": [
+      "(a) rare collections and specimens of fauna, flora, minerals and anatomy, and objects of palaeontological interest",
+      "(b) property relating to history, including the history of science and technology and military and social history, to the life of national leaders, thinkers, scientists and artists and to events of national importance",
+      "(e) antiquities, such as inscriptions, coins and engraved seals",
+      "(f) objects of ethnological interest",
+      "(g) objects of artistic interest, such as: (i) pictures, paintings and drawings produced entirely by hand on any support and in any material (excluding industrial designs and manufactured articles decorated by hand); (ii) original works of statuary art and sculpture in any material; (iii) original engravings, prints and lithographs; (iv) original artistic assemblages and montages in any material",
+      "(h) rare manuscripts and incunabula",
+      "(i) old books, documents and publications of special interest (historical, artistic, scientific, literary, etc.) singly or in collections"
+     ]
+    }
+   ],
+   "source_url": "https://taxation-customs.ec.europa.eu/customs-4/prohibitions-and-restrictions/cultural-goods_en",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "Checked: (1) applicability date — Art. 16(2) (as adopted, legislation.gov.uk /eur/2019/880/article/16/adopted) says Arts. 4-5 apply from the date the Art. 8 electronic system becomes operational 'or at the latest from 28 June 2025'; Commission news page (taxation-customs.ec.europa.eu, 2025-06-30) and Cultural Goods page confirm the ICG system became operational and the licence/statement obligation"
+  }
+ ],
+ "materials": [
+  {
+   "material_id": "elephant-ivory",
+   "aliases": [
+    "ivory_elephant",
+    "ivory",
+    "elephant_ivory"
+   ],
+   "common_name": "Elephant ivory",
+   "taxon": "Loxodonta africana, Loxodonta cyclotis, Elephas maximus (family Elephantidae)",
+   "cites_appendix": "I",
+   "restricted": true,
+   "regulation": "UK Ivory Act 2018 / CITES / UK Wildlife Trade Regulations",
+   "rule_summary": "UK Ivory Act 2018 near-total ban on commercial dealing (buying, selling, hiring, keeping for sale) in items made of or containing elephant ivory, in force since 6 June 2022. Dealing is only lawful if the item is registered under a standard exemption or holds an exemption certificate.",
+   "exemptions": [
+    "Pre-1918 item of outstandingly high artistic, cultural or historical value (requires an exemption CERTIFICATE, assessed by an expert panel)",
+    "Pre-1918 portrait miniature with total surface area no more than 320 square centimetres",
+    "Pre-1947 item with less than 10% ivory by volume where all the ivory is integral (de minimis)",
+    "Musical instrument made before 1975 with less than 20% ivory by volume",
+    "Item being sold or hired out to a qualifying museum"
+   ],
+   "fees": [
+    {
+     "name": "Standard exemption registration (single item or set)",
+     "amount_gbp": 20
+    },
+    {
+     "name": "Group registration (3-20 non-set items, same transaction & same buyer)",
+     "amount_gbp": 50
+    },
+    {
+     "name": "Exemption certificate application (pre-1918 high value, non-refundable)",
+     "amount_gbp": 250
+    },
+    {
+     "name": "Notify subsequent dealing of a certificated item",
+     "amount_gbp": 20
+    }
+   ],
+   "source_url": "https://www.gov.uk/guidance/dealing-in-items-containing-ivory-or-made-of-ivory",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "UK Ivory Act 2018 exemptions and fees read directly from gov.uk primary. FIVE exemptions confirmed: (1) pre-1918 outstandingly high artistic/cultural/historical value [needs exemption CERTIFICATE], (2) pre-1918 portrait miniatures <=320 sq cm surface, (3) pre-1947 items with <10% ivory that is integ"
+  },
+  {
+   "material_id": "whale-ivory-scrimshaw",
+   "aliases": [
+    "scrimshaw",
+    "whale_ivory",
+    "sperm_whale_ivory"
+   ],
+   "common_name": "Whale ivory / scrimshaw (sperm whale teeth)",
+   "taxon": "Physeter macrocephalus (sperm whale); scrimshaw is typically sperm whale teeth. Other Cetacea also relevant.",
+   "cites_appendix": "I",
+   "restricted": true,
+   "regulation": "UK Ivory Act 2018 / CITES / UK Wildlife Trade Regulations",
+   "rule_summary": "From 27 January 2025 (S.I. 2025/9) sperm whale ivory is within the meaning of 'ivory' under the UK Ivory Act 2018, so dealing in scrimshaw and other sperm-whale-ivory items is banned unless registered under a standard exemption or covered by an exemption certificate - the same regime as elephant ivory. Also CITES Appendix I.",
+   "exemptions": [
+    "Pre-1918 item of outstandingly high artistic, cultural or historical value (exemption certificate)",
+    "Pre-1918 portrait miniature <=320 square centimetres",
+    "Pre-1947 item with less than 10% ivory by volume, integral (de minimis)",
+    "Musical instrument made before 1975 with less than 20% ivory by volume",
+    "Sale or hire to a qualifying museum"
+   ],
+   "fees": [
+    {
+     "name": "Standard exemption registration (single item or set)",
+     "amount_gbp": 20
+    },
+    {
+     "name": "Group registration (3-20 non-set items)",
+     "amount_gbp": 50
+    },
+    {
+     "name": "Exemption certificate application (non-refundable)",
+     "amount_gbp": 250
+    },
+    {
+     "name": "Notify subsequent dealing of a certificated item",
+     "amount_gbp": 20
+    }
+   ],
+   "source_url": "https://www.legislation.gov.uk/uksi/2025/9/made",
+   "status": "verified",
+   "verified_at": "2026-07-16",
+   "notes": "S.I. 2025/9 read directly from legislation.gov.uk: made 7 Jan 2025, in force on the later of 1 Sept 2024 or 21 days after being made = 27 January 2025. It extends the meaning of 'ivory' under the Ivory Act 2018 to four more species: common hippopotamus (Hippopotamus amphibius), killer whale (Orcinus"
+  },
+  {
+   "material_id": "rhino-horn",
+   "aliases": [
+    "rhino_horn",
+    "rhinoceros_horn"
+   ],
+   "common_name": "Rhinoceros horn",
+   "taxon": "Rhinocerotidae spp. (Ceratotherium simum, Diceros bicornis, Rhinoceros unicornis, Rhinoceros sondaicus, Dicerorhinus sumatrensis)",
+   "cites_appendix": "I",
+   "restricted": true,
+   "regulation": "CITES / UK Wildlife Trade Regulations",
+   "rule_summary": "Not within scope of the UK Ivory Act 2018. International and commercial trade governed by CITES (Appendix I for all species except certain southern white rhino populations in Appendix II) and the UK Wildlife Trade Regulations (retained Reg (EC) 338/97). Commercial dealing in rhino horn is effectively prohibited; an Article 10 certificate is required for any lawful commercial use of Annex A specimens.",
+   "exemptions": [
+    "Appendix II (limited): southern white rhino (Ceratotherium simum simum) populations of South Africa and Eswatini - live animals to acceptable destinations and hunting trophies only",
+    "Appendix II (limited): Namibia population of Ceratotherium simum simum - live animals for in-situ conservation only",
+    "Worked antique specimens acquired before 3 March 1947 may qualify for exemption from commercial-use prohibition under UK Wildlife Trade Regulations (verify per item)"
+   ],
+   "fees": [],
+   "source_url": "https://cites.org/sites/default/files/eng/app/2025/E-Appendices-2025-02-07.pdf",
+   "status": "source-declared",
+   "verified_at": "2026-07-16",
+   "notes": "cites.org appendices PDF and taxonomy pages returned HTTP 403 to WebFetch, so the appendix value was not read directly from cites.org. Corroborated by CITES-quoting search results: all Rhinocerotidae spp. are CITES Appendix I EXCEPT the southern white rhino (Ceratotherium simum simum) populations of"
+  },
+  {
+   "material_id": "hawksbill-tortoiseshell",
+   "aliases": [
+    "tortoiseshell",
+    "bekko"
+   ],
+   "common_name": "Hawksbill tortoiseshell (bekko)",
+   "taxon": "Eretmochelys imbricata (family Cheloniidae)",
+   "cites_appendix": "I",
+   "restricted": true,
+   "regulation": "CITES / UK Wildlife Trade Regulations",
+   "rule_summary": "Not within scope of the UK Ivory Act 2018. CITES Appendix I / UK Wildlife Trade Regulations Annex A: commercial trade in hawksbill tortoiseshell is effectively prohibited; lawful commercial use of pre-Convention/antique worked specimens requires an Article 10 certificate.",
+   "exemptions": [
+    "Worked antique specimens acquired before 3 March 1947 may be exempt from the commercial-use prohibition under UK Wildlife Trade Regulations (verify per item; Article 10 certificate typically still required)"
+   ],
+   "fees": [],
+   "source_url": "https://cites.org/sites/default/files/eng/app/2025/E-Appendices-2025-02-07.pdf",
+   "status": "source-declared",
+   "verified_at": "2026-07-16",
+   "notes": "cites.org returned HTTP 403 to WebFetch; appendix not read directly from cites.org. Corroborated by CITES-quoting search results and the CITES species gallery: hawksbill turtle (Eretmochelys imbricata) is CITES Appendix I (listed since 1 July 1975 for the subspecies and full species in Appendix I fr"
+  },
+  {
+   "material_id": "brazilian-rosewood",
+   "aliases": [
+    "rosewood_dalbergia_nigra",
+    "dalbergia_nigra"
+   ],
+   "common_name": "Brazilian rosewood",
+   "taxon": "Dalbergia nigra",
+   "cites_appendix": "I",
+   "restricted": true,
+   "regulation": "CITES / UK Wildlife Trade Regulations",
+   "rule_summary": "CITES Appendix I / UK Wildlife Trade Regulations Annex A. Commercial international trade in Brazilian rosewood specimens requires CITES permits; there is NO finished-item exemption (Annotation #15 does not apply to Dalbergia nigra). Pre-Convention/antique specimens may qualify for limited exemptions - verify per item.",
+   "exemptions": [
+    "Pre-Convention / antique specimens (acquired before the species was listed) may qualify for limited exemption - Article 10 certificate typically still required in the UK",
+    "NOTE: Annotation #15 finished-product exemptions do NOT apply to Dalbergia nigra"
+   ],
+   "fees": [],
+   "source_url": "https://cites.org/sites/default/files/eng/app/2025/E-Appendices-2025-02-07.pdf",
+   "status": "source-declared",
+   "verified_at": "2026-07-16",
+   "notes": "cites.org returned HTTP 403 to WebFetch; appendix not read directly from cites.org. Corroborated by multiple CITES-quoting sources (CITES CoP docs, NAMM, Wood Database): Brazilian rosewood Dalbergia nigra is CITES Appendix I (listed since 1992). It is NOT covered by Annotation #15 (which applies onl"
+  },
+  {
+   "material_id": "other-dalbergia-rosewood",
+   "aliases": [
+    "rosewood",
+    "palisander",
+    "dalbergia"
+   ],
+   "common_name": "Rosewood / palisander (other Dalbergia spp.)",
+   "taxon": "Dalbergia spp. (all species except Dalbergia nigra)",
+   "cites_appendix": "II",
+   "restricted": true,
+   "regulation": "CITES / UK Wildlife Trade Regulations",
+   "rule_summary": "CITES Appendix II under Annotation #15 / UK Wildlife Trade Regulations Annex B. Finished musical instruments, finished parts and finished accessories are exempt from CITES permit requirements; other specimens require CITES/Annex B documentation for commercial trade.",
+   "exemptions": [
+    "Annotation #15: finished musical instruments, finished musical instrument parts and finished musical instrument accessories are exempt",
+    "Annotation #15: finished products packaged and ready for retail are exempt",
+    "Annotation #15: shipments of up to 10 kg of wood per annotated species (assessed per species per item) are exempt"
+   ],
+   "fees": [],
+   "source_url": "https://cites.org/sites/default/files/eng/app/2025/E-Appendices-2025-02-07.pdf",
+   "status": "source-declared",
+   "verified_at": "2026-07-16",
+   "notes": "cites.org returned HTTP 403 to WebFetch; appendix/annotation not read directly from cites.org. Corroborated by CITES CoP18 documents, NAMM official notification and Pearle: all Dalbergia spp. (EXCEPT Dalbergia nigra, which is Appendix I) are CITES Appendix II under Annotation #15. Post-CoP18 (adopte"
+  },
+  {
+   "material_id": "red-coral",
+   "aliases": [
+    "coral",
+    "precious_coral",
+    "corallium"
+   ],
+   "common_name": "Red / precious coral",
+   "taxon": "Corallium rubrum (and precious-coral genera Corallium / Pleurocorallium / Paracorallium)",
+   "cites_appendix": null,
+   "restricted": false,
+   "regulation": "None — not CITES-listed",
+   "rule_summary": "Not CITES-listed and not within the UK Ivory Act 2018. No CITES permit or UK Wildlife Trade Regulation certificate is required for Corallium rubrum. Proposals to list Corallium on CITES Appendix II were rejected at CoP14 (2007) and CoP15 (2010). Mediterranean harvest is regulated by GFCM fisheries rules, not CITES. (Distinct from stony/blue/black corals, which ARE CITES Appendix II.)",
+   "exemptions": [],
+   "fees": [],
+   "source_url": "https://www.traffic.org/news/cites-rejects-trade-controls-for-overharvested-corals/",
+   "status": "source-declared",
+   "verified_at": "2026-07-16",
+   "notes": "HONESTY CHECK (as the brief flagged): red coral Corallium rubrum and the wider precious-coral genera Corallium/Paracorallium are NOT CITES-listed in most cases. Proposals to include Corallium spp. in Appendix II were made and REJECTED at CoP14 (The Hague, 2007) and again at CoP15 (Doha, 2010). Confi"
+  }
+ ],
+ "vocab": {
+  "lot-lifecycle": {
+   "title": "Lot lifecycle states",
+   "note": "Lifecycle and settlement are deliberately separate axes: a hammered lot is not a settled lot.",
+   "terms": [
+    {
+     "id": "consigned",
+     "meaning": "Consignment agreement signed; property in the house's custody or pipeline"
+    },
+    {
+     "id": "catalogued",
+     "meaning": "Lot description, estimate and images prepared; assigned to a sale"
+    },
+    {
+     "id": "offered",
+     "meaning": "Presented at auction (live, online or timed)"
+    },
+    {
+     "id": "withdrawn",
+     "meaning": "Removed from sale before or during the auction"
+    },
+    {
+     "id": "sold",
+     "meaning": "Hammer fell to a bid at or above the reserve"
+    },
+    {
+     "id": "bought_in",
+     "meaning": "Failed to reach the reserve; returned to consignor or re-offered"
+    },
+    {
+     "id": "post_sale_sold",
+     "meaning": "Sold after the auction by private treaty at or around the reserve"
+    },
+    {
+     "id": "settled",
+     "meaning": "Buyer paid in full and seller remitted; title passed"
+    }
+   ]
+  },
+  "settlement-status": {
+   "title": "Settlement status",
+   "note": "'Sold' is not a boolean — settlement is a lifecycle. Track status with a measured_at date.",
+   "terms": [
+    {
+     "id": "hammered",
+     "meaning": "Sale contract formed at the fall of the hammer; nothing yet paid"
+    },
+    {
+     "id": "invoiced",
+     "meaning": "Buyer invoiced (typically due within ~5 days at the majors, 48h online-only)"
+    },
+    {
+     "id": "paid_in_full",
+     "meaning": "Cleared funds received; title passes on full cleared payment"
+    },
+    {
+     "id": "partially_paid",
+     "meaning": "Instalments or partial payment received"
+    },
+    {
+     "id": "unpaid_at_measurement",
+     "meaning": "Outstanding as of measured_at — common enough in some markets to be a first-class state"
+    },
+    {
+     "id": "defaulted",
+     "meaning": "House has exercised default remedies (cancellation, resale, interest)"
+    },
+    {
+     "id": "unknown",
+     "meaning": "Settlement state not disclosed by the source"
+    }
+   ]
+  },
+  "gallery-availability": {
+   "title": "Gallery availability states",
+   "note": "The holds-and-fairs state machine no open vocabulary captures.",
+   "terms": [
+    {
+     "id": "available",
+     "meaning": "Offered; price on application or listed"
+    },
+    {
+     "id": "on_hold",
+     "meaning": "Reserved for a client, time-boxed by gallery practice"
+    },
+    {
+     "id": "pre_sold",
+     "meaning": "Committed before public exhibition (common at fairs)"
+    },
+    {
+     "id": "sold",
+     "meaning": "Sale agreed; may await payment or delivery"
+    },
+    {
+     "id": "on_consignment",
+     "meaning": "Held from artist or collector under consignment terms"
+    },
+    {
+     "id": "on_loan",
+     "meaning": "Placed with an institution or client; not for sale in place"
+    }
+   ]
+  },
+  "heading-qualifiers": {
+   "title": "Catalogue heading qualifiers — the authenticity ladder",
+   "note": "Heading language is a graded authenticity code: only the unqualified heading is warranty-bearing at the major houses. Meanings quoted from each house's Explanation of Cataloguing Practice.",
+   "source_status": {
+    "sothebys": "verified",
+    "christies": "source-declared"
+   },
+   "sources": {
+    "sothebys": "https://help.sothebys.com/en/support/solutions/articles/44002518846-guide-for-buyers-glossary-important-notices",
+    "christies": "https://images.liveauctioneers.com/houses/christie/ECOMMERCE_CONDITIONS_OF_SALE_HongKong_ENGLISH_8Feb2022.pdf"
+   },
+   "terms": [
+    {
+     "code": "full-attribution",
+     "warranty_bearing": true,
+     "display_pattern": "NAME(S) OR RECOGNISED DESIGNATION OF AN ARTIST WITHOUT ANY QUALIFICATION (UPPERCASE type, first line of catalogue description = the 'Heading')",
+     "meanings": {
+      "christies": "In Christie's opinion a work by the artist.",
+      "sothebys": "The work is, in our best judgement, by the named artist."
+     }
+    },
+    {
+     "code": "attributed-to",
+     "warranty_bearing": false,
+     "display_pattern": "\"Attributed to …\"",
+     "meanings": {
+      "christies": "In Christie's qualified opinion probably a work by the artist in whole or in part.",
+      "sothebys": "In our opinion, probably a work by the artist but less certainty as to authorship is expressed than in the preceding category."
+     }
+    },
+    {
+     "code": "studio-of",
+     "warranty_bearing": false,
+     "display_pattern": "\"Studio of …\" / \"Workshop of …\"",
+     "meanings": {
+      "christies": "In Christie's qualified opinion a work executed in the studio or workshop of the artist, possibly under his supervision.",
+      "sothebys": "In our opinion, a work by an unknown hand in the studio of the artist which may or may not have been executed under the artist's direction."
+     }
+    },
+    {
+     "code": "circle-of",
+     "warranty_bearing": false,
+     "display_pattern": "\"Circle of …\"",
+     "meanings": {
+      "christies": "In Christie's qualified opinion a work of the period of the artist and showing his influence.",
+      "sothebys": "In our opinion, a work by an as yet unidentified but distinct hand closely associated with the named artist but not necessarily his pupil."
+     }
+    },
+    {
+     "code": "follower-of",
+     "warranty_bearing": false,
+     "display_pattern": "\"Follower of …\"",
+     "meanings": {
+      "christies": "In Christie's qualified opinion a work executed in the artist's style but not necessarily by a pupil."
+     }
+    },
+    {
+     "code": "manner-of",
+     "warranty_bearing": false,
+     "display_pattern": "\"Manner of …\"",
+     "meanings": {
+      "christies": "In Christie's qualified opinion a work executed in the artist's style but of a later date.",
+      "sothebys": "In our opinion, a work in the style of the artist and of a later date."
+     }
+    },
+    {
+     "code": "after",
+     "warranty_bearing": false,
+     "display_pattern": "\"After …\"",
+     "meanings": {
+      "christies": "In Christie's qualified opinion a copy (of any date) of a work of the artist.",
+      "sothebys": "In our opinion, a copy of a known work of the artist."
+     }
+    },
+    {
+     "code": "signed",
+     "warranty_bearing": false,
+     "display_pattern": "\"Signed …\" / \"Dated …\" / \"Inscribed …\"",
+     "meanings": {
+      "christies": "In Christie's qualified opinion the work has been signed/dated/inscribed by the artist.",
+      "sothebys": "The term signed and/or dated and/or inscribed means that, in our opinion, a signature and/or date and/or inscription are from the hand of the artist."
+     }
+    },
+    {
+     "code": "bears-signature",
+     "warranty_bearing": false,
+     "display_pattern": "\"With signature …\" / \"With date …\" / \"With inscription …\"",
+     "meanings": {
+      "christies": "In Christie's qualified opinion the signature/date/inscription appears to be by a hand other than that of the artist.",
+      "sothebys": "The term bears a signature and/or a date and/or an inscription means that, in our opinion, a signature and/or date and/or inscription have been added by another hand."
+     }
+    },
+    {
+     "code": "style-of-follower-of",
+     "warranty_bearing": false,
+     "display_pattern": "\"Style of … / Follower of Giovanni Bellini\"",
+     "meanings": {
+      "sothebys": "In our opinion, a work by a painter working in the artist's style, contemporary or nearly contemporary, but not necessarily his pupil."
+     }
+    }
+   ]
+  },
+  "catalogue-symbols": {
+   "title": "Catalogue symbols",
+   "note": "Symbols differ per house and per edition of the Conditions of Sale; each term carries its verification status.",
+   "sources": {
+    "sothebys": "https://help.sothebys.com/en/support/solutions/articles/44002518844-guide-for-buyers-symbol-key",
+    "christies": "http://files.artsy.net/documents/christies-conditions-of-sale-prints-multiples-september-2018.pdf"
+   },
+   "terms": [
+    {
+     "house": "christies",
+     "glyph": "º",
+     "name": "Minimum Price Guarantee",
+     "meaning": "Christie's has a direct financial interest in the lot: it has guaranteed the seller a minimum sale price for the work whatever the outcome of the sale.",
+     "status": "source-declared"
+    },
+    {
+     "house": "christies",
+     "glyph": "º♦",
+     "name": "Third Party Guarantee / Irrevocable Bid",
+     "meaning": "Christie's has a direct financial interest in the lot and has funded all or part of that interest with the help of someone else: a third party has agreed prior to the auction to place an irrevocable written bid, taking on all or part of the risk of the lot not being sold; Christie's compensates the third party (fixed fee or amount calculated against final hammer price) provided the third party is not the successful bidder.",
+     "status": "source-declared"
+    },
+    {
+     "house": "christies",
+     "glyph": "Δ",
+     "name": "Property owned by Christie's",
+     "meaning": "Owned by Christie's or another Christie's Group company in whole or part.",
+     "status": "source-declared"
+    },
+    {
+     "house": "christies",
+     "glyph": "¤",
+     "name": "Bidding by parties with an interest",
+     "meaning": "A party with a direct or indirect interest in the lot, who may have knowledge of the lot's reserve or other material information, may be bidding on the lot (e.g. beneficiary of an estate that consigned the lot, or a joint owner).",
+     "status": "source-declared"
+    },
+    {
+     "house": "christies",
+     "glyph": "•",
+     "name": "No reserve",
+     "meaning": "Lot offered without reserve which will be sold to the highest bidder regardless of the pre-sale estimate in the catalogue.",
+     "status": "source-declared"
+    },
+    {
+     "house": "christies",
+     "glyph": "λ",
+     "name": "Artist's Resale Right",
+     "meaning": "Artist's resale right royalty applies to the lot; buyer pays an extra amount equal to the royalty (banded 4% / 3% / 1% / 0.5% / 0.25% of hammer-price portions, total capped at EUR 12,500 per lot). See Conditions of Sale section D3.",
+     "status": "source-declared"
+    },
+    {
+     "house": "christies",
+     "glyph": "~",
+     "name": "Endangered species — export restrictions",
+     "meaning": "Lot incorporates material from endangered species which could result in export restrictions.",
+     "status": "source-declared"
+    },
+    {
+     "house": "christies",
+     "glyph": "ψ",
+     "name": "Endangered species — display only",
+     "meaning": "Lot incorporates material from endangered species which is shown for display purposes only and is not for sale (e.g. alligator/crocodile watch straps, removed and retained by Christie's prior to shipment).",
+     "status": "source-declared"
+    },
+    {
+     "house": "christies",
+     "glyph": "Φ",
+     "name": "US import restriction",
+     "meaning": "Lot which may not be able to be shipped to the US.",
+     "status": "source-declared"
+    },
+    {
+     "house": "christies",
+     "glyph": "■",
+     "name": "Offsite storage",
+     "meaning": "Specified lots (sold and unsold) marked with a filled square that are not collected by the stated deadline will be removed to Christie's offsite storage — see the Storage and Collection page.",
+     "status": "source-declared"
+    },
+    {
+     "house": "christies",
+     "glyph": "†, θ, *, Ω, α, ‡",
+     "name": "VAT symbols (UK)",
+     "meaning": "VAT status of the lot: no symbol = UK Margin Scheme (VAT on buyer's premium, invoiced inclusively); † = standard UK VAT on hammer and buyer's premium; θ = zero-rated; * = imported under Temporary Admission, 5% import VAT on hammer; Ω = Temporary Admission with customs duty on hammer plus import VAT; α = treatment depends on whether buyer is EU/UK registered; ‡ = wine offered in bond.",
+     "status": "source-declared"
+    },
+    {
+     "house": "christies",
+     "glyph": "⊕",
+     "name": "Watch batteries (dangerous goods)",
+     "meaning": "Lot incorporates batteries which may be designated 'dangerous goods' for air freight; batteries may be removed and retained prior to shipment outside the saleroom region (Hong Kong watches edition).",
+     "status": "source-declared"
+    },
+    {
+     "house": "sothebys",
+     "glyph": "□",
+     "name": "No Reserve",
+     "meaning": "Unless indicated by a box, all lots in the catalogue are offered subject to a reserve; lots offered without reserve are designated by this symbol (reserve is the confidential minimum hammer price, generally a percentage of the low estimate and never above it).",
+     "status": "verified"
+    },
+    {
+     "house": "sothebys",
+     "glyph": "○",
+     "name": "Guaranteed Property",
+     "meaning": "The seller of the lot has been guaranteed a minimum price from one auction or a series of auctions. The guarantee may be provided by Sotheby's or jointly by Sotheby's and a third party; Sotheby's and any third party providing the guarantee jointly benefit financially if the guaranteed lot sells successfully and may incur a loss if it does not — Sotheby's has a direct financial interest in the outcome.",
+     "status": "verified"
+    },
+    {
+     "house": "sothebys",
+     "glyph": "⋑",
+     "name": "Irrevocable Bids",
+     "meaning": "A party has provided Sotheby's with an irrevocable bid on the lot that will be executed during the sale at a value that ensures the lot will sell. The irrevocable bidder, who may bid above the irrevocable bid, may be compensated (contingent fee, fixed fee or both); if the irrevocable bidder is the successful purchaser, compensation may be netted against the total purchase price. Irrevocable bidders advising others must disclose their financial interest.",
+     "status": "verified"
+    },
+    {
+     "house": "sothebys",
+     "glyph": "⊻",
+     "name": "Interested Parties",
+     "meaning": "Parties with a direct or indirect interest in the lot may be bidding on it, including the beneficiary of an estate selling the lot or a joint owner; if such a party is the successful bidder they must pay the full buyer's premium and overhead premium, and interested parties may have knowledge of the reserve.",
+     "status": "verified"
+    },
+    {
+     "house": "sothebys",
+     "glyph": "◉",
+     "name": "Restricted Materials",
+     "meaning": "Lot identified at the time of cataloguing as containing organic material which may be subject to restrictions regarding import or export; absence of the symbol is not a warranty that there are no restrictions.",
+     "status": "verified"
+    },
+    {
+     "house": "sothebys",
+     "glyph": "∏",
+     "name": "Monumental",
+     "meaning": "Lot may, in Sotheby's opinion, require special handling or shipping services due to size or other physical considerations.",
+     "status": "verified"
+    },
+    {
+     "house": "sothebys",
+     "glyph": "✧",
+     "name": "Premium Lot",
+     "meaning": "To bid, a Premium Lot pre-registration application must be completed at least three working days before the sale (symbol shown as ◇ on the lot's webpage); Sotheby's decision whether to accept the application is final.",
+     "status": "verified"
+    },
+    {
+     "house": "sothebys",
+     "glyph": "⊖",
+     "name": "US Import Tariff",
+     "meaning": "Lot subject to a US import tariff — a percentage of the value declared upon entry into the United States, not based on the final hammer price — included in the purchase price.",
+     "status": "verified"
+    },
+    {
+     "house": "sothebys",
+     "glyph": "⊕",
+     "name": "Property Subject to the Artist's Resale Right",
+     "meaning": "Purchase of the lot is subject to payment of the Artist's Resale Right royalty, calculated as a banded percentage of the hammer price with a maximum of EUR/GBP 12,500 per work.",
+     "status": "verified"
+    },
+    {
+     "house": "sothebys",
+     "glyph": "❖",
+     "name": "National Patrimony / National Heritage lot",
+     "meaning": "Lot is part of a national heritage regime (Buying at Auction guide: part of the National Heritage of Mexico, cannot be permanently exported from Mexico; offered for sale in New York but not available in New York for inspection or delivery — buyer takes delivery in Mexico).",
+     "status": "verified"
+    },
+    {
+     "house": "sothebys",
+     "glyph": "¤",
+     "name": "Financing Eligible",
+     "meaning": "Financing of up to 50% of the lot's low auction estimate is available for eligible borrowers through Sotheby's Financial Services.",
+     "status": "verified"
+    }
+   ]
+  },
+  "mediums-aat": {
+   "title": "Medium / object-type terms mapped to Getty AAT",
+   "note": "AAT ids fetched and verified against vocab.getty.edu on 2026-07-16. Getty vocabularies are released under ODC-By 1.0 — attribute the Getty Research Institute.",
+   "license": "ODC-By 1.0 (Getty Research Institute)",
+   "terms": [
+    {
+     "id": "paintings",
+     "term": "paintings",
+     "aat_uri": "http://vocab.getty.edu/aat/300033618",
+     "status": "verified"
+    },
+    {
+     "id": "oil-paintings",
+     "term": "oil paintings",
+     "aat_uri": "http://vocab.getty.edu/aat/300033799",
+     "status": "verified"
+    },
+    {
+     "id": "watercolors",
+     "term": "watercolors",
+     "aat_uri": "http://vocab.getty.edu/aat/300078925",
+     "status": "verified"
+    },
+    {
+     "id": "drawings",
+     "term": "drawings",
+     "aat_uri": "http://vocab.getty.edu/aat/300033973",
+     "status": "verified"
+    },
+    {
+     "id": "prints",
+     "term": "prints",
+     "aat_uri": "http://vocab.getty.edu/aat/300041273",
+     "status": "verified"
+    },
+    {
+     "id": "etchings",
+     "term": "etchings",
+     "aat_uri": "http://vocab.getty.edu/aat/300041365",
+     "status": "verified"
+    },
+    {
+     "id": "lithographs",
+     "term": "lithographs",
+     "aat_uri": "http://vocab.getty.edu/aat/300041379",
+     "status": "verified"
+    },
+    {
+     "id": "photographs",
+     "term": "photographs",
+     "aat_uri": "http://vocab.getty.edu/aat/300046300",
+     "status": "verified"
+    },
+    {
+     "id": "sculpture",
+     "term": "sculpture",
+     "aat_uri": "http://vocab.getty.edu/aat/300047090",
+     "status": "verified"
+    },
+    {
+     "id": "bronzes",
+     "term": "bronzes",
+     "aat_uri": "http://vocab.getty.edu/aat/300047333",
+     "status": "verified"
+    },
+    {
+     "id": "ceramics",
+     "term": "ceramics",
+     "aat_uri": "http://vocab.getty.edu/aat/300151343",
+     "status": "verified"
+    },
+    {
+     "id": "furniture",
+     "term": "furniture",
+     "aat_uri": "http://vocab.getty.edu/aat/300037680",
+     "status": "verified"
+    },
+    {
+     "id": "tapestries",
+     "term": "tapestries",
+     "aat_uri": "http://vocab.getty.edu/aat/300205002",
+     "status": "verified"
+    }
+   ]
+  }
+ }
+}

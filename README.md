@@ -39,6 +39,29 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 | GET | `/api/museum/random` | One random open-access masterpiece |
 | GET | `/api/homecoming` | 愛星正音字典 — the Love Star pronunciation dictionary (`/homecoming` is the room) |
 
+## API — The Trade
+
+For auction houses and galleries ([TRADE-MODULE.md](TRADE-MODULE.md)). *Artlogic manages; artbitrage speaks.*
+Every reference record carries `source_url`, effective dates, and a truth status
+(`verified | source-declared | contested | unverified`); every calculator answers with
+`schedule_applied` and an explicit `not_included` list, `informational_only: true` in-band.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/trade` | Trade directory |
+| GET | `/api/trade/fees?house&location&category&as_of` | Buyer's-premium schedules with effective dates — machine-readable rate cards |
+| GET | `/api/trade/fees/compute?hammer&house&location&as_of` | All-in buyer cost: marginal band math, line items, explicit `not_included` |
+| GET | `/api/trade/arr?price&currency=EUR&sale_date&artist_death_year` | Artist's Resale Right: cumulative bands, €12,500 cap status, liable society |
+| GET | `/api/trade/thresholds?jurisdiction&kind` | Dated compliance constants (AML, export, import, VAT), each citing its source |
+| GET | `/api/trade/gates?year&value&currency&jurisdiction&materials=` | Which licensing/compliance gates an object crosses — one call, regulations cited |
+| GET | `/api/trade/vocab[/:id]` | Trade vocabularies: lot lifecycle, settlement status, heading ladder, symbols, gallery availability |
+
+```bash
+curl "https://artbitrage.io/api/trade/fees/compute?hammer=100000&house=sothebys&location=new-york"
+curl "https://artbitrage.io/api/trade/arr?price=80000&currency=EUR&artist_death_year=1985"
+curl "https://artbitrage.io/api/trade/gates?year=1890&value=200000&currency=EUR&jurisdiction=uk&materials=ivory_elephant"
+```
+
 ## Open Source Search
 
 `/api/search` is the bridge from ARTBITRAGE to the wider open art world.
