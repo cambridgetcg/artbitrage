@@ -18,6 +18,7 @@
     { id: 'ai',            label: 'AI Art',            href: '/ai' },
     { id: 'wine',          label: 'Wine',              href: '/wine' },
     { id: 'cigar',         label: 'Cigar',             href: '/cigar' },
+    { id: 'trade',         label: 'Trade',             href: '/trade' },
   ];
 
   var currentEra = document.body.getAttribute('data-era') || '';
