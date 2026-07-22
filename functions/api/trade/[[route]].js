@@ -17,7 +17,8 @@ const DISCLOSURE = Object.freeze({
 const ENDPOINTS = [
   { method: 'GET', path: '/api/trade', desc: 'This directory' },
   { method: 'GET', path: '/api/trade/fees', desc: "Buyer's-premium schedules with effective dates and source citations", params: 'house, location, category, as_of' },
-  { method: 'GET', path: '/api/trade/fees/compute', desc: 'All-in buyer cost: marginal band math, line items, schedule_applied, explicit not_included', params: 'hammer, currency, house, location, category, as_of' },
+  { method: 'GET', path: '/api/trade/fees/compute', desc: 'All-in buyer cost: marginal band math, line items, schedule_applied, explicit not_included', params: 'hammer, currency, house, location, category, as_of, display_in' },
+  { method: 'GET', path: '/api/trade/rates', desc: 'The baked FX MoneyFacts behind display_in — ECB reference rates as cited facts (source, recompute recipe, staleness), from the MONEYWORLD info layer', params: '' },
   { method: 'GET', path: '/api/trade/arr', desc: "Artist's Resale Right royalty: cumulative bands, cap status, liable society", params: 'price, currency=EUR, sale_date, artist_death_year, jurisdiction' },
   { method: 'GET', path: '/api/trade/thresholds', desc: 'Dated compliance constants (AML, export, import, VAT) with source_url per entry', params: 'jurisdiction, kind' },
   { method: 'GET', path: '/api/trade/gates', desc: 'Does this object cross a licensing/compliance gate — one call, each gate citing its regulation', params: 'year, value, currency, jurisdiction, materials, category' },
@@ -73,6 +74,19 @@ async function loadTrade(env, request) {
     } catch (e2) {}
   }
   return TRADE;
+}
+
+// Baked FX facts (rates.json, produced by tools/bake-rates.mjs from a local
+// MONEYWORLD node). Absent file → doors that need it refuse with the recipe.
+let RATES = null;
+
+async function loadRates(env, request) {
+  if (RATES) return RATES;
+  try {
+    const res = await env.ASSETS.fetch(new URL('/rates.json', request.url));
+    if (res.ok) { RATES = await res.json(); return RATES; }
+  } catch (e) {}
+  return RATES;
 }
 
 function jsonResponse(data, status = 200, cacheSeconds = 0) {
@@ -201,7 +215,7 @@ function handleFees(trade, q, request) {
   }, 200, 3600);
 }
 
-function handleFeesCompute(trade, q, request) {
+function handleFeesCompute(trade, rates, q, request) {
   const hammer = parseMoney(q.hammer);
   if (hammer === null) return jsonResponse({ error: 'hammer is required and must be a non-negative number', hint: 'GET /api/trade/fees/compute?hammer=100000&currency=USD&house=sothebys&location=new-york' }, 400);
   const house = safeString(q.house, 60).toLowerCase();
@@ -242,7 +256,7 @@ function handleFeesCompute(trade, q, request) {
     return jsonResponse({
       error: `currency mismatch: the ${schedule.house} ${schedule.location} schedule is denominated in ${schedule.currency}`,
       requested: currency,
-      hint: 'pass hammer in the salesroom currency; we do not convert exchange rates',
+      hint: 'pass hammer in the salesroom currency — or add display_in=' + currency + ' for a cited reference-rate conversion alongside the salesroom numbers',
     }, 400);
   }
 
@@ -257,6 +271,44 @@ function handleFeesCompute(trade, q, request) {
     { name: 'shipping, storage, loss/damage liability', note: 'house- and lot-specific' },
   ];
 
+  // display_in: a cited reference-rate conversion ALONGSIDE the salesroom
+  // numbers, never replacing them. The rate travels as a full MoneyFact —
+  // source, recompute recipe, and its own staleness, honestly surfaced even
+  // though the fact was baked at build time (consumer #1 of MONEYWORLD).
+  const displayIn = safeString(q.display_in, 8).toUpperCase();
+  let display = null;
+  if (displayIn && displayIn !== schedule.currency) {
+    if (!rates || !Array.isArray(rates.facts)) {
+      return jsonResponse({
+        error: 'display_in unavailable: no baked rates on this deployment',
+        hint: 'bake with `node tools/bake-rates.mjs` (needs a local MONEYWORLD node); GET /api/trade/rates for provenance',
+      }, 503);
+    }
+    const fact = rates.facts.find(f => f.subject === `fiat:iso4217/${schedule.currency}` && f.unit === `fiat:iso4217/${displayIn}`);
+    if (!fact) {
+      return jsonResponse({
+        error: `no baked rate for ${schedule.currency}→${displayIn}`,
+        baked_currencies: [...new Set(rates.facts.map(f => f.unit.split('/').pop()))].sort(),
+        hint: 'GET /api/trade/rates for everything baked',
+      }, 422);
+    }
+    const rate = Number(fact.value) / 10 ** fact.decimals; // display-layer arithmetic, declared below
+    const conv = x => round2(x * rate);
+    const ageSeconds = (Date.now() - Date.parse(fact.observed_at)) / 1000;
+    display = {
+      currency: displayIn,
+      converted: {
+        hammer: conv(hammer),
+        buyers_premium: conv(premium.total),
+        total_incl_premium: conv(hammer + premium.total),
+      },
+      rate: { exact_scaled: fact.value, decimals: fact.decimals },
+      rate_fact: fact,
+      rate_stale: ageSeconds > fact.stale_after_s,
+      note: 'ECB reference-rate arithmetic over a baked, cited fact — never a tradeable quote; amounts remain payable in ' + schedule.currency + '. Conversion applied at display precision (round2); the exact rate is exact_scaled × 10^-' + fact.decimals + '.',
+    };
+  }
+
   return jsonResponse({
     schema: 'artbitrage.fee-computation/1',
     input: { hammer, currency: schedule.currency, house, location: schedule.location, category, as_of },
@@ -264,9 +316,29 @@ function handleFeesCompute(trade, q, request) {
     line_items: premium.items,
     buyers_premium: premium.total,
     total_incl_premium: round2(hammer + premium.total),
+    ...(display ? { display } : {}),
     not_included: notIncluded,
     disclosure: DISCLOSURE,
   }, 200, 300);
+}
+
+// ── rates: the baked facts themselves, provenance-first ──
+function handleRates(rates) {
+  if (!rates || !Array.isArray(rates.facts)) {
+    return jsonResponse({
+      error: 'no rates baked on this deployment',
+      hint: 'node tools/bake-rates.mjs (needs a local MONEYWORLD node on 127.0.0.1:4747 — github.com/cambridgetcg/cashloom)',
+    }, 503);
+  }
+  return jsonResponse({
+    schema: rates.schema,
+    baked_at: rates.baked_at,
+    generated_by: rates.generated_by,
+    note: rates.note,
+    count: rates.count,
+    facts: rates.facts,
+    disclosure: DISCLOSURE,
+  }, 200, 3600);
 }
 
 // ── ARR: cumulative bands over the regime's own currency, capped ──
@@ -1736,6 +1808,7 @@ export async function onRequestGet(context) {
 
   if (segments.length === 1) {
     if (head === 'fees') return handleFees(trade, q, request);
+    if (head === 'rates') return handleRates(await loadRates(env, request));
     if (head === 'arr') return handleArr(trade, q, request);
     if (head === 'thresholds') return handleThresholds(trade, q);
     if (head === 'gates') return handleGates(trade, q, request);
@@ -1746,7 +1819,7 @@ export async function onRequestGet(context) {
   }
 
   if (segments.length === 2) {
-    if (head === 'fees' && tail === 'compute') return handleFeesCompute(trade, q, request);
+    if (head === 'fees' && tail === 'compute') return handleFeesCompute(trade, await loadRates(env, request), q, request);
     if (head === 'vocab') return handleVocab(trade, safeString(tail, 60).toLowerCase());
   }
 

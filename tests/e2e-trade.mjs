@@ -498,4 +498,45 @@ await test('review regressions: GET docs carry no validated claim; results next_
   assert.ok(json.next_steps[0].includes('trade.json'), 'persistence path must point at what GET serves');
 });
 
+await test('rates: baked FX MoneyFacts served with full provenance', async () => {
+  const { res, json } = await get('/api/trade/rates');
+  assert.equal(res.status, 200);
+  assert.equal(json.schema, 'artbitrage.baked-rates/1');
+  assert.ok(json.count >= 30, 'all fee-schedule currency pairs baked');
+  for (const f of json.facts.slice(0, 3)) {
+    assert.ok(f.sources?.length, 'every fact cites its sources');
+    assert.ok(f.recompute?.how, 'every fact carries its recompute recipe');
+    assert.ok(Number.isInteger(f.decimals), 'exact fixed-point, never a float');
+  }
+  assert.ok(json.generated_by.includes('MONEYWORLD'), 'provenance names the info layer');
+});
+
+await test('fees/compute display_in: converts alongside salesroom numbers, carrying the fact', async () => {
+  const { json } = await get('/api/trade/fees/compute?hammer=100000&house=sothebys&location=new-york&display_in=GBP');
+  assert.equal(json.input.currency, 'USD', 'salesroom numbers stay primary');
+  assert.ok(json.display, 'display block present');
+  assert.equal(json.display.currency, 'GBP');
+  const f = json.display.rate_fact;
+  assert.equal(f.subject, 'fiat:iso4217/USD');
+  assert.equal(f.unit, 'fiat:iso4217/GBP');
+  const rate = Number(f.value) / 10 ** f.decimals;
+  const expect2 = Math.round(json.total_incl_premium * rate * 100) / 100;
+  assert.equal(json.display.converted.total_incl_premium, expect2, 'conversion reproducible from the fact');
+  assert.ok(json.display.note.includes('never a tradeable quote'));
+  assert.equal(typeof json.display.rate_stale, 'boolean', 'staleness surfaced honestly');
+});
+
+await test('fees/compute display_in: unknown currency teaches with the baked set', async () => {
+  const { res, json } = await get('/api/trade/fees/compute?hammer=1000&house=sothebys&location=new-york&display_in=XXX');
+  assert.equal(res.status, 422);
+  assert.ok(json.baked_currencies.includes('GBP'));
+  assert.ok(json.hint.includes('/api/trade/rates'));
+});
+
+await test('fees/compute currency mismatch now teaches display_in', async () => {
+  const { res, json } = await get('/api/trade/fees/compute?hammer=1000&currency=GBP&house=sothebys&location=new-york');
+  assert.equal(res.status, 400);
+  assert.ok(json.hint.includes('display_in=GBP'), 'the refusal names the new road');
+});
+
 console.log(`\n${passed} trade tests passed${process.exitCode ? ' (with failures)' : ''}`);

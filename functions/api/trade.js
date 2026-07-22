@@ -15,7 +15,8 @@ const DISCLOSURE = Object.freeze({
 const ENDPOINTS = [
   { method: 'GET', path: '/api/trade', desc: 'This directory' },
   { method: 'GET', path: '/api/trade/fees', desc: "Buyer's-premium schedules with effective dates and source citations", params: 'house, location, category, as_of' },
-  { method: 'GET', path: '/api/trade/fees/compute', desc: 'All-in buyer cost: marginal band math, line items, schedule_applied, explicit not_included', params: 'hammer, currency, house, location, category, as_of' },
+  { method: 'GET', path: '/api/trade/fees/compute', desc: 'All-in buyer cost: marginal band math, line items, schedule_applied, explicit not_included', params: 'hammer, currency, house, location, category, as_of, display_in' },
+  { method: 'GET', path: '/api/trade/rates', desc: 'Baked FX MoneyFacts behind display_in — cited ECB reference rates from the MONEYWORLD info layer' },
   { method: 'GET', path: '/api/trade/arr', desc: "Artist's Resale Right royalty: cumulative bands, cap status, liable society", params: 'price, currency=EUR, sale_date, artist_death_year, jurisdiction' },
   { method: 'GET', path: '/api/trade/thresholds', desc: 'Dated compliance constants (AML, export, import, VAT) with source_url per entry', params: 'jurisdiction, kind' },
   { method: 'GET', path: '/api/trade/gates', desc: 'Does this object cross a licensing/compliance gate — one call, each gate citing its regulation', params: 'year, value, currency, jurisdiction, materials, category' },

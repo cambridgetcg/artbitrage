@@ -1,0 +1,759 @@
+{
+  "schema": "artbitrage.baked-rates/1",
+  "baked_at": "2026-07-22T21:15:13.179Z",
+  "generated_by": "MONEYWORLD /v1/fx (cashloom sovereign node, http://127.0.0.1:4747) — run your own: github.com/cambridgetcg/cashloom",
+  "note": "ECB reference rates as cited MoneyFacts, baked at build time. Each fact carries its own staleness; a fact past stale_after_s is served AS stale, never refreshed silently.",
+  "count": 30,
+  "facts": [
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/CHF",
+      "predicate": "fx_rate",
+      "value": "833685801",
+      "unit": "fiat:iso4217/CNY",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.164Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.164Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→CNY) ÷ ECB(EUR→CHF) = CNY per CHF, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/CHF",
+      "predicate": "fx_rate",
+      "value": "107898144",
+      "unit": "fiat:iso4217/EUR",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.169Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.169Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→EUR) ÷ ECB(EUR→CHF) = EUR per CHF, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/CHF",
+      "predicate": "fx_rate",
+      "value": "92080276",
+      "unit": "fiat:iso4217/GBP",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.170Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.170Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→GBP) ÷ ECB(EUR→CHF) = GBP per CHF, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/CHF",
+      "predicate": "fx_rate",
+      "value": "965073371",
+      "unit": "fiat:iso4217/HKD",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.170Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.170Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→HKD) ÷ ECB(EUR→CHF) = HKD per CHF, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/CHF",
+      "predicate": "fx_rate",
+      "value": "123090203",
+      "unit": "fiat:iso4217/USD",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.171Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.171Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→USD) ÷ ECB(EUR→CHF) = USD per CHF, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/CNY",
+      "predicate": "fx_rate",
+      "value": "11994927",
+      "unit": "fiat:iso4217/CHF",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.172Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.172Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→CHF) ÷ ECB(EUR→CNY) = CHF per CNY, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/CNY",
+      "predicate": "fx_rate",
+      "value": "12942303",
+      "unit": "fiat:iso4217/EUR",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.172Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.172Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→EUR) ÷ ECB(EUR→CNY) = EUR per CNY, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/CNY",
+      "predicate": "fx_rate",
+      "value": "11044962",
+      "unit": "fiat:iso4217/GBP",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.173Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.173Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→GBP) ÷ ECB(EUR→CNY) = GBP per CNY, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/CNY",
+      "predicate": "fx_rate",
+      "value": "115759843",
+      "unit": "fiat:iso4217/HKD",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.173Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.173Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→HKD) ÷ ECB(EUR→CNY) = HKD per CNY, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/CNY",
+      "predicate": "fx_rate",
+      "value": "14764580",
+      "unit": "fiat:iso4217/USD",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.174Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.174Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→USD) ÷ ECB(EUR→CNY) = USD per CNY, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/EUR",
+      "predicate": "fx_rate",
+      "value": "92680000",
+      "unit": "fiat:iso4217/CHF",
+      "decimals": 8,
+      "plane": "public",
+      "method": "observed",
+      "proof_state": "asserted",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.174Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.174Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB daily euro reference rate EUR→CHF (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/EUR",
+      "predicate": "fx_rate",
+      "value": "772660000",
+      "unit": "fiat:iso4217/CNY",
+      "decimals": 8,
+      "plane": "public",
+      "method": "observed",
+      "proof_state": "asserted",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.174Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.174Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB daily euro reference rate EUR→CNY (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/EUR",
+      "predicate": "fx_rate",
+      "value": "85340000",
+      "unit": "fiat:iso4217/GBP",
+      "decimals": 8,
+      "plane": "public",
+      "method": "observed",
+      "proof_state": "asserted",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.175Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.175Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB daily euro reference rate EUR→GBP (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/EUR",
+      "predicate": "fx_rate",
+      "value": "894430000",
+      "unit": "fiat:iso4217/HKD",
+      "decimals": 8,
+      "plane": "public",
+      "method": "observed",
+      "proof_state": "asserted",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.175Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.175Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB daily euro reference rate EUR→HKD (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/EUR",
+      "predicate": "fx_rate",
+      "value": "114080000",
+      "unit": "fiat:iso4217/USD",
+      "decimals": 8,
+      "plane": "public",
+      "method": "observed",
+      "proof_state": "asserted",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.175Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.175Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB daily euro reference rate EUR→USD (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/GBP",
+      "predicate": "fx_rate",
+      "value": "108600891",
+      "unit": "fiat:iso4217/CHF",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.176Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.176Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→CHF) ÷ ECB(EUR→GBP) = CHF per GBP, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/GBP",
+      "predicate": "fx_rate",
+      "value": "905390204",
+      "unit": "fiat:iso4217/CNY",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.176Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.176Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→CNY) ÷ ECB(EUR→GBP) = CNY per GBP, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/GBP",
+      "predicate": "fx_rate",
+      "value": "117178345",
+      "unit": "fiat:iso4217/EUR",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.176Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.176Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→EUR) ÷ ECB(EUR→GBP) = EUR per GBP, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/GBP",
+      "predicate": "fx_rate",
+      "value": "1048078275",
+      "unit": "fiat:iso4217/HKD",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.177Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.177Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→HKD) ÷ ECB(EUR→GBP) = HKD per GBP, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/GBP",
+      "predicate": "fx_rate",
+      "value": "133677056",
+      "unit": "fiat:iso4217/USD",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.177Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.177Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→USD) ÷ ECB(EUR→GBP) = USD per GBP, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/HKD",
+      "predicate": "fx_rate",
+      "value": "10361906",
+      "unit": "fiat:iso4217/CHF",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.177Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.177Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→CHF) ÷ ECB(EUR→HKD) = CHF per HKD, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/HKD",
+      "predicate": "fx_rate",
+      "value": "86385743",
+      "unit": "fiat:iso4217/CNY",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.177Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.177Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→CNY) ÷ ECB(EUR→HKD) = CNY per HKD, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/HKD",
+      "predicate": "fx_rate",
+      "value": "11180305",
+      "unit": "fiat:iso4217/EUR",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.178Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.178Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→EUR) ÷ ECB(EUR→HKD) = EUR per HKD, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/HKD",
+      "predicate": "fx_rate",
+      "value": "9541272",
+      "unit": "fiat:iso4217/GBP",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.178Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.178Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→GBP) ÷ ECB(EUR→HKD) = GBP per HKD, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/HKD",
+      "predicate": "fx_rate",
+      "value": "12754492",
+      "unit": "fiat:iso4217/USD",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.178Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.178Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→USD) ÷ ECB(EUR→HKD) = USD per HKD, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/USD",
+      "predicate": "fx_rate",
+      "value": "81241234",
+      "unit": "fiat:iso4217/CHF",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.178Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.178Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→CHF) ÷ ECB(EUR→USD) = CHF per USD, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/USD",
+      "predicate": "fx_rate",
+      "value": "677296634",
+      "unit": "fiat:iso4217/CNY",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.179Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.179Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→CNY) ÷ ECB(EUR→USD) = CNY per USD, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/USD",
+      "predicate": "fx_rate",
+      "value": "87657784",
+      "unit": "fiat:iso4217/EUR",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.179Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.179Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→EUR) ÷ ECB(EUR→USD) = EUR per USD, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/USD",
+      "predicate": "fx_rate",
+      "value": "74807153",
+      "unit": "fiat:iso4217/GBP",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.179Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.179Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→GBP) ÷ ECB(EUR→USD) = GBP per USD, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    },
+    {
+      "@type": "MoneyFact",
+      "schema": "cashloom.moneyfact/1",
+      "subject": "fiat:iso4217/USD",
+      "predicate": "fx_rate",
+      "value": "784037518",
+      "unit": "fiat:iso4217/HKD",
+      "decimals": 8,
+      "plane": "public",
+      "method": "derived",
+      "proof_state": "tested",
+      "redistribution": "public-domain",
+      "sources": [
+        {
+          "name": "European Central Bank — euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "fetched_at": "2026-07-22T21:15:13.179Z"
+        }
+      ],
+      "observed_at": "2026-07-22T21:15:13.179Z",
+      "stale_after_s": 3600,
+      "recompute": {
+        "how": "ECB(EUR→HKD) ÷ ECB(EUR→USD) = HKD per USD, rounded half-even at 8 dp; both rates from https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml (ref date 2026-07-22)"
+      }
+    }
+  ]
+}
