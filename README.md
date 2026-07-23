@@ -68,6 +68,30 @@ curl -X POST "https://artbitrage.io/api/trade/provenance" -H 'Content-Type: appl
 curl -X POST "https://artbitrage.io/api/trade/lots" -H 'Content-Type: text/csv' --data-binary @artlogic-export.csv
 ```
 
+## API — Pigments
+
+The colours of art history as machine-readable, source-cited facts — and an anachronism
+check that only ever argues *against* a claim, never for it. Every dated milestone and
+story carries `source_url` and a truth status (`verified | source-declared | contested |
+unverified`); descriptive fields synthesize each pigment's cited sources. Every dated
+floor carries its basis. `informational_only: true` and a `not_authentication` note ride
+in-band on every anachronism answer. *No keys, no database, no funds, no take-rate.*
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/pigments` | Pigments directory / filtered list — `?limit&offset&family&type&era&hazard&marker&q` |
+| GET | `/api/pigments/:id` | One full pigment record, e.g. `/api/pigments/prussian-blue` |
+| GET | `/api/pigments/random` | One random pigment, full record |
+| GET | `/api/pigments/families` | Colour families with member counts and ids |
+| GET | `/api/pigments/vocab` | Vocabularies: families, types, eras, hazard levels, truth statuses |
+| GET | `/api/pigments/anachronism?pigments&claimed_date` | Compare a palette to a claimed date — anachronism / plausible / uncertain, cited floor per pigment. A pigment that postdates the claim is evidence *against* it; a period-consistent palette can never prove authenticity |
+
+```bash
+curl "https://artbitrage.io/api/pigments?family=blue&marker=true"
+curl "https://artbitrage.io/api/pigments/prussian-blue"
+curl "https://artbitrage.io/api/pigments/anachronism?pigments=prussian-blue,titanium-white&claimed_date=1680"
+```
+
 ## Open Source Search
 
 `/api/search` is the bridge from ARTBITRAGE to the wider open art world.
