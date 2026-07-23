@@ -15,7 +15,7 @@ const DISCLOSURE = Object.freeze({
   informational_only: true,
   authentication_advice: false,
   not_authentication: 'A pigment that postdates the claimed date is strong evidence AGAINST authenticity; a period-consistent palette can NEVER prove authenticity. Real pigment identification needs lab analysis (XRF/Raman/cross-section); this endpoint only reasons over pigments you supply, using first-attested dates that themselves carry uncertainty.',
-  note: 'Reference facts over cited pigment histories. Every factual record carries a truth_status (verified | source-declared | contested | unverified) and its source. Confirm against the primary source and real analysis before drawing a conclusion.',
+  note: 'Reference facts over cited pigment histories. Every dated milestone and story carries source_url plus a truth_status (verified | source-declared | contested | unverified); descriptive fields are syntheses from each pigment’s cited sources list. Confirm against the primary source and real analysis before drawing a conclusion.',
 });
 
 const ENDPOINTS = [

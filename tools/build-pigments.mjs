@@ -3,8 +3,8 @@
 // fact-check corrections in the open and adding an honest sRGB swatch per record.
 //
 // Additive by design: mirrors tools/bake-rates.mjs (writes root + dist copy).
-// generated_at is left as the static string 'PENDING' — the deploy step, not this
-// builder, stamps a real time. No Date() is called here.
+// The corpus snapshot date is pinned below so rebuilding is deterministic.
+// Advance it deliberately whenever the researched corpus changes.
 //
 // Run:  node tools/build-pigments.mjs
 
@@ -13,6 +13,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const CORPUS_SNAPSHOT_DATE = '2026-07-23';
 
 const pigments = JSON.parse(await readFile(join(root, 'tools', 'pigments-corpus.json'), 'utf8'));
 const byId = Object.fromEntries(pigments.map((p) => [p.id, p]));
@@ -139,10 +140,10 @@ const out = {
     informational_only: true,
     authentication_advice: false,
     not_authentication: 'A pigment that postdates the claimed date is strong evidence AGAINST authenticity; a period-consistent palette can NEVER prove authenticity. Real pigment identification needs lab analysis (XRF/Raman/cross-section); this endpoint only reasons over pigments you supply, using first-attested dates that themselves carry uncertainty.',
-    note: 'Reference facts over cited pigment histories. Every factual record carries a truth_status (verified | source-declared | contested | unverified) and its source. First-attested and invention dates carry their own uncertainty; confirm against the primary source and real analysis before drawing a conclusion. Never an authentication, valuation, or legal judgement.',
+    note: 'Reference facts over cited pigment histories. Every dated milestone and story carries source_url plus a truth_status (verified | source-declared | contested | unverified); descriptive fields are syntheses from each pigment’s cited sources list. First-attested and invention dates carry their own uncertainty; confirm against the primary source and real analysis before drawing a conclusion. Never an authentication, valuation, or legal judgement.',
   },
   swatch_note: 'Every swatch hex is an honest sRGB approximation only. Real pigment appearance depends on grade, grind, binder, layering and age; effects like Egyptian blue\'s near-infrared luminescence cannot be shown on a screen at all.',
-  generated_at: 'PENDING',
+  generated_at: CORPUS_SNAPSHOT_DATE,
   count: pigments.length,
   pigments,
 };

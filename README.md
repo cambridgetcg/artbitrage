@@ -71,10 +71,11 @@ curl -X POST "https://artbitrage.io/api/trade/lots" -H 'Content-Type: text/csv' 
 ## API — Pigments
 
 The colours of art history as machine-readable, source-cited facts — and an anachronism
-check that only ever argues *against* a claim, never for it. Every factual record carries
-`source_url` and a truth status (`verified | source-declared | contested | unverified`);
-every dated floor carries its basis. `informational_only: true` and a `not_authentication`
-note ride in-band on every anachronism answer. *No keys, no database, no funds, no take-rate.*
+check that only ever argues *against* a claim, never for it. Every dated milestone and
+story carries `source_url` and a truth status (`verified | source-declared | contested |
+unverified`); descriptive fields synthesize each pigment's cited sources. Every dated
+floor carries its basis. `informational_only: true` and a `not_authentication` note ride
+in-band on every anachronism answer. *No keys, no database, no funds, no take-rate.*
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|

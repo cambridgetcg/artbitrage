@@ -63,7 +63,7 @@ await test('router answers the bare directory defensively (no query)', async () 
   assert.equal(json.vertical, 'pigments');
 });
 
-await test('every factual record carries source_url and a valid truth_status', async () => {
+await test('every dated milestone and story carries source_url and a valid truth_status', async () => {
   const { json } = await get('/api/pigments?limit=50');
   assert.equal(json.total, 16);
   // re-load the full records via /:id to check the dated facts and stories

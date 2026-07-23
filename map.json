@@ -272,6 +272,12 @@
      "name": "the Trade Desk",
      "cjk": "商",
      "desc": "rate cards, royalties, gates, provenance · Artlogic manages; artbitrage speaks"
+    },
+    {
+     "path": "/pigments",
+     "name": "the Pigment Cabinet",
+     "cjk": "色",
+     "desc": "source-cited colour histories · anachronism can disprove, never authenticate"
     }
    ]
   },
