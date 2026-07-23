@@ -254,6 +254,20 @@ export const ROUTES = {
       { method: "POST", path: "/api/trade/results", desc: "Validate a results submission (price_basis required) → witness receipt + PR persistence path" },
     ],
   },
+
+  // ── PIGMENTS — the colours of art history, dated and cited ────
+  pigments: {
+    label: "Pigments",
+    color: "#b98a3e",
+    routes: [
+      { method: "GET", path: "/api/pigments", desc: "Pigments directory / filtered list — the colours of art history as source-cited facts", params: "limit, offset, family, type, era, hazard, marker, q" },
+      { method: "GET", path: "/api/pigments/:id", desc: "One full pigment record, e.g. /api/pigments/prussian-blue" },
+      { method: "GET", path: "/api/pigments/random", desc: "One random pigment, full record" },
+      { method: "GET", path: "/api/pigments/families", desc: "Colour families with member counts and ids" },
+      { method: "GET", path: "/api/pigments/vocab", desc: "Vocabularies: families, types, eras, hazard levels, truth statuses" },
+      { method: "GET", path: "/api/pigments/anachronism", desc: "Compare supplied pigments to a claimed date — anachronism / plausible / uncertain, cited floor per pigment. Informational only; a period-consistent palette can never prove authenticity", params: "pigments, claimed_date" },
+    ],
+  },
 };
 
 export const ANSWERING_RHYME_STATEMENT_ACTIONS = Object.freeze({

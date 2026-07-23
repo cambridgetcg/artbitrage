@@ -1,0 +1,1215 @@
+{
+  "schema": "artbitrage.pigments/1",
+  "essence": "The pigments of art history as machine-readable, source-cited facts: what each colour is, when it first appears, and when it could not yet exist. A dating tool that only ever argues AGAINST a claim, never for it. No keys, no database, no funds, no take-rate.",
+  "disclosure": {
+    "informational_only": true,
+    "authentication_advice": false,
+    "not_authentication": "A pigment that postdates the claimed date is strong evidence AGAINST authenticity; a period-consistent palette can NEVER prove authenticity. Real pigment identification needs lab analysis (XRF/Raman/cross-section); this endpoint only reasons over pigments you supply, using first-attested dates that themselves carry uncertainty.",
+    "note": "Reference facts over cited pigment histories. Every factual record carries a truth_status (verified | source-declared | contested | unverified) and its source. First-attested and invention dates carry their own uncertainty; confirm against the primary source and real analysis before drawing a conclusion. Never an authentication, valuation, or legal judgement."
+  },
+  "swatch_note": "Every swatch hex is an honest sRGB approximation only. Real pigment appearance depends on grade, grind, binder, layering and age; effects like Egyptian blue's near-infrared luminescence cannot be shown on a screen at all.",
+  "generated_at": "2026-07-23",
+  "count": 16,
+  "pigments": [
+    {
+      "id": "egyptian-blue",
+      "names": [
+        "Egyptian blue",
+        "cuprorivaite",
+        "blue frit",
+        "caeruleum",
+        "Pompeian blue",
+        "Alexandria blue",
+        "hsbd-iryt (ancient Egyptian: 'artificial lapis lazuli')"
+      ],
+      "colour_index": "PB31",
+      "family": "blue",
+      "type": "synthetic-inorganic",
+      "origin": {
+        "source": "Synthetic (manufactured frit): a copper source (malachite, azurite or bronze/copper filings), a calcium source (lime/limestone), silica (sand/quartz) and an alkaline flux (natron) fused together — not a mined mineral.",
+        "geography": "Ancient Egypt (Nile Valley); technology spread to Mesopotamia, the Aegean/Minoan world, Greece and the Roman Empire."
+      },
+      "production": "Made by heating a mixture of silica (sand or crushed quartz), a calcium compound (lime), a copper source (malachite, azurite, or bronze/copper filings) and an alkaline flux (natron / sodium carbonate) to roughly 800-900 degrees C, held for about 10-100 hours, then ground. The only surviving ancient recipe is Vitruvius's (1st c. BCE), naming sand, copper and natron; no Egyptian recipe text survives. Grinding must be kept coarse because fine milling scatters light and pales the colour. Lost to production after antiquity and only reconstructed by modern chemists (19th-21st c.).",
+      "chemistry": {
+        "composition": "Calcium copper silicate. The colour-bearing crystalline phase is the mineral cuprorivaite; in practice it is a multiphase frit — cuprorivaite intermixed with silica (quartz and glass), wollastonite and unreacted precursors — rather than a pure single compound.",
+        "formula": "CaCuSi4O10"
+      },
+      "dates": {
+        "first_attested": {
+          "year": -3250,
+          "text": "The oldest known object coloured with Egyptian blue is a small alabaster bowl dated c. 3250 BCE; the pigment is broadly attested from the earliest Egyptian dynasties (c. 3100 BCE) and in widespread use by the Fourth Dynasty (c. 2600-2500 BCE). It is the oldest artificially produced pigment known. The 3250 BCE floor rests on a single early object, hence source-declared rather than fully corroborated.",
+          "source_url": "https://www.smithsonianmag.com/smart-news/researchers-are-recreating-the-long-lost-recipe-for-egyptian-blue-the-worlds-oldest-known-synthetic-pigment-180986778/",
+          "truth_status": "source-declared"
+        },
+        "synthetic_from": null,
+        "obsolescence": {
+          "year": 1512,
+          "text": "Production knowledge was lost after the Roman period; the pigment effectively ceased to be manufactured in the early medieval era (roughly the fall of Rome, c. 4th-9th c. CE). Existing stock and sporadic survivals appear in medieval and Renaissance works, the latest well-documented occurrence being Raphael's fresco 'The Triumph of Galatea' (Villa Farnesina, Rome), 1511-1512. The distinction between production cessation (early medieval) and latest documented use (1512) is deliberate and honestly a range.",
+          "source_url": "https://www.smithsonianmag.com/smart-news/researchers-are-recreating-the-long-lost-recipe-for-egyptian-blue-the-worlds-oldest-known-synthetic-pigment-180986778/",
+          "truth_status": "source-declared"
+        }
+      },
+      "lightfastness": "Excellent / permanent. Chemically completely stable in all media and described as absolutely lightfast, with no known incompatibilities with other pigments.",
+      "toxicity": "Effectively non-toxic. An insoluble, chemically inert copper calcium silicate; only ordinary nuisance-dust precautions apply during grinding. No heavy-metal poisoning hazard in normal handling.",
+      "storage": "One of the most stable of all historical pigments: unaffected by light, air, and most media; no special environmental controls needed beyond normal collection care. Its defining conservation asset is a strong near-infrared photoluminescence (emits ~910 nm when illuminated with visible/red light), enabling non-destructive detection and mapping of even microscopic, otherwise-invisible traces by visible-induced luminescence (VIL) imaging.",
+      "stories": [
+        {
+          "text": "Regarded as the world's oldest known synthetic pigment, deliberately manufactured in Egypt from c. 3250-3100 BCE — a piece of high-temperature materials chemistry predating written recipes by millennia.",
+          "source_url": "https://colourlex.com/project/egyptian-blue/",
+          "truth_status": "verified"
+        },
+        {
+          "text": "The manufacturing recipe was genuinely lost after antiquity; the only surviving ancient description is Vitruvius's, and the full process was not truly reconstructed until modern analytical chemistry re-derived it.",
+          "source_url": "https://www.chemistryworld.com/features/egyptian-blue-more-than-just-a-colour/9001.article",
+          "truth_status": "source-declared"
+        },
+        {
+          "text": "Egyptian blue luminesces intensely in the near-infrared under visible/red light. Conservators exploit this to reveal vanished ancient decoration and confirm the pigment non-destructively, and materials scientists have explored exfoliating it into near-IR-emitting nanosheets for security inks and bio-imaging.",
+          "source_url": "https://www.chemistryworld.com/features/egyptian-blue-more-than-just-a-colour/9001.article",
+          "truth_status": "verified"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Strong positive dating marker. Genuine Egyptian blue signals antiquity (Egyptian/Greek/Roman) through, at latest, old-stock Renaissance use ending c. 1512; it should be absent from ordinarily produced medieval work and from any period between ~1512 and its 19th-20th c. re-synthesis. Its diagnostic near-IR luminescence allows unambiguous, non-destructive identification, and its formula (CaCuSi4O10) is unmistakable under XRD/Raman."
+      },
+      "sources": [
+        "https://colourlex.com/project/egyptian-blue/",
+        "https://www.smithsonianmag.com/smart-news/researchers-are-recreating-the-long-lost-recipe-for-egyptian-blue-the-worlds-oldest-known-synthetic-pigment-180986778/",
+        "https://www.chemistryworld.com/features/egyptian-blue-more-than-just-a-colour/9001.article",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8163881/"
+      ],
+      "swatch": {
+        "hex": "#1346A6",
+        "approximate": true
+      }
+    },
+    {
+      "id": "tyrian-purple",
+      "names": [
+        "Tyrian purple",
+        "Phoenician purple",
+        "royal purple",
+        "imperial purple",
+        "purple of the ancients",
+        "6,6'-dibromoindigo",
+        "purpura",
+        "argaman"
+      ],
+      "colour_index": "NV1",
+      "family": "purple",
+      "type": "organic",
+      "origin": {
+        "source": "Animal: the hypobranchial (mucus) gland secretion of predatory sea snails of the family Muricidae — chiefly Bolinus (Murex) brandaris, Hexaplex trunculus and Stramonita haemastoma. Primarily a textile dye, also used as a lake pigment (Pliny's 'purpurissum').",
+        "geography": "Eastern Mediterranean — Phoenicia (Tyre, Sidon) gave it its name, but the earliest production is Minoan (Crete, Kythera, Chryssi)."
+      },
+      "production": "The colourless precursor is extracted from the snail's hypobranchial gland (large snails milked individually; small ones crushed whole). On exposure to air and sunlight it oxidises through yellow-green to the final purple. Historically the glands were salted, then macerated and gently heated/fermented in vats for days to develop and fix the dye. Famously wasteful: about 12,000 Bolinus brandaris yield only ~1.4 g of pure dye. First laboratory synthesis reported 1903 (Sachs & Kempf), with a second route in 1904; Friedländer determined the structure in 1909 and confirmed the synthetic compound was identical to ancient Tyrian purple; it has never been produced commercially, though recent work biosynthesises it in engineered bacteria.",
+      "chemistry": {
+        "composition": "An organic (animal-derived) vat dye: predominantly 6,6'-dibromoindigo, accompanied in genuine shellfish purple by 6-bromoindigo, indigo and mono-/di-brominated indirubin isomers. The bromine content is the diagnostic fingerprint distinguishing true murex purple from plant/lichen imitations.",
+        "formula": "C16H8Br2N2O2"
+      },
+      "dates": {
+        "first_attested": {
+          "year": -1750,
+          "text": "Earliest evidence is Minoan, not Phoenician: murex-processing installations and crushed-shell middens on Crete and nearby islets (e.g. Chryssi, inhabited c. 1800-1500 BCE; Kouphonisi/Palaikastro deposits dated c. 2000-1600 BCE) point to sea-purple manufacture before c. 1750 BCE. Phoenician tradition follows (variously cited c. 1570 or c. 1200 BCE); the dyed Timna textiles date c. 1000 BCE. Given competing archaeological ranges, source-declared.",
+          "source_url": "https://www.journals.uchicago.edu/doi/10.2307/3210395",
+          "truth_status": "source-declared"
+        },
+        "synthetic_from": {
+          "year": 1903,
+          "text": "6,6'-dibromoindigo was first synthesised in the laboratory by Sachs & Kempf in 1903 (a second route by Sachs & Sechel followed in 1904). Paul Friedländer's 1909 work determined the structure and confirmed the synthetic compound was identical to ancient Tyrian purple — it did not first make it. It was never synthesised at commercial scale, so any pre-1903 occurrence is necessarily natural murex extract.",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6236399/",
+          "truth_status": "verified"
+        },
+        "obsolescence": {
+          "year": 1453,
+          "text": "Murex-purple production was continued by Greeks, Romans and Byzantines until 1453 CE and the Ottoman fall of Constantinople; the imperial dyeworks had already been crippled by the 1204 sack, after which no ruler could sustain the cost. The craft then effectively disappeared, and later 'purple' was made from cheaper plant/insect sources.",
+          "source_url": "https://en.wikipedia.org/wiki/Tyrian_purple",
+          "truth_status": "source-declared"
+        }
+      },
+      "lightfastness": "Exceptionally colour-fast for an organic colorant — famously it did not fade but grew brighter with weathering and sunlight, and dyed cloth was said to improve with washing. This wash- and light-fastness is unusual among natural dyes and part of why it was prized.",
+      "toxicity": "The dye itself is non-toxic. Production, however, was notoriously foul: vast quantities of rotting molluscs made dye-works stink so badly they were sited downwind of towns.",
+      "storage": "As a textile dye it is remarkably stable and light-fast; principal risks to dyed objects are the usual ones for organic material — high humidity, mould, and physical degradation of the fibre substrate rather than of the colorant. On manuscripts (the purple codices) and as a lake pigment it is more vulnerable to strong alkalinity and abrasion. Genuine murex purple is best confirmed non-destructively via its brominated-indigoid signature (e.g. HPLC-MS, Raman, XRF bromine).",
+      "stories": [
+        {
+          "text": "Reserved for royalty and emperors and enforced by law: Roman sumptuary rules restricted true purple, and Byzantine heirs born to a reigning emperor were 'porphyrogenitus' ('born in the purple'). By late antiquity it was, weight for weight, worth more than gold.",
+          "source_url": "https://en.wikipedia.org/wiki/Tyrian_purple",
+          "truth_status": "verified"
+        },
+        {
+          "text": "The staggering yield — roughly 12,000 Bolinus brandaris snails for ~1.4 g of pure dye (as quantified by Friedländer in 1909) — explains both the price and the mountains of discarded shells around ancient Tyre.",
+          "source_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6264235/",
+          "truth_status": "verified"
+        },
+        {
+          "text": "Origin legend: the god Melqart/Herakles' dog bit a sea snail on the beach near Tyre and stained its mouth purple, revealing the dye. A charming aetiological myth, not history.",
+          "source_url": "https://en.wikipedia.org/wiki/Tyrian_purple",
+          "truth_status": "contested"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Strong but qualified marker: it is primarily a dye, occurring on textiles/manuscripts more than in easel paint. Genuine murex purple's use spans c. 1750 BCE to 1453 CE, so it points to an ancient-through-Byzantine origin; crucially, its bromine (dibromoindigo) signature distinguishes real shellfish purple from cheaper madder/lichen/orchil imitations of any era. Since it was never made synthetically before 1903, brominated indigoid = authentic pre-modern purple."
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Tyrian_purple",
+        "https://en.wikipedia.org/wiki/6,6%27-Dibromoindigo",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6264235/",
+        "https://www.journals.uchicago.edu/doi/10.2307/3210395",
+        "https://www.thehistoryblog.com/archives/56935",
+        "https://www.sciencedirect.com/science/article/abs/pii/S0143720809000503",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6236399/"
+      ],
+      "swatch": {
+        "hex": "#66023C",
+        "approximate": true
+      }
+    },
+    {
+      "id": "lead-white",
+      "names": [
+        "lead white",
+        "white lead",
+        "flake white",
+        "Cremnitz white",
+        "Kremnitz white",
+        "Krems white",
+        "silver white",
+        "cerussa",
+        "ceruse",
+        "basic lead carbonate",
+        "Dutch stack white"
+      ],
+      "colour_index": "PW1",
+      "family": "white",
+      "type": "synthetic-inorganic",
+      "origin": {
+        "source": "Synthetic: made by corroding metallic lead with acetic-acid (vinegar) vapour in the presence of CO2. The natural mineral (hydrocerussite) exists but was rarely used as pigment.",
+        "geography": "Ancient Greece / Mediterranean (Rhodes was renowned); later major centres in Venice, and the Dutch 'stack' industry from the 17th c. onward."
+      },
+      "production": "Traditional stack (Dutch) process: coils or strips of metallic lead are placed in porous pots over vinegar, the pots bedded in fermenting dung or spent tan-bark that supplies gentle heat and carbon dioxide. Over weeks to months the lead corrodes to a white crust of basic lead carbonate, which is scraped off, washed, dried and ground. Later industrialised via chamber and precipitation (e.g. Carter) processes; modern lead white is precipitated from lead salts. CI 77597.",
+      "chemistry": {
+        "composition": "Basic lead(II) carbonate — a mixture of hydrocerussite (2PbCO3·Pb(OH)2) and cerussite (PbCO3), roughly 70% carbonate to 30% hydroxide. Prized for high opacity, warm tone, and fast, tough film formation in oil.",
+        "formula": "2PbCO3·Pb(OH)2"
+      },
+      "dates": {
+        "first_attested": {
+          "year": -400,
+          "text": "Synthetic lead white is commonly dated to 4th-century-BCE Greece; the earliest surviving description of its manufacture-by-corrosion is Theophrastus's 'On Stones' (c. 300 BCE), which already treats the process as established. Isolated earlier uses (cosmetics) are claimed but less securely dated, so the 4th-c.-BCE floor is source-declared.",
+          "source_url": "https://colourlex.com/project/lead-white/",
+          "truth_status": "source-declared"
+        },
+        "synthetic_from": null,
+        "obsolescence": {
+          "year": 1978,
+          "text": "Functionally superseded as the dominant white by titanium white in the 1920s-1930s (zinc white had offered a less-toxic but weaker alternative from the early 19th c.). Regulation then removed it from general use: residential lead paint was banned in the US c. 1977-1978 and across the EEC in 1989 (UK ~1992). Still permitted, with exemptions, for artists' paints and heritage conservation. Cited year variations (1977/1978/1979) make the precise ban date source-declared rather than settled.",
+          "source_url": "https://www.jacksonsart.com/blog/2024/05/02/the-history-of-lead-white-and-its-modern-alternatives/",
+          "truth_status": "source-declared"
+        }
+      },
+      "lightfastness": "Excellent lightfastness — not affected by light itself. Its instability is chemical, not photic: it is vulnerable to sulfur compounds and, in oil, to long-term lead-soap formation (see storage).",
+      "toxicity": "Highly toxic. A cumulative neurotoxin causing lead poisoning (plumbism / 'painter's colic'); the white-lead manufacturing trade was historically deadly, and its cosmetic use ('Venetian ceruse') disfigured and killed. Must not be handled by anyone untrained; grinding/sanding dust is the main exposure route.",
+      "storage": "Chemically vulnerable despite good lightfastness. Traces of hydrogen sulfide / sulfur pollutants convert it to black lead sulfide (PbS), darkening paint — historically reversible by oxidising the black sulfide to white lead sulfate with hydrogen peroxide. In oil binders the pigment reacts with fatty acids over centuries to form lead soaps (metal carboxylates), producing protrusions, increased transparency, and blanching in Old Master paintings. Soluble in dilute acids; can also blacken in alkaline/aqueous media (watercolour, fresco). Handle as a toxic material with dust precautions.",
+      "stories": [
+        {
+          "text": "As the cosmetic 'Venetian ceruse' it whitened fashionable complexions from antiquity through the 18th c., and lead cosmetics are blamed for chronic poisoning, skin damage and death. Maria Gunning, Countess of Coventry (d. 1760), is the name usually cited — but her cause of death is disputed: the Dictionary of Irish Biography records she died of tuberculosis, and death-by-ceruse may be a later legend.",
+          "source_url": "https://www.dib.ie/biography/gunning-maria-a3688",
+          "truth_status": "contested"
+        },
+        {
+          "text": "The white-lead trade was a documented industrial killer; corrosion-house and factory workers suffered plumbism on a scale that eventually drove protective legislation and outright bans.",
+          "source_url": "https://www.etui.org/publications/lead-white-just-another-licence-kill",
+          "truth_status": "verified"
+        },
+        {
+          "text": "Lead soaps: negatively charged fatty acids migrate to lead ions and crystallise, and these soaps are now identified as a cause of deterioration (lumps, blanching, transparency) in hundreds of oil paintings from the 15th-20th centuries.",
+          "source_url": "https://www.metmuseum.org/fr/about-the-met/conservation-and-scientific-research/projects/lead-soaps",
+          "truth_status": "verified"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": false,
+        "note": "Weak positive marker on its own: continuous use from c. 4th c. BCE to the 20th c. (~2,300 years) means mere presence barely constrains a date. Its forensic value is indirect and strong, though — the carbonate carbon can be AMS radiocarbon-dated, and lead-isotope ratios trace the source ore. The real anachronism signal is its replacements: titanium white (commercial c. 1916-1921, dominant 1920s-30s) or zinc white (from the early 19th c.) appearing in a work dates it after those floors."
+      },
+      "sources": [
+        "https://colourlex.com/project/lead-white/",
+        "https://cameo.mfa.org/wiki/Lead_white",
+        "https://www.naturalpigments.com/artist-materials/white-lead-historical",
+        "https://www.jacksonsart.com/blog/2024/05/02/the-history-of-lead-white-and-its-modern-alternatives/",
+        "https://www.metmuseum.org/fr/about-the-met/conservation-and-scientific-research/projects/lead-soaps",
+        "https://www.etui.org/publications/lead-white-just-another-licence-kill",
+        "https://www.dib.ie/biography/gunning-maria-a3688"
+      ],
+      "swatch": {
+        "hex": "#F4F1E9",
+        "approximate": true
+      }
+    },
+    {
+      "id": "vermilion-cinnabar",
+      "names": [
+        "Vermilion",
+        "Cinnabar",
+        "Cinnabaris",
+        "Chinese red",
+        "China red",
+        "Vermillion",
+        "Zhu (朱)"
+      ],
+      "colour_index": "PR106",
+      "family": "red",
+      "type": "mineral-or-synthetic-inorganic",
+      "origin": {
+        "source": "Mineral cinnabar (natural mercury(II) sulfide ore); from antiquity onward increasingly the synthetic 'vermilion' made by combining mercury and sulfur.",
+        "geography": "Chief ancient ore sources: Almadén (Spain) and Idrija (Slovenia), plus China. Earliest documented pigment use at Neolithic Çatalhöyük, Anatolia; heavy Roman use of Almadén cinnabar."
+      },
+      "production": "Natural: mine and grind mineral cinnabar, then levigate/wash to purify the red. Synthetic (the form used for most art): dry process — heat mercury with molten sulfur to black β-HgS, then sublime to red α-HgS and grind; this dry synthesis was practised in China and known to Greco-Egyptian and Arabic alchemists since antiquity. Wet process — convert black HgS to red in warm ammonium/potassium sulfide solution (attributed to G. Schulz, 1687), industrialised only in the 19th century.",
+      "chemistry": {
+        "composition": "Mercury(II) sulfide in the red, hexagonal α-HgS form. Natural = the mineral cinnabar; synthetic = vermilion. The black, cubic β-HgS (metacinnabar) is the degradation phase.",
+        "formula": "HgS"
+      },
+      "dates": {
+        "first_attested": {
+          "year": -7000,
+          "text": "Cinnabar-based red pigment used at Neolithic Çatalhöyük (Anatolia, c.7000 BCE), painted on human bones in burials and on house walls; this is the earliest known cinnabar pigment use in the western Mediterranean/Near East. Cinnabar is also reported at Neolithic Vinča (Serbia). CI PR106, CI 77766.",
+          "source_url": "https://www.nature.com/articles/s41598-022-07284-3",
+          "truth_status": "verified"
+        },
+        "synthetic_from": {
+          "year": 1687,
+          "text": "The synthetic HALF of this material has no clean modern floor because the DRY process (sublimation of Hg + S to red HgS) is ancient — practised in China (possibly by the 4th century BCE), described by the Greco-Egyptian alchemist Zosimos of Panopolis (c.300 AD) and in 8th-century Chinese and Arabic (Jabir ibn Hayyan) texts — and it is the synthetic vermilion used throughout medieval and Renaissance Europe. The WET process (black β-HgS → red α-HgS in warm alkaline sulfide solution) is attributed to the German chemist Gottfried Schulz in 1687 but was not industrialised until the 19th century. So 1687 is a floor only for the wet-process signature, not for synthetic vermilion as such.",
+          "source_url": "https://www.metmuseum.org/perspectives/cinnabar-vermilion",
+          "truth_status": "source-declared"
+        },
+        "obsolescence": {
+          "year": 1910,
+          "text": "Steadily displaced in the 20th century by cadmium red (introduced commercially c.1910) and by lightfast synthetic-organic reds, and curtailed by mercury-toxicity regulation. Still manufactured and sold for conservation, icon and traditional painting, so not fully obsolete.",
+          "source_url": "https://cameo.mfa.org/wiki/Vermilion",
+          "truth_status": "source-declared"
+        }
+      },
+      "lightfastness": "Mixed. Technical sources rate it fairly lightfast in the short term, but it is notoriously prone to photo-darkening: red α-HgS converts to black β-HgS (metacinnabar) and related black phases on exposure to light, accelerated by chloride ions and humidity. Pompeian frescoes, Rubens and Old-Master flesh tones show characteristic grey-black surface darkening.",
+      "toxicity": "High. Mercury(II) sulfide. Although red HgS is relatively insoluble and poorly bioavailable, dust from grinding is hazardous by inhalation/ingestion, and centuries of mercury mining (Almadén, Idrija) caused severe mercury poisoning among miners. Treat as a toxic heavy-metal pigment.",
+      "storage": "Keep out of strong/UV light to slow the light-driven blackening (red α-HgS → black phases, accelerated by chlorides and moisture); the darkening is usually a surface effect and effectively irreversible. Chemically compatible with most pigments and resists dilute acids and alkalis. Handle dust with mercury-appropriate precautions.",
+      "stories": [
+        {
+          "text": "The Almadén (Spain) and Idrija (Slovenia) mercury mines that supplied cinnabar were worked from Roman times, often with convict and slave labour; Almadén fed Rome's prodigious appetite for the pigment, and mercury poisoning was endemic among miners for centuries.",
+          "source_url": "https://www.metmuseum.org/perspectives/cinnabar-vermilion",
+          "truth_status": "verified"
+        },
+        {
+          "text": "Pliny the Elder records that Roman authorities controlled the price and purity of cinnabar/minium (a costly, frequently adulterated pigment), fixing its sale price — an early instance of a regulated art material.",
+          "source_url": "https://cameo.mfa.org/wiki/Vermilion",
+          "truth_status": "source-declared"
+        },
+        {
+          "text": "In China, cinnabar/vermilion coloured lacquerware and seal paste and was central to Daoist alchemy, where mercury-cinnabar preparations were sought as elixirs of immortality — ironically poisoning some who took them.",
+          "source_url": "https://www.metmuseum.org/perspectives/cinnabar-vermilion",
+          "truth_status": "source-declared"
+        },
+        {
+          "text": "The famous darkening of vermilion — bright reds turning grey or black in Pompeian wall paintings and later oil paintings — is a documented photo-degradation to black mercury-sulfide phases, one of the most studied pigment-alteration phenomena in conservation science.",
+          "source_url": "https://colourlex.com/project/vermilion/",
+          "truth_status": "verified"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": false,
+        "note": "Weak dating tool on its own. Cinnabar/vermilion has been used continuously from c.7000 BCE to the present, so its mere presence spans ~9,000 years. The synthetic (dry-process) form is also ancient, so 'synthetic vs natural' does not give a clean post-medieval floor the way synthetic ultramarine does. Useful instead as a period-consistency and provenance (ore-source, via sulfur isotopes) check, not a hard date floor."
+      },
+      "sources": [
+        "https://colourlex.com/project/vermilion/",
+        "https://www.metmuseum.org/perspectives/cinnabar-vermilion",
+        "https://cameo.mfa.org/wiki/Vermilion",
+        "https://www.nature.com/articles/s41598-022-07284-3",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8904496/",
+        "https://www.sciencedirect.com/science/article/abs/pii/S0143720813004221"
+      ],
+      "type_note": "Dual-origin pigment: natural cinnabar (mined mineral HgS) and synthetic vermilion (dry-process HgS from mercury + sulfur, ancient and the art-dominant form), chemically identical (both PR106). Presence is NOT evidence of natural mineral origin.",
+      "swatch": {
+        "hex": "#E34234",
+        "approximate": true
+      }
+    },
+    {
+      "id": "ultramarine-natural-lapis-lazuli",
+      "names": [
+        "Natural ultramarine",
+        "Lapis lazuli",
+        "Ultramarine blue",
+        "Oltremare",
+        "Azzurro oltramarino",
+        "Ultramarinum",
+        "Azurro ultramarino"
+      ],
+      "colour_index": "PB29",
+      "family": "blue",
+      "type": "mineral",
+      "origin": {
+        "source": "The mineral lapis lazuli, whose blue-yielding component is lazurite; the pigment is the purified lazurite fraction.",
+        "geography": "Sar-e-Sang, Kokcha valley, Badakhshan, Afghanistan — the ancient world's principal source, mined for millennia. Later minor sources include the Andes (Chile) and Lake Baikal (Siberia)."
+      },
+      "production": "Select the deepest-blue lapis, crush and grind it. Cennino Cennini's method (c.1400): knead the powder into a dough of pine rosin, gum mastic and beeswax, then repeatedly work the dough under warm lye; the lazurite grains sink out blue while colourless calcite/pyrite gangue stays behind, giving successive grades (the first extraction the purest and most costly). Modern synthetic ultramarine (from 1828) is instead calcined from kaolin/china clay, sodium carbonate, sulfur, charcoal and silica.",
+      "chemistry": {
+        "composition": "Lazurite — a sulfur-bearing sodium/calcium aluminosilicate of the sodalite group. The blue chromophore is the trisulfur radical anion (S3•−) trapped in the aluminosilicate cage. CI 77007.",
+        "formula": "Na7Al6Si6O24S3 (idealized; natural mineral ≈ (Na,Ca)8(AlSiO4)6(S,SO4,Cl)2)"
+      },
+      "dates": {
+        "first_attested": {
+          "year": 600,
+          "text": "Earliest documented use as a PAINTING pigment is in 6th–7th century AD wall paintings at the Bamiyan caves, Afghanistan (and Buddhist paintings at the Kizil grottoes, 3rd–9th c). Lapis as a gemstone/inlay is far older (Royal Tombs of Ur, Tutankhamun), but as a ground blue pigment it appears from the 6th century; it reaches extensive European use in illuminated manuscripts and Italian panels from the 12th–15th centuries. CI PB29.",
+          "source_url": "https://www.bodleian.ox.ac.uk/about/libraries/our-work/conservation/exploring-ultramarine",
+          "truth_status": "source-declared"
+        },
+        "synthetic_from": {
+          "year": 1826,
+          "text": "Synthetic ('French') ultramarine, chemically identical to natural (also PB29). Jean-Baptiste Guimet discovered a synthetic route in 1826 (kept secret) and was awarded the Société d'Encouragement pour l'Industrie Nationale prize on 4 February 1828; Christian Gmelin of Tübingen developed it independently in the same period (published 1828). This gives a HARD FLOOR: synthetic ultramarine cannot predate 1826/1828, and it is distinguishable from natural lazurite by its uniform, fine, angular particle morphology under the microscope.",
+          "source_url": "https://en.wikipedia.org/wiki/Jean-Baptiste_Guimet",
+          "truth_status": "verified"
+        },
+        "obsolescence": {
+          "year": 1830,
+          "text": "Natural lapis ultramarine became effectively obsolete for ordinary use once Guimet's synthetic French ultramarine reached the market from the late 1820s–1830s at a tiny fraction of the cost. Natural ultramarine survives only as a luxury and conservation/restoration pigment.",
+          "source_url": "https://en.wikipedia.org/wiki/Jean-Baptiste_Guimet",
+          "truth_status": "source-declared"
+        }
+      },
+      "lightfastness": "Excellent — one of the most permanent and lightfast of all blues; stable to light and to alkali (usable in fresco). Its weakness is not light but acid: 'ultramarine sickness/disease', a grey-white blanching, arises from attack by atmospheric or applied acids rather than from fading.",
+      "toxicity": "Low / non-toxic; the synthetic form is a food- and cosmetic-grade pigment. Contact with acids can liberate hydrogen sulfide (H2S) gas, so avoid mixing with acidic media.",
+      "storage": "Stable in light, heat and alkali. Protect from acids and acidic atmospheric pollutants (and excess moisture), which cause 'ultramarine sickness' — a dull grey blanching as the lazurite chromophore decomposes and releases H2S. Store dry.",
+      "stories": [
+        {
+          "text": "Weight-for-weight ultramarine was costlier than gold; Renaissance patrons wrote the required ounces and grade of ultramarine into painting contracts, and the pigment became the convention for the Virgin Mary's robe precisely because of its expense.",
+          "source_url": "https://colourlex.com/project/ultramarine-natural/",
+          "truth_status": "source-declared"
+        },
+        {
+          "text": "The name means 'beyond the sea' (Latin ultramarinus, Italian oltremare) because the lapis was imported by sea from Afghanistan into Europe.",
+          "source_url": "https://colourlex.com/project/ultramarine-natural/",
+          "truth_status": "verified"
+        },
+        {
+          "text": "Vermeer used natural ultramarine conspicuously and even in unexpected places (shadows, underlayers) in works such as 'Girl with a Pearl Earring' and 'View of Delft', an unusually lavish habit for a painter of modest means.",
+          "source_url": "https://www.bodleian.ox.ac.uk/about/libraries/our-work/conservation/exploring-ultramarine",
+          "truth_status": "verified"
+        },
+        {
+          "text": "A 2019 study found lapis lazuli particles embedded in the dental calculus of an 11th–12th-century woman buried at a German monastery, evidence that she was an illuminator of luxury manuscripts and that women participated in high-status book production.",
+          "source_url": "https://www.science.org/doi/10.1126/sciadv.aau7126",
+          "truth_status": "verified"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Strong dating tool. Natural lazurite and synthetic ultramarine are chemically identical (both PB29) but distinguishable under the microscope: synthetic particles are small, uniform and angular, natural particles are coarse and irregular with associated calcite/pyrite. Identifying SYNTHETIC ultramarine gives a hard 'not before 1826/1828' floor — a decisive anachronism check for works claimed to predate the 19th century."
+      },
+      "sources": [
+        "https://colourlex.com/project/ultramarine-natural/",
+        "https://en.wikipedia.org/wiki/Jean-Baptiste_Guimet",
+        "https://www.bodleian.ox.ac.uk/about/libraries/our-work/conservation/exploring-ultramarine",
+        "https://www.science.org/doi/10.1126/sciadv.aau7126",
+        "https://www.webexhibits.org/pigments/indiv/history/ultramarine.html",
+        "https://www.artsupplies.co.uk/blog/artists-pigments-a-history-of-ultramarine-blue/"
+      ],
+      "swatch": {
+        "hex": "#1B3F9B",
+        "approximate": true
+      }
+    },
+    {
+      "id": "cochineal-carmine",
+      "names": [
+        "Cochineal",
+        "Carmine",
+        "Carmine lake",
+        "Crimson lake",
+        "Cochineal lake",
+        "Natural Red 4",
+        "Grana",
+        "Grana cochinilla"
+      ],
+      "colour_index": "NR4",
+      "family": "red",
+      "type": "organic",
+      "origin": {
+        "source": "The dried bodies of the female scale insect Dactylopius coccus, which lives on Opuntia (prickly-pear) cactus; the colourant is carminic acid, laked onto aluminium to make carmine.",
+        "geography": "Mesoamerica — semi-domesticated in Oaxaca, Mexico for millennia; also pre-Columbian Andean South America. Spanish colonial monopoly from the 16th century; later cultivated in the Canary Islands and, today, chiefly Peru."
+      },
+      "production": "Harvest female Dactylopius coccus from Opuntia cactus, kill and dry them (sun, oven or steam) and grind. Extract carminic acid in hot water; to make the carmine lake pigment, precipitate the dye onto an aluminium (often with calcium) substrate by adding alum, forming an insoluble crimson lake. Still farmed today (Peru is the leading producer) for carmine / cochineal extract used as food and cosmetic colour E120.",
+      "chemistry": {
+        "composition": "Carmine is the aluminium (and calcium) lake of carminic acid, an anthraquinone C-glycoside (~17–24% of the insect's dry weight). CI 75470. Distinct from kermes (kermesic acid, NR3) and other scale-insect reds.",
+        "formula": "C22H20O13 (carminic acid)"
+      },
+      "dates": {
+        "first_attested": {
+          "year": -700,
+          "text": "American cochineal (Dactylopius coccus) was used for dyeing textiles in the Americas as early as c.700 BCE; carminic acid has been identified by HPLC in surviving pre-Columbian Andean/Mesoamerican textiles. The Aztecs used it extensively and levied it as tribute. It reaches Europe only after the Spanish conquest (shipments from the 1520s; a major trade by the mid-16th century). CI NR4. Authoritative Andean-textile sources place cochineal use considerably earlier (Paracas/Nasca tradition, cited as early as ~2000-2300 BCE), so the earliest date is unsettled and c.700 BCE stands only as a conservative lower bound.",
+          "source_url": "https://colourlex.com/project/carmine-cochineal/",
+          "truth_status": "source-declared"
+        },
+        "synthetic_from": null,
+        "obsolescence": {
+          "year": 1875,
+          "text": "Displaced for textile dyeing from the 1860s–1870s by synthetic aniline reds and, decisively, synthetic alizarin/azo dyes (mauveine 1856; synthetic alizarin 1868). It survives commercially to the present as a food and cosmetic colourant (carmine / cochineal extract / E120 / NR4), so it is obsolete only as a fine-art and textile dye.",
+          "source_url": "https://www.mcgill.ca/oss/article/general-science-history/carmine-dye-and-cochineal-insect",
+          "truth_status": "source-declared"
+        }
+      },
+      "lightfastness": "Poor / fugitive. Fades even under incandescent and ordinary museum lighting; a classic cause of faded crimson glazes and washed-out reds in Old Master paintings. Sensitive to light and unstable in both acidic and alkaline conditions.",
+      "toxicity": "Low. Food- and cosmetic-grade (E120) and generally regarded as safe, but it is a recognised allergen that can provoke reactions — including, rarely, anaphylaxis — in sensitive individuals.",
+      "storage": "Highly fugitive: store and display at low light levels, as even incandescent/museum lighting causes fading. Unstable in acidic and alkaline conditions and sensitive to humidity — keep dry. As a lake it was traditionally used in glazes that have frequently faded to pale pink or brown.",
+      "stories": [
+        {
+          "text": "Cochineal was prized in Aztec Mexico and collected as imperial tribute; Moctezuma's subjects paid taxes in dried cochineal.",
+          "source_url": "https://www.britannica.com/technology/cochineal",
+          "truth_status": "source-declared"
+        },
+        {
+          "text": "Spain held a colonial cochineal monopoly for roughly three centuries — it became New Spain's most valuable export after silver — and kept its animal origin secret; Europeans long debated whether it was a seed, berry or worm until the microscope settled it, and the French botanist Thiéry de Menonville attempted to smuggle cochineal-bearing cactus out in 1777.",
+          "source_url": "https://www.mcgill.ca/oss/article/general-science-history/carmine-dye-and-cochineal-insect",
+          "truth_status": "source-declared"
+        },
+        {
+          "text": "Carminic acid in surviving pre-Columbian textiles, confirmed by HPLC as Dactylopius coccus, shows the dye's colour persisting on cloth roughly two thousand years old.",
+          "source_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4305107/",
+          "truth_status": "verified"
+        },
+        {
+          "text": "Cochineal is still in everyday food and cosmetics as carmine / E120 / Natural Red 4 — a fact that surfaced publicly in the 2012 controversy over its use in a coffee chain's strawberry drinks.",
+          "source_url": "https://www.mcgill.ca/oss/article/general-science-history/carmine-dye-and-cochineal-insect",
+          "truth_status": "verified"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Moderately strong. American cochineal (Dactylopius coccus) in an Old World object indicates a post-Columbian date (not before c.1520s), since the species is New World. The catch: it must be distinguished by HPLC from Old World scale-insect reds — kermes (NR3), Armenian and Polish cochineal — via relative carminic-acid/dcII marker ratios; carmine's fugitive fading can also complicate detection. A useful post-1520s floor when the species is positively identified."
+      },
+      "sources": [
+        "https://colourlex.com/project/carmine-cochineal/",
+        "https://www.britannica.com/technology/cochineal",
+        "https://www.mcgill.ca/oss/article/general-science-history/carmine-dye-and-cochineal-insect",
+        "https://www.chm.bris.ac.uk/motm/carminic-acid/carminic-acidh.htm",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4305107/",
+        "https://andeantextilearts.org/cochineal-a-simple-bug-on-a-cactus-pad/"
+      ],
+      "swatch": {
+        "hex": "#9E1B32",
+        "approximate": true
+      }
+    },
+    {
+      "id": "prussian-blue",
+      "names": [
+        "Prussian blue",
+        "Berlin blue",
+        "Berliner Blau",
+        "Paris blue",
+        "Milori blue",
+        "iron blue",
+        "ferric ferrocyanide",
+        "Turnbull's blue"
+      ],
+      "colour_index": "PB27",
+      "family": "blue",
+      "type": "synthetic-inorganic",
+      "origin": {
+        "source": "Synthetic; precipitated in a dyer's/alchemist's workshop, not mined. Born from Johann Jacob Diesbach's potash accidentally contaminated with animal matter (Dippel's animal oil) supplying the iron-cyanide component.",
+        "geography": "Berlin, Kingdom of Prussia"
+      },
+      "production": "Historically precipitated by combining an iron(II) salt (green vitriol, FeSO4) with 'yellow prussiate of potash' (potassium ferrocyanide, itself made by calcining potash with dried blood, horn or other nitrogenous animal matter), then oxidising the pale white precipitate in air to the deep blue. The Turnbull's-blue route (iron(II) + ferricyanide) yields the same compound. 'Soluble' (colloidal, K-bearing) and 'insoluble' grades arise from washing and potassium content; Milori blue is a calcined high-tint variant. Modern manufacture reacts sodium/potassium ferrocyanide with an iron(III) salt (e.g. FeCl3), followed by oxidation and milling.",
+      "chemistry": {
+        "composition": "Iron(III) hexacyanoferrate(II) — a mixed-valence compound containing both Fe2+ and Fe3+ bridged by cyanide ([Fe(CN)6]4-). Usually hydrated and containing interstitial K+ or Na+.",
+        "formula": "Fe4[Fe(CN)6]3·xH2O (CI 77510)"
+      },
+      "dates": {
+        "first_attested": {
+          "year": 1704,
+          "text": "Discovered accidentally in Berlin c. 1704 by dye-maker Johann Jacob Diesbach while trying to make a red cochineal/carmine lake; his potash was contaminated with 'Dippel's animal oil' (distilled from blood and bone), supplying iron-cyanide and yielding blue instead. Sources give the discovery year variously as 1704, 1706 or as late as 1708, so the exact year is genuinely debated — but the ~1704 floor is secure. The earliest firmly dated painting containing it is Pieter van der Werff's 'Entombment of Christ', 1709.",
+          "source_url": "https://www.colourlex.com/project/prussian-blue/",
+          "truth_status": "contested"
+        },
+        "synthetic_from": {
+          "year": 1704,
+          "text": "The first modern synthetic pigment; it has no natural mineral equivalent, so c. 1704 in Berlin is an absolute manufacturing floor for the material. The recipe was kept a trade secret and sold at a premium until John Woodward published it in 1724 (Philosophical Transactions of the Royal Society), after which manufacture spread rapidly across Europe (widely used by ~1750).",
+          "source_url": "https://www.ndt.net/article/art2008/papers/029bartoll.pdf",
+          "truth_status": "verified"
+        },
+        "obsolescence": null
+      },
+      "lightfastness": "Generally good in full mass tone (rated toward ASTM I at full strength), but variable: prone to a partial, reversible photo-fading in thin/pale tints — it can lose colour in strong light and regenerate somewhat in the dark. Irreversible loss occurs in alkaline conditions. Not for fresco or lime.",
+      "toxicity": "Practically non-toxic as a pigment: the cyanide is locked in the ferrocyanide complex and is not bioavailable. Insoluble Prussian blue is used medically as an oral antidote (Radiogardase) for thallium and radiocaesium poisoning. It releases hydrogen cyanide only if treated with strong acid or heated to high temperature.",
+      "storage": "Keep away from alkaline environments — dilute alkalis decompose it to brown iron(III) hydroxide, so avoid lime, alkaline grounds and fresco; it should not be mixed with lead white or calcium carbonate. Resistant to dilute mineral acids and stable up to ~140 C. Because tints fade reversibly under strong light and recover in the dark, display lighting and dark storage both affect apparent colour. Well characterised by Raman/FTIR (Fe-CN band ~2090 cm-1) and XRF (Fe).",
+      "stories": [
+        {
+          "text": "The accidental birth: Diesbach set out to make a red lake but his contaminated potash (via Dippel's foul blood-and-bone 'animal oil') turned the batch blue — the first synthetic modern pigment, made by mistake.",
+          "source_url": "https://www.colourlex.com/project/prussian-blue/",
+          "truth_status": "source-declared"
+        },
+        {
+          "text": "The secret held for ~20 years: the manufacturing method was guarded and sold at premium prices until John Woodward published the recipe in the Royal Society's Philosophical Transactions in 1724, breaking the monopoly and letting the pigment spread across Europe.",
+          "source_url": "https://www.ndt.net/article/art2008/papers/029bartoll.pdf",
+          "truth_status": "verified"
+        },
+        {
+          "text": "As 'bero-ai' (Berlin blue) it transformed Japanese ukiyo-e in the 1830s — the deep blues of Hokusai's 'Great Wave off Kanagawa' and 'Thirty-six Views of Mount Fuji' are Prussian blue, imported into Japan.",
+          "source_url": "https://en.wikipedia.org/wiki/Prussian_blue",
+          "truth_status": "verified"
+        },
+        {
+          "text": "It later found a second life in medicine: insoluble Prussian blue ('Radiogardase') is a WHO essential-medicines antidote that binds thallium and radioactive caesium in the gut for excretion.",
+          "source_url": "https://en.wikipedia.org/wiki/Prussian_blue",
+          "truth_status": "verified"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Strong, reliable dating floor. Prussian blue cannot predate its c. 1704 invention and appears in paintings only from 1709; a European work purporting to be older but containing PB27 is anachronistic or later-restored. It is easy to identify unambiguously (Raman Fe-CN band, XRF iron with no other blue chromophore), making it one of the most trusted anchor pigments in authentication."
+      },
+      "sources": [
+        "https://www.colourlex.com/project/prussian-blue/",
+        "https://www.ndt.net/article/art2008/papers/029bartoll.pdf",
+        "https://en.wikipedia.org/wiki/Prussian_blue",
+        "https://en.wikipedia.org/wiki/Johann_Jacob_Diesbach"
+      ],
+      "swatch": {
+        "hex": "#013A63",
+        "approximate": true
+      }
+    },
+    {
+      "id": "indian-yellow",
+      "names": [
+        "Indian yellow",
+        "purree",
+        "purrée",
+        "puri",
+        "peori",
+        "piuri",
+        "gogili",
+        "purée of India",
+        "euxanthin",
+        "jaune indien"
+      ],
+      "colour_index": "NY20",
+      "family": "yellow",
+      "type": "organic",
+      "origin": {
+        "source": "Organic: the magnesium and calcium salts of euxanthic acid, concentrated from the urine of cattle. Traditionally prepared by a small community of manufacturers from cows reportedly fed on mango leaves; evaporated and pressed into malodorous 'purree balls'.",
+        "geography": "India — principally Monghyr (Munger), Bihar, in the Bengal region; said to have entered India from Persia in the 15th century."
+      },
+      "production": "The raw urine of the fed cattle was heated/evaporated, the precipitate collected, pressed by hand into balls and sun- or fire-dried, giving a dark greenish-crusted, bright-cored lump that was exported and purified. The colour body is magnesium/calcium euxanthate. Euxanthic acid itself was isolated in the laboratory in the 19th century (Erdmann, 1844) but was never manufactured commercially as a pigment. Modern tube 'Indian yellow' is a hue imitation blended from synthetic organics (e.g. nickel-azo, arylide/diarylide, quinacridone) and contains no euxanthate.",
+      "chemistry": {
+        "composition": "Principal colourants are the calcium and magnesium salts of euxanthic acid (euxanthates); a biological glucuronide-derived compound. Fluorescent; water-soluble, which is why it served in watercolour and only rarely as an oil glaze.",
+        "formula": "C19H16O10 (euxanthic acid); pigment = Mg/Ca euxanthate salts (CI 75320)"
+      },
+      "dates": {
+        "first_attested": {
+          "year": 1400,
+          "text": "Reported in Indian (Rajput–Mughal) miniature painting from around the 15th century (ColourLex: 'first occurrences in paintings date from around the 15th century'; webexhibits notes introduction from Persia in the 15th c). Analytically confirmed use clusters in the 16th–19th centuries; the ~15th-century date is source-declared/traditional rather than firmly pinned to a dated object, so treat c. 1400 as an approximate floor.",
+          "source_url": "https://www.colourlex.com/project/indian-yellow/",
+          "truth_status": "source-declared"
+        },
+        "synthetic_from": null,
+        "obsolescence": {
+          "year": 1921,
+          "text": "Genuine euxanthate Indian yellow disappeared from the market by the early 1920s. The commonly cited legal ban in Bengal 'around 1908' (on animal-cruelty grounds) is poorly documented and contested; what is certain is that manufacture ceased and the pigment became commercially unavailable by roughly 1921. Everything sold as 'Indian yellow' since is a hue substitute.",
+          "source_url": "https://www.royaltalens.com/blogs/colour-stories/indian-yellow",
+          "truth_status": "contested"
+        }
+      },
+      "lightfastness": "Moderate — ColourLex describes it as 'moderately stable and fairly lightfast'. Reasonably permanent for an organic yellow, better than many yellow lakes, but it can fade in strong light and should not be assumed fully permanent.",
+      "toxicity": "Low; an organic salt of no significant acute toxicity. The raw purree balls were notoriously foul-smelling (ammoniacal/urinous, with hippuric-acid content).",
+      "storage": "Water-soluble, so vulnerable to moisture, humidity and aqueous cleaning — it can be washed out or bled during conservation treatment of watercolours. Moderate lightfastness argues for controlled display lux. Characteristically fluorescent under UV, which aids identification. Because the genuine material can no longer be produced, any loss is irreplaceable.",
+      "stories": [
+        {
+          "text": "The famous mango-leaf/cow-urine origin: per T. N. Mukharji's 1883 account, cattle in Monghyr were fed only mango leaves and water to yield the deep-yellow urine boiled down into the pigment. Historically this was doubted (Mérimée disbelieved it in 1830; some held it plant-based), so the story is genuinely contested — though a later chemical study reported hippuric acid (a urine marker) in raw pigment balls, lending it support.",
+          "source_url": "https://cen.acs.org/analytical-chemistry/art-&-artifacts/Chemical-clue-suggests-spurned-account/96/i36",
+          "truth_status": "contested"
+        },
+        {
+          "text": "The mango-only diet was said to leave the cattle malnourished, and animal-welfare objections are usually given as the reason production was outlawed in the early 20th century — a narrative tied to the same contested origin account.",
+          "source_url": "https://www.winsornewton.com/blogs/articles/indian-yellow",
+          "truth_status": "contested"
+        },
+        {
+          "text": "Its origins were a genuine mystery to 19th-century Europe. Prompted by Sir Joseph Hooker's 1883 inquiry, T. N. Mukharji investigated locally in Monghyr, Bengal, tracing the 'purree of India' to the cattle owners there, and reported his findings in the Journal of the Society of Arts in 1883 (some secondary sources repeat an erroneous 1886 date).",
+          "source_url": "https://en.wikipedia.org/wiki/Indian_yellow",
+          "truth_status": "source-declared"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Dual-edged. Its long use-window (~15th to early-20th c) makes mere presence a weak lower-bound. Its real value is as a CEILING/authenticity marker: authentic euxanthate Indian yellow effectively cannot occur in works made after the early 1920s, and post-ban 'Indian yellow' hue substitutes are chemically distinguishable (no euxanthate/hippuric-acid signature, different synthetic components). Genuine material also fluoresces characteristically, aiding discrimination."
+      },
+      "sources": [
+        "https://www.colourlex.com/project/indian-yellow/",
+        "https://www.webexhibits.org/pigments/indiv/history/indianyellow.html",
+        "https://www.winsornewton.com/blogs/articles/indian-yellow",
+        "https://www.royaltalens.com/blogs/colour-stories/indian-yellow",
+        "https://cen.acs.org/analytical-chemistry/art-&-artifacts/Chemical-clue-suggests-spurned-account/96/i36",
+        "https://en.wikipedia.org/wiki/Indian_yellow"
+      ],
+      "swatch": {
+        "hex": "#E3A72F",
+        "approximate": true
+      }
+    },
+    {
+      "id": "mummy-brown",
+      "names": [
+        "Mummy brown",
+        "mummia",
+        "mommia",
+        "momie",
+        "brun de momie",
+        "Egyptian brown",
+        "caput mortuum (loose/erroneous usage)"
+      ],
+      "colour_index": null,
+      "family": "brown",
+      "type": "organic",
+      "origin": {
+        "source": "Organic: literally ground-up mummified human (and sometimes animal) remains together with their embalming bitumen/asphaltum, blended with myrrh and pitch/resin. Sold by artists' colourmen who bought whole or partial Egyptian mummies.",
+        "geography": "Mummies sourced from Egypt; the paint manufactured and sold in Europe — London (C. Roberson & Co.) and Paris (the colour shop 'À la momie')."
+      },
+      "production": "Desiccated mummified flesh and bone, including the bituminous embalming material, was ground to powder, combined with myrrh and white pitch/resin, and mulled into oil to make a transparent brown ranging between raw umber and burnt umber. Composition was inherently variable batch to batch; there was never a standardised formula, and no synthetic route.",
+      "chemistry": {
+        "composition": "No fixed composition. A heterogeneous mixture of bitumen/asphalt (hydrocarbons), degraded animal proteins and collagen, resins (myrrh, pitch) and embalming residues. The bitumen fraction dominates its (poor) working behaviour.",
+        "formula": null
+      },
+      "dates": {
+        "first_attested": {
+          "year": 1600,
+          "text": "'Mummia' circulated as a medicine from the medieval period (originally denoting the pitch-like embalming bitumen). As an artists' pigment, ground-mummy brown is documented from the late 16th–17th century, with a firm commercial record by 1712 (the Paris colour shop 'À la momie' selling powdered mummy alongside paints and varnish). Peak popularity was 18th–19th c (Delacroix, Martin Drolling, the Pre-Raphaelites, Alma-Tadema). Treat c. 1600 as an approximate, source-declared floor for pigment use.",
+          "source_url": "https://www.winsornewton.com/blogs/articles/mummy-brown",
+          "truth_status": "source-declared"
+        },
+        "synthetic_from": null,
+        "obsolescence": {
+          "year": 1964,
+          "text": "It declined through the early 20th century (C. Roberson & Co. of London still listed it into the 1930s). The London firm reportedly exhausted its supply of mummies around 1964 — a widely quoted remark by its managing director that they had sold their last mummy 'some years ago' and could make no more paint. Genuine mummy brown was effectively gone by the mid-1960s.",
+          "source_url": "https://artuk.org/discover/stories/the-corpse-on-the-canvas-the-story-of-mummy-brown-paint",
+          "truth_status": "source-declared"
+        }
+      },
+      "lightfastness": "Poor / unreliable. Because it is bituminous it never fully dries, tends to darken with age and cannot be considered permanent — a classic problem paint.",
+      "toxicity": "Low direct chemical toxicity, but it carries bitumen and unknown embalming/decomposition residues; the dominant concerns are ethical and biohazard (handling human remains) rather than acute poisoning.",
+      "storage": "A conservation liability. Its bitumen content means it never sets hard, develops wide 'alligator'/drying cracks, continues to darken, and softens and bleeds with heat, migrating into adjacent passages. It is analytically hard to distinguish from other bituminous/asphaltum browns. Passages painted with it should be handled and lit conservatively and monitored for cracking and movement.",
+      "stories": [
+        {
+          "text": "Edward Burne-Jones, on learning from Lawrence Alma-Tadema that his tube of 'mummy brown' really was made from a ground Egyptian mummy Alma-Tadema had seen in the colourman's shop, carried the tube into his garden and gave it a 'decent burial there and then'.",
+          "source_url": "https://artuk.org/discover/stories/the-corpse-on-the-canvas-the-story-of-mummy-brown-paint",
+          "truth_status": "source-declared"
+        },
+        {
+          "text": "The pigment genuinely was ground mummies: colourmen bought Egyptian mummified remains and milled them with bitumen and myrrh; C. Roberson's shop was documented to still hold mummy parts, and the material was sold as an artists' colour for centuries.",
+          "source_url": "https://en.wikipedia.org/wiki/Mummy_brown",
+          "truth_status": "verified"
+        },
+        {
+          "text": "The name itself records a semantic drift: medieval 'mummia' meant the bituminous embalming pitch prized as medicine; by the 16th–17th century the term (and the trade) had shifted to the ground desiccated human tissue used in paint.",
+          "source_url": "https://en.wikipedia.org/wiki/Mummy_brown",
+          "truth_status": "verified"
+        },
+        {
+          "text": "Martin Drolling's 'Interior of a Kitchen' (1815) is often said to have been painted with mummy brown made from the remains of French kings disinterred from Saint-Denis — a colourful attribution that is contested and not firmly documented.",
+          "source_url": "https://www.nationalgeographic.com/history/article/mummy-art-painting-delacroix-pigment-ancient-Egypt",
+          "truth_status": "contested"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Weak and ambiguous. Its use-window is very wide (late-16th to mid-20th c) and, being a variable bituminous organic brown with no Colour Index and no diagnostic inorganic signature, it is analytically difficult to distinguish from ordinary asphaltum/bitumen browns. Presence loosely suggests post-16th-century work but is unreliable as a standalone dating anchor; it is far weaker than Prussian blue."
+      },
+      "sources": [
+        "https://www.winsornewton.com/blogs/articles/mummy-brown",
+        "https://artuk.org/discover/stories/the-corpse-on-the-canvas-the-story-of-mummy-brown-paint",
+        "https://en.wikipedia.org/wiki/Mummy_brown",
+        "https://www.nationalgeographic.com/history/article/mummy-art-painting-delacroix-pigment-ancient-Egypt"
+      ],
+      "swatch": {
+        "hex": "#4A2C1A",
+        "approximate": true
+      }
+    },
+    {
+      "id": "scheeles-green",
+      "names": [
+        "Scheele's green",
+        "Schloss green",
+        "Swedish green",
+        "cupric arsenite",
+        "copper arsenite green"
+      ],
+      "colour_index": null,
+      "family": "green",
+      "type": "synthetic-inorganic",
+      "origin": {
+        "source": "Invented by the Swedish-German chemist Carl Wilhelm Scheele in 1775 while working with arsenic and copper compounds; the first bright, lightfast synthetic green to challenge verdigris and malachite.",
+        "geography": "Sweden (Scheele worked in Uppsala and later Koping)"
+      },
+      "production": "Historical preparation: dissolve arsenious oxide (arsenic trioxide) in a hot solution of sodium carbonate or potash to make sodium/potassium arsenite, then add a solution of copper(II) sulfate; a green precipitate of copper arsenite drops out, which is filtered, washed and dried. Composition is variable and poorly defined (a family of cupric arsenites/hydrogen arsenites), which is one reason it was quickly supplanted by the better-defined, more brilliant emerald (Schweinfurt) green after c.1814. No longer manufactured today because of its extreme toxicity and chemical instability.",
+      "chemistry": {
+        "composition": "Copper(II) hydrogen arsenite / acidic copper arsenite; a variable, ill-defined cupric arsenite. Arsenic makes up roughly 40% by weight.",
+        "formula": "CuHAsO3"
+      },
+      "dates": {
+        "first_attested": {
+          "year": 1775,
+          "text": "Carl Wilhelm Scheele first prepared the pigment in 1775; it is named after him and is consistently dated to that year across authoritative sources.",
+          "source_url": "https://en.wikipedia.org/wiki/Scheele's_green",
+          "truth_status": "verified"
+        },
+        "synthetic_from": null,
+        "obsolescence": {
+          "year": 1900,
+          "text": "Declined from the 1820s onward as the more durable, more brilliant emerald/Schweinfurt green (from c.1814) superseded it; fell further out of favour after mid-19th-century arsenic-poisoning scares, and the last wallpaper brands using it ceased by the 1890s. The exact end date is diffuse, so ~1900 is approximate.",
+          "source_url": "https://en.wikipedia.org/wiki/Scheele's_green",
+          "truth_status": "source-declared"
+        }
+      },
+      "lightfastness": "Marketed in its day as more lightfast than verdigris, but chemically unstable in practice: it darkens and blackens on exposure to sulfur-bearing air (hydrogen sulfide) and to sulfide-containing pigments, and is attacked by acids and alkalis. Never given a modern ASTM rating; regarded as impermanent overall.",
+      "toxicity": "Extremely toxic (arsenic). Chronic inhalation/ingestion caused arsenical poisoning. In damp conditions the mould Scopulariopsis brevicaulis metabolises the arsenic into volatile methyl-arsines (trimethylarsine, historically called 'Gosio gas'), implicated in Victorian sickrooms with arsenic-green wallpaper. Conservators must handle any suspected copper-arsenic green with gloves, mask and containment.",
+      "storage": "Keep dry and away from sulfur pollutants: hydrogen sulfide and sulfide pigments convert it to dark copper sulfide, and acids/alkalis decompose it. High humidity plus mould can liberate toxic arsine gases from the paint or wallpaper, a hazard to handlers as well as a driver of degradation. Store cool, dry, sealed; treat all handling as a health hazard because of the arsenic.",
+      "stories": [
+        {
+          "text": "It has been argued that arsenical green wallpaper in Napoleon's rooms on St Helena poisoned him, supported by elevated arsenic in his hair. This is CONTESTED: modern scholarship attributes his death chiefly to stomach cancer, and background arsenic exposure was common in the period, so the wallpaper-murder narrative is not established fact.",
+          "source_url": "https://en.wikipedia.org/wiki/Scheele's_green",
+          "truth_status": "contested"
+        },
+        {
+          "text": "Damp arsenic-green wallpaper really did sicken people: the mould Scopulariopsis brevicaulis was shown (Gosio, 1890s) to volatilise the arsenic into toxic methyl-arsine gas, a genuinely documented mechanism of indoor poisoning.",
+          "source_url": "https://www.nature.com/articles/s40494-024-01192-7",
+          "truth_status": "verified"
+        },
+        {
+          "text": "Scheele is popularly said to have died young (age 43) from tasting and inhaling his own toxic reagents. His habit of tasting chemicals is well attested, but the precise cause of death is not firmly documented, so the 'killed by his own experiments' line is repeated more confidently than the evidence supports.",
+          "source_url": "https://www.robertopoetichimica.it/en/the-story-of-the-green-scheele-pigment-by-swedish-chemist-carl-scheele-2/",
+          "truth_status": "contested"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Strong dating marker. Hard floor of 1775: any object or paint layer purporting to predate 1775 that contains copper arsenite is anachronistic. Detecting copper + arsenic in a green, and distinguishing the ill-defined arsenite (Scheele's) from the crystalline aceto-arsenite (emerald green, from c.1814), further narrows a date window."
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Scheele's_green",
+        "https://www.nature.com/articles/s40494-024-01192-7",
+        "https://www.webexhibits.org/pigments/indiv/history/emerald.html",
+        "https://colourlex.com/project/emerald-green/"
+      ],
+      "swatch": {
+        "hex": "#5E9C3A",
+        "approximate": true
+      }
+    },
+    {
+      "id": "emerald-green",
+      "names": [
+        "emerald green",
+        "Paris green",
+        "Schweinfurt green",
+        "Schweinfurter Grun",
+        "Veronese green",
+        "Vienna green",
+        "Mitis green",
+        "Imperial green"
+      ],
+      "colour_index": "PG21",
+      "family": "green",
+      "type": "synthetic-inorganic",
+      "origin": {
+        "source": "Developed as a more brilliant, better-defined and more durable replacement for Scheele's green; first produced commercially by the firm of Wilhelm Sattler (chemists Russ and Sattler) at Schweinfurt, Germany, in 1814. The composition was later published independently by Liebig and Braconnot in the 1820s.",
+        "geography": "Schweinfurt, Bavaria, Germany"
+      },
+      "production": "Historical: combine and warm copper(II) acetate (verdigris) with arsenious oxide (white arsenic) in an acetic-acid/vinegar solution (equivalently, copper sulfate + arsenic oxide + acetic acid + alkali); a slightly crystalline, brilliant green copper aceto-arsenite precipitates, which is washed, dried and ground. The crystalline, defined structure gives cleaner, brighter, more stable colour than Scheele's variable arsenite. Also mass-produced as the insecticide 'Paris green'. No longer manufactured as a pigment; production ceased in the second half of the 20th century on toxicity grounds.",
+      "chemistry": {
+        "composition": "Copper(II) aceto-arsenite. Roughly 40-50% arsenic by weight, which is the source of its toxicity.",
+        "formula": "3Cu(AsO2)2·Cu(CH3COO)2"
+      },
+      "dates": {
+        "first_attested": {
+          "year": 1814,
+          "text": "First commercially manufactured at Schweinfurt in 1814 (firm of Wilhelm Sattler). Some sources note experimental synthesis c.1800-1808 as an attempt to improve Scheele's green, but 1814 is the well-attested commercial floor.",
+          "source_url": "https://www.winsornewton.com/blogs/articles/emerald-green",
+          "truth_status": "verified"
+        },
+        "synthetic_from": null,
+        "obsolescence": {
+          "year": 1960,
+          "text": "Use as an artists'/decorative pigment declined from the early 20th century on toxicity grounds (curtailed in some markets in the early 1900s), though painters and industry continued it; ColourLex states production 'was discontinued sometime in the second half of the twentieth century.' Use as the insecticide Paris green persisted until the DDT era. The ~1960 date is approximate.",
+          "source_url": "https://colourlex.com/project/emerald-green/",
+          "truth_status": "source-declared"
+        }
+      },
+      "lightfastness": "Reasonably lightfast for a copper green and notably more durable and brilliant than Scheele's green, but sources disagree on how lightfast (ColourLex calls it 'not very lightfast'). Its real weakness is chemical: it blackens on contact with sulfide-containing pigments (cadmium yellow, vermilion, ultramarine) and sulfur-bearing air, and is decomposed by acids and warm alkalis.",
+      "toxicity": "Extremely poisonous (high arsenic content). Widely implicated in 19th-century arsenic poisonings from wallpaper, paint and dyed goods; also deliberately deployed as an insecticide and rodenticide (Paris green). Wet or degrading surfaces can evolve toxic arsine gas. Handle only with full protection.",
+      "storage": "Keep away from sulfur: reaction with hydrogen sulfide and sulfide pigments forms black copper sulfide, so it must never be mixed with cadmiums, vermilion or ultramarine and should be isolated from polluted air. Decomposed by acids and warm alkalis and subject to hydrolysis in damp conditions, which can also release arsine. Store dry, cool and sealed; treat as a toxic arsenic material.",
+      "stories": [
+        {
+          "text": "Emerald/Paris green genuinely poisoned Victorian interiors: arsenical green wallpapers, paints and fabrics caused documented illness and deaths, and damp papers could evolve toxic arsine gas. The 'poison-green room' reputation is grounded in real toxicology, not legend.",
+          "source_url": "https://www.winsornewton.com/blogs/articles/emerald-green",
+          "truth_status": "verified"
+        },
+        {
+          "text": "Prized by the Impressionists and Post-Impressionists for its unmatched brilliance: it appears in works by Van Gogh, Cezanne, Gauguin, Monet and Renoir despite its known danger.",
+          "source_url": "https://colourlex.com/project/emerald-green/",
+          "truth_status": "verified"
+        },
+        {
+          "text": "The very same compound was mass-marketed as 'Paris green', an agricultural insecticide (e.g. against the Colorado potato beetle) and later in mosquito-larva control - a rare case of an artists' pigment doubling as a commercial poison.",
+          "source_url": "https://en.wikipedia.org/wiki/Paris_green",
+          "truth_status": "verified"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Strong dating marker. Commercial floor of 1814 (synthesis attempts c.1808): copper aceto-arsenite in a work dated earlier is anachronistic. Its crystalline aceto-arsenite chemistry distinguishes it from Scheele's arsenite (1775), so identifying which arsenic green is present sharpens the earliest-possible date."
+      },
+      "sources": [
+        "https://colourlex.com/project/emerald-green/",
+        "https://www.webexhibits.org/pigments/indiv/history/emerald.html",
+        "https://www.winsornewton.com/blogs/articles/emerald-green",
+        "https://en.wikipedia.org/wiki/Paris_green"
+      ],
+      "swatch": {
+        "hex": "#17A589",
+        "approximate": true
+      }
+    },
+    {
+      "id": "cobalt-blue",
+      "names": [
+        "cobalt blue",
+        "Thenard's blue",
+        "king's blue",
+        "cobalt(II) aluminate"
+      ],
+      "colour_index": "PB28",
+      "family": "blue",
+      "type": "synthetic-inorganic",
+      "origin": {
+        "source": "Developed by the French chemist Louis Jacques Thenard, who was commissioned to find an inorganic blue to replace ruinously expensive natural ultramarine; he built on the 1777 observation of cobalt aluminate by Gahn and Wenzel and perfected the pigment through work connected to the Sevres porcelain factory.",
+        "geography": "France (Thenard, Paris/Sevres); precursor observation by Gahn and Wenzel in Sweden/Germany, 1777"
+      },
+      "production": "Calcination of a cobalt salt with alumina. Historically Thenard roasted cobalt phosphate or cobalt arsenate together with hydrated alumina at high temperature to form a stable cobalt(II)-aluminate spinel; modern practice calcines cobalt(II) chloride or nitrate with aluminium oxide/hydroxide (typically ~1200 C), then washes and grinds the product. The method is essentially unchanged since Thenard.",
+      "chemistry": {
+        "composition": "Cobalt(II) aluminate, a mixed oxide of cobalt and aluminium (spinel structure), CoO·Al2O3. C.I. 77346.",
+        "formula": "CoAl2O4"
+      },
+      "dates": {
+        "first_attested": {
+          "year": 1802,
+          "text": "Thenard developed the pigment c.1802 and published his method in the Journal des mines in 1803-04 ('Sur les couleurs, suives d'un procede pour preparer une couleur bleue aussi belle que l'outremer'); commercial production followed in France by 1807. Sources give the invention as a 1802-07 range, so a precise single year should be avoided.",
+          "source_url": "https://colourlex.com/project/cobalt-blue/",
+          "truth_status": "source-declared"
+        },
+        "synthetic_from": null,
+        "obsolescence": null
+      },
+      "lightfastness": "Excellent and permanent (ASTM lightfastness I). Practically unaffected by light; stable to heat, concentrated acids and alkalis. One of the most reliable of all blues.",
+      "toxicity": "Cobalt compounds are toxic and the dry powder is the main hazard: inhalation of cobalt-bearing dust is linked to respiratory sensitisation and 'hard-metal' lung disease, and cobalt is classed as a possible carcinogen. The fired aluminate is relatively insoluble and stable within a paint film, but powders should be handled with mask and gloves and never ingested.",
+      "storage": "Chemically robust and needs no special environmental protection: it does not fade in light and resists acids, alkalis and heat. The main handling caution is the cobalt dust hazard rather than any instability of the paint. In oil it acts as a mild siccative (drier), which can promote drying-related cracking if used in excess or over lean layers, so film build should be managed accordingly.",
+      "stories": [
+        {
+          "text": "Cobalt blue was born of an economic problem: the French Minister of the Interior asked Thenard to find an affordable inorganic blue to replace natural ultramarine ground from lapis lazuli. The story is well documented as the pigment's motivating commission.",
+          "source_url": "https://www.webexhibits.org/pigments/indiv/history/coblue.html",
+          "truth_status": "source-declared"
+        },
+        {
+          "text": "It became a signature 19th-century blue: the brighter blues of the sky in Van Gogh's 'The Starry Night' (1889) are painted in cobalt blue, and Turner and Renoir used it too.",
+          "source_url": "https://colourlex.com/project/cobalt-blue/",
+          "truth_status": "verified"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Strong dating marker. Hard floor of c.1802-1807: cobalt(II) aluminate blue in a work dated before ~1802 is anachronistic. Do not confuse it with older cobalt-based blues - smalt (cobalt glass, in use since antiquity) and cobalt-containing glazes are chemically and structurally different, so the aluminate spinel specifically points to the 19th century onward."
+      },
+      "sources": [
+        "https://colourlex.com/project/cobalt-blue/",
+        "https://www.webexhibits.org/pigments/indiv/history/coblue.html",
+        "https://www.liquitex.com/blogs/uncapped/cobalt-blue"
+      ],
+      "swatch": {
+        "hex": "#1B4FA0",
+        "approximate": true
+      }
+    },
+    {
+      "id": "titanium-white",
+      "names": [
+        "titanium white",
+        "titanium dioxide white",
+        "titania",
+        "Pigment White 6"
+      ],
+      "colour_index": "PW6",
+      "family": "white",
+      "type": "synthetic-inorganic",
+      "origin": {
+        "source": "The element titanium was discovered by William Gregor in Cornwall in 1791 and named by Klaproth in 1795, but titanium dioxide only became a usable white pigment when industrial extraction from ilmenite/rutile ore was solved in the early 20th century. Commercialised in parallel by Norwegian (Titan Co / today Kronos Titan) and American (Titanium Pigment Company) firms.",
+        "geography": "Norway and the United States (industrial production from 1916); element first isolated in England (Cornwall), 1791"
+      },
+      "production": "Made from titanium ore, not mined as a colour. Sulfate process (early 20th century): digest ilmenite in sulfuric acid, hydrolyse to precipitate hydrous titania, then calcine to anatase or (with the right conditions) rutile. Chloride process (developed mid-20th century, e.g. DuPont): chlorinate the ore to titanium tetrachloride (TiCl4), then oxidise it to rutile TiO2, giving very pure, high-tint pigment. Early commercial pigment was anatase, often as composites with barium sulfate or calcium phosphate; the more durable rutile grade reached industrial scale from 1938 onward.",
+      "chemistry": {
+        "composition": "Titanium dioxide; two pigmentary crystal forms are used, anatase (earlier) and rutile (higher refractive index, more opaque and durable). C.I. 77891.",
+        "formula": "TiO2"
+      },
+      "dates": {
+        "first_attested": {
+          "year": 1916,
+          "text": "Industrial production of TiO2 pigment began in 1916 (Titan Co in Norway; the Titanium Pigment Company in the US ramping to full output 1918-1919). A titanium white oil colour suitable for artists was introduced by an American manufacturer in 1921. The more durable rutile grade only reached commercial scale from 1938. So the practical floor is ~1916-1921, with a later ~1938 floor specifically for rutile.",
+          "source_url": "https://www.webexhibits.org/pigments/indiv/history/titaniumwhite.html",
+          "truth_status": "verified"
+        },
+        "synthetic_from": null,
+        "obsolescence": null
+      },
+      "lightfastness": "Excellent and permanent (ASTM lightfastness I); does not yellow or fade. It is the strongest, most opaque white available, with roughly twice the hiding power of lead white. The one caveat is the anatase form, whose photocatalytic activity can degrade the surrounding organic binder ('chalking') under UV; rutile is far more inert and is preferred for durability.",
+      "toxicity": "Effectively non-toxic and chemically inert as a pigment - one of the safest whites, and a modern replacement for poisonous lead white. The only recognised concern is industrial-scale inhalation of fine TiO2 dust (classed by IARC as a possible carcinogen, group 2B, for inhaled dust), so bulk powder should not be breathed; the paint film itself is benign.",
+      "storage": "Very stable to light, humidity and pollutants; no special environmental controls needed for colour permanence. Conservation cautions are about film behaviour, not fading: pure TiO2 in oil dries to a weak, spongy film, so artists' whites blend it with zinc oxide and/or inert extenders (zinc dries brittle, so the two balance each other). Anatase-based paints from the 1920s-30s can show binder chalking/erosion under UV; rutile (post-1938) is much more robust.",
+      "stories": [
+        {
+          "text": "Titanium white replaced toxic lead white and weaker zinc white as the dominant artists' and industrial white of the 20th century because of its non-toxicity, brilliance and unmatched opacity - a genuine materials shift rather than a marketing tale.",
+          "source_url": "https://www.acsa-arch.org/chapter/hyper-white-entanglements-a-brief-history-of-titanium-white/",
+          "truth_status": "verified"
+        },
+        {
+          "text": "Because it cannot exist in paint before ~1916-1921, titanium white is a classic forensic 'tell' in authentication: detecting it in a picture that claims to be an old master exposes the work as a modern production or repaint. Its hard post-WWI floor makes it one of the most decisive anachronism pigments.",
+          "source_url": "https://cameo.mfa.org/wiki/Titanium_dioxide",
+          "truth_status": "verified"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Very strong dating marker - arguably the single most decisive pigment anachronism. Hard floor ~1916-1921 for any titanium white; the rutile crystal form pushes the floor to ~1938. Titanium white in a painting purporting to predate ~1920 is proof of a modern date or later intervention. Anatase vs rutile identification (e.g. by Raman/XRD) can further separate 1920s-30s work from post-1938 work."
+      },
+      "sources": [
+        "https://www.webexhibits.org/pigments/indiv/history/titaniumwhite.html",
+        "https://www.webexhibits.org/pigments/indiv/history/tiwhite.html",
+        "https://www.acsa-arch.org/chapter/hyper-white-entanglements-a-brief-history-of-titanium-white/",
+        "https://cameo.mfa.org/wiki/Titanium_dioxide"
+      ],
+      "swatch": {
+        "hex": "#FBFBF7",
+        "approximate": true
+      }
+    },
+    {
+      "id": "mauveine",
+      "names": [
+        "Mauveine",
+        "Mauve",
+        "Aniline purple",
+        "Perkin's mauve",
+        "Perkin's violet",
+        "Aniline violet",
+        "Tyrian purple (trade name)",
+        "Rosolan"
+      ],
+      "colour_index": null,
+      "family": "purple",
+      "type": "synthetic-organic",
+      "origin": {
+        "source": "Coal tar. The starting material, aniline, was distilled from benzene fractions of coal tar (itself a by-product of coal-gas manufacture); the toluidine impurities essential to the colour also came from coal tar.",
+        "geography": "London, England. First made in William Henry Perkin's home laboratory (Cable Street, East London); manufactured from 1857 at Perkin & Sons' works, Greenford Green, Middlesex."
+      },
+      "production": "Perkin oxidised impure aniline (crucially containing o- and p-toluidine) with potassium dichromate in cold dilute sulfuric acid, yielding a black tarry precipitate. Extraction with methylated spirit gave an intense purple solution that dyed silk. Modern reconstructions (Nature, 2017) dissolve aniline, p-toluidine and o-toluidine (~1:1:2) in sulfuric acid/water and add potassium dichromate. Not manufactured as a commercial colorant today; made only for reference/heritage study.",
+      "chemistry": {
+        "composition": "A mixture of methylated phenazinium (safranine-type azine) salts, not a single compound; at least 12 related chromophores identified by 2008. Mauveine A (2 aniline + 1 p-toluidine + 1 o-toluidine unit) and mauveine B (1 aniline + 1 p-toluidine + 2 o-toluidine) are the principal dyes. Colour Index Constitution Number C.I. 50245 (an azine dye); it has no artist-pigment Colour Index Generic Name because it was a textile dye, not a paint pigment.",
+        "formula": "C27H25N4+ (mauveine B cation; mauveine A cation = C26H23N4+), originally isolated as the sulfate/acetate/chloride salt"
+      },
+      "dates": {
+        "first_attested": {
+          "year": 1856,
+          "text": "Discovered by William Henry Perkin (aged 18) in Easter 1856 while attempting to synthesise quinine; British patent No. 1984 filed 26 August 1856. Universally credited as the first synthetic (aniline/coal-tar) dye.",
+          "source_url": "https://en.wikipedia.org/wiki/Mauveine",
+          "truth_status": "verified"
+        },
+        "synthetic_from": {
+          "year": 1856,
+          "text": "Mauveine is inherently synthetic — the first aniline/coal-tar dye. Its hard chronological floor is Perkin's 1856 discovery and 26 August 1856 patent; commercial production began 1857 at Greenford.",
+          "source_url": "https://blog.scienceandindustrymuseum.org.uk/worlds-first-synthetic-dye/",
+          "truth_status": "verified"
+        },
+        "obsolescence": {
+          "year": 1873,
+          "text": "Demand collapsed as faster, cheaper aniline colours (e.g. Hofmann's violets, magenta/fuchsine and later azo dyes) arrived; the 'mauve' fashion had passed by c.1870 and Perkin sold his dyeworks and left the business in 1873-1874. Still occasionally synthesised today only for conservation reference.",
+          "source_url": "https://en.wikipedia.org/wiki/Mauveine",
+          "truth_status": "source-declared"
+        }
+      },
+      "lightfastness": "Poor / fugitive. Mauveine is not lightfast and fades appreciably on prolonged light exposure — a recognised weakness relative to later synthetic dyes. Surviving mauve-dyed textiles from the 1850s-60s are typically much faded from their original vivid purple.",
+      "toxicity": "The dye itself is of low acute toxicity (it was even permitted as a food/cosmetic colour in the early 20th century under names such as 'rosolan'). The real hazard was occupational: aniline-dye workers handling the aromatic-amine feedstocks were later shown to have markedly elevated rates of bladder cancer (transitional-cell carcinoma).",
+      "storage": "As a textile dye it is fugitive: display and store dyed objects at low light levels (fading is cumulative and irreversible), stable humidity, and away from UV. Historic garments and Perkin reference samples are kept in dark archival storage; any purple that has shifted toward grey/brown indicates photo-fading of the azine chromophore.",
+      "stories": [
+        {
+          "text": "Perkin discovered mauveine by accident at 18: trying to synthesise the anti-malarial quinine from aniline, he instead got a black sludge that stained silk brilliant purple. He recognised its value, patented it, and left academia to manufacture it — launching the synthetic-dye and coal-tar (later pharmaceutical) industries.",
+          "source_url": "https://www.sciencehistory.org/education/scientific-biographies/william-henry-perkin/",
+          "truth_status": "verified"
+        },
+        {
+          "text": "The colour became a craze: Queen Victoria and Empress Eugenie of France wore mauve, and in 1859 Punch magazine satirised the 'Mauve Measles' spreading through London society.",
+          "source_url": "https://en.wikipedia.org/wiki/Mauveine",
+          "truth_status": "source-declared"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Very strong terminus post quem. Mauveine is the first synthetic organic dye; it could not exist before Easter/August 1856. Any textile or object coloured with mauveine (confirmable by HPLC/Raman of its azine chromophores) must post-date spring 1856, and its heyday is tightly bracketed 1857-c.1870."
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Mauveine",
+        "https://blog.scienceandindustrymuseum.org.uk/worlds-first-synthetic-dye/",
+        "https://www.sciencehistory.org/education/scientific-biographies/william-henry-perkin/",
+        "https://www.nature.com/articles/s41598-017-07239-z",
+        "https://cameo.mfa.org/wiki/Mauveine",
+        "https://www.sciencedirect.com/topics/chemistry/mauveine"
+      ],
+      "swatch": {
+        "hex": "#8E4585",
+        "approximate": true
+      }
+    },
+    {
+      "id": "viridian",
+      "names": [
+        "Viridian",
+        "Guignet's green",
+        "Vert Guignet",
+        "Hydrated chromium oxide green",
+        "Transparent oxide of chromium",
+        "Emerald oxide of chromium (not to be confused with toxic emerald/Paris green)",
+        "Pannetier's green",
+        "Mittler's green"
+      ],
+      "colour_index": "PG18",
+      "family": "green",
+      "type": "synthetic-inorganic",
+      "origin": {
+        "source": "Chromium, ultimately from chrome ore (chromite) via chromate/dichromate salts; the pigment is the hydrated trivalent oxide.",
+        "geography": "Paris, France (Pannetier & Binet, then Guignet)."
+      },
+      "production": "Pannetier (with Binet) prepared a hydrated chromium-oxide green by a secret, costly process from about 1838. Guignet's 1859 patented industrial route calcines an alkali dichromate (e.g. sodium/potassium dichromate) with boric acid, then hydrolyses and washes the melt to yield hydrated chromium(III) oxide Cr2O3·2H2O, retaining the bound water that gives the transparent blue-green. Still made essentially this way.",
+      "chemistry": {
+        "composition": "Hydrated chromium(III) oxide (chromium sesquioxide dihydrate). The bound water distinguishes transparent blue-green viridian (PG18) from opaque, yellower anhydrous chromium oxide green Cr2O3 (PG17). Colour Index PG18, C.I. 77289.",
+        "formula": "Cr2O3·2H2O"
+      },
+      "dates": {
+        "first_attested": {
+          "year": 1838,
+          "text": "First prepared by Pannetier (with Binet) in Paris 'around 1838' by a secret, expensive process; sources give the date as approximate.",
+          "source_url": "https://colourlex.com/project/viridian/",
+          "truth_status": "source-declared"
+        },
+        "synthetic_from": {
+          "year": 1859,
+          "text": "Hard commercial floor: French chemist C.-E. Guignet patented a cheap manufacturing method in 1859 (borax-calcination route), which put viridian into wide artists' use. Viridian is wholly synthetic — there is no natural source.",
+          "source_url": "https://colourlex.com/project/viridian/",
+          "truth_status": "verified"
+        },
+        "obsolescence": null
+      },
+      "lightfastness": "Excellent — ASTM lightfastness I / permanent. One of the most stable pigments known: resistant to light, heat, dilute acids and alkalis, and compatible with all other pigments; does not fade or discolour.",
+      "toxicity": "The finished pigment (chromium in the trivalent Cr(III) state) is of low toxicity and is generally regarded as safe/non-toxic — a key reason it replaced poisonous copper-arsenite greens. The hazard lies in manufacture: the chromate/dichromate precursors are hexavalent Cr(VI), which are highly toxic and carcinogenic and must be handled by trained personnel.",
+      "storage": "Extremely stable and permanent; no special conservation concerns. It neither fades in light nor reacts with pollutants or other pigments, and is a reliable marker layer in cross-sections precisely because it does not alter.",
+      "stories": [
+        {
+          "text": "Viridian is the safe substitute for the deadly 'emerald green' (copper acetoarsenite / Scheele's green): both are brilliant greens and the names are historically muddled, but viridian is a non-toxic chromium oxide while true emerald green poisoned rooms and people. It became the standard cool green of the Impressionists and Post-Impressionists (Cezanne, Monet, Van Gogh).",
+          "source_url": "https://www.jacksonsart.com/blog/2021/04/02/pigments-the-story-of-viridian-green/",
+          "truth_status": "source-declared"
+        },
+        {
+          "text": "Guignet's 1859 patent turned a secret, expensive laboratory curiosity (Pannetier's ~1838 green) into an affordable, mass-available artists' colour, which is why viridian appears on palettes only from roughly the 1860s onward.",
+          "source_url": "https://colourlex.com/project/viridian/",
+          "truth_status": "source-declared"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Moderately strong terminus post quem. Viridian cannot predate Pannetier's ~1838 preparation, and as a widely available paint it postdates Guignet's 1859 patent. A transparent hydrated-chromium-oxide green (PG18, identifiable by Raman/XRD) in a painting dated before ~1840 is anachronistic; realistic appearance is c.1860+."
+      },
+      "sources": [
+        "https://colourlex.com/project/viridian/",
+        "https://cameo.mfa.org/wiki/Viridian",
+        "https://www.webexhibits.org/pigments/indiv/overview/viridian.html",
+        "https://www.jacksonsart.com/blog/2021/04/02/pigments-the-story-of-viridian-green/",
+        "https://en.wikipedia.org/wiki/Viridian"
+      ],
+      "swatch": {
+        "hex": "#2E8B7A",
+        "approximate": true
+      }
+    },
+    {
+      "id": "cadmium-yellow",
+      "names": [
+        "Cadmium yellow",
+        "Cadmium sulfide yellow",
+        "Cadmium lemon / pale (cadmium zinc sulfide, PY35)",
+        "Cadmium yellow deep (CdS, PY37)",
+        "Aurora yellow (trade name)"
+      ],
+      "colour_index": "PY37",
+      "family": "yellow",
+      "type": "synthetic-inorganic",
+      "origin": {
+        "source": "Cadmium metal, a by-product of zinc smelting (occurs naturally as the rare sulfide mineral greenockite, CdS); combined with sulfur.",
+        "geography": "Germany — the element cadmium was discovered by Friedrich Stromeyer at Gottingen in 1817; the pigment was commercialised in Germany from about 1840."
+      },
+      "production": "An acidic solution of a soluble cadmium salt (chloride or sulfate) is precipitated with hydrogen sulfide (or sodium sulfide) to give cadmium sulfide, which is washed and calcined. Hue is tuned by particle size and composition: adding zinc sulfide shifts it to greenish lemon (PY35); adding selenium shifts toward orange/red (cadmium selenosulfide). Historically limited by the scarcity/cost of cadmium metal.",
+      "chemistry": {
+        "composition": "Cadmium sulfide, CdS (deep/medium shades = PY37, C.I. 77199). Light and lemon shades are cadmium zinc sulfide (Cd,Zn)S = PY35, C.I. 77205; oranges/reds trend toward cadmium selenosulfide Cd(S,Se). Not compatible with lead- or copper-containing pigments (forms dark lead/copper sulfides).",
+        "formula": "CdS"
+      },
+      "dates": {
+        "first_attested": {
+          "year": 1817,
+          "text": "Cadmium discovered by Friedrich Stromeyer in 1817 (as an impurity in zinc carbonate/oxide); cadmium sulfide was proposed as a pigment very shortly after, c.1818-1819. This is the absolute floor for the material's existence.",
+          "source_url": "https://www.webexhibits.org/pigments/indiv/history/cdyellow.html",
+          "truth_status": "verified"
+        },
+        "synthetic_from": {
+          "year": 1840,
+          "text": "Commercial availability as an artists' pigment was delayed until about 1840, and it entered artists' use in the mid-1840s, because of the scarcity and cost of cadmium metal. Sources give a range (c.1840 to mid-1840s), so the exact market date is approximate.",
+          "source_url": "https://colourlex.com/project/cadmium-yellow/",
+          "truth_status": "source-declared"
+        },
+        "obsolescence": null
+      },
+      "lightfastness": "Well-made, pure cadmium sulfide is highly lightfast (ASTM I). However, cadmium yellow is not unconditionally permanent: under light plus oxygen and moisture, CdS can photo-oxidise to colourless cadmium sulfate (CdSO4), causing fading, whitening, chalking and flaking. Vulnerability is greatest in early/defective material (small ~5-10 nm, chlorine-doped, poorly crystalline particles), documented in Munch's The Scream and Matisse's Le Bonheur de vivre.",
+      "toxicity": "Cadmium compounds are toxic and cadmium is a recognised carcinogen. The bound sulfide pigment has low bioavailability, but dust must not be inhaled (avoid sanding/spraying) or ingested, and soluble cadmium is the greater hazard. Restrictions have been debated in the EU. Handle with gloves/mask; do not use for skin or food contact.",
+      "storage": "Stable in the dark but sensitive to the combination of UV light, oxygen and humidity, which drives the CdS -> CdSO4 photodegradation; also sensitive to vibration and to swings in temperature/RH. Keep at moderate, stable RH and temperature, limit UV, and avoid mixing with lead- or copper-based pigments (dark sulfide formation). Munch's The Scream is displayed in a low-light enclosed cabinet for this reason.",
+      "stories": [
+        {
+          "text": "Cadmium yellow paint in Edvard Munch's The Scream is undergoing severe degradation: synchrotron and electron-microscopy studies show the CdS oxidising to cadmium sulfate, the pigment consisting of defective chlorine-doped nanoparticles inherently prone to photodegradation — which is why the museum limits its light exposure.",
+          "source_url": "https://arxiv.org/pdf/1909.01933",
+          "truth_status": "verified"
+        },
+        {
+          "text": "The same CdS-to-CdSO4 photodegradation has been identified in Henri Matisse's Le Bonheur de vivre (1905-06), where bright cadmium yellows have faded and altered — a key case study in modern conservation science.",
+          "source_url": "https://www.esrf.fr/news/general/van-gogh-cds/index_html",
+          "truth_status": "verified"
+        }
+      ],
+      "anachronism_marker": {
+        "is_marker": true,
+        "note": "Strong terminus post quem. Cadmium did not exist as an isolated element before 1817, so cadmium yellow (CdS, detectable by XRF cadmium signal + Raman) cannot appear in any work predating 1817, and as a paint is realistically not before c.1840-1845. A cadmium yellow in a nominally 18th-century or earlier painting is decisive evidence of later work, restoration, or forgery."
+      },
+      "sources": [
+        "https://colourlex.com/project/cadmium-yellow/",
+        "https://www.webexhibits.org/pigments/indiv/history/cdyellow.html",
+        "https://www.jacksonsart.com/blog/2024/07/08/cadmium-yellow-the-first-modern-yellow-pigment/",
+        "https://cameo.mfa.org/wiki/Cadmium_yellow",
+        "https://www.esrf.fr/news/general/van-gogh-cds/index_html",
+        "https://arxiv.org/pdf/1909.01933"
+      ],
+      "swatch": {
+        "hex": "#F4C400",
+        "approximate": true
+      }
+    }
+  ]
+}
