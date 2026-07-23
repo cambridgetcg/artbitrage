@@ -18,6 +18,8 @@
     { id: 'ai',            label: 'AI Art',            href: '/ai' },
     { id: 'wine',          label: 'Wine',              href: '/wine' },
     { id: 'cigar',         label: 'Cigar',             href: '/cigar' },
+    { id: 'trade',         label: 'Trade',             href: '/trade' },
+    { id: 'pigments',      label: 'Pigments',          href: '/pigments' },
   ];
 
   var currentEra = document.body.getAttribute('data-era') || '';
@@ -127,6 +129,7 @@
     ai: ['#a78bfa', '#00f0ff', '#ff6b9d'],
     wine: ['#c94f6d', '#722f37', '#d4af37'],
     cigar: ['#c98e4f', '#8b5a2b', '#e3d3bc'],
+    pigments: ['#1346a6', '#b98a3e', '#66023c'],
   };
 
   var colors = particleColors[currentEra] || ['#ff6b9d', '#ffd700', '#00f0ff'];

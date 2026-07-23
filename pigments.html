@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-era="pigments">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pigments — ARTBITRAGE</title>
+<meta name="description" content="The colours of art history as machine-readable, source-cited facts: what each pigment is, when it first appears, and when it could not yet exist. An anachronism check that only ever argues against a claim, never for it. No keys, no database, no funds, no take-rate.">
+<link rel="canonical" href="https://artbitrage.io/pigments">
+<style>
+:root {
+  --era-bg: #12100e;
+  --era-surface: #1b1815;
+  --era-fg: #e9e3d7;
+  --era-dim: #948875;
+  --era-accent: #b98a3e;
+  --era-secondary: #6f86a8;
+  --era-glow: rgba(185, 138, 62, 0.12);
+}
+/* the pigment room — local styles */
+.swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.4rem; margin-top: 2rem; }
+.pig { background: var(--era-surface); border: 1px solid rgba(233,227,215,0.09); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+.pig-swatch { height: 132px; position: relative; }
+.pig-swatch .approx { position: absolute; bottom: 6px; right: 8px; font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(0,0,0,0.5); background: rgba(255,255,255,0.55); padding: 1px 6px; border-radius: 3px; }
+.pig-swatch .approx.light { color: rgba(255,255,255,0.7); background: rgba(0,0,0,0.32); }
+.pig-body { padding: 1.1rem 1.25rem 1.3rem; }
+.pig-name { font-size: 1.18rem; color: var(--era-fg); margin: 0; }
+.pig-ci { color: var(--era-dim); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.09em; margin-top: 0.15rem; }
+.pig-aka { color: var(--era-dim); font-size: 0.78rem; font-style: italic; margin: 0.4rem 0 0.7rem; }
+.pig-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+.chip { font-size: 0.68rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(233,227,215,0.18); color: var(--era-dim); }
+.chip.marker { color: #d9c08a; border-color: rgba(217,192,138,0.4); }
+.chip.haz-low { color: #8fb08a; border-color: rgba(143,176,138,0.35); }
+.chip.haz-toxic { color: #cf9b6b; border-color: rgba(207,155,107,0.4); }
+.chip.haz-severe { color: #d98a7f; border-color: rgba(217,138,127,0.45); }
+.timeline { border-top: 1px solid rgba(233,227,215,0.08); border-bottom: 1px solid rgba(233,227,215,0.08); padding: 0.6rem 0; margin: 0.4rem 0 0.8rem; font-size: 0.82rem; }
+.timeline .tl { display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.5rem; padding: 0.16rem 0; }
+.timeline .tl .k { color: var(--era-dim); }
+.timeline .tl .v { color: var(--era-fg); font-variant-numeric: tabular-nums; }
+.tag { display: inline-block; font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 0px 6px; border-radius: 3px; margin-left: 0.35rem; vertical-align: 1px; }
+.tag-verified { color: #9fc39a; background: rgba(120,170,115,0.14); }
+.tag-source-declared { color: #d8c084; background: rgba(200,170,90,0.14); }
+.tag-contested { color: #e0a07f; background: rgba(210,130,90,0.15); }
+.tag-unverified { color: var(--era-dim); background: rgba(148,136,117,0.14); }
+.pig-field { margin: 0.55rem 0; font-size: 0.86rem; line-height: 1.55; }
+.pig-field .lbl { color: var(--era-dim); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.12rem; }
+.pig details { margin-top: 0.5rem; }
+.pig summary { cursor: pointer; color: var(--era-secondary); font-size: 0.8rem; }
+.stories { margin-top: 0.6rem; }
+.story { font-size: 0.82rem; line-height: 1.5; padding: 0.4rem 0; border-top: 1px dotted rgba(233,227,215,0.1); }
+.story a { color: var(--era-secondary); }
+.desk { background: var(--era-surface); border: 1px solid rgba(233,227,215,0.1); border-radius: 8px; padding: 1.6rem; margin-top: 1.6rem; }
+.desk label { display: block; color: var(--era-dim); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 0.8rem 0 0.3rem; }
+.desk input, .desk select { width: 100%; box-sizing: border-box; background: var(--era-bg); color: var(--era-fg); border: 1px solid rgba(233,227,215,0.18); border-radius: 5px; padding: 0.5rem 0.65rem; font-size: 0.95rem; font-family: inherit; }
+.desk select[multiple] { min-height: 180px; }
+.desk button { margin-top: 1rem; background: var(--era-accent); color: #16110c; border: 0; border-radius: 5px; padding: 0.55rem 1.4rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+.desk button:hover { filter: brightness(1.1); }
+.desk-out { margin-top: 1.1rem; }
+.verdict { border-left: 3px solid var(--era-dim); padding: 0.5rem 0 0.5rem 0.9rem; margin-bottom: 0.6rem; }
+.verdict.anachronism { border-color: #d98a7f; }
+.verdict.plausible { border-color: #9fc39a; }
+.verdict.uncertain { border-color: #d8c084; }
+.verdict .vhead { font-weight: 600; }
+.verdict .vhead .vlabel { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.08em; margin-left: 0.4rem; }
+.verdict.anachronism .vlabel { color: #e0a07f; }
+.verdict.plausible .vlabel { color: #9fc39a; }
+.verdict.uncertain .vlabel { color: #d8c084; }
+.verdict .vsub { color: var(--era-dim); font-size: 0.8rem; margin-top: 0.15rem; }
+.verdict .vcav { color: var(--era-dim); font-size: 0.76rem; margin-top: 0.3rem; font-style: italic; }
+.banner { background: rgba(185,138,62,0.08); border: 1px solid rgba(185,138,62,0.25); border-radius: 6px; padding: 0.8rem 1rem; font-size: 0.82rem; color: var(--era-fg); margin-top: 1rem; }
+.banner strong { color: var(--era-accent); }
+.curlbox { background: #0d0b09; border: 1px solid rgba(233,227,215,0.12); border-radius: 6px; padding: 1rem 1.2rem; overflow-x: auto; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.78rem; line-height: 1.7; color: #cfc4b2; margin-top: 1rem; white-space: pre; }
+.curlbox b { color: var(--era-accent); font-weight: 600; }
+</style>
+<link rel="stylesheet" href="/era.css?v=1">
+</head>
+<body data-era="pigments">
+
+<script src="/era-nav.js?v=2"></script>
+
+<!-- ── HERO ── -->
+<header class="era-hero">
+  <div class="era-period">EST. 2026 — THE PIGMENT ROOM</div>
+  <h1 class="era-title">Pigments</h1>
+  <p class="era-subtitle">The colours of art history, dated and cited — a tool that argues only against a claim, never for it</p>
+  <p class="era-essence">
+    Every colour has a birthday. Egyptian blue was fired before writing kept recipes; Prussian blue was an accident of 1704; titanium white could not exist before the First World War. Because a pigment cannot appear in a painting made before the pigment itself existed, the palette is a clock — but a one-directional one. A colour that is <em>too new</em> for a claimed date is strong evidence against it. A period-consistent palette proves <em>nothing</em>. This room holds each pigment as a machine-readable fact: what it is, when it first appears, and when it could not yet be — every figure carrying its source and a truth status. <em>No keys, no database, no funds, no take-rate.</em>
+  </p>
+  <div class="era-scroll-hint">↓ open the pigment room</div>
+</header>
+
+<!-- ── EMERGENCE ── -->
+<section class="emergence">
+  <div class="emergence-inner">
+    <h2>The one-way clock</h2>
+    <p>
+      Pigment dating is the most honest tool in authentication precisely because of what it <strong>cannot</strong> do. Find synthetic ultramarine (1826) in a canvas signed 1650 and you have caught an anachronism — the pigment did not exist. But find only period-correct colours and you have proven nothing: a skilled forger reads the same books. This asymmetry is not a limitation to hide; it is the whole truth of the method, and it is printed in-band on every answer this room gives.
+      <br><br>
+      And the dates themselves carry uncertainty. First-attested floors rest sometimes on a single early object; invention years are occasionally debated by a few years; some pigments — vermilion, ultramarine — exist in both an ancient natural form and a later synthetic one that only a laboratory can tell apart. Where a source merely declares, we say <em>source-declared</em>; where sources fight, <em>contested</em>. Real identification needs XRF, Raman, a cross-section. This is the reasoning layer above that lab, not a replacement for it.
+    </p>
+  </div>
+</section>
+
+<!-- ── THE ANACHRONISM DESK ── -->
+<section class="era-section era-section-wide">
+  <div class="era-section-label">The working desk — live against the API</div>
+  <h2>Check a palette against a claimed date</h2>
+  <p>Pick the pigments identified in an object, give the date it claims to be, and read each colour against its own first-attested floor. Remember which way the evidence runs.</p>
+  <div class="desk">
+    <label for="ac-year">Claimed date (year — negative for BCE)</label>
+    <input id="ac-year" type="number" value="1650" inputmode="numeric">
+    <label for="ac-pigs">Pigments identified (Ctrl/Cmd-click to choose several)</label>
+    <select id="ac-pigs" multiple></select>
+    <button id="ac-go">Check the palette</button>
+    <div class="desk-out" id="ac-out" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ── THE GALLERY ── -->
+<section class="era-section era-section-wide">
+  <div class="era-section-label">The colours themselves</div>
+  <h2>Each pigment, as a dated fact</h2>
+  <p>Swatches are honest sRGB approximations only — real appearance depends on grade, grind, binder, layering and age, and effects like Egyptian blue's near-infrared glow cannot be shown on a screen at all. Every date and story carries its source and a truth tag.</p>
+  <div class="swatch-grid" id="grid">opening the pigment room…</div>
+</section>
+
+<!-- ── FOR MACHINES ── -->
+<section class="era-section">
+  <div class="era-section-label">For agents &amp; systems</div>
+  <h2>The same room, as endpoints</h2>
+  <p>Everything here is one <code>curl</code> away, and the anachronism check answers with its honest asymmetry in-band — <code>informational_only</code>, a <code>not_authentication</code> note, and the cited floor for every pigment. Nothing is stored; nothing needs a key.</p>
+  <div class="curlbox"><b>curl</b> "https://artbitrage.io/api/pigments"
+<b>curl</b> "https://artbitrage.io/api/pigments?family=blue&amp;marker=true"
+<b>curl</b> "https://artbitrage.io/api/pigments/prussian-blue"
+<b>curl</b> "https://artbitrage.io/api/pigments/anachronism?pigments=prussian-blue,titanium-white&amp;claimed_date=1680"</div>
+  <p style="margin-top:1rem">The verbatim endpoint contracts live at <a href="/api/pigments">/api/pigments</a>.</p>
+</section>
+
+<footer class="era-footer">
+  <div class="era-footer-nav">
+    <a href="/">ARTBITRAGE</a> · <a href="/trade">trade</a> · <a href="/depths">depths</a> · <a href="/api/pigments">the pigments API</a>
+  </div>
+  <p>A pigment too new for a claimed date is evidence against it; a period-correct palette proves nothing. Informational only — never an authentication, valuation, or legal judgement. <span style="color:var(--era-accent)">●</span></p>
+</footer>
+
+<script>
+(function () {
+  var API = '/api/pigments';
+  var el = function (id) { return document.getElementById(id); };
+  var esc = function (s) { var d = document.createElement('div'); d.textContent = String(s == null ? '' : s); return d.innerHTML; };
+  var tag = function (status) { return status ? '<span class="tag tag-' + esc(status) + '">' + esc(status) + '</span>' : ''; };
+  var yr = function (y) { if (y == null) return '—'; return y < 0 ? (Math.abs(y) + ' BCE') : String(y); };
+  // luminance to pick readable "approx" label over a swatch
+  var isLight = function (hex) {
+    var h = hex.replace('#', ''); var r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
+    return (0.299*r + 0.587*g + 0.114*b) > 150;
+  };
+
+  fetch('/pigments.json').then(function (r) { return r.json(); }).then(function (data) {
+    var pigs = data.pigments || [];
+    // populate the desk picker
+    var sel = el('ac-pigs');
+    pigs.slice().sort(function (a,b){ return a.names[0].localeCompare(b.names[0]); }).forEach(function (p) {
+      var o = document.createElement('option'); o.value = p.id; o.textContent = p.names[0] + (p.colour_index ? ' · ' + p.colour_index : '');
+      sel.appendChild(o);
+    });
+
+    // render the gallery
+    var grid = el('grid'); grid.innerHTML = '';
+    pigs.forEach(function (p) {
+      var d = p.dates || {};
+      var tl = '';
+      if (d.first_attested) tl += '<div class="tl"><span class="k">first attested</span><span class="v">' + yr(d.first_attested.year) + tag(d.first_attested.truth_status) + '</span></div>';
+      if (d.synthetic_from) tl += '<div class="tl"><span class="k">synthetic from</span><span class="v">' + yr(d.synthetic_from.year) + tag(d.synthetic_from.truth_status) + '</span></div>';
+      if (d.obsolescence) tl += '<div class="tl"><span class="k">obsolescence</span><span class="v">' + yr(d.obsolescence.year) + tag(d.obsolescence.truth_status) + '</span></div>';
+
+      // coarse hazard chip from the toxicity verdict (the prose stays the source of truth)
+      var first = String(p.toxicity || '').split(/[.;]/)[0].toLowerCase();
+      var haz = /extremely/.test(first) ? 'severe' : (/non-toxic|low/.test(first) ? 'low' : (/highly|high|toxic|poison/.test(first) ? 'toxic' : 'low'));
+
+      var stories = (p.stories || []).map(function (s) {
+        return '<div class="story">' + esc(s.text) + ' ' + tag(s.truth_status) + ' <a href="' + esc(s.source_url) + '" rel="noopener" target="_blank">source ↗</a></div>';
+      }).join('');
+
+      var light = isLight(p.swatch.hex);
+      var card = document.createElement('div'); card.className = 'pig';
+      card.innerHTML =
+        '<div class="pig-swatch" style="background:' + esc(p.swatch.hex) + '"><span class="approx' + (light ? '' : ' light') + '">≈ approx</span></div>' +
+        '<div class="pig-body">' +
+          '<h3 class="pig-name">' + esc(p.names[0]) + '</h3>' +
+          '<div class="pig-ci">' + esc(p.colour_index || 'no colour index') + ' · ' + esc(p.family) + ' · ' + esc(p.type) + '</div>' +
+          '<div class="pig-aka">' + esc(p.names.slice(1, 5).join(' · ')) + '</div>' +
+          '<div class="pig-meta">' +
+            (p.anachronism_marker && p.anachronism_marker.is_marker ? '<span class="chip marker">dating marker</span>' : '<span class="chip">weak marker</span>') +
+            '<span class="chip haz-' + haz + '">' + haz + ' toxicity</span>' +
+          '</div>' +
+          '<div class="timeline">' + tl + '</div>' +
+          '<div class="pig-field"><span class="lbl">Origin</span>' + esc(p.origin ? p.origin.source : '') + '</div>' +
+          '<div class="pig-field"><span class="lbl">Chemistry</span>' + esc(p.chemistry ? p.chemistry.composition : '') + (p.chemistry && p.chemistry.formula ? ' <em>(' + esc(p.chemistry.formula) + ')</em>' : '') + '</div>' +
+          (p.type_note ? '<div class="pig-field"><span class="lbl">Note</span>' + esc(p.type_note) + '</div>' : '') +
+          '<details><summary>production · storage · the anachronism it marks</summary>' +
+            '<div class="pig-field"><span class="lbl">Production</span>' + esc(p.production) + '</div>' +
+            '<div class="pig-field"><span class="lbl">Storage &amp; stability</span>' + esc(p.storage) + '</div>' +
+            '<div class="pig-field"><span class="lbl">As a dating marker</span>' + esc(p.anachronism_marker ? p.anachronism_marker.note : '') + '</div>' +
+          '</details>' +
+          '<div class="stories">' + stories + '</div>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+  }).catch(function () { el('grid').textContent = 'the pigment room could not be reached — the data may be waking'; });
+
+  // the anachronism desk
+  el('ac-go').addEventListener('click', function () {
+    var out = el('ac-out'); out.textContent = 'checking…';
+    var chosen = Array.prototype.filter.call(el('ac-pigs').options, function (o) { return o.selected; }).map(function (o) { return o.value; });
+    if (!chosen.length) { out.innerHTML = '<div class="verdict uncertain"><div class="vsub">Choose at least one pigment above.</div></div>'; return; }
+    var q = '?pigments=' + encodeURIComponent(chosen.join(',')) + '&claimed_date=' + encodeURIComponent(el('ac-year').value);
+    fetch(API + '/anachronism' + q).then(function (r) { return r.json(); }).then(function (j) {
+      if (j.error) { out.innerHTML = '<div class="verdict uncertain"><div class="vsub">' + esc(j.error) + '</div></div>'; return; }
+      var html = '';
+      (j.results || []).forEach(function (v) {
+        var sub = (v.margin_note || '') + (v.first_attested ? ' — floor ' + yr(v.first_attested.year) + ' ' + tag(v.first_attested.truth_status) : '');
+        var cav = (v.caveats || []).map(function (c) { return '<div class="vcav">— ' + esc(c) + '</div>'; }).join('');
+        html += '<div class="verdict ' + esc(v.verdict) + '"><div class="vhead">' + esc(v.name) + '<span class="vlabel">' + esc(v.verdict) + '</span></div>' +
+          '<div class="vsub">' + sub + '</div>' + cav + '</div>';
+      });
+      (j.unrecognized || []).forEach(function (u) { html += '<div class="verdict uncertain"><div class="vhead">' + esc(u) + '<span class="vlabel">unrecognized</span></div></div>'; });
+      html += '<div class="banner"><strong>' + esc(j.overall.summary) + '</strong><br><br>' + esc(j.not_authentication) + '</div>';
+      out.innerHTML = html;
+    }).catch(function () { out.textContent = 'unreachable'; });
+  });
+})();
+</script>
+
+</body>
+</html>

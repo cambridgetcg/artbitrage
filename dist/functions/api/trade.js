@@ -21,6 +21,12 @@ const ENDPOINTS = [
   { method: 'GET', path: '/api/trade/gates', desc: 'Does this object cross a licensing/compliance gate — one call, each gate citing its regulation', params: 'year, value, currency, jurisdiction, materials, category' },
   { method: 'GET', path: '/api/trade/vocab', desc: 'Trade vocabularies: lot lifecycle, settlement status, heading-qualifier ladder, catalogue symbols, gallery availability' },
   { method: 'GET', path: '/api/trade/vocab/:id', desc: 'One vocabulary by id, e.g. /api/trade/vocab/heading-qualifiers' },
+  { method: 'GET', path: '/api/trade/lots', desc: 'The frozen artbitrage.lot/1 contract: fields, enums, CSV door documentation' },
+  { method: 'POST', path: '/api/trade/lots', desc: 'Validate lot records — application/json (one record) or text/csv (Artlogic-vocabulary fuzzy header mapping, then strict re-validation); echoes normalized records with content_hash; never stores' },
+  { method: 'GET', path: '/api/trade/provenance', desc: 'The versioned aam-provenance/1 grammar: punctuation semantics with per-rule verification status' },
+  { method: 'POST', path: '/api/trade/provenance', desc: 'Round-trip: {display_string} → parsed artbitrage.provenance-chain/1 events, or {events} → generated display string; never stores' },
+  { method: 'GET', path: '/api/trade/results', desc: 'The voluntary results corpus with an honest coverage matrix — thin stated plainly, never fake-full' },
+  { method: 'POST', path: '/api/trade/results', desc: 'Validate a results submission (price_basis required), receive an unsigned witness receipt and the pull-request persistence path' },
 ];
 
 function jsonResponse(data, status = 200) {

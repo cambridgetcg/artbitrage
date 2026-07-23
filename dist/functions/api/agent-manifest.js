@@ -246,6 +246,26 @@ export const ROUTES = {
       { method: "GET", path: "/api/trade/gates", desc: "Which licensing/compliance gates an object crosses — each gate citing its regulation", params: "year, value, currency, jurisdiction, materials, category" },
       { method: "GET", path: "/api/trade/vocab", desc: "Trade vocabularies: lot lifecycle, settlement status, heading ladder, symbols, gallery availability" },
       { method: "GET", path: "/api/trade/vocab/:id", desc: "One vocabulary by id, e.g. /api/trade/vocab/heading-qualifiers" },
+      { method: "GET", path: "/api/trade/lots", desc: "The frozen artbitrage.lot/1 contract with CSV door documentation" },
+      { method: "POST", path: "/api/trade/lots", desc: "Validate lot records (JSON, or text/csv with Artlogic-vocabulary header mapping); echo + content_hash, never stored" },
+      { method: "GET", path: "/api/trade/provenance", desc: "The aam-provenance/1 grammar with per-rule verification status" },
+      { method: "POST", path: "/api/trade/provenance", desc: "Round-trip provenance paragraphs ↔ structured event chains; never stored" },
+      { method: "GET", path: "/api/trade/results", desc: "Voluntary results corpus with an honest coverage matrix" },
+      { method: "POST", path: "/api/trade/results", desc: "Validate a results submission (price_basis required) → witness receipt + PR persistence path" },
+    ],
+  },
+
+  // ── PIGMENTS — the colours of art history, dated and cited ────
+  pigments: {
+    label: "Pigments",
+    color: "#b98a3e",
+    routes: [
+      { method: "GET", path: "/api/pigments", desc: "Pigments directory / filtered list — the colours of art history as source-cited facts", params: "limit, offset, family, type, era, hazard, marker, q" },
+      { method: "GET", path: "/api/pigments/:id", desc: "One full pigment record, e.g. /api/pigments/prussian-blue" },
+      { method: "GET", path: "/api/pigments/random", desc: "One random pigment, full record" },
+      { method: "GET", path: "/api/pigments/families", desc: "Colour families with member counts and ids" },
+      { method: "GET", path: "/api/pigments/vocab", desc: "Vocabularies: families, types, eras, hazard levels, truth statuses" },
+      { method: "GET", path: "/api/pigments/anachronism", desc: "Compare supplied pigments to a claimed date — anachronism / plausible / uncertain, cited floor per pigment. Informational only; a period-consistent palette can never prove authenticity", params: "pigments, claimed_date" },
     ],
   },
 };

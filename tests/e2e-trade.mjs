@@ -230,4 +230,313 @@ await test('unknown route 404s with the endpoint map', async () => {
   assert.ok(json.endpoints.length > 0);
 });
 
+// ── Wave 2-3 ──────────────────────────────────────────────────────
+import { onRequestPost } from '../functions/api/trade/[[route]].js';
+import { createHash } from 'node:crypto';
+
+async function post(path, body, contentType = 'application/json') {
+  const res = await onRequestPost({
+    request: new Request(`https://artbitrage.test${path}`, {
+      method: 'POST',
+      headers: { 'Content-Type': contentType },
+      body: typeof body === 'string' ? body : JSON.stringify(body),
+    }),
+    env,
+  });
+  const json = await res.json();
+  return { res, json };
+}
+
+function canonicalJson(value) {
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(',')}]`;
+  if (value && typeof value === 'object') {
+    const entries = Object.keys(value).filter(k => value[k] !== undefined).sort()
+      .map(k => `${JSON.stringify(k)}:${canonicalJson(value[k])}`);
+    return `{${entries.join(',')}}`;
+  }
+  return JSON.stringify(value);
+}
+
+const SAMPLE_LOT = {
+  schema: 'artbitrage.lot/1',
+  id: 'demo-0001',
+  object: {
+    type: 'painting',
+    title: 'Bridge at Dusk',
+    maker: 'Zhang Daqian',
+    date_period: '1965',
+    materials: ['ink and color on paper'],
+    measurements: [{ dimension: 'height', value: 95, unit: 'cm' }, { dimension: 'width', value: 44.5, unit: 'cm' }],
+  },
+  heading: { display: 'ZHANG DAQIAN', qualifier_code: 'full-attribution' },
+  maker_names: [{ value: '張大千', script: 'Hani' }, { value: 'Zhang Daqian', system: 'pinyin' }],
+  estimate: { low: 80000, high: 120000, currency: 'USD' },
+  reserve_exists: true,
+  lifecycle: 'catalogued',
+  provenance: { display_string: 'Private collection, Hong Kong; purchased by the present owner, 1998.' },
+};
+
+await test('lots GET serves the frozen contract with CSV door and privacy docs', async () => {
+  const { json } = await get('/api/trade/lots');
+  assert.equal(json.schema, 'artbitrage.lot/1');
+  assert.match(json.csv_door.privacy, /living-party/i);
+  assert.equal(json.non_capabilities.persisted, false);
+});
+
+await test('lots POST: valid record → 202 witness with recomputable hash', async () => {
+  const { res, json } = await post('/api/trade/lots', SAMPLE_LOT);
+  assert.equal(res.status, 202);
+  assert.equal(json.persisted, false);
+  assert.equal(json.record.heading.warranty_bearing, true, 'full-attribution is warranty-bearing per vocab');
+  assert.equal(json.record.object.measurements[0].normalized_cm, 95);
+  assert.ok(json.record.objectid_core.present.includes('title'));
+  assert.ok(json.record.objectid_core.missing.includes('inscriptions'));
+  assert.ok(json.record.provenance.events.length === 2, 'provenance display_string auto-parsed');
+  const expected = 'sha256:' + createHash('sha256').update(canonicalJson(json.record)).digest('hex');
+  assert.equal(json.content_hash, expected, 'hash recomputable from the published canonicalization');
+});
+
+await test('lots POST: strict tier rejects — unknown field, bad qualifier, inverted estimate', async () => {
+  const bad = { ...SAMPLE_LOT, surprise: true };
+  const { res: r1, json: j1 } = await post('/api/trade/lots', bad);
+  assert.equal(r1.status, 422);
+  assert.ok(j1.issues.some(i => i.code === 'unknown_field'));
+  const badQ = { ...SAMPLE_LOT, heading: { display: 'X', qualifier_code: 'definitely-real' } };
+  const { json: j2 } = await post('/api/trade/lots', badQ);
+  assert.ok(j2.issues.some(i => i.code === 'unknown_qualifier'));
+  const badE = { ...SAMPLE_LOT, estimate: { low: 200, high: 100, currency: 'USD' } };
+  const { json: j3 } = await post('/api/trade/lots', badE);
+  assert.ok(j3.issues.some(i => i.code === 'inverted_range'));
+});
+
+await test('lots POST: ivory in materials without compliance_flags warns toward /gates', async () => {
+  const ivory = { schema: 'artbitrage.lot/1', object: { type: 'sculpture', title: 'Netsuke', materials: ['carved elephant ivory'] } };
+  const { res, json } = await post('/api/trade/lots', ivory);
+  assert.equal(res.status, 202);
+  assert.ok(json.validation_warnings.some(w => w.code === 'possible_material_gate'));
+});
+
+await test('lots POST: CSV door maps Artlogic headers, ignores living-party columns, re-validates strictly', async () => {
+  const csv = [
+    'Artist,Title,Year,Medium,Dimensions,Stock number,Retail currency,Retail price,Status,Availability,Provenance,Current owner',
+    'Bridget Riley,Untitled [Fragment 3],1965,Screenprint on plexiglas,73.7 x 68.6 cm,BR-1965-004,GBP,120000.00,On consignment,Available,"The artist; Private Collection, London",Somebody Private',
+    ',,,,,,,,,,,',
+  ].join('\r\n');
+  const { res, json } = await post('/api/trade/lots', csv, 'text/csv');
+  assert.equal(res.status, 202);
+  assert.equal(json.csv.rows, 2);
+  assert.equal(json.csv.valid, 1);
+  const row = json.results[0];
+  assert.equal(row.ok, true);
+  assert.equal(row.record.object.maker, 'Bridget Riley');
+  assert.equal(row.record.estimate.low, 120000);
+  assert.equal(row.record.estimate.currency, 'GBP');
+  assert.equal(row.record.availability, 'available');
+  assert.equal(row.record.object.measurements[0].normalized_cm, 73.7);
+  assert.ok(row.mapping_notes.some(n => /living-party privacy/.test(n)), 'Current owner column ignored with a note');
+  assert.ok(row.record.provenance.events.length >= 2, 'provenance parsed from CSV cell');
+  assert.equal(json.results[1].ok, false, 'empty row fails identification');
+});
+
+await test('lots POST: 415 on unsupported content type', async () => {
+  const { res } = await post('/api/trade/lots', '<xml/>', 'application/xml');
+  assert.equal(res.status, 415);
+});
+
+await test('provenance GET publishes the grammar with per-rule verification status', async () => {
+  const { json } = await get('/api/trade/provenance');
+  assert.equal(json.grammar, 'aam-provenance/1');
+  assert.ok(json.rules.some(r => r.status === 'verified-with-variance'), 'bracket variance carried honestly');
+});
+
+await test('provenance POST: parses the canonical Art Tracks example (semicolons = direct)', async () => {
+  const text = 'Artist estate; Michel Monet, son of the artist, Sorel Moussel, Dept. Eure et Loire, 1926; Walter P. Chrysler, Jr., New York, NY, 1950; purchased by Museum, April 1962.';
+  const { res, json } = await post('/api/trade/provenance', { display_string: text });
+  assert.equal(res.status, 202);
+  assert.equal(json.record.events.length, 4);
+  assert.equal(json.record.events[0].party.display, 'Artist estate');
+  assert.equal(json.record.events[1].transfer_from_previous, 'direct');
+  assert.equal(json.record.events[1].party.relationship, 'son of the artist');
+  assert.equal(json.record.events[3].method, 'purchase');
+  assert.equal(json.record.events[3].date.year_from, 1962);
+  const expected = 'sha256:' + createHash('sha256').update(canonicalJson(json.record)).digest('hex');
+  assert.equal(json.content_hash, expected, 'hash preimage is exactly the record field');
+});
+
+await test('provenance POST: dealers in parens, footnote/citation markers, inheritance', async () => {
+  const text = 'Mrs. Serunian [1][a]; by inheritance to Dr. H. H. Serunian, son of previous, Worcester, Massachusetts [b]; purchased by Freer Gallery of Art, 1937.';
+  const { json } = await post('/api/trade/provenance', { display_string: text });
+  assert.equal(json.record.events.length, 3, 'honorific periods must not split clauses');
+  assert.equal(json.record.events[0].footnote, '1');
+  assert.deepEqual(json.record.events[0].citations, ['a']);
+  assert.equal(json.record.events[1].method, 'inheritance');
+  assert.equal(json.record.events[2].party.display, 'Freer Gallery of Art');
+  const dealer = '(Galerie Durand-Ruel, Paris, 1891); John Doe, 1901.';
+  const { json: j2 } = await post('/api/trade/provenance', { display_string: dealer });
+  assert.equal(j2.record.events[0].party.role, 'dealer-agent-or-auction');
+  assert.equal(j2.record.events[1].transfer_from_previous, 'direct');
+});
+
+await test('provenance POST: period = not_known_direct; events → display generation', async () => {
+  const gap = 'Jane Roe, London, until 1892. Sam Poe, by 1935.';
+  const { json } = await post('/api/trade/provenance', { display_string: gap });
+  assert.equal(json.record.events.length, 2);
+  assert.equal(json.record.events[1].transfer_from_previous, 'not_known_direct');
+  const { json: gen } = await post('/api/trade/provenance', { events: [
+    { party: { display: 'Jane Roe', role: 'owner' }, location: 'London' },
+    { party: { display: 'Sam Poe', role: 'owner' }, transfer_from_previous: 'direct' },
+  ] });
+  assert.equal(gen.record.display_string, 'Jane Roe, London; Sam Poe.');
+  assert.ok(gen.content_hash, 'generate path carries a hash too');
+});
+
+await test('results GET: empty corpus stated plainly, contract demands price_basis', async () => {
+  const { json } = await get('/api/trade/results');
+  assert.equal(json.coverage.sales, 0);
+  assert.match(json.coverage.note, /EMPTY/);
+  assert.match(json.contract.price_basis, /never inferred/);
+});
+
+await test('results POST: valid submission → witness + PR path; basis and price rules enforced', async () => {
+  const submission = {
+    schema: 'artbitrage.auction-results/1',
+    house: 'demo-house',
+    sale: { name: 'Summer Sale', location: 'london', date: '2026-07-01', currency: 'GBP' },
+    price_basis: 'premium_inclusive',
+    lots: [
+      { lot_number: '1', outcome: 'sold', price: 12500 },
+      { lot_number: '2', outcome: 'bought_in' },
+      { lot_number: '3', outcome: 'sold', price_withheld: true },
+    ],
+  };
+  const { res, json } = await post('/api/trade/results', submission);
+  assert.equal(res.status, 202);
+  assert.equal(json.persisted, false);
+  assert.ok(json.next_steps.some(s => /pull request/.test(s)));
+  assert.match(json.consideration.what_we_never_do, /Scrape/);
+  const expected = 'sha256:' + createHash('sha256').update(canonicalJson(json.record)).digest('hex');
+  assert.equal(json.content_hash, expected);
+
+  const noBasis = { ...submission };
+  delete noBasis.price_basis;
+  const { res: r2, json: j2 } = await post('/api/trade/results', noBasis);
+  assert.equal(r2.status, 422);
+  assert.ok(j2.issues.some(i => i.path === '$.price_basis'));
+
+  const badLots = { ...submission, lots: [{ lot_number: '1', outcome: 'sold' }, { lot_number: '2', outcome: 'bought_in', price: 100 }] };
+  const { json: j3 } = await post('/api/trade/results', badLots);
+  assert.ok(j3.issues.some(i => i.path === '$.lots[0].price' && i.code === 'required'));
+  assert.ok(j3.issues.some(i => i.path === '$.lots[1].price' && i.code === 'conflict'));
+});
+
+await test('review regressions: adversarial event shapes 422 (never 500)', async () => {
+  const { res: r1, json: j1 } = await post('/api/trade/provenance', { events: [{ party: { display: 'X' }, period_certainty: 123 }] });
+  assert.equal(r1.status, 422);
+  assert.ok(j1.issues.length > 0);
+  const { res: r2 } = await post('/api/trade/provenance', { events: [{ party: { display: 'X' }, citations: 5 }] });
+  assert.equal(r2.status, 422);
+  const { res: r3, json: j3 } = await post('/api/trade/provenance', { events: 'nope' });
+  assert.equal(r3.status, 422);
+  assert.ok(j3.issues.some(i => i.path === '$.events' && i.code === 'wrong_type'), 'present-but-malformed events gets a typed issue');
+});
+
+await test('review regressions: circa qualifier, J.P. initials, Inc. boundary', async () => {
+  const { json: circa } = await post('/api/trade/provenance', { display_string: 'Private collection, circa 1900.' });
+  assert.equal(circa.record.events[0].date.qualifier, 'circa');
+  const { json: ca } = await post('/api/trade/provenance', { display_string: 'Private collection, ca. 1900.' });
+  assert.equal(ca.record.events[0].date.qualifier, 'circa');
+  const { json: jp } = await post('/api/trade/provenance', { display_string: 'Purchased by J.P. Morgan, New York, 1901; by descent to Jack Morgan.' });
+  assert.equal(jp.record.events.length, 2, 'J.P. must not split');
+  assert.equal(jp.record.events[0].party.display, 'J.P. Morgan');
+  const { json: inc } = await post('/api/trade/provenance', { display_string: 'Sold to Duveen Brothers Inc. Acquired by Andrew Mellon.' });
+  assert.equal(inc.record.events.length, 2, 'Inc. before a method keyword is a real boundary');
+});
+
+await test('review regressions: European decimal-comma price parses correctly or not at all', async () => {
+  const csv = 'Title,Retail price,Retail currency\nSunset,"1.234,56",EUR\nDawn,"1,234.56",USD\nNoon,"1.234",EUR';
+  const { json } = await post('/api/trade/lots', csv, 'text/csv');
+  assert.equal(json.results[0].record.estimate.low, 1234.56, 'European format');
+  assert.equal(json.results[1].record.estimate.low, 1234.56, 'UK/US format');
+  assert.ok(json.results[0].mapping_notes.some(n => n.includes('parsed as 1234.56')), 'coercion states the parsed value');
+  assert.equal(json.results[2].record.estimate.low, 1.23, 'single dot stays decimal, stated in the note');
+});
+
+await test('review regressions: quoted-empty CSV row counted; impossible dates rejected; lot_number object rejected', async () => {
+  const csv = 'Title\n""\nSunset';
+  const { json } = await post('/api/trade/lots', csv, 'text/csv');
+  assert.equal(json.csv.rows, 2, 'quoted-empty row must be counted and reported');
+  assert.equal(json.results[0].ok, false);
+  const badDate = { schema: 'artbitrage.auction-results/1', house: 'h', sale: { name: 'S', date: '2026-13-45', currency: 'GBP' }, price_basis: 'hammer', lots: [{ lot_number: '1', outcome: 'bought_in' }] };
+  const { res: rd, json: jd } = await post('/api/trade/results', badDate);
+  assert.equal(rd.status, 422);
+  assert.ok(jd.issues.some(i => i.path === '$.sale.date'));
+  const badLotNo = { ...badDate, sale: { name: 'S', date: '2026-07-01', currency: 'GBP' }, lots: [{ lot_number: { a: 1 }, outcome: 'bought_in' }] };
+  const { json: jl } = await post('/api/trade/results', badLotNo);
+  assert.ok(jl.issues.some(i => i.path.includes('lot_number') && i.code === 'wrong_type'), 'objects must not launder into "[object Object]"');
+});
+
+await test('review regressions: withheld on bought_in rejected; bidi controls rejected; lot events pointed elsewhere', async () => {
+  const sub = { schema: 'artbitrage.auction-results/1', house: 'h', sale: { name: 'S', date: '2026-07-01', currency: 'GBP' }, price_basis: 'hammer', lots: [{ lot_number: '1', outcome: 'bought_in', price_withheld: true }] };
+  const { res, json } = await post('/api/trade/results', sub);
+  assert.equal(res.status, 422);
+  assert.ok(json.issues.some(i => i.path.includes('price_withheld')));
+  const bidi = { schema: 'artbitrage.lot/1', object: { type: 'painting', title: 'Monet\u202Egnitniap' } };
+  const { res: rb, json: jb } = await post('/api/trade/lots', bidi);
+  assert.equal(rb.status, 422);
+  assert.ok(jb.issues.some(i => i.code === 'formatting_character'));
+  const withEvents = { schema: 'artbitrage.lot/1', object: { type: 'painting', title: 'T' }, provenance: { events: [{ party: { display: 'X' } }] } };
+  const { res: re, json: je } = await post('/api/trade/lots', withEvents);
+  assert.equal(re.status, 422);
+  assert.ok(je.issues.some(i => i.code === 'not_accepted_here'));
+});
+
+await test('review regressions: GET docs carry no validated claim; results next_steps point at trade.json', async () => {
+  const { json: doc } = await get('/api/trade/lots');
+  assert.equal(doc.non_capabilities.validated, undefined, 'documentation validated nothing');
+  const sub = { schema: 'artbitrage.auction-results/1', house: 'h', sale: { name: 'S', date: '2026-07-01', currency: 'GBP' }, price_basis: 'premium_inclusive', lots: [{ lot_number: '1', outcome: 'sold', price: 100 }] };
+  const { json } = await post('/api/trade/results', sub);
+  assert.ok(json.next_steps[0].includes('trade.json'), 'persistence path must point at what GET serves');
+});
+
+await test('rates: baked FX MoneyFacts served with full provenance', async () => {
+  const { res, json } = await get('/api/trade/rates');
+  assert.equal(res.status, 200);
+  assert.equal(json.schema, 'artbitrage.baked-rates/1');
+  assert.ok(json.count >= 30, 'all fee-schedule currency pairs baked');
+  for (const f of json.facts.slice(0, 3)) {
+    assert.ok(f.sources?.length, 'every fact cites its sources');
+    assert.ok(f.recompute?.how, 'every fact carries its recompute recipe');
+    assert.ok(Number.isInteger(f.decimals), 'exact fixed-point, never a float');
+  }
+  assert.ok(json.generated_by.includes('MONEYWORLD'), 'provenance names the info layer');
+});
+
+await test('fees/compute display_in: converts alongside salesroom numbers, carrying the fact', async () => {
+  const { json } = await get('/api/trade/fees/compute?hammer=100000&house=sothebys&location=new-york&display_in=GBP');
+  assert.equal(json.input.currency, 'USD', 'salesroom numbers stay primary');
+  assert.ok(json.display, 'display block present');
+  assert.equal(json.display.currency, 'GBP');
+  const f = json.display.rate_fact;
+  assert.equal(f.subject, 'fiat:iso4217/USD');
+  assert.equal(f.unit, 'fiat:iso4217/GBP');
+  const rate = Number(f.value) / 10 ** f.decimals;
+  const expect2 = Math.round(json.total_incl_premium * rate * 100) / 100;
+  assert.equal(json.display.converted.total_incl_premium, expect2, 'conversion reproducible from the fact');
+  assert.ok(json.display.note.includes('never a tradeable quote'));
+  assert.equal(typeof json.display.rate_stale, 'boolean', 'staleness surfaced honestly');
+});
+
+await test('fees/compute display_in: unknown currency teaches with the baked set', async () => {
+  const { res, json } = await get('/api/trade/fees/compute?hammer=1000&house=sothebys&location=new-york&display_in=XXX');
+  assert.equal(res.status, 422);
+  assert.ok(json.baked_currencies.includes('GBP'));
+  assert.ok(json.hint.includes('/api/trade/rates'));
+});
+
+await test('fees/compute currency mismatch now teaches display_in', async () => {
+  const { res, json } = await get('/api/trade/fees/compute?hammer=1000&currency=GBP&house=sothebys&location=new-york');
+  assert.equal(res.status, 400);
+  assert.ok(json.hint.includes('display_in=GBP'), 'the refusal names the new road');
+});
+
 console.log(`\n${passed} trade tests passed${process.exitCode ? ' (with failures)' : ''}`);

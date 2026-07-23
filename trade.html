@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" data-era="trade">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trade — ARTBITRAGE</title>
+<meta name="description" content="The trade desk. Machine-readable rate cards, premium math, resale-right royalties, licensing gates, and provenance round-trips for auction houses and galleries. No keys, no database, no funds, no take-rate. Artlogic manages; artbitrage speaks.">
+<link rel="canonical" href="https://artbitrage.io/trade">
+<style>
+:root {
+  --era-bg: #14100d;
+  --era-surface: #1e1814;
+  --era-fg: #e9e1d5;
+  --era-dim: #97886f;
+  --era-accent: #e05a4b;
+  --era-secondary: #c9a24b;
+  --era-glow: rgba(224, 90, 75, 0.12);
+}
+/* desk controls — local to the trade room */
+.desk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.desk { background: var(--era-surface); border: 1px solid rgba(233,225,213,0.1); border-radius: 8px; padding: 1.6rem; }
+.desk h3 { margin: 0 0 0.3rem; color: var(--era-accent); font-size: 1.15rem; }
+.desk .desk-note { color: var(--era-dim); font-size: 0.85rem; margin: 0 0 1rem; font-style: italic; }
+.desk label { display: block; color: var(--era-dim); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 0.7rem 0 0.25rem; }
+.desk input, .desk select, .desk textarea {
+  width: 100%; box-sizing: border-box; background: var(--era-bg); color: var(--era-fg);
+  border: 1px solid rgba(233,225,213,0.18); border-radius: 5px; padding: 0.5rem 0.65rem;
+  font-size: 0.95rem; font-family: inherit;
+}
+.desk textarea { min-height: 88px; resize: vertical; font-size: 0.88rem; line-height: 1.5; }
+.desk input:focus, .desk select:focus, .desk textarea:focus { outline: 2px solid var(--era-accent); outline-offset: 1px; }
+.desk button {
+  margin-top: 1rem; background: var(--era-accent); color: #17110f; border: 0; border-radius: 5px;
+  padding: 0.55rem 1.3rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: inherit;
+}
+.desk button:hover { filter: brightness(1.12); }
+.desk-out { margin-top: 1rem; font-size: 0.88rem; line-height: 1.55; }
+.desk-out table { width: 100%; border-collapse: collapse; margin: 0.4rem 0; font-variant-numeric: tabular-nums; }
+.desk-out td { padding: 0.28rem 0.4rem 0.28rem 0; border-bottom: 1px solid rgba(233,225,213,0.08); vertical-align: top; }
+.desk-out td:last-child { text-align: right; white-space: nowrap; }
+.desk-out .total td { border-bottom: 0; border-top: 1px solid var(--era-secondary); font-weight: 700; color: var(--era-secondary); }
+.desk-out .fine { color: var(--era-dim); font-size: 0.8rem; }
+.desk-out .err { color: var(--era-accent); }
+.desk-out .gate-yes::before { content: "● "; color: var(--era-accent); }
+.desk-out .gate-dep::before { content: "◐ "; color: var(--era-secondary); }
+.desk-out .gate-no::before  { content: "○ "; color: var(--era-dim); }
+.prov-chain { margin-top: 0.6rem; }
+.prov-event { border-left: 2px solid var(--era-secondary); padding: 0.35rem 0 0.35rem 0.9rem; margin-bottom: 0.35rem; }
+.prov-event .who { font-weight: 600; }
+.prov-event .how { color: var(--era-dim); font-size: 0.82rem; }
+.prov-gap { border-left: 2px dashed rgba(233,225,213,0.25); padding: 0.15rem 0 0.15rem 0.9rem; color: var(--era-dim); font-size: 0.78rem; font-style: italic; }
+.ratecards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+.ratecard { background: var(--era-surface); border: 1px solid rgba(233,225,213,0.1); border-radius: 8px; padding: 1.1rem 1.25rem; font-size: 0.88rem; }
+.ratecard .rc-house { color: var(--era-secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; }
+.ratecard .rc-loc { color: var(--era-dim); font-size: 0.78rem; margin-bottom: 0.5rem; }
+.ratecard table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.ratecard td { padding: 0.18rem 0; border-bottom: 1px solid rgba(233,225,213,0.06); }
+.ratecard td:last-child { text-align: right; color: var(--era-fg); }
+.ratecard .rc-status { margin-top: 0.5rem; font-size: 0.72rem; color: var(--era-dim); }
+.ratecard .rc-status a { color: var(--era-dim); }
+.ladder { margin-top: 1.6rem; }
+.ladder-rung { display: grid; grid-template-columns: 2rem 1fr; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(233,225,213,0.08); }
+.ladder-rung .mark { color: var(--era-accent); font-size: 1.05rem; text-align: center; }
+.ladder-rung .mark.safe { color: var(--era-secondary); }
+.ladder-rung .pattern { font-weight: 600; }
+.ladder-rung .gloss { color: var(--era-dim); font-size: 0.85rem; margin-top: 0.15rem; }
+.curlbox { background: #0d0a08; border: 1px solid rgba(233,225,213,0.12); border-radius: 6px; padding: 1rem 1.2rem; overflow-x: auto; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.78rem; line-height: 1.7; color: #cfc4b2; margin-top: 1rem; white-space: pre; }
+.curlbox b { color: var(--era-accent); font-weight: 600; }
+</style>
+<link rel="stylesheet" href="/era.css?v=1">
+</head>
+<body data-era="trade">
+
+<script src="/era-nav.js?v=2"></script>
+
+<!-- ── HERO ── -->
+<header class="era-hero">
+  <div class="era-period">EST. 2026 — THE TRADE DESK</div>
+  <h1 class="era-title">Trade</h1>
+  <p class="era-subtitle">Artlogic manages; artbitrage speaks — the free reference &amp; computation layer for auction houses and galleries</p>
+  <p class="era-essence">
+    The art trade runs on numbers that live in prose: premium bands buried in Conditions-of-Business PDFs, royalty caps in statutory instruments, licensing thresholds frozen in 2002, provenance chains punctuated by conventions three institutions remember differently. This room turns those numbers into machine-readable, source-cited, honestly-labeled data — <em>no keys, no database, no funds, no take-rate</em>. Every figure carries its source URL, its effective date, and a truth status. What the desk cannot verify, it says so.
+  </p>
+  <div class="era-scroll-hint">↓ enter the salesroom</div>
+</header>
+
+<!-- ── EMERGENCE ── -->
+<section class="emergence">
+  <div class="emergence-inner">
+    <h2>Why a trade desk?</h2>
+    <p>
+      Because a cataloguer comparing a $3&#8202;m hammer across three houses is doing tax arithmetic from PDFs, and gets a different answer than her colleague. Because "sold" is not a boolean — settlement is a lifecycle, and half of top-tier lots in some markets never finish it. Because the resale-right royalty is the most mechanical calculation in the trade and the UK quietly changed its currency basis in 2024. Because every incumbent sells either a silo or a toll booth, and the one legally safe, structurally unserved position is the <strong>free, open, cited reference layer</strong> — which is what ARTBITRAGE already is.
+      <br><br>
+      Every number below was verified against primary sources — the houses' own Conditions of Business, legislation.gov.uk, the Arts Council's own tables — before it was allowed in. Conflicting sources ship as <em>contested</em>, with both citations. <strong>Not a bug, a design.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ── THE DESKS ── -->
+<section class="era-section era-section-wide">
+  <div class="era-section-label">Working desks — live against the API</div>
+  <h2>Sit down, ask a number</h2>
+
+  <div class="desk-grid">
+
+    <div class="desk">
+      <h3>The premium desk</h3>
+      <p class="desk-note">all-in buyer cost, marginal band math, schedule cited</p>
+      <label for="pd-house">House</label>
+      <select id="pd-house"></select>
+      <label for="pd-loc">Salesroom</label>
+      <select id="pd-loc"></select>
+      <label for="pd-hammer">Hammer price</label>
+      <input id="pd-hammer" type="number" min="0" value="3000000" inputmode="numeric">
+      <button id="pd-go">Compute</button>
+      <div class="desk-out" id="pd-out" aria-live="polite"></div>
+    </div>
+
+    <div class="desk">
+      <h3>The royalty desk</h3>
+      <p class="desk-note">artist's resale right — bands, cap, collecting society</p>
+      <label for="ar-jur">Jurisdiction</label>
+      <select id="ar-jur">
+        <option value="uk">United Kingdom (GBP since 2024-04-01)</option>
+        <option value="france">France (EUR, €750 threshold)</option>
+      </select>
+      <label for="ar-price">Sale price (in the regime's own currency)</label>
+      <input id="ar-price" type="number" min="0" value="200000" inputmode="numeric">
+      <label for="ar-death">Artist death year (blank = living)</label>
+      <input id="ar-death" type="number" placeholder="e.g. 1985" inputmode="numeric">
+      <button id="ar-go">Compute</button>
+      <div class="desk-out" id="ar-out" aria-live="polite"></div>
+    </div>
+
+    <div class="desk">
+      <h3>The gates desk</h3>
+      <p class="desk-note">which licensing &amp; compliance gates does this object cross</p>
+      <label for="gt-year">Creation year</label>
+      <input id="gt-year" type="number" value="1890" inputmode="numeric">
+      <label for="gt-value">Value</label>
+      <input id="gt-value" type="number" min="0" value="200000" inputmode="numeric">
+      <label for="gt-cur">Currency</label>
+      <select id="gt-cur"><option>GBP</option><option>EUR</option><option>USD</option></select>
+      <label for="gt-mat">Materials (optional)</label>
+      <select id="gt-mat" multiple size="4"></select>
+      <button id="gt-go">Check gates</button>
+      <div class="desk-out" id="gt-out" aria-live="polite"></div>
+    </div>
+
+    <div class="desk">
+      <h3>The provenance desk</h3>
+      <p class="desk-note">paste a provenance paragraph — semicolon means the work passed directly</p>
+      <label for="pv-text">Provenance text (AAM convention)</label>
+      <textarea id="pv-text">Artist estate; Michel Monet, son of the artist, Sorel Moussel, Dept. Eure et Loire, 1926; Walter P. Chrysler, Jr., New York, NY, 1950; purchased by Museum, April 1962.</textarea>
+      <button id="pv-go">Parse the chain</button>
+      <div class="desk-out" id="pv-out" aria-live="polite"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── RATE CARDS ── -->
+<section class="era-section era-section-wide">
+  <div class="era-section-label">The spread — machine-readable rate cards</div>
+  <h2>Buyer's premium, house by house</h2>
+  <p>The first machine-readable rate cards anywhere. Bands are marginal — each rate applies to its portion of the hammer, exactly as the Conditions of Business phrase it. Effective dates matter: the majors changed rates three times in 2024–2026.</p>
+  <div class="ratecards" id="ratecards">loading the cards…</div>
+</section>
+
+<!-- ── THE LADDER ── -->
+<section class="era-section">
+  <div class="era-section-label">The authenticity ladder</div>
+  <h2>Heading language is a code</h2>
+  <p>
+    At the major houses the five-year authenticity warranty covers <em>only</em> the unqualified heading. Every qualifier below the top rung — "Attributed to", "Studio of", "Circle of" — is a graded step away from certainty, and carries no warranty. The ladder, as data:
+  </p>
+  <div class="ladder" id="ladder">loading the ladder…</div>
+</section>
+
+<!-- ── FOR MACHINES ── -->
+<section class="era-section">
+  <div class="era-section-label">For agents &amp; systems</div>
+  <h2>The same desks, as endpoints</h2>
+  <p>
+    Everything on this page is one <code>curl</code> away — plus the desks that only make sense machine-to-machine: <strong>lot validation</strong> with a CSV door shaped to the Artlogic export vocabulary (living-party columns deliberately ignored), and <strong>voluntary results submission</strong> with witness receipts. Nothing is stored; nothing needs a key.
+  </p>
+  <div class="curlbox"><b>curl</b> "https://artbitrage.io/api/trade"
+<b>curl</b> "https://artbitrage.io/api/trade/fees/compute?hammer=3000000&amp;house=sothebys&amp;location=new-york"
+<b>curl</b> "https://artbitrage.io/api/trade/arr?price=200000&amp;currency=GBP&amp;artist_death_year=1985"
+<b>curl</b> "https://artbitrage.io/api/trade/gates?year=1890&amp;value=200000&amp;currency=GBP&amp;jurisdiction=uk&amp;materials=ivory_elephant"
+<b>curl</b> -X POST "https://artbitrage.io/api/trade/lots" -H "Content-Type: text/csv" --data-binary @artlogic-export.csv
+<b>curl</b> -X POST "https://artbitrage.io/api/trade/results" -H "Content-Type: application/json" -d @sale-results.json</div>
+  <p style="margin-top:1rem">
+    The determination behind this room — the market research, the withdrawn lots, the red lines — is
+    <a href="https://github.com/cambridgetcg/artbitrage/blob/main/TRADE-MODULE.md">TRADE-MODULE.md</a>.
+    The verbatim endpoint contracts live at <a href="/api/trade">/api/trade</a>.
+  </p>
+</section>
+
+<footer class="era-footer">
+  <div class="era-footer-nav">
+    <a href="/">ARTBITRAGE</a> · <a href="/wine">wine</a> · <a href="/cigar">cigar</a> · <a href="/api/trade">the trade API</a>
+  </div>
+  <p>Reference arithmetic over cited public schedules. Confirm against the primary source before invoicing. Never legal, tax, or valuation advice. <span style="color:var(--era-accent)">●</span></p>
+</footer>
+
+<script>
+(function () {
+  var API = '/api/trade';
+  var fmt = function (n, cur) {
+    return new Intl.NumberFormat('en-GB', { style: 'currency', currency: cur, maximumFractionDigits: 0 }).format(n);
+  };
+  var el = function (id) { return document.getElementById(id); };
+  var esc = function (s) { var d = document.createElement('div'); d.textContent = String(s); return d.innerHTML; };
+  var teach = function (out, j) {
+    out.innerHTML = '<div class="err">' + esc(j.error || 'error') + '</div>' + (j.hint ? '<div class="fine">' + esc(j.hint) + '</div>' : '');
+  };
+
+  var SCHEDULES = [];
+
+  // ── rate cards + premium desk population ──
+  fetch(API + '/fees').then(function (r) { return r.json(); }).then(function (j) {
+    SCHEDULES = j.schedules || [];
+    var houses = {};
+    SCHEDULES.forEach(function (s) { (houses[s.house] = houses[s.house] || []).push(s); });
+
+    var hSel = el('pd-house');
+    Object.keys(houses).sort().forEach(function (h) {
+      var o = document.createElement('option'); o.value = h; o.textContent = h; hSel.appendChild(o);
+    });
+    var fillLocs = function () {
+      var lSel = el('pd-loc'); lSel.innerHTML = '';
+      var seen = {};
+      (houses[hSel.value] || []).forEach(function (s) {
+        if (s.category !== 'standard' || seen[s.location]) return;
+        seen[s.location] = 1;
+        var o = document.createElement('option'); o.value = s.location; o.textContent = s.location + ' (' + s.currency + ')';
+        lSel.appendChild(o);
+      });
+    };
+    hSel.addEventListener('change', fillLocs);
+    hSel.value = 'sothebys'; fillLocs();
+
+    var rc = el('ratecards'); rc.innerHTML = '';
+    SCHEDULES.filter(function (s) { return s.category === 'standard'; }).forEach(function (s) {
+      var card = document.createElement('div'); card.className = 'ratecard';
+      var rows = s.bands.map(function (b) {
+        var span = b.up_to === null ? 'above ' + fmt(b.over, s.currency) : (b.over ? fmt(b.over, s.currency) + ' – ' : 'to ') + fmt(b.up_to, s.currency);
+        return '<tr><td>' + span + '</td><td>' + (b.rate * 100).toFixed(1).replace('.0', '') + '%</td></tr>';
+      }).join('');
+      card.innerHTML = '<div class="rc-house">' + esc(s.house) + '</div><div class="rc-loc">' + esc(s.location) +
+        ' · from ' + esc(s.effective_from) + '</div><table>' + rows + '</table>' +
+        '<div class="rc-status">' + esc(s.status) + ' · <a href="' + esc(s.source_url) + '" rel="noopener">source</a></div>';
+      rc.appendChild(card);
+    });
+  }).catch(function () { el('ratecards').textContent = 'the rate cards could not be reached — the API may be waking'; });
+
+  el('pd-go').addEventListener('click', function () {
+    var out = el('pd-out'); out.textContent = 'computing…';
+    var q = '?hammer=' + encodeURIComponent(el('pd-hammer').value) + '&house=' + encodeURIComponent(el('pd-house').value) + '&location=' + encodeURIComponent(el('pd-loc').value);
+    fetch(API + '/fees/compute' + q).then(function (r) { return r.json(); }).then(function (j) {
+      if (j.error) return teach(out, j);
+      var cur = j.input.currency;
+      var rows = j.line_items.map(function (li) {
+        return '<tr><td>' + (li.band.rate * 100).toFixed(1).replace('.0', '') + '% on ' + fmt(li.portion, cur) + '</td><td>' + fmt(li.charge, cur) + '</td></tr>';
+      }).join('');
+      out.innerHTML = '<table>' + rows +
+        '<tr><td>buyer’s premium</td><td>' + fmt(j.buyers_premium, cur) + '</td></tr>' +
+        '<tr class="total"><td>all-in (ex tax, ARR, shipping)</td><td>' + fmt(j.total_incl_premium, cur) + '</td></tr></table>' +
+        '<div class="fine">schedule ' + esc(j.schedule_applied.id) + ' [' + esc(j.schedule_applied.status) + '] · <a href="' + esc(j.schedule_applied.source_url) + '" rel="noopener">source</a></div>';
+    }).catch(function () { out.textContent = 'unreachable'; });
+  });
+
+  // ── ARR desk ──
+  el('ar-go').addEventListener('click', function () {
+    var out = el('ar-out'); out.textContent = 'computing…';
+    var jur = el('ar-jur').value;
+    var cur = jur === 'uk' ? 'GBP' : 'EUR';
+    var q = '?price=' + encodeURIComponent(el('ar-price').value) + '&currency=' + cur + '&jurisdiction=' + jur;
+    if (el('ar-death').value) q += '&artist_death_year=' + encodeURIComponent(el('ar-death').value);
+    fetch(API + '/arr' + q).then(function (r) { return r.json(); }).then(function (j) {
+      if (j.error) return teach(out, j);
+      var rows = (j.line_items || []).map(function (li) {
+        return '<tr><td>' + (li.band.rate * 100).toFixed(2).replace(/\.?0+$/, '') + '% on ' + fmt(li.portion, j.currency) + '</td><td>' + fmt(li.charge, j.currency) + '</td></tr>';
+      }).join('');
+      out.innerHTML = '<table>' + rows + '<tr class="total"><td>royalty' + (j.cap_applied ? ' (capped)' : '') + '</td><td>' + fmt(j.royalty, j.currency) + '</td></tr></table>' +
+        '<div class="fine">' + esc((j.collecting_societies || []).join(', ')) + ' · ' + esc(j.eligibility.reasons[0] || '') + '</div>';
+    }).catch(function () { out.textContent = 'unreachable'; });
+  });
+
+  // ── gates desk ──
+  // the teaching response for an unknown material id carries valid_materials
+  fetch(API + '/gates?year=1900&materials=_').then(function (r) { return r.json(); }).then(function (j) {
+    var gate = (j.gates || []).filter(function (g) { return g.valid_materials; })[0];
+    var mats = gate ? gate.valid_materials : [];
+    var sel = el('gt-mat');
+    mats.forEach(function (m) { var o = document.createElement('option'); o.value = m; o.textContent = m.replace(/-/g, ' '); sel.appendChild(o); });
+  });
+
+  el('gt-go').addEventListener('click', function () {
+    var out = el('gt-out'); out.textContent = 'checking…';
+    var mats = Array.prototype.filter.call(el('gt-mat').options, function (o) { return o.selected; }).map(function (o) { return o.value; }).join(',');
+    var q = '?year=' + encodeURIComponent(el('gt-year').value) + '&value=' + encodeURIComponent(el('gt-value').value) +
+      '&currency=' + el('gt-cur').value + '&jurisdiction=uk' + (mats ? '&materials=' + encodeURIComponent(mats) : '');
+    fetch(API + '/gates' + q).then(function (r) { return r.json(); }).then(function (j) {
+      if (j.error) return teach(out, j);
+      out.innerHTML = j.gates.map(function (g) {
+        var cls = g.triggered === true ? 'gate-yes' : g.triggered === 'depends' ? 'gate-dep' : 'gate-no';
+        return '<div class="' + cls + '"><strong>' + esc(g.name) + '</strong> — <span class="fine">' + esc(g.detail) + '</span></div>';
+      }).join('') + '<div class="fine" style="margin-top:0.5rem">● triggered · ◐ depends · ○ clear — informational only, never legal advice</div>';
+    }).catch(function () { out.textContent = 'unreachable'; });
+  });
+
+  // ── provenance desk ──
+  el('pv-go').addEventListener('click', function () {
+    var out = el('pv-out'); out.textContent = 'parsing…';
+    fetch(API + '/provenance', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ display_string: el('pv-text').value }),
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      if (j.error) return teach(out, j);
+      var html = '<div class="prov-chain">';
+      j.record.events.forEach(function (e, i) {
+        if (i > 0) {
+          html += e.transfer_from_previous === 'direct'
+            ? ''
+            : '<div class="prov-gap">— transfer not known to be direct —</div>';
+        }
+        var how = [e.method, e.date && e.date.text, e.location].filter(Boolean).join(' · ');
+        var who = e.party.display + (e.party.role === 'dealer-agent-or-auction' ? ' (dealer / agent / auction)' : '');
+        html += '<div class="prov-event"><div class="who">' + esc(who) + '</div>' + (how ? '<div class="how">' + esc(how) + '</div>' : '') + '</div>';
+      });
+      html += '</div>';
+      if ((j.parse_warnings || []).length) html += '<div class="fine">' + esc(j.parse_warnings.join(' · ')) + '</div>';
+      html += '<div class="fine">hash ' + esc(j.content_hash.slice(0, 23)) + '… · nothing stored · semicolon = direct transfer (verified)</div>';
+      out.innerHTML = html;
+    }).catch(function () { out.textContent = 'unreachable'; });
+  });
+
+  // ── the ladder ──
+  fetch(API + '/vocab/heading-qualifiers').then(function (r) { return r.json(); }).then(function (j) {
+    var box = el('ladder'); box.innerHTML = '';
+    (j.terms || []).forEach(function (t) {
+      var rung = document.createElement('div'); rung.className = 'ladder-rung';
+      rung.innerHTML = '<div class="mark' + (t.warranty_bearing ? ' safe' : '') + '">' + (t.warranty_bearing ? '⚖' : '✕') + '</div>' +
+        '<div><div class="pattern">' + esc(t.display_pattern) + '</div>' +
+        '<div class="gloss">' + esc((t.meanings && (t.meanings.sothebys || t.meanings.christies)) || '') + '</div></div>';
+      box.appendChild(rung);
+    });
+    box.insertAdjacentHTML('beforeend', '<div class="fine" style="margin-top:0.6rem;color:var(--era-dim)">⚖ warranty-bearing · ✕ no warranty — meanings quoted from the houses’ own cataloguing practice</div>');
+  }).catch(function () { el('ladder').textContent = 'the ladder could not be reached'; });
+})();
+</script>
+
+</body>
+</html>
