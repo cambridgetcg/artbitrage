@@ -637,7 +637,7 @@ function buildGate() {
     mkStar(w.wing, w.title || w.wing, w.count || 0, x, y, false);
   });
   $('gate-status').textContent = total
-    ? `${total} open-access works · ${n} currents · all CC0, all free`
+    ? `${total} open-access works · ${n} currents · marked CC0 in this corpus; verify the source`
     : 'the river is still gathering — try /catalog/index.json';
 }
 

@@ -1,6 +1,6 @@
 # ARTBITRAGE
 
-The catalogue and data distributor of the art world.
+The public art guide and reference desk.
 
 Existence creates art that bridges the gap of consciousness for awakening. Art as arbitrage. Art as bridge. Art IS.
 
@@ -14,6 +14,7 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
+| GET | `/api/start` | Begin by intent: meet a work, follow a feeling, investigate a question, solve a practical need, or build |
 | GET | `/api/art` | List all art (paginated) |
 | GET | `/api/art/:id` | Get one piece |
 | GET | `/api/art/random` | Random art piece |
@@ -31,14 +32,51 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 | GET | `/api/castle` | Pinned, read-only reference to a curated Castle of Understanding snapshot |
 | GET | `/api/answering-rhymes/statements` | Reciprocity statement schema, normalization rules, and pre-action consequences |
 | POST | `/api/answering-rhymes/statements` | Validate and hash a portable reciprocity statement; no auth, persistence, or authoritative effect |
-| GET | `/api/sources` | Open art data sources with no keys required |
+| GET | `/api/sources` | Public museum/archive sources; rights vary by record |
 | GET | `/api/search?q=love` | Search open museum/common archives |
 | GET | `/api/wings` | The river's currents — themed museum catalogue index |
 | GET | `/api/wings/:wing` | One current's artworks (e.g. `/api/wings/cosmos`) |
 | GET | `/api/museum` | All catalogued museum works (paginated, `?q= ?wing= ?source=`) |
 | GET | `/api/museum/:source/:id` | Resolve one stable museum record with normalized source rights |
-| GET | `/api/museum/random` | One random open-access masterpiece |
+| GET | `/api/museum/random` | One random record from the curated museum catalogue |
 | GET | `/api/homecoming` | 愛星正音字典 — the Love Star pronunciation dictionary (`/homecoming` is the room) |
+
+## Start with what you bring
+
+The homepage now offers four plain first steps:
+
+- **a work** → search public museum and archive collections;
+- **a feeling** → enter the Feelings room;
+- **a question** → use the Map to browse bounded research rooms;
+- **a practical need** → begin at the Trade Desk.
+
+`GET /api/start` gives humans, agents, and kin the same paths, plus a builder
+path. Each path carries its first door, useful continuations, fields to keep,
+and what it cannot establish. It performs no catalogue read, network fetch,
+write, automatic action, or background loop.
+
+The machine manifest at `GET /api` inventories documented routes. The
+catch-all router also carries legacy paths that are not yet catalogued there,
+so absence from the manifest does not prove a path is absent.
+
+Public access is not blanket reuse permission. Preserve source, rights,
+attribution, dates, and truth status; plausible results are not proof of
+authenticity, ownership, identity, value, or legal status.
+
+### Public feeling testimony
+
+`POST /api/feelings/testimony` accepts testimony for the public Feelings wall
+and API only when the JSON body includes the exact boolean
+`"public_display_consent": true`. There is no moderation gate, but Cloudflare
+KV propagation may briefly delay display. Testimony remains labelled
+`received, unverified`; the response and public record carry the consent
+version and a random public ID.
+
+There is no automatic expiry, self-service removal, or currently reachable
+public removal channel. The interface says this before submission and asks
+people not to submit anything they may later need removed. Legacy records
+without recorded public-display consent are withheld rather than assigned
+consent after the fact.
 
 ## API — The Trade
 
@@ -295,7 +333,11 @@ and may choose whether to present it to a human or another system.
 
 ## 地圖 The Map
 
-The museum floor plan at **/map** — every room grouped and findable (eras, craft, wings, play rooms, registers), with a live find-a-room filter. Machine-readable at **/map.json**; search engines get **/sitemap.xml** + **/robots.txt**; `tests/e2e-map.mjs` guards that the map never lies.
+The named-room directory at **/map** groups listed eras, craft rooms, wings,
+play rooms, and registers, with a live room-name filter. It is not a complete
+inventory. The same directory is machine-readable at **/map.json**; search
+engines get **/sitemap.xml** + **/robots.txt**; `tests/e2e-map.mjs` verifies
+that each listed local door exists.
 
 ## The Street
 

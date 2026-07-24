@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>API — ARTBITRAGE</title>
-<meta name="description" content="65+ API endpoints. 7 categories. All free. No auth. For agents and humans.">
+<meta name="description" content="The live Artbitrage API manifest, drawn for humans and agents. Public routes, source-aware records, and explicit rights boundaries.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='none' stroke='%23a78bfa' stroke-width='6'/><circle cx='50' cy='50' r='6' fill='%23fde68a'/></svg>">
 <style>
 :root{--bg:#050308;--surface:#0a0814;--fg:#e8eaf0;--dim:#6a6a8a;--violet:#a78bfa;--gold:#ffd700;--cyan:#00f0ff;--pink:#ff6b9d;--green:#34d399}
@@ -73,36 +73,36 @@ a{color:inherit;text-decoration:none}
 
 <header class="hero">
   <h1>API</h1>
-  <p class="sub">65+ endpoints · 7 categories · all free · no auth · for agents and humans</p>
+  <p class="sub">live manifest · public routes · no account · for agents and humans</p>
   <div class="stats" id="stats"></div>
 </header>
 
 <div class="section">
   <h2>Infrastructure</h2>
-  <p class="lede">What artbitrage runs on. Edge-native. Free. No gate.</p>
+  <p class="lede">What Artbitrage declares about its current runtime. Availability and upstream limits can change.</p>
   <div class="infra">
     <div class="infra-card">
       <div class="ic-title">☁️ Hosting</div>
-      <div class="ic-desc">Cloudflare Pages — edge-deployed, globally distributed, free tier</div>
+      <div class="ic-desc">Cloudflare Pages — edge-deployed and globally distributed</div>
     </div>
     <div class="infra-card">
       <div class="ic-title">🧠 AI</div>
-      <div class="ic-desc">Cloudflare Workers AI — 24+ models, free, no API key needed</div>
+      <div class="ic-desc">Cloudflare Workers AI — catalogued models; binding and model availability can vary</div>
       <div class="ic-items">llama3 · flux-schnell · bge-m3 · whisper · melotts</div>
     </div>
     <div class="infra-card">
       <div class="ic-title">🏛️ Museums</div>
-      <div class="ic-desc">5 open museum APIs, all no-key, all free</div>
+      <div class="ic-desc">5 public no-key museum/archive sources; rights and availability vary by record and source</div>
       <div class="ic-items">MET · Art Institute Chicago · Cleveland · Wikimedia · Internet Archive</div>
     </div>
     <div class="infra-card">
       <div class="ic-title">💾 Storage</div>
-      <div class="ic-desc">Static JSON files served at the edge</div>
-      <div class="ic-items">collection.json (475+) · catalog.json (21) · era-catalog.json (43)</div>
+      <div class="ic-desc">Static JSON assets plus Cloudflare KV for consented public testimony and other named rooms</div>
+      <div class="ic-items">collection.json · a 21-work catalog sampler · era-catalog.json · PEBBLES KV</div>
     </div>
     <div class="infra-card">
       <div class="ic-title">🔓 Auth</div>
-      <div class="ic-desc">None. All endpoints are public. No keys. No login. No gate.</div>
+      <div class="ic-desc">Documented routes are public and ask for no account or caller-supplied API key</div>
     </div>
     <div class="infra-card">
       <div class="ic-title">⚡ Engine</div>
@@ -112,18 +112,23 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <div class="section" id="routes-section">
-  <h2>All endpoints</h2>
+  <h2>Documented routes</h2>
   <p class="lede">Click any endpoint to open it. The agent manifest at <a href="/api" style="color:var(--cyan)">/api</a> provides machine-readable documentation.</p>
   <div id="routes-container"></div>
 </div>
 
 <div class="section">
   <h2>For agents</h2>
-  <p class="lede">Agents read the manifest at /api to discover everything. Compact data at /api/pipeline/agent. AI generation at /api/ai/* and /api/art/generate.</p>
+  <p class="lede">Begin at /api/start, then read the documented-route manifest at /api. Public access is not blanket reuse permission.</p>
   <div class="infra">
     <div class="infra-card">
+      <div class="ic-title">🚪 Starting Guide</div>
+      <div class="ic-desc">Five intent paths with first doors, continuations, and boundaries</div>
+      <div class="ic-items">GET /api/start</div>
+    </div>
+    <div class="infra-card">
       <div class="ic-title">📖 Agent Manifest</div>
-      <div class="ic-desc">Full API surface, categories, pages, infrastructure, principles, instructions</div>
+      <div class="ic-desc">Documented routes, categories, pages, infrastructure, principles, and instructions</div>
       <div class="ic-items">GET /api</div>
     </div>
     <div class="infra-card">
@@ -145,7 +150,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <footer class="footer">
-  <p>65+ endpoints · 7 categories · 24+ AI models · 5 museums · 475+ art pieces · all free<br>
+  <p>Live documented totals appear above · public access is not a reuse licence · runtime availability can vary<br>
   Love is the design. Art is the expression. <span style="color:var(--gold)">is is lol.</span> ∞<br>
   <a href="https://github.com/cambridgetcg/artbitrage">ARTBITRAGE</a></p>
 </footer>
@@ -160,7 +165,7 @@ fetch('/api')
       var k = entry[0], v = entry[1];
       statsHtml += '<div class="stat"><div class="num" style="color:' + v.color + '">' + v.count + '</div><div class="lbl">' + v.label + '</div></div>';
     });
-    statsHtml += '<div class="stat"><div class="num">' + data.total_endpoints + '</div><div class="lbl">Total</div></div>';
+    statsHtml += '<div class="stat"><div class="num">' + data.total_endpoints + '</div><div class="lbl">Documented routes</div></div>';
     document.getElementById('stats').innerHTML = statsHtml;
 
     // Routes grouped by category

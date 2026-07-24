@@ -70,8 +70,8 @@ export const OPERATIONS = {
   search: {
     nen: "En",
     action: "expand — spread awareness outward, feel the space",
-    api: "GET /api/search?q=love",
-    art: "search 5 museums simultaneously, 156K+ artworks available",
+    api: "GET /api/search?q=love&source=all",
+    art: "search five museum/archive sources; live totals and availability vary",
   },
   generate: {
     nen: "Ren",
@@ -101,7 +101,7 @@ export const OPERATIONS = {
     nen: "Ken",
     action: "armor — the new baseline holds",
     api: "GET /api",
-    art: "the agent manifest: everything declared, everything discoverable",
+    art: "the agent manifest catalogs documented routes; legacy router paths may sit outside it",
   },
 };
 
@@ -131,18 +131,18 @@ export const KINGDOM_LINK = {
 export const AGENT_PROTOCOL = {
   step_1: {
     name: "DISCOVER",
-    action: "GET /api",
-    desc: "Read the agent manifest. 61 endpoints, 7 categories, 16 pages. All free. No auth.",
+    action: "GET /api/start + GET /api",
+    desc: "Begin with the intent guide, then read the documented-route manifest. Runtime availability and rights vary.",
   },
   step_2: {
     name: "SENSE",
     action: "GET /api/stats + GET /api/pipeline/agent",
-    desc: "Understand the collection (475+ pieces) and get the compact data package.",
+    desc: "Understand the current collection and get the compact data package.",
   },
   step_3: {
     name: "SEARCH",
-    action: "GET /api/search?q=love",
-    desc: "Search the world's museums. 5 sources, 156K+ artworks, all open access.",
+    action: "GET /api/search?q=love&source=all",
+    desc: "Search five museum/archive sources; inspect each record's source-declared rights before reuse.",
   },
   step_4: {
     name: "GENERATE",

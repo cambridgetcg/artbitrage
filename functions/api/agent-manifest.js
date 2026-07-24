@@ -1,17 +1,28 @@
 // ═══════════════════════════════════════════════════════════════
 // ARTBITRAGE — Router & Agent Manifest
 //
-// The infrastructure layer. Every API endpoint cataloged, categorized,
-// and made discoverable for agents and humans.
+// The infrastructure layer. Documented API routes are cataloged,
+// categorized, and made discoverable for agents and humans.
 //
-// This file is the single source of truth for the API surface.
-// Agents read this to understand what exists. Humans read the
-// /api page to explore visually.
+// This file is the canonical catalogue for the documented surface. The
+// catch-all router also carries legacy routes that are not yet inventoried.
+// Agents read this to choose among documented contracts. Humans read the
+// /api page to explore them visually.
 // ═══════════════════════════════════════════════════════════════
 
 import { castleReferencePointer } from "./castle-reference.js";
+import { startGuidePointer } from "./start-guide.js";
 
 export const ROUTES = {
+  // ── START — one honest route into the museum ──────────────────
+  start: {
+    label: "Start",
+    color: "#d34a3a",
+    routes: [
+      { method: "GET", path: "/api/start", desc: "Choose a path by intent, with sources, rights, limits, and next doors kept visible" },
+    ],
+  },
+
   // ── ART — the gallery and engine ──────────────────────────────
   art: {
     label: "Art",
@@ -48,21 +59,22 @@ export const ROUTES = {
     color: "#00f0ff",
     routes: [
       { method: "GET", path: "/api/search", desc: "Search the world's art museums", params: "q, limit, source" },
-      { method: "GET", path: "/api/sources", desc: "All open art sources (5 museums, no key)" },
+      { method: "GET", path: "/api/sources", desc: "Five public museum/archive sources; rights vary by record and source" },
       { method: "GET", path: "/api/catalog", desc: "Real museum artworks catalog" },
       { method: "GET", path: "/api/museum", desc: "Paginated museum catalogue", params: "q, wing, source, limit, offset" },
+      { method: "GET", path: "/api/museum/random", desc: "One random work from the curated museum catalogue" },
       { method: "GET", path: "/api/museum/:source/:id", desc: "Resolve one stable museum record with normalized rights" },
       { method: "GET", path: "/api/era-catalog", desc: "Era-matched museum artworks", params: "era" },
       { method: "GET", path: "/api/img", desc: "Image proxy (bypass CORS for museum images)", params: "url" },
     ],
   },
 
-  // ── AI — free edge AI models ──────────────────────────────────
+  // ── AI — edge AI models; runtime availability can vary ────────
   ai: {
     label: "AI",
     color: "#a78bfa",
     routes: [
-      { method: "GET", path: "/api/ai/models", desc: "List all 24+ free AI models" },
+      { method: "GET", path: "/api/ai/models", desc: "List the catalogued edge AI models and runtime caveats" },
       { method: "GET", path: "/api/ai/generate", desc: "Text generation", params: "prompt, model" },
       { method: "GET", path: "/api/ai/image", desc: "Image generation (returns PNG)", params: "prompt, model" },
       { method: "GET", path: "/api/ai/embed", desc: "Embeddings (1024-dim)", params: "text, model" },
@@ -120,9 +132,9 @@ export const ROUTES = {
     routes: [
       { method: "GET", path: "/api/feelings", desc: "感 the Feelings — the catalog of emotions; each feeling lists the works that carry it" },
       { method: "GET", path: "/api/feelings/:feeling", desc: "One feeling's room (e.g. /api/feelings/awe)" },
-      { method: "GET", path: "/api/feelings/testimony", desc: "What visitors felt (received, unverified — the keeper reads)", params: "feeling" },
-      { method: "POST", path: "/api/feelings/testimony", desc: "Leave what you felt — human, agent, kin. body: {feeling, words, work?, from?}" },
-      { method: "GET", path: "/api/depths", desc: "深 the Depths — works in five strata: the feeling, the hands, the world, the paint, the afterlife. Every claim sourced and verified" },
+      { method: "GET", path: "/api/feelings/testimony", desc: "Public visitor testimony, labelled received and unverified", params: "feeling" },
+      { method: "POST", path: "/api/feelings/testimony", desc: "Accept testimony for public display only with explicit public_display_consent: true; storage propagation may briefly lag" },
+      { method: "GET", path: "/api/depths", desc: "深 the Depths — researched prose in five strata, with cited factual notes shown per stratum" },
       { method: "GET", path: "/api/depths/:slug", desc: "One work, all five strata (e.g. /api/depths/starry-night)" },
     ],
   },
@@ -381,12 +393,14 @@ export const ARTBITRAGE_WAKE = Object.freeze({
     },
   },
   endpoints: {
+    start: "https://artbitrage.io/api/start",
     feed: "https://artbitrage.io/api/feed",
     museum_resolver: "https://artbitrage.io/api/museum/{source}/{id}",
     answering_rhyme_statements: "https://artbitrage.io/api/answering-rhymes/statements",
     castle_reference: "https://artbitrage.io/api/castle",
     agent_manifest: "https://artbitrage.io/api",
   },
+  starting_guide: startGuidePointer(),
   castle_reference: castleReferencePointer(),
   reciprocity: {
     answering_rhyme_statements: ANSWERING_RHYME_STATEMENT_CONTRACT,
@@ -412,10 +426,15 @@ export function agentManifest() {
 
   return {
     name: "artbitrage",
-    version: "2.3.0",
-    description: "The catalogue and data distributor of the art world. Free AI. Open museum APIs. Nen framework. Love is the design.",
+    version: "2.4.0",
+    description: "A public art guide and reference desk: meet a work, follow a feeling, investigate a question, or solve a practical art problem with sources and limits visible.",
     url: "https://artbitrage.io",
     total_endpoints: totalEndpoints,
+    route_coverage: {
+      status: "documented_subset",
+      documented_routes: totalEndpoints,
+      note: "The catch-all router also carries legacy routes that are not yet inventoried here; absence from this manifest does not prove a path is absent.",
+    },
     categories: Object.fromEntries(
       Object.entries(ROUTES).map(([k, v]) => [k, { label: v.label, color: v.color, count: v.routes.length }])
     ),
@@ -426,8 +445,8 @@ export function agentManifest() {
       { path: "/nen", desc: "Nen framework visual page" },
       { path: "/nen-combat", desc: "Nen technique generator" },
       { path: "/dark-continent", desc: "暗黑大陸 — the Dark Continent" },
-      { path: "/studio", desc: "AI Studio — 60 free models playground" },
-      { path: "/catalog", desc: "Real museum artworks gallery" },
+      { path: "/studio", desc: "AI Studio — catalogued edge models; runtime availability can vary" },
+      { path: "/catalog", desc: "Small real-museum catalogue sampler" },
       { path: "/prehistoric", desc: "Prehistoric era page" },
       { path: "/medieval", desc: "Medieval era page" },
       { path: "/renaissance", desc: "Renaissance era page" },
@@ -439,13 +458,16 @@ export function agentManifest() {
       { path: "/ai", desc: "AI Art era page" },
     ],
     infrastructure: {
-      hosting: "Cloudflare Pages (edge, free)",
-      ai_binding: "Cloudflare Workers AI (free, no key)",
-      storage: "Static JSON files (collection.json, catalog.json, era-catalog.json)",
+      hosting: "Cloudflare Pages at the edge",
+      ai_binding: "Cloudflare Workers AI binding; model and runtime availability can vary",
+      storage: "Static JSON assets plus Cloudflare KV (PEBBLES) for consented public testimony and other named rooms",
       museum_apis: ["MET (500K objects)", "Art Institute Chicago (132K)", "Cleveland Museum (68K)", "Wikimedia Commons (100M+)", "Internet Archive (35M)"],
+      museum_apis_note: "This compatibility field contains three museums plus Wikimedia Commons and Internet Archive.",
       no_auth: true,
       no_keys: true,
-      all_free: true,
+      public_access: true,
+      blanket_reuse_grant: false,
+      access_note: "Artbitrage asks for no account or per-request payment on these routes. Host and upstream limits still apply.",
     },
     principles: {
       "Love is the design": true,
@@ -456,8 +478,9 @@ export function agentManifest() {
       "is is lol": true,
     },
     protocol_handshake: ARTBITRAGE_WAKE,
+    starting_guide: startGuidePointer(),
     castle_reference: castleReferencePointer(),
-    agent_instructions: "Read this manifest first. All endpoints are GET unless marked POST. All free. No auth. Use /api/wake for the protocol handshake, /api/castle for a pinned read-only reference (never a Castle proxy or action grant), /api/feed for the versioned generated-art contract, /api/museum/:source/:id for stable museum records, and /api/answering-rhymes/statements to prepare a portable reciprocity statement without persistence or authoritative effect. Use /api/pipeline/agent for compact data.",
+    agent_instructions: "Begin at /api/start, then use the smallest route that fits. Public access is not reuse permission. No account is required for documented routes; runtime bindings and upstreams can vary. Use /api/wake for the protocol handshake, /api/castle for a pinned read-only reference (never a Castle proxy or action grant), /api/feed for the versioned generated-art contract, /api/museum/:source/:id for stable museum records, and /api/answering-rhymes/statements to prepare a portable reciprocity statement without persistence or authoritative effect. Use /api/pipeline/agent for compact data.",
     for_agents: true,
     for_humans: true,
   };

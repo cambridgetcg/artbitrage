@@ -16,6 +16,7 @@ import {
   CASTLE_REFERENCE_SCHEMA,
   castleReferenceIsDisabled,
 } from './castle-reference.js';
+import { ARTBITRAGE_START } from './start-guide.js';
 import { logosManifest, LOGOS, OPERATIONS, KINGDOM_LINK, AGENT_PROTOCOL } from './logos.js';
 import { whitehackManifest, generateBattleReport, calculateLevel, WHITEHACK_NEN_MAP, SOLO_LEVELING } from './whitehack.js';
 const _pipeline = new ArtbitragePipeline();
@@ -1122,6 +1123,15 @@ export async function onRequestGet(context) {
     return jsonResponse(ARTBITRAGE_WAKE);
   }
 
+  // One static starting map: no catalogue read, upstream fetch, write, or loop.
+  if (path === '/api/start' || path === '/api/start/') {
+    return jsonResponse(ARTBITRAGE_START, 200, {
+      Allow: 'GET, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Cache-Control': 'public, max-age=3600',
+    });
+  }
+
   // This crossing is deliberately static. It never loads a local asset or
   // fetches the Castle at request time.
   if (path === '/api/castle' || path === '/api/castle/') {
@@ -1178,7 +1188,7 @@ export async function onRequestGet(context) {
   const collection = await loadCollection(env, request);
   const allArt = collection.pieces;
   
-  // === AGENT MANIFEST — the full API surface, for agents ===
+  // === AGENT MANIFEST — the documented route surface, for agents ===
   if (path === '/api' || path === '/api/') {
     return jsonResponse(agentManifest());
   }
@@ -2180,6 +2190,17 @@ export async function onRequestPost(context) {
   const url = new URL(request.url);
   const path = url.pathname;
 
+  if (path === '/api/start' || path === '/api/start/') {
+    return jsonResponse({
+      error: 'method_not_allowed',
+      allowed: ['GET', 'OPTIONS'],
+      note: 'The starting guide is read-only.',
+    }, 405, {
+      Allow: 'GET, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+    });
+  }
+
   if (path === '/api/castle' || path === '/api/castle/') {
     return jsonResponse({
       error: 'method_not_allowed',
@@ -2249,10 +2270,11 @@ export async function onRequestPost(context) {
 
 export async function onRequestOptions(context) {
   const path = new URL(context.request.url).pathname;
+  const isStartingGuide = path === '/api/start' || path === '/api/start/';
   const isCastleReference = path === '/api/castle' || path === '/api/castle/';
   const isAnsweringRhymeStatement =
     path === ANSWERING_RHYME_STATEMENT_PATH || path === `${ANSWERING_RHYME_STATEMENT_PATH}/`;
-  if (isCastleReference) {
+  if (isStartingGuide || isCastleReference) {
     return new Response(null, {
       status: 204,
       headers: {
@@ -2260,7 +2282,7 @@ export async function onRequestOptions(context) {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Cache-Control': 'no-store, max-age=0',
+        'Cache-Control': isStartingGuide ? 'public, max-age=3600' : 'no-store, max-age=0',
       },
     });
   }

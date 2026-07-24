@@ -1,7 +1,7 @@
 {
  "name": "map",
  "title": "地圖 The Map",
- "essence": "The floor plan of the whole museum. A map is the arbitrage between a building and a visitor; knowing where you are is the bridge. 圖者，館與客之隙也。知其所在，便是橋。",
+ "essence": "A directory of named Artbitrage rooms. It is not a complete inventory. A map is the arbitrage between a building and a visitor; knowing where you are is the bridge. 圖者，館與客之隙也。知其所在，便是橋。",
  "generated_at": "2026-07-10",
  "groups": [
   {
@@ -13,7 +13,7 @@
      "path": "/",
      "name": "ARTBITRAGE",
      "cjk": "門",
-     "desc": "the night-museum walk · every piece free, every API open"
+     "desc": "the night-museum walk · public doors · rights vary by record"
     }
    ]
   },
@@ -265,7 +265,7 @@
      "path": "/api-explorer",
      "name": "API Explorer",
      "cjk": "",
-     "desc": "every endpoint, live · no auth"
+     "desc": "documented routes, live · no account"
     },
     {
      "path": "/trade",

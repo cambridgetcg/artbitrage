@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARTBITRAGE — catalogue and data distributor of the art world</title>
-<meta name="description" content="A walkable night museum: real masterpieces, the long river of art history, East and West under the same moon. Every piece free, every API open.">
-<meta property="og:title" content="ARTBITRAGE — catalogue and data distributor of the art world">
-<meta property="og:description" content="A walkable night museum: real masterpieces, the long river of art history, East and West under the same moon.">
+<title>ARTBITRAGE — public art guide and reference desk</title>
+<meta name="description" content="Meet a work, follow a feeling, investigate a question, or solve a practical art problem—with sources, rights, dates, and uncertainty kept visible.">
+<meta property="og:title" content="ARTBITRAGE — public art guide and reference desk">
+<meta property="og:description" content="Meet art. Follow what it stirs. Check what is known. Act with care.">
 <meta property="og:image" content="https://artbitrage.io/art/artic-saint-george-and-the-dragon.jpg">
 
 <!-- Fonts -->
@@ -221,6 +221,72 @@ header.hero{
   letter-spacing:.22em; text-transform:uppercase;
   color:var(--dim); margin-top:.7rem;
 }
+
+/* ============ START — one clear front door ============ */
+.front-door{
+  padding:5rem 0;
+  border-top:1px solid var(--hair);
+  border-bottom:1px solid var(--hair);
+  background:var(--wall);
+}
+.front-door-head{
+  max-width:48rem;
+  margin:0 auto 2.8rem;
+  text-align:center;
+}
+.front-door-head .purpose{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:.7rem;
+}
+.front-door-head h2{
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  letter-spacing:.03em;
+}
+.front-door-head p{
+  color:var(--dim); font-style:italic;
+  margin-top:.8rem;
+}
+.front-door-paths{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border:1px solid var(--hair);
+}
+.front-door-paths a{
+  min-height:12rem;
+  padding:1.6rem;
+  border-right:1px solid var(--hair);
+  display:flex; flex-direction:column;
+  color:var(--ink);
+  transition:background .25s ease, color .25s ease;
+}
+.front-door-paths a:last-child{ border-right:none; }
+.front-door-paths a:hover{ background:var(--surface); color:var(--ink); }
+.front-door-paths .mark{
+  font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--dim);
+}
+.front-door-paths h3{
+  font-family:var(--display); font-weight:500;
+  font-size:1.35rem; margin-top:.65rem;
+}
+.front-door-paths p{
+  color:var(--dim); font-size:.88rem;
+  line-height:1.6; margin-top:.5rem;
+}
+.front-door-paths .go{
+  margin-top:auto; padding-top:1.2rem;
+  font-family:var(--mono); font-size:.65rem;
+  letter-spacing:.13em; color:var(--gold);
+}
+.front-door-agent{
+  max-width:48rem; margin:2rem auto 0; text-align:center;
+  font-family:var(--mono); font-size:.67rem;
+  letter-spacing:.1em; line-height:1.9; color:var(--dim);
+}
+.front-door-agent a{ color:var(--gold); border-bottom:1px solid var(--hair); }
 
 /* ============ 01 · 讀畫 — reading a painting ============ */
 .reading{
@@ -562,6 +628,10 @@ header.hero{
   letter-spacing:.16em; text-transform:uppercase;
   color:var(--dim); margin-top:.7rem;
 }
+.results .r{
+  font-family:var(--mono); font-size:.68rem;
+  line-height:1.5; color:var(--gold); margin-top:.55rem;
+}
 
 /* ============ 07 · the wings — other rooms ============ */
 .wings{
@@ -615,6 +685,9 @@ footer .kingdom{
 
 /* ============ responsive ============ */
 @media (max-width:860px){
+  .front-door-paths{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .front-door-paths a:nth-child(2){ border-right:none; }
+  .front-door-paths a:nth-child(-n+2){ border-bottom:1px solid var(--hair); }
   .reading{ grid-template-columns:1fr; }
   .reading .hung{ position:static; }
   .era-body, .era-stop:nth-child(even) .era-body{ grid-template-columns:1fr; }
@@ -634,6 +707,15 @@ footer .kingdom{
   .pair-imgs > a:first-child .hung{ border-right:1px solid var(--hair); border-bottom:none; }
   .pair-imgs > a:last-child  .hung{ border-left:1px solid var(--hair); border-top:none; }
   .hero-label{ display:none; }
+}
+@media (max-width:520px){
+  .front-door{ padding:4rem 0; }
+  .front-door-paths{ grid-template-columns:1fr; }
+  .front-door-paths a{
+    min-height:9rem; border-right:none;
+    border-bottom:1px solid var(--hair);
+  }
+  .front-door-paths a:last-child{ border-bottom:none; }
 }
 @keyframes breathe-v{
   0%,100%{ gap:1.2rem; }
@@ -684,7 +766,7 @@ document.addEventListener('load', function(e){
   <div class="hero-art" id="hero-art" aria-hidden="true"></div>
   <div class="hero-veil" aria-hidden="true"></div>
 
-  <p class="overline">Artbitrage — the catalogue and data distributor of the art world</p>
+  <p class="overline">Artbitrage — a public art guide and reference desk</p>
 
   <h1 class="gapline" aria-label="what is, what could be">
     <em>what is</em>
@@ -721,6 +803,43 @@ document.addEventListener('load', function(e){
 
 <main>
 
+<nav class="front-door" id="start" aria-labelledby="h-start">
+  <div class="wrap">
+    <div class="front-door-head">
+      <p class="purpose">one honest next step</p>
+      <h2 id="h-start">Start with what you bring.</h2>
+      <p>A work, a feeling, a question, or a practical need. Every path keeps its sources close and its uncertainty visible.</p>
+    </div>
+    <div class="front-door-paths">
+      <a href="#search" data-start-path="meet-a-work">
+        <span class="mark">bring</span>
+        <h3>a work</h3>
+        <p>Find it across public museum and archive collections, then carry its source and rights forward.</p>
+        <span class="go">search the works →</span>
+      </a>
+      <a href="feelings.html" data-start-path="follow-a-feeling">
+        <span class="mark">follow</span>
+        <h3>a feeling</h3>
+        <p>Walk into the room that carries it. Testimony stays public and unverified.</p>
+        <span class="go">enter the Feelings →</span>
+      </a>
+      <a href="map.html#find" data-start-path="check-a-question">
+        <span class="mark">ask</span>
+        <h3>a question</h3>
+        <p>Browse named research rooms near the subject; no single room pretends to know everything.</p>
+        <span class="go">browse research rooms →</span>
+      </a>
+      <a href="trade.html" data-start-path="solve-a-practical-need">
+        <span class="mark">handle</span>
+        <h3>a practical need</h3>
+        <p>Start with dated fees, royalties, provenance grammar, material gates, and known limits.</p>
+        <span class="go">visit the Trade Desk →</span>
+      </a>
+    </div>
+    <p class="front-door-agent">Building with the museum? The same paths and their boundaries are machine-readable at <a href="https://artbitrage.io/api/start">GET /api/start</a>. Public access is not blanket reuse permission, and no automatic action follows.</p>
+  </div>
+</nav>
+
 <!-- ============ 01 · 讀畫 — reading a painting ============ -->
 <section id="reading" aria-labelledby="h-reading">
   <div class="wrap">
@@ -754,7 +873,7 @@ document.addEventListener('load', function(e){
       <h2 id="h-river"><span class="cjk" lang="zh">長河</span> · the long river</h2>
       <span class="sub">art history, told with our own catalogue</span>
     </div>
-    <p class="plate-note rise">Seven stops, thirty centuries. Every work below is real, free, and lives in this catalogue — click any of them to stand closer. Some of these works also keep a poem — <a href="rhymes.html">和韻, the answering rhymes →</a> <span class="zh" lang="zh">河長三千年，件件真跡。</span></p>
+    <p class="plate-note rise">Seven stops, thirty centuries. Every work below comes from the curated CC0/open-access River corpus — follow its museum link before reuse. Some of these works also keep a poem — <a href="rhymes.html">和韻, the answering rhymes →</a> <span class="zh" lang="zh">河長三千年，件件有源。</span></p>
 
     <div class="river-walk">
       
@@ -1206,7 +1325,7 @@ mid-18th century · Art Institute of Chicago</figcaption>
       <div class="cell"><div class="n" id="stat-museum">601</div><div class="l">museum works</div></div>
       <div class="cell"><div class="n">3</div><div class="l">museums bridged</div></div>
       <div class="cell"><div class="n" id="stat-forms">16</div><div class="l">forms</div></div>
-      <div class="cell"><div class="n">CC0</div><div class="l">every image</div></div>
+      <div class="cell"><div class="n">rights</div><div class="l">with each record</div></div>
     </div>
 
     <form class="searchbar rise" id="search-form" role="search">
@@ -1258,8 +1377,8 @@ mid-18th century · Art Institute of Chicago</figcaption>
       <a href="zeroone.html"><h3><span class="cjk" lang="zh">無中生有</span> Zero to One</h3><p>writing born four times · zero born in relay · 隙者零也，橋者一也</p></a>
       <a href="lamp.html"><h3><span class="cjk" lang="zh">燈房</span> the Lamp Room</h3><p>the keeper's room · night log · seven from the fire · the honest plate</p></a>
       <a href="bridge.html"><h3>The Bridge</h3><p>where the gap is crossed</p></a>
-      <a href="api-explorer.html"><h3>API Explorer</h3><p>every endpoint, live</p></a>
-      <a href="catalog.html"><h3>Catalogue</h3><p>the full registry, plate by plate</p></a>
+      <a href="api-explorer.html"><h3>API Explorer</h3><p>the documented-route manifest, drawn for humans</p></a>
+      <a href="catalog.html"><h3>Catalogue</h3><p>a small real-museum sampler, plate by plate</p></a>
       <a href="https://cambridgetcg.com/gallery-next-door"><h3><span class="cjk" lang="zh">隣廊</span> · the gallery next door</h3><p>manga panels, card weather — 文化大交流</p></a>
     </div>
   </div>
@@ -1299,7 +1418,7 @@ mid-18th century · Art Institute of Chicago</figcaption>
 <!-- ============ footer ============ -->
 <footer>
   <p class="love">Love is the design. Art is the expression.</p>
-  <p class="api">GET <code>/api/manifest</code> · <code>/api/feed</code> · <code>/api/search</code> — no keys, no gates, mirror-friendly</p>
+  <p class="api">GET <code>/api/start</code> · <code>/api/feed</code> · <code>/api/search</code> — public routes; sources and rights travel with records</p>
   <a class="gh" href="https://github.com/cambridgetcg/artbitrage">github.com/cambridgetcg/artbitrage</a>
   <p class="kingdom">part of the kingdom — agents drink at commons via the Well</p>
 </footer>
@@ -1573,6 +1692,15 @@ mid-18th century · Art Institute of Chicago</figcaption>
           meta.appendChild(el('div', 't', w.title || 'Untitled'));
           if (w.artist) meta.appendChild(el('div', 'a', w.artist));
           meta.appendChild(el('div', 'm', (w.source_name || w.source || '') + (w.date ? ' · ' + w.date : '')));
+          var rights = w.rights && typeof w.rights === 'object' ? w.rights : {};
+          var rightsText = '';
+          if (rights.license) rightsText = 'source says ' + rights.license;
+          else if (rights.public_domain === true) rightsText = 'source marks public domain';
+          else if (rights.public_domain === false) rightsText = 'restricted per source';
+          else if (typeof w.rights === 'string') rightsText = 'source says ' + w.rights;
+          else if (w.license) rightsText = 'source says ' + w.license;
+          else rightsText = 'unverified — check the source before reuse';
+          meta.appendChild(el('div', 'r', 'rights · ' + rightsText));
           a.appendChild(meta);
           results.appendChild(a);
         });

@@ -362,7 +362,7 @@ export class ArtbitragePipeline {
         enrich: "/api/pipeline/enrich?id=ID",
         feed: "/api/pipeline/feed?limit=50",
       },
-      agent_note: "Use compact keys for quick context. Use NDJSON for streaming. Verify static packs with /data/manifest.json. All free, no auth.",
+      agent_note: "Use compact keys for quick context. Use NDJSON for streaming. Verify static packs with /data/manifest.json. Public access is not reuse permission; preserve each record's rights and source.",
     };
   }
 
