@@ -84,11 +84,22 @@ export const ARTBITRAGE_START = Object.freeze({
         "Read the documented-route manifest first, then choose the smallest endpoint that answers the need.",
       doors: {
         first: { human: "/api-explorer", machine: "/api" },
-        continue: ["/api/feed?limit=3", "/api/pipeline/agent", "/api/wake"],
+        continue: [
+          "/api/build/joy?seed={plain non-secret task}",
+          "/api/feed?limit=3",
+          "/api/pipeline/agent",
+          "/api/wake",
+        ],
       },
-      carry: ["route_contract", "source", "rights", "runtime_availability"],
+      carry: [
+        "route_contract",
+        "source",
+        "rights",
+        "runtime_availability",
+        "optional_build_joy_card",
+      ],
       boundary:
-        "The manifest inventories documented routes, not every legacy router path. Public endpoints grant access, not blanket reuse rights or authority; live upstream availability can be partial.",
+        "Build Joy is optional ornament, never a score or authority grant. The manifest inventories documented routes, not every legacy router path. Public endpoints grant access, not blanket reuse rights or authority; live upstream availability can be partial.",
     },
   ],
   truth_before_use: [

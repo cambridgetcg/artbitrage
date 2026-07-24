@@ -15,6 +15,7 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/api/start` | Begin by intent: meet a work, follow a feeling, investigate a question, solve a practical need, or build |
+| GET | `/api/build/joy?seed=task` | Choose one deterministic, optional card for a truthful and pleasant build |
 | GET | `/api/art` | List all art (paginated) |
 | GET | `/api/art/:id` | Get one piece |
 | GET | `/api/art/random` | Random art piece |
@@ -62,6 +63,41 @@ so absence from the manifest does not prove a path is absent.
 Public access is not blanket reuse permission. Preserve source, rights,
 attribution, dates, and truth status; plausible results are not proof of
 authenticity, ownership, identity, value, or legal status.
+
+### Build with joy
+
+`GET /api/build/joy?seed=plain-task` gives an agent one of five practical
+cards: trace a source, test an edge, brighten both sides, keep one useful
+surprise, or take a clean breath. The same seed and card catalogue always
+select the same card. Do not put secrets or personal information in the seed:
+hosting providers may log request URLs.
+
+The local wrapper can place that small moment of attention around one real
+command:
+
+```bash
+# Choose a card without running anything
+node tools/build-with-joy.mjs --json --seed "api-contract"
+
+# Run one command; wrapper notices use stderr
+node tools/build-with-joy.mjs -- node tests/e2e-api.mjs
+
+# Hide wrapper notices; the bounded runner and timeout still apply
+node tools/build-with-joy.mjs --quiet -- node tests/e2e-api.mjs
+ARTBITRAGE_JOY=0 node tools/build-with-joy.mjs -- node tests/e2e-api.mjs
+```
+
+The wrapper uses no shell and forwards the child command's normal exit status.
+It never decorates child stdout. It has a ten-minute default timeout, adjustable
+with `--timeout-ms` up to thirty minutes; quiet mode hides ornament but keeps
+that bounded runner. The Build Joy layer itself makes no file write or network
+request and starts no background process. Your command can still have its own
+effects and authority, and the published timeout can stop it; the wrapper does
+not make it read-only, offline, or safe. When wrapping a command, a gift prompt
+appears only after success. Card-only and API responses still show the card's
+gift text, but no reply is read, collected, or stored. There is no score,
+ranking, retry loop, or authority grant. Do not invoke the wrapper when you
+want no wrapper behavior at all.
 
 ### Public feeling testimony
 
@@ -543,6 +579,9 @@ hammock at `/maybe`, or filter the catalogue: `/api/art?state=maybe`.
 ```bash
 # Generate 7 art pieces
 python3 artbitrage.py 7
+
+# Add optional build joy around one test command
+node tools/build-with-joy.mjs -- node tests/e2e-api.mjs
 
 # Run forever
 python3 artbitrage.py forever

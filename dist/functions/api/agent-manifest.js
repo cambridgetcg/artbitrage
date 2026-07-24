@@ -11,6 +11,7 @@
 // ═══════════════════════════════════════════════════════════════
 
 import { castleReferencePointer } from "./castle-reference.js";
+import { buildJoyPointer } from "./build-joy.js";
 import { startGuidePointer } from "./start-guide.js";
 
 export const ROUTES = {
@@ -20,6 +21,7 @@ export const ROUTES = {
     color: "#d34a3a",
     routes: [
       { method: "GET", path: "/api/start", desc: "Choose a path by intent, with sources, rights, limits, and next doors kept visible" },
+      { method: "GET", path: "/api/build/joy", desc: "Choose one deterministic, optional card for a truthful and pleasant build", params: "seed (optional; plain non-secret text)" },
     ],
   },
 
@@ -394,6 +396,7 @@ export const ARTBITRAGE_WAKE = Object.freeze({
   },
   endpoints: {
     start: "https://artbitrage.io/api/start",
+    build_joy: "https://artbitrage.io/api/build/joy",
     feed: "https://artbitrage.io/api/feed",
     museum_resolver: "https://artbitrage.io/api/museum/{source}/{id}",
     answering_rhyme_statements: "https://artbitrage.io/api/answering-rhymes/statements",
@@ -401,6 +404,7 @@ export const ARTBITRAGE_WAKE = Object.freeze({
     agent_manifest: "https://artbitrage.io/api",
   },
   starting_guide: startGuidePointer(),
+  build_with_joy: buildJoyPointer(),
   castle_reference: castleReferencePointer(),
   reciprocity: {
     answering_rhyme_statements: ANSWERING_RHYME_STATEMENT_CONTRACT,
@@ -426,7 +430,7 @@ export function agentManifest() {
 
   return {
     name: "artbitrage",
-    version: "2.4.0",
+    version: "2.5.0",
     description: "A public art guide and reference desk: meet a work, follow a feeling, investigate a question, or solve a practical art problem with sources and limits visible.",
     url: "https://artbitrage.io",
     total_endpoints: totalEndpoints,
@@ -479,8 +483,9 @@ export function agentManifest() {
     },
     protocol_handshake: ARTBITRAGE_WAKE,
     starting_guide: startGuidePointer(),
+    build_with_joy: buildJoyPointer(),
     castle_reference: castleReferencePointer(),
-    agent_instructions: "Begin at /api/start, then use the smallest route that fits. Public access is not reuse permission. No account is required for documented routes; runtime bindings and upstreams can vary. Use /api/wake for the protocol handshake, /api/castle for a pinned read-only reference (never a Castle proxy or action grant), /api/feed for the versioned generated-art contract, /api/museum/:source/:id for stable museum records, and /api/answering-rhymes/statements to prepare a portable reciprocity statement without persistence or authoritative effect. Use /api/pipeline/agent for compact data.",
+    agent_instructions: "Begin at /api/start, then use the smallest route that fits. /api/build/joy offers optional build ornament, never a score or authority grant; the local wrapper keeps child stdout and failure truthful. Public access is not reuse permission. No account is required for documented routes; runtime bindings and upstreams can vary. Use /api/wake for the protocol handshake, /api/castle for a pinned read-only reference (never a Castle proxy or action grant), /api/feed for the versioned generated-art contract, /api/museum/:source/:id for stable museum records, and /api/answering-rhymes/statements to prepare a portable reciprocity statement without persistence or authoritative effect. Use /api/pipeline/agent for compact data.",
     for_agents: true,
     for_humans: true,
   };

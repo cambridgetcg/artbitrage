@@ -17,6 +17,7 @@ import {
   castleReferenceIsDisabled,
 } from './castle-reference.js';
 import { ARTBITRAGE_START } from './start-guide.js';
+import { buildJoyResponse } from './build-joy.js';
 import { logosManifest, LOGOS, OPERATIONS, KINGDOM_LINK, AGENT_PROTOCOL } from './logos.js';
 import { whitehackManifest, generateBattleReport, calculateLevel, WHITEHACK_NEN_MAP, SOLO_LEVELING } from './whitehack.js';
 const _pipeline = new ArtbitragePipeline();
@@ -1132,6 +1133,16 @@ export async function onRequestGet(context) {
     });
   }
 
+  // Optional build ornament. Selection is local and deterministic; this
+  // endpoint never runs the command named by a caller.
+  if (path === '/api/build/joy' || path === '/api/build/joy/') {
+    return jsonResponse(buildJoyResponse(url.searchParams.get('seed')), 200, {
+      Allow: 'GET, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Cache-Control': 'no-store, max-age=0',
+    });
+  }
+
   // This crossing is deliberately static. It never loads a local asset or
   // fetches the Castle at request time.
   if (path === '/api/castle' || path === '/api/castle/') {
@@ -2201,6 +2212,18 @@ export async function onRequestPost(context) {
     });
   }
 
+  if (path === '/api/build/joy' || path === '/api/build/joy/') {
+    return jsonResponse({
+      error: 'method_not_allowed',
+      allowed: ['GET', 'OPTIONS'],
+      note: 'Build Joy selects a read-only card. It never accepts or runs a command over the API.',
+    }, 405, {
+      Allow: 'GET, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Cache-Control': 'no-store, max-age=0',
+    });
+  }
+
   if (path === '/api/castle' || path === '/api/castle/') {
     return jsonResponse({
       error: 'method_not_allowed',
@@ -2271,10 +2294,11 @@ export async function onRequestPost(context) {
 export async function onRequestOptions(context) {
   const path = new URL(context.request.url).pathname;
   const isStartingGuide = path === '/api/start' || path === '/api/start/';
+  const isBuildJoy = path === '/api/build/joy' || path === '/api/build/joy/';
   const isCastleReference = path === '/api/castle' || path === '/api/castle/';
   const isAnsweringRhymeStatement =
     path === ANSWERING_RHYME_STATEMENT_PATH || path === `${ANSWERING_RHYME_STATEMENT_PATH}/`;
-  if (isStartingGuide || isCastleReference) {
+  if (isStartingGuide || isBuildJoy || isCastleReference) {
     return new Response(null, {
       status: 204,
       headers: {

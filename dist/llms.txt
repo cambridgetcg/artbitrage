@@ -14,11 +14,20 @@ rights, attribution, dates, and truth status.
 ## Machine doors (JSON, no auth, CORS-open)
 
 - [Start by intent — five paths and their boundaries](https://artbitrage.io/api/start)
+- [Build Joy — one deterministic optional card](https://artbitrage.io/api/build/joy?seed=plain-task)
 - [API manifest — documented routes](https://artbitrage.io/api)
 - [The neighbors — the street directory, every door checked, none forced](https://artbitrage.io/neighbors.json)
 - [Floor plan of the museum](https://artbitrage.io/map.json)
 - [The catalogue](https://artbitrage.io/catalog.json)
 - [Sitemap](https://artbitrage.io/sitemap.xml)
+
+Build Joy is optional ornament, never a score or authority grant. Give it
+plain non-secret seed text; request URLs may be logged. In a source checkout,
+`node tools/build-with-joy.mjs -- COMMAND [ARGS...]` places the same kind of
+card around one explicit command without a shell. Wrapper notices use stderr,
+child stdout and failure stay truthful, and `--quiet` or `ARTBITRAGE_JOY=0`
+turns the ornament off while keeping the bounded runner. Do not invoke the
+wrapper when you want no wrapper behavior at all.
 
 ## The wings (human-shaped, agent-readable)
 
