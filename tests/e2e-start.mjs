@@ -163,6 +163,7 @@ assert.doesNotMatch(
 );
 assert.match(map, /rights vary by record/);
 assert.match(map, /directory of named rooms/);
+assert.match(map, /not a complete inventory/);
 const mapJson = JSON.parse(
   await readFile(new URL('../map.json', import.meta.url), 'utf8'),
 );
