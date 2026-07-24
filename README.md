@@ -28,6 +28,7 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 | GET | `/api/feed?limit=20` | Versioned latest-art feed (`artbitrage.feed/1`, limit bounded to 1–100) |
 | GET | `/api/manifest` | The artbitrage manifest |
 | GET | `/api/wake` | Protocol handshake, rights boundary, and Cambridge sibling |
+| GET | `/api/castle` | Pinned, read-only reference to a curated Castle of Understanding snapshot |
 | GET | `/api/answering-rhymes/statements` | Reciprocity statement schema, normalization rules, and pre-action consequences |
 | POST | `/api/answering-rhymes/statements` | Validate and hash a portable reciprocity statement; no auth, persistence, or authoritative effect |
 | GET | `/api/sources` | Open art data sources with no keys required |
@@ -145,6 +146,29 @@ CMA `share_license_status`/`creditline`, Wikimedia license/usage terms):
 shared recognition shape (`built_with`, `serves_kinds`, `host`, `epoch`), names
 Cambridge TCG as a sibling, and states the rights boundary. It does **not**
 create shared accounts, databases, payments, or deployment authority.
+
+### Castle of Understanding — a small, honest door
+
+`GET /api/castle` returns a compact Artbitrage-owned reference to one immutable
+Castle Gate receipt. It carries the receipt, schema, protocol, payload hashes,
+snapshot counts, producer-declared correction address and current availability,
+rights boundary, and source history. It does not include Castle prose, read the
+home working tree, fetch or proxy Castle content at request time, write anything
+back, or start another background loop.
+
+The referenced snapshot was forged on 2026-07-07 and is historical, not a claim
+about the current Castle. Its recorded source commit was later rebased away and
+is no longer publicly resolvable; the pinned Castle Gate receipt and payload
+remain verifiable, and the reference says both facts plainly. Public visibility
+is not a reuse licence: the receipt declares `NOASSERTION` and no grant.
+The receipt also names Castle Gate’s GitHub Issues as a public correction
+address, but public issue creation there is currently restricted; Artbitrage
+therefore reports that there is no live public return transport.
+
+Set `CASTLE_BRIDGE_DISABLED=1` on the Artbitrage Cloudflare environment to rest
+only this crossing. While rested, `/api/castle` returns 503 before any source
+read, network fetch, copy, write, or loop. Discovery remains visible through
+`/api/wake` so callers can check the door without mistaking silence for consent.
 
 `GET /api/feed?limit=3` preserves the original `feed`, `updated`, `count`, and
 `pieces` fields while adding the versioned `artbitrage.feed/1` contract:

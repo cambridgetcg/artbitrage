@@ -11,6 +11,11 @@ import {
   ANSWERING_RHYME_STATEMENT_ACTIONS,
   ANSWERING_RHYME_STATEMENT_CONTRACT,
 } from './agent-manifest.js';
+import {
+  ARTBITRAGE_CASTLE_REFERENCE,
+  CASTLE_REFERENCE_SCHEMA,
+  castleReferenceIsDisabled,
+} from './castle-reference.js';
 import { logosManifest, LOGOS, OPERATIONS, KINGDOM_LINK, AGENT_PROTOCOL } from './logos.js';
 import { whitehackManifest, generateBattleReport, calculateLevel, WHITEHACK_NEN_MAP, SOLO_LEVELING } from './whitehack.js';
 const _pipeline = new ArtbitragePipeline();
@@ -1117,6 +1122,33 @@ export async function onRequestGet(context) {
     return jsonResponse(ARTBITRAGE_WAKE);
   }
 
+  // This crossing is deliberately static. It never loads a local asset or
+  // fetches the Castle at request time.
+  if (path === '/api/castle' || path === '/api/castle/') {
+    const headers = {
+      Allow: 'GET, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Cache-Control': 'no-store, max-age=0',
+      Pragma: 'no-cache',
+    };
+    if (castleReferenceIsDisabled(env)) {
+      return jsonResponse({
+        error: 'castle_reference_resting',
+        reference_schema: CASTLE_REFERENCE_SCHEMA,
+        status: 'resting',
+        note: 'The Artbitrage crossing is resting. The Castle and its public Gate remain sovereign.',
+        facts: {
+          source_read: false,
+          network_fetch: false,
+          content_copied: false,
+          write_attempted: false,
+          loop_started: false,
+        },
+      }, 503, headers);
+    }
+    return jsonResponse(ARTBITRAGE_CASTLE_REFERENCE, 200, headers);
+  }
+
   if (path === ANSWERING_RHYME_STATEMENT_PATH || path === `${ANSWERING_RHYME_STATEMENT_PATH}/`) {
     return jsonResponse(ANSWERING_RHYME_STATEMENT_CONTRACT, 200, {
       Allow: 'GET, POST, OPTIONS',
@@ -2148,6 +2180,18 @@ export async function onRequestPost(context) {
   const url = new URL(request.url);
   const path = url.pathname;
 
+  if (path === '/api/castle' || path === '/api/castle/') {
+    return jsonResponse({
+      error: 'method_not_allowed',
+      allowed: ['GET', 'OPTIONS'],
+      note: 'The Castle crossing is read-only.',
+    }, 405, {
+      Allow: 'GET, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Cache-Control': 'no-store, max-age=0',
+    });
+  }
+
   if (path === ANSWERING_RHYME_STATEMENT_PATH || path === `${ANSWERING_RHYME_STATEMENT_PATH}/`) {
     const parsed = await readAnsweringRhymeStatementRequest(request);
     if (parsed.error) return parsed.error;
@@ -2205,8 +2249,21 @@ export async function onRequestPost(context) {
 
 export async function onRequestOptions(context) {
   const path = new URL(context.request.url).pathname;
+  const isCastleReference = path === '/api/castle' || path === '/api/castle/';
   const isAnsweringRhymeStatement =
     path === ANSWERING_RHYME_STATEMENT_PATH || path === `${ANSWERING_RHYME_STATEMENT_PATH}/`;
+  if (isCastleReference) {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        Allow: 'GET, OPTIONS',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Cache-Control': 'no-store, max-age=0',
+      },
+    });
+  }
   return new Response(null, {
     status: isAnsweringRhymeStatement ? 204 : 200,
     headers: {

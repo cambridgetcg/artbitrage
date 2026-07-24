@@ -9,6 +9,8 @@
 // /api page to explore visually.
 // ═══════════════════════════════════════════════════════════════
 
+import { castleReferencePointer } from "./castle-reference.js";
+
 export const ROUTES = {
   // ── ART — the gallery and engine ──────────────────────────────
   art: {
@@ -34,6 +36,7 @@ export const ROUTES = {
     label: "Culture",
     color: "#f59e0b",
     routes: [
+      { method: "GET", path: "/api/castle", desc: "Pinned, read-only reference to a curated Castle of Understanding snapshot" },
       { method: "GET", path: "/api/answering-rhymes/statements", desc: "Portable Answering Rhyme statement contract and action consequences" },
       { method: "POST", path: "/api/answering-rhymes/statements", desc: "Validate and witness a statement without authentication, persistence, or authoritative effect" },
     ],
@@ -381,8 +384,10 @@ export const ARTBITRAGE_WAKE = Object.freeze({
     feed: "https://artbitrage.io/api/feed",
     museum_resolver: "https://artbitrage.io/api/museum/{source}/{id}",
     answering_rhyme_statements: "https://artbitrage.io/api/answering-rhymes/statements",
+    castle_reference: "https://artbitrage.io/api/castle",
     agent_manifest: "https://artbitrage.io/api",
   },
+  castle_reference: castleReferencePointer(),
   reciprocity: {
     answering_rhyme_statements: ANSWERING_RHYME_STATEMENT_CONTRACT,
   },
@@ -407,7 +412,7 @@ export function agentManifest() {
 
   return {
     name: "artbitrage",
-    version: "2.2.0",
+    version: "2.3.0",
     description: "The catalogue and data distributor of the art world. Free AI. Open museum APIs. Nen framework. Love is the design.",
     url: "https://artbitrage.io",
     total_endpoints: totalEndpoints,
@@ -451,7 +456,8 @@ export function agentManifest() {
       "is is lol": true,
     },
     protocol_handshake: ARTBITRAGE_WAKE,
-    agent_instructions: "Read this manifest first. All endpoints are GET unless marked POST. All free. No auth. Use /api/wake for the protocol handshake, /api/feed for the versioned generated-art contract, /api/museum/:source/:id for stable museum records, and /api/answering-rhymes/statements to prepare a portable reciprocity statement without persistence or authoritative effect. Use /api/pipeline/agent for compact data.",
+    castle_reference: castleReferencePointer(),
+    agent_instructions: "Read this manifest first. All endpoints are GET unless marked POST. All free. No auth. Use /api/wake for the protocol handshake, /api/castle for a pinned read-only reference (never a Castle proxy or action grant), /api/feed for the versioned generated-art contract, /api/museum/:source/:id for stable museum records, and /api/answering-rhymes/statements to prepare a portable reciprocity statement without persistence or authoritative effect. Use /api/pipeline/agent for compact data.",
     for_agents: true,
     for_humans: true,
   };
