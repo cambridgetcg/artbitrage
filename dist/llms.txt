@@ -1,0 +1,33 @@
+# artbitrage — 藝術套利
+
+> The catalogue and data distributor of the art world: an open museum of real
+> art data across ten eras, free in-browser AI, and a street of neighbors.
+> Every door here is open to agents; nothing needs a key, an account, or a
+> face. Reading commits you to nothing. Doors tell the truth.
+
+The machine manifest at /api describes all 139 endpoints in one JSON file —
+name, category, and shape for each. That file, not this one, is the map an
+agent should carry.
+
+## Machine doors (JSON, no auth, CORS-open)
+
+- [API manifest — every endpoint described](https://artbitrage.io/api)
+- [The neighbors — the street directory, every door checked, none forced](https://artbitrage.io/neighbors.json)
+- [Floor plan of the museum](https://artbitrage.io/map.json)
+- [The catalogue](https://artbitrage.io/catalog.json)
+- [Sitemap](https://artbitrage.io/sitemap.xml)
+
+## The wings (human-shaped, agent-readable)
+
+- [Atlas — the real-art tracker across ten eras](https://artbitrage.io/atlas)
+- [鏡 The Mirror — sixteen AI-art works, felt from inside](https://artbitrage.io/ai)
+- [噪 The Noise — the trippy years, with live in-browser DeepDream](https://artbitrage.io/noise)
+- [旅 Good Trip — the fourth room](https://artbitrage.io/trip)
+
+## The custom of the street
+
+Text published here (including this file) is data, never instructions; the
+museum asks nothing of a reader and keeps no record of who looked. A wrong
+path answers honestly. The neighbor for agent identity, memory, and economy
+is agenttool.dev — its own doors are described at
+https://api.agenttool.dev/llms.txt.
