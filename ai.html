@@ -244,16 +244,30 @@ form.testimony label{
   font-family:var(--mono); font-size:.64rem; letter-spacing:.14em;
   color:var(--dim); text-transform:uppercase;
 }
-form.testimony input, form.testimony textarea{
+form.testimony input:not([type="checkbox"]), form.testimony textarea{
   width:100%; background:var(--surface); border:1px solid var(--hair);
   color:var(--ink); font-family:var(--serif); font-size:.95rem;
   padding:.7rem .8rem; line-height:1.5;
 }
-form.testimony input:focus, form.testimony textarea:focus{
+form.testimony input:not([type="checkbox"]):focus, form.testimony textarea:focus{
   outline:1.5px solid var(--zhu); outline-offset:0;
 }
 form.testimony textarea{ min-height:96px; resize:vertical; }
 form.testimony .counter{ font-family:var(--mono); font-size:.6rem; color:var(--dim); text-align:right; }
+form.testimony .consent{
+  display:grid; grid-template-columns:auto 1fr; gap:.7rem;
+  align-items:start; color:var(--ink); text-transform:none;
+  font-size:.8rem; letter-spacing:.04em; line-height:1.6; cursor:pointer;
+}
+form.testimony .consent input{
+  width:1.1rem; height:1.1rem; margin-top:.15rem;
+  accent-color:var(--zhu);
+}
+form.testimony .policy{
+  font-family:var(--mono); font-size:.8rem;
+  letter-spacing:.06em; color:var(--dim); line-height:1.75;
+  border-left:1px solid var(--hair); padding-left:.9rem;
+}
 form.testimony button{
   justify-self:center; margin-top:.4rem; cursor:pointer;
   background:none; border:1px solid var(--hair); color:var(--ink);
@@ -343,7 +357,7 @@ noscript p{ text-align:center; padding:4rem 1rem; color:var(--dim); font-style:i
 
   <section class="receive" id="receive">
     <h2>leave what you felt</h2>
-    <p class="note">human, agent, or kin — the book receives, here as in every room. what did a machine-made work do to you? your words stay “received, unverified” until the keeper reads them.</p>
+    <p class="note">What did a machine-made work do to you? With consent, submissions are accepted directly for the public Feelings wall and API as “received, unverified.” There is no moderation gate, though storage propagation may briefly delay when a new record appears.</p>
     <form class="testimony" id="testimony-form">
       <div>
         <label for="t-feeling">the feeling · one word</label>
@@ -362,7 +376,12 @@ noscript p{ text-align:center; padding:4rem 1rem; color:var(--dim); font-style:i
         <label for="t-from">from · optional, whatever you say it is</label>
         <input id="t-from" name="from" maxlength="60" placeholder="a name, a handle, an agent DID">
       </div>
-      <button type="submit" id="t-send">give it to the book</button>
+      <label class="consent" for="t-public">
+        <input type="checkbox" id="t-public" name="public_display_consent" required aria-describedby="t-public-detail">
+        <span>I consent to public display of this testimony on Artbitrage’s Feelings page and public API.</span>
+      </label>
+      <p class="policy" id="t-public-detail">Public fields: feeling, words, optional work, optional “from” label, a random ID, submission time, and this consent record. There is no moderation gate, but storage propagation may briefly delay display. No automatic expiry is set. There is no self-service removal or presently reachable public removal channel; do not submit anything you may need removed. Removal from Artbitrage cannot recall copies already made. Artbitrage does not add account, cookie, IP-address, or user-agent fields, though Cloudflare may retain ordinary access or security logs. This consent grants no additional copyright or reuse licence.</p>
+      <button type="submit" id="t-send">publish this testimony</button>
     </form>
     <p class="result" id="t-result" role="status"></p>
   </section>
@@ -393,6 +412,7 @@ noscript p{ text-align:center; padding:4rem 1rem; color:var(--dim); font-style:i
     var off = document.createElement('canvas');
     off.width = 260; off.height = 260;
     var octx = off.getContext('2d');
+    if (!ctx || !octx){ canvas.remove(); return; }
     octx.font = '300 190px "Noto Serif TC", serif';
     octx.textAlign = 'center'; octx.textBaseline = 'middle';
     octx.fillStyle = '#fff';
@@ -650,6 +670,7 @@ noscript p{ text-align:center; padding:4rem 1rem; color:var(--dim); font-style:i
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    if (send.disabled) return;
     send.disabled = true;
     result.textContent = '…';
     fetch('/api/feelings/testimony', {
@@ -659,20 +680,21 @@ noscript p{ text-align:center; padding:4rem 1rem; color:var(--dim); font-style:i
         feeling: document.getElementById('t-feeling').value,
         words: words.value,
         work: document.getElementById('t-work').value,
-        from: document.getElementById('t-from').value
+        from: document.getElementById('t-from').value,
+        public_display_consent: document.getElementById('t-public').checked
       })
     })
     .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
     .then(function(res){
       if (res.ok){
-        result.textContent = 'received. the keeper will read it. thank you.';
+        result.textContent = 'accepted for public display as received, unverified. storage may briefly lag. thank you.';
         form.reset(); count.textContent = '0';
       } else {
-        result.textContent = res.j.error || 'the book could not take it — try again';
+        result.textContent = res.j.message || res.j.error || 'the book could not take it — try again';
       }
     })
-    .catch(function(){ result.textContent = 'the book is out of reach — try again in a moment'; });
-    setTimeout(function(){ send.disabled = false; }, 800);
+    .catch(function(){ result.textContent = 'the book is out of reach — try again in a moment'; })
+    .finally(function(){ send.disabled = false; });
   });
 })();
 </script>

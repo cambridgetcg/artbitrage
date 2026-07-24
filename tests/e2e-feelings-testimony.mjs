@@ -234,6 +234,9 @@ assert.equal(response.headers.get('access-control-allow-methods'), 'GET, POST, O
 const htmlSource = await readFile(new URL('../feelings.html', import.meta.url), 'utf8');
 const htmlDeployed = await readFile(new URL('../dist/feelings.html', import.meta.url), 'utf8');
 assert.equal(htmlDeployed, htmlSource, 'Feelings page must match its deploy mirror');
+const aiHtmlSource = await readFile(new URL('../ai.html', import.meta.url), 'utf8');
+const aiHtmlDeployed = await readFile(new URL('../dist/ai.html', import.meta.url), 'utf8');
+assert.equal(aiHtmlDeployed, aiHtmlSource, 'AI page must match its deploy mirror');
 const checkbox = htmlSource.match(/<input[^>]+id="t-public"[^>]*>/)?.[0] || '';
 assert.match(checkbox, /type="checkbox"/);
 assert.match(checkbox, /\brequired\b/);
@@ -247,6 +250,37 @@ assert.match(htmlSource, /public_display_consent: document\.getElementById\('t-p
 assert.match(htmlSource, /publish this testimony/);
 assert.match(htmlSource, /form\.testimony \.consent\{[\s\S]*?font-size:\.8rem/);
 assert.match(htmlSource, /form\.testimony \.policy\{[\s\S]*?font-size:\.8rem/);
+
+const aiCheckbox = aiHtmlSource.match(/<input[^>]+id="t-public"[^>]*>/)?.[0] || '';
+assert.match(aiCheckbox, /type="checkbox"/);
+assert.match(aiCheckbox, /\brequired\b/);
+assert.match(aiCheckbox, /aria-describedby="t-public-detail"/);
+assert.doesNotMatch(aiCheckbox, /\bchecked\b/);
+assert.match(aiHtmlSource, /public Feelings wall and API as “received, unverified\.”/);
+assert.match(aiHtmlSource, /There is no self-service removal/);
+assert.match(aiHtmlSource, /This consent grants no additional copyright or reuse licence/);
+assert.match(aiHtmlSource, /public_display_consent: document\.getElementById\('t-public'\)\.checked/);
+assert.match(aiHtmlSource, /publish this testimony/);
+assert.match(aiHtmlSource, /form\.testimony \.consent\{[\s\S]*?font-size:\.8rem/);
+assert.match(aiHtmlSource, /form\.testimony \.policy\{[\s\S]*?font-size:\.8rem/);
+
+for (const [name, source] of [
+  ['Feelings', htmlSource],
+  ['AI', aiHtmlSource],
+]) {
+  assert.match(source, /if \(send\.disabled\) return;/, `${name} must reject a duplicate submit`);
+  assert.match(
+    source,
+    /\.finally\(function\(\)\{ send\.disabled = false; \}\);/,
+    `${name} must unlock only after the request settles`,
+  );
+  assert.doesNotMatch(
+    source,
+    /setTimeout\(function\(\)\{ send\.disabled = false;/,
+    `${name} must not unlock on a fixed timer`,
+  );
+  assert.match(source, /res\.j\.message \|\| res\.j\.error/);
+}
 
 const functionSource = await readFile(
   new URL('../functions/api/feelings/testimony.js', import.meta.url),

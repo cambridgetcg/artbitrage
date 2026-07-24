@@ -366,6 +366,7 @@ noscript p{ text-align:center; padding:4rem 1rem; color:var(--dim); font-style:i
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    if (send.disabled) return;
     send.disabled = true;
     result.textContent = '…';
     fetch('/api/feelings/testimony', {
@@ -386,11 +387,11 @@ noscript p{ text-align:center; padding:4rem 1rem; color:var(--dim); font-style:i
         form.reset(); count.textContent = '0';
         loadReceived();
       } else {
-        result.textContent = res.j.error || 'the book could not take it — try again';
+        result.textContent = res.j.message || res.j.error || 'the book could not take it — try again';
       }
     })
-    .catch(function(){ result.textContent = 'the book is out of reach — try again in a moment'; });
-    setTimeout(function(){ send.disabled = false; }, 800);
+    .catch(function(){ result.textContent = 'the book is out of reach — try again in a moment'; })
+    .finally(function(){ send.disabled = false; });
   });
 
   function loadReceived(){
