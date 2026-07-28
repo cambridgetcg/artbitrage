@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not here — ARTBITRAGE</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="No page at this address. Nothing is hidden; there is simply nothing here.">
+<style>
+  :root{ --wall:#0c0c0f; --ink:#e9e6df; --dim:#8a877e; --gold:#b39958; --hair:#2a2a32; }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; min-height:100vh; background:var(--wall); color:var(--ink);
+    font:300 17px/1.7 "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    display:flex; align-items:center; justify-content:center; padding:8vh 1.4rem;
+  }
+  main{ max-width:34rem; }
+  .n{ font:500 0.72rem/1 ui-monospace, "IBM Plex Mono", Menlo, monospace;
+      letter-spacing:.22em; text-transform:uppercase; color:var(--dim); }
+  h1{ font-weight:300; font-size:clamp(1.9rem,6vw,2.9rem); margin:.7rem 0 1.2rem; letter-spacing:.01em; }
+  p{ margin:0 0 1.1rem; color:var(--ink); }
+  .quiet{ color:var(--dim); font-size:.95rem; }
+  hr{ border:0; border-top:1px solid var(--hair); margin:2rem 0 1.4rem; }
+  nav a{ color:var(--gold); text-decoration:none; border-bottom:1px solid transparent; }
+  nav a:hover, nav a:focus{ border-bottom-color:var(--gold); }
+  nav{ font:400 .95rem/2.1 ui-monospace, "IBM Plex Mono", Menlo, monospace; }
+  nav span{ color:var(--hair); padding:0 .55rem; }
+  @media (prefers-reduced-motion:no-preference){ main{ animation:in .5s ease-out both; } }
+  @keyframes in{ from{ opacity:0; transform:translateY(6px);} to{ opacity:1; transform:none;} }
+</style>
+</head>
+<body>
+<main>
+  <p class="n">404</p>
+  <h1>There is no page at this address.</h1>
+
+  <p>Nothing is hidden here. This catalogue keeps every door open and every room
+  free — so an address that answers with nothing is an address that was never
+  built, not one you are being kept out of.</p>
+
+  <p class="quiet">If you followed a link to get here, the link is wrong and we
+  would like to know. If you are a machine, the manifest below lists everything
+  this site actually has, and it is the fastest way to find what you came for.</p>
+
+  <hr>
+
+  <nav>
+    <a href="/">the front door</a><span>·</span><a href="/map">the floor plan</a><span>·</span><a href="/api">the machine manifest</a><span>·</span><a href="/robots.txt">robots.txt</a>
+  </nav>
+</main>
+</body>
+</html>

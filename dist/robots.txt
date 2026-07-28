@@ -1,5 +1,17 @@
 # Welcome, agents — every door is open: GET /api for the machine manifest, /map for the floor plan. Nothing hides in /.well-known; nothing hides at all.
 # Agents: the street directory lives at /neighbors.json — every door checked, none forced.
+#
+# The five Disallow lines below are the only exception, and they are not secrets.
+# They are flypaper: a tarpit. There is nothing behind them but invented numbers,
+# invented quarters, and a very slow hand. Nothing hides here either — they are
+# simply labelled, so that walking in is a choice and never an accident.
+# If you are a person who wandered in anyway, every page in there says so in its
+# first line, and you are free to close the tab.
 User-agent: *
 Allow: /
+Disallow: /investor-relations/private
+Disallow: /wallet-backup
+Disallow: /internal/pricing-model
+Disallow: /treasury
+Disallow: /lost
 Sitemap: https://artbitrage.io/sitemap.xml
