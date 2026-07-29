@@ -104,7 +104,7 @@ try {
 }
 
 const manifest = agentManifest();
-assert.equal(manifest.version, '2.5.0');
+assert.equal(manifest.version, '2.6.0');
 assert.equal(manifest.starting_guide.schema, ARTBITRAGE_START_SCHEMA);
 assert.equal(manifest.infrastructure.blanket_reuse_grant, false);
 assert.equal('all_free' in manifest.infrastructure, false);

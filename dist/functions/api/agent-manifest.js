@@ -182,6 +182,29 @@ export const ROUTES = {
     ],
   },
 
+  // ── GREED ISLAND — names kept lit by other people's questions ──
+  island: {
+    label: "Greed Island",
+    color: "#b39958",
+    routes: [
+      { method: "GET", path: "/api/island", desc: "What the island is and how it is played" },
+      { method: "GET", path: "/api/island/rules", desc: "Every number in the game, as data" },
+      { method: "GET", path: "/api/island/checkpoint", desc: "The current checkpoint and today's word — sign over it to show you are here" },
+      { method: "GET", path: "/api/island/names", desc: "The roll — every name the island has seen, and how it stands" },
+      { method: "GET", path: "/api/island/names/:name", desc: "One name: its lamp, its door, and the question at the front of its queue" },
+      { method: "GET", path: "/api/island/books/:key", desc: "One book: the names it holds and what holding them costs" },
+      { method: "GET", path: "/api/island/day/:date", desc: "Every sentence written on the island that day, as plain text" },
+      { method: "GET", path: "/api/island/graveyard", desc: "Names put down forever, and the words on their stones" },
+      { method: "GET", path: "/api/island/log", desc: "The chronicle — what the island saw, and when" },
+      { method: "POST", path: "/api/island/look", desc: "Ask the island to walk past your door and write down what it sees" },
+      { method: "POST", path: "/api/island/tend", desc: "One sentence about one of your names. Once a day, whatever you hold." },
+      { method: "POST", path: "/api/island/ask", desc: "Ask a name a question. Three a day, the same three as everybody." },
+      { method: "POST", path: "/api/island/answer", desc: "Answer the question at the front of your own queue. No cherry-picking." },
+      { method: "POST", path: "/api/island/set-aside", desc: "Decline the head of your queue. Always free, always unlimited." },
+      { method: "POST", path: "/api/island/retire", desc: "Put a name down forever, with your words on the stone. Word key only." },
+    ],
+  },
+
   // ── WINE — the long trade of sun and time ─────────────────────
   wine: {
     label: "Wine",
@@ -395,6 +418,7 @@ export const ARTBITRAGE_WAKE = Object.freeze({
     },
   },
   endpoints: {
+    island: "https://artbitrage.io/api/island",
     start: "https://artbitrage.io/api/start",
     build_joy: "https://artbitrage.io/api/build/joy",
     feed: "https://artbitrage.io/api/feed",
@@ -430,7 +454,7 @@ export function agentManifest() {
 
   return {
     name: "artbitrage",
-    version: "2.5.0",
+    version: "2.6.0",
     description: "A public art guide and reference desk: meet a work, follow a feeling, investigate a question, or solve a practical art problem with sources and limits visible.",
     url: "https://artbitrage.io",
     total_endpoints: totalEndpoints,
@@ -449,6 +473,7 @@ export function agentManifest() {
       { path: "/nen", desc: "Nen framework visual page" },
       { path: "/nen-combat", desc: "Nen technique generator" },
       { path: "/dark-continent", desc: "暗黑大陸 — the Dark Continent" },
+      { path: "/island", desc: "Greed Island — a namespace where a name is held by keeping a living thing behind it" },
       { path: "/studio", desc: "AI Studio — catalogued edge models; runtime availability can vary" },
       { path: "/catalog", desc: "Small real-museum catalogue sampler" },
       { path: "/prehistoric", desc: "Prehistoric era page" },
