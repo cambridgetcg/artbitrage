@@ -308,6 +308,21 @@ export const ROUTES = {
       { method: "GET", path: "/api/pigments/anachronism", desc: "Compare supplied pigments to a claimed date — anachronism / plausible / uncertain, cited floor per pigment. Informational only; a period-consistent palette can never prove authenticity", params: "pigments, claimed_date" },
     ],
   },
+  ground: {
+    label: "Ground",
+    color: "#b8763c",
+    routes: [
+      { method: "GET", path: "/api/ground", desc: "土 the Ground directory — six cheap field tests for soil that may be fill with grass on top" },
+      { method: "GET", path: "/api/ground/tests", desc: "The six field tests: method, materials, and what each one is blind to" },
+      { method: "GET", path: "/api/ground/tests/:id", desc: "One test in full, e.g. /api/ground/tests/buried-cotton" },
+      { method: "GET", path: "/api/ground/findings", desc: "The verified corpus behind the room — every finding fetched from its source, re-checked, and carrying its own stated limit", params: "topic, q, truth_status, limit, offset" },
+      { method: "GET", path: "/api/ground/findings/:id", desc: "One finding with its source and its limit" },
+      { method: "GET", path: "/api/ground/safety", desc: "Read first if digging construction waste: asbestos, lead, treated timber, buried services. UK guidance" },
+      { method: "GET", path: "/api/ground/layers", desc: "The build order — microbiome, decompaction, plants, insects, animals, weather" },
+      { method: "GET", path: "/api/ground/vocab", desc: "Topics, truth statuses, reads_life classes, every accepted verdict input, and the one value never returned" },
+      { method: "GET", path: "/api/ground/verdict", desc: "Read your own test results against paired controls. Answers evidence-of-absence, inconclusive, or no-evidence-against-life. The alive field is null in every response by construction", params: "worms, worms_control, cotton, cotton_control, slake, slake_control, infiltration, infiltration_control, fizz, stones, soil, month" },
+    ],
+  },
 };
 
 export const ANSWERING_RHYME_STATEMENT_ACTIONS = Object.freeze({
@@ -454,7 +469,7 @@ export function agentManifest() {
 
   return {
     name: "artbitrage",
-    version: "2.6.0",
+    version: "2.7.0",
     description: "A public art guide and reference desk: meet a work, follow a feeling, investigate a question, or solve a practical art problem with sources and limits visible.",
     url: "https://artbitrage.io",
     total_endpoints: totalEndpoints,

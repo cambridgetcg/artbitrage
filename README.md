@@ -167,6 +167,62 @@ curl "https://artbitrage.io/api/pigments/prussian-blue"
 curl "https://artbitrage.io/api/pigments/anachronism?pigments=prussian-blue,titanium-white&claimed_date=1680"
 ```
 
+## API — 土 the Ground
+
+Under the grass was rubble. The lawn passed every test the eye can run and failed the
+only one that counts. **/ground** holds six cheap field tests that read whether ground is
+*working* rather than how it looks — and every one of them is honest about the same
+asymmetry: each can find absence far more readily than presence.
+
+Four of the six read life (the worm spit, the buried cotton, the dropped clod, the inch of
+water). Two cannot see life at all (the jar, the vinegar) and are here anyway, because
+knowing what you are standing on changes what the other four mean. Every test that reads
+life requires **a paired control**: the same test, the same day, the same depth, in the
+ground you are asking about and in ground you already trust.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/ground` | Directory — the six tests, the corpus counts, the disclosure |
+| GET | `/api/ground/safety` | Read first if you are digging construction waste: asbestos, lead, treated timber, buried services (UK) |
+| GET | `/api/ground/tests` | The six tests: method, materials, and what each one is blind to |
+| GET | `/api/ground/tests/:id` | One test in full, e.g. `/api/ground/tests/buried-cotton` |
+| GET | `/api/ground/findings?topic=&truth_status=&q=` | The 66 verified findings behind the room |
+| GET | `/api/ground/layers` | The build order — microbiome, decompaction, plants, insects, animals, weather |
+| GET | `/api/ground/vocab` | Topics, truth statuses, `reads_life` classes, and the one value never returned |
+| GET | `/api/ground/verdict` | Read your own results against your controls |
+
+```bash
+curl "https://artbitrage.io/api/ground/safety"
+curl "https://artbitrage.io/api/ground/tests/buried-cotton"
+curl "https://artbitrage.io/api/ground/verdict?worms=1&worms_control=12&soil=damp&month=4"
+```
+
+**Every verdict carries `"alive": null`.** It is null by construction, not by omission.
+These tests can produce evidence that ground is *not* working; none of them, in any
+combination, can establish that it is alive. `tests/e2e-ground.mjs` pins that: it throws
+the most favourable readings the API accepts at the endpoint and asserts the field stays
+null. An endpoint that could say yes there would be lying about what a spade can know.
+
+The reader also refuses when it cannot see. A worm count in dry or hot soil comes back
+`inconclusive` rather than scored, because when soil dries earthworms move deeper, die, or
+enter diapause — knotted up in a slime-lined hole — and deep-burrowing species keep
+permanent burrows five or six feet down. A zero in August measures August.
+
+Data: `ground.json`, built by `node tools/build-ground.mjs` from `tools/ground-corpus.json`
+(the findings) and `tools/ground-tests.json` (the tests). The builder refuses to write if a
+finding lacks a source URL, carries a truth status outside the house vocabulary, states no
+limit, or if a test cites a URL that is not in the verified corpus.
+
+Every finding was gathered by fetching its source and then independently re-checked by a
+second pass that fetched the same page again and could reject or reword it: 66 survived, 24
+came back weaker and more honest than first written (40 `verified`, 24 `source-declared`,
+2 `contested`). The plant, insect and animal findings assume a temperate maritime climate
+with dry summers — the working assumption is eastern England — and the room says so instead
+of hiding it. The soil physics and all six tests are not climate-specific.
+
+Nothing here is a soil survey, a contamination assessment, or advice about whether food
+grown in this ground is safe to eat.
+
 ## Open Source Search
 
 `/api/search` is the bridge from ARTBITRAGE to the wider open art world.

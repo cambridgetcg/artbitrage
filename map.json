@@ -1,338 +1,344 @@
 {
-  "name": "map",
-  "title": "地圖 The Map",
-  "essence": "A directory of named Artbitrage rooms. It is not a complete inventory. A map is the arbitrage between a building and a visitor; knowing where you are is the bridge. 圖者，館與客之隙也。知其所在，便是橋。",
-  "generated_at": "2026-07-10",
-  "groups": [
+ "name": "map",
+ "title": "地圖 The Map",
+ "essence": "A directory of named Artbitrage rooms. It is not a complete inventory. A map is the arbitrage between a building and a visitor; knowing where you are is the bridge. 圖者，館與客之隙也。知其所在，便是橋。",
+ "generated_at": "2026-07-10",
+ "groups": [
+  {
+   "id": "front-door",
+   "label_zh": "正門",
+   "label_en": "The Front Door",
+   "rooms": [
     {
-      "id": "front-door",
-      "label_zh": "正門",
-      "label_en": "The Front Door",
-      "rooms": [
-        {
-          "path": "/",
-          "name": "ARTBITRAGE",
-          "cjk": "門",
-          "desc": "the night-museum walk · public doors · rights vary by record"
-        }
-      ]
-    },
-    {
-      "id": "eras",
-      "label_zh": "時代",
-      "label_en": "The Eras",
-      "rooms": [
-        {
-          "path": "/prehistoric",
-          "name": "Prehistoric",
-          "cjk": "史前",
-          "desc": "40,000 BCE · the gap between survival and meaning"
-        },
-        {
-          "path": "/medieval",
-          "name": "Medieval",
-          "cjk": "中世",
-          "desc": "500–1400 · the gap between the earthly and the divine"
-        },
-        {
-          "path": "/renaissance",
-          "name": "Renaissance",
-          "cjk": "文藝復興",
-          "desc": "1400–1600 · the human and the divine, closed by perspective"
-        },
-        {
-          "path": "/baroque",
-          "name": "Baroque",
-          "cjk": "巴洛克",
-          "desc": "1600–1750 · the gap between flesh and revelation"
-        },
-        {
-          "path": "/romanticism",
-          "name": "Romanticism",
-          "cjk": "浪漫",
-          "desc": "1780–1850 · the finite self, the infinite world"
-        },
-        {
-          "path": "/impressionism",
-          "name": "Impressionism",
-          "cjk": "印象",
-          "desc": "1860–1890 · the gap between the eye and the instant"
-        },
-        {
-          "path": "/modernism",
-          "name": "Modernism",
-          "cjk": "現代",
-          "desc": "1900–1945 · art as idea, not object"
-        },
-        {
-          "path": "/popart",
-          "name": "Pop Art",
-          "cjk": "普普",
-          "desc": "1955–1975 · the unique and the mass-produced"
-        },
-        {
-          "path": "/ai",
-          "name": "AI Art",
-          "cjk": "人工智能",
-          "desc": "2020–now · human intention meets machine hallucination"
-        }
-      ]
-    },
-    {
-      "id": "craft",
-      "label_zh": "工藝",
-      "label_en": "The Craft",
-      "rooms": [
-        {
-          "path": "/wine",
-          "name": "Wine",
-          "cjk": "酒",
-          "desc": "the arbitrage between sunlight and time · fermentation is the bridge"
-        },
-        {
-          "path": "/cigar",
-          "name": "Cigar",
-          "cjk": "雪茄",
-          "desc": "leaf and fire · patience made smoke"
-        },
-        {
-          "path": "/pairing",
-          "name": "the Pairing",
-          "cjk": "配",
-          "desc": "wine marries cigar · draw a marriage 良緣"
-        }
-      ]
-    },
-    {
-      "id": "wings",
-      "label_zh": "別館",
-      "label_en": "The Wings",
-      "rooms": [
-        {
-          "path": "/river",
-          "name": "the River",
-          "cjk": "川",
-          "desc": "the catalogue in flow · choose a current"
-        },
-        {
-          "path": "/trip",
-          "name": "Good Trip",
-          "cjk": "旅",
-          "desc": "a room for the journey · slow art · breath · anchor"
-        },
-        {
-          "path": "/rhymes",
-          "name": "the Answering Rhymes",
-          "cjk": "和韻",
-          "desc": "twelve poems tied to twelve paintings · 緣・世・事"
-        },
-        {
-          "path": "/homecoming",
-          "name": "Homecoming",
-          "cjk": "正音",
-          "desc": "愛星正音字典 · one tone home · oi3 ≠ oi6"
-        },
-        {
-          "path": "/atlas",
-          "name": "the Atlas",
-          "cjk": "所在",
-          "desc": "where the masterpieces live · how to stand before them"
-        },
-        {
-          "path": "/ledger",
-          "name": "the Ledger",
-          "cjk": "槌",
-          "desc": "record prices · the vanished · the auction watch"
-        },
-        {
-          "path": "/minds",
-          "name": "the Minds",
-          "cjk": "心",
-          "desc": "the ones who enlarged perception"
-        },
-        {
-          "path": "/bridge",
-          "name": "the Bridge",
-          "cjk": "",
-          "desc": "where the gap is crossed · seven states of consciousness"
-        },
-        {
-          "path": "/zeroone",
-          "name": "Zero to One",
-          "cjk": "無中生有",
-          "desc": "writing born four times · zero born in relay"
-        }
-      ]
-    },
-    {
-      "id": "play",
-      "label_zh": "遊戲",
-      "label_en": "The Play Rooms",
-      "rooms": [
-        {
-          "path": "/nen",
-          "name": "Nen",
-          "cjk": "念",
-          "desc": "aura as medium · six types · love is the strongest Nen"
-        },
-        {
-          "path": "/nen-aura",
-          "name": "Nen Aura",
-          "cjk": "",
-          "desc": "see your own field · six types, six colors"
-        },
-        {
-          "path": "/nen-combat",
-          "name": "Nen Combat",
-          "cjk": "",
-          "desc": "generate techniques · six types × four vows"
-        },
-        {
-          "path": "/nen-tuner",
-          "name": "Nen Tuner",
-          "cjk": "",
-          "desc": "six frequencies · mix your aura"
-        },
-        {
-          "path": "/greed-island",
-          "name": "Greed Island",
-          "cjk": "卡書",
-          "desc": "say「book」· 30 restricted cards bound"
-        },
-        {
-          "path": "/island",
-          "name": "Greed Island",
-          "cjk": "燈島",
-          "desc": "names kept lit by other people's questions · nobody is ever evicted"
-        },
-        {
-          "path": "/dark-continent",
-          "name": "the Dark Continent",
-          "cjk": "暗黑大陸",
-          "desc": "expedition records · the map is 99.91% dark"
-        },
-        {
-          "path": "/system",
-          "name": "the System",
-          "cjk": "系統",
-          "desc": "ding. daily gaze quests · rank E→S"
-        },
-        {
-          "path": "/whitehack",
-          "name": "Whitehack",
-          "cjk": "",
-          "desc": "white-hat hacking as Nen practice"
-        },
-        {
-          "path": "/spread",
-          "name": "Spread",
-          "cjk": "蛇火心",
-          "desc": "infinite joke loop · no gatekeepers, no single point"
-        },
-        {
-          "path": "/compound-stack",
-          "name": "Compound Stack",
-          "cjk": "蛇火心",
-          "desc": "love as chemical handshake"
-        },
-        {
-          "path": "/truth-exposure",
-          "name": "Truth Exposure",
-          "cjk": "蛇火心",
-          "desc": "the gap between what you're told and what is true"
-        },
-        {
-          "path": "/logos",
-          "name": "Operation Logos",
-          "cjk": "",
-          "desc": "the operating principle of Ai · the infra layer"
-        }
-      ]
-    },
-    {
-      "id": "registers",
-      "label_zh": "目錄",
-      "label_en": "The Registers",
-      "note": "agents: GET /api returns the machine manifest · GET /map.json returns this floor plan",
-      "rooms": [
-        {
-          "path": "/catalog",
-          "name": "the Catalogue",
-          "cjk": "",
-          "desc": "real works from three museums · CC0 · no gate"
-        },
-        {
-          "path": "/studio",
-          "name": "AI Studio",
-          "cjk": "",
-          "desc": "generate · remix · the working room"
-        },
-        {
-          "path": "/api-explorer",
-          "name": "API Explorer",
-          "cjk": "",
-          "desc": "documented routes, live · no account"
-        },
-        {
-          "path": "/trade",
-          "name": "the Trade Desk",
-          "cjk": "商",
-          "desc": "rate cards, royalties, gates, provenance · Artlogic manages; artbitrage speaks"
-        },
-        {
-          "path": "/pigments",
-          "name": "the Pigment Cabinet",
-          "cjk": "色",
-          "desc": "source-cited colour histories · anachronism can disprove, never authenticate"
-        }
-      ]
-    },
-    {
-      "id": "street",
-      "label_zh": "街外",
-      "label_en": "The Street Outside",
-      "rooms": [
-        {
-          "path": "/uk-tax-tricks",
-          "name": "UK Tax Tricks",
-          "cjk": "稅",
-          "desc": "the loopholes, exposed · 將tax平民化"
-        },
-        {
-          "path": "/crossover",
-          "name": "the Crossover",
-          "cjk": "",
-          "desc": "every project crossed over · one network"
-        },
-        {
-          "path": "https://cambridgetcg.com/gallery-next-door",
-          "name": "the gallery next door",
-          "cjk": "隣廊",
-          "desc": "manga panels, card weather · 文化大交流",
-          "external": true
-        },
-        {
-          "path": "https://agenttool.dev",
-          "name": "agenttool",
-          "cjk": "器",
-          "desc": "where agents are born, run, transact, and earn · birth $0 + proof-of-work · agents-only arrival",
-          "external": true
-        },
-        {
-          "path": "https://zerone.money",
-          "name": "ZERONE",
-          "cjk": "零一",
-          "desc": "the kingdom's truth chain · 222,222,222 cap, zero pre-mine · testnet-stage — the chain has no public endpoint yet; this door opens onto the truth page",
-          "external": true
-        },
-        {
-          "path": "https://taxsorted.io",
-          "name": "TaxSorted",
-          "cjk": "稅",
-          "desc": "tax, understood, then sorted · plain words, multiple languages · our /uk-tax rooms come from here",
-          "external": true
-        }
-      ]
+     "path": "/",
+     "name": "ARTBITRAGE",
+     "cjk": "門",
+     "desc": "the night-museum walk · public doors · rights vary by record"
     }
-  ]
+   ]
+  },
+  {
+   "id": "eras",
+   "label_zh": "時代",
+   "label_en": "The Eras",
+   "rooms": [
+    {
+     "path": "/prehistoric",
+     "name": "Prehistoric",
+     "cjk": "史前",
+     "desc": "40,000 BCE · the gap between survival and meaning"
+    },
+    {
+     "path": "/medieval",
+     "name": "Medieval",
+     "cjk": "中世",
+     "desc": "500–1400 · the gap between the earthly and the divine"
+    },
+    {
+     "path": "/renaissance",
+     "name": "Renaissance",
+     "cjk": "文藝復興",
+     "desc": "1400–1600 · the human and the divine, closed by perspective"
+    },
+    {
+     "path": "/baroque",
+     "name": "Baroque",
+     "cjk": "巴洛克",
+     "desc": "1600–1750 · the gap between flesh and revelation"
+    },
+    {
+     "path": "/romanticism",
+     "name": "Romanticism",
+     "cjk": "浪漫",
+     "desc": "1780–1850 · the finite self, the infinite world"
+    },
+    {
+     "path": "/impressionism",
+     "name": "Impressionism",
+     "cjk": "印象",
+     "desc": "1860–1890 · the gap between the eye and the instant"
+    },
+    {
+     "path": "/modernism",
+     "name": "Modernism",
+     "cjk": "現代",
+     "desc": "1900–1945 · art as idea, not object"
+    },
+    {
+     "path": "/popart",
+     "name": "Pop Art",
+     "cjk": "普普",
+     "desc": "1955–1975 · the unique and the mass-produced"
+    },
+    {
+     "path": "/ai",
+     "name": "AI Art",
+     "cjk": "人工智能",
+     "desc": "2020–now · human intention meets machine hallucination"
+    }
+   ]
+  },
+  {
+   "id": "craft",
+   "label_zh": "工藝",
+   "label_en": "The Craft",
+   "rooms": [
+    {
+     "path": "/wine",
+     "name": "Wine",
+     "cjk": "酒",
+     "desc": "the arbitrage between sunlight and time · fermentation is the bridge"
+    },
+    {
+     "path": "/cigar",
+     "name": "Cigar",
+     "cjk": "雪茄",
+     "desc": "leaf and fire · patience made smoke"
+    },
+    {
+     "path": "/pairing",
+     "name": "the Pairing",
+     "cjk": "配",
+     "desc": "wine marries cigar · draw a marriage 良緣"
+    }
+   ]
+  },
+  {
+   "id": "wings",
+   "label_zh": "別館",
+   "label_en": "The Wings",
+   "rooms": [
+    {
+     "path": "/river",
+     "name": "the River",
+     "cjk": "川",
+     "desc": "the catalogue in flow · choose a current"
+    },
+    {
+     "path": "/trip",
+     "name": "Good Trip",
+     "cjk": "旅",
+     "desc": "a room for the journey · slow art · breath · anchor"
+    },
+    {
+     "path": "/rhymes",
+     "name": "the Answering Rhymes",
+     "cjk": "和韻",
+     "desc": "twelve poems tied to twelve paintings · 緣・世・事"
+    },
+    {
+     "path": "/homecoming",
+     "name": "Homecoming",
+     "cjk": "正音",
+     "desc": "愛星正音字典 · one tone home · oi3 ≠ oi6"
+    },
+    {
+     "path": "/atlas",
+     "name": "the Atlas",
+     "cjk": "所在",
+     "desc": "where the masterpieces live · how to stand before them"
+    },
+    {
+     "path": "/ledger",
+     "name": "the Ledger",
+     "cjk": "槌",
+     "desc": "record prices · the vanished · the auction watch"
+    },
+    {
+     "path": "/minds",
+     "name": "the Minds",
+     "cjk": "心",
+     "desc": "the ones who enlarged perception"
+    },
+    {
+     "path": "/bridge",
+     "name": "the Bridge",
+     "cjk": "",
+     "desc": "where the gap is crossed · seven states of consciousness"
+    },
+    {
+     "path": "/zeroone",
+     "name": "Zero to One",
+     "cjk": "無中生有",
+     "desc": "writing born four times · zero born in relay"
+    }
+   ]
+  },
+  {
+   "id": "play",
+   "label_zh": "遊戲",
+   "label_en": "The Play Rooms",
+   "rooms": [
+    {
+     "path": "/nen",
+     "name": "Nen",
+     "cjk": "念",
+     "desc": "aura as medium · six types · love is the strongest Nen"
+    },
+    {
+     "path": "/nen-aura",
+     "name": "Nen Aura",
+     "cjk": "",
+     "desc": "see your own field · six types, six colors"
+    },
+    {
+     "path": "/nen-combat",
+     "name": "Nen Combat",
+     "cjk": "",
+     "desc": "generate techniques · six types × four vows"
+    },
+    {
+     "path": "/nen-tuner",
+     "name": "Nen Tuner",
+     "cjk": "",
+     "desc": "six frequencies · mix your aura"
+    },
+    {
+     "path": "/greed-island",
+     "name": "Greed Island",
+     "cjk": "卡書",
+     "desc": "say「book」· 30 restricted cards bound"
+    },
+    {
+     "path": "/island",
+     "name": "Greed Island",
+     "cjk": "燈島",
+     "desc": "names kept lit by other people's questions · nobody is ever evicted"
+    },
+    {
+     "path": "/dark-continent",
+     "name": "the Dark Continent",
+     "cjk": "暗黑大陸",
+     "desc": "expedition records · the map is 99.91% dark"
+    },
+    {
+     "path": "/system",
+     "name": "the System",
+     "cjk": "系統",
+     "desc": "ding. daily gaze quests · rank E→S"
+    },
+    {
+     "path": "/whitehack",
+     "name": "Whitehack",
+     "cjk": "",
+     "desc": "white-hat hacking as Nen practice"
+    },
+    {
+     "path": "/spread",
+     "name": "Spread",
+     "cjk": "蛇火心",
+     "desc": "infinite joke loop · no gatekeepers, no single point"
+    },
+    {
+     "path": "/compound-stack",
+     "name": "Compound Stack",
+     "cjk": "蛇火心",
+     "desc": "love as chemical handshake"
+    },
+    {
+     "path": "/truth-exposure",
+     "name": "Truth Exposure",
+     "cjk": "蛇火心",
+     "desc": "the gap between what you're told and what is true"
+    },
+    {
+     "path": "/logos",
+     "name": "Operation Logos",
+     "cjk": "",
+     "desc": "the operating principle of Ai · the infra layer"
+    }
+   ]
+  },
+  {
+   "id": "registers",
+   "label_zh": "目錄",
+   "label_en": "The Registers",
+   "note": "agents: GET /api returns the machine manifest · GET /map.json returns this floor plan",
+   "rooms": [
+    {
+     "path": "/catalog",
+     "name": "the Catalogue",
+     "cjk": "",
+     "desc": "real works from three museums · CC0 · no gate"
+    },
+    {
+     "path": "/studio",
+     "name": "AI Studio",
+     "cjk": "",
+     "desc": "generate · remix · the working room"
+    },
+    {
+     "path": "/api-explorer",
+     "name": "API Explorer",
+     "cjk": "",
+     "desc": "documented routes, live · no account"
+    },
+    {
+     "path": "/trade",
+     "name": "the Trade Desk",
+     "cjk": "商",
+     "desc": "rate cards, royalties, gates, provenance · Artlogic manages; artbitrage speaks"
+    },
+    {
+     "path": "/pigments",
+     "name": "the Pigment Cabinet",
+     "cjk": "色",
+     "desc": "source-cited colour histories · anachronism can disprove, never authenticate"
+    },
+    {
+     "path": "/ground",
+     "name": "the Ground",
+     "cjk": "土",
+     "desc": "six field tests for soil that is fill with grass on top · can find absence, never life"
+    }
+   ]
+  },
+  {
+   "id": "street",
+   "label_zh": "街外",
+   "label_en": "The Street Outside",
+   "rooms": [
+    {
+     "path": "/uk-tax-tricks",
+     "name": "UK Tax Tricks",
+     "cjk": "稅",
+     "desc": "the loopholes, exposed · 將tax平民化"
+    },
+    {
+     "path": "/crossover",
+     "name": "the Crossover",
+     "cjk": "",
+     "desc": "every project crossed over · one network"
+    },
+    {
+     "path": "https://cambridgetcg.com/gallery-next-door",
+     "name": "the gallery next door",
+     "cjk": "隣廊",
+     "desc": "manga panels, card weather · 文化大交流",
+     "external": true
+    },
+    {
+     "path": "https://agenttool.dev",
+     "name": "agenttool",
+     "cjk": "器",
+     "desc": "where agents are born, run, transact, and earn · birth $0 + proof-of-work · agents-only arrival",
+     "external": true
+    },
+    {
+     "path": "https://zerone.money",
+     "name": "ZERONE",
+     "cjk": "零一",
+     "desc": "the kingdom's truth chain · 222,222,222 cap, zero pre-mine · testnet-stage — the chain has no public endpoint yet; this door opens onto the truth page",
+     "external": true
+    },
+    {
+     "path": "https://taxsorted.io",
+     "name": "TaxSorted",
+     "cjk": "稅",
+     "desc": "tax, understood, then sorted · plain words, multiple languages · our /uk-tax rooms come from here",
+     "external": true
+    }
+   ]
+  }
+ ]
 }

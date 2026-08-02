@@ -1,0 +1,180 @@
+{
+ "note": "The six field tests, hand-authored from the verified corpus in ground-corpus.json. Every method step traces to a fetched source listed in `sources`. `reads_life` is the honest classification of what the test can and cannot conclude — it is the spine of the whole room, and the API refuses to output a living verdict because of it.",
+ "authored_at": "2026-08-02",
+ "reads_life_vocab": {
+  "absence-strong-presence-weak": "A bad result is real evidence the ground is not working. A good result is consistent with life and equally consistent with something else, so it proves nothing on its own.",
+  "absence-strong-presence-conditional": "A bad result is evidence only when conditions allow the test to read at all. Outside those conditions the test is blind and a bad result means nothing.",
+  "none": "This test says nothing whatever about whether the ground is alive. It reads the mineral skeleton. It is here because knowing what you are standing on changes what the other tests mean."
+ },
+ "tests": [
+  {
+   "id": "worm-count",
+   "name": "The worm spit",
+   "cjk": "蚓",
+   "reads": "Earthworms present in one spade-sized block of soil, right now, at spade depth.",
+   "reads_life": "absence-strong-presence-conditional",
+   "needs_control": true,
+   "duration": "About 10 minutes per pit.",
+   "best_time": "Early spring, or autumn once the soil has wetted up — and only when the soil has already been wet for a few days. Avoid very dry soil.",
+   "materials": ["A spade", "A mat, tray or sheet of cardboard to sort on", "A ruler or a 20 cm mark on the spade"],
+   "method": [
+    "Cut a block 20 cm x 20 cm x 20 cm and lift it whole onto the mat.",
+    "Break it apart by hand and sort for five minutes. Ten minutes if the soil is wet or so compacted it comes up in slabs.",
+    "Separate adults (they carry a clear saddle, the reproductive ring) from juveniles. Count the adults.",
+    "If you want the deep burrowers a spade never reaches, the Earthworm Society of Britain's alternative is to pour a solution of 25 ml mustard powder shaken into 0.75 litre of tap water over the ground and watch that patch and around it for ten minutes.",
+    "Repeat at several spots. The farm protocol is ten pits in a W across the field; a garden usually cannot stand that much digging, so do what the ground can bear and say how many you did."
+   ],
+   "reading": {
+    "dead_signal": "Zero, one or two adults across several pits in damp spring soil.",
+    "living_signal": "Nine or more per pit is AHDB's 'good' for cropped land, three or fewer their 'bad'. Those traffic lights were built from about ten pits across a farm field, not from one hole in a garden, and no benchmark exists at all for a domestic plot or a new-build.",
+    "unreadable_when": "Dry or hot soil. Penn State Extension records that when soils dry out earthworms may move deeper, die, or enter a dormancy called diapause — tied up in a knot in a slime-lined hole to hold moisture — and that populations run low through summer. Deep-burrowing species keep permanent vertical burrows five or six feet down, far below a spade. A zero in baked August ground measures the weather. A zero in damp April ground is information."
+   },
+   "cannot_establish": "Worms found are worms present; worms absent are not proven absent. The count is also an undercount by design — the England survey measured its own blindness at 1.6 extra worms per pit on a second five-minute sort, about 40 per square metre missed. And worms are one animal, not the microbiome: their absence says nothing directly about bacteria or fungi.",
+   "sources": [
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC6382109/",
+    "https://ahdb.org.uk/news/ahdb-scorecard-unearths-soil-s-secrets",
+    "https://ahdb.org.uk/knowledge-library/how-to-count-earthworms",
+    "https://extension.psu.edu/earthworms",
+    "https://www.earthwormsoc.org.uk/sampling"
+   ]
+  },
+  {
+   "id": "buried-cotton",
+   "name": "The buried cotton",
+   "cjk": "布",
+   "reads": "Whether anything in the ground is eating cellulose — the plainest question you can ask soil life, since cotton is nearly pure cellulose and living soil treats it as food.",
+   "reads_life": "absence-strong-presence-weak",
+   "needs_control": true,
+   "duration": "Two months of waiting, ten minutes of work.",
+   "best_time": "Late spring, when soil is moist and warm. The rate changes enormously with season — a 1988 forest study needed 8 weeks of burial in winter to get the signal 3 weeks gave in July — so two burials in different months are not comparable with each other.",
+   "materials": ["Two pieces of 100% cotton — pants, a tea towel, plain cloth. Any polyester in the blend survives two months in any soil and ruins the test.", "Two markers that will not move", "A camera"],
+   "method": [
+    "Dig a hole big enough to lay the cotton out flat, about 3 to 4 inches down, in the ground you are asking about.",
+    "Dig a second, identical hole the same day and the same depth in ground you already trust — a long-established bed, a friend's garden, anywhere you know things grow. This second piece is the whole test. Without it you have a photograph, not a reading.",
+    "Photograph both before burying. Cover them over.",
+    "Mark both spots with something that will not move, and set a reminder for 60 days.",
+    "Dig both up on the same day. Wash gently. Photograph them side by side."
+   ],
+   "reading": {
+    "dead_signal": "Your piece comes up whole and readable while the control piece has been eaten to a waistband. Same soil moisture, same season, same depth, opposite result.",
+    "living_signal": "Heavily rotted cotton is hard to explain without biology. But it is a comparison, not a score: nobody publishes a percentage-gone that means healthy.",
+    "unreadable_when": "Cold, dry, or (reportedly) fungal-dominated soil. Fungal-dominated soil is usually a good sign and is widely said to eat cotton more slowly than bacterial soil — which would make slow rot ambiguous — though no controlled experiment proving that turned up. This is exactly why the people who run the test say comparative purposes only."
+   },
+   "cannot_establish": "There is no scale. Nobody publishes 'X% gone equals healthy', and one pair of pants in one hole tells you about one hole. Even the protocol is unsettled: Pennsylvania says 3-4 inches for 60 days, Cotton Australia says 5 cm for 8 weeks — the citizen test has no agreed standard, only a family of them.",
+   "sources": [
+    "https://nora.nerc.ac.uk/id/eprint/5039/1/N005039CP.pdf",
+    "https://www.pasoilhealth.org/soilyourundies",
+    "https://www.farmersweekly.co.nz/special-report/diy-soil-health/the-microbial-workers-soil-your-undies/"
+   ]
+  },
+  {
+   "id": "slake",
+   "name": "The dropped clod",
+   "cjk": "崩",
+   "reads": "Whether the soil crumb holds together in water — the glue that binds particles into aggregates, which must be constantly renewed by living things.",
+   "reads_life": "absence-strong-presence-weak",
+   "needs_control": true,
+   "duration": "Ten minutes, plus a day or two of air-drying first.",
+   "best_time": "Any time, but the fragments must be air-dry. A wet clod gives a false pass.",
+   "materials": ["Two clear jars", "Two squares of quarter-inch mesh, or improvise a basket", "Air-dried lumps of soil about 1 cm across, from your ground and from ground you trust"],
+   "method": [
+    "Air-dry the fragments. This matters: testing a damp clod is the commonest way to get a wrong answer.",
+    "Fill both jars with water about 2 cm deep, at roughly soil temperature.",
+    "Lower one fragment from each into its jar at the same moment and watch for five minutes without touching them.",
+    "Then raise each basket clear of the water and lower it again, one second up and one second down, five times.",
+    "Compare what is left."
+   ],
+   "reading": {
+    "dead_signal": "Half the structure lost within five seconds of hitting the water. That is class 1, the bottom of the USDA-NRCS scale.",
+    "living_signal": "75 to 100% of the fragment still on the mesh after five dips — class 6, the top. The guide's own framing is the sentence this whole room is built on: the binding of soil particles must constantly be renewed by biological processes.",
+    "unreadable_when": "High clay or a sodium problem changes slaking for reasons that have nothing to do with biology. Compare like against like, same soil type, or the reading means nothing."
+   },
+   "cannot_establish": "The guide calls the test qualitative, not a measurement. A cemented lump of hardcore will also pass by not falling apart — it cannot tell a living crumb from a dead clod that happens to be hard.",
+   "sources": [
+    "https://sarep.ucdavis.edu/sites/g/files/dgvnsk9171/files/media/documents/NRCS%20slake%20test%20procedure%20nrcs142p2_051287.pdf"
+   ]
+  },
+  {
+   "id": "infiltration",
+   "name": "The inch of water",
+   "cjk": "滲",
+   "reads": "How fast water enters the ground — the direct consequence of pore space, and pore space is what compaction destroys.",
+   "reads_life": "absence-strong-presence-weak",
+   "needs_control": true,
+   "duration": "Anywhere from two minutes to several hours. The waiting is the reading.",
+   "best_time": "After rain or watering. Never on baked ground — dry clay cracks, and cracks are conduits that make dead ground drink like living ground.",
+   "materials": ["A ring — a 3-inch diameter pipe offcut or a tin with both ends out", "A block of wood and a hammer", "Cling film", "107 ml of water measured out — that is one inch deep in a 3-inch ring", "A timer"],
+   "method": [
+    "Clear the surface litter, set the ring down and drive it to a depth of 3 inches, firming the soil inside the rim.",
+    "Line the inside with cling film draped over the side, so the water does not gouge the surface when it lands.",
+    "Pour in the 107 ml, then gently pull the film away and start the clock.",
+    "Stop the clock when the surface is glistening rather than standing in water.",
+    "Do it a second time. The second inch is the steady-state rate and the only one worth comparing.",
+    "Repeat beside it in ground you trust."
+   ],
+   "reading": {
+    "dead_signal": "Water sits and will not go. In the NRCS guide's own worked example on one silty clay loam field, the inch vanished in one minute off the wheel track and took three hours on it — same field, same soil, one compacted.",
+    "living_signal": "A quick first inch is consistent with living crumb structure. It is equally consistent with sand, with dry cracked clay, or with rubble. Fast is not proof of anything.",
+    "unreadable_when": "Unusually dry soil, and any single ring on its own — the guide says run several."
+   },
+   "cannot_establish": "It cannot tell you whether a slow reading is a surface crust, a compacted layer, a buried slab, or just honest clay. And clay without cracks is slow by texture alone, so a slow result is a reason to look closer, not a conviction.",
+   "sources": [
+    "https://www.envirothonpa.org/documents/infiltration_guide.pdf"
+   ]
+  },
+  {
+   "id": "jar",
+   "name": "The jar",
+   "cjk": "瓶",
+   "reads": "Sand, silt and clay — the mineral skeleton. And, if you keep what you sieved out, how much of your ground is not soil at all.",
+   "reads_life": "none",
+   "needs_control": false,
+   "duration": "48 hours, almost all of it waiting.",
+   "best_time": "Any time.",
+   "materials": ["A straight-sided jar", "Water", "A 2 mm sieve, or patience and fingers", "A marker pen"],
+   "method": [
+    "Pick out everything over 2 mm before you start — stones, brick, mortar, plastic, glass. Weigh or eyeball what you removed and write it down. On rubble ground this discarded pile is the most honest number in the test.",
+    "Fill the jar one third with the remaining fine soil, top up with water leaving an air gap, cap it and shake to a uniform slurry.",
+    "Set it somewhere level. Mark the sand layer at one minute.",
+    "Mark the silt at two hours.",
+    "Mark the clay at 48 hours. Measure each band and the total, work out three percentages, and read the class off a soil texture triangle."
+   ],
+   "reading": {
+    "dead_signal": "Nothing. This test cannot see life.",
+    "living_signal": "Nothing. Organic matter floats or colours the water, which is a hint and not a measurement.",
+    "unreadable_when": "Without a dispersant, clay clumps and settles early, so the soil reads sandier than it is."
+   },
+   "cannot_establish": "Life, structure, compaction, contamination — none of them. It measures only the fine earth, and anything over 2 mm has to be picked out first, which is exactly where rubble hides. For scale: BS 3882:2015, the British Standard for topsoil that is bought and moved, allows visible contaminants over 2 mm to be under 0.5% by mass, of which plastics under 0.25%, and sharps zero in a kilogram. That standard is explicitly not meant for judging ground in place, so it is not a test you can fail — it is a number you can point at.",
+   "sources": [
+    "https://hgic.clemson.edu/factsheet/soil-texture-analysis-the-jar-test/",
+    "https://cawood.co.uk/wp-content/uploads/2022/04/Soil-British-Standard-Topsoil-BS3882-2015-Technical-Information.pdf"
+   ]
+  },
+  {
+   "id": "vinegar-fizz",
+   "name": "The vinegar",
+   "cjk": "酸",
+   "reads": "Carbonate — chalk, lime, mortar, concrete. Not pH, though people constantly say it is.",
+   "reads_life": "none",
+   "needs_control": false,
+   "duration": "Two minutes.",
+   "best_time": "Any time. Soil should be dry.",
+   "materials": ["Supermarket white vinegar, 5% acidity", "A teaspoon of dry soil", "A cup"],
+   "method": [
+    "Put a heaped teaspoon of dry soil in the cup.",
+    "Add vinegar and watch. Bubbling means free carbonate.",
+    "For a rough amount, the Florida IFAS drop-count version: use one 0.8-teaspoon capful of soil and add vinegar ten drops at a time while stirring, stopping when the vigorous bubbling goes weak and a one-minute wait gives almost nothing. Under 10 drops is under 2% carbonate; 50 to 100 drops is 5 to 10%. They report R² = 0.94 against a laboratory calcimeter."
+   ],
+   "reading": {
+    "dead_signal": "Nothing about life. But a strong fizz on ground that ought to be neutral loam is a mortar-and-concrete signature — it tells you what your ground is made of, and that changes what every other reading means.",
+    "living_signal": "Nothing. This test cannot see life.",
+    "unreadable_when": "No fizz tells you almost nothing: a soil can be strongly alkaline from sodium with no carbonate at all."
+   },
+   "cannot_establish": "Carbonate is not pH. A soil can be acidic and still hold carbonate grains. For an actual number you need a lab — cheap consumer kits landed within about one pH unit of the lab in one small university comparison, and one pH unit is a tenfold difference in acidity, which is not good enough to decide what to add. The bicarbonate-of-soda half of the kitchen test has no scientific equivalent; bicarbonate solution is only weakly alkaline, so it is a poor acid detector.",
+   "sources": [
+    "https://ask.ifas.ufl.edu/publication/HS1262",
+    "https://extension.sdstate.edu/are-cheap-home-garden-soil-test-kits-accurate"
+   ]
+  }
+ ]
+}

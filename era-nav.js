@@ -20,6 +20,7 @@
     { id: 'cigar',         label: 'Cigar',             href: '/cigar' },
     { id: 'trade',         label: 'Trade',             href: '/trade' },
     { id: 'pigments',      label: 'Pigments',          href: '/pigments' },
+    { id: 'ground',        label: 'Ground',            href: '/ground' },
   ];
 
   var currentEra = document.body.getAttribute('data-era') || '';
@@ -130,6 +131,7 @@
     wine: ['#c94f6d', '#722f37', '#d4af37'],
     cigar: ['#c98e4f', '#8b5a2b', '#e3d3bc'],
     pigments: ['#1346a6', '#b98a3e', '#66023c'],
+    ground: ['#b8763c', '#7f9464', '#4a3826'],
   };
 
   var colors = particleColors[currentEra] || ['#ff6b9d', '#ffd700', '#00f0ff'];
