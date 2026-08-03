@@ -63,3 +63,5 @@
 /dig/            /ground 301
 /slope/          /slope 301
 /walls/          /slope 301
+/playlist/       /playlist 301
+/music/          /playlist 301

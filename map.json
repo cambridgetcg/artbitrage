@@ -246,6 +246,12 @@
      "name": "Operation Logos",
      "cjk": "",
      "desc": "the operating principle of Ai · the infra layer"
+    },
+    {
+     "path": "/playlist",
+     "name": "the Playlist",
+     "cjk": "樂",
+     "desc": "one track per room · nothing hosted, nothing claimed · a shelf we may actually play"
     }
    ]
   },

@@ -287,6 +287,64 @@ Data: `slope.json`, built by `node tools/build-slope.mjs` from `tools/slope-corp
 89 claims (38 `verified`, 45 `source-declared`, 6 `contested`), each carrying its source,
 its own `cannot_establish` line, and the checker's verbatim verdict.
 
+## API — 樂 the Playlist
+
+樂 is the character for music and also the character for joy — the same strokes read
+two ways, which makes it the only sensible name. **/playlist** holds one track per room,
+chosen by ear and argued for in plain words.
+
+The first track is the thesis. Lost Frequencies' *Are You With Me* is not an original:
+it is a rework of a country song (Easton Corbin, 2012, written by Terry McBride, Shane
+McAnally and Josh Osborne) moved onto a dance floor in 2014. Same song, different room,
+and the gap between the rooms is where the value appeared. **Art as arbitrage, literally.**
+So it gets the front door.
+
+There are **two shelves and the line between them is the point**:
+
+- **listening** — real records. Artist, title, year, MusicBrainz id, and an argument for the room. Artbitrage **hosts none of it, streams none of it, grants no rights in any of it**, and no lyric appears anywhere in the room or its data, by design.
+- **playable** — a different kind of thing: not a recommendation, a *permission*. Music whose licence was read on the page that states it, which this house could legally put behind a room.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/playlist` | Directory — both shelves, the counts, the boundary |
+| GET | `/api/playlist/listening` | One track per room, with why it sits there |
+| GET | `/api/playlist/room/:room` | The track for one room, e.g. `/api/playlist/room/slope` |
+| GET | `/api/playlist/playable` | Licence-cleared music (`?attribution=none`, `?commercial=no`) |
+| GET | `/api/playlist/licensing` | What a builder must know before serving audio |
+| GET | `/api/playlist/promises` | Ten silent placeholders in this house, and which promises can be kept |
+| GET | `/api/playlist/dropped` | What checking removed |
+| GET | `/api/playlist/text` | Plain text, for pasting into whatever you already use |
+
+Every response carries `"audio_hosted_here": false` and `"rights_granted_here": "none"`.
+`tools/build-playlist.mjs` refuses to write if a listening entry ever acquires an audio
+URL, if a playable item lacks a fetched licence, or if a licence is recorded as merely
+"Creative Commons" — CC0, CC BY 4.0 and CC BY-NC 4.0 grant wildly different things.
+
+**Checking earned its keep.** 23 of 24 tracks confirmed against MusicBrainz, in small
+batches at one search per track because MusicBrainz is free and donation-funded. Three
+artist credits were wrong (*Where Are You Now* is Lost Frequencies **& Calum Scott**;
+*Breathing* is Ben Böhmer **With Nils Hoffmann**; it is Nora **en** Pure) and are
+corrected in the open. One track did not exist at all: there is no Maribou State
+recording called *Kingdoms* — that is an album title, *Kingdoms in Colour*. It had been
+picked for the kingdom playlist because of the word, which made dropping it the right
+kind of funny.
+
+### The promise ledger
+
+Ten rooms in this house already carry an audio player. Every one holds the same 44-byte
+silent file under a note promising specific music *"in production"*. Nobody came back.
+`/api/playlist/promises` applies the rule — **a composition goes free 70 years after the
+composer dies, but every recording carries its own separate copyright** — to those ten:
+
+- **Seven are keepable.** Bach, Beethoven, Chopin, Debussy, Palestrina, Josquin, plainchant: all long free as compositions. The job is finding a freely licensed *recording*, and one already exists on the playable shelf (Kimiko Ishizaka's CC0 Open Goldberg Variations).
+- **One is half-keepable.** Modernism promises the Sacrificial Dance — but Stravinsky died in 1971, so in the UK and EU the *composition* is in copyright until the end of 2041. Schoenberg (d. 1951) is free. Swap, and say why.
+- **One cannot be kept as written.** Pop Art promises "a curated pop single from the era". That is in copyright in both the song and the recording, everywhere that matters.
+- **One is uncertain.** Cigar promises a factory lector reading over the rolling floor — a living tradition, so that needs permission, not a licence search.
+
+Data: `playlist.json`, built by `node tools/build-playlist.mjs` from
+`tools/playlist-corpus.json`. Curation is opinion and says so; only the facts were checked.
+The licensing notes are a reading of published sources, not legal advice.
+
 ## Open Source Search
 
 `/api/search` is the bridge from ARTBITRAGE to the wider open art world.

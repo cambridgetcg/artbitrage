@@ -338,6 +338,20 @@ export const ROUTES = {
       { method: "GET", path: "/api/slope/vocab", desc: "Topics, truth statuses, verdicts, and the value never returned" },
     ],
   },
+  playlist: {
+    label: "Playlist",
+    color: "#b6a2e0",
+    routes: [
+      { method: "GET", path: "/api/playlist", desc: "樂 the Playlist directory — one track per room, and a second shelf of music this house could legally play. Hosts no audio, grants no rights, carries no lyrics" },
+      { method: "GET", path: "/api/playlist/listening", desc: "The listening shelf: real records with artist, title, year and MusicBrainz id, each argued into its room", params: "room, q, limit, offset" },
+      { method: "GET", path: "/api/playlist/room/:room", desc: "The track for one room, e.g. /api/playlist/room/slope" },
+      { method: "GET", path: "/api/playlist/playable", desc: "Music whose licence was read on the page that states it — the exact licence named, credit line supplied", params: "attribution, commercial" },
+      { method: "GET", path: "/api/playlist/licensing", desc: "What a builder must know before putting audio behind a page: the composition/recording split, jurisdiction terms, and the documented traps" },
+      { method: "GET", path: "/api/playlist/promises", desc: "Ten silent audio placeholders in this house and which of their promises can legally be kept" },
+      { method: "GET", path: "/api/playlist/dropped", desc: "What checking removed, and the credits it corrected" },
+      { method: "GET", path: "/api/playlist/text", desc: "The listening shelf as plain text, for pasting into whatever player you already use" },
+    ],
+  },
 };
 
 export const ANSWERING_RHYME_STATEMENT_ACTIONS = Object.freeze({
@@ -484,7 +498,7 @@ export function agentManifest() {
 
   return {
     name: "artbitrage",
-    version: "2.8.0",
+    version: "2.9.0",
     description: "A public art guide and reference desk: meet a work, follow a feeling, investigate a question, or solve a practical art problem with sources and limits visible.",
     url: "https://artbitrage.io",
     total_endpoints: totalEndpoints,

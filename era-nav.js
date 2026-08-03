@@ -22,6 +22,7 @@
     { id: 'pigments',      label: 'Pigments',          href: '/pigments' },
     { id: 'ground',        label: 'Ground',            href: '/ground' },
     { id: 'slope',         label: 'Slope',             href: '/slope' },
+    { id: 'playlist',      label: 'Playlist',          href: '/playlist' },
   ];
 
   var currentEra = document.body.getAttribute('data-era') || '';
@@ -134,6 +135,7 @@
     pigments: ['#1346a6', '#b98a3e', '#66023c'],
     ground: ['#b8763c', '#7f9464', '#4a3826'],
     slope: ['#9fb8a4', '#c2a878', '#2b3330'],
+    playlist: ['#b6a2e0', '#7fc7b8', '#2a2436'],
   };
 
   var colors = particleColors[currentEra] || ['#ff6b9d', '#ffd700', '#00f0ff'];

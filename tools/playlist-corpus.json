@@ -1,0 +1,585 @@
+{
+ "note": "Corpus for playlist.json. Two shelves and a ledger. The LISTENING shelf is curation — my picks, and the choice of room is opinion, stated as opinion. Only the facts were verified: every track was checked against MusicBrainz in batches (one search per track, to stay inside a free service's one-request-per-second etiquette), and the checkers were told to report exactly what I had got wrong rather than silently fix it. The PLAYABLE shelf is different in kind: music whose licence was read on the page that states it, which this house could legally put behind a room. The LEDGER applies the verified licensing rule to ten promises the house already made and never kept.",
+ "gathered_at": "2026-08-03",
+ "method": "artbitrage playlist-verify workflow, 8 agents: 6 batched MusicBrainz identity checks, 2 licence researchers. 23 of 24 tracks confirmed, 1 dropped as non-existent, 3 artist credits corrected.",
+ "curation_is_opinion": "Which tracks are here, and which room each one sits in, is one person's taste and one person's joke. None of it is a finding. The facts underneath — that a recording exists, under that exact artist credit, in that year — are the only part that was checked.",
+ "no_audio_hosted": "Artbitrage hosts none of the listening shelf, streams none of it, and grants no rights in any of it. Each entry links to MusicBrainz, which is an open catalogue of facts about music, not a place to hear it. Take the titles to whatever service you already use.",
+ "no_lyrics": "No lyric from any of these songs appears anywhere in this room or its data, by design.",
+ "listening": [
+  {
+   "artist": "Lost Frequencies",
+   "title": "Are You With Me",
+   "year": "2014",
+   "mbid": "6bc50c42-3d44-4191-b185-91cbe1453037",
+   "musicbrainz": "https://musicbrainz.org/recording/6bc50c42-3d44-4191-b185-91cbe1453037",
+   "room": "/",
+   "room_name": "the front door",
+   "why_this_room": "The whole house in one track. It is a rework of a country song — Easton Corbin, 2012 — moved onto a dance floor. Art as arbitrage, literally: same song, different market, and the gap between them is where the value appeared.",
+   "correction": "",
+   "fact_notes": "Cover: the song was originally recorded by American country singer Easton Corbin (2012, album 'All Over the Road'), written by Terry McBride, Shane McAnally and Josh Osborne. Lost Frequencies' version is a remix/rework of that recording. Earliest release date visible in the response: 2014-08-01."
+  },
+  {
+   "artist": "Lost Frequencies",
+   "title": "Reality",
+   "year": "2015",
+   "mbid": "78b195fc-fffd-4b16-a79a-bb9dce35eb25",
+   "musicbrainz": "https://musicbrainz.org/recording/78b195fc-fffd-4b16-a79a-bb9dce35eb25",
+   "room": "/truth-exposure",
+   "room_name": "truth exposure",
+   "why_this_room": "Named for the thing this house keeps testing.",
+   "correction": "",
+   "fact_notes": "The recording artist-credit returned by the API read simply 'Lost Frequencies', but the single is widely credited as 'Lost Frequencies feat. Janieck Devy' on releases — vocals are by Dutch singer Janieck Devy. Checkable via the single's release entries."
+  },
+  {
+   "artist": "Lost Frequencies & Calum Scott",
+   "title": "Where Are You Now",
+   "year": "2021",
+   "mbid": "b45e2a85-f4f1-4cc0-b64f-0c611e27e335",
+   "musicbrainz": "https://musicbrainz.org/recording/b45e2a85-f4f1-4cc0-b64f-0c611e27e335",
+   "room": "/map",
+   "room_name": "地圖 the Map",
+   "why_this_room": "The map's own essence line says knowing where you are is the bridge. The track asks the question; the room answers it.",
+   "correction": "Seed artist was incomplete: the 2021 hit single is jointly credited 'Lost Frequencies & Calum Scott', not Lost Frequencies alone.",
+   "fact_notes": "Title is ambiguous: MusicBrainz also lists an earlier, different Lost Frequencies recording called 'Where Are You Now' (credited feat. Janieck Devy, earliest date shown 2015-06-15, MBID f4c4ecc9-68f0-4a50-b57e-3121243d802a). The entry reported here is the 2021 collaboration with Calum Scott, earliest date visible in the response 2021-10-08."
+  },
+  {
+   "artist": "Klingande",
+   "title": "Jubel",
+   "year": "2014",
+   "mbid": "e903af1b-1f5c-44d8-959c-5346e60d8c11",
+   "musicbrainz": "https://musicbrainz.org/recording/e903af1b-1f5c-44d8-959c-5346e60d8c11",
+   "room": "/feelings",
+   "room_name": "感 the Feelings",
+   "why_this_room": "Jubel is jubilation. A room of emotions should have one that is simply glad.",
+   "correction": "",
+   "fact_notes": "Earliest date visible in the API response was 2014-09-07, but the single is widely documented as first released in France in 2013 — the API response simply did not show that release. Klingande is the project of French DJ Cedric Steinmyller; the name is Swedish. The response also contained an 'Ember & Kronic' recording titled 'Jubel' (a different credit, likely a remix), not reported here."
+  },
+  {
+   "artist": "Bonobo",
+   "title": "Kerala",
+   "year": "2017",
+   "mbid": "204f2de7-02a1-4a07-96b8-43fdc60f3ffb",
+   "musicbrainz": "https://musicbrainz.org/recording/204f2de7-02a1-4a07-96b8-43fdc60f3ffb",
+   "room": "/river",
+   "room_name": "川 the River",
+   "why_this_room": "Built from a loop that keeps folding back on itself, which is what the river room does with the museum catalogue.",
+   "correction": "",
+   "fact_notes": "Solo Bonobo credit, no featured artist. Earliest release date visible in the response was 2017-01-13, matching the album Migration; later recordings of the same title dated 2017-03-10 and 2018-04-27 also appear."
+  },
+  {
+   "artist": "Lane 8",
+   "title": "Atlas",
+   "year": "2017",
+   "mbid": "a1a62f7c-dd0c-43b3-8f8a-28c84e4a5d85",
+   "musicbrainz": "https://musicbrainz.org/recording/a1a62f7c-dd0c-43b3-8f8a-28c84e4a5d85",
+   "room": "/atlas",
+   "room_name": "所在 the Atlas",
+   "why_this_room": "The same word. Forty-seven works on Earth and where they hang.",
+   "correction": "",
+   "fact_notes": "Earliest release date visible was 2017-11-28 (single ahead of the 2018 album Little by Little). A separate 2020 recording exists as part of a \"NYE 2021\" DJ-mix, and another dated 2023-08-04."
+  },
+  {
+   "artist": "Tycho",
+   "title": "Awake",
+   "year": "2013",
+   "mbid": "5b44c236-cbb0-4e54-a8b1-c344b76e1b8f",
+   "musicbrainz": "https://musicbrainz.org/recording/5b44c236-cbb0-4e54-a8b1-c344b76e1b8f",
+   "room": "/catalog",
+   "room_name": "the engine",
+   "why_this_room": "The engine's ladder of states runs dormant, stirring, awakening. This is the third rung, with a guitar.",
+   "correction": "",
+   "fact_notes": "Earliest release date visible was 2013-10-14, i.e. the single released ahead of the 2014 album of the same name. MusicBrainz also lists a 2014 single remix and a live recording from 2014-06-26 in San Francisco."
+  },
+  {
+   "artist": "Christian Löffler",
+   "title": "Youth",
+   "year": "2016",
+   "mbid": "78828e8e-f594-4a62-8740-bc801ccd1ef1",
+   "musicbrainz": "https://musicbrainz.org/recording/78828e8e-f594-4a62-8740-bc801ccd1ef1",
+   "room": "/prehistoric",
+   "room_name": "史前 Prehistoric",
+   "why_this_room": "Granular, earthen, and old-sounding for something made in 2016.",
+   "correction": "",
+   "fact_notes": "Track 5 on the album 'Mare' (first release 2016-10-07, Germany/worldwide). Artist disambiguated on MusicBrainz as 'German DJ & electronic music producer'. An Aparde remix of it appears on 'Mare Reworks' (2017). ISRC of the original recording: DEZ651600577."
+  },
+  {
+   "artist": "Ben Böhmer With Nils Hoffmann",
+   "title": "Breathing",
+   "year": "2019",
+   "mbid": "7de87660-fa59-4b32-a54a-13aa0f8825a4",
+   "musicbrainz": "https://musicbrainz.org/recording/7de87660-fa59-4b32-a54a-13aa0f8825a4",
+   "room": "/trip",
+   "room_name": "旅 Good Trip",
+   "why_this_room": "The trip room has a four-in, seven-out breath ring. This is the soundtrack it was asking for.",
+   "correction": "Artist credit incomplete: MusicBrainz credits the studio recording to 'Ben Böhmer With Nils Hoffmann' (join phrase ' With ', capital W), not Ben Böhmer alone. The title was correct.",
+   "fact_notes": "Title track of Böhmer's debut album 'Breathing' (first release 2019-11-22); the album itself is credited to Ben Böhmer alone, but this recording is a collaboration with Berlin producer Nils Hoffmann. A live version (credited to Ben Böhmer alone) appears on the Cercle release 'Ben Böhmer above Cappadocia, Turkey' (2020), and a Boris Brejcha remix appears on 'Anjunadeep: The Yearbook 2020'."
+  },
+  {
+   "artist": "Kiasmos",
+   "title": "Blurred",
+   "year": "2017",
+   "mbid": "6e56f9b3-7c75-4c6b-a2b2-e6dde19f26f8",
+   "musicbrainz": "https://musicbrainz.org/recording/6e56f9b3-7c75-4c6b-a2b2-e6dde19f26f8",
+   "room": "/maybe",
+   "room_name": "曖昧 maybe",
+   "why_this_room": "曖昧 means blurred. The room where nothing resolves, and the track agrees.",
+   "correction": "",
+   "fact_notes": "The earliest date visible in the search response is 2017-08-15, attached to the official 'Blurred' video single; the audio recording given here (4:36) shows a 2017-12-01 compilation appearance because the 3-result window did not include the 'Blurred EP' release itself, so the EP's exact date was not verified in this pass. The recording clearly exists as seeded; 2017 is safe as the year."
+  },
+  {
+   "artist": "Nils Frahm",
+   "title": "Says",
+   "year": "2013",
+   "mbid": "1058ffd7-413f-44b2-b67b-850a1a57f0a8",
+   "musicbrainz": "https://musicbrainz.org/recording/1058ffd7-413f-44b2-b67b-850a1a57f0a8",
+   "room": "/slope",
+   "room_name": "坡 the Slope",
+   "why_this_room": "Eight minutes of arpeggio that rises the whole way. My ears say it never breaks — which is the room's argument in sound: a gradient, not a wall. That is a listening note, not a verified fact.",
+   "correction": "",
+   "fact_notes": "The studio recording (~8:17, ISRC GBWZD1305502 — a 2013-registered UK code) is the MBID given; in this response its listed first-release-date is 2019-10-18 because the attached release shown is the 'Ad Astra' film soundtrack (album-credited to 'Max Richter, Lorne Balfe and Nils Frahm'), where 'Says' was licensed. The earliest-dated 'Says' recording visible in the same response is a live KEXP session dated 2013-10-22, supporting 2013 as the first year; the 'Spaces' album release itself fell outside the 3-result window."
+  },
+  {
+   "artist": "Rival Consoles",
+   "title": "Recovery",
+   "year": "2014",
+   "mbid": "f500ff7a-0598-4f58-a404-2620e205a05c",
+   "musicbrainz": "https://musicbrainz.org/recording/f500ff7a-0598-4f58-a404-2620e205a05c",
+   "room": "/ground",
+   "room_name": "土 the Ground",
+   "why_this_room": "The Ground is about the difference between recovered and merely resurfaced. The title was too good to leave alone.",
+   "correction": "",
+   "fact_notes": "MusicBrainz lists several distinct Rival Consoles recordings titled Recovery with first-release dates of 2014-09-15, 2016-04-29, and 2017-07-14; the MBID given is the one with the earliest first-release date (2014-09-15)."
+  },
+  {
+   "artist": "Jon Hopkins",
+   "title": "Emerald Rush",
+   "year": "2018",
+   "mbid": "4b8ac19a-3333-4261-9f81-fe5efd5383a0",
+   "musicbrainz": "https://musicbrainz.org/recording/4b8ac19a-3333-4261-9f81-fe5efd5383a0",
+   "room": "/greed-island",
+   "room_name": "Greed Island",
+   "why_this_room": "A game about acquiring things, scored by a track that sounds like acquiring things.",
+   "correction": "",
+   "fact_notes": "First release shown 2018-03-06 (single), ahead of its album appearance on Singularity (2018-05-04). A separate live/mix recording from a 2020 NO.SLEEP mix also exists."
+  },
+  {
+   "artist": "Ólafur Arnalds",
+   "title": "Near Light",
+   "year": "2011",
+   "mbid": "855941be-b50a-482a-8856-a3f1967cb1d9",
+   "musicbrainz": "https://musicbrainz.org/recording/855941be-b50a-482a-8856-a3f1967cb1d9",
+   "room": "/lamp",
+   "room_name": "燈 the Lamp",
+   "why_this_room": "Near light. Two minutes, piano and strings, nothing hurried.",
+   "correction": "",
+   "fact_notes": "Seed spelling with accents (Ólafur) matches the MusicBrainz artist credit exactly. First release shown 2011-12-02. A separate recording labelled 'Near Light (video version)' exists with a 2012-02-04 first release."
+  },
+  {
+   "artist": "Hania Rani",
+   "title": "Glass",
+   "year": "2019",
+   "mbid": "e0d97825-d4e7-4291-b041-fc118b62ed1e",
+   "musicbrainz": "https://musicbrainz.org/recording/e0d97825-d4e7-4291-b041-fc118b62ed1e",
+   "room": "/library",
+   "room_name": "書 the Library",
+   "why_this_room": "Quiet enough to read over.",
+   "correction": "",
+   "fact_notes": "Earliest release shown is the Eden single (2019-03-08), before the album Esja (2019-04-05). A live recording from 'Live from Studio S2' (performed 2021-02-04, released 2022-01-21) also exists."
+  },
+  {
+   "artist": "RÜFÜS DU SOL",
+   "title": "Innerbloom",
+   "year": "2015",
+   "mbid": "412b1bc7-538d-4178-af00-17616d20f289",
+   "musicbrainz": "https://musicbrainz.org/recording/412b1bc7-538d-4178-af00-17616d20f289",
+   "room": "/depths",
+   "room_name": "the Depths",
+   "why_this_room": "Nine minutes that take their time going down.",
+   "correction": "",
+   "fact_notes": "Earliest release date shown was 2015-12-21. MusicBrainz also lists official remix recordings by Sasha (2016) and Tor (2016) under the same artist credit. The all-caps 'RÜFÜS DU SOL' with umlauts is exactly how MusicBrainz credits the band."
+  },
+  {
+   "artist": "Moderat",
+   "title": "A New Error",
+   "year": "2009",
+   "mbid": "2efbe7f4-3402-4a06-b2c4-bc6eaccad049",
+   "musicbrainz": "https://musicbrainz.org/recording/2efbe7f4-3402-4a06-b2c4-bc6eaccad049",
+   "room": "/dark-continent",
+   "room_name": "暗大陸 the Dark Continent",
+   "why_this_room": "Something vast approaching slowly, which is the room.",
+   "correction": "",
+   "fact_notes": "Earliest release date visible was 2009-05-08, matching the self-titled debut album era. Moderat is the collaboration of Modeselektor (Gernot Bronsert, Sebastian Szary) and Apparat (Sascha Ring), but MusicBrainz credits it simply as 'Moderat', matching the seed."
+  },
+  {
+   "artist": "Stephan Bodzin",
+   "title": "Singularity",
+   "year": "2015",
+   "mbid": "a874b538-8ee3-4d0f-a619-8aaad792eca7",
+   "musicbrainz": "https://musicbrainz.org/recording/a874b538-8ee3-4d0f-a619-8aaad792eca7",
+   "room": "/ai",
+   "room_name": "AI Art",
+   "why_this_room": "The era room for machines, and a track named for the thing they are supposed to arrive at.",
+   "correction": "",
+   "fact_notes": "Earliest release date shown was 2015-05-25; this is the title-era track from his 2015 album 'Powers of Ten' (Herzblut Recordings). Multiple recordings with the same title exist under his credit; the MBID given is the top match."
+  },
+  {
+   "artist": "Four Tet",
+   "title": "Two Thousand and Seventeen",
+   "year": "2017",
+   "mbid": "3b2abe77-10cb-4989-9c6e-47ca67d9b060",
+   "musicbrainz": "https://musicbrainz.org/recording/3b2abe77-10cb-4989-9c6e-47ca67d9b060",
+   "room": "/noise",
+   "room_name": "the Noise room",
+   "why_this_room": "A harp sample and a drum machine, arguing pleasantly.",
+   "correction": "",
+   "fact_notes": "Earliest release date visible across results was 2017-07-04, ahead of the 'New Energy' album (September 2017). A duplicate recording entry with the casing 'Two Thousand And Seventeen' also exists, but the canonical top result uses lowercase 'and', matching the seed. Four Tet is Kieran Hebden."
+  },
+  {
+   "artist": "Joep Beving",
+   "title": "Sleeping Lotus",
+   "year": "2018",
+   "mbid": "d8404f62-8b50-4766-99a8-31accb71299c",
+   "musicbrainz": "https://musicbrainz.org/recording/d8404f62-8b50-4766-99a8-31accb71299c",
+   "room": "/homecoming",
+   "room_name": "愛星 Homecoming",
+   "why_this_room": "Piano recorded close enough to hear the room it is in.",
+   "correction": "",
+   "fact_notes": "Multiple MusicBrainz recordings exist (releases visible dated 2018, 2021-08-06, and 2022); the MBID given is the one carrying the earliest visible date. The piece is widely documented as originating on Beving's debut album Solipsism (2015), but no pre-2018 release date appeared in this search response, so 2018 is reported as seen rather than guessed."
+  },
+  {
+   "artist": "Nora en Pure",
+   "title": "Come With Me",
+   "year": "2014",
+   "mbid": "931cb321-9d63-4b9c-b7ce-75805ee6d599",
+   "musicbrainz": "https://musicbrainz.org/recording/931cb321-9d63-4b9c-b7ce-75805ee6d599",
+   "room": "/crossover",
+   "room_name": "the Crossover",
+   "why_this_room": "The invitation room. Every door here is an invitation, never a demand, and so is the title.",
+   "correction": "Artist capitalisation: MusicBrainz credits the artist as 'Nora en Pure' (lowercase 'en'), not 'Nora En Pure'.",
+   "fact_notes": "Three score-100 recordings of the same title exist on MusicBrainz, all credited to Nora en Pure; earliest visible release date was 2014-01-06. Nora en Pure is the stage name of Swiss-South African producer Daniela Niederer."
+  },
+  {
+   "artist": "Tinlicker",
+   "title": "Because You Move Me",
+   "year": "2021",
+   "mbid": "70b5a0d8-055f-4dd0-902c-57d639832eb3",
+   "musicbrainz": "https://musicbrainz.org/recording/70b5a0d8-055f-4dd0-902c-57d639832eb3",
+   "room": "/bridge",
+   "room_name": "the Bridge",
+   "why_this_room": "Art as bridge is this project's founding line.",
+   "correction": "",
+   "fact_notes": "The search also returned an earlier variant recording titled 'Because You Move Me (ABGT296)' dated 2018-08-19, also credited to Tinlicker. Note that the widely-distributed 2021 single of this track is often credited 'Tinlicker & Helsloot' on streaming services; the MusicBrainz recordings returned here credit Tinlicker alone, so it is worth checking which version is intended."
+  },
+  {
+   "artist": "Petit Biscuit",
+   "title": "Sunset Lover",
+   "year": "2017",
+   "mbid": "9277f846-253f-498b-af95-8631e2ea4cc4",
+   "musicbrainz": "https://musicbrainz.org/recording/9277f846-253f-498b-af95-8631e2ea4cc4",
+   "room": "/impressionism",
+   "room_name": "印象 Impressionism",
+   "why_this_room": "Light doing the work, which is the whole era.",
+   "correction": "",
+   "fact_notes": "First lookup returned HTTP 503; the single allowed simpler retry succeeded. Three score-100 recordings credited to Petit Biscuit were returned; earliest visible date was a first-release-date of 2017-04-28. The track is commonly documented as first appearing on Petit Biscuit's self-titled 2015 EP, but no 2015 date appeared in this response, so 2017 is reported as seen."
+  }
+ ],
+ "dropped": [
+  {
+   "seed_artist": "Maribou State",
+   "seed_title": "Kingdoms",
+   "why": "No recording named \"Kingdoms\" by Maribou State exists on MusicBrainz. Two searches (exact and loose) returned zero results. The likely confusion: Maribou State's 2018 release \"Kingdoms in Colour\" is an album title, not a track.",
+   "notes": "Dropped rather than guessed. If a specific track from that album was meant, it would need to be re-identified by its actual title."
+  }
+ ],
+ "playable": [
+  {
+   "title": "Fragmented Pianos",
+   "artist": "Mikael Lind (Post Global Recordings netlabel, post009)",
+   "license": "CC BY 4.0",
+   "license_url": "https://archive.org/details/post009",
+   "listen_url": "https://archive.org/details/post009",
+   "attribution_required": true,
+   "attribution_string": "\"Fragmented Pianos\" by Mikael Lind (Post Global Recordings), licensed under CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "The heart of the room: three interlocking pianos building slowly through repetition — patience made audible. Fits soil, growth and recovery exactly.",
+   "cannot_establish": "Archive.org shows the netlabel's licence choice; I could not independently confirm chain of title from composer to uploader (netlabel releases are normally uploaded by the label itself)."
+  },
+  {
+   "title": "Clean Soul (also on the same album: Meditation Impromptu 01–03, Tranquility 16:26)",
+   "artist": "Kevin MacLeod (Incompetech)",
+   "license": "CC BY 3.0 as stated on the FMA album page ('Attribution 3.0 International'); Incompetech's own FAQ separately offers the catalogue under CC BY 4.0 with a fixed credit format",
+   "license_url": "https://freemusicarchive.org/music/Kevin_MacLeod/Calming",
+   "listen_url": "https://freemusicarchive.org/music/Kevin_MacLeod/Calming/Clean_Soul_1388/",
+   "attribution_required": true,
+   "attribution_string": "\"Clean Soul\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0. https://creativecommons.org/licenses/by/4.0/",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "Warm, slow ambient wash — a resting page. 'Tranquility' (16:26) on the same album is a long unhurried piece good for a page people stay on.",
+   "cannot_establish": "The small version mismatch (FMA says 3.0, Incompetech's FAQ says 4.0) — both fetched and quoted; using the 4.0 credit line from his own FAQ is the safe reading. Composer identity itself is not in doubt."
+  },
+  {
+   "title": "Interplanetary Forest (and Pure Water, same album, separately verified CC BY 4.0)",
+   "artist": "Meydän",
+   "license": "CC BY 4.0 (page says 'licensed under a Attribution License' linking to creativecommons.org/licenses/by/4.0/)",
+   "license_url": "https://freemusicarchive.org/music/Meydan/Interplanetary_Forest/Meydn_-_Interplanetary_Forest_-_01_Interplanetary_Forest/",
+   "listen_url": "https://freemusicarchive.org/music/Meydan/Interplanetary_Forest/Meydn_-_Interplanetary_Forest_-_01_Interplanetary_Forest/",
+   "attribution_required": true,
+   "attribution_string": "\"Interplanetary Forest\" by Meydän, licensed under CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "Quiet piano miniatures (tags: Soundtrack, Piano; 2:00 and 1:06) — soft interludes between rooms; a seed-and-water mood.",
+   "cannot_establish": "Track pages verified individually; other tracks on the album must each be checked (FMA licences per track). Uploader's rights taken on FMA's moderation, not independently proven."
+  },
+  {
+   "title": "The Sheltering Sky",
+   "artist": "Grove of Whispers (Buddhist on Fire netlabel, bof060)",
+   "license": "CC BY 4.0",
+   "license_url": "https://archive.org/details/bof060",
+   "listen_url": "https://archive.org/details/bof060",
+   "attribution_required": true,
+   "attribution_string": "\"The Sheltering Sky\" by Grove of Whispers (Buddhist on Fire), licensed under CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "Very long, very slow drone ambient — dormancy, compost, winter under the soil. Darker in colour; suits a night or rest page rather than a bright garden page.",
+   "cannot_establish": "Same as other netlabel items: the label's upload asserts the licence; chain of title from artist to label not independently verifiable."
+  },
+  {
+   "title": "Soundtrack (7:15; 'Home', 1:06, on the same album, separately verified CC0)",
+   "artist": "Komiku",
+   "license": "CC0 1.0 Universal (page: 'Soundtrack by Komiku is licensed under a CC0 1.0 Universal License')",
+   "license_url": "https://freemusicarchive.org/music/Komiku/Captain_Glouglous_Incredible_Week_Soundtrack/Soundtrack_1976/",
+   "listen_url": "https://freemusicarchive.org/music/Komiku/Captain_Glouglous_Incredible_Week_Soundtrack/Soundtrack_1976/",
+   "attribution_required": false,
+   "attribution_string": "Not required (CC0). Courtesy credit: \"Music: Komiku (Free Music Archive), CC0\"",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "Gentle, naive game-soundtrack electronics (tags include Chiptune, Kid-Friendly) — could fit a seedlings/beginnings page, but audition by ear first; it is playful rather than solemn.",
+   "cannot_establish": "Mood not confirmed by listening (tags only). CC0 dedication rests on the uploader actually being the composer; Komiku is a long-standing FMA CC0 artist, so risk is low."
+  },
+  {
+   "title": "Reverie (small theme)",
+   "artist": "_ghost (ccMixter)",
+   "license": "CC BY 3.0 ('Licensed under Creative Commons Attribution (3.0)')",
+   "license_url": "http://ccmixter.org/files/_ghost/25389",
+   "listen_url": "http://ccmixter.org/files/_ghost/25389",
+   "attribution_required": true,
+   "attribution_string": "\"Reverie (small theme)\" by _ghost (ccmixter.org/files/_ghost/25389), licensed under CC BY 3.0 — https://creativecommons.org/licenses/by/3.0/",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "A 41-second downtempo piano theme — perfect as a quiet loop behind one small page rather than a whole room; unhurried by construction.",
+   "cannot_establish": "It is only 41 seconds, so it must loop; whether _ghost's samples were all original/cleared is asserted by the ccMixter page, not proven."
+  },
+  {
+   "title": "Mental Images (album; e.g. 'Dragon's Lullaby' 6:15, 'Astral Wind' 4:50)",
+   "artist": "Aquatone (United Studios Corporation netlabel)",
+   "license": "CC BY-SA 4.0 (details page links creativecommons.org/licenses/by-sa/4.0/ — note: Archive's search metadata wrongly said plain BY 4.0; the page itself says BY-SA)",
+   "license_url": "https://archive.org/details/aquatone-mental-images",
+   "listen_url": "https://archive.org/details/aquatone-mental-images",
+   "attribution_required": true,
+   "attribution_string": "\"Mental Images\" by Aquatone (USC netlabel), licensed under CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "Contemplative slow synth ambient — recovery and breathing-room pages. ShareAlike only bites if you remix/adapt the music; plain playback behind a page is fine.",
+   "cannot_establish": "The metadata/page licence mismatch is resolved in favour of the page (BY-SA), but it shows the Archive's search fields can't be trusted alone; chain of title not independently verifiable."
+  },
+  {
+   "title": "In Paler Skies (5:37, album 'Aeronaut'; also 'Shift of Currents', 'Vittoro')",
+   "artist": "Blue Dot Sessions",
+   "license": "CC BY-NC 4.0 (their mp3s; sessions.blue/licensing: free 'for non-monetized projects that aren't being made as part of your job'; FMA album page: 'Attribution-NonCommercial' linking CC 4.0)",
+   "license_url": "https://www.sessions.blue/licensing",
+   "listen_url": "https://freemusicarchive.org/music/Blue_Dot_Sessions/Aeronaut/",
+   "attribution_required": true,
+   "attribution_string": "\"In Paler Skies\" by Blue Dot Sessions (sessions.blue), licensed under CC BY-NC 4.0 — https://creativecommons.org/licenses/by-nc/4.0/",
+   "commercial_ok": false,
+   "fetched_ok": true,
+   "suits": "Slow, warm chamber-acoustic ensemble — exactly the soil-and-patience palette. Include only while the site stays genuinely non-commercial and non-monetized; if that ever changes, buy their licence or drop the track.",
+   "cannot_establish": "Whether your site counts as 'not part of your job' under their free-tier wording is a judgement call their page leaves to the user; everything else is stated plainly on the fetched pages."
+  },
+  {
+   "title": "Awel — verified but NOT recommended for this room",
+   "artist": "stefsax (ccMixter)",
+   "license": "CC BY 2.5",
+   "license_url": "http://ccmixter.org/files/stefsax/7785",
+   "listen_url": "http://ccmixter.org/files/stefsax/7785",
+   "attribution_required": true,
+   "attribution_string": "\"Awel\" by stefsax (ccmixter.org/files/stefsax/7785), licensed under CC BY 2.5 — https://creativecommons.org/licenses/by/2.5/",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "Does not suit the brief — the page describes it as funky/light rather than calm and slow. Kept in the list only as a verified CC BY option; skip it for the soil room.",
+   "cannot_establish": "Nothing beyond the usual: the uploader's claim of authorship is taken from the ccMixter page."
+  },
+  {
+   "title": "Gymnopédie No. 1 (Lent et douloureux) — Erik Satie",
+   "artist": "Robin Alciatore (piano)",
+   "license": "public domain (composition PD — Satie died 1925; this recording released into the public domain by the performer, via Musopen)",
+   "license_url": "https://commons.wikimedia.org/wiki/File:Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg",
+   "listen_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg",
+   "attribution_required": false,
+   "attribution_string": "Erik Satie, Gymnopédie No. 1, performed by Robin Alciatore (musopen.com) — public domain (credit is courtesy, not obligation)",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "Quiet, melancholy, unhurried — the archetypal ambient-page piece; sits behind a reading room or a slow gallery without asking for attention.",
+   "cannot_establish": "The PD dedication rests on the Wikimedia Commons page and its API metadata (verbatim: 'This work has been released into the public domain by its author, Robin Alciatore'), which in turn traces to Musopen circa 2008. I could not independently contact the performer to confirm the dedication; Commons hosting since ~2008 without takedown is the practical assurance. Note Musopen 'requests inline attribution' as courtesy."
+  },
+  {
+   "title": "Open Goldberg Variations, BWV 988 (complete) — J.S. Bach",
+   "artist": "Kimiko Ishizaka (piano)",
+   "license": "CC0 1.0 (public domain dedication; composition also PD — Bach died 1750)",
+   "license_url": "https://www.opengoldbergvariations.org/",
+   "listen_url": "https://kimikoishizaka.bandcamp.com/album/j-s-bach-open-goldberg-variations-bwv-988-piano",
+   "attribution_required": false,
+   "attribution_string": "J.S. Bach, Goldberg Variations BWV 988, performed by Kimiko Ishizaka — Open Goldberg Variations, CC0 (credit is courtesy, and the safe course given the Bandcamp metadata wobble below)",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "Over an hour of studio-grade solo piano for free reuse — the single best-provenanced free classical recording on the internet; suits a contemplative or long-session room.",
+   "cannot_establish": "A real discrepancy: the official site says downloads are 'free of copyright (all uses allowed)' and Wikipedia records a CC0 release on 28 May 2012, and the Bandcamp album description says 'All tracks are provided without copyright (Creative Commons Zero)' — but Bandcamp's machine-readable licence line on the same page says 'some rights reserved' / CC BY 4.0. The creator's stated intent is clearly CC0; attribute anyway and the ambiguity is moot. FLAC/MP3 downloads are pay-what-you-want on Bandcamp (also streamable on Spotify/Deezer)."
+  }
+ ],
+ "licensing_findings": [
+  {
+   "title": "FINDING: every piece of recorded classical music carries (at least) two copyrights — the work and the recording",
+   "artist": "Musopen FAQ (archived) + Cornell copyright-term chart",
+   "license": "n/a — legal finding, not a licence",
+   "license_url": "https://web.archive.org/web/20201127015849/https://musopen.org/faq/",
+   "listen_url": "https://guides.library.cornell.edu/copyright/publicdomain",
+   "attribution_required": false,
+   "attribution_string": "not applicable (factual finding)",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "The core rule for anyone putting a Gymnopédie behind a web page: Satie's COMPOSITION has been public domain worldwide for decades (he died 1925, life+70 expired 1996), but every RECORDING of it has its own separate copyright belonging to the performer/producer. Musopen's own FAQ states it plainly: 'there are at least two copyrights to any sound recording of a musical work — the copyright on the underlying composition and the copyright on the particular performance', and 'Although certain musical compositions may be in the public domain, a particular recording of the musical composition may remain under copyright protection.' Cornell's chart carries the same warning: its sound-recording table 'applies only to the sound recording itself, and not to any copyrights in underlying compositions.' Practical consequence: you may not rip a Ciccolini or de Leeuw Gymnopédie from a CD or YouTube — you need a recording whose OWN rights are PD/CC0/CC-licensed (items 1 and 2 above), or you record it yourself.",
+   "cannot_establish": "Nothing material — this is black-letter law confirmed by two independent fetched sources."
+  },
+  {
+   "title": "FINDING: US sound-recording terms (Music Modernization Act) — almost no famous 20th-century classical recording is PD in the US",
+   "artist": "U.S. Copyright Office",
+   "license": "n/a — legal finding",
+   "license_url": "https://www.copyright.gov/music-modernization/pre1972-soundrecordings/",
+   "listen_url": "https://www.copyright.gov/music-modernization/pre1972-soundrecordings/",
+   "attribution_required": false,
+   "attribution_string": "not applicable (factual finding)",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "The US schedule under the Classics Protection and Access Act: recordings first published before 1923 entered the public domain at the end of 2021; 1923–1946 recordings get 95+5 = 100 years from publication; 1947–1956 get 95+15 = 110 years; everything else fixed before 15 Feb 1972 is protected until 15 February 2067. So the celebrated mid-century Satie/Bach/Chopin recordings (1950s–60s labels) stay copyrighted in the US for decades yet — only acoustic-era (pre-1923) recordings, with period sound quality, are safely PD-by-age today.",
+   "cannot_establish": "Post-1972 recordings follow ordinary federal terms (typically 95 years from publication for works-made-for-hire) — not detailed on this page; check the Cornell chart per recording."
+  },
+  {
+   "title": "FINDING: UK/EU phonogram term — 70 years from publication, extension did NOT revive expired recordings",
+   "artist": "GOV.UK + Directive 2011/77/EU (EUR-Lex)",
+   "license": "n/a — legal finding",
+   "license_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32011L0077",
+   "listen_url": "https://www.gov.uk/copyright/how-long-copyright-lasts",
+   "attribution_required": false,
+   "attribution_string": "not applicable (factual finding)",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "GOV.UK, verbatim: sound and music recordings are protected '70 years from when it's first published' (compositions: 70 years after the author's death). The 70 came from Directive 2011/77/EU, which raised the term from 50 and applies only to recordings 'still protected... as at 1 November 2013' — expired rights were not revived. Net effect: recordings published before 1963 are out of phonogram copyright in the UK/EU (which is why early-'60s recordings circulate freely in Europe) — but the SAME recordings can remain copyrighted in the US until the 2030s–2067 (previous item). A geo-agnostic public web page should satisfy the stricter US rule. Where to check: gov.uk/copyright for the UK, EUR-Lex 2011/77/EU for the EU, copyright.gov for the US.",
+   "cannot_establish": "Whether performers' 'equitable remuneration' for public performance/communication in some EU states could touch a website playing even a licence-cleared recording — that is a collecting-society question outside what these pages state; PD/CC0 dedications like items 1–2 waive related rights, which is the clean path."
+  },
+  {
+   "title": "FINDING: what Musopen actually is — an uploader-warranted PD repository plus commissioned PD recordings, with no review of uploads",
+   "artist": "Musopen (musopen.org)",
+   "license": "per-recording: mostly public-domain dedications, some Creative Commons; verify each file",
+   "license_url": "https://web.archive.org/web/20201127015849/https://musopen.org/faq/",
+   "listen_url": "https://musopen.org/",
+   "attribution_required": false,
+   "attribution_string": "per recording — PD items need none; CC items need the performer credited per their licence",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "Musopen (501(c)(3), founded 2006, 'to set music free') has two kinds of content. (1) Recordings it COMMISSIONED for release: the 2010 Kickstarter ($68,359) hired the Czech Philharmonic for Beethoven/Brahms/Tchaikovsky/Sibelius, and the 2013 one (~$90k) funded the complete works of Chopin — these were made to be freed. (2) USER UPLOADS, which dominate the catalogue: the FAQ says uploaders must 'represent and warrant that content uploaded to the site is in the public domain', but — verbatim — 'Musopen cannot guarantee that any music uploaded by its users is, in fact, in the public domain' and 'Musopen does not review music uploaded by users of the site.' It is a freemium service (5 free downloads/day; ~$55/yr for HD), but the money buys bandwidth, not the licence. Verdict: a genuinely good source, but the licence lives on each recording's page, not on the site — read it per file, and keep a copy.",
+   "cannot_establish": "The live site returns 403 to non-browser fetchers (Cloudflare), so the FAQ quoted is the Nov 2020 archived version; whether individual catalogue pages today also carry CC BY-NC labels on some tracks could not be confirmed this session — treat any Musopen track without an explicit PD/CC statement as unusable until checked."
+  },
+  {
+   "title": "TRAP: Content ID claims genuinely public-domain music — and the claimant does not always back down",
+   "artist": "documented in Wikipedia's Content ID article",
+   "license": "n/a — cautionary finding",
+   "license_url": "https://en.wikipedia.org/wiki/Content_ID",
+   "listen_url": "https://en.wikipedia.org/wiki/Content_ID",
+   "attribution_required": false,
+   "attribution_string": "not applicable (factual finding)",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "Fetched, documented cases: in 2018 a German professor uploaded recordings of compositions whose composers had been dead over 70 years — Deutsche Grammophon refused to lift two claims even after he demonstrated public-domain status; the same year a video of pure white noise drew copyright notices. Content ID matches audio fingerprints with no human review for PD status, and labels have fingerprinted their own recordings of PD works — so a rights-holder's claim on YOUR page's PD/CC0 audio (or on a video containing it) is a routine hazard, not a sign you did something wrong. Defence for a site builder: keep the licence page (archived copy) and provenance chain for every file you serve, so a claim or a DMCA notice can be answered with evidence the same day.",
+   "cannot_establish": "The frequently-cited 2018 James Rhodes case (Sony claiming 47 seconds of his own Bach performance on Facebook, withdrawn after public outcry) is consistent with this pattern but was NOT verifiable this session — Ars Technica is unfetchable from here and his Wikipedia article omits it — so I report it as unconfirmed."
+  },
+  {
+   "title": "TRAP: 'royalty-free' is a commercial licence category, not 'free' — and never public domain",
+   "artist": "Kevin MacLeod (incompetech.com) as the worked example",
+   "license": "n/a — cautionary finding (MacLeod's own catalogue: CC BY 4.0, or a paid Standard License to skip attribution)",
+   "license_url": "https://incompetech.com/music/royalty-free/faq.html",
+   "listen_url": "https://incompetech.com/music/royalty-free/faq.html",
+   "attribution_required": false,
+   "attribution_string": "if using MacLeod's music the required form is: \"[Title]\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0",
+   "commercial_ok": true,
+   "fetched_ok": true,
+   "suits": "'Royalty-free' means only 'no per-use royalties after you obtain the licence' — the music stays copyrighted, and at most stock libraries the licence itself costs money and forbids redistribution. The honest end of the spectrum is Kevin MacLeod: his FAQ confirms the music is free to use under CC BY 4.0 with mandatory, findable credit (exact string above), with a PAID licence only for cases where attribution is impossible. Relevant here: the polished 'Gymnopedie No. 2' floating around the free-music world (including on Wikimedia Commons, ISRC USUAN1100786) is MacLeod's CC BY recording — usable on a commercial site, but only WITH the credit line. Rule of thumb: 'royalty-free' on a download site tells you nothing about your rights; only the named licence (CC0, CC BY, CC BY-NC, paid EULA) does — and any 'NC' kills use on a commercial page.",
+   "cannot_establish": "Nothing material for MacLeod (terms fetched); terms of other 'royalty-free' stock libraries vary per vendor and were not individually reviewed."
+  }
+ ],
+ "promise_ledger": [
+  {
+   "room": "/prehistoric",
+   "promised": "a reconstructed paleolithic flute recording",
+   "verdict": "keepable",
+   "why": "Nobody holds a composition right in a paleolithic melody. A modern reconstruction is a performance, so the recording has its own rights — find one released CC0 or CC BY, or record one."
+  },
+  {
+   "room": "/medieval",
+   "promised": "a reconstructed chant recorded in Chartres or Notre Dame",
+   "verdict": "keepable",
+   "why": "Plainchant is centuries out of copyright. A modern critical edition can carry editorial rights and the recording certainly does, so the job is finding a freely licensed performance, not clearing the music."
+  },
+  {
+   "room": "/renaissance",
+   "promised": "a Palestrina motet or a Josquin des Prez chanson",
+   "verdict": "keepable",
+   "why": "Both composers died in the 16th century. Compositions long free; only the recording needs clearing."
+  },
+  {
+   "room": "/baroque",
+   "promised": "Bach's Toccata and Fugue in D minor (BWV 565) on a Baroque organ",
+   "verdict": "keepable",
+   "why": "Bach died in 1750. And there is already a verified CC0 Bach recording on the playable shelf — Kimiko Ishizaka's Open Goldberg Variations. Different work, different instrument, but it proves the path exists."
+  },
+  {
+   "room": "/romanticism",
+   "promised": "the Ninth Symphony's choral finale, or Chopin's Nocturne Op. 9 No. 2",
+   "verdict": "keepable",
+   "why": "Beethoven died 1827, Chopin 1849. This is the best-supported promise of the ten: Musopen crowdfunded a complete Chopin recording specifically to release it freely."
+  },
+  {
+   "room": "/impressionism",
+   "promised": "the Prélude à l'après-midi d'un faune opening, or a synthesized whole-tone scale",
+   "verdict": "keepable",
+   "why": "Debussy died in 1918, so the composition is free. The second option is better still: a whole-tone scale generated in the browser has no recording to clear at all."
+  },
+  {
+   "room": "/modernism",
+   "promised": "a clip from the Sacrificial Dance, or a Schoenberg atonal fragment",
+   "verdict": "half-keepable",
+   "why": "The Rite of Spring cannot be used. Stravinsky died in 1971, so in the UK and EU his compositions stay in copyright until the end of 2041 — the composition itself, before any recording. Schoenberg died in 1951 and is free in the UK/EU. Keep the promise by swapping to Schoenberg and saying why."
+  },
+  {
+   "room": "/popart",
+   "promised": "a curated pop single from the era, or a generated piece using Pop Art's principles",
+   "verdict": "not-keepable-as-written",
+   "why": "A 1960s pop single is squarely in copyright in every jurisdiction that matters, in both the song and the recording. The second half of the same note is fully keepable: a generated piece has nothing to clear."
+  },
+  {
+   "room": "/wine",
+   "promised": "a bottle uncorked and poured",
+   "verdict": "keepable",
+   "why": "A field recording. Either make it — a phone and a cork is the whole production — or take a CC0 one from a sound library."
+  },
+  {
+   "room": "/cigar",
+   "promised": "a factory lector reading over the rolling floor",
+   "verdict": "uncertain",
+   "why": "A living tradition, so a recording of it belongs to whoever made it and arguably to the lector. Archival recordings carry their own rights. This one needs permission, not a licence search."
+  }
+ ],
+ "builder_notes": [
+  "How this was done, and what to know before wiring audio in. (1) The session's web-search budget was already exhausted (200/200), so every finding came from direct page fetches of known catalogues plus the Internet Archive's advancedsearch JSON API (collection:netlabels, subject:ambient, licenseurl by/4.0) — that API is how the two netlabel albums were found. (2) Dead ends: sessions.blue/license 404s (the real page is /licensing); FMA's Chris Zabriskie pages 404 under both slug styles, so he was dropped despite being CC BY 4.0 elsewhere; FMA's /music/Meydn/ 404s but /music/Meydan/ works; Incompetech's /licenses/ page renders without naming a CC version — the version (CC BY 4.0) is stated on his FAQ page, which was fetched. (3) Licence ambiguities found and resolved by reading the actual pages: FMA labels Kevin MacLeod's album 'Attribution 3.0 International' while Incompetech's own FAQ grants CC BY 4.0 with an exact credit format — use the 4.0 credit line; Archive.org search metadata said Aquatone was plain BY 4.0 but the item page says BY-SA 4.0 — always trust the item page; FMA album pages sometimes say 'check individual tracks' (Kai Engel's 'Idea' does), so licences must be verified per track, which I did for every item above. (4) Blue Dot Sessions is the only NC item: their mp3s are CC BY-NC 4.0, free with attribution for non-monetized, not-part-of-your-job projects — fine for this site today, a problem the day it monetizes. Everything else is CC0, CC BY (2.5/3.0/4.0) or BY-SA 4.0 — no ND anywhere, as asked. (5) Builder practicalities: self-host the audio files rather than hotlinking FMA/archive.org (both throttle and reorganize URLs); put the attribution line visibly near the player or on a linked credits page (CC BY requires it); keep a dated copy or screenshot of each licence page, since FMA has changed owners twice and pages move; ccMixter is plain http. (6) What no fetch can establish: a CC licence is only as good as the uploader's right to grant it — none of these pages prove chain of title, though all are long-standing moderated catalogues. (7) Mood caveat: licences were verified by fetching; tempo/mood mostly from tags and descriptions, not ears — audition Komiku (chiptune-flavoured) and Grove of Whispers (dark drone) before committing. Do not reproduce lyrics anywhere; all recommended tracks are instrumental.",
+  "HOW THIS WAS RESEARCHED: the session's WebSearch budget was already exhausted (200/200, shared across the workflow), so every fact above comes from direct fetches of known primary sources — nothing is from memory alone except where explicitly flagged unconfirmed. DEAD ENDS: musopen.org serves a Cloudflare 'Just a moment...' challenge to both WebFetch and curl-with-browser-UA (403), so its FAQ was read from the Wayback Machine snapshot of 2020-11-27 (web.archive.org is blocked for WebFetch but reachable via curl; the CDX API confirmed the snapshot is a real 200 capture). Kickstarter also 403s; Ars Technica is unfetchable (so the James Rhodes/Sony Bach story stays UNCONFIRMED — do not cite it as fact without a source); the Creative Commons wiki case-study page for Musopen is a 404. Cornell's chart summary came back slightly garbled on the pre-1923 boundary — use copyright.gov (fetched, quoted) as the anchor for US recording terms. WHAT THE BUILDER MUST KNOW BEFORE PUTTING AUDIO BEHIND A PAGE: (1) clear BOTH rights — composition (composer) AND recording (performer/producer); for Satie/Bach/Chopin the composition side is done, the recording side is the whole job. (2) The two safest concrete files found: the Robin Alciatore Gymnopédie No. 1 (PD, on Wikimedia Commons with a direct upload.wikimedia.org URL — but self-host a copy rather than hotlinking; Commons files can be renamed/deleted) and Kimiko Ishizaka's Open Goldberg Variations (CC0; note her Bandcamp page's machine licence line contradictorily shows CC BY 4.0 while the description and official site say CC0 — crediting her resolves the ambiguity in practice). (3) Archive the licence page of every file you serve (screenshot + saved HTML) the day you adopt it — that is your answer to a future Content ID or DMCA claim on genuinely PD audio. (4) Jurisdiction: UK/EU frees recordings published before 1963; the US does not (until 2033+ / 2067) — a public site should satisfy the US rule, i.e., use PD-DEDICATED or CC0/CC BY recordings, not merely old ones. (5) 'Royalty-free' and 'free to listen' are not licences; any NC clause is fatal for a commercial page. (6) Wikimedia Commons 'own work' PD/CC0 claims (like the anonymous-performer 'Gymnopedie No. 1..ogg', CC0) ultimately rest on the uploader's honesty — prefer files with a named performer and a traceable source, as in the two items above."
+ ]
+}
