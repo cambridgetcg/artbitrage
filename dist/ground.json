@@ -10,7 +10,7 @@
   "safety_first": "Buried construction waste can contain asbestos, lead paint and treated timber. Read the safety findings before digging further. Suspected asbestos: stop, keep it damp, do not break it, do not sweep or vacuum, and phone your council.",
   "note": "Every finding carries source_url plus a truth_status (verified | source-declared | contested | unverified) and its own cannot_establish line. Benchmarks published for farm fields are not benchmarks for a garden; where no garden benchmark exists, this says so instead of inventing one."
  },
- "generated_at": "2026-08-02",
+ "generated_at": "2026-08-03",
  "corpus": {
   "gathered_at": "2026-08-02",
   "method": "artbitrage ground-truth workflow, 72 agents: 6 topic researchers, 66 adversarial verifiers (one per claim, each instructed to default to rejection when uncertain).",

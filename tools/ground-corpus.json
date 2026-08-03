@@ -1,5 +1,5 @@
 {
- "note": "Raw verified corpus for ground.json. Every finding here was researched by fetching its source, then independently re-checked by a second pass that fetched the same URL and could reject or reword the claim. 66 of 66 survived; 24 were reworded to be weaker and more honest than first written. Do not hand-edit statements without re-reading the source.",
+ "note": "Raw verified corpus for ground.json. Every finding here was researched by fetching its source, then independently re-checked by a second pass that fetched the same URL and could reject or reword the claim. 66 of 66 survived rejection; 60 of the 66 came back rewritten by their checker, nearly all of them longer — adding the source's exact wording and the caveats the first pass had smoothed over. Do not hand-edit statements without re-reading the source.",
  "gathered_at": "2026-08-02",
  "method": "artbitrage ground-truth workflow, 72 agents: 6 topic researchers, 66 adversarial verifiers (one per claim, each instructed to default to rejection when uncertain).",
  "count": 66,
@@ -796,5 +796,6 @@
    "truth_status": "source-declared",
    "cannot_establish": "The RHS gives no citation for the 30% or 50% figures and no study behind the 20% sizing rule - these read as engineering rules of thumb, and I could not trace them to a primary source. The guidance does not cover alkaline or shrink-swell clay specifically, which matters a lot in Cambridge: Gault clay drains far slower than 1.25cm/hour and may fail the test outright, pushing you toward a raised/lined basin rather than an infiltration one. It also does not say what happens across a whole wet winter rather than a single storm."
   }
- ]
+ ],
+ "correction": "2026-08-03: an earlier version of this note said 24 statements were reworded. That was wrong — 24 is the number of findings whose truth_status is source-declared, a different figure that got conflated with the rewrite count. Recomputed from the run journal: 60 of 66. Recorded here rather than quietly replaced, since this corpus exists to argue that unchecked plausible numbers are the problem."
 }

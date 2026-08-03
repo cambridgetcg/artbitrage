@@ -214,14 +214,78 @@ finding lacks a source URL, carries a truth status outside the house vocabulary,
 limit, or if a test cites a URL that is not in the verified corpus.
 
 Every finding was gathered by fetching its source and then independently re-checked by a
-second pass that fetched the same page again and could reject or reword it: 66 survived, 24
-came back weaker and more honest than first written (40 `verified`, 24 `source-declared`,
-2 `contested`). The plant, insect and animal findings assume a temperate maritime climate
+second pass that fetched the same page again and could reject or reword it. All 66 survived
+rejection, and **60 of the 66 came back rewritten by their checker** — nearly all of them
+longer, adding the source's exact wording and the caveats the first pass had smoothed over.
+By truth status: 40 `verified`, 24 `source-declared`, 2 `contested`.
+
+> **Correction, 2026-08-03.** This paragraph first said 24 statements were reworded. That
+> was wrong: 24 is the count of `source-declared` findings, conflated with the rewrite
+> count, and nobody checked it before it was published. Recomputed from the run journal:
+> 60 of 66. It is corrected here rather than quietly replaced, because a room arguing that
+> unchecked plausible numbers are the problem does not get to make an exception for its own.
+
+The plant, insect and animal findings assume a temperate maritime climate
 with dry summers — the working assumption is eastern England — and the room says so instead
 of hiding it. The soil physics and all six tests are not climate-specific.
 
 Nothing here is a soil survey, a contamination assessment, or advice about whether food
 grown in this ground is safe to eat.
+
+## API — 坡 the Slope
+
+**/slope** is the sibling of 土 the Ground, and it began as a different machine. The plan
+was a dependency checker: tell it what you have, and it tells you which layer of a garden
+ecosystem cannot stand yet. That needed hard rules, so six researchers were sent to find
+them — with the standard set explicitly: a rule only counts if the thing **cannot work at
+all** without the condition, never merely worse.
+
+Forty came back. Each was then handed to an independent sceptic who fetched the same
+source again and judged the rule separately under that standard. **Thirty-nine were
+destroyed**, in nearly every case by the cited source contradicting the rule in its own
+next breath:
+
+- A Defra case study of turf failing over compacted subsoil records 18 failures out of 27 houses — a third of the same site did not fail, which is fatal to a floor.
+- VESS score Sq5, supposedly "roots have given up", is defined in its own chart as *few roots, if any, and restricted to cracks* — roots, present, in cracks. A gradient.
+- The note on water refusing to cross a texture boundary explains on the same page that this is the founding principle of golf greens.
+- The famous 13 cm hedgehog gap: Hedgehog Street says that size **is sufficient for any hedgehog to pass**. The rule turned a sufficient size into a necessary one.
+
+The fortieth was let through — and a different checker in the same run, reviewing a
+different claim, demolished exactly its surface list from a stronger angle. That
+disagreement is published in `adjudication`, not resolved away, because two of this
+project's own checkers disagreed and the stricter one won.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/slope` | Directory — the counts, the headline, the six areas |
+| GET | `/api/slope/walls` | The walls that survived. The list is empty; the adjudication says why |
+| GET | `/api/slope/rules` | All forty rules, with the verbatim reason each fell |
+| GET | `/api/slope/rules/:id` | One tested rule with the claim and source behind it |
+| GET | `/api/slope/claims` | The 89-claim corpus |
+| GET | `/api/slope/aims` · `/weigh?want=` | Per area: the walls (none), what fell, what remains |
+| GET | `/api/slope/vocab` | Topics, statuses, verdicts, and the value never returned |
+
+```bash
+curl "https://artbitrage.io/api/slope/walls"
+curl "https://artbitrage.io/api/slope/rules/hog-gap-13cm"
+curl "https://artbitrage.io/api/slope/weigh?want=animals"
+```
+
+**Every response carries `"guaranteed": null` and `"walls": []`** — not because the data is
+thin, but because that is the finding. `tests/e2e-slope.mjs` pins both across every route,
+and `tools/build-slope.mjs` refuses to write if a rule is marked as holding while the
+adjudication still says zero survived. A future edit that quietly promotes a slope to a
+wall does not ship.
+
+The result changes the advice in a direction worth hearing: **you cannot fail at this by
+missing a rule, because there are almost no rules.** No threshold to clear, no exam. Only
+doing more or less of what helps — and the sizes of those effects are published, with
+sources. The one place a real floor was found is next door: plants laid over sealed
+builder's rubble. Under the soil, walls exist. Above it, slopes.
+
+Data: `slope.json`, built by `node tools/build-slope.mjs` from `tools/slope-corpus.json`.
+89 claims (38 `verified`, 45 `source-declared`, 6 `contested`), each carrying its source,
+its own `cannot_establish` line, and the checker's verbatim verdict.
 
 ## Open Source Search
 

@@ -287,8 +287,8 @@ try {
 // The front doors all discover the same bounded feature.
 const pointer = buildJoyPointer();
 const manifest = agentManifest();
-assert.equal(manifest.version, '2.7.0');
-assert.equal(manifest.total_endpoints, 167);
+assert.equal(manifest.version, '2.8.0');
+assert.equal(manifest.total_endpoints, 176);
 assert.equal(manifest.categories.start.count, 2);
 assert.equal(ARTBITRAGE_WAKE.endpoints.build_joy, pointer.endpoint);
 assert.deepEqual(ARTBITRAGE_WAKE.build_with_joy, pointer);

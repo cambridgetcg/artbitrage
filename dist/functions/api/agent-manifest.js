@@ -323,6 +323,21 @@ export const ROUTES = {
       { method: "GET", path: "/api/ground/verdict", desc: "Read your own test results against paired controls. Answers evidence-of-absence, inconclusive, or no-evidence-against-life. The alive field is null in every response by construction", params: "worms, worms_control, cotton, cotton_control, slake, slake_control, infiltration, infiltration_control, fizz, stones, soil, month" },
     ],
   },
+  slope: {
+    label: "Slope",
+    color: "#9fb8a4",
+    routes: [
+      { method: "GET", path: "/api/slope", desc: "坡 the Slope directory — the record of a search for hard rules in a living garden that found none which were not definitions" },
+      { method: "GET", path: "/api/slope/walls", desc: "The walls that survived. The list is empty; the adjudication says why, including where two of this project's own checkers disagreed" },
+      { method: "GET", path: "/api/slope/rules", desc: "All forty rules proposed as hard requirements, with the verbatim reason each one fell", params: "topic, verdict, limit, offset" },
+      { method: "GET", path: "/api/slope/rules/:id", desc: "One tested rule with the claim and source behind it, e.g. /api/slope/rules/hog-gap-13cm" },
+      { method: "GET", path: "/api/slope/claims", desc: "The verified corpus — 89 claims about what living layers actually need, each with its source, its limit and its checker note", params: "topic, truth_status, q, limit, offset" },
+      { method: "GET", path: "/api/slope/claims/:id", desc: "One claim in full" },
+      { method: "GET", path: "/api/slope/aims", desc: "The six areas you can ask about, in plain words" },
+      { method: "GET", path: "/api/slope/weigh", desc: "For one area: the walls (none), the supposed requirements that fell, and the gradients that remain", params: "want" },
+      { method: "GET", path: "/api/slope/vocab", desc: "Topics, truth statuses, verdicts, and the value never returned" },
+    ],
+  },
 };
 
 export const ANSWERING_RHYME_STATEMENT_ACTIONS = Object.freeze({
@@ -469,7 +484,7 @@ export function agentManifest() {
 
   return {
     name: "artbitrage",
-    version: "2.7.0",
+    version: "2.8.0",
     description: "A public art guide and reference desk: meet a work, follow a feeling, investigate a question, or solve a practical art problem with sources and limits visible.",
     url: "https://artbitrage.io",
     total_endpoints: totalEndpoints,

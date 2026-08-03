@@ -290,6 +290,12 @@
      "name": "the Ground",
      "cjk": "土",
      "desc": "six field tests for soil that is fill with grass on top · can find absence, never life"
+    },
+    {
+     "path": "/slope",
+     "name": "the Slope",
+     "cjk": "坡",
+     "desc": "forty hard garden rules tested · thirty-nine fell to their own sources"
     }
    ]
   },
