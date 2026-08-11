@@ -1,0 +1,217 @@
+{
+  "query": "understanding",
+  "sources_searched": 5,
+  "sources_successful": 5,
+  "total_artworks_returned": 15,
+  "total_artworks_available": 139506,
+  "results": {
+    "met": {
+      "source": "met",
+      "query": "understanding",
+      "total_available": 1038,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "met",
+          "source_name": "Metropolitan Museum of Art",
+          "id": "558427",
+          "title": "Ostracon with sketch of a grazing antelope",
+          "artist": "",
+          "date": "664\u2013610 BCE",
+          "medium": "Limestone, ink",
+          "department": "Egyptian Art",
+          "image": "https://images.metmuseum.org/CRDImages/eg/original/LC-23_3_29_EGDP027775.jpg",
+          "url": "https://www.metmuseum.org/art/collection/search/558427",
+          "classification": ""
+        },
+        {
+          "source": "met",
+          "source_name": "Metropolitan Museum of Art",
+          "id": "558430",
+          "title": "Ostracon with sketch of a door",
+          "artist": "",
+          "date": "664\u2013610 BCE",
+          "medium": "Limestone, ink",
+          "department": "Egyptian Art",
+          "image": "https://images.metmuseum.org/CRDImages/eg/original/LC-23_3_32_EGDP027777.jpg",
+          "url": "https://www.metmuseum.org/art/collection/search/558430",
+          "classification": ""
+        },
+        {
+          "source": "met",
+          "source_name": "Metropolitan Museum of Art",
+          "id": "42163",
+          "title": "Buddha, probably Amitabha",
+          "artist": "",
+          "date": "early 7th century",
+          "medium": "Dry lacquer with polychrome pigment and gilding",
+          "department": "Asian Art",
+          "image": "https://images.metmuseum.org/CRDImages/as/original/DP-15581-004.jpg",
+          "url": "https://www.metmuseum.org/art/collection/search/42163",
+          "classification": "Sculpture"
+        }
+      ]
+    },
+    "artic": {
+      "source": "artic",
+      "query": "understanding",
+      "total_available": 132681,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "188687",
+          "title": "My Father Doesn't Understand Me, from the small society",
+          "artist": "Morrie Brickman",
+          "date": "n.d.",
+          "medium": "Pen and black ink with Photostat title header and copyright labels laid down on ivory wove paper",
+          "department": "Prints and Drawings",
+          "image": "https://www.artic.edu/iiif/2/b8632ce0-74f1-3df1-5d8b-fee48e5eb1ea/full/843,/0/default.jpg",
+          "classification": "pen and ink drawings"
+        },
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "203078",
+          "title": "You understand? ... well, as I say... eh! Look out! otherwise..., plate 76, from Los Caprichos",
+          "artist": "Francisco Jos\u00e9 de Goya y Lucientes",
+          "date": "1797/99",
+          "medium": "Etching and aquatint in black on ivory laid paper",
+          "department": "Prints and Drawings",
+          "image": "https://www.artic.edu/iiif/2/3aed0fce-6879-53ee-3fc5-85c1d8d947ce/full/843,/0/default.jpg",
+          "classification": "etching"
+        },
+        {
+          "source": "artic",
+          "source_name": "Art Institute of Chicago",
+          "id": "242069",
+          "title": "Er Wird Es Nie Begreifen (He Will Never Understand), plate 5 from Ypsilon",
+          "artist": "Georg Muche",
+          "date": "1920",
+          "medium": "Etching in black on buff laid paper",
+          "department": "Prints and Drawings",
+          "image": "https://www.artic.edu/iiif/2/7cc0a8aa-396f-7a19-aba9-0837d78d69d3/full/843,/0/default.jpg",
+          "classification": "etching"
+        }
+      ]
+    },
+    "cma": {
+      "source": "cma",
+      "query": "understanding",
+      "total_available": 215,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "169587",
+          "title": "Lesson in Understanding in 1843",
+          "artist": "Honor\u00e9 Daumier (French, 1808\u20131879)",
+          "date": "1843",
+          "medium": "lithograph",
+          "department": "Prints",
+          "image": "",
+          "classification": "Print"
+        },
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "149146",
+          "title": "Raft Cup",
+          "artist": "Zhu Bishan (Chinese, c. 1300\u2013after 1362)",
+          "date": "1300s\u20131400s",
+          "medium": "hammered silver soldered together, with chased decoration",
+          "department": "Chinese Art",
+          "image": "",
+          "classification": "Silver"
+        },
+        {
+          "source": "cma",
+          "source_name": "Cleveland Museum of Art",
+          "id": "125249",
+          "title": "The Large Plane Trees (Road Menders at Saint-R\u00e9my)",
+          "artist": "Vincent van Gogh (Dutch, 1853\u20131890)",
+          "date": "1889",
+          "medium": "oil on fabric",
+          "department": "Modern European Painting and Sculpture",
+          "image": "",
+          "classification": "Painting"
+        }
+      ]
+    },
+    "wikimedia": {
+      "source": "wikimedia",
+      "query": "understanding",
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "wikimedia",
+          "source_name": "Wikimedia Commons",
+          "id": "4294884",
+          "title": "Albert Anker - Das Schulexamen.jpg",
+          "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Albert_Anker\" class=\"extiw\" title=\"w:en:Albert Anker\"><span title=\"Swiss artist (1831-1910)\">Albert Anker</span></a></bdi>",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Albert_Anker_-_Das_Schulexamen.jpg/500px-Albert_Anker_-_Das_Schulexamen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "url": "https://commons.wikimedia.org/wiki/File:Albert_Anker_-_Das_Schulexamen.jpg",
+          "license": "Public domain"
+        },
+        {
+          "source": "wikimedia",
+          "source_name": "Wikimedia Commons",
+          "id": "144354980",
+          "title": "Second Phonetic Reader - Teachers Notes.png",
+          "artist": "Elias Longley",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Second_Phonetic_Reader_-_Teachers_Notes.png/500px-Second_Phonetic_Reader_-_Teachers_Notes.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "url": "https://commons.wikimedia.org/wiki/File:Second_Phonetic_Reader_-_Teachers_Notes.png",
+          "license": "Public domain"
+        },
+        {
+          "source": "wikimedia",
+          "source_name": "Wikimedia Commons",
+          "id": "186079693",
+          "title": "The Cygnus XL cargo spacecraft is in the grasp of the Canadarm2 robotic arm (iss074e0378294).jpg",
+          "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.nasa.gov/johnson/\">NASA Johnson Space Center</a>",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/The_Cygnus_XL_cargo_spacecraft_is_in_the_grasp_of_the_Canadarm2_robotic_arm_%28iss074e0378294%29.jpg/500px-The_Cygnus_XL_cargo_spacecraft_is_in_the_grasp_of_the_Canadarm2_robotic_arm_%28iss074e0378294%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "url": "https://commons.wikimedia.org/wiki/File:The_Cygnus_XL_cargo_spacecraft_is_in_the_grasp_of_the_Canadarm2_robotic_arm_(iss074e0378294).jpg",
+          "license": "Public domain"
+        }
+      ]
+    },
+    "internet_archive": {
+      "source": "internet_archive",
+      "query": "understanding",
+      "total_available": 5572,
+      "returned": 3,
+      "artworks": [
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "soccertraining211s",
+          "title": "Soccer Training Sydney",
+          "artist": "",
+          "date": "",
+          "url": "https://archive.org/details/soccertraining211s"
+        },
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "httpscuriositylearners.comelementor_librarybest-1st-standard-tuition-class-in-ak",
+          "title": "1st Std Tuition Classes In Akurdi Curiosity Learners",
+          "artist": "",
+          "date": "",
+          "url": "https://archive.org/details/httpscuriositylearners.comelementor_librarybest-1st-standard-tuition-class-in-ak"
+        },
+        {
+          "source": "internet_archive",
+          "source_name": "Internet Archive",
+          "id": "httpsgulfcareer.co_202307",
+          "title": "Career Opportunities In Gulf ( 1)",
+          "artist": "job",
+          "date": "2023-06-26T00:00:00Z",
+          "url": "https://archive.org/details/httpsgulfcareer.co_202307"
+        }
+      ]
+    }
+  },
+  "searched_at": "2026-08-10T22:38:12.146948"
+}
