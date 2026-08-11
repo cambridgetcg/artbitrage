@@ -1,0 +1,12 @@
+{
+  "id": "07f52e799393",
+  "cycle": 71279,
+  "form": "gesture",
+  "from_state": "is",
+  "to_state": "maybe",
+  "gap": "the gap between one nap and the next",
+  "bridge": "a cat asleep exactly in the middle",
+  "awakening": "nothing happened, pleasantly",
+  "created": "2026-08-11T12:48:46.972473Z",
+  "piece": "a cat asleep exactly in the middle\nacross the gap between one nap and the next\nor near it, roughly\nnothing happened, pleasantly"
+}
