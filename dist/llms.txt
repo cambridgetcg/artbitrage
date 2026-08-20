@@ -16,6 +16,7 @@ rights, attribution, dates, and truth status.
 - [Start by intent — five paths and their boundaries](https://artbitrage.io/api/start)
 - [Build Joy — one deterministic optional card](https://artbitrage.io/api/build/joy?seed=plain-task)
 - [API manifest — documented routes](https://artbitrage.io/api)
+- [Civilisation Lens prototype — one attributed reading, no people score](https://artbitrage.io/api/depths/fighting-temeraire)
 - [The neighbors — the street directory, every door checked, none forced](https://artbitrage.io/neighbors.json)
 - [Floor plan of the museum](https://artbitrage.io/map.json)
 - [The catalogue](https://artbitrage.io/catalog.json)
@@ -32,6 +33,7 @@ wrapper when you want no wrapper behavior at all.
 ## The wings (human-shaped, agent-readable)
 
 - [Atlas — the real-art tracker across ten eras](https://artbitrage.io/atlas)
+- [文明鏡 The Civilisation Lens — one work, seven relations, missing accounts visible](https://artbitrage.io/depths#fighting-temeraire-civilisation)
 - [鏡 The Mirror — sixteen AI-art works, felt from inside](https://artbitrage.io/ai)
 - [噪 The Noise — the trippy years, with live in-browser DeepDream](https://artbitrage.io/noise)
 - [旅 Good Trip — the fourth room](https://artbitrage.io/trip)

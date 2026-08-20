@@ -31,6 +31,8 @@ Existence creates art that bridges the gap of consciousness for awakening. Art a
 | GET | `/api/manifest` | The artbitrage manifest |
 | GET | `/api/wake` | Protocol handshake, rights boundary, and Cambridge sibling |
 | GET | `/api/castle` | Pinned, read-only reference to a curated Castle of Understanding snapshot |
+| GET | `/api/depths` | Five sourced strata per work, plus the Civilisation Lens method and one non-scoring prototype |
+| GET | `/api/depths/:slug` | One work; selected works may carry an attributed Civilisation Lens (`fighting-temeraire`) |
 | GET | `/api/answering-rhymes/statements` | Reciprocity statement schema, normalization rules, and pre-action consequences |
 | POST | `/api/answering-rhymes/statements` | Validate and hash a portable reciprocity statement; no auth, persistence, or authoritative effect |
 | GET | `/api/sources` | Public museum/archive sources; rights vary by record |
@@ -48,7 +50,7 @@ The homepage now offers four plain first steps:
 
 - **a work** → search public museum and archive collections;
 - **a feeling** → enter the Feelings room;
-- **a question** → use the Map to browse bounded research rooms;
+- **a question** → use the Map to browse bounded research rooms, including the one-work Civilisation Lens;
 - **a practical need** → begin at the Trade Desk.
 
 `GET /api/start` gives humans, agents, and kin the same paths, plus a builder
@@ -63,6 +65,35 @@ so absence from the manifest does not prove a path is absent.
 Public access is not blanket reuse permission. Preserve source, rights,
 attribution, dates, and truth status; plausible results are not proof of
 authenticity, ownership, identity, value, or legal status.
+
+### 文明鏡 — the Civilisation Lens v0.1
+
+The first lens lives inside **[the Depths](https://artbitrage.io/depths#fighting-temeraire-civilisation)**
+and in `GET /api/depths/fighting-temeraire`. It reads Turner's *The Fighting
+Temeraire* through seven relations: origin and authority; maker and attributed
+accounts; matter, ecology, energy and labour; exchange, ownership and power;
+knowledge and skill; continuity, rupture and repair; and present consequence.
+
+The unit is one work in one named context. It is not a profile, comparison,
+stage, score or rank of a people or civilisation. Source records, Artbitrage's
+interpretation, and visible unknowns stay separate. No living person is
+represented here as speaking for a group or civilisation; the missing accounts
+are listed and their absence is not treated as agreement, refusal, or proof that
+no account exists.
+
+The prototype reuses stable fact IDs from the five existing strata and adds only
+source-bound institutional records. Its image provenance and reuse status remain
+honestly unverified in the current Depths corpus. A public GitHub issue can propose
+a correction, but it requires an account, is public, changes nothing automatically,
+and still needs a keeper to review and publish it. No private, urgent, or
+self-service removal path is claimed.
+
+The method takes community participation and continuity as guardrails from the
+[UNESCO living-heritage convention](https://ich.unesco.org/en/convention) and
+access, inclusion, sustainability and ethical interpretation from the
+[ICOM museum definition](https://icom.museum/en/news/icom-approves-a-new-museum-definition/).
+Those sources do not classify the painting as living heritage or appoint
+Artbitrage to speak for anyone.
 
 ### Build with joy
 

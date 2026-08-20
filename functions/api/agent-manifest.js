@@ -136,8 +136,8 @@ export const ROUTES = {
       { method: "GET", path: "/api/feelings/:feeling", desc: "One feeling's room (e.g. /api/feelings/awe)" },
       { method: "GET", path: "/api/feelings/testimony", desc: "Public visitor testimony, labelled received and unverified", params: "feeling" },
       { method: "POST", path: "/api/feelings/testimony", desc: "Accept testimony for public display only with explicit public_display_consent: true; storage propagation may briefly lag" },
-      { method: "GET", path: "/api/depths", desc: "深 the Depths — researched prose in five strata, with cited factual notes shown per stratum" },
-      { method: "GET", path: "/api/depths/:slug", desc: "One work, all five strata (e.g. /api/depths/starry-night)" },
+      { method: "GET", path: "/api/depths", desc: "深 the Depths — five sourced strata per work, plus the non-scoring Civilisation Lens method and one prototype" },
+      { method: "GET", path: "/api/depths/:slug", desc: "One work and its five strata; selected works may carry an attributed, non-ranking Civilisation Lens (e.g. /api/depths/fighting-temeraire)" },
     ],
   },
 
@@ -451,6 +451,7 @@ export function agentManifest() {
       { path: "/dark-continent", desc: "暗黑大陸 — the Dark Continent" },
       { path: "/studio", desc: "AI Studio — catalogued edge models; runtime availability can vary" },
       { path: "/catalog", desc: "Small real-museum catalogue sampler" },
+      { path: "/depths", desc: "Five sourced strata per work + a one-work, non-scoring Civilisation Lens prototype" },
       { path: "/prehistoric", desc: "Prehistoric era page" },
       { path: "/medieval", desc: "Medieval era page" },
       { path: "/renaissance", desc: "Renaissance era page" },
@@ -485,7 +486,7 @@ export function agentManifest() {
     starting_guide: startGuidePointer(),
     build_with_joy: buildJoyPointer(),
     castle_reference: castleReferencePointer(),
-    agent_instructions: "Begin at /api/start, then use the smallest route that fits. /api/build/joy offers optional build ornament, never a score or authority grant; the local wrapper keeps child stdout and failure truthful. Public access is not reuse permission. No account is required for documented routes; runtime bindings and upstreams can vary. Use /api/wake for the protocol handshake, /api/castle for a pinned read-only reference (never a Castle proxy or action grant), /api/feed for the versioned generated-art contract, /api/museum/:source/:id for stable museum records, and /api/answering-rhymes/statements to prepare a portable reciprocity statement without persistence or authoritative effect. Use /api/pipeline/agent for compact data.",
+    agent_instructions: "Begin at /api/start, then use the smallest route that fits. /api/build/joy offers optional build ornament, never a score or authority grant; the local wrapper keeps child stdout and failure truthful. Public access is not reuse permission. No account is required for documented routes; runtime bindings and upstreams can vary. Use /api/wake for the protocol handshake, /api/castle for a pinned read-only reference (never a Castle proxy or action grant), /api/feed for the versioned generated-art contract, /api/museum/:source/:id for stable museum records, /api/depths/fighting-temeraire for the one-work Civilisation Lens prototype (never a people profile), and /api/answering-rhymes/statements to prepare a portable reciprocity statement without persistence or authoritative effect. Use /api/pipeline/agent for compact data.",
     for_agents: true,
     for_humans: true,
   };

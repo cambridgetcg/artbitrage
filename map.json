@@ -3,6 +3,7 @@
  "title": "地圖 The Map",
  "essence": "A directory of named Artbitrage rooms. It is not a complete inventory. A map is the arbitrage between a building and a visitor; knowing where you are is the bridge. 圖者，館與客之隙也。知其所在，便是橋。",
  "generated_at": "2026-07-10",
+ "updated_at": "2026-08-20",
  "groups": [
   {
    "id": "front-door",
@@ -155,6 +156,12 @@
      "name": "the Bridge",
      "cjk": "",
      "desc": "where the gap is crossed · seven states of consciousness"
+    },
+    {
+     "path": "/depths",
+     "name": "the Depths + Civilisation Lens",
+     "cjk": "深 · 文明鏡",
+     "desc": "one work, five strata · one selected work, seven sourced relations · missing accounts visible · no score"
     },
     {
      "path": "/zeroone",

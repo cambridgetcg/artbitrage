@@ -14,6 +14,61 @@
   "paint": "the actual materials — their cost, chemistry, and slow betrayals",
   "afterlife": "sales, thefts, journeys — how it reached now"
  },
+ "civilisation_lens_method": {
+  "schema": "artbitrage.civilisation-lens/0.1",
+  "name": "文明鏡 · the Civilisation Lens",
+  "name_note": "文明鏡 is Artbitrage's room name, not a source title or a translation supplied by Turner, the National Gallery, or an affected group.",
+  "purpose": "Use one work to inspect named relations around meaning, matter, power, skill, continuity, and consequence without turning the work into a profile of a people.",
+  "unit": "one work in one named context",
+  "prototype_count": 1,
+  "facet_ids": [
+   "origin-language-authority",
+   "maker-and-attributed-accounts",
+   "matter-ecology-energy-labour",
+   "exchange-ownership-power",
+   "knowledge-skill",
+   "continuity-rupture-repair",
+   "present-consequence"
+  ],
+  "boundaries": {
+   "non_scoring": true,
+   "non_ranking": true,
+   "whole_civilisation_claim": false,
+   "group_or_community_account_requires_attributed_source": true,
+   "missing_account_is_not": [
+    "agreement",
+    "refusal",
+    "absence of an account"
+   ],
+   "sustainability_claim": "A visible reuse, survival, or technical change does not by itself establish sustainability.",
+   "thriving_claim": "Fame, price, speed, circulation, survival, and a completed page do not measure thriving."
+  },
+  "statement_kinds": [
+   "source_record",
+   "historical_quote",
+   "reported_account",
+   "artbitrage_interpretation",
+   "unknown"
+  ],
+  "audit": {
+   "as_of": "2026-08-20",
+   "method": "The prototype was drafted from the existing Depths record, then checked against current National Gallery, Royal Museums Greenwich, Southwark Council, Bank of England, UNESCO, and ICOM pages. Independent read-only passes challenged source custody, missing accounts, ranking language, rights, correction, and accessibility.",
+   "structural_check": "tests/e2e-civilisation-lens.mjs resolves every cited fact ID and enforces the one-work, seven-relation, non-scoring boundary.",
+   "limits": "A passing structural test does not prove the claims true, complete, representative, understood, or accepted by anyone named or affected."
+  },
+  "method_sources": [
+   {
+    "name": "UNESCO Convention for the Safeguarding of the Intangible Cultural Heritage",
+    "url": "https://ich.unesco.org/en/convention",
+    "use": "community recognition, participation, continuity, and living heritage are guardrails; this lens does not classify the painting as intangible heritage"
+   },
+   {
+    "name": "ICOM museum definition, adopted 2022",
+    "url": "https://icom.museum/en/news/icom-approves-a-new-museum-definition/",
+    "use": "access, inclusion, sustainability, ethical interpretation, and community participation belong together"
+   }
+  ]
+ },
  "works": [
   {
    "slug": "starry-night",
@@ -199,10 +254,17 @@
    "title": "The Fighting Temeraire",
    "artist": "J.M.W. Turner",
    "year": "1839",
-   "one_line": "a warship towed to the breakers — sail dies, steam pulls, the sky salutes",
-   "location_now": "National Gallery, London · Room 40 (as of 2026-07)",
+   "one_line": "a warship towed to dismantling — Turner places oak, wind, steam, and smoke in one invented sunset",
+   "location_now": "National Gallery, London · Room 40 (as of 2026-08-20; gallery locations can change)",
    "image": "https://artbitrage.io/art/jmw-turner.jpg",
    "thumb": "https://artbitrage.io/art/jmw-turner-t.jpg",
+   "image_alt": "Turner's pale three-masted warship recedes behind a small dark steam tug on the Thames; smoke crosses the ship while a red invented sunset fills the right half of the sky.",
+   "revision": {
+    "as_of": "2026-08-20",
+    "scope": "The feeling, world, and afterlife prose and the lens-referenced Temeraire facts were revised; three secondary context claims and two secondary afterlife claims no longer used by the prose were removed.",
+    "method": "The revised claims were re-read against current National Gallery, Royal Museums Greenwich, Southwark Council, and Bank of England records. Independent read-only passes challenged teleology, collective feeling, source custody, missing accounts, rights, and correction language.",
+    "limits": "This was not a new full audit of every unchanged paint, pigment, quotation, or historical claim in the five strata; those retain the dataset's earlier verification date."
+   },
    "feelings": [
     "elegy",
     "farewell",
@@ -212,7 +274,7 @@
    ],
    "strata": {
     "feeling": {
-     "text": "You see the ghost first. A tall ship the colour of moonlight, sails furled, masts bare as winter trees, pulled along by a squat black tug that coughs fire and soot. Half the picture is sunset — copper, gold, ash — and its long rays slant back toward the old ship like a goodbye. People go quiet in front of it. It is a funeral for something made of wood and rope, and it works on you like the death of a person. But it is not only grief: the ship rides high, white and gold, dignified to the last, too proud to look broken. A thin new moon hangs in the clear blue on the left. One age ends in glory; another, small and busy and smoking, drags it away.",
+     "text": "A pale ship rises like a ghost behind a small dark tug. The masts are bare, the tug coughs fire and soot, and long rays from the sunset lean back towards the hull. The composition invites an elegiac reading: wood and rope are made luminous while steam is made compact, black, and urgent. That response belongs to this reading, not every viewer. Turner has staged a farewell, not recorded one exactly; the feeling begins in the choices he made.",
      "feelings": [
       "elegy",
       "farewell",
@@ -225,22 +287,27 @@
      "text": "Turner was sixty-three, rich, famous and solitary, living over his own dusty gallery in Queen Anne Street, where a visitor found brilliant pictures 'shining out of the dirt and neglect'. He almost certainly never saw the tow — he may not even have been in England that September, since he usually spent late summer sketching in Europe. He read about it afterwards: the last great Trafalgar ship but one, sold out of the Navy and dragged to a breaker's yard. He worked fast, with four other large canvases to finish for the 1839 Royal Academy, and painted it over a discarded canvas that already carried a big sail — X-rays still show it under the tug. He hung it with borrowed lines about a flag that no longer flew. Then he would not let it go: not for £5,000, not for a blank cheque. 'My Darling', he called it.",
      "facts": [
       {
+       "id": "ft-hands-making",
        "claim": "Turner probably learned of the ship's fate from press reports in late September 1838 and 'must have worked fairly swiftly' on the picture for the spring 1839 Royal Academy, where he showed four other paintings of about the same size.",
        "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
       },
       {
+       "id": "ft-hands-not-eyewitness",
        "claim": "It is unlikely Turner witnessed the tow — he may not even have been in England at the time; he usually travelled in Europe in August and September. Later legends that he saw it from Greenwich, Blackwall Reach, a Margate steamer or a Bermondsey pier are unfounded, and Turner never claimed to be an eye-witness.",
        "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
       },
       {
+       "id": "ft-hands-title",
        "claim": "Exhibited at the Royal Academy in 1839 as 'The Fighting Temeraire, tugged to her last Berth to be broken up, 1838', with lines Turner adapted from Thomas Campbell's 'Ye Mariners of England': 'The flag which braved the battle and the breeze, / No longer owns her.'",
        "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
       },
       {
+       "id": "ft-hands-darling",
        "claim": "In a pencil draft letter of about 1845, refusing another loan of the picture, Turner wrote that 'no consid[eratio]ns of money or favour can induce me to lend my Darling again'.",
        "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
       },
       {
+       "id": "ft-hands-refused-sale",
        "claim": "In 1848 the American collector James Lenox, calling with the dealer Thomas Griffith, reputedly offered £5,000 and then a blank cheque; Turner refused, having by then determined to leave the picture to the nation (recorded by C.R. Leslie).",
        "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
       },
@@ -251,47 +318,42 @@
      ]
     },
     "world": {
-     "text": "The Temeraire was built from the wood of over 5,000 oaks at Chatham and launched in 1798. At Trafalgar, 21 October 1805, she sailed directly astern of Nelson's Victory; when the flagship was about to be boarded from the Redoutable, the Temeraire's broadside saved her — while her other side hammered the Fougueux — and she took both French ships as prizes. Then came peace, and the slow humiliation of every wooden warship: eighteen years moored off Sheerness as a floating supply store. In June 1838 the Admiralty ordered her sold. She went at auction for £5,530 to a Rotherhithe ship-breaker, stripped of masts and guns, and on 5–6 September two small steam tugs walked her some 55 miles up the Thames on the spring tide. It was the year steam arrived everywhere at once: Victoria newly crowned, steamships crossing the Atlantic that April, the London–Birmingham railway opening that same September. Everyone could feel which way the wind no longer mattered.",
+     "text": "The Temeraire was a state-owned warship built from more than 5,000 oaks at Chatham and launched in 1798. At Trafalgar in 1805 it fought directly astern of Nelson's Victory. From 1820 it lay off Sheerness, chiefly as a supply ship. In 1838 the Admiralty stripped its reusable equipment and sold the 2,110-ton hull to the Rotherhithe ship-breaker John Beatson for £5,530. Two steam tugs moved it up the Thames on 5–6 September. Turner probably did not see that journey: the real hull was mastless, two tugs worked the tow, and it arrived before sunset. The painting puts sail and steam beside each other, but that composition is not evidence that one age, one public, or one civilisation understood technical change in a single way.",
      "facts": [
       {
+       "id": "ft-world-oaks-warship",
        "claim": "Designed as a 98-gun ship of the line, built of the wood of over 5,000 oaks in the Royal Navy's dockyard at Chatham, and launched there on 11 September 1798.",
        "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
       },
       {
+       "id": "ft-world-trafalgar",
        "claim": "At Trafalgar (21 October 1805), under Captain Eliab Harvey and stationed immediately astern of the Victory, the Temeraire saved Nelson's flagship from being boarded from the Redoutable by firing a larboard broadside into her, while simultaneously firing her other side into the Fougueux; she took both French ships as prizes.",
        "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
       },
       {
+       "id": "ft-world-later-service",
        "claim": "From 1820 she lay moored off Sheerness, chiefly as a victualling ship, never moving for eighteen years; by 1838, 14 of the 27 ships in Nelson's Trafalgar fleet had already been sold to be broken up.",
        "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
       },
       {
+       "id": "ft-world-sale-and-stripping",
        "claim": "Sold by Dutch auction on 16 August 1838 at the Navy Board offices in Somerset House to John Beatson, Rotherhithe ship-breaker and timber merchant, for £5,530 — the Navy had first stripped her of masts, yards, guns, anchors and stores, leaving a 2,110-ton empty hull.",
        "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
       },
       {
+       "id": "ft-world-two-tug-tow",
        "claim": "The tow took place on 5–6 September 1838, by the steam tugs Samson and London hired from the Thames Steam Towing Company, timed to the spring tides after the 4 September full moon; she was probably secure at Beatson's wharf before 3 pm on 6 September.",
        "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
       },
       {
+       "id": "ft-world-impossible-sunset",
        "claim": "Turner's sun sets in the wrong direction — a ship coming up the Thames heads west, so the sunset could not lie astern of her in the east; James Dafforne first pointed out the 'glaring error' in 1877, sparking a lively but inconclusive correspondence in The Times.",
        "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
       },
       {
+       "id": "ft-world-artistic-liberties",
        "claim": "He also took deliberate liberties: the mastless hulk is shown with her three lower masts in and partly rigged, her black-and-yellow paintwork turned white and gold, only one tug shown pulling (the second just visible in the distance), and the tug's funnel moved in front of its mast so the smoke streams back through the Temeraire's masts.",
        "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
-      },
-      {
-       "claim": "In April 1838 the Sirius and Brunel's purpose-built Great Western made the first Atlantic crossings under steam, arriving in New York a day apart (22 and 23 April).",
-       "source": "https://en.wikipedia.org/wiki/SS_Great_Western"
-      },
-      {
-       "claim": "The London and Birmingham Railway, the first intercity line built into London, fully opened on 17 September 1838 — eleven days after the Temeraire reached the breaker's yard.",
-       "source": "https://en.wikipedia.org/wiki/London_and_Birmingham_Railway"
-      },
-      {
-       "claim": "Queen Victoria was crowned at Westminster Abbey on 28 June 1838, ten weeks before the tow; the People's Charter demanding the vote for working men was published the same year.",
-       "source": "https://en.wikipedia.org/wiki/Coronation_of_Queen_Victoria"
       }
      ]
     },
@@ -325,10 +387,12 @@
        "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
       },
       {
+       "id": "ft-paint-reused-canvas",
        "claim": "An X-radiograph shows a large sail, on a much bigger scale, where the tug's mast, rigging and funnel now lie — Turner reused a discarded canvas on which he had laid in a large sailing-boat.",
        "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
       },
       {
+       "id": "ft-paint-conservation",
        "claim": "The dramatic sunset effects were 'achieved by the use of impasto and glazes' and are 'unusually intact': the picture has not been cleaned or varnished since arriving with the Turner Bequest in 1856; surface dirt was removed in 1945, and flaking paint forced a lining in 1963. The stretcher is probably original. Full technical examination: Martin Wyld and Ashok Roy, in Egerton 1995.",
        "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
       },
@@ -347,41 +411,352 @@
      ]
     },
     "afterlife": {
-     "text": "Turner kept his Darling until he died in December 1851, leaving it to the nation. After the wrangling over his will, it entered the National Gallery with the Turner Bequest in 1856, among the first of his pictures hung — and it has essentially never left. The ship herself had a quieter afterlife: her timbers became two bishop's chairs and a communion table in St Mary's church, Rotherhithe, a few hundred yards from where she was broken up. The painting kept gathering the country around it. In 2005, BBC radio listeners voted it the Greatest Painting in Britain — nearly 32,000 votes, a comfortable ten thousand ahead of Constable's Hay Wain. In Skyfall, Bond meets his new quartermaster on a bench in front of it — two men contemplating old warships. And since 2020 it has ridden in nearly every British pocket, printed on the £20 note beside Turner's self-portrait and his line 'Light is therefore colour'. It hangs in Room 40 — as of this writing; it moves.",
+     "text": "Turner kept the painting until his death in 1851 and intended it for the nation. It entered the National Gallery with the Turner Bequest in 1856. Material from the dismantled ship also continued: Royal Museums Greenwich holds an oak table made from its timber. In 2020 the painting entered another kind of circulation on the Bank of England's polymer £20 note beside Turner's self-portrait. A bequest, a salvaged table, a museum display, and a banknote preserve different things. Their survival and circulation do not establish one national memory, one response, or one measure of thriving.",
      "facts": [
       {
+       "id": "ft-afterlife-refused-and-bequest-intent",
        "claim": "Turner refused all offers for the picture — reputedly £5,000 and then a blank cheque from James Lenox in 1848 — 'because he intended to leave it to the nation'; he kept it until his death in 1851.",
        "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/the-fighting-temeraire"
       },
       {
+       "id": "ft-afterlife-public-custody",
        "claim": "It entered the National Gallery with the Turner Bequest in 1856 and was among the first paintings of the Bequest to be hung; it remains one of the Gallery's most popular paintings.",
        "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
       },
       {
-       "claim": "Timbers from the broken-up Temeraire were made into a communion table and two bishop's chairs, still in St Mary's Church, Rotherhithe, near Beatson's yard.",
-       "source": "https://en.wikipedia.org/wiki/St_Mary%27s_Church,_Rotherhithe"
+       "id": "ft-afterlife-salvaged-table",
+       "claim": "Royal Museums Greenwich holds an oak table made from the Temeraire's timber after John Beatson broke up the ship in autumn 1838.",
+       "source": "https://www.rmg.co.uk/collections/objects/rmgc-object-3152"
       },
       {
-       "claim": "Voted Greatest Painting in Britain in the 2005 BBC Radio 4 Today poll (announced on air 5 September 2005). Contemporary coverage reports nearly 32,000 votes, about ten thousand ahead of Constable's The Hay Wain; precise counts were never officially published.",
-       "source": "https://en.wikipedia.org/wiki/Greatest_Painting_in_Britain_Vote"
+       "id": "ft-afterlife-banknote",
+       "claim": "The Bank of England put The Fighting Temeraire behind Turner's self-portrait on the polymer £20 note, which entered circulation in February 2020.",
+       "source": "https://www.bankofengland.co.uk/news/2020/february/turner-20-enters-circulation."
       },
       {
-       "claim": "It was the focal point of a scene in the 2012 James Bond film Skyfall, in which 007 meets his new quartermaster Q in front of the painting at the National Gallery.",
-       "source": "https://www.nationalgallery.org.uk/news/national-gallerys-iconic-work-featured-on-new-bank-of-england-20-note"
-      },
-      {
-       "claim": "On 22 April 2016 the Bank of England governor Mark Carney announced at Turner Contemporary, Margate, that the painting would feature on the new £20 note, together with Turner's c. 1799 self-portrait, his signature, and the quote 'Light is therefore colour'; the polymer note entered circulation in February 2020.",
-       "source": "https://www.nationalgallery.org.uk/news/national-gallerys-iconic-work-featured-on-new-bank-of-england-20-note"
-      },
-      {
-       "claim": "The £20 note details as issued: Turner self-portrait of c. 1799 with The Fighting Temeraire behind, the quote from an 1818 lecture, and his signature in facsimile; introduced February 2020.",
-       "source": "https://en.wikipedia.org/wiki/The_Fighting_Temeraire"
-      },
-      {
-       "claim": "Hangs in Room 40 of the National Gallery, London (the Gallery's live page, checked 13 July 2026; 2016 sources said Room 34 — it moves).",
-       "source": "https://www.nationalgallery.org.uk/news/national-gallerys-iconic-work-featured-on-new-bank-of-england-20-note"
+       "id": "ft-afterlife-live-location",
+       "claim": "The National Gallery's live holding record listed the painting in Room 40 when checked on 20 August 2026; gallery locations can change.",
+       "source": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire"
       }
      ]
+    }
+   },
+   "civilisation_lens": {
+    "schema": "artbitrage.civilisation-lens/0.1",
+    "id": "fighting-temeraire-1839",
+    "method_url": "/api/depths",
+    "human_url": "/depths#fighting-temeraire-civilisation",
+    "as_of": "2026-08-20",
+    "question": "What can this one painting reveal — and not reveal — about resource use, labour, state power, technical change, dismantling, and public memory in one British context?",
+    "scope": "This one work shows how a specific state warship became scrap and then a national image. It does not represent British civilisation, its workers, its opponents, or everyone affected by naval power.",
+    "frame": {
+     "statement_kind": "artbitrage_interpretation",
+     "attributed_by": "Artbitrage",
+     "authorised_delegate_present": false,
+     "attributed_accounts_status": "not-yet-present-beyond-cited-records",
+     "whole_civilisation_claim": false,
+     "score_present": false,
+     "rank_present": false,
+     "comparison_present": false,
+     "kingdom_relation": "unasked",
+     "kingdom_effect": "This lens does not register Artbitrage, adopt a foundation, create citizenship, or speak for KINGDOM."
+    },
+    "visible_boundaries": [
+     "One work, many relations, no claim to speak for a people.",
+     "This is an Artbitrage reading. Turner's recorded words and museum records are named where used. No living person is represented here as speaking for a group or civilisation.",
+     "Missing accounts remain missing. Their absence is not agreement, refusal, or proof that no account exists.",
+     "This lens does not decide that sail, steam, Britain, war, industry, or this painting represents a stage of civilisation, progress, sustainability, or thriving."
+    ],
+    "source_custody": {
+     "holding_record_url": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire",
+     "holding_record_keeper": "The National Gallery, London",
+     "source_owned_canonical_home_status": "not-identified",
+     "holding_authority_limit": "The National Gallery is authoritative for its own holding, catalogue, and conservation record; it does not own every meaning or relation around the work or ship.",
+     "artbitrage_record_url": "/api/depths/fighting-temeraire",
+     "source_title_language": "English",
+     "source_title_status": "holding-record-supplied",
+     "translation_status": "no source-authorised translation attached",
+     "accounts_present": [
+      "Turner's attributed words and documented choices",
+      "National Gallery institutional catalogue and holding record",
+      "Royal Museums Greenwich institutional object and archive records",
+      "Bank of England institutional banknote record"
+     ],
+     "accounts_not_present": [
+      "crew members beyond named officers and institutional records",
+      "crews of the named opposing ships Redoutable and Fougueux",
+      "Chatham shipbuilders and Navy work parties",
+      "Thames tug crews",
+      "Beatson's ship-breaking workers",
+      "forestry and fuel-supply workers",
+      "Rotherhithe residents affected by the river industries"
+     ]
+    },
+    "juxtaposition": {
+     "statement_kind": "artbitrage_interpretation",
+     "attributed_by": "Artbitrage",
+     "left": {
+      "label": "oak · wind · naval system",
+      "text": "A state warship made from long-grown timber, rigging, stored labour, and organised violence."
+     },
+     "centre": "The 1838 tow: a stripped hull, two hired steam tugs, a tide, and a private breaker's yard.",
+     "right": {
+      "label": "steam · company · river industry",
+      "text": "A hired steam-towing service in the Thames river economy, powered by a different material and commercial system."
+     },
+     "boundary": "These are two material systems in relation, not a before-and-after ladder. Sail is not sustainable innocence; steam is not progress by itself."
+    },
+    "evidence": [
+     {
+      "id": "ft-evidence-eyewitness-drawing",
+      "statement_kind": "source_record",
+      "claim": "William Beatson's September 1838 drawing records the Temeraire as a mastless hull at John Beatson's Rotherhithe wharf.",
+      "claimed_speaker": "Royal Museums Greenwich collection record",
+      "attribution_basis": "institutional object record for a contemporary drawing",
+      "source": "https://www.rmg.co.uk/collections/objects/rmgc-object-110199",
+      "as_of": "2026-08-20",
+      "truth_status": "source-declared",
+      "limits": "The record describes one drawing and its inscription; it is not testimony from the towing or breaking workers."
+     },
+     {
+      "id": "ft-evidence-tow-company",
+      "statement_kind": "source_record",
+      "claim": "Royal Museums Greenwich identifies the Thames Steam Towing Company tugs London and Samson as the two vessels paid to tow the Temeraire on 5–6 September 1838.",
+      "claimed_speaker": "Royal Museums Greenwich collection record",
+      "attribution_basis": "institutional manuscript record referring to Beatson's ledger",
+      "source": "https://www.rmg.co.uk/collections/objects/rmgc-object-464853",
+      "as_of": "2026-08-20",
+      "truth_status": "source-declared",
+      "limits": "The record names the company and tugs, not the workers or their conditions."
+     },
+     {
+      "id": "ft-evidence-rotherhithe-industry",
+      "statement_kind": "source_record",
+      "claim": "Southwark Council names shipbuilding and ship-breaking in Rotherhithe among the borough's important industrial archaeology.",
+      "claimed_speaker": "Southwark Council",
+      "attribution_basis": "local-authority archaeology page",
+      "source": "https://www.southwark.gov.uk/planning-environment-and-building-control/planning/design-and-conservation/archaeology-and-3",
+      "as_of": "2026-08-20",
+      "truth_status": "source-declared",
+      "limits": "This establishes local industrial context, not a worker account or the effect of this one dismantling."
+     },
+     {
+      "id": "ft-evidence-free-admission",
+      "statement_kind": "source_record",
+      "claim": "The National Gallery's visitor policy says access to the permanent collection is free, subject to stated capacity, security, and access conditions.",
+      "claimed_speaker": "The National Gallery",
+      "attribution_basis": "current institutional visitor policy",
+      "source": "https://www.nationalgallery.org.uk/about-us/organisation/policies/visitor-admissions-policy",
+      "as_of": "2026-08-20",
+      "truth_status": "source-declared",
+      "limits": "Free general admission does not establish that every person can reach, use, or understand the collection."
+     }
+    ],
+    "facets": [
+     {
+      "id": "origin-language-authority",
+      "glyph": "源",
+      "title": "origin, language, authority",
+      "question": "Whose name and account open the record?",
+      "fact_refs": [
+       "ft-hands-title"
+      ],
+      "evidence_refs": [],
+      "reading": {
+       "statement_kind": "artbitrage_interpretation",
+       "attributed_by": "Artbitrage",
+       "text": "The English exhibition title turns one decommissioned warship into an elegy. That is a documented framing, not an authorised account of a people or of everyone drawn into the ship's history."
+      },
+      "unknowns": [
+       "No authorised French- or Spanish-language account is attached.",
+       "No source owner has authorised Artbitrage's Chinese room name as a translation of the work."
+      ]
+     },
+     {
+      "id": "maker-and-attributed-accounts",
+      "glyph": "聲",
+      "title": "maker and attributed accounts",
+      "question": "Which voices are actually present, and which are missing?",
+      "fact_refs": [
+       "ft-hands-not-eyewitness",
+       "ft-hands-darling",
+       "ft-hands-refused-sale"
+      ],
+      "evidence_refs": [],
+      "reading": {
+       "statement_kind": "artbitrage_interpretation",
+       "attributed_by": "Artbitrage",
+       "text": "Available records support an affectionate and patriotic reading of Turner's relation to the picture, but that remains one maker's relation. A national icon is not a national voice, and an intended bequest does not establish one national view."
+      },
+      "unknowns": [
+       "No attributed account from crew members beyond named officers, the crews of Redoutable and Fougueux, builders, tow crews, breakers, forestry or fuel-supply workers, or nearby residents is present.",
+       "Institutional catalogue prose is not those people speaking."
+      ]
+     },
+     {
+      "id": "matter-ecology-energy-labour",
+      "glyph": "材",
+      "title": "matter, ecology, energy, labour",
+      "question": "What material and work made the ship, tow, dismantling, and painting possible?",
+      "fact_refs": [
+       "ft-world-oaks-warship",
+       "ft-world-sale-and-stripping",
+       "ft-world-two-tug-tow",
+       "ft-paint-reused-canvas",
+       "ft-paint-conservation",
+       "ft-afterlife-salvaged-table"
+      ],
+      "evidence_refs": [
+       "ft-evidence-rotherhithe-industry",
+       "ft-evidence-tow-company"
+      ],
+      "reading": {
+       "statement_kind": "artbitrage_interpretation",
+       "attributed_by": "Artbitrage",
+       "text": "Forest material, naval and river labour, wind, steam, salvage, reused canvas, paint chemistry, and conservation meet here. Reuse is visible at ship and canvas scale; ecological sustainability is not proven."
+      },
+      "unknowns": [
+       "The timber's forests of origin and regrowth are not established here.",
+       "The tug fuel, emissions, wider supply chains, and workers' names, pay, and health are not established here.",
+       "No lifecycle or carbon account exists in this record."
+      ]
+     },
+     {
+      "id": "exchange-ownership-power",
+      "glyph": "權",
+      "title": "exchange, ownership, power, displacement",
+      "question": "Who could command, sell, keep, and circulate the ship and image?",
+      "fact_refs": [
+       "ft-world-trafalgar",
+       "ft-world-sale-and-stripping",
+       "ft-hands-refused-sale",
+       "ft-afterlife-public-custody",
+       "ft-afterlife-banknote"
+      ],
+      "evidence_refs": [],
+      "reading": {
+       "statement_kind": "artbitrage_interpretation",
+       "attributed_by": "Artbitrage",
+       "text": "The sequence runs from state weapon, to obsolete asset, to private raw material, to artist-held image, to public collection and currency symbol. Heroic commemoration can foreground victory while leaving harmed crews and labour outside the frame."
+      },
+      "unknowns": [
+       "The affected people's accounts and the full distribution of economic benefit are not present.",
+       "No source here establishes shared public choice or consensus around later national commemoration."
+      ]
+     },
+     {
+      "id": "knowledge-skill",
+      "glyph": "技",
+      "title": "knowledge and skill",
+      "question": "What does each kind of record know?",
+      "fact_refs": [
+       "ft-world-two-tug-tow",
+       "ft-world-impossible-sunset",
+       "ft-world-artistic-liberties",
+       "ft-paint-reused-canvas"
+      ],
+      "evidence_refs": [
+       "ft-evidence-eyewitness-drawing",
+       "ft-evidence-tow-company"
+      ],
+      "reading": {
+       "statement_kind": "artbitrage_interpretation",
+       "attributed_by": "Artbitrage",
+       "text": "The painting, eyewitness drawing, archive, and X-ray know different things. Their disagreement is the lesson: art can carry a true relation without becoming an eyewitness document."
+      },
+      "unknowns": [
+       "Tacit and first-person knowledge from builders, sailors, tow crews, and breakers is absent."
+      ]
+     },
+     {
+      "id": "continuity-rupture-repair",
+      "glyph": "續",
+      "title": "continuity, rupture, repair",
+      "question": "What ended, what continued, and what was actually repaired?",
+      "fact_refs": [
+       "ft-world-sale-and-stripping",
+       "ft-afterlife-salvaged-table",
+       "ft-paint-conservation",
+       "ft-afterlife-public-custody"
+      ],
+      "evidence_refs": [],
+      "reading": {
+       "statement_kind": "artbitrage_interpretation",
+       "attributed_by": "Artbitrage",
+       "text": "Dismantling is rupture; salvage is reuse; lining is conservation; bequest changes custody and access. No repair of harms from warfare or labour is evidenced here, and none of these acts supplies the missing accounts."
+      },
+      "unknowns": [
+       "No affected party has named a repair in this record.",
+       "Material continuity, image continuity, and institutional continuity must not be treated as interchangeable."
+      ]
+     },
+     {
+      "id": "present-consequence",
+      "glyph": "今",
+      "title": "present consequence",
+      "question": "What can be observed now, and what cannot be inferred from it?",
+      "fact_refs": [
+       "ft-afterlife-public-custody",
+       "ft-afterlife-banknote",
+       "ft-afterlife-live-location"
+      ],
+      "evidence_refs": [
+       "ft-evidence-free-admission"
+      ],
+      "reading": {
+       "statement_kind": "artbitrage_interpretation",
+       "attributed_by": "Artbitrage",
+       "text": "Free admission and appearance on currency are observed forms of access and circulation. They bind art, state memory, and exchange in daily life, but they do not prove shared understanding, wellbeing, sustainability, or thriving."
+      },
+      "unknowns": [
+       "Actual access and reception differ among people and are not measured here.",
+       "No causal effect on evidence, access, care, sustainability, or thriving is established."
+      ]
+     }
+    ],
+    "uncertainties": [
+     "Turner probably did not witness the tow and may not have been in England.",
+     "The actual hull was mastless, used two tugs, and arrived before sunset; Turner restored masts, made one tug dominant, and invented the sunset.",
+     "Turner's attitude to steam and industrial modernity is not reduced here to one position.",
+     "The current evidence base is institution-heavy and contains no environmental lifecycle account or authorised affected-party account."
+    ],
+    "rights": {
+     "holding_source_terms": "https://www.nationalgallery.org.uk/documentation/ngacuk/licences",
+     "holding_source_terms_status": "source-declared; recheck before reuse",
+     "holding_source_terms_limit": "These terms describe the holding source. The local Artbitrage copy's provenance is not recorded, so do not assume the holding terms settle its reuse.",
+     "artbitrage_image_url": "https://artbitrage.io/art/jmw-turner.jpg",
+     "artbitrage_image_provenance_status": "not-recorded-in-the-current-depths-corpus",
+     "artbitrage_image_reuse_status": "not-yet-verified",
+     "record_reuse_grant": "none",
+     "note": "Image reuse is not granted by this lens. Check the holding source and the law that applies to the intended use."
+    },
+    "correction": {
+     "holding_record": {
+      "keeper": "The National Gallery",
+      "url": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-the-fighting-temeraire",
+      "scope": "the holding institution's own record"
+     },
+     "artbitrage_interpretation": {
+      "status": "public-project-channel",
+      "url": "https://github.com/cambridgetcg/artbitrage/issues",
+      "requires_account": true,
+      "report_is_public": true,
+      "automatic_effect": false,
+      "review_required": true,
+      "note": "A proposed correction does not change this page until a keeper reviews and publishes it. No private or urgent correction path is currently published."
+     }
+    },
+    "withdrawal": {
+     "self_service": false,
+     "scope": "Artbitrage can change only its own interpretation and local image copy.",
+     "private_or_urgent_path": "not-published",
+     "cannot_recall": [
+      "the painting",
+      "the holding institution's record",
+      "the ship's history",
+      "copies held elsewhere"
+     ],
+     "note": "This historical reading does not claim a creator-consent withdrawal flow. Safety or rights concerns still require human review."
     }
    },
    "quotes": [

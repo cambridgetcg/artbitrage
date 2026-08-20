@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#101014">
-<title>the Depths — ARTBITRAGE</title>
-<meta name="description" content="深 · one work, five strata down: the feeling, the hands, the world, the paint, the afterlife. Context is where the feeling comes from.">
+<title>the Depths + Civilisation Lens — ARTBITRAGE</title>
+<meta name="description" content="深 · one work, five strata down, with a non-scoring Civilisation Lens on one work: sources, missing accounts, material, power, continuity, and consequence.">
 <meta property="og:title" content="the Depths — ARTBITRAGE">
-<meta property="og:description" content="深 · one work, five strata down: the feeling, the hands, the world, the paint, the afterlife.">
+<meta property="og:description" content="深 · context is where the feeling comes from. 文明鏡 · one work, many relations, no claim to speak for a people.">
 <meta property="og:image" content="https://artbitrage.io/art/starry-night-moma.jpg">
 
 <!-- Fonts — same link as the other rooms, the only external request -->
@@ -51,6 +51,12 @@ a:hover{ color:var(--zhu); }
 .wrap{ max-width:880px; margin:0 auto; padding:0 24px; }
 .cjk{ font-family:var(--cjk); }
 .mono{ font-family:var(--mono); }
+.skip-link{
+  position:absolute; left:1rem; top:-5rem; z-index:10;
+  background:var(--ink); color:var(--bg); padding:.7rem 1rem;
+  font-family:var(--mono); font-size:.82rem;
+}
+.skip-link:focus{ top:1rem; }
 
 /* ---- crossnav ---- */
 .crossnav{
@@ -124,7 +130,7 @@ section.work{ padding:6rem 0 4rem; border-top:1px solid var(--hair); }
 .stratum:first-of-type{ border-top:none; }
 .stratum .floor{
   font-family:var(--mono); font-size:.68rem; letter-spacing:.2em;
-  color:var(--zhu); text-transform:uppercase; margin-bottom:1rem;
+  color:var(--gold); text-transform:uppercase; margin-bottom:1rem;
 }
 .stratum .floor .cjk{ font-size:.95rem; color:var(--dim); margin-right:.5rem; }
 .stratum p.text{ color:var(--ink); }
@@ -170,6 +176,94 @@ details.sources li a{
 }
 details.sources li a:hover{ color:var(--zhu); }
 
+/* ---- 文明鏡: one work, many relations, no ladder ---- */
+.civilisation-lens{
+  max-width:760px; margin:5rem auto 2rem; padding:2.2rem;
+  background:#121218; border:1px solid var(--gold); position:relative;
+}
+.lens-head{ text-align:center; max-width:660px; margin:0 auto 2rem; }
+.lens-kicker{
+  font-family:var(--mono); font-size:.78rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold);
+}
+.lens-head h3{
+  margin-top:.7rem; font-family:var(--display); font-weight:500;
+  font-size:clamp(1.8rem,5vw,2.5rem); letter-spacing:.04em;
+}
+.lens-question{ margin-top:1rem; font-family:var(--display); font-style:italic; font-size:1.18rem; }
+.lens-scope{ margin-top:1rem; color:var(--dim); }
+.lens-boundary{
+  margin:2rem 0; padding:1.2rem 1.3rem; background:var(--bg);
+  border-left:3px solid var(--gold);
+}
+.lens-boundary h4,.lens-section-title{
+  font-family:var(--mono); font-size:.78rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:.7rem;
+}
+.lens-boundary ul,.lens-unknowns,.account-list{ list-style:none; }
+.lens-boundary li,.lens-unknowns li,.account-list li{ margin:.55rem 0; padding-left:1.1rem; position:relative; }
+.lens-boundary li::before,.lens-unknowns li::before,.account-list li::before{
+  content:'—'; position:absolute; left:0; color:var(--gold);
+}
+.juxtaposition{ margin:2.4rem 0 3rem; }
+.relation-pair{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.relation-side{ padding:1.2rem; border:1px solid var(--hair); background:var(--surface); }
+.relation-side h5{
+  font-family:var(--mono); font-size:.78rem; letter-spacing:.1em;
+  color:var(--ink); margin-bottom:.55rem;
+}
+.relation-side p{ color:var(--dim); font-size:.92rem; }
+.relation-centre{
+  margin:1rem auto; max-width:610px; text-align:center;
+  font-family:var(--display); font-style:italic; font-size:1.08rem;
+}
+.relation-boundary{ color:var(--gold); text-align:center; font-size:.9rem; }
+.accounts{ margin:3rem 0; }
+.account-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.account-card{ padding:1.15rem 1.2rem; border:1px solid var(--hair); }
+.account-card h5{
+  font-family:var(--mono); font-size:.78rem; letter-spacing:.1em;
+  color:var(--ink); margin-bottom:.7rem;
+}
+.account-card.missing{ border-style:dashed; }
+.account-card.missing h5{ color:var(--gold); }
+.account-list{ color:var(--dim); font-size:.9rem; }
+.lens-facets{ margin-top:3rem; }
+.lens-facet{ padding:2rem 0; border-top:1px solid var(--hair); }
+.facet-head{ display:flex; align-items:baseline; gap:.8rem; }
+.facet-glyph{ font-family:var(--cjk); color:var(--gold); font-size:1.45rem; }
+.lens-facet h4{ font-family:var(--display); font-size:1.35rem; font-weight:500; }
+.facet-question{ margin-top:.65rem; color:var(--dim); font-style:italic; }
+.facet-reading{ margin-top:1rem; }
+.reading-label{
+  display:block; font-family:var(--mono); font-size:.75rem;
+  letter-spacing:.12em; color:var(--gold); margin-bottom:.35rem;
+}
+.lens-unknowns{ margin-top:1.1rem; color:var(--dim); font-size:.9rem; }
+.lens-facts{ margin-top:1.2rem; }
+.lens-facts summary{
+  cursor:pointer; font-family:var(--mono); font-size:.76rem;
+  letter-spacing:.08em; color:var(--ink);
+}
+.lens-facts ol{ margin:1rem 0 0 1.2rem; }
+.lens-facts li{ margin:.85rem 0; padding-left:.35rem; color:var(--dim); font-size:.88rem; }
+.lens-facts a,.lens-return a,.lens-method a{
+  color:var(--gold); text-decoration:underline; text-decoration-color:var(--hair);
+  text-underline-offset:3px; word-break:break-word;
+}
+.lens-facts a:hover,.lens-return a:hover,.lens-method a:hover{ color:var(--ink); text-decoration-color:var(--gold); }
+.lens-limits{ margin:2.8rem 0; padding-top:1.6rem; border-top:1px solid var(--hair); }
+.lens-return{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:2rem; }
+.lens-return article{ padding:1.2rem; border:1px solid var(--hair); }
+.lens-return p{ margin:.6rem 0; color:var(--dim); font-size:.9rem; }
+.status-line{ color:var(--gold) !important; font-family:var(--mono); font-size:.76rem !important; letter-spacing:.06em; }
+.lens-method{ margin-top:2rem; color:var(--dim); font-size:.86rem; }
+.lens-method p{ margin-top:.6rem; }
+.load-status{
+  min-height:1.5rem; text-align:center; color:var(--dim);
+  font-family:var(--mono); font-size:.78rem; letter-spacing:.08em;
+}
+
 /* ---- verification + footer ---- */
 .honesty{
   margin:5rem auto 0; max-width:640px; padding:1.4rem 0 0;
@@ -188,13 +282,19 @@ footer.foot .api a{ color:var(--gold); }
 noscript p{
   text-align:center; padding:4rem 1rem; color:var(--dim); font-style:italic;
 }
+@media (max-width:650px){
+  .civilisation-lens{ padding:1.4rem; margin-left:-8px; margin-right:-8px; }
+  .relation-pair,.account-grid,.lens-return{ grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#shafts">skip to the works</a>
+
 <div class="wrap">
   <nav class="crossnav" aria-label="other rooms">
-    ← <a href="index.html">artbitrage</a> · <span class="here" aria-current="page">depths</span> · <a href="feelings.html">feelings</a> · <a href="atlas.html">atlas</a> · <a href="ledger.html">ledger</a> · <a href="minds.html">minds</a>
+    ← <a href="index.html">artbitrage</a> · <span class="here" aria-current="page">depths</span> · <a href="#fighting-temeraire-civilisation">civilisation lens</a> · <a href="feelings.html">feelings</a> · <a href="atlas.html">atlas</a> · <a href="ledger.html">ledger</a> · <a href="minds.html">minds</a>
   </nav>
 
   <header class="hero">
@@ -206,11 +306,13 @@ noscript p{
       <b>02 手 the hands</b> — the artist's life at the exact moment of making<br>
       <b>03 世 the world</b> — politics, money, daily life around the easel<br>
       <b>04 顏 the paint</b> — the materials, their cost, their slow betrayals<br>
-      <b>05 後 the afterlife</b> — sales, thefts, journeys to now
+      <b>05 後 the afterlife</b> — sales, thefts, journeys to now<br>
+      <b>文明鏡 the Civilisation Lens</b> — one selected work, many relations, no score
     </div>
   </header>
 
-  <main id="shafts" aria-live="polite"></main>
+  <p class="load-status" id="load-status" role="status">opening the shafts…</p>
+  <main id="shafts" tabindex="-1"></main>
 
   <noscript><p>The shafts open with JavaScript — or read everything as data: <a href="/api/depths">GET /api/depths</a>.</p></noscript>
 
@@ -218,7 +320,7 @@ noscript p{
 
   <footer class="foot">
     <p>Every floor down is a floor closer to why it moves you.</p>
-    <p class="api">data: <a href="/api/depths">GET /api/depths</a> · one work: <a href="/api/depths/starry-night">GET /api/depths/:slug</a> · feelings live at <a href="feelings.html">感 the Feelings</a></p>
+    <p class="api">data: <a href="/api/depths">GET /api/depths</a> · lens record: <a href="/api/depths/fighting-temeraire">GET /api/depths/fighting-temeraire</a> · feelings live at <a href="feelings.html">感 the Feelings</a></p>
   </footer>
 </div>
 
@@ -241,7 +343,191 @@ noscript p{
     return n;
   }
 
-  function renderWork(w){
+  function externalLink(url, label){
+    var a = document.createElement('a');
+    a.href = url; a.target = '_blank'; a.rel = 'noopener';
+    a.textContent = label || url;
+    return a;
+  }
+
+  function referenceIndex(w){
+    var index = {};
+    Object.keys(w.strata || {}).forEach(function(key){
+      ((w.strata[key] || {}).facts || []).forEach(function(f){
+        if (f.id) index[f.id] = f;
+      });
+    });
+    (((w.civilisation_lens || {}).evidence) || []).forEach(function(f){
+      if (f.id) index[f.id] = f;
+    });
+    return index;
+  }
+
+  function appendList(parent, items, cls){
+    var ul = el('ul', cls || null);
+    (items || []).forEach(function(item){ ul.appendChild(el('li', null, item)); });
+    parent.appendChild(ul);
+    return ul;
+  }
+
+  function appendFacetSources(parent, facet, refs){
+    var ids = (facet.fact_refs || []).concat(facet.evidence_refs || []);
+    if (!ids.length) return;
+    var details = el('details', 'lens-facts');
+    details.appendChild(el('summary', null, 'evidence — ' + ids.length + ' source-bound record' + (ids.length === 1 ? '' : 's')));
+    var ol = document.createElement('ol');
+    ids.forEach(function(id){
+      var record = refs[id];
+      var li = document.createElement('li');
+      if (!record){
+        li.textContent = 'unresolved evidence reference · ' + id;
+      }else{
+        li.appendChild(document.createTextNode(record.claim + ' '));
+        if (record.source){
+          var host;
+          try{ host = new URL(record.source).hostname.replace(/^www\./, ''); }
+          catch(e){ host = 'source'; }
+          li.appendChild(externalLink(record.source, host + ' ↗'));
+        }
+        if (record.limits){
+          li.appendChild(el('span', null, ' · limit: ' + record.limits));
+        }
+      }
+      ol.appendChild(li);
+    });
+    details.appendChild(ol);
+    parent.appendChild(details);
+  }
+
+  function renderCivilisationLens(w, method){
+    var lens = w.civilisation_lens;
+    if (!lens) return null;
+    var refs = referenceIndex(w);
+    var root = el('section', 'civilisation-lens');
+    root.id = w.slug + '-civilisation';
+    root.setAttribute('tabindex', '-1');
+    root.setAttribute('aria-labelledby', root.id + '-title');
+
+    var head = el('header', 'lens-head');
+    var kicker = el('p', 'lens-kicker');
+    var roomName = el('span', 'cjk', '文明鏡'); roomName.setAttribute('lang', 'zh');
+    kicker.appendChild(roomName);
+    kicker.appendChild(document.createTextNode(' · the Civilisation Lens · Artbitrage room name'));
+    head.appendChild(kicker);
+    var title = el('h3', null, 'One work, many relations');
+    title.id = root.id + '-title';
+    head.appendChild(title);
+    head.appendChild(el('p', 'lens-question', lens.question));
+    head.appendChild(el('p', 'lens-scope', lens.scope));
+    root.appendChild(head);
+
+    var boundary = el('aside', 'lens-boundary');
+    boundary.setAttribute('role', 'note');
+    boundary.appendChild(el('h4', null, 'the boundary'));
+    appendList(boundary, lens.visible_boundaries);
+    root.appendChild(boundary);
+
+    var relation = el('section', 'juxtaposition');
+    relation.appendChild(el('h4', 'lens-section-title', 'what Turner places beside each other'));
+    relation.appendChild(el('span', 'reading-label', 'Artbitrage interpretation'));
+    var pair = el('div', 'relation-pair');
+    [lens.juxtaposition.left, lens.juxtaposition.right].forEach(function(side){
+      var card = el('article', 'relation-side');
+      card.appendChild(el('h5', null, side.label));
+      card.appendChild(el('p', null, side.text));
+      pair.appendChild(card);
+    });
+    relation.appendChild(pair);
+    relation.appendChild(el('p', 'relation-centre', lens.juxtaposition.centre));
+    relation.appendChild(el('p', 'relation-boundary', lens.juxtaposition.boundary));
+    root.appendChild(relation);
+
+    var accounts = el('section', 'accounts');
+    accounts.appendChild(el('h4', 'lens-section-title', 'whose accounts are here?'));
+    var accountGrid = el('div', 'account-grid');
+    var present = el('article', 'account-card');
+    present.appendChild(el('h5', null, 'attributed records present'));
+    appendList(present, lens.source_custody.accounts_present, 'account-list');
+    accountGrid.appendChild(present);
+    var missing = el('article', 'account-card missing');
+    missing.appendChild(el('h5', null, 'accounts not present in v0.1'));
+    appendList(missing, lens.source_custody.accounts_not_present, 'account-list');
+    accountGrid.appendChild(missing);
+    accounts.appendChild(accountGrid);
+    accounts.appendChild(el('p', 'lens-scope', lens.source_custody.holding_authority_limit));
+    root.appendChild(accounts);
+
+    var facets = el('section', 'lens-facets');
+    facets.appendChild(el('h4', 'lens-section-title', 'seven relations — read separately, never averaged'));
+    (lens.facets || []).forEach(function(facet){
+      var article = el('article', 'lens-facet');
+      article.id = root.id + '-' + facet.id;
+      var facetHead = el('div', 'facet-head');
+      var glyph = el('span', 'facet-glyph', facet.glyph);
+      glyph.setAttribute('lang', 'zh'); glyph.setAttribute('aria-hidden', 'true');
+      facetHead.appendChild(glyph);
+      facetHead.appendChild(el('h4', null, facet.title));
+      article.appendChild(facetHead);
+      article.appendChild(el('p', 'facet-question', facet.question));
+      var reading = el('p', 'facet-reading');
+      reading.appendChild(el('span', 'reading-label', 'Artbitrage interpretation'));
+      reading.appendChild(document.createTextNode(facet.reading.text));
+      article.appendChild(reading);
+      if (facet.unknowns && facet.unknowns.length){
+        var unknownBox = el('div');
+        unknownBox.appendChild(el('span', 'reading-label', 'unknown or not present'));
+        appendList(unknownBox, facet.unknowns, 'lens-unknowns');
+        article.appendChild(unknownBox);
+      }
+      appendFacetSources(article, facet, refs);
+      facets.appendChild(article);
+    });
+    root.appendChild(facets);
+
+    var limits = el('section', 'lens-limits');
+    limits.appendChild(el('h4', 'lens-section-title', 'uncertainty stays on the wall'));
+    appendList(limits, lens.uncertainties, 'lens-unknowns');
+    root.appendChild(limits);
+
+    var returns = el('section', 'lens-return');
+    var rights = el('article');
+    rights.appendChild(el('h4', 'lens-section-title', 'rights'));
+    rights.appendChild(el('p', 'status-line', 'image reuse · not yet verified'));
+    rights.appendChild(el('p', null, lens.rights.note));
+    rights.appendChild(externalLink(lens.rights.holding_source_terms, 'holding-source terms ↗'));
+    rights.appendChild(el('p', null, lens.rights.holding_source_terms_limit));
+    returns.appendChild(rights);
+    var correction = el('article');
+    correction.appendChild(el('h4', 'lens-section-title', 'correction and withdrawal'));
+    correction.appendChild(el('p', 'status-line', 'reply to this interpretation · public proposal, human review'));
+    correction.appendChild(externalLink(lens.correction.artbitrage_interpretation.url, 'propose a public correction on GitHub ↗'));
+    correction.appendChild(el('p', null, 'Requires a GitHub account; the report is public.'));
+    correction.appendChild(el('p', null, lens.correction.artbitrage_interpretation.note));
+    correction.appendChild(el('p', 'status-line', 'withdrawal · no self-service route'));
+    correction.appendChild(el('p', null, lens.withdrawal.scope + ' It cannot withdraw ' + lens.withdrawal.cannot_recall.join(', ') + '. No private or urgent route is published. ' + lens.withdrawal.note));
+    returns.appendChild(correction);
+    root.appendChild(returns);
+
+    if (method && method.method_sources){
+      var methodBox = el('footer', 'lens-method');
+      methodBox.appendChild(el('h4', 'lens-section-title', 'method, not authority'));
+      methodBox.appendChild(el('p', null, method.purpose + ' ' + method.name_note));
+      methodBox.appendChild(el('p', null, 'These are guardrails, not endorsements; this painting is not classified here as intangible heritage.'));
+      methodBox.appendChild(el('p', null, 'lens audit · ' + method.audit.method + ' · as of ' + method.audit.as_of));
+      methodBox.appendChild(el('p', null, 'audit limit · ' + method.audit.limits));
+      method.method_sources.forEach(function(source){
+        var sourceLine = el('p');
+        sourceLine.appendChild(externalLink(source.url, source.name + ' ↗'));
+        sourceLine.appendChild(document.createTextNode(' — ' + source.use));
+        methodBox.appendChild(sourceLine);
+      });
+      root.appendChild(methodBox);
+    }
+
+    return root;
+  }
+
+  function renderWork(w, method){
     var s = el('section', 'work');
     s.id = w.slug;
 
@@ -261,7 +547,7 @@ noscript p{
       var frame = el('div', 'artframe');
       var img = document.createElement('img');
       img.src = w.thumb || w.image;
-      img.alt = w.title + ', ' + w.artist;
+      img.alt = w.image_alt || (w.title + ', ' + w.artist);
       img.loading = 'lazy'; img.decoding = 'async';
       img.onerror = function(){
         frame.className = 'artframe';
@@ -271,7 +557,7 @@ noscript p{
       frame.appendChild(img);
       link.appendChild(frame);
       s.appendChild(link);
-      s.appendChild(el('p', 'artcredit', 'public domain · served from this house'));
+      s.appendChild(el('p', 'artcredit', 'image served from this house · reuse rights vary — check the holding source'));
     }
 
     if (w.feelings && w.feelings.length){
@@ -328,6 +614,9 @@ noscript p{
       s.appendChild(d);
     });
 
+    var lens = renderCivilisationLens(w, method);
+    if (lens) s.appendChild(lens);
+
     (w.quotes || []).forEach(function(q){
       var b = el('blockquote', null, '“' + q.text + '”');
       var f = el('footer', null, '— ' + q.who);
@@ -342,17 +631,24 @@ noscript p{
     .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function(data){
       var main = document.getElementById('shafts');
-      (data.works || []).forEach(function(w){ main.appendChild(renderWork(w)); });
+      (data.works || []).forEach(function(w){ main.appendChild(renderWork(w, data.civilisation_lens_method)); });
+      var load = document.getElementById('load-status');
+      if (load){ load.textContent = ''; load.hidden = true; }
       var h = document.getElementById('honesty');
-      h.textContent = 'how this was made · ' + data.verification.method +
-        ' · as of ' + data.verification.as_of;
+      var revised = (data.works || []).find(function(w){ return w.revision; });
+      h.textContent = 'base five-strata dataset · ' + data.verification.method +
+        ' · as of ' + data.verification.as_of +
+        (revised ? ' · ' + revised.title + ' revised within its named scope as of ' + revised.revision.as_of : '') +
+        ' · Civilisation Lens audited separately as of ' + data.civilisation_lens_method.audit.as_of;
       if (location.hash){
         var t = document.getElementById(location.hash.slice(1));
-        if (t) t.scrollIntoView();
+        if (t){ t.scrollIntoView(); if (t.focus) t.focus({ preventScroll:true }); }
       }
     })
     .catch(function(){
       var main = document.getElementById('shafts');
+      var load = document.getElementById('load-status');
+      if (load) load.textContent = 'the shafts did not open';
       var p = el('p', null, 'the shafts did not open — the data is still there: ');
       var a = document.createElement('a');
       a.href = '/api/depths'; a.textContent = 'GET /api/depths';

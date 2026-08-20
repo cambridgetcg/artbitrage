@@ -51,12 +51,12 @@ export const ARTBITRAGE_START = Object.freeze({
         "Browse the bounded research rooms nearest to the subject, then keep each factual claim near its source.",
       doors: {
         first: { human: "/map#find", machine: "/api" },
-        human_continue: ["/depths", "/atlas", "/pigments", "/library"],
+        human_continue: ["/depths#fighting-temeraire-civilisation", "/atlas", "/pigments", "/library"],
         machine_continue: ["/api/depths", "/api/pigments", "/api/castle"],
       },
-      carry: ["source", "truth_status", "as_of", "uncertainty"],
+      carry: ["source", "truth_status", "as_of", "uncertainty", "attributed_account", "missing_account"],
       boundary:
-        "Artbitrage has no general sourced-answer engine. The Castle endpoint is a historical receipt reference, not Castle search.",
+        "Artbitrage has no general sourced-answer engine. A Civilisation Lens is one attributed, non-scoring reading of one work, never a profile of a people. The Castle endpoint is a historical receipt reference, not Castle search.",
     },
     {
       id: "solve-a-practical-need",

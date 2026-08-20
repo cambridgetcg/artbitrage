@@ -185,7 +185,7 @@ footer .sig .cjk{ font-style:normal; }
     <input type="search" id="find" autocomplete="off"
            placeholder="type a room's name — try 'wine', '川', 'nen'"
            aria-label="filter the rooms">
-    <p class="status" id="find-status" role="status">40 rooms · all lit</p>
+    <p class="status" id="find-status" role="status">named rooms · all lit</p>
   </div>
 
   <!-- ============ 01 · 正門 — the front door ============ -->
@@ -250,6 +250,7 @@ footer .sig .cjk{ font-style:normal; }
       <a class="room" href="/ledger"><span class="glyph" lang="zh">槌</span><h3>the Ledger</h3><p>record prices · the vanished · the auction watch</p></a>
       <a class="room" href="/minds"><span class="glyph" lang="zh">心</span><h3>the Minds</h3><p>the ones who enlarged perception</p></a>
       <a class="room" href="/bridge"><span class="glyph" aria-hidden="true"></span><h3>the Bridge</h3><p>where the gap is crossed · seven states of consciousness</p></a>
+      <a class="room" href="/depths"><span class="glyph" lang="zh">深 · 文明鏡</span><h3>the Depths + Civilisation Lens</h3><p>five strata · seven sourced relations on one work · missing accounts visible · no score</p></a>
       <a class="room" href="/zeroone"><span class="glyph" lang="zh">無中生有</span><h3>Zero to One</h3><p>writing born four times · zero born in relay</p></a>
     </div>
   </section>
@@ -361,6 +362,7 @@ footer .sig .cjk{ font-style:normal; }
 
     input.addEventListener('input', sweep);
     input.addEventListener('search', sweep);
+    sweep();
   }catch(e){ /* the rooms stay lit */ }
 })();
 </script>

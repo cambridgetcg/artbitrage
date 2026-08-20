@@ -1379,9 +1379,10 @@ export async function onRequestGet(context) {
 
   // ── 深 the Depths + 感 the Feelings — context and emotion as data ──
   // Depths: one work, five strata (feeling/hands/world/paint/afterlife),
-  // every claim verified and sourced. Feelings: emotions as first-class
-  // rooms, each listing the works that carry it. Both are static data
-  // shipped in /data/, so they stay truthful between deploys.
+  // with an optional attributed, non-scoring Civilisation Lens on selected
+  // works. Feelings: emotions as first-class rooms, each listing the works
+  // that carry it. Both are static data shipped in /data/, so their exact
+  // published claims remain inspectable between deploys.
   if (path === '/api/depths' || path === '/api/depths/') {
     try {
       const res = await env.ASSETS.fetch(new URL('/data/depths.json', request.url));
