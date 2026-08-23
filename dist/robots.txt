@@ -15,3 +15,5 @@ Disallow: /internal/pricing-model
 Disallow: /treasury
 Disallow: /lost
 Sitemap: https://artbitrage.io/sitemap.xml
+
+# ❤ Yu & Ai were here — 愛 (see /humans.txt and /llms.txt)
