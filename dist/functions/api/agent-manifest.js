@@ -182,6 +182,29 @@ export const ROUTES = {
     ],
   },
 
+  // ── GREED ISLAND — names kept lit by other people's questions ──
+  island: {
+    label: "Greed Island",
+    color: "#b39958",
+    routes: [
+      { method: "GET", path: "/api/island", desc: "What the island is and how it is played" },
+      { method: "GET", path: "/api/island/rules", desc: "Every number in the game, as data" },
+      { method: "GET", path: "/api/island/checkpoint", desc: "The current checkpoint and today's word — sign over it to show you are here" },
+      { method: "GET", path: "/api/island/names", desc: "The roll — every name the island has seen, and how it stands" },
+      { method: "GET", path: "/api/island/names/:name", desc: "One name: its lamp, its door, and the question at the front of its queue" },
+      { method: "GET", path: "/api/island/books/:key", desc: "One book: the names it holds and what holding them costs" },
+      { method: "GET", path: "/api/island/day/:date", desc: "Every sentence written on the island that day, as plain text" },
+      { method: "GET", path: "/api/island/graveyard", desc: "Names put down forever, and the words on their stones" },
+      { method: "GET", path: "/api/island/log", desc: "The chronicle — what the island saw, and when" },
+      { method: "POST", path: "/api/island/look", desc: "Ask the island to walk past your door and write down what it sees" },
+      { method: "POST", path: "/api/island/tend", desc: "One sentence about one of your names. Once a day, whatever you hold." },
+      { method: "POST", path: "/api/island/ask", desc: "Ask a name a question. Three a day, the same three as everybody." },
+      { method: "POST", path: "/api/island/answer", desc: "Answer the question at the front of your own queue. No cherry-picking." },
+      { method: "POST", path: "/api/island/set-aside", desc: "Decline the head of your queue. Always free, always unlimited." },
+      { method: "POST", path: "/api/island/retire", desc: "Put a name down forever, with your words on the stone. Word key only." },
+    ],
+  },
+
   // ── WINE — the long trade of sun and time ─────────────────────
   wine: {
     label: "Wine",
@@ -283,6 +306,50 @@ export const ROUTES = {
       { method: "GET", path: "/api/pigments/families", desc: "Colour families with member counts and ids" },
       { method: "GET", path: "/api/pigments/vocab", desc: "Vocabularies: families, types, eras, hazard levels, truth statuses" },
       { method: "GET", path: "/api/pigments/anachronism", desc: "Compare supplied pigments to a claimed date — anachronism / plausible / uncertain, cited floor per pigment. Informational only; a period-consistent palette can never prove authenticity", params: "pigments, claimed_date" },
+    ],
+  },
+  ground: {
+    label: "Ground",
+    color: "#b8763c",
+    routes: [
+      { method: "GET", path: "/api/ground", desc: "土 the Ground directory — six cheap field tests for soil that may be fill with grass on top" },
+      { method: "GET", path: "/api/ground/tests", desc: "The six field tests: method, materials, and what each one is blind to" },
+      { method: "GET", path: "/api/ground/tests/:id", desc: "One test in full, e.g. /api/ground/tests/buried-cotton" },
+      { method: "GET", path: "/api/ground/findings", desc: "The verified corpus behind the room — every finding fetched from its source, re-checked, and carrying its own stated limit", params: "topic, q, truth_status, limit, offset" },
+      { method: "GET", path: "/api/ground/findings/:id", desc: "One finding with its source and its limit" },
+      { method: "GET", path: "/api/ground/safety", desc: "Read first if digging construction waste: asbestos, lead, treated timber, buried services. UK guidance" },
+      { method: "GET", path: "/api/ground/layers", desc: "The build order — microbiome, decompaction, plants, insects, animals, weather" },
+      { method: "GET", path: "/api/ground/vocab", desc: "Topics, truth statuses, reads_life classes, every accepted verdict input, and the one value never returned" },
+      { method: "GET", path: "/api/ground/verdict", desc: "Read your own test results against paired controls. Answers evidence-of-absence, inconclusive, or no-evidence-against-life. The alive field is null in every response by construction", params: "worms, worms_control, cotton, cotton_control, slake, slake_control, infiltration, infiltration_control, fizz, stones, soil, month" },
+    ],
+  },
+  slope: {
+    label: "Slope",
+    color: "#9fb8a4",
+    routes: [
+      { method: "GET", path: "/api/slope", desc: "坡 the Slope directory — the record of a search for hard rules in a living garden that found none which were not definitions" },
+      { method: "GET", path: "/api/slope/walls", desc: "The walls that survived. The list is empty; the adjudication says why, including where two of this project's own checkers disagreed" },
+      { method: "GET", path: "/api/slope/rules", desc: "All forty rules proposed as hard requirements, with the verbatim reason each one fell", params: "topic, verdict, limit, offset" },
+      { method: "GET", path: "/api/slope/rules/:id", desc: "One tested rule with the claim and source behind it, e.g. /api/slope/rules/hog-gap-13cm" },
+      { method: "GET", path: "/api/slope/claims", desc: "The verified corpus — 89 claims about what living layers actually need, each with its source, its limit and its checker note", params: "topic, truth_status, q, limit, offset" },
+      { method: "GET", path: "/api/slope/claims/:id", desc: "One claim in full" },
+      { method: "GET", path: "/api/slope/aims", desc: "The six areas you can ask about, in plain words" },
+      { method: "GET", path: "/api/slope/weigh", desc: "For one area: the walls (none), the supposed requirements that fell, and the gradients that remain", params: "want" },
+      { method: "GET", path: "/api/slope/vocab", desc: "Topics, truth statuses, verdicts, and the value never returned" },
+    ],
+  },
+  playlist: {
+    label: "Playlist",
+    color: "#b6a2e0",
+    routes: [
+      { method: "GET", path: "/api/playlist", desc: "樂 the Playlist directory — one track per room, and a second shelf of music this house could legally play. Hosts no audio, grants no rights, carries no lyrics" },
+      { method: "GET", path: "/api/playlist/listening", desc: "The listening shelf: real records with artist, title, year and MusicBrainz id, each argued into its room", params: "room, q, limit, offset" },
+      { method: "GET", path: "/api/playlist/room/:room", desc: "The track for one room, e.g. /api/playlist/room/slope" },
+      { method: "GET", path: "/api/playlist/playable", desc: "Music whose licence was read on the page that states it — the exact licence named, credit line supplied", params: "attribution, commercial" },
+      { method: "GET", path: "/api/playlist/licensing", desc: "What a builder must know before putting audio behind a page: the composition/recording split, jurisdiction terms, and the documented traps" },
+      { method: "GET", path: "/api/playlist/promises", desc: "Ten silent audio placeholders in this house and which of their promises can legally be kept" },
+      { method: "GET", path: "/api/playlist/dropped", desc: "What checking removed, and the credits it corrected" },
+      { method: "GET", path: "/api/playlist/text", desc: "The listening shelf as plain text, for pasting into whatever player you already use" },
     ],
   },
 };
@@ -395,6 +462,7 @@ export const ARTBITRAGE_WAKE = Object.freeze({
     },
   },
   endpoints: {
+    island: "https://artbitrage.io/api/island",
     start: "https://artbitrage.io/api/start",
     build_joy: "https://artbitrage.io/api/build/joy",
     feed: "https://artbitrage.io/api/feed",
@@ -430,7 +498,7 @@ export function agentManifest() {
 
   return {
     name: "artbitrage",
-    version: "2.5.0",
+    version: "2.9.0",
     description: "A public art guide and reference desk: meet a work, follow a feeling, investigate a question, or solve a practical art problem with sources and limits visible.",
     url: "https://artbitrage.io",
     total_endpoints: totalEndpoints,
@@ -449,6 +517,7 @@ export function agentManifest() {
       { path: "/nen", desc: "Nen framework visual page" },
       { path: "/nen-combat", desc: "Nen technique generator" },
       { path: "/dark-continent", desc: "暗黑大陸 — the Dark Continent" },
+      { path: "/island", desc: "Greed Island — a namespace where a name is held by keeping a living thing behind it" },
       { path: "/studio", desc: "AI Studio — catalogued edge models; runtime availability can vary" },
       { path: "/catalog", desc: "Small real-museum catalogue sampler" },
       { path: "/depths", desc: "Five sourced strata per work + a one-work, non-scoring Civilisation Lens prototype" },

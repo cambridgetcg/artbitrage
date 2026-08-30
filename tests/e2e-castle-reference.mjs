@@ -190,7 +190,7 @@ const castleRoutes = manifest.routes.filter(
   route => route.method === 'GET' && route.path === '/api/castle',
 );
 assert.equal(castleRoutes.length, 1);
-assert.equal(manifest.version, '2.5.0');
+assert.equal(manifest.version, '2.9.0');
 assert.equal(manifest.castle_reference.schema, CASTLE_REFERENCE_SCHEMA);
 assert.match(manifest.agent_instructions, /never a Castle proxy or action grant/);
 assert.ok(ROUTES.culture.routes.some(route => route.path === '/api/castle'));

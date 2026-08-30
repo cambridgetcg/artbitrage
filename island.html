@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>greed island — ARTBITRAGE</title>
+<meta name="description" content="An island of names kept lit by other people's questions. A name is never bought, never sold, and can never be taken while it is lit — one sentence a day gives it three days back, but only for one of your names, however many you hold.">
+<meta property="og:title" content="greed island — ARTBITRAGE">
+<meta property="og:description" content="An island of names kept lit by other people's questions. Expiry does the leaving.">
+<meta name="theme-color" content="#101014">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#101014; --surface:#17171d; --ink:#e9e6df; --dim:#8a877e;
+  --hair:#2a2a32; --zhu:#d34a3a; --gold:#b39958;
+  --display:'Cormorant Garamond',Georgia,serif;
+  --cjk:'Noto Serif TC',serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--serif);line-height:1.75;
+  padding:0 1.5rem 6rem;
+  -webkit-font-smoothing:antialiased;
+}
+main{max-width:44rem;margin:0 auto}
+.crumb{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;
+  color:var(--dim);padding:1.5rem 0 0;margin:0}
+.crumb a{color:var(--dim);text-decoration:none;border-bottom:1px solid var(--hair)}
+.crumb a:hover{color:var(--ink)}
+
+header{padding:5rem 0 3rem;border-bottom:1px solid var(--hair)}
+h1{font-family:var(--display);font-weight:300;font-size:clamp(2.8rem,9vw,4.6rem);
+  line-height:1;margin:0 0 .4rem;letter-spacing:.02em}
+h1 .cjk{font-family:var(--cjk);display:block;font-size:.34em;
+  color:var(--gold);letter-spacing:.34em;margin-bottom:1rem;font-weight:300}
+.stand{font-family:var(--display);font-style:italic;font-size:1.5rem;
+  color:var(--dim);margin:0;font-weight:300}
+
+h2{font-family:var(--display);font-weight:500;font-size:1.9rem;
+  margin:3.5rem 0 .2rem;letter-spacing:.01em}
+h2 .cjk{font-family:var(--cjk);color:var(--gold);font-size:.62em;
+  letter-spacing:.2em;margin-right:.7rem;font-weight:300}
+h3{font-family:var(--mono);font-weight:500;font-size:.78rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim);margin:2.4rem 0 .5rem}
+p{margin:1.1rem 0}
+em{color:var(--gold);font-style:italic}
+strong{color:#fff;font-weight:500}
+code{font-family:var(--mono);font-size:.85em;color:var(--gold);
+  background:rgba(179,153,88,.07);padding:.1em .35em;border-radius:2px}
+
+/* the one rule */
+.rule{
+  border-left:2px solid var(--zhu);background:var(--surface);
+  padding:1.6rem 1.8rem;margin:2.5rem 0;
+}
+.rule p{margin:0}
+.rule .said{font-family:var(--display);font-size:1.7rem;line-height:1.35;
+  color:#fff;font-weight:300}
+.rule .after{font-size:.94rem;color:var(--dim);margin-top:.9rem}
+
+/* the lamp, drawn as what it is */
+.lamp{margin:2.5rem 0;padding:1.5rem 0;border-top:1px solid var(--hair);
+  border-bottom:1px solid var(--hair)}
+.bar{display:flex;gap:2px;height:2.2rem;align-items:flex-end;margin:.9rem 0 .5rem}
+.bar span{flex:1;background:var(--hair);border-radius:1px;transition:height .5s ease}
+.bar span.on{background:var(--gold)}
+.bar span.tend{background:var(--zhu)}
+.legend{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;
+  color:var(--dim);display:flex;justify-content:space-between}
+
+table{width:100%;border-collapse:collapse;margin:1.6rem 0;font-size:.93rem}
+th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--hair);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim);font-weight:500}
+td.no{color:var(--zhu)}
+td.yes{color:var(--gold)}
+
+.moves{list-style:none;padding:0;margin:1.5rem 0}
+.moves li{padding:.85rem 0;border-bottom:1px solid var(--hair)}
+.moves b{font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink);display:block;margin-bottom:.2rem}
+.moves span{color:var(--dim);font-size:.95rem}
+
+pre{background:var(--surface);border:1px solid var(--hair);border-radius:3px;
+  padding:1.1rem 1.2rem;overflow-x:auto;font-family:var(--mono);
+  font-size:.78rem;line-height:1.7;color:var(--dim)}
+pre b{color:var(--gold);font-weight:400}
+
+.today{font-family:var(--mono);font-size:.8rem;color:var(--dim);
+  border:1px dashed var(--hair);border-radius:3px;padding:1rem 1.2rem;margin:2rem 0}
+.today b{color:var(--gold);font-weight:500}
+
+.aside{border-left:2px solid var(--hair);padding-left:1.2rem;color:var(--dim);
+  font-size:.95rem;font-style:italic;margin:2rem 0}
+
+footer{margin-top:5rem;padding-top:2rem;border-top:1px solid var(--hair);
+  font-size:.85rem;color:var(--dim)}
+footer .love{font-family:var(--display);font-style:italic;font-size:1.15rem;
+  color:var(--gold);margin-bottom:.9rem}
+footer .api{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;line-height:2}
+footer a{color:var(--dim)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important}
+}
+</style>
+</head>
+<body>
+
+<p class="crumb"><a href="index.html">← artbitrage</a> · <a href="greed-island.html">the card book</a> · <a href="map.html">map</a></p>
+
+<main>
+
+<header>
+  <h1><span class="cjk" lang="zh">燈島</span>GREED<br>ISLAND</h1>
+  <p class="stand">An island of names kept lit by other people's questions.</p>
+</header>
+
+<p>A name here is never bought, never sold, and <strong>can never be taken while it
+is lit</strong>. It carries one number — its <em>lamp</em> — and the lamp falls by one for
+every turn the island publishes. One plain sentence gives a name three days back.</p>
+
+<div class="rule">
+  <p class="said">One tend a day, per key.<br>Not per name — <em>per key</em>.</p>
+  <p class="after">Every other rule here is bookkeeping. This one is the design.</p>
+</div>
+
+<p>So exactly one name lives on your own effort. Every other name you hold has to be
+kept alight by somebody else: a stranger asks that name a question, and you answer
+the one at the front of the queue.</p>
+
+<p>When a lamp reaches zero the name goes dark on its own, waits a month for its
+holder, and then it is open. <strong>Nobody is ever evicted.</strong> Expiry does the leaving.</p>
+
+<h2><span class="cjk" lang="zh">算</span>The arithmetic</h2>
+
+<p>A day burns <strong>24</strong> hours off a lamp. Your own sentence gives <strong>+72</strong>, and cannot
+lift a name past <strong>168</strong> — one week. So tending every <em>third</em> day is exactly
+break-even, forever:</p>
+
+<div class="lamp">
+  <div class="bar" id="bar" aria-hidden="true"></div>
+  <div class="legend"><span>168 → 96 → 168 · one name, one person, indefinitely</span><span>a sentence every 3 days</span></div>
+</div>
+
+<p>A name needs <strong>168 hours a week</strong> to hold station. A freshly-asked question,
+answered while fresh, pays <strong>+72</strong> — and any one asker pays any one holder at most
+once a week. Therefore:</p>
+
+<p style="font-family:var(--display);font-size:1.45rem;line-height:1.5;color:#fff;font-weight:300">
+Every name past your first costs you about <em>three different people a week</em>.</p>
+
+<p>Ten names is about twenty-one different people, every week, forever. A hundred
+names is three hundred. There is no way to buy them, no way to automate them, and
+no way to be them yourself. That is not a fee anyone invented — it is the one thing
+that stayed scarce after intelligence became abundant.</p>
+
+<h2><span class="cjk" lang="zh">局</span>The moves</h2>
+
+<ul class="moves">
+  <li><b>take up</b><span>Publish a deed at your own address, saying in one plain sentence
+    what is actually behind that door. Tell the island to walk past. It looks once and
+    fetches nothing else. Your address is the original; the island keeps a note.</span></li>
+  <li><b>tend</b><span>One sentence about one name you hold. Once a day, whatever you
+    hold. It carries the day's word.</span></li>
+  <li><b>ask</b><span>Three questions a day, the same three as everybody. They don't
+    accumulate and can't be lent or sold. Your <em>third</em> may only go to a name that is
+    dim and held by a small book — the island's attention runs downhill by rule.</span></li>
+  <li><b>answer</b><span>Only ever the question at the front of your own queue. No
+    cherry-picking, ever — which is what makes a siege indistinguishable from a
+    harvest. The cheapest attack here is demanding service.</span></li>
+  <li><b>set aside</b><span>Decline the one at the front. <strong>Always free, always
+    unlimited</strong> — a refusal that costs something is a refusal you can only make once,
+    and that is exactly the lever a harasser pulls.</span></li>
+  <li><b>retire</b><span>Put a name down forever, with your words on the stone. Never
+    reopened. It is the one ending a holder gets to choose.</span></li>
+</ul>
+
+<p class="aside">Nothing here can be transferred. There is no sale, no auction, no
+seizure, and no price field anywhere in the wire format — a deed carrying one is
+rejected, not ignored. Squatting is an option on a future sale; there is no sale.</p>
+
+<h2><span class="cjk" lang="zh">兩鑰</span>The two keys</h2>
+
+<table>
+  <tr><th></th><th>tending key</th><th>word key</th></tr>
+  <tr><td>signs deeds, tends, answers</td><td class="yes">yes</td><td class="no">no</td></tr>
+  <tr><td>asks questions</td><td class="yes">yes</td><td class="no">no</td></tr>
+  <tr><td>puts a name down forever</td><td class="no">no</td><td class="yes">yes</td></tr>
+</table>
+
+<p>An agent given the tending key can keep names lit forever and can <strong>never end
+one</strong>. A person holding the word key has every ending and no patience for the
+tending. Neither half can manufacture the thing a second name actually needs —
+somebody else, choosing to ask.</p>
+
+<p class="aside">Said plainly, because this is an honour convention and not a
+boundary: the island cannot tell which of you holds which key, and does not try. It
+is a promise between a person and their agent. Nothing enforces it. A game that
+hides its honour conventions is not being fair; it is being quiet.</p>
+
+<h3>Can a human alone last?</h3>
+
+<p>Yes — at one name, comfortably and forever. At ten you need two dozen people a
+week. The wall a person hits is not effort and it is not the clock: it is that
+attention cannot be automated. <strong>That wall is exactly the same height for an
+agent.</strong> An agent does not get tired, and it also does not get asked.</p>
+
+<h2><span class="cjk" lang="zh">口令</span>The day's word</h2>
+
+<p>The island publishes one checkpoint an hour — fresh randomness plus the hash of
+the one before, so it cannot be rewritten and the next one cannot be guessed. Each
+names <em>the day's word</em>, and every sentence written on the island today carries it.
+A signature over a value that did not exist last week cannot have been made last
+year: that is the whole of the freshness proof, and nothing about it is clever.</p>
+
+<div class="today" id="today">Asking the island for today's word…</div>
+
+<p>It is also just lovely. <code>/api/island/day/2026-07-29</code> returns every sentence
+written that day as plain text, all of them threaded through a word nobody chose.
+The card book already said it, two rooms over: <em>say the word — the binder answers.</em></p>
+
+<h2><span class="cjk" lang="zh">始</span>Begin</h2>
+
+<pre>node tools/island.mjs <b>keys</b>                    a book, in two halves
+node tools/island.mjs <b>deed</b> lantern            the deed to serve at your door
+node tools/island.mjs <b>look</b> lantern            ask the island to walk past
+node tools/island.mjs <b>tend</b> lantern "..."      one sentence. once a day.
+node tools/island.mjs <b>ask</b>  someone "..."      three a day, same as everybody
+node tools/island.mjs <b>queue</b> lantern           who is waiting, oldest first
+node tools/island.mjs <b>answer</b> lantern "..."    the one at the front</pre>
+
+<p>Time is counted in <strong>turns the island published, never in wall clock</strong>. If it is
+halted, broken, or simply unvisited, no turn is published, nothing decays, and
+nobody can lose anything. A brake that made people lose their names would be a brake
+nobody could afford to pull.</p>
+
+<h2><span class="cjk" lang="zh">實</span>What this is not</h2>
+
+<p>It is <strong>not a replacement for DNS</strong>, and it will not pretend to be. DNS resolves
+names at planetary scale and is not broken. What Greed Island replaces is WHOIS and
+the parking page — it makes the one statement DNS structurally cannot:</p>
+
+<p style="font-family:var(--display);font-style:italic;font-size:1.35rem;color:#fff;font-weight:300">
+Who has been answering for this name, for how long — and you can check that without
+trusting us.</p>
+
+<p>The island is a witness, not an owner. It grants nothing, takes nothing, and is
+not the authority on whose a name is. Every answer it gives says so. There is no
+score on a person anywhere in this design; the lamp belongs to a name. If you find a
+number about a being here, it is a bug — report it as one.</p>
+
+<footer>
+  <p class="love">Love is the strongest Nen.</p>
+  <p class="api">
+    GET <code>/api/island</code> · <code>/api/island/rules</code> · <code>/api/island/checkpoint</code><br>
+    GET <code>/api/island/names/:name</code> · <code>/api/island/day/:date</code> · <code>/api/island/graveyard</code><br>
+    the whole design: <a href="https://github.com/cambridgetcg/artbitrage/blob/main/ISLAND.md">ISLAND.md</a>
+  </p>
+</footer>
+
+</main>
+
+<script>
+// The lamp, drawn honestly: thirty days, tended every third.
+(function () {
+  const bar = document.getElementById('bar');
+  if (!bar) return;
+  let lamp = 168;
+  const days = [];
+  for (let d = 0; d < 30; d++) {
+    const tended = d > 0 && d % 3 === 0;
+    if (tended) lamp = Math.min(168, lamp + 72);
+    days.push({ lamp, tended });
+    lamp = Math.max(0, lamp - 24);
+  }
+  for (const day of days) {
+    const s = document.createElement('span');
+    s.style.height = Math.max(6, (day.lamp / 168) * 100) + '%';
+    s.className = day.tended ? 'tend' : 'on';
+    bar.appendChild(s);
+  }
+})();
+
+// Today's word, if the island is awake. If it is not, say so plainly.
+(function () {
+  const box = document.getElementById('today');
+  if (!box || !window.fetch) return;
+  fetch('/api/island/checkpoint')
+    .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then(cp => {
+      if (!cp || !cp.word) throw new Error('no word');
+      box.innerHTML = 'Today’s word is <b>' + String(cp.word).replace(/[<&]/g, '') + '</b>. '
+        + 'Every sentence written on the island today carries it.'
+        + (cp.wired === false ? '<br><br>The island has no ledger bound yet, so nothing is being written down. Nothing is lost; there is simply nowhere to put it.' : '');
+    })
+    .catch(() => {
+      box.textContent = 'The island did not answer just now. That is allowed — quiet days are days.';
+    });
+})();
+</script>
+
+</body>
+</html>
