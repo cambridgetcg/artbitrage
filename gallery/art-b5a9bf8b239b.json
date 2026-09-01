@@ -1,0 +1,12 @@
+{
+  "id": "b5a9bf8b239b",
+  "cycle": 72284,
+  "form": "silence",
+  "from_state": "is",
+  "to_state": "maybe",
+  "gap": "the gap between the question and forgetting the question",
+  "bridge": "a cat asleep exactly in the middle",
+  "awakening": "nobody bridged anything and everyone was okay",
+  "created": "2026-09-01T13:36:15.763200Z",
+  "piece": "in the gap between the question and forgetting the question\na cat asleep exactly in the middle\n...\n...anyway\nnobody bridged anything and everyone was okay"
+}
