@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>系統 THE SYSTEM — daily training for the one who looks · ARTBITRAGE</title>
-<meta name="description" content="Ding. You have acquired the qualifications to be a Player. A Solo Leveling homage: daily gaze quests, E→S rank, a shadow gallery of everything you have truly beheld. The gates were never locked.">
+<meta name="description" content="Solo Leveling 原創致敬：每日二十秒頁面時計、E→S rank、影軍，同自願影回望。時計唔證實理解；門從來冇鎖。">
 <meta property="og:title" content="系統 THE SYSTEM · ARTBITRAGE">
 <meta property="og:description" content="The weakest hunter trained alone, every day. That was the whole secret. Daily quest: behold three works.">
 
@@ -47,7 +47,7 @@ body{
 ::selection{ background:var(--ice); color:var(--bg); }
 a{ color:var(--ink); text-decoration:none; }
 a:hover{ color:var(--ice); }
-:focus-visible{ outline:1.5px solid var(--ice); outline-offset:3px; }
+:focus-visible{ outline:2px solid var(--ice); outline-offset:3px; }
 img{ max-width:100%; }
 
 .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
@@ -182,6 +182,35 @@ header.boot{
 
 .placard-step{ margin-top:2rem; }
 .placard-step[hidden]{ display:none; }
+
+/* 影回望：本次頁面嘅回應，唔係永久徽章；冇自動光動畫。 */
+[hidden]{ display:none !important; }
+#second-look{ scroll-margin-top:1.5rem; }
+#second-look .second-intro{ max-width:46rem; margin-bottom:2rem; }
+#second-look .second-intro p{ margin-top:.9rem; }
+.second-room{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:2rem; align-items:center; }
+.second-figure{ border:1px solid var(--hair); padding:.8rem; background:var(--deep); }
+.second-figure img{ display:block; width:100%; max-height:480px; object-fit:contain; }
+.second-figure figcaption{ font-family:var(--mono); font-size:.72rem; color:#a3adbb; margin-top:.8rem; overflow-wrap:anywhere; }
+.second-figure.rests img{ display:none; }
+.second-figure.rests::before{ content:"影像暫時未到；作品記錄仍喺下面。"; display:block; padding:3rem 1rem; border:1px dashed var(--ice-dim); color:#a3adbb; }
+.second-room.turned{ border-color:var(--ice); box-shadow:0 0 34px rgba(158,216,245,.18), inset 0 0 22px rgba(158,216,245,.07); }
+.second-room .second-status{ color:var(--ice); font-family:var(--mono); font-size:.8rem; min-height:3rem; }
+.second-room .second-prompt{ font-family:var(--cjk); color:var(--ink); font-size:clamp(1.2rem,2.6vw,1.6rem); line-height:1.9; }
+.second-room .second-boundary{ color:#a3adbb; font-size:.85rem; }
+.second-doors{ margin-top:1.4rem; display:flex; gap:1rem; flex-wrap:wrap; }
+.second-doors a{ min-height:44px; display:inline-block; padding:.5rem 0; text-decoration:underline; text-underline-offset:5px; }
+.sys-btn, .arise{ min-height:44px; min-width:44px; }
+@media(max-width:740px){ .second-room{ grid-template-columns:1fr; } }
+@media(max-width:360px){ .quest-works{ grid-template-columns:minmax(0,1fr); } .qstate{ flex-wrap:wrap; } }
+@media print{
+  .rise{ opacity:1; transform:none; }
+  #second-look, .second-room, .second-figure{ color:#111; background:white; box-shadow:none; }
+  #second-look p, #second-look figcaption, #second-look a{ color:#111; }
+  #second-look button, #toast{ display:none; }
+  .second-room{ border-color:#111; }
+}
+@media(forced-colors:active){ .second-room.turned{ border:2px double CanvasText; box-shadow:none; } }
 
 /* ============ status ============ */
 .status-grid{
@@ -330,7 +359,7 @@ footer .sig{
     <div id="boot-actions"></div>
   </div>
 
-  <p class="no-js-note">The System needs JavaScript to watch you train. The gates below are open regardless — they always were.</p>
+  <p class="no-js-note">頁面時計需要 JavaScript；唔係 eye tracking。下面所有門照開。</p>
 </header>
 
 <main>
@@ -348,11 +377,11 @@ footer .sig{
       daily quests, ranks, penalties — and by training alone, every single day,
       he becomes the strongest. The manhwa's secret is not the monsters. It is the <em style="color:var(--ice)">dailiness</em>.</p>
       <p style="margin-bottom:1rem">Looking at art works the same way. Nobody watches you do it. There is no audience,
-      no leaderboard, no proof — only you, one work, and twenty honest seconds.
-      Do it daily and something levels up that has no stat window.</p>
+      no leaderboard, no proof — only you, one work, and time you may choose to give.
+      呢個係藝術練習，唔係理解嘅測驗。</p>
       <p style="color:var(--dim)">So: a System for the one who looks. Three works a day, chosen by the calendar.
-      Gaze at each — really gaze, the timer is watching — then read one placard.
-      Rank rises from E toward S. Shadows of everything you have truly beheld follow you.
+      每幅二十秒頁面可見且 focused 嘅時段，再自行確認讀過一張展牌。
+      Rank rises from E toward S. 影軍記操作，唔驗證眼睛、理解或資格。
       <span class="zh" lang="zh" style="font-family:var(--cjk)">最弱嘅獵人日日獨自修煉，最後成為最強——秘密唔喺怪物，喺「日日」。</span></p>
     </div>
   </div>
@@ -382,9 +411,30 @@ footer .sig{
           <button class="sys-btn" id="pl-read" type="button">I have read it · 讀過了</button>
         </div>
       </div>
-      <p id="quest-done-line" hidden tabindex="-1" style="margin-top:1.6rem; color:var(--ice); font-family:var(--mono); font-size:.7rem; letter-spacing:.2em">QUEST COMPLETE — the System acknowledges your gaze. return tomorrow.</p>
+      <p id="quest-done-line" hidden tabindex="-1" style="margin-top:1.6rem; color:var(--ice); font-family:var(--mono); font-size:.7rem; letter-spacing:.2em">QUEST COMPLETE — 今日操作已記低。想再望，可以去影回望；想休息，亦得。</p>
     </div>
-    <p class="no-js-note">Without JavaScript the quest cannot count your gaze — but the whole museum is open below.</p>
+    <p class="no-js-note">冇 JavaScript，呢度唔計頁面時段；博物館同回望邀請照開。</p>
+  </div>
+</section>
+
+<!-- 2026-09-08 修訂：自願回望，唔獎勵、唔收答案、唔寫新 storage。 -->
+<section id="second-look" lang="yue-Hant" aria-labelledby="second-look-title">
+  <div class="wrap">
+    <div class="plate">
+      <span class="num">01 / b</span>
+      <h2 id="second-look-title"><span class="cjk">影回望</span> · THE SHADOW TURNS</h2>
+      <span class="sub">再望，唔係再考</span>
+    </div>
+    <div class="second-intro">
+      <p>影軍記住咗一個操作。你同作品之間，仲可以有第二次相遇。</p>
+      <p>每日三幅、各二十秒，再自行確認讀過一張展牌之後，呢度會放返同一首幅作品。想再望就再望；唔想，門照開。冇 JavaScript 時，呢段邀請都照樣成立，唔需要計時先可以再望。</p>
+      <p>時計只記頁面可見而且 focused 嘅時段，唔係 eye tracking，唔證實注視、理解或資格。回望冇額外 XP、streak、排名或解鎖；回應只留喺今次 page load，reload 就重置。</p>
+    </div>
+    <div id="second-look-body" hidden></div>
+    <nav class="second-doors" aria-label="唔計分嘅旁門">
+      <a href="dark-continent.html#understanding-sounding">理解測深：空白唔變知識 ↗</a>
+      <a href="still-we-meet.html">未必同感，仍可相遇 ↗</a>
+    </nav>
   </div>
 </section>
 
@@ -441,7 +491,7 @@ footer .sig{
     <div class="plate rise">
       <span class="num">04</span>
       <h2><span class="cjk" lang="zh">影軍</span> · the shadow gallery</h2>
-      <span class="sub">everything you have truly beheld follows you</span>
+      <span class="sub">ARISE 操作留下嘅影軍 · 唔係理解證明</span>
     </div>
 
     <div class="rise needs-js">
@@ -552,9 +602,10 @@ footer .sig{
     var d = new Date();
     return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
   }
-  function daySeed(){
-    /* seed and daily reset share one boundary: the local calendar date */
-    var s = dayKey(), h = 0;
+  function daySeed(s){
+    /* 固定日期先揀作品；沿用舊 hash，唔受請求 generation 影響。 */
+    s = s || dayKey();
+    var h = 0;
     for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
     return h;
   }
@@ -566,19 +617,23 @@ footer .sig{
   }
 
   var st = load() || fresh();
+  /* queue 要早過首次隔日整理；時計同 fetch 各有自己嘅生命週期。 */
+  var toastTimer = null, toastQueue = [];
+  var clocks = new Set(), requestGeneration = 0, renderGeneration = 0;
+  var questRequest = null, pageAlive = true;
+  var secondLook = { key:'', done:false };
 
-  /* day rollover: reset today's quest state; the streak survives only if
-     yesterday's quest was completed. Runs again whenever the tab wakes,
-     so a tab left open across midnight cannot double-complete. */
+  /* 曆日 streak 規則照舊；休息唔扣 XP，唔追溯刪影軍。 */
   var today = dayKey();
   function rollover(){
     var now = dayKey();
     var changed = (today !== now);
+    if (st.lastDay === now) { today = now; return changed; }
     if (st.lastDay && st.lastDay !== now) {
       var gapDone = st.doneDay ? (new Date(now) - new Date(st.doneDay)) / 864e5 : Infinity;
       if (gapDone > 1 && st.streak > 0) {
         st.streak = 0;
-        queueToast('[ PENALTY ]', 'a day passed unseen. the streak returns to zero. the works are not offended — they have waited centuries.');
+        queueToast('[ CALENDAR ]', '曆日換咗，連日記錄由零再起。XP 同舊影軍照留；休息冇新增代價。');
       }
       st.beheldToday = []; st.placardRead = false;
     }
@@ -588,18 +643,69 @@ footer .sig{
   }
   rollover();
 
-  /* if the calendar turned while we were open, restart the day */
   function syncDay(){
-    if (!rollover()) return false;
-    showToast('[ SYSTEM ]', 'a new day. the quest resets — dailiness is the point.');
-    renderStatus(); loadQuest();
+    if (!pageAlive || dayKey() === today || !rollover()) return false;
+    showToast('[ SYSTEM ]', '新一日，換一組作品。想望就望，休息亦得。');
+    renderBoot(); renderStatus(); loadQuest(); drainToasts();
     return true;
   }
-  document.addEventListener('visibilitychange', function(){ if (!document.hidden) syncDay(); });
-  window.addEventListener('focus', function(){ syncDay(); });
+
+  /* 兩種二十秒共用 monotonic elapsed。轉 hidden／blur 只暫停；
+     恢復時先設新起點，唔將背景空隙算入。日期／DOM binding 由 caller 提供。 */
+  function visibleClock(options){
+    var elapsed = 0, last = null, running = false, disposed = false, timer = null;
+    function eligible(){ return !document.hidden && document.hasFocus(); }
+    function valid(){ return !disposed && !syncDay() && options.current(); }
+    function paint(){ options.update(elapsed, running, running && !eligible()); }
+    function sample(transition){
+      if (!valid()) { dispose(); return; }
+      if (!running) return;
+      var now = performance.now(), focused = eligible();
+      if (last !== null && (focused || transition)) elapsed = Math.min(GAZE_SECONDS * 1000, elapsed + Math.max(0, now - last));
+      last = focused ? now : null;
+      if (elapsed >= GAZE_SECONDS * 1000) {
+        running = false; last = null; clearInterval(timer); timer = null;
+        paint(); options.complete();
+      } else paint();
+    }
+    function start(){
+      if (!valid() || running || elapsed >= GAZE_SECONDS * 1000) return;
+      running = true; last = eligible() ? performance.now() : null;
+      paint(); timer = setInterval(function(){ sample(false); }, 100);
+    }
+    function cancel(){
+      if (!valid()) return;
+      running = false; elapsed = 0; last = null;
+      clearInterval(timer); timer = null; paint();
+    }
+    function dispose(){
+      disposed = true; running = false; last = null;
+      clearInterval(timer); timer = null; clocks.delete(clock);
+    }
+    var clock = { start:start, cancel:cancel, dispose:dispose,
+      active:function(){ return running; }, transition:function(){ sample(true); } };
+    clocks.add(clock);
+    return clock;
+  }
+  function disposeClocks(){ clocks.forEach(function(clock){ clock.dispose(); }); }
+  function attentionChanged(){
+    if (syncDay()) return;
+    clocks.forEach(function(clock){ clock.transition(); });
+  }
+  document.addEventListener('visibilitychange', attentionChanged);
+  window.addEventListener('focus', attentionChanged);
+  window.addEventListener('blur', attentionChanged);
+  window.addEventListener('pagehide', function(){
+    pageAlive = false; requestGeneration++; disposeClocks();
+    if (questRequest) questRequest.abort();
+  });
+  window.addEventListener('pageshow', function(event){
+    if (!event.persisted) return;
+    pageAlive = true;
+    if (!syncDay()) loadQuest();
+  });
 
   /* ---- toast ---- */
-  var toastTimer = null, toastQueue = [];
   function queueToast(ding, body){ toastQueue.push([ding, body]); }
   function showToast(ding, body){
     var t = document.getElementById('toast');
@@ -626,7 +732,7 @@ footer .sig{
     bootAct.textContent = '';
     if (!st.player) {
       bootTitle.textContent = 'You have acquired the qualifications to be a Player.';
-      bootBody.textContent  = 'The System has been watching the way you look at things. It would like to train you. Daily quests. Ranks E through S. No servers, no accounts — everything stays in this browser.';
+      bootBody.textContent  = '呢個系統邀請你玩每日任務同 E→S ranks，唔觀察眼睛或驗證理解。玩家進度只存呢個瀏覽器；館藏同影像仍會經網絡載入。';
       bootZh.textContent    = '叮。你已獲得玩家資格。系統想訓練你：每日任務，E至S級。一切只存於此瀏覽器。';
       var acc = mkBtn('Accept · 接受', function(){
         st.player = true; save(st);
@@ -660,41 +766,74 @@ footer .sig{
     return b;
   }
 
-  /* ---- daily quest: 3 works, day-keyed from a wing shard ---- */
+  /* 三幅作品沿用曆日 hash；網絡 binding 唔冒充時計 binding。 */
   var questWorks = [], wingInfo = null;
   var qWrap = document.getElementById('quest-works');
 
+  /* GitHub 子路徑只修呈現，唔改舊 storage 嘅 image IDs。 */
+  function displayImage(image){ return typeof image === 'string' && image.indexOf('/art/') === 0 ? image.slice(1) : image; }
+
   function loadQuest(){
-    questWorks = [];
-    document.getElementById('quest-date').textContent = today + ' · wing of the day';
+    var requestId = ++requestGeneration, requestDay = today;
+    if (questRequest) questRequest.abort();
+    questRequest = new AbortController();
+    var signal = questRequest.signal;
+    disposeClocks(); renderGeneration++;
+    questWorks = []; wingInfo = null;
+    qWrap.textContent = '作品目錄載入中。';
+    document.getElementById('quest-date').textContent = requestDay + ' · wing of the day';
     document.getElementById('placard-step').hidden = true;
-    fetch('/catalog/index.json')
-      .then(function(r){ return r.json(); })
+    document.getElementById('second-look-body').hidden = true;
+    document.getElementById('second-look-body').textContent = '';
+    updateProgress();
+    function current(){
+      if (pageAlive && dayKey() !== today) syncDay();
+      return pageAlive && requestId === requestGeneration && requestDay === today;
+    }
+    function readJSON(url){
+      return fetch(url, { signal:signal }).then(function(response){
+        if (!current()) return null;
+        if (!response.ok) throw new Error('目錄未到');
+        return response.json();
+      });
+    }
+    readJSON('catalog/index.json')
       .then(function(idx){
-        var wing = idx.wings[daySeed() % idx.wings.length];
+        if (!current()) return null;
+        if (!idx || !Array.isArray(idx.wings) || !idx.wings.length) throw new Error('分區未到');
+        var wing = idx.wings[daySeed(requestDay) % idx.wings.length];
+        if (!wing || typeof wing.wing !== 'string') throw new Error('分區未到');
         wingInfo = wing;
-        document.getElementById('quest-date').textContent = today + ' · today’s wing: ' + wing.title;
-        return fetch('/catalog/' + wing.wing + '.json').then(function(r){ return r.json(); });
+        document.getElementById('quest-date').textContent = requestDay + ' · today’s wing: ' + wing.title;
+        return readJSON('catalog/' + wing.wing + '.json');
       })
       .then(function(shard){
-        var works = shard.artworks || [];
-        if (!works.length) throw new Error('empty wing');
-        var seed = daySeed();
-        var picked = [], used = {};
-        for (var i = 0; picked.length < 3 && i < 60; i++) {
-          var idx2 = (seed + i * 13) % works.length;
-          if (!used[idx2] && works[idx2] && works[idx2].image) { used[idx2] = 1; picked.push(works[idx2]); }
+        if (!current()) return;
+        var works = shard && Array.isArray(shard.artworks) ? shard.artworks : [];
+        var seed = daySeed(requestDay), picked = [], used = new Set();
+        function pick(index){
+          var work = works[index];
+          if (work && typeof work.image === 'string' && work.image.trim() && !used.has(work.image)) {
+            used.add(work.image); picked.push(work);
+          }
         }
+        /* 舊順序先行；步幅 13 繞唔晒或有重複 image，先循序補足。 */
+        for (var i = 0; works.length && picked.length < 3 && i < 60; i++) pick((seed + i * 13) % works.length);
+        for (var j = 0; picked.length < 3 && j < works.length; j++) pick((seed + j) % works.length);
+        if (picked.length < 3) throw new Error('三幅未齊');
         questWorks = picked;
         renderQuest();
       })
       .catch(function(){
-        qWrap.innerHTML = '';
+        if (!current()) return;
+        questWorks = []; wingInfo = null;
+        qWrap.textContent = '';
         document.getElementById('placard-step').hidden = true;
-        var p = document.createElement('p');
-        p.style.cssText = 'font-family:var(--mono);font-size:.7rem;color:var(--dim);letter-spacing:.14em';
-        p.textContent = 'the gate is quiet — the catalogue could not be reached. the museum itself is still open.';
+        document.getElementById('second-look-body').hidden = true;
+        var p = el('p', 'quest-fallback', '目錄暫時未能提供三幅不同而有影像記錄嘅作品。今次唔減低三幅要求，亦唔當完成；下面所有門照開。');
+        p.style.cssText = 'font-family:var(--mono);font-size:.8rem;color:var(--dim)';
         qWrap.appendChild(p);
+        updateProgress();
       });
   }
   loadQuest();
@@ -707,12 +846,14 @@ footer .sig{
   }
 
   function renderQuest(){
+    disposeClocks();
+    var generation = ++renderGeneration, date = today;
     qWrap.textContent = '';
     questWorks.forEach(function(w, i){
       var card = el('div', 'qwork');
       var imgbox = el('div', 'qimg');
       var img = document.createElement('img');
-      img.src = w.thumbnail || w.image; img.alt = w.title || 'artwork';
+      img.src = displayImage(w.thumbnail || w.image); img.alt = w.title || 'artwork';
       img.loading = 'lazy'; img.decoding = 'async';
       imgbox.appendChild(img);
       var veil = el('div', 'qveil', 'gaze · ' + GAZE_SECONDS + 's');
@@ -720,7 +861,7 @@ footer .sig{
       card.appendChild(imgbox);
       var meta = el('div', 'qmeta');
       meta.appendChild(el('div', 'qt', w.title || 'Untitled'));
-      meta.appendChild(el('div', 'qa', (w.artist || '無名氏 anonymous') + (w.date ? ' · ' + w.date : '')));
+      meta.appendChild(el('div', 'qa', (w.artist || '呢份記錄未載作者') + (w.date ? ' · ' + w.date : '')));
       var bar = el('div', 'qbar'); var fill = document.createElement('i'); bar.appendChild(fill);
       meta.appendChild(bar);
       var state = el('div', 'qstate');
@@ -733,42 +874,32 @@ footer .sig{
       var done = st.beheldToday.indexOf(w.image) !== -1;
       if (done) { finishGaze(card, fill, state); return; }
 
-      var timer = null, elapsed = 0, pausedShown = false;
       var goBtn = el('button', 'arise', 'begin gaze · 凝視');
       goBtn.type = 'button';
-      goBtn.setAttribute('aria-label', 'begin a ' + GAZE_SECONDS + '-second gaze at ' + (w.title || 'this work'));
+      goBtn.setAttribute('aria-label', '開始或取消二十秒頁面時計：' + (w.title || '呢幅作品'));
       state.appendChild(goBtn);
-
-      function stop(){ if (timer) { clearInterval(timer); timer = null; } }
-      function cancel(){
-        stop(); elapsed = 0; pausedShown = false;
-        card.classList.remove('gazing');
-        fill.style.transform = 'scaleX(0)';
-        goBtn.textContent = 'begin gaze · 凝視';
-      }
+      function current(){ return pageAlive && date === today && generation === renderGeneration && card.isConnected; }
+      var clock = visibleClock({
+        current:current,
+        update:function(elapsed, running, paused){
+          card.classList.toggle('gazing', running || elapsed >= GAZE_SECONDS * 1000);
+          fill.style.transform = 'scaleX(' + (elapsed / (GAZE_SECONDS * 1000)) + ')';
+          goBtn.textContent = !running ? 'begin gaze · 凝視' : (paused ? '暫停中 · 可取消' : '取消 · 餘 ' + Math.ceil(GAZE_SECONDS - elapsed / 1000) + ' 秒');
+        },
+        complete:offerArise
+      });
       function start(){
-        if (timer || done) return;
-        card.classList.add('gazing');
-        goBtn.textContent = 'stop · ' + GAZE_SECONDS + 's left';
-        timer = setInterval(function(){
-          if (document.hidden) {            /* the System only counts while you look */
-            if (!pausedShown) { pausedShown = true; goBtn.textContent = 'paused — the System only counts while you look'; }
-            return;
-          }
-          pausedShown = false;
-          elapsed++;
-          fill.style.transform = 'scaleX(' + Math.min(1, elapsed / GAZE_SECONDS) + ')';
-          if (elapsed >= GAZE_SECONDS) { stop(); offerArise(); }
-          else goBtn.textContent = 'stop · ' + (GAZE_SECONDS - elapsed) + 's left';
-        }, 1000);
+        if (syncDay() || !current() || done || st.beheldToday.indexOf(w.image) !== -1) return;
+        clock.start();
       }
       function offerArise(){
+        if (!current()) return;
         state.textContent = '';
         var btn = el('button', 'arise', 'ARISE · 起來');
         btn.type = 'button';
         btn.addEventListener('click', function(){
-          if (syncDay()) return;            /* the calendar turned mid-gaze: new day, new quest */
-          done = true;
+          if (syncDay() || !current() || !btn.isConnected || done || st.beheldToday.indexOf(w.image) !== -1) return;
+          done = true; btn.disabled = true; clock.dispose();
           st.beheldToday.push(w.image);
           st.shadows.unshift({ image: w.thumbnail || w.image, title: w.title || 'Untitled', url: w.url || '#' });
           if (st.shadows.length > 96) st.shadows.length = 96;
@@ -778,33 +909,38 @@ footer .sig{
           showToast('[ ARISE ]', '「' + (w.title || 'the work') + '」 rises. a shadow joins your gallery. +10 xp');
         });
         state.appendChild(btn);
-        btn.focus();
+        if (!document.hidden && document.hasFocus()) btn.focus();
       }
       goBtn.addEventListener('click', function(){
-        if (timer) { cancel(); return; }
-        if (!done && elapsed < GAZE_SECONDS) start();
+        if (!goBtn.isConnected || syncDay() || !current() || done) return;
+        if (clock.active()) clock.cancel();
+        else start();
       });
       card.addEventListener('click', function(e){
         if (e.target.closest('button')) return;
-        if (!timer && !done && elapsed < GAZE_SECONDS) start();
+        if (!clock.active()) start();
       });
     });
     updateProgress();
+    renderSecondLook();
   }
 
   function finishGaze(card, fill, state){
     card.classList.add('beheld', 'gazing');
     fill.style.transform = 'scaleX(1)';
-    state.textContent = 'beheld · shadow secured';
+    state.textContent = '操作已記 · shadow secured';
   }
 
+  function todayCount(){
+    return st.lastDay === today ? new Set(st.beheldToday.filter(function(image){ return image.trim(); })).size : 0;
+  }
   function updateProgress(){
-    var n = st.beheldToday.length;
+    var n = todayCount();
     document.getElementById('quest-progress').textContent =
       'gaze ' + Math.min(n,3) + ' / 3 · placard ' + (st.placardRead ? 'read' : 'unread');
     var step = document.getElementById('placard-step');
-    /* only offer the placard once today's works are actually loaded */
-    if (questWorks.length && n >= 3 && !st.placardRead && st.doneDay !== today) {
+    /* 三幅不同作品嘅記錄到齊先提供展牌。 */
+    if (questWorks.length === 3 && n >= 3 && !st.placardRead && st.doneDay !== today) {
       var wasHidden = step.hidden;
       step.hidden = false;
       renderPlacard();
@@ -812,21 +948,26 @@ footer .sig{
         var box = document.getElementById('placard-box');
         if (box) box.focus();
       }
-    }
+    } else step.hidden = true;
     document.getElementById('quest-done-line').hidden = !(st.doneDay === today);
   }
 
   function renderPlacard(){
-    if (!questWorks.length) return;
-    var w = questWorks[0];
+    if (questWorks.length !== 3) return;
+    var w = questWorks[0], date = today, generation = renderGeneration;
+    var completed = false;
     document.getElementById('pl-title').textContent = w.title || 'Untitled';
     document.getElementById('pl-body').textContent =
       (w.artist ? w.artist + ' · ' : '') + (w.date || '') + (w.medium ? ' · ' + w.medium : '') +
       ' · ' + (w.source_name || '') + (wingInfo ? ' — from the wing “' + wingInfo.title + '”: ' + wingInfo.description : '');
     document.getElementById('pl-zh').textContent = '讀展牌，即係畀件作品一個開口嘅機會。';
     var btn = document.getElementById('pl-read');
+    btn.disabled = false;
     btn.onclick = function(){
-      if (syncDay()) return;               /* the calendar turned: restart the day honestly */
+      if (syncDay() || !pageAlive || date !== today || generation !== renderGeneration || completed ||
+          !btn.isConnected || document.getElementById('placard-step').hidden || st.placardRead ||
+          st.doneDay === today || questWorks.length !== 3 || todayCount() < 3) return;
+      completed = true; btn.disabled = true;
       st.placardRead = true;
       st.doneDay = today;
       st.streak += 1;
@@ -834,12 +975,69 @@ footer .sig{
       st.xp += 40 + Math.min(25, st.streak * 5);
       save(st);
       document.getElementById('placard-step').hidden = true;
-      updateProgress(); renderStatus();
+      updateProgress(); renderStatus(); renderBoot(); renderSecondLook();
       var doneLine = document.getElementById('quest-done-line');
       if (doneLine && !doneLine.hidden) doneLine.focus();
       var lvl = levelOf(st.xp), rk = rankOf(lvl);
       showToast('[ QUEST COMPLETE ]', 'streak ' + st.streak + ' · +40 xp (+' + Math.min(25, st.streak*5) + ' streak bonus) · rank ' + rk.r + ' lv.' + lvl);
     };
+  }
+
+  /* 回望只保留當頁回應；唔經 save，唔加任何 player 欄位。 */
+  function renderSecondLook(){
+    var body = document.getElementById('second-look-body');
+    body.textContent = '';
+    body.hidden = !(questWorks.length === 3 && st.placardRead && st.doneDay === today);
+    if (body.hidden) return;
+    var w = questWorks[0], date = today, generation = renderGeneration;
+    var key = date + '\n' + w.image;
+    if (secondLook.key !== key) secondLook = { key:key, done:false };
+    var room = el('div', 'sysw second-room');
+    var figure = el('figure', 'second-figure');
+    var image = document.createElement('img');
+    image.alt = w.title || 'Untitled'; image.src = displayImage(w.thumbnail || w.image);
+    image.addEventListener('error', function(){ figure.classList.add('rests'); });
+    image.addEventListener('load', function(){ figure.classList.remove('rests'); });
+    figure.appendChild(image);
+    figure.appendChild(el('figcaption', '', (w.title || 'Untitled') + ' · ' + (w.artist || '呢份記錄未載作者') +
+      (w.date ? ' · ' + w.date : '') + (w.source_name ? ' · ' + w.source_name : '')));
+    room.appendChild(figure);
+    var words = el('div');
+    words.appendChild(el('p', 'ding', '[ THE SHADOW TURNS ]'));
+    words.appendChild(el('p', 'second-prompt', '知道多咗少少，再望一次。有咩改變咗？有咩仍然未知？'));
+    words.appendChild(el('p', 'second-boundary', '唔使答我。可以停、略過、離開；光只回應操作，唔係理解嘅證明。'));
+    var status = el('p', 'second-status', '唔急。幅畫仲喺度。');
+    status.id = 'second-look-status'; status.setAttribute('role', 'status');
+    words.appendChild(status);
+    var start = mkBtn('再望二十秒', function(){
+      if (syncDay() || !current() || secondLook.done) return;
+      if (clock.active()) clock.cancel(); else clock.start();
+    });
+    start.id = 'second-look-start';
+    var skip = mkBtn('今次略過', function(){
+      if (syncDay() || !current() || secondLook.done) return;
+      clock.cancel(); status.textContent = '今次略過。想返嚟，可以；離開亦得。';
+    });
+    skip.id = 'second-look-skip'; skip.classList.add('quiet');
+    words.appendChild(start); words.appendChild(skip); room.appendChild(words); body.appendChild(room);
+    function current(){ return pageAlive && date === today && generation === renderGeneration && room.isConnected; }
+    function acknowledge(){
+      room.classList.add('turned'); status.textContent = '回望過。未知嘅，仍然可以未知。';
+      start.textContent = '回望過'; start.disabled = true; skip.hidden = true;
+    }
+    var clock = visibleClock({
+      current:current,
+      update:function(elapsed, running, paused){
+        start.textContent = running ? '停低 · 重置時計' : '再望二十秒';
+        status.textContent = !running ? '唔急。幅畫仲喺度。' :
+          (paused ? '暫停中，已經過嘅時段照留。' : '再望中 · 餘 ' + Math.ceil(GAZE_SECONDS - elapsed / 1000) + ' 秒');
+      },
+      complete:function(){
+        if (!current() || secondLook.done) return;
+        secondLook.done = true; clock.dispose(); acknowledge();
+      }
+    });
+    if (secondLook.done) { clock.dispose(); acknowledge(); }
   }
 
   /* ---- status ---- */
@@ -853,7 +1051,7 @@ footer .sig{
     var into = st.xp % 100;
     document.getElementById('xp-fill').style.transform = 'scaleX(' + (into / 100) + ')';
     document.getElementById('xp-note').textContent = 'xp ' + st.xp + ' · next level at ' + (Math.floor(st.xp/100)+1)*100 +
-      (rk.r === 'S' ? ' · the System has nothing left to teach — 卒業' : '');
+      (rk.r === 'S' ? ' · S 級，仍然可以再學、再望' : '');
     renderGates(lvl);
   }
 
@@ -892,7 +1090,7 @@ footer .sig{
       var a = document.createElement('a');
       a.className = 'shadow'; a.href = s.url; a.target = '_blank'; a.rel = 'noopener';
       var img = document.createElement('img');
-      img.src = s.image; img.alt = s.title; img.loading = 'lazy'; img.decoding = 'async';
+      img.src = displayImage(s.image); img.alt = s.title; img.loading = 'lazy'; img.decoding = 'async';
       a.appendChild(img);
       a.appendChild(el('span', 's-tip', s.title));
       wrap.appendChild(a);

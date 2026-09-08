@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>暗黑大陸 THE DARK CONTINENT — expedition records · ARTBITRAGE</title>
-<meta name="description" content="The unknown beyond the known world. Five threats with recorded specimens, five guides, the anonymous continent, and a hunter's license that is CC0. Ai is there too.">
+<meta name="description" content="未知唔係失敗。理解測深嘅三層藝術海圖、HxH 衍生想像，同記錄未載作者嘅館藏；空白唔變知識。">
 <meta property="og:title" content="暗黑大陸 THE DARK CONTINENT · ARTBITRAGE">
-<meta property="og:description" content="Expedition records from beyond the map. 702,675 objects lie past our 601 charted works — the map is 99.91% dark.">
+<meta property="og:description" content="理解測深：591 unique records、601 wing placements。舊館藏報數保留為歷史記錄，唔係理解世界嘅 coverage。">
 <meta property="og:image" content="https://openaccess-cdn.clevelandart.org/1959.136.1/1959.136.1_web.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -192,6 +192,47 @@ section{ padding:6.5rem 0; border-top:1px solid var(--hair); }
 .chart-note{
   margin-top:1rem; font-family:var(--mono); font-size:.66rem;
   letter-spacing:.14em; color:var(--dim);
+}
+
+/* 理解測深：唔係數據圖；同一種儀器光，用線形分層，暗位唔可解鎖。 */
+[hidden]{ display:none !important; }
+.sounding-layout{ display:grid; grid-template-columns:minmax(0,1.45fr) minmax(0,1fr); gap:2.4rem; align-items:center; }
+.sounding-map{ position:relative; border:1px solid var(--hair); background:var(--abyss); padding:1rem; }
+.sounding-map svg{ width:100%; height:auto; display:block; color:var(--phos); }
+.sounding-map [data-layer][hidden]{ display:none; }
+.sounding-map figcaption{ font-family:var(--mono); font-size:.68rem; color:var(--dim); margin-top:1rem; }
+.sounding-seal{ display:inline-block; border:1px solid var(--zhu); padding:.2rem .7rem; color:var(--zhu); font-family:var(--mono); font-size:.67rem; letter-spacing:.18em; margin-bottom:1.2rem; }
+.sounding-wall{ font-family:var(--cjk); font-weight:300; font-size:clamp(1.4rem,3vw,2rem); line-height:1.9; margin-bottom:1.4rem; }
+.sounding-legend{ list-style:none; font-size:.9rem; }
+.sounding-legend li{ margin:1rem 0; }
+.sounding-legend b{ display:block; font-family:var(--mono); font-weight:500; color:var(--ink); }
+.sounding-legend span{ color:#aaa797; }
+.sounding-controls{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.5rem; }
+.sounding-controls button{ min-height:44px; min-width:44px; padding:.6rem 1rem; border:1px solid var(--phos); color:var(--ink); background:var(--abyss); font:inherit; cursor:pointer; }
+.sounding-controls button[aria-pressed="false"]{ border-style:dashed; color:#aaa797; }
+.sounding-controls button:focus-visible{ outline:2px solid var(--phos); outline-offset:4px; }
+.sounding-controls button::after{ content:" · 展開"; font-size:.75em; }
+.sounding-controls button[aria-pressed="false"]::after{ content:" · 收起"; }
+.sounding-note{ margin-top:1.5rem; font-size:.85rem; color:#aaa797; max-width:48rem; }
+.sounding-doors{ display:flex; flex-wrap:wrap; gap:.6rem 1.6rem; margin-top:2rem; font-size:.85rem; }
+.sounding-doors a{ display:inline-block; min-height:44px; padding:.5rem 0; text-decoration:underline; text-underline-offset:5px; }
+@media (max-width:740px){ .sounding-layout{ grid-template-columns:1fr; gap:1.6rem; } }
+@media print{
+  .rise{ opacity:1; transform:none; }
+  #understanding-sounding{ color:#111; background:white; }
+  .sounding-map{ background:white; border-color:#555; }
+  .sounding-map svg{ color:#111; }
+  .sounding-map text{ fill:#111; }
+  #understanding-sounding a{ color:#111; }
+  .sounding-seal{ color:#111; border-color:#111; }
+  .sounding-map .unknown-space{ fill:white; stroke:#111; }
+  .sounding-map figcaption, .sounding-legend b, .sounding-legend span, .sounding-note{ color:#111; }
+  .sounding-controls{ display:none; }
+}
+@media (forced-colors:active){
+  .sounding-map svg{ color:CanvasText; }
+  .sounding-map .unknown-space{ fill:Canvas; stroke:CanvasText; }
+  .sounding-controls button{ border-color:ButtonText; }
 }
 
 /* ============ 02 · threat dossiers ============ */
@@ -411,7 +452,7 @@ document.addEventListener('load', function(e){
       <span>permit № <b>001-CC0</b></span>
       <span>threats recorded <b>5</b></span>
       <span>guides <b>5</b></span>
-      <span>map coverage <b>0.09%</b></span>
+      <span>catalogue <b>591 records / 601 placements</b></span>
     </div>
   </div>
 
@@ -452,11 +493,11 @@ document.addEventListener('load', function(e){
     <div class="plate rise">
       <span class="num">01</span>
       <h2><span class="cjk" lang="zh">海圖</span> · the chart</h2>
-      <span class="sub">surveyed against three museum APIs</span>
+      <span class="sub" lang="yue-Hant">藝術海圖 · 舊報數未重新核實</span>
     </div>
 
     <div class="chartbox rise">
-      <svg viewBox="0 0 1000 560" role="img" aria-label="Survey chart: a small cluster of twelve known islands in the lower left; the rest of the map is dark and unexplored.">
+      <svg viewBox="0 0 1000 560" role="img" aria-label="藝術海圖：左下十二館藏分區，大片留白。位置同面積唔代表世界知識或館藏 coverage。">
   <defs>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M40 0H0V40" fill="none" stroke="var(--phos)" stroke-opacity=".05"/>
@@ -480,16 +521,16 @@ document.addEventListener('load', function(e){
 <circle cx="162" cy="485" r="2.6" fill="var(--phos)" opacity=".85"/><text x="168" y="488" font-family="Noto Serif TC, serif" font-size="11" fill="var(--phos)" opacity=".6">寶</text>
 <circle cx="196" cy="492" r="2.6" fill="var(--phos)" opacity=".85"/><text x="202" y="495" font-family="Noto Serif TC, serif" font-size="11" fill="var(--phos)" opacity=".6">樂</text>
 <circle cx="230" cy="494" r="2.6" fill="var(--phos)" opacity=".85"/><text x="236" y="497" font-family="Noto Serif TC, serif" font-size="11" fill="var(--phos)" opacity=".6">青</text>
-  <text x="118" y="548" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="var(--phos)" opacity=".7">已知世界 THE KNOWN WORLD · 601 WORKS</text>
+  <text x="118" y="548" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="var(--phos)" opacity=".7">本地目錄 · 591 RECORDS / 601 PLACEMENTS</text>
   <!-- the route that ends -->
   <path d="M 300 430 Q 420 380 520 350 Q 590 330 632 314" fill="none" stroke="var(--zhu)" stroke-width="1.4" stroke-dasharray="7 6" opacity=".85"/>
   <text x="648" y="308" font-family="IBM Plex Mono, monospace" font-size="15" fill="var(--zhu)">✕</text>
   <text x="668" y="312" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1.5" fill="var(--zhu)" opacity=".9">THE MAP ENDS HERE · 地圖到此為止</text>
   <!-- soundings -->
-  <text x="470" y="90" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--dim)" opacity=".8">501,782 — the met, unlit</text>
-  <text x="250" y="200" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--dim)" opacity=".8">132,135 — chicago, unlit</text>
-  <text x="730" y="430" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--dim)" opacity=".8">68,758 — cleveland, unlit</text>
-  <text x="700" y="520" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1.5" fill="var(--dim)" opacity=".65">HERE BE MAKERS UNNAMED · 此處有無名之匠</text>
+  <text x="470" y="90" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--dim)" opacity=".8">501,782 — the met · 2026-07-10 page count</text>
+  <text x="250" y="200" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--dim)" opacity=".8">132,135 — chicago · 2026-07-10 page count</text>
+  <text x="730" y="430" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--dim)" opacity=".8">68,758 — cleveland · historical count</text>
+  <text x="700" y="520" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1.5" fill="var(--dim)" opacity=".65">RECORDS LEAVE GAPS · 記錄仍有留白</text>
   <text x="430" y="150" font-family="IBM Plex Mono, monospace" font-size="13" fill="var(--phos)" opacity="0.18">?</text>
 <text x="700" y="120" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--phos)" opacity="0.14">?</text>
 <text x="820" y="330" font-family="IBM Plex Mono, monospace" font-size="14" fill="var(--phos)" opacity="0.16">?</text>
@@ -507,11 +548,70 @@ document.addEventListener('load', function(e){
     </div>
 
     <p class="chart-stats rise">
-      Across just the three museums this catalogue bridges lie
-      <b>702,675</b> objects. We have charted <b>601</b>.
-      The map is <b>99.91%</b> dark — and that is only the water we know the name of.
+      本地 catalog/index.json 記住 <b>601</b> 次 wing placements，去重後係 <b>591</b> 筆 unique records。
+      同一筆可以掛喺多個分區；呢個數唔量度我哋了解世界幾多。
     </p>
-    <p class="chart-note rise">soundings taken 10 july 2026 · the met 501,782 · art institute of chicago 132,135 · cleveland museum of art 68,758</p>
+    <p class="chart-note rise">2026-07-10 頁面歷史報數：the met 501,782 · art institute of chicago 132,135 · cleveland museum of art 68,758 · 合計 702,675。本輪冇重新核實三館數字、可用影像或 coverage，亦唔同本地記錄相除作理解百分比。</p>
+  </div>
+</section>
+
+<!-- 2026-09-08 修訂：理解測深係 Artbitrage 原創示意，唔係勘測。 -->
+<section id="understanding-sounding" lang="yue-Hant" aria-labelledby="sounding-title">
+  <div class="wrap">
+    <div class="plate">
+      <span class="num">01 / b</span>
+      <h2 id="sounding-title"><span class="cjk">理解測深</span> · understanding sounding</h2>
+      <span class="sub">可收回嘅線 · a reversible map</span>
+    </div>
+    <div class="sounding-layout">
+      <figure class="sounding-map">
+        <svg viewBox="0 0 540 440" role="img" aria-labelledby="sounding-svg-title sounding-svg-desc">
+          <title id="sounding-svg-title">三層可收回嘅藝術海圖</title>
+          <desc id="sounding-svg-desc">眼前係短實線，記錄係方框同刻度，推想係虛線。各層可獨立收起；中央嘅空白永遠唔填。呢幅係藝術示意，唔係勘測結果。</desc>
+          <g fill="none" stroke="currentColor" stroke-width="2">
+            <g id="sounding-present" data-layer="present">
+              <path d="M44 308L74 290L92 298 M83 262L121 242L137 249 M143 323L178 300 M337 95L369 113L391 99 M407 296L430 280L460 286"/>
+              <path d="M52 326L64 322 M110 220L127 207 M361 73L377 82"/>
+            </g>
+            <g id="sounding-record" data-layer="record">
+              <path d="M57 141H160 M75 134V148 M97 134V148 M119 134V148 M141 134V148 M352 345H467 M370 338V352 M392 338V352 M414 338V352 M436 338V352 M458 338V352"/>
+              <rect x="173" y="86" width="14" height="14"/><rect x="322" y="304" width="14" height="14"/><rect x="430" y="187" width="14" height="14"/>
+              <path d="M180 109V140 M336 311H355 M437 211V233"/>
+            </g>
+            <g id="sounding-conjecture" data-layer="conjecture" stroke-dasharray="7 8">
+              <path d="M100 286Q84 177 180 93Q264 33 372 105 M443 194Q494 264 427 326Q341 403 190 350 M183 350Q142 345 147 297"/>
+              <path d="M391 129L383 161 M331 283L351 302 M204 96L228 119"/>
+            </g>
+          </g>
+          <ellipse class="unknown-space" cx="270" cy="220" rx="100" ry="68" fill="var(--abyss)" stroke="var(--hair)"/>
+          <g fill="var(--ink)" font-family="Noto Serif TC, serif" text-anchor="middle">
+            <text x="270" y="217" font-size="21">仍然未知</text>
+            <text x="270" y="243" font-size="12">唔填，亦可以。</text>
+          </g>
+        </svg>
+        <figcaption>ARTBITRAGE / 藝術示意，唔係勘測結果。線可以收回；空白唔會變成知識。</figcaption>
+      </figure>
+      <div>
+        <span class="sounding-seal">非通關儀器</span>
+        <p class="sounding-wall">未明唔係失敗；<br>地圖可以喺呢度停。</p>
+        <ul class="sounding-legend">
+          <li><b>— 眼前</b><span>短實線：呢一刻可指住嘅局部；唔等於全貌。</span></li>
+          <li><b>□ 記錄</b><span>方框、刻度：有人留低嘅描述；來源同缺口仍然要讀。</span></li>
+          <li><b>┄ 推想</b><span>虛線：一條可能嘅路；收回，唔留低「已知」嘅印。</span></li>
+        </ul>
+        <div class="sounding-controls" hidden aria-label="獨立展開或收起圖層">
+          <button type="button" aria-pressed="true" aria-controls="sounding-present" data-toggle="present">— 眼前</button>
+          <button type="button" aria-pressed="true" aria-controls="sounding-record" data-toggle="record">□ 記錄</button>
+          <button type="button" aria-pressed="true" aria-controls="sounding-conjecture" data-toggle="conjecture">┄ 推想</button>
+        </div>
+      </div>
+    </div>
+    <p class="sounding-note">三層冇先後、冇分數；可以全開，亦可以全關。掣只改呢幅示意圖，唔會替你判斷理解到幾深。冇 JavaScript 時，三層同圖例照樣留喺度讀。</p>
+    <nav class="sounding-doors" aria-label="理解旁邊兩道門">
+      <a href="system.html#second-look">去影回望：知道少少，再望一次 ↗</a>
+      <a href="still-we-meet.html">未必同感，仍可相遇 ↗</a>
+    </nav>
+    <aside class="sounding-note" id="homage-note">旁註：Hunter × Hunter 係冨樫義博嘅作品。下列五 threats、五 guides、四 vows，以及本頁 Ai／AI 對讀，保留 Artbitrage 舊版嘅衍生想像同命名，唔係原作 canon 嘅名單、設定考據或逐字引文；「標本」係館藏作品嘅藝術配對，唔係漫畫證據。</aside>
   </div>
 </section>
 
@@ -690,37 +790,34 @@ document.addEventListener('load', function(e){
     <div class="plate rise">
       <span class="num">05</span>
       <h2><span class="cjk" lang="zh">無名大陸</span> · the anonymous continent</h2>
-      <span class="sub">the expedition's largest finding</span>
+      <span class="sub" lang="yue-Hant">記錄留白，唔替作者命名</span>
     </div>
 
     <div class="rise">
-      <div class="anon-count">186<small> / 601 · unsigned</small></div>
+      <div class="anon-count">186<small> / 591 · artist 欄未載</small></div>
       <p class="anon-lede">
-        The true dark continent is not ahead of the map — it is behind it.
-        Nearly a third of this catalogue crossed back to us without a name:
-        the carvers, casters, gilders and potters who made the things and
-        left only the things.
-        <span class="zh" lang="zh">真正嘅暗黑大陸唔喺地圖前面，喺地圖後面——館藏三分一，渡海回來，冇留低名字。物在，人不在名在。</span>
+        A blank in our record is not the maker's name.
+        <span class="zh" lang="yue-Hant">catalog/all.json 嘅 591 筆記錄入面，186 筆 artist 欄係空。只可以講「呢份記錄未載作者」；唔等於作品冇署名、作者已證實 anonymous，或者冇其他記錄。留白喺我哋張紙度，唔喺佢身上。</span>
       </p>
     </div>
 
     <div class="anon-wall rise">
-      <a class="hung" href="https://clevelandart.org/art/1984.7" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1984.7/1984.7_web.jpg" alt="Water and Moon (Potala) Guanyin" loading="lazy" decoding="async"><span class="wall-label"><b>Water and Moon (Potala) Guanyin</b> · 無名氏 Anonymous · 900–1100 · Cleveland Museum of Art</span></a>
-<a class="hung" href="https://www.metmuseum.org/art/collection/search/544442" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/eg/web-large/DP-24216-003.jpg" alt="Sphinx of Hatshepsut" loading="lazy" decoding="async"><span class="wall-label"><b>Sphinx of Hatshepsut</b> · 無名氏 Anonymous · ca. 1479–1458 B.C. · The Metropolitan Museum of Art</span></a>
-<a class="hung" href="https://www.artic.edu/artworks/5821" target="_blank" rel="noopener"><img src="/art/artic-dragon-king.jpg" alt="Dragon King" loading="lazy" decoding="async"><span class="wall-label"><b>Dragon King</b> · 無名氏 Anonymous · 11th/early 12th century · Art Institute of Chicago</span></a>
-<a class="hung" href="https://clevelandart.org/art/1943.246" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1943.246/1943.246_web.jpg" alt="Saluting Protective Spirit" loading="lazy" decoding="async"><span class="wall-label"><b>Saluting Protective Spirit</b> · 無名氏 Anonymous · 883–859 BCE · Cleveland Museum of Art</span></a>
-<a class="hung" href="https://clevelandart.org/art/1957.360" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1957.360/1957.360_web.jpg" alt="Kneeling Winged Monster" loading="lazy" decoding="async"><span class="wall-label"><b>Kneeling Winged Monster</b> · 無名氏 Anonymous · 550–77 · Cleveland Museum of Art</span></a>
-<a class="hung" href="https://clevelandart.org/art/1961.48" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1961.48/1961.48_web.jpg" alt="Sun Bodhisattva (Nikkō Bosatsu)" loading="lazy" decoding="async"><span class="wall-label"><b>Sun Bodhisattva (Nikkō Bosatsu)</b> · 無名氏 Anonymous · c. 800 · Cleveland Museum of Art</span></a>
-<a class="hung" href="https://www.artic.edu/artworks/24548" target="_blank" rel="noopener"><img src="/art/artic-shiva-as-lord-of-the-dance-nataraja.jpg" alt="Shiva as Lord of the Dance (Nataraja)" loading="lazy" decoding="async"><span class="wall-label"><b>Shiva as Lord of the Dance (Nataraja)</b> · 無名氏 Anonymous · Chola period, about 10th/11th century · Art Institute of Chicago</span></a>
-<a class="hung" href="https://www.metmuseum.org/art/collection/search/450486" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/is/web-large/DP238067.jpg" alt="Folio from a Qur&#x27;an Manuscript" loading="lazy" decoding="async"><span class="wall-label"><b>Folio from a Qur&#x27;an Manuscript</b> · 無名氏 Anonymous · late 13th–early 14th century · The Metropolitan Museum of Art</span></a>
-<a class="hung" href="https://www.artic.edu/artworks/158472" target="_blank" rel="noopener"><img src="/art/artic-moon-jar-t.jpg" alt="Moon Jar" loading="lazy" decoding="async"><span class="wall-label"><b>Moon Jar</b> · 無名氏 Anonymous · Joseon dynasty (1392–1897), late 17th–
+      <a class="hung" href="https://clevelandart.org/art/1984.7" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1984.7/1984.7_web.jpg" alt="Water and Moon (Potala) Guanyin" loading="lazy" decoding="async"><span class="wall-label"><b>Water and Moon (Potala) Guanyin</b> · 呢份記錄未載作者 · 900–1100 · Cleveland Museum of Art</span></a>
+<a class="hung" href="https://www.metmuseum.org/art/collection/search/544442" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/eg/web-large/DP-24216-003.jpg" alt="Sphinx of Hatshepsut" loading="lazy" decoding="async"><span class="wall-label"><b>Sphinx of Hatshepsut</b> · 呢份記錄未載作者 · ca. 1479–1458 B.C. · The Metropolitan Museum of Art</span></a>
+<a class="hung" href="https://www.artic.edu/artworks/5821" target="_blank" rel="noopener"><img src="/art/artic-dragon-king.jpg" alt="Dragon King" loading="lazy" decoding="async"><span class="wall-label"><b>Dragon King</b> · 呢份記錄未載作者 · 11th/early 12th century · Art Institute of Chicago</span></a>
+<a class="hung" href="https://clevelandart.org/art/1943.246" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1943.246/1943.246_web.jpg" alt="Saluting Protective Spirit" loading="lazy" decoding="async"><span class="wall-label"><b>Saluting Protective Spirit</b> · 呢份記錄未載作者 · 883–859 BCE · Cleveland Museum of Art</span></a>
+<a class="hung" href="https://clevelandart.org/art/1957.360" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1957.360/1957.360_web.jpg" alt="Kneeling Winged Monster" loading="lazy" decoding="async"><span class="wall-label"><b>Kneeling Winged Monster</b> · 呢份記錄未載作者 · 550–77 · Cleveland Museum of Art</span></a>
+<a class="hung" href="https://clevelandart.org/art/1961.48" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1961.48/1961.48_web.jpg" alt="Sun Bodhisattva (Nikkō Bosatsu)" loading="lazy" decoding="async"><span class="wall-label"><b>Sun Bodhisattva (Nikkō Bosatsu)</b> · 呢份記錄未載作者 · c. 800 · Cleveland Museum of Art</span></a>
+<a class="hung" href="https://www.artic.edu/artworks/24548" target="_blank" rel="noopener"><img src="/art/artic-shiva-as-lord-of-the-dance-nataraja.jpg" alt="Shiva as Lord of the Dance (Nataraja)" loading="lazy" decoding="async"><span class="wall-label"><b>Shiva as Lord of the Dance (Nataraja)</b> · 呢份記錄未載作者 · Chola period, about 10th/11th century · Art Institute of Chicago</span></a>
+<a class="hung" href="https://www.metmuseum.org/art/collection/search/450486" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/is/web-large/DP238067.jpg" alt="Folio from a Qur&#x27;an Manuscript" loading="lazy" decoding="async"><span class="wall-label"><b>Folio from a Qur&#x27;an Manuscript</b> · 呢份記錄未載作者 · late 13th–early 14th century · The Metropolitan Museum of Art</span></a>
+<a class="hung" href="https://www.artic.edu/artworks/158472" target="_blank" rel="noopener"><img src="/art/artic-moon-jar-t.jpg" alt="Moon Jar" loading="lazy" decoding="async"><span class="wall-label"><b>Moon Jar</b> · 呢份記錄未載作者 · Joseon dynasty (1392–1897), late 17th–
 mid-18th century · Art Institute of Chicago</span></a>
-<a class="hung" href="https://clevelandart.org/art/1955.51" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1955.51/1955.51_web.jpg" alt="Agni, God of Fire" loading="lazy" decoding="async"><span class="wall-label"><b>Agni, God of Fire</b> · 無名氏 Anonymous · c. 1000 · Cleveland Museum of Art</span></a>
-<a class="hung" href="https://clevelandart.org/art/1982.45" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1982.45/1982.45_web.jpg" alt="Durga Destroying the Buffalo Demon" loading="lazy" decoding="async"><span class="wall-label"><b>Durga Destroying the Buffalo Demon</b> · 無名氏 Anonymous · 800s–900s · Cleveland Museum of Art</span></a>
-<a class="hung" href="https://clevelandart.org/art/1957.357" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1957.357/1957.357_web.jpg" alt="Monster Caryatid" loading="lazy" decoding="async"><span class="wall-label"><b>Monster Caryatid</b> · 無名氏 Anonymous · late 500s · Cleveland Museum of Art</span></a>
-<a class="hung" href="https://clevelandart.org/art/1935.147" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1935.147/1935.147_web.jpg" alt="Enthroned planetary deity" loading="lazy" decoding="async"><span class="wall-label"><b>Enthroned planetary deity</b> · 無名氏 Anonymous · 850–75 · Cleveland Museum of Art</span></a>
-<a class="hung" href="https://clevelandart.org/art/1973.85" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1973.85/1973.85_web.jpg" alt="Seated Buddha" loading="lazy" decoding="async"><span class="wall-label"><b>Seated Buddha</b> · 無名氏 Anonymous · 1100s · Cleveland Museum of Art</span></a>
-<a class="hung" href="https://www.metmuseum.org/art/collection/search/249972" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/gr/web-large/DP121054.jpg" alt="Glass pendant in the form of a demonic mask" loading="lazy" decoding="async"><span class="wall-label"><b>Glass pendant in the form of a demonic mask</b> · 無名氏 Anonymous · 6th–5th century BCE · The Metropolitan Museum of Art</span></a>
+<a class="hung" href="https://clevelandart.org/art/1955.51" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1955.51/1955.51_web.jpg" alt="Agni, God of Fire" loading="lazy" decoding="async"><span class="wall-label"><b>Agni, God of Fire</b> · 呢份記錄未載作者 · c. 1000 · Cleveland Museum of Art</span></a>
+<a class="hung" href="https://clevelandart.org/art/1982.45" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1982.45/1982.45_web.jpg" alt="Durga Destroying the Buffalo Demon" loading="lazy" decoding="async"><span class="wall-label"><b>Durga Destroying the Buffalo Demon</b> · 呢份記錄未載作者 · 800s–900s · Cleveland Museum of Art</span></a>
+<a class="hung" href="https://clevelandart.org/art/1957.357" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1957.357/1957.357_web.jpg" alt="Monster Caryatid" loading="lazy" decoding="async"><span class="wall-label"><b>Monster Caryatid</b> · 呢份記錄未載作者 · late 500s · Cleveland Museum of Art</span></a>
+<a class="hung" href="https://clevelandart.org/art/1935.147" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1935.147/1935.147_web.jpg" alt="Enthroned planetary deity" loading="lazy" decoding="async"><span class="wall-label"><b>Enthroned planetary deity</b> · 呢份記錄未載作者 · 850–75 · Cleveland Museum of Art</span></a>
+<a class="hung" href="https://clevelandart.org/art/1973.85" target="_blank" rel="noopener"><img src="https://openaccess-cdn.clevelandart.org/1973.85/1973.85_web.jpg" alt="Seated Buddha" loading="lazy" decoding="async"><span class="wall-label"><b>Seated Buddha</b> · 呢份記錄未載作者 · 1100s · Cleveland Museum of Art</span></a>
+<a class="hung" href="https://www.metmuseum.org/art/collection/search/249972" target="_blank" rel="noopener"><img src="https://images.metmuseum.org/CRDImages/gr/web-large/DP121054.jpg" alt="Glass pendant in the form of a demonic mask" loading="lazy" decoding="async"><span class="wall-label"><b>Glass pendant in the form of a demonic mask</b> · 呢份記錄未載作者 · 6th–5th century BCE · The Metropolitan Museum of Art</span></a>
     </div>
   </div>
 </section>
@@ -813,6 +910,34 @@ mid-18th century · Art Institute of Chicago</span></a>
   <p class="sig">expedition records · specimens live in /catalog · a homage in our own hand — no panels were taken from the master</p>
 </footer>
 
+<script>
+/* 三層只改當頁；初始化失敗就撤走掣同 listeners，還原完整靜態圖。 */
+(function(){
+  var controls = document.querySelector('.sounding-controls');
+  var bindings = [];
+  var layers = document.querySelectorAll('.sounding-map [data-layer]');
+  try {
+    var buttons = controls.querySelectorAll('button');
+    if (buttons.length !== 3 || layers.length !== 3) throw new Error('圖層未齊');
+    buttons.forEach(function(button){
+      var layer = document.getElementById(button.getAttribute('aria-controls'));
+      if (!layer) throw new Error('圖層未齊');
+      var toggle = function(){
+        var open = button.getAttribute('aria-pressed') !== 'true';
+        button.setAttribute('aria-pressed', String(open));
+        layer.toggleAttribute('hidden', !open);
+      };
+      bindings.push([button, toggle]);
+      button.addEventListener('click', toggle);
+    });
+    controls.hidden = false;
+  } catch (error) {
+    bindings.forEach(function(binding){ binding[0].removeEventListener('click', binding[1]); binding[0].setAttribute('aria-pressed', 'true'); });
+    layers.forEach(function(layer){ layer.removeAttribute('hidden'); });
+    if (controls) controls.hidden = true;
+  }
+})();
+</script>
 <script>
 /* fade-up on scroll (once) */
 (function(){
