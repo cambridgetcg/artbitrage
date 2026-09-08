@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="yue-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="兩頁唔成為同一句，只係為對方留出可讀嘅位置。">
+<title>未必同感，仍可相遇 · Artbitrage</title>
+<style>
+:root {
+  color-scheme: dark;
+  --wall: #171b1d;
+  --ink: #e5e1d7;
+  --quiet: #b7b6ad;
+  --focus: #f2c99a;
+  --serif: "Songti TC", "Songti SC", "PMingLiU", "MingLiU", serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--wall);
+  background-image: radial-gradient(ellipse at 46% 52%, #272b2b 0, transparent 68%);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-underline-offset: .35em; }
+a:hover { color: var(--focus); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 5px; }
+::selection { background: #785540; color: #fff7ea; }
+.room { width: min(100%, 1256px); margin: auto; padding: 28px 48px 72px; }
+.door {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--quiet);
+}
+.room-name { margin: 0; font: .75rem/1.7 Georgia, serif; letter-spacing: .19em; }
+.back { display: inline-flex; align-items: center; min-height: 44px; font-size: .9375rem; }
+.intro { display: flex; justify-content: space-between; align-items: end; gap: 3rem; margin: 52px 0 38px; }
+h1 { margin: 0; font-size: clamp(1.875rem, 3vw, 2.5rem); font-weight: 400; letter-spacing: .09em; line-height: 1.65; }
+h1 span { display: inline-block; }
+.english-title { margin: 12px 0 0; font: italic 1rem/1.7 Georgia, serif; letter-spacing: .05em; color: var(--quiet); }
+.wall-poem { margin: 0; padding-right: 28px; font-size: 1.125rem; line-height: 1.9; letter-spacing: .12em; }
+.wall-poem span { display: block; }
+.controls { display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap; margin: 0 0 24px; }
+[hidden] { display: none !important; }
+button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #737974;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font: .9375rem/1.6 var(--serif);
+  cursor: pointer;
+}
+button:hover:not(:disabled) { border-color: var(--focus); color: var(--focus); }
+button:disabled { color: var(--quiet); border-color: #4c5351; cursor: default; }
+/* 紙張本來就分開；只有成功初始化嘅 JS 先會搬動佢哋。 */
+.sheets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(64px, 8vw, 112px); align-items: start; }
+.sheet {
+  position: relative;
+  min-width: 0;
+  min-height: 456px;
+  padding: 60px clamp(28px, 3.2vw, 48px) 58px;
+  border: 1px solid rgb(255 255 255 / .22);
+  box-shadow: 0 24px 38px -16px rgb(0 0 0 / .5), 0 2px 3px rgb(0 0 0 / .2);
+  background-color: rgb(238 229 208 / .95);
+  background-image:
+    repeating-linear-gradient(3deg, transparent 0 3px, rgb(70 48 19 / .015) 3px 4px),
+    repeating-linear-gradient(94deg, transparent 0 7px, rgb(255 255 255 / .045) 7px 8px),
+    radial-gradient(ellipse at 20% 15%, rgb(255 255 255 / .2), transparent 80%);
+  color: #373b35;
+}
+.sheet::before { content: ""; display: block; width: 28px; height: 1px; background: currentColor; opacity: .4; margin-bottom: 36px; }
+.sheet--en { margin-top: 36px; background-color: rgb(217 227 226 / .95); color: #303e43; z-index: 1; }
+.poem { margin: 0; font-size: clamp(1.25rem, 1.8vw, 1.5rem); line-height: 2; letter-spacing: .055em; overflow-wrap: anywhere; }
+.poem span { display: block; }
+.sheet--en .poem { font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.125rem, 1.55vw, 1.3125rem); line-height: 1.95; letter-spacing: 0; }
+.folio { display: block; margin-top: 48px; font: .75rem/1.5 Georgia, serif; color: inherit; }
+@media (max-width: 760px) {
+  .room { padding: 20px 20px 56px; }
+  .intro { display: block; margin: 38px 0 28px; }
+  h1 { letter-spacing: .055em; }
+  .wall-poem { margin-top: 32px; padding: 0 6px 0 0; text-align: right; font-size: 1rem; }
+  .controls { justify-content: flex-start; gap: 8px; margin-bottom: 32px; }
+  button { padding-inline: 12px; }
+  .sheets { grid-template-columns: minmax(0, 1fr); gap: 56px; padding-inline: 6px; }
+  .sheet { min-height: 400px; padding: 44px 24px; }
+  .sheet--en { margin-top: 0; }
+  .poem { font-size: 1.25rem; }
+  .sheet--en .poem { font-size: 1.1875rem; }
+}
+/* 呢幾個閱讀模式永遠唔靠動態先睇到內容。 */
+@media (prefers-reduced-motion: reduce), (forced-colors: active), print {
+  .sheet { transform: none !important; }
+}
+@media (forced-colors: active) {
+  body, .sheet { background: Canvas; color: CanvasText; }
+  .sheet, button { border: 1px solid CanvasText; box-shadow: none; }
+  .door, .english-title, button:disabled { color: CanvasText; }
+  :focus-visible { outline-color: Highlight; }
+}
+@media print {
+  :root { color-scheme: light; }
+  body { background: white; color: black; }
+  .room { width: 100%; padding: 0; }
+  .door, .controls { display: none; }
+  .intro { margin: 0 0 24px; }
+  .english-title { color: black; }
+  .sheets { display: block; padding: 0; }
+  .sheet { min-height: 0; margin: 24px 0; padding: 24px; background: white; color: black; border: 1px solid black; box-shadow: none; break-inside: avoid; }
+  .sheet::before { margin-bottom: 20px; }
+  .folio { margin-top: 24px; }
+}
+</style>
+</head>
+<body>
+<div class="room" data-state="static">
+  <header class="door">
+    <p class="room-name" lang="en">ARTBITRAGE / TEXT ROOM</p>
+    <a class="back" href="index.html#wings">返展廳</a>
+  </header>
+  <main>
+    <div class="intro">
+      <div>
+        <h1><span>未必同感，</span><span>仍可相遇</span></h1>
+        <p class="english-title" lang="en">Still, we meet.</p>
+      </div>
+      <p class="wall-poem"><span>我唔使成為你，</span><span>先至可以</span><span>為你留白。</span></p>
+    </div>
+    <div class="controls" role="group" aria-label="紙頁動態" hidden>
+      <button type="button" id="pause">停一停</button>
+      <button type="button" id="replay">由頭再看</button>
+      <button type="button" id="unfold">直接展開</button>
+    </div>
+    <div class="sheets">
+      <article class="sheet sheet--yue" lang="yue-Hant" aria-label="粵文聲部">
+        <p class="poem"><span>你講嗰場雨，</span><span>我只聽見簷邊滴水。</span><span>我唔再急住</span><span>替你叫佢做晴天。</span><span>張凳移開少少，</span><span>等你嗰句，慢慢落地。</span></p>
+        <span class="folio" aria-hidden="true">I</span>
+      </article>
+      <article class="sheet sheet--en" lang="en" aria-label="English voice">
+        <p class="poem"><span>My map keeps its own north.</span><span>I unfold the corner</span><span>that has covered your handwriting.</span><span>The road stops at the edge of this sheet.</span><span>Yours continues somewhere</span><span>I cannot point to.</span></p>
+        <span class="folio" aria-hidden="true">II</span>
+      </article>
+    </div>
+  </main>
+</div>
+<script>
+(() => {
+  'use strict';
+  const room = document.querySelector('.room');
+  const controls = document.querySelector('.controls');
+  const pause = document.getElementById('pause');
+  const replay = document.getElementById('replay');
+  const unfold = document.getElementById('unfold');
+  const sheets = [...document.querySelectorAll('.sheet')];
+  let animations = [];
+  let state = 'static';
+
+  function cancel() {
+    for (const animation of animations) {
+      animation.onfinish = null;
+      animation.cancel();
+    }
+    animations = [];
+  }
+
+  try {
+    if (!window.Animation || !window.KeyframeEffect) return;
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const narrow = matchMedia('(max-width: 760px)');
+    const printed = matchMedia('print');
+    const forced = matchMedia('(forced-colors: active)');
+    const still = () => reduced.matches || printed.matches || forced.matches;
+
+    function render() {
+      room.dataset.state = state;
+      pause.textContent = state === 'paused' ? '繼續' : '停一停';
+      pause.disabled = !['running', 'paused'].includes(state) || document.hidden;
+      replay.disabled = still() || document.hidden;
+      unfold.disabled = state === 'static' || state === 'settled';
+    }
+
+    function settle() {
+      cancel();
+      state = 'settled';
+      render();
+    }
+
+    function start() {
+      cancel();
+      if (still() || document.hidden) return settle();
+      try {
+        const starts = narrow.matches
+          ? ['translate(6px, 42%)', 'translate(-6px, -44%)']
+          : ['translate(50%, 18px) rotate(-2deg)', 'translate(-50%, -18px) rotate(2deg)'];
+        sheets.forEach((sheet, i) => {
+          const effect = new KeyframeEffect(sheet, [
+            { transform: starts[i] },
+            { transform: 'translate(0, 0) rotate(0deg)' }
+          ], {
+            duration: i === 0 ? 12000 : 11100,
+            delay: i === 0 ? 0 : 900,
+            easing: 'cubic-bezier(.45, 0, .2, 1)',
+            fill: 'both',
+            iterations: 1
+          });
+          animations.push(new Animation(effect, document.timeline));
+        });
+        // 只認今次英文頁嘅完成；舊重播唔可以收走新一輪。
+        const last = animations[1];
+        last.onfinish = () => {
+          if (animations[1] === last && state === 'running') settle();
+        };
+        state = 'running';
+        animations.forEach(animation => { animation.currentTime = 0; animation.play(); });
+        render();
+      } catch {
+        cancel();
+        state = 'static';
+        render();
+        controls.hidden = true;
+      }
+    }
+
+    pause.addEventListener('click', () => {
+      if (document.hidden || still()) return;
+      if (state === 'running') {
+        animations.forEach(animation => animation.pause());
+        state = 'paused';
+      } else if (state === 'paused') {
+        animations.forEach(animation => animation.play());
+        state = 'running';
+      }
+      render();
+    });
+    replay.addEventListener('click', start);
+    unfold.addEventListener('click', settle);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && state === 'running') {
+        animations.forEach(animation => animation.pause());
+        state = 'paused';
+      }
+      // 返嚟唔自動續播。
+      render();
+    });
+    [reduced, printed, forced].forEach(query => query.addEventListener('change', () => {
+      if (still()) settle();
+      else render();
+    }));
+    let wasNarrow = narrow.matches;
+    narrow.addEventListener('change', event => {
+      // Chrome 載入時可能補送同值事件；真係轉咗方向先收定。
+      if (event.matches !== wasNarrow) {
+        wasNarrow = event.matches;
+        settle();
+      }
+    });
+    window.addEventListener('beforeprint', settle);
+    controls.hidden = false;
+    start();
+  } catch {
+    // 初始化半途失敗都還原成兩頁分開嘅 HTML，唔留壞掣。
+    cancel();
+    room.dataset.state = 'static';
+    controls.hidden = true;
+  }
+})();
+</script>
+</body>
+</html>
