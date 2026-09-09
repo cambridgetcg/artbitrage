@@ -14,7 +14,7 @@
  * spirit, approximate in arithmetic.
  */
 
-const ROOMS = ["maybe", "trip", "atlas", "ledger", "minds", "river", "index", "trail"];
+const ROOMS = ["maybe", "trip", "atlas", "ledger", "minds", "river", "island", "index", "trail"];
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data, null, 1), {

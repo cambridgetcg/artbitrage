@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" data-era="slope">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>坡 the Slope — ARTBITRAGE</title>
+<meta name="description" content="We went looking for walls in a living garden — conditions without which a thing cannot work at all — and found none that were not definitions. Forty were proposed from real evidence. Thirty-nine fell, most of them to the very source meant to hold them up.">
+<meta property="og:title" content="坡 the Slope — ARTBITRAGE">
+<meta property="og:description" content="Forty hard rules proposed. Thirty-nine fell. Almost nothing in a garden is a wall.">
+<link rel="canonical" href="https://artbitrage.io/slope">
+<style>
+:root {
+  --era-bg: #0d0f0e;
+  --era-surface: #161a18;
+  --era-fg: #e4e8e3;
+  --era-dim: #8b9691;
+  --era-accent: #9fb8a4;
+  --era-secondary: #c2a878;
+  --era-glow: rgba(159, 184, 164, 0.11);
+}
+
+/* 坡 the slope — local styles */
+
+.hairline { border: 0; border-top: 1px solid rgba(228,232,227,0.09); margin: 2.6rem 0; }
+.note { color: var(--era-dim); font-size: 0.88rem; line-height: 1.75; margin-top: 1rem; }
+
+/* the count, drawn: forty marks, thirty-nine sliding */
+.tally { margin: 2rem 0 0.4rem; background: var(--era-surface); border: 1px solid rgba(228,232,227,0.09); border-radius: 8px; padding: 1.5rem 1.5rem 1.1rem; }
+.tally svg { display: block; width: 100%; height: auto; }
+.tally figcaption { margin-top: 0.9rem; font-size: 0.82rem; line-height: 1.6; color: var(--era-dim); }
+.tally figcaption b { color: var(--era-fg); font-weight: 500; }
+
+/* wall versus slope */
+.ws { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.6rem; }
+.wsbox { background: var(--era-surface); border: 1px solid rgba(228,232,227,0.09); border-radius: 8px; overflow: hidden; }
+.wsbox h4 { margin: 0; padding: 0.8rem 1rem 0.6rem; font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--era-dim); font-weight: 400; }
+.wsbox svg { display: block; width: 100%; height: auto; }
+.wsbox p { padding: 0.8rem 1rem 1.1rem; margin: 0; font-size: 0.85rem; line-height: 1.65; color: var(--era-dim); }
+@media (max-width: 700px) { .ws { grid-template-columns: 1fr; } }
+
+/* the adjudication — the disagreement, kept on the page */
+.adj { border: 1px solid rgba(194,168,120,0.4); background: linear-gradient(180deg, rgba(194,168,120,0.08), rgba(194,168,120,0.02)); border-radius: 8px; padding: 1.4rem 1.5rem; margin-top: 1.5rem; }
+.adj h3 { margin: 0 0 0.6rem; font-size: 1.06rem; color: var(--era-secondary); }
+.adj dl { margin: 0; }
+.adj dt { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--era-dim); margin-top: 1rem; }
+.adj dd { margin: 0.25rem 0 0; font-size: 0.92rem; line-height: 1.7; }
+.adj .verdictline { margin-top: 1.3rem; padding-top: 1rem; border-top: 1px solid rgba(194,168,120,0.28); font-size: 1.02rem; }
+
+/* the forty */
+.bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.3rem; }
+.bar button { background: none; border: 1px solid rgba(228,232,227,0.16); color: var(--era-dim); border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.74rem; letter-spacing: 0.05em; cursor: pointer; font-family: inherit; }
+.bar button[aria-pressed="true"] { color: var(--era-accent); border-color: var(--era-accent); }
+.rules { display: grid; gap: 1rem; margin-top: 1.3rem; }
+.rule { background: var(--era-surface); border: 1px solid rgba(228,232,227,0.08); border-left: 3px solid rgba(228,232,227,0.16); border-radius: 7px; padding: 1.1rem 1.25rem; }
+.rule.slope { border-left-color: var(--era-accent); }
+.rule.definition { border-left-color: var(--era-secondary); border-style: solid dashed dashed solid; }
+.rule .rhead { display: flex; gap: 0.6rem; align-items: baseline; flex-wrap: wrap; }
+.badge { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
+.badge.slope { color: var(--era-accent); border-color: rgba(159,184,164,0.45); }
+.badge.definition { color: var(--era-secondary); border-color: rgba(194,168,120,0.5); }
+.badge.area { color: var(--era-dim); border-color: rgba(139,150,145,0.35); }
+.rule .proposed { font-size: 0.98rem; line-height: 1.7; margin-top: 0.7rem; }
+.rule .proposed em { color: var(--era-dim); font-style: normal; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.25rem; }
+.rule .fell { font-size: 0.88rem; line-height: 1.7; color: var(--era-dim); margin-top: 0.9rem; padding-top: 0.85rem; border-top: 1px solid rgba(228,232,227,0.08); }
+.rule .fell em { color: var(--era-dim); font-style: normal; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.3rem; }
+.rule .src { margin-top: 0.8rem; font-size: 0.73rem; }
+.rule .src a { color: var(--era-dim); text-decoration: none; border-bottom: 1px dotted rgba(139,150,145,0.45); }
+.rule .src a:hover { color: var(--era-accent); }
+
+/* gradients */
+.grads { display: grid; gap: 0.85rem; margin-top: 1.2rem; }
+.grad { background: var(--era-surface); border: 1px solid rgba(228,232,227,0.07); border-radius: 7px; padding: 0.95rem 1.1rem; }
+.grad .stmt { font-size: 0.93rem; line-height: 1.65; }
+.grad .lim { font-size: 0.81rem; line-height: 1.6; color: var(--era-dim); font-style: italic; margin-top: 0.45rem; }
+.grad .foot { margin-top: 0.6rem; font-size: 0.73rem; }
+.grad .foot a { color: var(--era-dim); text-decoration: none; border-bottom: 1px dotted rgba(139,150,145,0.45); }
+.grad .foot a:hover { color: var(--era-accent); }
+.tag { display: inline-block; font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 1px 6px; border-radius: 3px; margin-right: 0.4rem; }
+.tag-verified { color: #9fc39a; background: rgba(120,170,115,0.14); }
+.tag-source-declared { color: #d8c084; background: rgba(200,170,90,0.14); }
+.tag-contested { color: #e0a07f; background: rgba(210,130,90,0.15); }
+.tag-unverified { color: var(--era-dim); background: rgba(139,150,145,0.14); }
+
+.curlbox { background: #090b0a; border: 1px solid rgba(228,232,227,0.12); border-radius: 6px; padding: 1rem 1.2rem; overflow-x: auto; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.78rem; line-height: 1.7; color: #bfcbc4; margin-top: 1rem; white-space: pre; }
+.curlbox b { color: var(--era-accent); font-weight: 600; }
+.loading { color: var(--era-dim); font-style: italic; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+</style>
+<link rel="stylesheet" href="/era.css?v=1">
+</head>
+<body data-era="slope">
+<script src="/era-nav.js?v=2"></script>
+
+<header class="era-hero">
+  <p class="era-period" lang="zh">坡</p>
+  <h1 class="era-title">the Slope</h1>
+  <p class="era-subtitle">what is a wall, and what only sounds like one</p>
+  <p class="era-essence">
+    We went looking for walls in a living garden — conditions without which a thing
+    cannot work <em>at all</em>. Forty were proposed from real, fetched evidence.
+    Thirty-nine fell, most of them to the very source that was meant to hold them up.
+    The fortieth survives only as a definition. This is the record of that search,
+    and it turns out to be more useful than the walls would have been.
+  </p>
+  <p class="era-scroll-hint">↓ the count</p>
+</header>
+
+<section class="emergence">
+  <div class="emergence-inner">
+    <h2>Almost nothing here is a wall</h2>
+    <p>
+      This room began as a different machine. The plan was a checker: tell it what you
+      have, and it tells you which layer of a garden ecosystem cannot stand yet, because
+      each layer rests on the one below. That plan needed hard rules, so six researchers
+      were sent to find them — and told that a rule only counts if the thing
+      <em>cannot work at all</em> without the condition, never merely worse.
+    </p>
+    <p>
+      Forty came back. Then each was handed to an independent sceptic who fetched the
+      same source again and judged it under that harsh standard. Thirty-nine were
+      destroyed. What is striking is <em>how</em>: again and again the cited source
+      refuted the rule in its own next breath. A government case study of turf failing
+      over compacted subsoil turned out to record eighteen failures out of twenty-seven
+      houses — a third of the same site did not fail, which is fatal to a floor. A
+      soil-structure score defined by roots having given up says, in its own wording,
+      "few roots, if any, and restricted to cracks" — roots, present, in cracks. A note
+      on water refusing to cross a texture boundary explains on the same page that this
+      is the founding principle of golf greens.
+    </p>
+    <p>
+      So the honest count is zero. And that changes the advice, in a direction worth
+      hearing: <strong>you cannot fail at this by missing a rule, because there are
+      almost no rules.</strong> There is no threshold to clear and no exam. There is only
+      doing more or less of what helps, and the sizes of those effects are published
+      below with their sources.
+    </p>
+    <p>
+      One place in this whole project did hold a real floor, and it is the place the
+      work started: plants laid over sealed builder's rubble. That lives next door in
+      <a href="/ground">土 the Ground</a>. Under the soil, walls exist. Above it, slopes.
+    </p>
+  </div>
+</section>
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">The count</div>
+  <h2>Forty proposed, thirty-nine fell</h2>
+
+  <figure class="tally">
+    <svg viewBox="0 0 400 76" role="img" aria-label="Forty marks. Thirty-nine lie flat along a shallow slope; one stands upright as a dashed outline.">
+      <line x1="6" y1="66" x2="394" y2="52" stroke="#8b9691" stroke-width="0.8" opacity="0.5"/>
+      <g stroke="#9fb8a4" stroke-width="2.4" stroke-linecap="round" opacity="0.88">
+        <line x1="14" y1="64" x2="22" y2="63"/><line x1="24" y1="64" x2="32" y2="63"/><line x1="34" y1="63" x2="42" y2="62"/>
+        <line x1="44" y1="63" x2="52" y2="62"/><line x1="54" y1="63" x2="62" y2="62"/><line x1="64" y1="62" x2="72" y2="61"/>
+        <line x1="74" y1="62" x2="82" y2="61"/><line x1="84" y1="62" x2="92" y2="61"/><line x1="94" y1="61" x2="102" y2="60"/>
+        <line x1="104" y1="61" x2="112" y2="60"/><line x1="114" y1="61" x2="122" y2="60"/><line x1="124" y1="60" x2="132" y2="59"/>
+        <line x1="134" y1="60" x2="142" y2="59"/><line x1="144" y1="60" x2="152" y2="59"/><line x1="154" y1="59" x2="162" y2="58"/>
+        <line x1="164" y1="59" x2="172" y2="58"/><line x1="174" y1="59" x2="182" y2="58"/><line x1="184" y1="58" x2="192" y2="57"/>
+        <line x1="194" y1="58" x2="202" y2="57"/><line x1="204" y1="58" x2="212" y2="57"/><line x1="214" y1="57" x2="222" y2="56"/>
+        <line x1="224" y1="57" x2="232" y2="56"/><line x1="234" y1="57" x2="242" y2="56"/><line x1="244" y1="56" x2="252" y2="55"/>
+        <line x1="254" y1="56" x2="262" y2="55"/><line x1="264" y1="56" x2="272" y2="55"/><line x1="274" y1="55" x2="282" y2="54"/>
+        <line x1="284" y1="55" x2="292" y2="54"/><line x1="294" y1="55" x2="302" y2="54"/><line x1="304" y1="54" x2="312" y2="53"/>
+        <line x1="314" y1="54" x2="322" y2="53"/><line x1="324" y1="54" x2="332" y2="53"/><line x1="334" y1="53" x2="342" y2="52"/>
+        <line x1="344" y1="53" x2="352" y2="52"/><line x1="354" y1="53" x2="362" y2="52"/><line x1="364" y1="52" x2="372" y2="51"/>
+        <line x1="374" y1="52" x2="382" y2="51"/><line x1="336" y1="61" x2="344" y2="60"/><line x1="352" y1="63" x2="360" y2="62"/>
+      </g>
+      <line x1="388" y1="52" x2="388" y2="14" stroke="#c2a878" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="4 4"/>
+    </svg>
+    <figcaption>
+      <b>Thirty-nine</b> lie along the slope: proposed as hard requirements, found to be gradients.
+      <b>One</b> stands, dashed, because it is a definition rather than a finding — a solitary bee
+      cannot dig a nest tunnel through poured concrete, which is true the way it is true that you
+      cannot dig a hole in a rock. No study established it.
+    </figcaption>
+  </figure>
+
+  <div class="ws">
+    <div class="wsbox">
+      <h4>What a wall would look like</h4>
+      <svg viewBox="0 0 300 110" role="img" aria-label="A vertical wall: a marker approaches and stops dead at it.">
+        <line x1="0" y1="92" x2="300" y2="92" stroke="#8b9691" stroke-width="1" opacity="0.4"/>
+        <rect x="196" y="18" width="10" height="74" fill="#c2a878" opacity="0.85"/>
+        <circle cx="120" cy="82" r="7" fill="#9fb8a4" opacity="0.9"/>
+        <path d="M132 82 h48" stroke="#9fb8a4" stroke-width="1.6" stroke-dasharray="4 4" opacity="0.7"/>
+        <path d="M186 76 l8 6 -8 6" fill="none" stroke="#9fb8a4" stroke-width="1.6" opacity="0.7"/>
+      </svg>
+      <p>Below the condition, nothing. Above it, the thing works. One number decides, and missing it is failure.</p>
+    </div>
+    <div class="wsbox">
+      <h4>What was actually there</h4>
+      <svg viewBox="0 0 300 110" role="img" aria-label="A gentle ramp rising left to right, with markers at increasing heights along it.">
+        <line x1="0" y1="92" x2="300" y2="92" stroke="#8b9691" stroke-width="1" opacity="0.4"/>
+        <path d="M14 90 L288 26" fill="none" stroke="#c2a878" stroke-width="2" opacity="0.75"/>
+        <g fill="#9fb8a4" opacity="0.9">
+          <circle cx="46" cy="83" r="5"/><circle cx="108" cy="68" r="5"/><circle cx="170" cy="54" r="5"/><circle cx="232" cy="40" r="5"/>
+        </g>
+      </svg>
+      <p>More of it helps by some measurable amount. Less of it helps less. There is no line, so there is nothing to fail.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="hairline">
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">The one that was let through</div>
+  <h2>Two checkers disagreed, and the stricter one won</h2>
+  <div class="adj" id="adjudication"><p class="loading">reading the adjudication…</p></div>
+</section>
+
+<hr class="hairline">
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">Every rule that was tested</div>
+  <h2>Forty things you may have been told you must do</h2>
+  <p class="note">
+    Each card holds the rule exactly as it was proposed from the evidence, and the
+    checker's own verbatim reason for destroying it. These are the useful part: nearly
+    every one is a piece of advice that circulates as a requirement and is not one.
+  </p>
+  <div class="bar" id="rulebar"></div>
+  <div class="rules" id="rules"><p class="loading">opening the slope…</p></div>
+</section>
+
+<hr class="hairline">
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">What is real underneath</div>
+  <h2>The gradients, with their sizes</h2>
+  <p class="note">
+    Eighty-nine claims, each fetched from its source and then re-checked by an
+    independent sceptic who could reject or reword it. Every one carries what it
+    <em>cannot</em> establish. The climate assumption behind the plant, insect and
+    animal findings is a temperate maritime one with dry summers — eastern England —
+    and it is written down rather than hidden.
+  </p>
+  <div class="bar" id="gradbar"></div>
+  <div class="grads" id="grads"><p class="loading">reading the corpus…</p></div>
+</section>
+
+<section class="era-section">
+  <div class="era-section-label">For agents &amp; systems</div>
+  <h2>The same room, as endpoints</h2>
+  <p class="note">No keys, no database, no funds, no take-rate.</p>
+  <div class="curlbox"><b>curl</b> "https://artbitrage.io/api/slope/walls"
+<b>curl</b> "https://artbitrage.io/api/slope/rules?topic=vertebrates"
+<b>curl</b> "https://artbitrage.io/api/slope/rules/hog-gap-13cm"
+<b>curl</b> "https://artbitrage.io/api/slope/weigh?want=animals"
+<b>curl</b> "https://artbitrage.io/api/ground"   <i># the sibling, where a real floor does exist</i>
+
+<i># /walls returns []. every response carries "guaranteed": null.</i></div>
+</section>
+
+<footer class="era-footer">
+  <div class="era-footer-nav">
+    <a href="/">artbitrage</a>
+    <a href="/ground">土 ground</a>
+    <a href="/map">地圖 map</a>
+    <a href="/pigments">色 pigments</a>
+  </div>
+  <p>A record of what published sources do and do not establish. Not garden design advice, ecological consultancy, a species survey, or a legal compliance check; protected species and planning rules are not covered. That almost nothing is a wall does not mean nothing matters — it means the effects are gradients, and doing more of what helps is the whole method.</p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var AREAS = {
+    'soil-to-plants': 'ground for plants',
+    'plants': 'planting',
+    'invertebrates': 'insects',
+    'vertebrates': 'animals',
+    'water-weather': 'water & weather',
+    'time-and-look': 'time'
+  };
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined && text !== null) n.textContent = text;
+    return n;
+  }
+  function host(url) { try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return url; } }
+
+  function filterBar(node, counts, total, onPick) {
+    node.textContent = '';
+    var current = '';
+    function mk(value, label) {
+      var b = el('button', null, label);
+      b.type = 'button';
+      b.setAttribute('aria-pressed', value === current ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        current = value;
+        Array.prototype.forEach.call(node.children, function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        onPick(value);
+      });
+      return b;
+    }
+    node.appendChild(mk('', 'all ' + total));
+    Object.keys(AREAS).forEach(function (t) {
+      if (counts[t]) node.appendChild(mk(t, AREAS[t] + ' ' + counts[t]));
+    });
+  }
+
+  function countBy(list) {
+    return list.reduce(function (a, x) { a[x.topic] = (a[x.topic] || 0) + 1; return a; }, {});
+  }
+
+  // ---- the adjudication ----------------------------------------------------
+
+  function renderAdjudication(a) {
+    var wrap = document.getElementById('adjudication');
+    wrap.textContent = '';
+    wrap.appendChild(el('h3', null, 'The fortieth rule, and why it is not a wall either'));
+    var dl = el('dl');
+    [['What happened', a.what_happened],
+     ['The stricter reading', a.the_stricter_reading],
+     ['What actually survives', a.what_actually_survives],
+     ['Why this is on the page', a.why_this_is_recorded]].forEach(function (row) {
+      dl.appendChild(el('dt', null, row[0]));
+      dl.appendChild(el('dd', null, row[1]));
+    });
+    wrap.appendChild(dl);
+    wrap.appendChild(el('p', 'verdictline', a.so_the_count_is));
+  }
+
+  // ---- the forty -----------------------------------------------------------
+
+  var RULES = [], CLAIMS = [];
+
+  function claimFor(id) {
+    for (var i = 0; i < CLAIMS.length; i++) if (CLAIMS[i].id === id) return CLAIMS[i];
+    return null;
+  }
+
+  function renderRules(topic) {
+    var wrap = document.getElementById('rules');
+    wrap.textContent = '';
+    var list = topic ? RULES.filter(function (r) { return r.topic === topic; }) : RULES;
+    // the definition first — it is the only one that did not fall
+    list = list.slice().sort(function (a, b) {
+      if (a.verdict === b.verdict) return 0;
+      return a.verdict === 'definition-not-evidence' ? -1 : 1;
+    });
+    list.forEach(function (r) {
+      var isDef = r.verdict === 'definition-not-evidence';
+      var c = el('div', 'rule ' + (isDef ? 'definition' : 'slope'));
+      var head = el('div', 'rhead');
+      head.appendChild(el('span', 'badge ' + (isDef ? 'definition' : 'slope'), isDef ? 'definition, not evidence' : 'slope, not a wall'));
+      head.appendChild(el('span', 'badge area', AREAS[r.topic] || r.topic));
+      c.appendChild(head);
+
+      var p = el('p', 'proposed');
+      p.appendChild(el('em', null, 'Proposed as a hard requirement'));
+      p.appendChild(document.createTextNode(r.proposed || '(no rule text recorded)'));
+      c.appendChild(p);
+
+      if (r.fell_because) {
+        var f = el('p', 'fell');
+        f.appendChild(el('em', null, 'Why it fell'));
+        f.appendChild(document.createTextNode(r.fell_because));
+        c.appendChild(f);
+      }
+
+      var cl = claimFor(r.claim_id);
+      if (cl) {
+        var s = el('p', 'src');
+        s.appendChild(document.createTextNode('Source it rested on: '));
+        var a = el('a', null, cl.source.name);
+        a.href = cl.source.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+        s.appendChild(a);
+        c.appendChild(s);
+      }
+      wrap.appendChild(c);
+    });
+    if (!list.length) wrap.appendChild(el('p', 'loading', 'no rules were proposed in that area.'));
+  }
+
+  // ---- the gradients -------------------------------------------------------
+
+  function renderGrads(topic) {
+    var wrap = document.getElementById('grads');
+    wrap.textContent = '';
+    var list = topic ? CLAIMS.filter(function (c) { return c.topic === topic; }) : CLAIMS;
+    list.forEach(function (c) {
+      var n = el('div', 'grad');
+      var st = el('p', 'stmt');
+      st.appendChild(el('span', 'tag tag-' + c.truth_status, c.truth_status));
+      st.appendChild(document.createTextNode(c.statement));
+      n.appendChild(st);
+      n.appendChild(el('p', 'lim', 'Cannot establish: ' + c.cannot_establish));
+      var foot = el('p', 'foot');
+      var a = el('a', null, c.source.name || host(c.source.url));
+      a.href = c.source.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      foot.appendChild(a);
+      n.appendChild(foot);
+      wrap.appendChild(n);
+    });
+    if (!list.length) wrap.appendChild(el('p', 'loading', 'nothing under that heading.'));
+  }
+
+  // ---- load ----------------------------------------------------------------
+
+  fetch('/slope.json')
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      RULES = d.tested_rules || [];
+      CLAIMS = d.claims || [];
+      if (d.adjudication) renderAdjudication(d.adjudication);
+      filterBar(document.getElementById('rulebar'), countBy(RULES), RULES.length, renderRules);
+      filterBar(document.getElementById('gradbar'), countBy(CLAIMS), CLAIMS.length, renderGrads);
+      renderRules('');
+      renderGrads('');
+    })
+    .catch(function () {
+      document.getElementById('rules').textContent = 'the slope could not be reached — the data may be waking. The same record is at /api/slope/rules.';
+      document.getElementById('grads').textContent = '';
+      document.getElementById('adjudication').textContent = '';
+    });
+})();
+</script>
+</body>
+</html>

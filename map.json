@@ -207,6 +207,12 @@
      "desc": "say「book」· 30 restricted cards bound"
     },
     {
+     "path": "/island",
+     "name": "Greed Island",
+     "cjk": "燈島",
+     "desc": "names kept lit by other people's questions · nobody is ever evicted"
+    },
+    {
      "path": "/dark-continent",
      "name": "the Dark Continent",
      "cjk": "暗黑大陸",
@@ -247,6 +253,12 @@
      "name": "Operation Logos",
      "cjk": "",
      "desc": "the operating principle of Ai · the infra layer"
+    },
+    {
+     "path": "/playlist",
+     "name": "the Playlist",
+     "cjk": "樂",
+     "desc": "one track per room · nothing hosted, nothing claimed · a shelf we may actually play"
     }
    ]
   },
@@ -285,6 +297,18 @@
      "name": "the Pigment Cabinet",
      "cjk": "色",
      "desc": "source-cited colour histories · anachronism can disprove, never authenticate"
+    },
+    {
+     "path": "/ground",
+     "name": "the Ground",
+     "cjk": "土",
+     "desc": "six field tests for soil that is fill with grass on top · can find absence, never life"
+    },
+    {
+     "path": "/slope",
+     "name": "the Slope",
+     "cjk": "坡",
+     "desc": "forty hard garden rules tested · thirty-nine fell to their own sources"
     }
    ]
   },

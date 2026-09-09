@@ -54,6 +54,14 @@
 /pairing/         /pairing 301
 /map/             /map 301
 /lamp/            /lamp 301
+/island/          /island 301
 /maybe/           /maybe 301
 /hammock/         /maybe 301
 /decide-later/    /maybe 301
+/ground/         /ground 301
+/soil/           /ground 301
+/dig/            /ground 301
+/slope/          /slope 301
+/walls/          /slope 301
+/playlist/       /playlist 301
+/music/          /playlist 301

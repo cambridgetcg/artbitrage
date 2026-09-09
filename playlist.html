@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-era="playlist">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>樂 the Playlist — ARTBITRAGE</title>
+<meta name="description" content="One track per room, chosen by ear and argued for in plain words. Artbitrage hosts none of it and grants no rights in any of it. A second shelf holds music that actually could be played here, with every licence read rather than assumed.">
+<meta property="og:title" content="樂 the Playlist — ARTBITRAGE">
+<meta property="og:description" content="樂 is music and joy in one character. One track per room. Nothing hosted, nothing claimed.">
+<link rel="canonical" href="https://artbitrage.io/playlist">
+<style>
+:root {
+  --era-bg: #0e0d13;
+  --era-surface: #17161f;
+  --era-fg: #e9e6f0;
+  --era-dim: #8d88a3;
+  --era-accent: #b6a2e0;
+  --era-secondary: #7fc7b8;
+  --era-glow: rgba(182, 162, 224, 0.12);
+}
+
+/* 樂 the playlist — local styles */
+
+.hairline { border: 0; border-top: 1px solid rgba(233,230,240,0.09); margin: 2.6rem 0; }
+.note { color: var(--era-dim); font-size: 0.88rem; line-height: 1.75; margin-top: 1rem; }
+
+/* the shelf line — two boxes that must not blur */
+.shelves { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.6rem; }
+.shelf { background: var(--era-surface); border: 1px solid rgba(233,230,240,0.09); border-radius: 8px; padding: 1.2rem 1.3rem; }
+.shelf.play { border-color: rgba(127,199,184,0.35); }
+.shelf h4 { margin: 0 0 0.5rem; font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--era-dim); font-weight: 400; }
+.shelf .big { font-size: 1.9rem; line-height: 1; color: var(--era-accent); font-variant-numeric: tabular-nums; }
+.shelf.play .big { color: var(--era-secondary); }
+.shelf p { margin: 0.6rem 0 0; font-size: 0.86rem; line-height: 1.65; color: var(--era-dim); }
+@media (max-width: 700px) { .shelves { grid-template-columns: 1fr; } }
+
+/* the tracks */
+.tracks { display: grid; gap: 0.75rem; margin-top: 1.3rem; }
+.trk { background: var(--era-surface); border: 1px solid rgba(233,230,240,0.07); border-radius: 7px; padding: 0.95rem 1.1rem; display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1rem; align-items: baseline; }
+.trk .who { font-size: 1rem; line-height: 1.5; }
+.trk .who b { font-weight: 500; color: var(--era-fg); }
+.trk .who span { color: var(--era-dim); }
+.trk .rm { font-family: var(--era-mono); font-size: 0.72rem; letter-spacing: 0.04em; white-space: nowrap; }
+.trk .rm a { color: var(--era-accent); text-decoration: none; }
+.trk .rm a:hover { border-bottom: 1px solid var(--era-accent); }
+.trk .why { grid-column: 1 / -1; font-size: 0.85rem; line-height: 1.65; color: var(--era-dim); margin-top: 0.25rem; }
+.trk .meta { grid-column: 1 / -1; margin-top: 0.5rem; font-size: 0.71rem; color: var(--era-dim); }
+.trk .meta a { color: var(--era-dim); text-decoration: none; border-bottom: 1px dotted rgba(141,136,163,0.5); }
+.trk .meta a:hover { color: var(--era-accent); }
+.trk .fixed { grid-column: 1 / -1; margin-top: 0.45rem; font-size: 0.76rem; line-height: 1.55; color: #d8c084; }
+
+/* copy-out */
+.copyrow { display: flex; gap: 0.7rem; flex-wrap: wrap; align-items: center; margin-top: 1.3rem; }
+.copyrow button, .copyrow a.btn { background: none; border: 1px solid var(--era-accent); color: var(--era-accent); border-radius: 5px; padding: 0.7rem 1.3rem; font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-family: inherit; text-decoration: none; }
+.copyrow button:hover, .copyrow a.btn:hover { background: rgba(182,162,224,0.12); }
+.copyrow .said { font-size: 0.78rem; color: var(--era-dim); }
+
+/* playable shelf */
+.plays { display: grid; gap: 0.9rem; margin-top: 1.2rem; }
+.pl { background: var(--era-surface); border: 1px solid rgba(127,199,184,0.16); border-radius: 7px; padding: 1rem 1.15rem; }
+.pl .t { font-size: 0.98rem; line-height: 1.5; }
+.pl .t b { font-weight: 500; }
+.pl .lic { display: inline-block; font-size: 0.63rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(127,199,184,0.45); color: var(--era-secondary); margin-right: 0.45rem; }
+.pl .lic.nc { color: #e0a07f; border-color: rgba(210,130,90,0.5); }
+.pl .suits { font-size: 0.85rem; line-height: 1.6; color: var(--era-dim); margin-top: 0.5rem; }
+.pl .credit { font-family: var(--era-mono); font-size: 0.71rem; line-height: 1.6; color: var(--era-dim); background: #0a090e; border: 1px solid rgba(233,230,240,0.08); border-radius: 5px; padding: 0.5rem 0.7rem; margin-top: 0.6rem; overflow-x: auto; }
+.pl .lim { font-size: 0.79rem; line-height: 1.55; color: var(--era-dim); font-style: italic; margin-top: 0.5rem; }
+.pl .links { margin-top: 0.55rem; font-size: 0.73rem; }
+.pl .links a { color: var(--era-dim); text-decoration: none; border-bottom: 1px dotted rgba(141,136,163,0.5); margin-right: 0.9rem; }
+.pl .links a:hover { color: var(--era-secondary); }
+
+/* the promise ledger */
+.ledger { display: grid; gap: 0.7rem; margin-top: 1.3rem; }
+.lg { background: var(--era-surface); border: 1px solid rgba(233,230,240,0.07); border-left: 3px solid var(--era-dim); border-radius: 7px; padding: 0.9rem 1.1rem; }
+.lg.keepable { border-left-color: var(--era-secondary); }
+.lg.half-keepable { border-left-color: #d8c084; }
+.lg.not-keepable-as-written { border-left-color: #e0a07f; }
+.lg.uncertain { border-left-color: var(--era-dim); }
+.lg .head { display: flex; gap: 0.6rem; align-items: baseline; flex-wrap: wrap; }
+.lg .head a { font-family: var(--era-mono); font-size: 0.76rem; color: var(--era-accent); text-decoration: none; }
+.lg .vd { font-size: 0.61rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(141,136,163,0.4); color: var(--era-dim); }
+.lg.keepable .vd { color: var(--era-secondary); border-color: rgba(127,199,184,0.45); }
+.lg.half-keepable .vd { color: #d8c084; border-color: rgba(216,192,132,0.5); }
+.lg.not-keepable-as-written .vd { color: #e0a07f; border-color: rgba(224,160,127,0.5); }
+.lg .promised { font-size: 0.9rem; line-height: 1.6; margin-top: 0.45rem; }
+.lg .promised em { color: var(--era-dim); font-style: normal; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.2rem; }
+.lg .why { font-size: 0.85rem; line-height: 1.65; color: var(--era-dim); margin-top: 0.5rem; }
+
+/* findings */
+.finds { display: grid; gap: 0.85rem; margin-top: 1.2rem; }
+.fd { background: var(--era-surface); border: 1px solid rgba(233,230,240,0.07); border-radius: 7px; padding: 0.95rem 1.1rem; }
+.fd .ft { font-size: 0.93rem; line-height: 1.5; color: var(--era-fg); }
+.fd .fb { font-size: 0.85rem; line-height: 1.7; color: var(--era-dim); margin-top: 0.5rem; }
+.fd .fl { margin-top: 0.55rem; font-size: 0.73rem; }
+.fd .fl a { color: var(--era-dim); text-decoration: none; border-bottom: 1px dotted rgba(141,136,163,0.5); }
+.fd .fl a:hover { color: var(--era-accent); }
+
+.curlbox { background: #0a090e; border: 1px solid rgba(233,230,240,0.12); border-radius: 6px; padding: 1rem 1.2rem; overflow-x: auto; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.78rem; line-height: 1.7; color: #c6c0d4; margin-top: 1rem; white-space: pre; }
+.curlbox b { color: var(--era-accent); font-weight: 600; }
+.loading { color: var(--era-dim); font-style: italic; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+</style>
+<link rel="stylesheet" href="/era.css?v=1">
+</head>
+<body data-era="playlist">
+<script src="/era-nav.js?v=2"></script>
+
+<header class="era-hero">
+  <p class="era-period" lang="zh">樂</p>
+  <h1 class="era-title">the Playlist</h1>
+  <p class="era-subtitle">one track per room · nothing hosted · nothing claimed</p>
+  <p class="era-essence">
+    樂 is the character for music and it is also the character for joy — the same
+    strokes, read two ways, which makes it the only sensible name for this. One
+    track for each room in the house, chosen by ear and argued for in plain words.
+    Artbitrage holds none of this music and grants no rights in any of it; what is
+    here are facts about records, the way a library catalogue holds facts about books.
+  </p>
+  <p class="era-scroll-hint">↓ press play elsewhere</p>
+</header>
+
+<section class="emergence">
+  <div class="emergence-inner">
+    <h2>The first track is the whole thesis</h2>
+    <p>
+      Lost Frequencies' <em>Are You With Me</em> is not an original. It is a rework of
+      a country song — Easton Corbin, 2012, written by Terry McBride, Shane McAnally
+      and Josh Osborne — moved onto a dance floor and released in 2014, where it went
+      to number one across Europe. Same song. Different room. The gap between the two
+      rooms is where all the value appeared.
+    </p>
+    <p>
+      That is this whole project's founding line, arriving by accident in a track
+      somebody put on because it sounded good. Art as arbitrage, literally. So it gets
+      the front door.
+    </p>
+    <p>
+      Everything below was checked against MusicBrainz — an open catalogue of facts
+      about music — in small batches, one search per track, because MusicBrainz is free
+      and donation-funded and asks for no more than a request a second. Twenty-three of
+      twenty-four survived. Three artist credits were wrong and are corrected in the
+      open. One track did not exist at all.
+    </p>
+  </div>
+</section>
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">Two shelves, and the line between them</div>
+  <h2>What we may name, and what we may play</h2>
+  <div class="shelves">
+    <div class="shelf">
+      <h4>The listening shelf</h4>
+      <div class="big" id="count-listening">—</div>
+      <p>Real records. Named, dated, linked to their MusicBrainz entry. <strong>Hosted nowhere, streamed nowhere, licensed to nobody.</strong> Take the titles to whatever you already use. No lyric appears anywhere in this room or its data, by design.</p>
+    </div>
+    <div class="shelf play">
+      <h4>The playable shelf</h4>
+      <div class="big" id="count-playable">—</div>
+      <p>A different kind of thing: not a recommendation, a <strong>permission</strong>. Every licence here was read on the page that states it, and the exact licence is named — CC0, CC BY 4.0 and CC BY-NC 4.0 grant wildly different things, and "Creative Commons" on its own grants nothing knowable.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="hairline">
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">One per room</div>
+  <h2>The listening shelf</h2>
+  <p class="note">
+    Which track sits in which room is taste and, in a couple of places, a joke. That
+    part is opinion and is labelled as opinion. The only checked part is underneath:
+    that the recording exists, under that exact credit, in that year.
+  </p>
+  <div class="copyrow">
+    <button type="button" id="copy">copy the list</button>
+    <a class="btn" href="/api/playlist/text">plain text</a>
+    <span class="said" id="said"></span>
+  </div>
+  <div class="tracks" id="tracks"><p class="loading">tuning…</p></div>
+  <div id="dropped"></div>
+</section>
+
+<hr class="hairline">
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">Music this house could legally play</div>
+  <h2>The playable shelf</h2>
+  <p class="note">
+    Self-host the file rather than hotlinking, keep the credit line where a reader can
+    find it, and save a dated copy of the licence page the day you adopt it — that copy
+    is your answer if a fingerprint system later claims your legally free audio, which
+    is a documented and routine thing that happens.
+  </p>
+  <div class="plays" id="plays"><p class="loading">reading licences…</p></div>
+</section>
+
+<hr class="hairline">
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">Ten silent players, and a promise each</div>
+  <h2>The promise ledger</h2>
+  <p class="note">
+    Ten rooms in this house already carry an audio player. Every one of them holds the
+    same forty-four-byte silent file, under a note saying what would be there
+    <em>in production</em>. Nobody ever came back. Here is which of those promises can
+    legally be kept — because the rule is that a composition goes free seventy years
+    after its composer dies, while <strong>every recording of it carries its own
+    separate copyright</strong>. Bach is free; a particular Bach recording is not.
+  </p>
+  <div class="ledger" id="ledger"><p class="loading">reading the walls…</p></div>
+</section>
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">Before you put audio behind a page</div>
+  <h2>What a builder needs to know</h2>
+  <div class="finds" id="finds"><p class="loading">…</p></div>
+</section>
+
+<section class="era-section">
+  <div class="era-section-label">For agents &amp; systems</div>
+  <h2>The same room, as endpoints</h2>
+  <p class="note">No keys, no database, no funds, no take-rate.</p>
+  <div class="curlbox"><b>curl</b> "https://artbitrage.io/api/playlist/text"
+<b>curl</b> "https://artbitrage.io/api/playlist/room/slope"
+<b>curl</b> "https://artbitrage.io/api/playlist/playable?attribution=none"
+<b>curl</b> "https://artbitrage.io/api/playlist/promises"
+<b>curl</b> "https://artbitrage.io/api/playlist/dropped"
+
+<i># every response carries "audio_hosted_here": false, "rights_granted_here": "none".</i></div>
+</section>
+
+<footer class="era-footer">
+  <div class="era-footer-nav">
+    <a href="/">artbitrage</a>
+    <a href="/ground">土 ground</a>
+    <a href="/slope">坡 slope</a>
+    <a href="/map">地圖 map</a>
+  </div>
+  <p>Artbitrage hosts none of the listening shelf, streams none of it, and grants no rights in any of it. No lyric appears in this room or its data. The playable shelf names an exact licence per item, read on the page that states it — but a licence is only as good as the uploader's right to grant it, which no fetch can prove. The licensing notes are a reading of published sources, not legal advice; terms differ by country and change.</p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined && text !== null) n.textContent = text;
+    return n;
+  }
+  function link(href, text, cls) {
+    var a = el('a', cls, text);
+    a.href = href;
+    if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+    return a;
+  }
+
+  var LINES = [];
+
+  function renderTracks(list) {
+    var wrap = document.getElementById('tracks');
+    wrap.textContent = '';
+    list.forEach(function (t) {
+      var c = el('div', 'trk');
+
+      var who = el('p', 'who');
+      who.appendChild(el('b', null, t.artist));
+      who.appendChild(document.createTextNode(' — ' + t.title));
+      if (t.year) who.appendChild(el('span', null, '  ' + t.year));
+      c.appendChild(who);
+
+      var rm = el('p', 'rm');
+      rm.appendChild(link(t.room, t.room_name || t.room));
+      c.appendChild(rm);
+
+      c.appendChild(el('p', 'why', t.why_this_room));
+
+      if (t.correction) {
+        c.appendChild(el('p', 'fixed', '↺ corrected: ' + t.correction));
+      }
+
+      var meta = el('p', 'meta');
+      meta.appendChild(link(t.musicbrainz, 'musicbrainz'));
+      c.appendChild(meta);
+
+      wrap.appendChild(c);
+      LINES.push(t.artist + ' — ' + t.title + (t.year ? ' (' + t.year + ')' : ''));
+    });
+  }
+
+  function renderDropped(list, corrected) {
+    if (!list.length) return;
+    var wrap = document.getElementById('dropped');
+    wrap.textContent = '';
+    var p = el('p', 'note');
+    p.appendChild(document.createTextNode(
+      'Checking is only worth something if it can take things away. It took one: '
+    ));
+    list.forEach(function (d, i) {
+      if (i) p.appendChild(document.createTextNode('; '));
+      p.appendChild(el('em', null, d.seed_artist + ' — ' + d.seed_title));
+      p.appendChild(document.createTextNode('. ' + d.why));
+    });
+    p.appendChild(document.createTextNode(
+      ' It was picked for this playlist because of the word in its title, which made dropping it the right kind of funny. '
+      + corrected + ' more entries had the wrong artist credit and are corrected above rather than quietly fixed.'
+    ));
+    wrap.appendChild(p);
+  }
+
+  function renderPlayable(items) {
+    var wrap = document.getElementById('plays');
+    wrap.textContent = '';
+    items.forEach(function (p) {
+      var c = el('div', 'pl');
+      var t = el('p', 't');
+      var lic = el('span', 'lic' + (p.commercial_ok === false ? ' nc' : ''), p.license.split('(')[0].trim().slice(0, 34));
+      t.appendChild(lic);
+      t.appendChild(el('b', null, p.title));
+      if (p.artist) t.appendChild(document.createTextNode(' — ' + p.artist));
+      c.appendChild(t);
+      c.appendChild(el('p', 'suits', p.suits));
+      if (p.attribution_required && p.attribution_string) {
+        c.appendChild(el('p', 'credit', p.attribution_string));
+      }
+      c.appendChild(el('p', 'lim', 'Cannot establish: ' + p.cannot_establish));
+      var links = el('p', 'links');
+      if (p.listen_url) links.appendChild(link(p.listen_url, 'listen'));
+      if (p.license_url) links.appendChild(link(p.license_url, 'the licence'));
+      c.appendChild(links);
+      wrap.appendChild(c);
+    });
+  }
+
+  function renderLedger(ledger) {
+    var wrap = document.getElementById('ledger');
+    wrap.textContent = '';
+    ledger.forEach(function (l) {
+      var c = el('div', 'lg ' + l.verdict);
+      var h = el('div', 'head');
+      h.appendChild(link(l.room, l.room));
+      h.appendChild(el('span', 'vd', l.verdict.replace(/-/g, ' ')));
+      c.appendChild(h);
+      var pr = el('p', 'promised');
+      pr.appendChild(el('em', null, 'promised, in production'));
+      pr.appendChild(document.createTextNode(l.promised));
+      c.appendChild(pr);
+      c.appendChild(el('p', 'why', l.why));
+      wrap.appendChild(c);
+    });
+  }
+
+  function renderFindings(findings) {
+    var wrap = document.getElementById('finds');
+    wrap.textContent = '';
+    findings.forEach(function (f) {
+      var c = el('div', 'fd');
+      c.appendChild(el('p', 'ft', f.title.replace(/^(FINDING|TRAP):\s*/, '')));
+      c.appendChild(el('p', 'fb', f.suits));
+      var fl = el('p', 'fl');
+      fl.appendChild(link(f.license_url, f.artist || 'source'));
+      c.appendChild(fl);
+      wrap.appendChild(c);
+    });
+  }
+
+  fetch('/playlist.json')
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      document.getElementById('count-listening').textContent = d.counts.listening;
+      document.getElementById('count-playable').textContent = d.counts.playable;
+      renderTracks(d.listening || []);
+      renderDropped(d.dropped || [], d.counts.corrected);
+      renderPlayable(d.playable || []);
+      renderLedger(d.promise_ledger || []);
+      renderFindings(d.licensing_findings || []);
+    })
+    .catch(function () {
+      document.getElementById('tracks').textContent = 'the playlist could not be reached — the data may be waking. The same list is at /api/playlist/text.';
+      document.getElementById('plays').textContent = '';
+      document.getElementById('ledger').textContent = '';
+      document.getElementById('finds').textContent = '';
+    });
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var said = document.getElementById('said');
+    var body = LINES.join('\n');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(body).then(function () {
+        said.textContent = LINES.length + ' titles copied. artbitrage holds none of them.';
+      }).catch(function () {
+        said.textContent = 'could not reach the clipboard — the plain text link works everywhere.';
+      });
+    } else {
+      said.textContent = 'no clipboard here — use the plain text link.';
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" data-era="ground">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>土 the Ground — ARTBITRAGE</title>
+<meta name="description" content="Under the grass was rubble. Six cheap field tests that read whether ground is working rather than how it looks — each one honest that it can find absence far more readily than presence. A reader that can never answer 'alive'. Sixty-six findings, every one fetched from its source and re-checked.">
+<meta property="og:title" content="土 the Ground — ARTBITRAGE">
+<meta property="og:description" content="The lawn passed every test the eye can run and failed the only one that counts.">
+<link rel="canonical" href="https://artbitrage.io/ground">
+<style>
+:root {
+  --era-bg: #100e0b;
+  --era-surface: #191510;
+  --era-fg: #e8e0d2;
+  --era-dim: #978972;
+  --era-accent: #b8763c;
+  --era-secondary: #7f9464;
+  --era-glow: rgba(184, 118, 60, 0.12);
+}
+
+/* 土 the ground — local styles */
+
+.hairline { border: 0; border-top: 1px solid rgba(232,224,210,0.09); margin: 2.6rem 0; }
+
+/* the cross-section: what it looks like, beside what it is */
+.section-cut { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 2rem 0 0.6rem; }
+.cut { background: var(--era-surface); border: 1px solid rgba(232,224,210,0.09); border-radius: 8px; overflow: hidden; }
+.cut h4 { margin: 0; padding: 0.75rem 1rem 0.6rem; font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--era-dim); font-weight: 400; }
+.cut svg { display: block; width: 100%; height: auto; }
+.cut p { padding: 0.75rem 1rem 1rem; margin: 0; font-size: 0.84rem; line-height: 1.6; color: var(--era-dim); }
+@media (max-width: 700px) { .section-cut { grid-template-columns: 1fr; } }
+
+/* the safety板 — the one box that must be read before digging */
+.warn { border: 1px solid rgba(184,118,60,0.42); background: linear-gradient(180deg, rgba(184,118,60,0.09), rgba(184,118,60,0.02)); border-radius: 8px; padding: 1.4rem 1.5rem; margin-top: 1.4rem; }
+.warn h3 { margin: 0 0 0.5rem; font-size: 1.05rem; color: #e5b073; }
+.warn p { margin: 0.55rem 0; font-size: 0.92rem; line-height: 1.65; }
+.warn ul { margin: 0.6rem 0 0.2rem 1.1rem; padding: 0; font-size: 0.9rem; line-height: 1.7; }
+.warn .quiet { color: var(--era-dim); font-size: 0.8rem; margin-top: 0.9rem; }
+
+/* the tests */
+.tests { display: grid; gap: 1.1rem; margin-top: 1.6rem; }
+.tcard { background: var(--era-surface); border: 1px solid rgba(232,224,210,0.09); border-radius: 8px; overflow: hidden; }
+.tcard > summary { list-style: none; cursor: pointer; padding: 1.05rem 1.25rem; display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; }
+.tcard > summary::-webkit-details-marker { display: none; }
+.tcard > summary:hover { background: rgba(232,224,210,0.03); }
+.tcard .glyph { font-size: 1.5rem; color: var(--era-accent); line-height: 1; }
+.tcard .tname { font-size: 1.12rem; color: var(--era-fg); }
+.tcard .treads { flex-basis: 100%; font-size: 0.86rem; color: var(--era-dim); line-height: 1.55; }
+.badge { font-size: 0.62rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
+.badge.life { color: #a8c08c; border-color: rgba(168,192,140,0.4); }
+.badge.blind { color: var(--era-dim); border-color: rgba(151,137,114,0.36); }
+.tbody { padding: 0 1.25rem 1.3rem; }
+.tmeta { display: flex; gap: 1.4rem; flex-wrap: wrap; font-size: 0.78rem; color: var(--era-dim); border-top: 1px solid rgba(232,224,210,0.08); border-bottom: 1px solid rgba(232,224,210,0.08); padding: 0.6rem 0; margin-bottom: 1rem; }
+.tlabel { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--era-dim); display: block; margin: 1rem 0 0.35rem; }
+.tbody ol, .tbody ul { margin: 0 0 0 1.15rem; padding: 0; font-size: 0.9rem; line-height: 1.7; }
+.tbody ol li { margin-bottom: 0.3rem; }
+.reads { display: grid; gap: 0.5rem; margin-top: 0.5rem; }
+.read { font-size: 0.88rem; line-height: 1.6; padding-left: 0.85rem; border-left: 2px solid rgba(232,224,210,0.14); }
+.read.dead { border-left-color: #b8763c; }
+.read.alive { border-left-color: var(--era-secondary); }
+.read.blind { border-left-color: rgba(151,137,114,0.5); }
+.read b { display: block; font-weight: 500; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--era-dim); }
+.cant { margin-top: 1rem; font-size: 0.86rem; line-height: 1.65; color: var(--era-dim); font-style: italic; }
+.srcs { margin-top: 0.9rem; font-size: 0.74rem; line-height: 1.9; }
+.srcs a { color: var(--era-dim); text-decoration: none; border-bottom: 1px dotted rgba(151,137,114,0.45); }
+.srcs a:hover { color: var(--era-accent); }
+
+/* the reader */
+.desk { background: var(--era-surface); border: 1px solid rgba(232,224,210,0.1); border-radius: 8px; padding: 1.4rem 1.5rem 1.6rem; margin-top: 1.4rem; }
+.pairs { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem 1.4rem; }
+.field { display: flex; flex-direction: column; gap: 0.3rem; }
+.field label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--era-dim); }
+.field .sub { font-size: 0.72rem; color: var(--era-dim); font-style: italic; text-transform: none; letter-spacing: 0; }
+.field input, .field select { background: #0c0a08; border: 1px solid rgba(232,224,210,0.16); color: var(--era-fg); border-radius: 5px; padding: 0.6rem 0.7rem; font-size: 0.95rem; font-family: inherit; min-height: 2.6rem; }
+.field input:focus, .field select:focus { outline: 2px solid var(--era-accent); outline-offset: 1px; }
+.deskbtn { margin-top: 1.3rem; background: none; border: 1px solid var(--era-accent); color: var(--era-accent); border-radius: 5px; padding: 0.85rem 1.6rem; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; font-family: inherit; }
+.deskbtn:hover { background: rgba(184,118,60,0.12); }
+.answer { margin-top: 1.5rem; border-top: 1px solid rgba(232,224,210,0.1); padding-top: 1.3rem; }
+.answer .verdict { font-size: 1.28rem; color: var(--era-fg); }
+.answer .verdict.against { color: #e5b073; }
+.answer .means { color: var(--era-dim); font-size: 0.92rem; line-height: 1.65; margin-top: 0.4rem; }
+.answer .alive-row { margin-top: 1.1rem; padding: 0.85rem 1rem; border: 1px dashed rgba(232,224,210,0.2); border-radius: 6px; font-family: var(--era-mono); font-size: 0.82rem; color: var(--era-dim); }
+.answer .alive-row code { color: var(--era-fg); }
+.rd { margin-top: 1rem; padding-left: 0.9rem; border-left: 2px solid rgba(232,224,210,0.16); font-size: 0.9rem; line-height: 1.65; }
+.rd .rdhead { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--era-dim); }
+.rd.against { border-left-color: #b8763c; }
+.rd.clear { border-left-color: var(--era-secondary); }
+.rd .fix { color: var(--era-dim); font-style: italic; margin-top: 0.35rem; }
+
+/* findings */
+.findings { display: grid; gap: 0.9rem; margin-top: 1.3rem; }
+.fnd { background: var(--era-surface); border: 1px solid rgba(232,224,210,0.08); border-radius: 7px; padding: 1rem 1.15rem; }
+.fnd .stmt { font-size: 0.95rem; line-height: 1.65; }
+.fnd .det { font-size: 0.86rem; line-height: 1.6; color: var(--era-dim); margin-top: 0.5rem; }
+.fnd .lim { font-size: 0.82rem; line-height: 1.55; color: var(--era-dim); font-style: italic; margin-top: 0.5rem; }
+.fnd .foot { margin-top: 0.7rem; font-size: 0.74rem; }
+.fnd .foot a { color: var(--era-dim); text-decoration: none; border-bottom: 1px dotted rgba(151,137,114,0.45); }
+.fnd .foot a:hover { color: var(--era-accent); }
+.tag { display: inline-block; font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 1px 6px; border-radius: 3px; margin-right: 0.4rem; }
+.tag-verified { color: #9fc39a; background: rgba(120,170,115,0.14); }
+.tag-source-declared { color: #d8c084; background: rgba(200,170,90,0.14); }
+.tag-contested { color: #e0a07f; background: rgba(210,130,90,0.15); }
+.tag-unverified { color: var(--era-dim); background: rgba(151,137,114,0.14); }
+.topicbar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.2rem; }
+.topicbar button { background: none; border: 1px solid rgba(232,224,210,0.16); color: var(--era-dim); border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.74rem; letter-spacing: 0.06em; cursor: pointer; font-family: inherit; }
+.topicbar button[aria-pressed="true"] { color: var(--era-accent); border-color: var(--era-accent); }
+
+/* the build order */
+.layers { display: grid; gap: 0; margin-top: 1.4rem; }
+.layer { display: grid; grid-template-columns: 3.2rem 1fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(232,224,210,0.07); }
+.layer:last-child { border-bottom: 0; }
+.layer .n { font-family: var(--era-mono); font-size: 0.78rem; color: var(--era-accent); padding-top: 0.2rem; }
+.layer h4 { margin: 0 0 0.3rem; font-size: 1.02rem; font-weight: 400; }
+.layer p { margin: 0; font-size: 0.89rem; line-height: 1.65; color: var(--era-dim); }
+
+.curlbox { background: #0b0907; border: 1px solid rgba(232,224,210,0.12); border-radius: 6px; padding: 1rem 1.2rem; overflow-x: auto; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.78rem; line-height: 1.7; color: #cdbfa9; margin-top: 1rem; white-space: pre; }
+.curlbox b { color: var(--era-accent); font-weight: 600; }
+
+.note { color: var(--era-dim); font-size: 0.86rem; line-height: 1.7; margin-top: 1rem; }
+.loading { color: var(--era-dim); font-style: italic; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+</style>
+<link rel="stylesheet" href="/era.css?v=1">
+</head>
+<body data-era="ground">
+<script src="/era-nav.js?v=2"></script>
+
+<header class="era-hero">
+  <p class="era-period" lang="zh">土</p>
+  <h1 class="era-title">the Ground</h1>
+  <p class="era-subtitle">is this soil, or is it fill with grass on top?</p>
+  <p class="era-essence">
+    Under the grass was rubble — broken concrete, mortar, stones left where the builders
+    dropped them. The lawn passed every test the eye can run and failed the only one that
+    counts. These are six cheap field tests that read whether ground is <em>working</em>
+    rather than how it looks, and every one of them is honest about the same asymmetry:
+    each can find absence far more readily than presence. A test that finds nothing wrong
+    has not found life.
+  </p>
+  <p class="era-scroll-hint">↓ dig</p>
+</header>
+
+<section class="emergence">
+  <div class="emergence-inner">
+    <h2>More dead than the desert</h2>
+    <p>
+      That was the first thought, standing over the hole, and it turned out to be
+      accurate in a way that is worse than it sounds. A desert is not empty. Deserts carry
+      a living skin — cyanobacteria, fungi, lichens, mosses — that fixes nitrogen, holds the
+      surface together and changes how water moves. Real biology, adapted, at work.
+      Bare compacted construction substrate has <em>less</em> functioning life than that.
+      Calling it a desert is a compliment it has not earned.
+    </p>
+    <p>
+      The desert has one more thing to say. Scrape that living skin off and it takes
+      somewhere between three and three hundred years to come back. In a Colorado Plateau
+      study, the physical stability of the crust recovered within about eighteen months
+      while the chlorophyll and the biological glue were still at a third of the reference
+      sites. The surface looked mended long before it was.
+    </p>
+    <p>
+      Which is the same lie as turf over rubble, told by a desert. That is the thing worth
+      taking seriously: the look comes back first. It always does. So the only useful
+      question is the one the eye cannot answer, and the only useful tests are the ones
+      that can come back and say <em>no</em>.
+    </p>
+  </div>
+</section>
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">Before the next spadeful</div>
+  <h2>What is in construction waste</h2>
+
+  <div class="warn">
+    <h3>If the house was built or refurbished before 2000, treat buried debris as possibly containing asbestos</h3>
+    <p>
+      Asbestos was used in British homes until it was banned in 1999 — cement sheet on
+      garage and shed roofs, pipe lagging, textured ceiling coatings, floor tiles,
+      insulating board. Offcuts got buried. It only harms you when fibres get into the
+      air and are breathed in, which means <strong>the buried, damp state is the safe
+      state</strong>, and the risk starts when you break it, dry it out, tread on the
+      pieces or sweep them up.
+    </p>
+    <ul>
+      <li><strong>Hard grey cement fragments</strong>, often with the corrugated profile of an old roof — stop, mist them with water, lift whole pieces gently without snapping them, do not walk on debris, do not dry-sweep, and never use a domestic vacuum cleaner.</li>
+      <li><strong>Anything soft, fibrous or crumbly</strong> — lagging, sprayed coating, insulating board — hands off entirely. Dampen, cover, and call a licensed contractor. This is not householder work.</li>
+      <li><strong>Old paint fragments and urban made ground</strong> may carry lead; the main route in is swallowing soil and soil dust, off hands and off vegetables, which is why washing matters more than most people think.</li>
+      <li><strong>Greenish or black tarry timber</strong> is CCA (arsenic) or creosote. Never burn it.</li>
+      <li><strong>Before driving in posts or digging deeper</strong>, treat buried pipes and cables as present until located.</li>
+    </ul>
+    <p class="quiet">
+      Asbestos disease takes decades and scales with total dose — one careful encounter is
+      not an emergency, so there is no reason to rush. UK guidance; rules differ elsewhere.
+      If in doubt, phone the council's environmental health team before touching anything.
+      Full sources at <code>GET /api/ground/safety</code>.
+    </p>
+  </div>
+
+  <div class="section-cut">
+    <div class="cut">
+      <h4>What it looked like</h4>
+      <svg viewBox="0 0 300 150" role="img" aria-label="Cross-section of a lawn: an even green surface over soil.">
+        <rect x="0" y="0" width="300" height="26" fill="#7f9464"/>
+        <rect x="0" y="26" width="300" height="124" fill="#3a2c1e"/>
+        <g stroke="#7f9464" stroke-width="1.2" opacity="0.75">
+          <path d="M14 26 v-9 M34 26 v-12 M54 26 v-8 M74 26 v-11 M94 26 v-9 M114 26 v-12 M134 26 v-8 M154 26 v-11 M174 26 v-9 M194 26 v-12 M214 26 v-8 M234 26 v-11 M254 26 v-9 M274 26 v-12 M292 26 v-8"/>
+        </g>
+      </svg>
+      <p>An even green surface. Nothing to report.</p>
+    </div>
+    <div class="cut">
+      <h4>What was under it</h4>
+      <svg viewBox="0 0 300 150" role="img" aria-label="Cross-section of the same ground: thin turf, a shallow skin of topsoil, then a layer of broken concrete, brick and stones, then compacted subsoil.">
+        <rect x="0" y="0" width="300" height="12" fill="#7f9464"/>
+        <rect x="0" y="12" width="300" height="20" fill="#4a3826"/>
+        <rect x="0" y="32" width="300" height="70" fill="#2b2620"/>
+        <g fill="#8d8478" opacity="0.92">
+          <rect x="12" y="40" width="34" height="15" transform="rotate(-8 29 47)"/>
+          <rect x="66" y="58" width="44" height="12" transform="rotate(6 88 64)"/>
+          <rect x="128" y="38" width="26" height="20" transform="rotate(14 141 48)"/>
+          <rect x="170" y="66" width="38" height="13" transform="rotate(-11 189 72)"/>
+          <rect x="222" y="44" width="30" height="17" transform="rotate(9 237 52)"/>
+          <rect x="252" y="74" width="36" height="12" transform="rotate(-5 270 80)"/>
+          <rect x="40" y="80" width="28" height="12" transform="rotate(12 54 86)"/>
+          <rect x="112" y="82" width="40" height="11" transform="rotate(-7 132 87)"/>
+        </g>
+        <g fill="#b8763c" opacity="0.85">
+          <rect x="88" y="40" width="18" height="9" transform="rotate(-14 97 44)"/>
+          <rect x="196" y="86" width="20" height="9" transform="rotate(8 206 90)"/>
+          <rect x="150" y="62" width="16" height="8" transform="rotate(20 158 66)"/>
+        </g>
+        <rect x="0" y="102" width="300" height="48" fill="#241d16"/>
+        <g stroke="#100e0b" stroke-width="1" opacity="0.6">
+          <path d="M0 102 h300 M0 112 h300 M0 122 h300 M0 132 h300 M0 142 h300"/>
+        </g>
+      </svg>
+      <p>Turf, a skin of topsoil, then the layer the builders left: concrete, mortar, brick, stones. Then subsoil pressed flat by machines.</p>
+    </div>
+  </div>
+
+  <p class="note">
+    Every part of that is a mechanism, not a mood. Masonry and mortar release calcium as
+    they weather and push the pH up; above roughly 7.5, iron, manganese and zinc get
+    harder for plants to take up. Compaction is faster than anyone expects — Colorado
+    State University Extension reports that moist soil can reach 75% of its maximum
+    compaction the first time it is stepped on, and 90% by the fourth pass. And where one
+    soil layer meets a differently textured one, water movement pauses at the boundary
+    rather than passing straight through, so a thin bed of bought topsoil over compacted
+    fill holds water at the seam instead of draining. A UK government case study documents
+    exactly this failure: turf on 150–200 mm of topsoil over un-ripped compacted subsoil,
+    healthy through the first year, failing after.
+  </p>
+</section>
+
+<hr class="hairline">
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">Six tests · kitchen materials · nothing to buy</div>
+  <h2>Ask the ground a question it cannot fake</h2>
+  <p class="note">
+    Four of these read life. Two cannot see it at all and are here anyway, because
+    knowing what you are standing on changes what the other four mean. Every test that
+    reads life needs <strong>a pair</strong>: the same test, the same day, the same depth,
+    in the ground you are asking about and in ground you already trust. A single unpaired
+    result is a photograph, not a measurement.
+  </p>
+  <div class="tests" id="tests"><p class="loading">opening the ground…</p></div>
+</section>
+
+<hr class="hairline">
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">The working desk — live against the API</div>
+  <h2>Read your own results</h2>
+  <p class="note">
+    Fill in whatever you have; leave the rest blank. This answers
+    <em>evidence-of-absence</em>, <em>inconclusive</em>, or
+    <em>no-evidence-against-life</em>. It has no fourth answer.
+  </p>
+
+  <div class="desk">
+    <div class="pairs">
+      <div class="field">
+        <label for="worms">Adult worms, one 20 cm pit</label>
+        <input type="number" id="worms" min="0" max="1000" inputmode="numeric" placeholder="e.g. 1">
+      </div>
+      <div class="field">
+        <label for="worms_control">…in ground you trust <span class="sub">the control</span></label>
+        <input type="number" id="worms_control" min="0" max="1000" inputmode="numeric" placeholder="e.g. 12">
+      </div>
+      <div class="field">
+        <label for="cotton">Buried cotton, after 60 days</label>
+        <select id="cotton"><option value="">—</option><option>intact</option><option>frayed</option><option>half-gone</option><option>shredded</option><option>gone</option></select>
+      </div>
+      <div class="field">
+        <label for="cotton_control">…the control piece</label>
+        <select id="cotton_control"><option value="">—</option><option>intact</option><option>frayed</option><option>half-gone</option><option>shredded</option><option>gone</option></select>
+      </div>
+      <div class="field">
+        <label for="slake">Dropped clod</label>
+        <select id="slake"><option value="">—</option><option value="collapsed">collapsed in seconds</option><option value="slow-collapse">came apart slowly</option><option value="held">held together</option></select>
+      </div>
+      <div class="field">
+        <label for="slake_control">…the control clod</label>
+        <select id="slake_control"><option value="">—</option><option value="collapsed">collapsed in seconds</option><option value="slow-collapse">came apart slowly</option><option value="held">held together</option></select>
+      </div>
+      <div class="field">
+        <label for="infiltration">Second inch of water <span class="sub">minutes</span></label>
+        <input type="number" id="infiltration" min="0" step="0.1" inputmode="decimal" placeholder="e.g. 180">
+      </div>
+      <div class="field">
+        <label for="infiltration_control">…in ground you trust</label>
+        <input type="number" id="infiltration_control" min="0" step="0.1" inputmode="decimal" placeholder="e.g. 2">
+      </div>
+      <div class="field">
+        <label for="fizz">Vinegar on dry soil</label>
+        <select id="fizz"><option value="">—</option><option value="none">no fizz</option><option value="slight">slight fizz</option><option value="strong">strong fizz</option></select>
+      </div>
+      <div class="field">
+        <label for="stones">Over 2 mm, by eye <span class="sub">percent</span></label>
+        <input type="number" id="stones" min="0" max="100" inputmode="numeric" placeholder="e.g. 30">
+      </div>
+      <div class="field">
+        <label for="soil">Soil today</label>
+        <select id="soil"><option value="">—</option><option value="dry">dry</option><option value="damp">damp</option><option value="wet">wet</option></select>
+      </div>
+      <div class="field">
+        <label for="month">Month</label>
+        <select id="month"><option value="">this month</option></select>
+      </div>
+    </div>
+    <button class="deskbtn" type="button" id="read">read the ground</button>
+    <div class="answer" id="answer" hidden aria-live="polite"></div>
+  </div>
+</section>
+
+<hr class="hairline">
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">The build order</div>
+  <h2>A kingdom of life stands on the layer below it</h2>
+  <p class="note">
+    Nothing above can be bought past a floor that is not there — which is exactly what a
+    lawn over rubble is. That floor is the one place in this project where something
+    genuinely cannot stand: above the soil, the search for hard rules came back almost
+    empty, and <a href="/slope">坡 the Slope</a> is the record of it — forty proposed,
+    thirty-nine fallen. Findings and sources at <code>GET /api/ground/layers</code>.
+    The plant, insect and animal specifics assume a temperate maritime climate with dry
+    summers; the working assumption is eastern England, where Cambridge University
+    Botanic Garden records a thirty-year average of 557 mm of rain a year. That is
+    stated, not hidden. The soil physics and all six tests are not climate-specific.
+  </p>
+  <div class="layers">
+    <div class="layer"><div class="n">01</div><div>
+      <h4>Structure and the microbiome</h4>
+      <p>Carbon, moisture, undisturbed structure, and living roots year-round — plants push somewhere in the range of 5–21% of what they photosynthesise into the soil as root exudates, which is how the microbiome gets paid. Compost is the slow, real lever: one application was still measurably raising soil carbon and aggregate stability more than two decades later. Bought mycorrhizal inoculants are not: in a greenhouse test of 25 commercial products from Australia and Europe, over 80% failed to produce measurable root colonisation.</p>
+    </div></div>
+    <div class="layer"><div class="n">02</div><div>
+      <h4>Decompaction, mostly by patience</h4>
+      <p>Wood chip belongs on top and never dug in. On heavily compacted clay loam, a five-year UK trial found woodchip mulch alone did nearly as much for bulk density as decompaction machinery. Deep-rooting plants help too — radish roots can go beyond three feet in sixty days. And if vinegar makes your soil fizz, there is free lime in it, and you will not usefully acidify it with sulphur: on soil at 4.5% carbonate, one laboratory saw little to no pH change for three years at any rate. Plant for the pH you have.</p>
+    </div></div>
+    <div class="layer"><div class="n">03</div><div>
+      <h4>Plants</h4>
+      <p>On alkaline, sharply drained, low-fertility ground the winning move is not to correct the soil but to plant what already wants it. For invertebrates the lever that works regardless of origin is planting <em>density</em>, with a bias toward native and near-native species — a garden packed with plants beats a sparse one of the "right" ones.</p>
+    </div></div>
+    <div class="layer"><div class="n">04</div><div>
+      <h4>Insects</h4>
+      <p>Roughly 70% of solitary bee species nest in underground burrows, so bare, undisturbed ground is habitat rather than neglect. Cutting less helps: a 2025 synthesis in Ecology Letters pooled 28 datasets from 12 European countries. Deadwood carries its own fauna — around 2,000 UK invertebrate species are saproxylic.</p>
+    </div></div>
+    <div class="layer"><div class="n">05</div><div>
+      <h4>Animals, honestly</h4>
+      <p>Ponds are disproportionate for their size — two-thirds of Britain's freshwater species are found in them — though the popular claim that a pond is <em>the</em> highest-impact garden intervention circulates without a citation, and this room will not repeat it as fact. A pond without rough ground around it is half a habitat. Feeding birds cuts both ways: a BTO/ZSL analysis found the two most-fed British finches declined fastest where they were fed, because feeders concentrate disease. In the most intensive urban camera-trap study available, supplementary food was the only significant predictor of whether hedgehogs used a garden — not ponds, not log piles, not wild corners.</p>
+    </div></div>
+    <div class="layer"><div class="n">06</div><div>
+      <h4>Weather, both ends of it</h4>
+      <p>Drought and flood now arrive in the same year, and a rain garden answers both. The RHS gives numbers to build one by: size it at 20% of the roof area feeding it, allow around 15 cm of depth on soil draining at 5 cm an hour, keep it 5 m from the house, and expect the water gone within 48 hours.</p>
+    </div></div>
+  </div>
+</section>
+
+<hr class="hairline">
+
+<section class="era-section era-section-wide">
+  <div class="era-section-label">The substrate under this page</div>
+  <h2>Sixty-six findings, each with its source and its limit</h2>
+  <p class="note">
+    A page about not mistaking surface for substance owes you its own substrate. Every
+    finding here was gathered by fetching its source, then independently re-checked by a
+    second pass that fetched the same page again and could reject or reword it. Sixty-six
+    survived; twenty-four came back weaker and more honest than first written. Each one
+    carries what it <em>cannot</em> establish, because a claim without a stated limit is
+    decoration.
+  </p>
+  <div class="topicbar" id="topicbar"></div>
+  <div class="findings" id="findings"><p class="loading">reading the corpus…</p></div>
+</section>
+
+<section class="era-section">
+  <div class="era-section-label">For agents &amp; systems</div>
+  <h2>The same room, as endpoints</h2>
+  <p class="note">No keys, no database, no funds, no take-rate. The verdict reader needs no data file and answers even if the room is asleep.</p>
+  <div class="curlbox"><b>curl</b> "https://artbitrage.io/api/ground"
+<b>curl</b> "https://artbitrage.io/api/ground/safety"
+<b>curl</b> "https://artbitrage.io/api/ground/tests/buried-cotton"
+<b>curl</b> "https://artbitrage.io/api/ground/findings?topic=rubble&amp;truth_status=verified"
+<b>curl</b> "https://artbitrage.io/api/ground/verdict?worms=1&amp;worms_control=12&amp;soil=damp&amp;month=4"
+
+<i># every verdict carries "alive": null. it is null by construction.</i></div>
+</section>
+
+<footer class="era-footer">
+  <div class="era-footer-nav">
+    <a href="/">artbitrage</a>
+    <a href="/slope">坡 slope</a>
+    <a href="/map">地圖 map</a>
+    <a href="/pigments">色 pigments</a>
+  </div>
+  <p>These tests can find evidence that ground is not working. None of them, alone or together, can establish that it is alive. Nothing here is a soil survey, a contamination assessment, or advice about whether food grown in this ground is safe to eat.</p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var monthSel = document.getElementById('month');
+  MONTHS.forEach(function (name, i) {
+    var o = document.createElement('option');
+    o.value = String(i + 1); o.textContent = name;
+    monthSel.appendChild(o);
+  });
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined && text !== null) n.textContent = text;
+    return n;
+  }
+  function host(url) { try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return url; } }
+
+  // ---- the tests -----------------------------------------------------------
+
+  function renderTests(tests) {
+    var wrap = document.getElementById('tests');
+    wrap.textContent = '';
+    tests.forEach(function (t, i) {
+      var d = el('details', 'tcard');
+      if (i === 0) d.open = true;
+      var s = el('summary');
+      var g = el('span', 'glyph'); g.lang = 'zh'; g.textContent = t.cjk || '·';
+      s.appendChild(g);
+      s.appendChild(el('span', 'tname', t.name));
+      var readsLife = t.reads_life !== 'none';
+      s.appendChild(el('span', 'badge ' + (readsLife ? 'life' : 'blind'), readsLife ? 'reads life' : 'cannot see life'));
+      if (t.needs_control) s.appendChild(el('span', 'badge blind', 'needs a control'));
+      s.appendChild(el('span', 'treads', t.reads));
+      d.appendChild(s);
+
+      var b = el('div', 'tbody');
+      var meta = el('div', 'tmeta');
+      meta.appendChild(el('span', null, '⏱ ' + t.duration));
+      meta.appendChild(el('span', null, '☾ ' + t.best_time));
+      b.appendChild(meta);
+
+      b.appendChild(el('span', 'tlabel', 'You need'));
+      var ul = el('ul');
+      (t.materials || []).forEach(function (m) { ul.appendChild(el('li', null, m)); });
+      b.appendChild(ul);
+
+      b.appendChild(el('span', 'tlabel', 'Method'));
+      var ol = el('ol');
+      (t.method || []).forEach(function (m) { ol.appendChild(el('li', null, m)); });
+      b.appendChild(ol);
+
+      b.appendChild(el('span', 'tlabel', 'Reading it'));
+      var reads = el('div', 'reads');
+      [['dead', 'Evidence it is not working', t.reading.dead_signal],
+       ['alive', 'What a good result does and does not mean', t.reading.living_signal],
+       ['blind', 'When this test is blind', t.reading.unreadable_when]].forEach(function (row) {
+        var r = el('div', 'read ' + row[0]);
+        r.appendChild(el('b', null, row[1]));
+        r.appendChild(document.createTextNode(row[2]));
+        reads.appendChild(r);
+      });
+      b.appendChild(reads);
+
+      b.appendChild(el('p', 'cant', 'It cannot establish: ' + t.cannot_establish));
+
+      var srcs = el('p', 'srcs');
+      srcs.appendChild(el('span', null, 'Sources: '));
+      (t.sources || []).forEach(function (u, j) {
+        if (j) srcs.appendChild(document.createTextNode(' · '));
+        var a = el('a', null, host(u));
+        a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer';
+        srcs.appendChild(a);
+      });
+      b.appendChild(srcs);
+
+      d.appendChild(b);
+      wrap.appendChild(d);
+    });
+  }
+
+  // ---- the findings --------------------------------------------------------
+
+  var ALL = [];
+  var TOPIC_LABELS = {
+    safety: 'safety',
+    rubble: 'what rubble does',
+    tests: 'the tests themselves',
+    rebuild: 'rebuilding',
+    layers: 'the living layers'
+  };
+
+  function renderFindings(topic) {
+    var wrap = document.getElementById('findings');
+    wrap.textContent = '';
+    var list = topic ? ALL.filter(function (f) { return f.topic === topic; }) : ALL;
+    list.forEach(function (f) {
+      var c = el('div', 'fnd');
+      var st = el('p', 'stmt');
+      st.appendChild(el('span', 'tag tag-' + f.truth_status, f.truth_status));
+      st.appendChild(document.createTextNode(f.statement));
+      c.appendChild(st);
+      c.appendChild(el('p', 'det', f.detail));
+      c.appendChild(el('p', 'lim', 'Cannot establish: ' + f.cannot_establish));
+      var foot = el('p', 'foot');
+      var a = el('a', null, f.source.name);
+      a.href = f.source.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      foot.appendChild(a);
+      c.appendChild(foot);
+      wrap.appendChild(c);
+    });
+    if (!list.length) wrap.appendChild(el('p', 'loading', 'nothing under that heading.'));
+  }
+
+  function renderTopicBar() {
+    var bar = document.getElementById('topicbar');
+    bar.textContent = '';
+    var current = '';
+    function mk(value, label) {
+      var b = el('button', null, label);
+      b.type = 'button';
+      b.setAttribute('aria-pressed', value === current ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        current = value;
+        Array.prototype.forEach.call(bar.children, function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        renderFindings(value);
+      });
+      return b;
+    }
+    bar.appendChild(mk('', 'all ' + ALL.length));
+    Object.keys(TOPIC_LABELS).forEach(function (t) {
+      var n = ALL.filter(function (f) { return f.topic === t; }).length;
+      if (n) bar.appendChild(mk(t, TOPIC_LABELS[t] + ' ' + n));
+    });
+  }
+
+  // ---- load ---------------------------------------------------------------
+
+  fetch('/ground.json')
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      renderTests(d.tests || []);
+      ALL = d.findings || [];
+      renderTopicBar();
+      renderFindings('');
+    })
+    .catch(function () {
+      document.getElementById('tests').textContent = 'the ground room could not be reached — the data may be waking. The tests still work without it; the sources are in /api/ground/tests.';
+      document.getElementById('findings').textContent = '';
+    });
+
+  // ---- the reader ---------------------------------------------------------
+
+  function val(id) {
+    var n = document.getElementById(id);
+    return n && n.value !== '' ? n.value : null;
+  }
+
+  function renderAnswer(j) {
+    var out = document.getElementById('answer');
+    out.hidden = false;
+    out.textContent = '';
+
+    if (j.error) {
+      out.appendChild(el('p', 'verdict', 'nothing to read yet'));
+      out.appendChild(el('p', 'means', 'Fill in at least one reading. Even one paired test says more than four unpaired ones.'));
+      return;
+    }
+
+    var against = j.verdict === 'evidence-of-absence';
+    out.appendChild(el('p', 'verdict' + (against ? ' against' : ''), j.verdict.replace(/-/g, ' ')));
+    out.appendChild(el('p', 'means', j.verdict_means));
+
+    (j.readings || []).forEach(function (r) {
+      var cls = r.verdict === 'evidence-against-life' ? 'against' : (r.verdict === 'no-evidence-against-life' ? 'clear' : '');
+      var d = el('div', 'rd ' + cls);
+      d.appendChild(el('p', 'rdhead', r.test.replace(/-/g, ' ') + ' — ' + r.verdict.replace(/-/g, ' ')));
+      d.appendChild(el('p', null, r.why));
+      if (r.reading_alone) d.appendChild(el('p', 'fix', r.reading_alone));
+      if (r.to_resolve) d.appendChild(el('p', 'fix', '→ ' + r.to_resolve));
+      out.appendChild(d);
+    });
+
+    (j.context || []).forEach(function (c) {
+      var d = el('div', 'rd');
+      d.appendChild(el('p', 'rdhead', c.test.replace(/-/g, ' ') + ' — not about life'));
+      d.appendChild(el('p', null, c.why));
+      if (c.note) d.appendChild(el('p', 'fix', c.note));
+      out.appendChild(d);
+    });
+
+    if (j.month_assumed) {
+      out.appendChild(el('p', 'means', 'Month was assumed to be the current one. Set it if you are reading results from another time of year.'));
+    }
+
+    var row = el('div', 'alive-row');
+    row.appendChild(el('code', null, '"alive": null'));
+    row.appendChild(document.createTextNode(' — ' + j.alive_note));
+    out.appendChild(row);
+  }
+
+  document.getElementById('read').addEventListener('click', function () {
+    var q = [];
+    ['worms', 'worms_control', 'cotton', 'cotton_control', 'slake', 'slake_control',
+     'infiltration', 'infiltration_control', 'fizz', 'stones', 'soil', 'month'].forEach(function (k) {
+      var v = val(k);
+      if (v !== null) q.push(k + '=' + encodeURIComponent(v));
+    });
+    var out = document.getElementById('answer');
+    out.hidden = false;
+    out.textContent = '';
+    out.appendChild(el('p', 'loading', 'reading…'));
+    fetch('/api/ground/verdict?' + q.join('&'))
+      .then(function (r) { return r.json(); })
+      .then(renderAnswer)
+      .catch(function () {
+        out.textContent = '';
+        out.appendChild(el('p', 'means', 'the reader could not be reached. Your results are still your results — the six tests above say how to read them by hand.'));
+      });
+  });
+})();
+</script>
+</body>
+</html>

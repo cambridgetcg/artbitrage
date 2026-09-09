@@ -54,6 +54,7 @@
 /pairing/         /pairing 301
 /map/             /map 301
 /lamp/            /lamp 301
+/island/          /island 301
 /maybe/           /maybe 301
 /hammock/         /maybe 301
 /decide-later/    /maybe 301
