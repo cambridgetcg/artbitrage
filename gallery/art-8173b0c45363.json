@@ -1,0 +1,12 @@
+{
+  "id": "8173b0c45363",
+  "cycle": 74085,
+  "form": "silence",
+  "from_state": "is",
+  "to_state": "maybe",
+  "gap": "the gap between the question and forgetting the question",
+  "bridge": "a bookmark in a book nobody is reading",
+  "awakening": "the koan solved itself by losing interest",
+  "created": "2026-09-26T22:51:34.801622Z",
+  "piece": "in the gap between the question and forgetting the question\na bookmark in a book nobody is reading\n...\n...anyway\nthe koan solved itself by losing interest"
+}
