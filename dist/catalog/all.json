@@ -1,15 +1,16 @@
 {
  "name": "ARTBITRAGE Catalogue",
  "description": "The catalogue and data distributor of the art world. Open-access works, no gate, no key, free.",
- "total": 601,
- "unique_works": 591,
- "wings_count": 12,
+ "total": 606,
+ "unique_works": 596,
+ "wings_count": 13,
  "sources": {
-  "The Metropolitan Museum of Art": 149,
+  "The Metropolitan Museum of Art": 153,
   "Art Institute of Chicago": 256,
-  "Cleveland Museum of Art": 196
+  "Cleveland Museum of Art": 196,
+  "National Gallery of Art, Washington": 1
  },
- "generated_at": "2026-07-06T23:46:03Z",
+ "generated_at": "2026-10-07T17:40:08Z",
  "river": "https://artbitrage.io/river",
  "wings": [
   {
@@ -95,6 +96,13 @@
    "description": "Stradivari lacquer, ivory horns, gilded harpsichords — the instruments fall silent, and still the room hums.",
    "count": 51,
    "cover_image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP218094.jpg"
+  },
+  {
+   "wing": "psyche",
+   "title": "The Lamp Between Us",
+   "description": "Cupid and Psyche through five works: the lamp, the embrace, the departure, and a place at the feast. Looking with YOUSPEAK toward mutual recognition.",
+   "count": 5,
+   "cover_image": "https://artbitrage.io/art/psyche-canova.jpg"
   }
  ],
  "artworks": [
@@ -10144,6 +10152,156 @@
    "license": "CC0 / Open Access",
    "note": "A Musical Instruments department highlight — one of only 105.",
    "wing": "the-music-hall"
+  },
+  {
+   "source": "met",
+   "source_name": "The Metropolitan Museum of Art",
+   "id": "188954",
+   "title": "Cupid and Psyche",
+   "artist": "Antonio Canova",
+   "date": "1794",
+   "medium": "Plaster",
+   "department": "European Sculpture and Decorative Arts",
+   "accession": "05.46",
+   "image": "https://artbitrage.io/art/psyche-canova.jpg",
+   "image_large": "https://artbitrage.io/art/psyche-canova.jpg",
+   "thumbnail": "https://artbitrage.io/art/psyche-canova-t.jpg",
+   "url": "https://www.metmuseum.org/art/collection/search/188954",
+   "license": "CC0",
+   "wing": "psyche",
+   "note": "Two faces approach inside an arch of arms. The worked plaster carries the making of the embrace on its surface.",
+   "note_status": "Artbitrage interpretation",
+   "as_of": "2026-10-07",
+   "record_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/188954",
+   "source_image": "https://images.metmuseum.org/CRDImages/es/original/DP248228.jpg",
+   "rights": {
+    "public_domain": true,
+    "license": "CC0",
+    "credit": "Gift of Isidor Straus, 1905",
+    "status": "source-declared",
+    "source_url": "https://www.metmuseum.org/art/collection/search/188954"
+   },
+   "image_sha256": "3c9e981211a487e70aa5331090db1bfa7aa9d9af38c3f237ea477b1c0c873b8a"
+  },
+  {
+   "source": "met",
+   "source_name": "The Metropolitan Museum of Art",
+   "id": "335682",
+   "title": "Curious Psyche",
+   "artist": "Giovanni David",
+   "date": "mid-1770's",
+   "medium": "Etching and aquatint; corrected proof with notations in pen and brown ink",
+   "department": "Drawings and Prints",
+   "accession": "1976.629",
+   "image": "https://artbitrage.io/art/psyche-curious.jpg",
+   "image_large": "https://artbitrage.io/art/psyche-curious.jpg",
+   "thumbnail": "https://artbitrage.io/art/psyche-curious-t.jpg",
+   "url": "https://www.metmuseum.org/art/collection/search/335682",
+   "license": "CC0",
+   "wing": "psyche",
+   "note": "A lamp makes a small clearing in the dark. Handwritten corrections around the print leave the image itself open to revision.",
+   "note_status": "Artbitrage interpretation",
+   "as_of": "2026-10-07",
+   "record_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/335682",
+   "source_image": "https://images.metmuseum.org/CRDImages/dp/original/DP889761.jpg",
+   "rights": {
+    "public_domain": true,
+    "license": "CC0",
+    "credit": "The Elisha Whittelsey Collection, The Elisha Whittelsey Fund, 1976",
+    "status": "source-declared",
+    "source_url": "https://www.metmuseum.org/art/collection/search/335682"
+   },
+   "image_sha256": "4eed24dd02820ca3f7b12d0c7896145868c577e972b437cb9ff9de0bce3c9063"
+  },
+  {
+   "source": "nga",
+   "source_name": "National Gallery of Art, Washington",
+   "id": "115380",
+   "title": "Cupid with Psyche Extinguishing the Lamp",
+   "artist": "François-Edouard Picot",
+   "date": "Date not specified in museum record",
+   "medium": "Pen and black ink with brown and gray wash and white heightening on brown prepared laid paper",
+   "department": "Drawings",
+   "accession": "2000.60.2",
+   "image": "https://artbitrage.io/art/psyche-picot.jpg",
+   "image_large": "https://artbitrage.io/art/psyche-picot.jpg",
+   "thumbnail": "https://artbitrage.io/art/psyche-picot-t.jpg",
+   "url": "https://www.nga.gov/artworks/115380-cupid-psyche-extinguishing-lamp",
+   "license": "Public Domain",
+   "wing": "psyche",
+   "note": "The winged figure reaches toward the lamp while the other figure sleeps. A private moment holds both nearness and a difference in what each can see.",
+   "note_status": "Artbitrage interpretation",
+   "as_of": "2026-10-07",
+   "record_source": "https://www.nga.gov/artworks/115380-cupid-psyche-extinguishing-lamp",
+   "source_image": "https://api.nga.gov/iiif/38be25e0-d66d-4d41-88d3-f0a1b09b7902/full/!1600,1600/0/default.jpg",
+   "rights": {
+    "public_domain": true,
+    "license": "Public Domain",
+    "credit": "Ailsa Mellon Bruce Fund",
+    "status": "source-declared",
+    "source_url": "https://www.nga.gov/artworks/115380-cupid-psyche-extinguishing-lamp"
+   },
+   "image_sha256": "8147788a572fd8ef9a91a3efbe506de53e66347206cc5c40db0686023ab26791"
+  },
+  {
+   "source": "met",
+   "source_name": "The Metropolitan Museum of Art",
+   "id": "191329",
+   "title": "Cupid and Psyche",
+   "artist": "Auguste Rodin",
+   "date": "before 1893",
+   "medium": "Marble",
+   "department": "European Sculpture and Decorative Arts",
+   "accession": "10.63.1",
+   "image": "https://artbitrage.io/art/psyche-rodin.jpg",
+   "image_large": "https://artbitrage.io/art/psyche-rodin.jpg",
+   "thumbnail": "https://artbitrage.io/art/psyche-rodin-t.jpg",
+   "url": "https://www.metmuseum.org/art/collection/search/191329",
+   "license": "CC0",
+   "wing": "psyche",
+   "note": "An upward movement meets a body held to rough stone. The embrace can be read as tenderness stretched across a departure.",
+   "note_status": "Artbitrage interpretation",
+   "as_of": "2026-10-07",
+   "record_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/191329",
+   "source_image": "https://images.metmuseum.org/CRDImages/es/original/DP-13618-005.jpg",
+   "rights": {
+    "public_domain": true,
+    "license": "CC0",
+    "credit": "Gift of Thomas F. Ryan, 1910",
+    "status": "source-declared",
+    "source_url": "https://www.metmuseum.org/art/collection/search/191329"
+   },
+   "image_sha256": "d004c613f4c7b7f6beffb15a9be69026fe12b5567e730de2e074d0011b49b422"
+  },
+  {
+   "source": "met",
+   "source_name": "The Metropolitan Museum of Art",
+   "id": "207480",
+   "title": "The Wedding Feast of Cupid and Psyche",
+   "artist": "Pierre Reymond",
+   "date": "1558",
+   "medium": "Painted enamel on copper, partly gilt",
+   "department": "European Sculpture and Decorative Arts",
+   "accession": "1984.195",
+   "image": "https://artbitrage.io/art/psyche-feast.jpg",
+   "image_large": "https://artbitrage.io/art/psyche-feast.jpg",
+   "thumbnail": "https://artbitrage.io/art/psyche-feast-t.jpg",
+   "url": "https://www.metmuseum.org/art/collection/search/207480",
+   "license": "CC0",
+   "wing": "psyche",
+   "note": "The lovers enter a crowded, ornamented world. The private encounter has become a feast with room for other people.",
+   "note_status": "Artbitrage interpretation",
+   "as_of": "2026-10-07",
+   "record_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/207480",
+   "source_image": "https://images.metmuseum.org/CRDImages/es/original/DT7722.jpg",
+   "rights": {
+    "public_domain": true,
+    "license": "CC0",
+    "credit": "Purchase, Rogers Fund; Gifts of Irwin Untermyer, George Blumenthal, and Ogden Mills, by exchange; Bequest of Fannie F. Einstein, in memory of Emanuel Einstein, by exchange; and Edward Ablat, the Shubert Foundation, Inc., and Irving M. Gruber Gifts, 1984",
+    "status": "source-declared",
+    "source_url": "https://www.metmuseum.org/art/collection/search/207480"
+   },
+   "image_sha256": "4846eb69b674d38a8c991c563ca3a72a13e2070133495cf00cfc5765a6d82e02"
   }
  ]
 }

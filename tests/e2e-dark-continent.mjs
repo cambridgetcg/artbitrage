@@ -17,8 +17,13 @@ for (const [id, hash] of Object.entries(hashes)) {
 }
 const idx = JSON.parse(await readFile(new URL('../catalog/index.json', import.meta.url)));
 const all = JSON.parse(await readFile(new URL('../catalog/all.json', import.meta.url)));
-assert.equal(idx.total, 601); assert.equal(idx.wings.reduce((n, w) => n + w.count, 0), 601);
-assert.equal(idx.unique_works, 591); assert.equal(all.artworks.length, 591);
+assert.equal(idx.total, idx.wings.reduce((n, w) => n + w.count, 0));
+assert.equal(all.total, idx.total);
+assert.equal(idx.unique_works, all.artworks.length);
+assert.equal(all.unique_works, all.artworks.length);
+assert.equal(new Set(all.artworks.map(w => `${w.source}:${w.id}`)).size, all.artworks.length);
+assert.equal(idx.wings_count, idx.wings.length);
+assert.ok(idx.total >= idx.unique_works);
 assert.equal(all.artworks.filter(w => !w.artist?.trim()).length, 186);
 assert.doesNotMatch(source, /99\.91%|0\.09%|601 WORKS|unsigned|無名氏 Anonymous/);
 assert.match(source, /2026-07-10 頁面歷史報數/); assert.match(source, /唔係原作 canon/);
@@ -30,7 +35,7 @@ assert.doesNotMatch(sounding, /class="[^"]*rise|<img|<input|<form/);
 const scripts = [...source.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]);
 scripts.forEach(script => new Script(script));
 assert.doesNotMatch(scripts.join('\n'), /\b(?:fetch|XMLHttpRequest|WebSocket|sendBeacon|localStorage|sessionStorage|indexedDB|setTimeout|setInterval)\b/);
-console.log('Dark 靜態 PASS：5 threats／5 guides／4 vows 固定 SHA-256；591／601／186；歷史口徑、三層、mirrors、無新增 I/O。');
+console.log(`Dark 靜態 PASS：5 threats／5 guides／4 vows 固定 SHA-256；${idx.unique_works} unique／${idx.total} placements／186 unknown artists；歷史口徑、三層、mirrors、無新增 I/O。`);
 assert.ok(process.argv.slice(2).every(arg => arg === '--browser'));
 if (process.argv.includes('--browser')) await withBrowser('dark-continent', async b => {
   const { evaluate, load, viewport, media, send, click, shot, requests } = b;

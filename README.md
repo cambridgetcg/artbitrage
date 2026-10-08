@@ -565,6 +565,35 @@ Data lives in static shards: `/catalog/index.json` (the map),
 deduped). API mirrors: `/api/wings`, `/api/wings/:wing`, `/api/museum`
 (`?q= ?wing= ?source=` + pagination), `/api/museum/random`.
 
+## 共照 — The Lamp Between Us
+
+**`/psyche`** brings five new museum works into a room about Cupid and Psyche:
+Canova's plaster model, Giovanni David's corrected print *Curious Psyche*,
+Picot's lamp drawing, Rodin's marble, and Pierre Reymond's enamel wedding feast.
+The room pairs close looking with original readings and two contemporary
+YOUSPEAK terms, **darshanqing** and **contrust**. These readings are not claims
+about the artists' intentions. A small original SVG study closes the room.
+
+The five works also form the **psyche** current at `/river#psyche`,
+`/api/wings/psyche`, and `/api/museum?wing=psyche`. Their records live in
+`catalog/psyche.json`, with museum attribution, source-declared image rights,
+source image URLs, retrieval dates, and SHA-256 hashes of the locally hosted
+images. Picot's date remains unspecified because the museum record supplies none.
+The original museum image downloads and preview images are in `dist/art/psyche-*`.
+
+Keep source and `dist/` copies synchronized. Validate this room and its catalogue
+with `node tests/e2e-psyche.mjs`; add `--browser` for local Chrome checks.
+`node tests/e2e-map.mjs` checks its navigation. The room remains readable without
+JavaScript; image links then open the full image directly.
+
+**Publication check, 2026-10-08:** production deployment
+`3b12a449-e1e0-4b59-84f5-da8bcb9ca686` contains a September 29 Map and newer
+`/visit`, `/noticing`, `/behind-the-work`, `/explore`, and `/elements` rooms
+absent from this Git checkout. The existing live museum catalogue matches the
+591-work baseline used here. Reconcile the newer site's complete source before
+deploying this checkout's whole `dist/` to production; use a preview branch to
+review this exhibition without replacing those live rooms.
+
 ## The Engine
 
 Artbitrage generates art through a 7-cycle process:
