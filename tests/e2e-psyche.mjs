@@ -21,7 +21,7 @@ assert.deepEqual(wing.artworks.map(key), expectedKeys);
 assert.equal(wing.count, expectedKeys.length);
 assert.equal(new Set(wing.artworks.map(key)).size, wing.count);
 
-for (const path of ['psyche.html', 'catalog/psyche.json', 'catalog/index.json', 'catalog/all.json', 'index.html', 'map.html', 'map.json', 'sitemap.xml', '_redirects']) {
+for (const path of ['psyche.html', 'catalog/psyche.json', 'catalog/index.json', 'catalog/all.json', 'index.html', 'explore.html', 'map.html', 'map.json', 'sitemap.xml', '_redirects']) {
   assert.deepEqual(await read(path), await read(`dist/${path}`), `${path}: published mirror must match`);
 }
 
@@ -93,8 +93,17 @@ for (const [tag] of source.matchAll(/<(?:script|link)\b[^>]*>/g)) {
 }
 const home = (await read('index.html')).toString();
 assert.equal((home.match(/href="psyche\.html"/g) || []).length, 1);
+assert.match(home, /href="explore\.html"/, 'foyer leads to the collection');
+const collection = (await read('explore.html')).toString();
+const collectionWings = collection.split('<div class="wings rise">')[1].split('</div>')[0];
+const collectionDoors = [...collectionWings.matchAll(/<a href="([^"]+)"/g)].map(match => match[1]);
+assert.equal(collectionDoors.filter(href => href === 'psyche.html').length, 1);
+assert.equal(collectionDoors[collectionDoors.indexOf('river.html') + 1], 'psyche.html', 'Psyche has a collection door beside the River');
+assert.match(source, /href="map.html#wings"/, 'room returns to the current visitor guide');
 assert.ok((await json('map.json')).groups.flatMap(group => group.rooms).some(room => room.path === '/psyche'));
-assert.ok((await read('map.html')).toString().includes('href="/psyche"'));
+const map = (await read('map.html')).toString();
+assert.ok(map.includes('href="/psyche"'));
+assert.match(map, /id="wings"/, 'room return anchor exists');
 assert.equal((await read('sitemap.xml')).toString().split('<loc>https://artbitrage.io/psyche</loc>').length - 1, 1);
 
 const env = { ASSETS: { async fetch(url) {
