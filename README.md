@@ -192,7 +192,7 @@ its Functions worker.
 
 ## Start with what you bring
 
-The homepage now offers four plain first steps:
+The homepage and Explore room offer four plain first steps:
 
 - **a work** → search public museum and archive collections;
 - **a feeling** → enter the Feelings room;
@@ -752,13 +752,24 @@ with `node tests/e2e-psyche.mjs`; add `--browser` for local Chrome checks.
 `node tests/e2e-map.mjs` checks its navigation. The room remains readable without
 JavaScript; image links then open the full image directly.
 
-**Publication check, 2026-10-08:** production deployment
-`3b12a449-e1e0-4b59-84f5-da8bcb9ca686` contains a September 29 Map and newer
-`/visit`, `/noticing`, `/behind-the-work`, `/explore`, and `/elements` rooms
-absent from this Git checkout. The existing live museum catalogue matches the
-591-work baseline used here. Reconcile the newer site's complete source before
-deploying this checkout's whole `dist/` to production; use a preview branch to
-review this exhibition without replacing those live rooms.
+**Preview:** https://psyche-lamp.artbitrage.pages.dev/psyche
+
+**Publication check, 2026-10-08:** Cloudflare production deployment
+`3b12a449-e1e0-4b59-84f5-da8bcb9ca686` was uploaded directly on September 29,
+with an empty commit hash and no repository clone or build stage. Its newer
+foyer, visitor guide, Trip, `/visit`, `/noticing`, `/behind-the-work`, `/explore`,
+and `/elements` were absent from the GitHub checkout. Public response files and
+their linked assets have been recovered from that immutable deployment and
+reconciled here for preview. Original response hashes and recovery boundaries
+are recorded in `docs/public-recovery-2026-10-08.json`. The old collection
+homepage now lives at `/explore`; the new foyer remains at `/`.
+
+This recovery is not a complete deployment export. The current credential
+received HTTP 401 from the documented Worker download and settings endpoints;
+the exact deployed Worker, full static manifest, headers and redirects remain
+unverified. The preview uses this repository's Functions and deployment
+configuration. Reconcile those remaining artifacts before deploying the whole
+`dist/` to production. Production has not been replaced by this branch.
 
 ## The Engine
 

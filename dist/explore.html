@@ -1475,6 +1475,10 @@ mid-18th century · Art Institute of Chicago</figcaption>
 (function(){
   'use strict';
   var API = '';
+  function imageURL(value) {
+    return typeof value === 'string' && value.indexOf('https://artbitrage.io/art/') === 0
+      ? value.slice('https://artbitrage.io'.length) : value;
+  }
 
   /* ---- fade-up on scroll (once) ---- */
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1523,7 +1527,7 @@ mid-18th century · Art Institute of Chicago</figcaption>
     if (fig) {
       fig.classList.remove('rests');
       var img = fig.querySelector('img');
-      img.src = w.image; img.alt = (w.title || 'artwork') + (w.artist ? ' — ' + w.artist : '');
+      img.src = imageURL(w.image); img.alt = (w.title || 'artwork') + (w.artist ? ' — ' + w.artist : '');
       var cap = fig.querySelector('figcaption');
       cap.innerHTML = '';
       var b = document.createElement('b'); b.textContent = w.title || 'Untitled';
@@ -1574,7 +1578,7 @@ mid-18th century · Art Institute of Chicago</figcaption>
     var heroLabel = document.getElementById('hero-label');
     var pre = new Image();
     pre.onload = function(){
-      heroArt.style.backgroundImage = 'url("' + hw.image + '")';
+      heroArt.style.backgroundImage = 'url("' + imageURL(hw.image) + '")';
       heroArt.classList.add('lit');
       heroLabel.innerHTML = '';
       heroLabel.appendChild(document.createTextNode('tonight on the wall — '));
@@ -1584,7 +1588,7 @@ mid-18th century · Art Institute of Chicago</figcaption>
       heroLabel.appendChild(ha);
       heroLabel.classList.add('lit');
     };
-    pre.src = hw.image;
+    pre.src = imageURL(hw.image);
   }
 
   /* ---- 05 · feed placard ---- */
@@ -1722,7 +1726,7 @@ mid-18th century · Art Institute of Chicago</figcaption>
           a.rel = 'noopener';
           if (w.image) {
             var img = document.createElement('img');
-            img.src = w.image;
+            img.src = imageURL(w.image);
             img.alt = w.title || 'artwork';
             img.loading = 'lazy';
             a.appendChild(img);
