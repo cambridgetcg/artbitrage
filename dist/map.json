@@ -146,6 +146,12 @@
      "desc": "the catalogue in flow · choose a current"
     },
     {
+     "path": "/psyche",
+     "name": "The Lamp Between Us",
+     "cjk": "共照",
+     "desc": "Cupid and Psyche · five works on love, seeing, and what an embrace can hold"
+    },
+    {
      "path": "/elements",
      "name": "Five ways of looking",
      "cjk": "五行",
