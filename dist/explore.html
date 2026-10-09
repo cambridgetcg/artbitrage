@@ -1476,7 +1476,7 @@ mid-18th century · Art Institute of Chicago</figcaption>
   'use strict';
   var API = '';
   function imageURL(value) {
-    return typeof value === 'string' && value.indexOf('https://artbitrage.io/art/') === 0
+    return typeof value === 'string' && (value.indexOf('https://artbitrage.io/art/') === 0 || value.indexOf('https://artbitrage.io/assets/') === 0)
       ? value.slice('https://artbitrage.io'.length) : value;
   }
 

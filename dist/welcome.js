@@ -98,7 +98,7 @@
   }
   function imageURL(value) {
     const url = https(value);
-    return url.startsWith('https://artbitrage.io/art/') ? url.slice('https://artbitrage.io'.length) : url;
+    return /^https:\/\/artbitrage\.io\/(?:art|assets)\//.test(url) ? url.slice('https://artbitrage.io'.length) : url;
   }
   function node(tag, text) {
     const element = document.createElement(tag);

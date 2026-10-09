@@ -786,7 +786,7 @@ function imageURL(value) {
   // Owned artwork files travel with each deployment; museum URLs stay external.
   try {
     const url = new URL(value);
-    if (url.origin === 'https://artbitrage.io' && url.pathname.startsWith('/art/') && !url.username && !url.password) {
+    if (url.origin === 'https://artbitrage.io' && /^\/(?:art|assets)\//.test(url.pathname) && !url.username && !url.password) {
       return new URL(url.pathname + url.search + url.hash, location.origin).href;
     }
   } catch (_) { /* Relative and other existing image references pass through. */ }

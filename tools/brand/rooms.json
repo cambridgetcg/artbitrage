@@ -1,5 +1,5 @@
 {
- "about": "THROUGH THE DOOR: Open Graph card specs for 13 artbitrage.io rooms (tools/brand/gen_card.py). Glyphs come from map.json (cjk) unless glyph_source says otherwise. Walls, inks and accents come from each room's own CSS tokens. Mounts copy the room's own CSS mount (mount_source). Title, maker and date come from the museum record named in record_source; title uses the record's display_title where it has one. accent_word is the word the room's h1 sets in italic. image is empty for rooms with no key work, which get a typographic card. Paths are relative to the repo root. card_alt is the og:image:alt text the page carries for its card.",
+ "about": "THROUGH THE DOOR: Open Graph card specs for 14 artbitrage.io rooms (tools/brand/gen_card.py). Glyphs come from map.json (cjk) unless glyph_source says otherwise. Walls, inks and accents come from each room's own CSS tokens. Mounts copy the room's own CSS mount (mount_source). Title, maker and date come from the museum record named in record_source; title uses the record's display_title where it has one. accent_word is the word the room's h1 sets in italic. image is empty for rooms with no key work, which get a typographic card. Paths are relative to the repo root. card_alt is the og:image:alt text the page carries for its card.",
  "rooms": [
   {
    "slug": "home",
@@ -340,6 +340,49 @@
    "line": "Ten works whose makers the record does not name.",
    "line_source": "card copy, after the page's meta description 'Ten works by makers the museum record does not name …' (assets/unsigned/works.json room.meta_description)",
    "card_alt": "Artbitrage card: “Hands without names”, beneath “A room without names”, with the line “Ten works whose makers the record does not name.” On the right, an arched doorway in a dark wall, with 無名 (without a name) lettered in gold on the far wall."
+  },
+  {
+   "slug": "psyche",
+   "path": "/psyche",
+   "page": "psyche.html",
+   "room": "The Lamp Between Us",
+   "glyph": "共照",
+   "glyph_source": "map.json / cjk (also the page's vertical title, psyche.html .han)",
+   "eyebrow": "A room after Cupid & Psyche",
+   "eyebrow_source": "psyche.html header .door-note 'A room after Cupid &amp; Psyche'. The page's own eyebrow 'Love · recognition · the light we share' was tried first: set in caps after 共照 it runs 28px into the door (gen_card: column 582px, door 554px), so the card uses the room's door note",
+   "wall": "#100f10",
+   "ink": "#eee8dc",
+   "muted": "#b6afa2",
+   "accent": "#e6b97c",
+   "tokens": "psyche.html :root (--wall #100f10, --ink #eee8dc, --quiet #b6afa2, --gold #e6b97c); theme-color #100f10",
+   "accent_word": "Between Us",
+   "accent_word_color": "#eee8dc",
+   "accent_source": "psyche.html h1 'The Lamp<br><em>Between Us</em>': the em is italic in the h1's own ink (h1 em sets no colour), so the accent keeps --ink #eee8dc",
+   "image": "assets/psyche/canova.jpg",
+   "title": "Cupid and Psyche",
+   "maker": "Antonio Canova",
+   "date": "1794",
+   "source": "The Metropolitan Museum of Art",
+   "license": "CC0",
+   "url": "https://www.metmuseum.org/art/collection/search/188954",
+   "record_source": "catalog/psyche.json (title, artist, date, museum URL; rights source-declared CC0, credit 'Gift of Isidor Straus, 1905'). The room has no credits.json, so the licence was checked at the source: the Met API record https://collectionapi.metmuseum.org/public/collection/v1/objects/188954 gives isPublicDomain true and an empty rightsAndReproduction, recorded here as copyright_notice null (2026-10-09T21:20:11Z). The image is the Met's own primaryImage https://images.metmuseum.org/CRDImages/es/original/DP248228.jpg: fetched again on 2026-10-09 it is byte-identical to assets/psyche/canova.jpg (sha256 and size below, as catalog/psyche.json records).",
+   "api_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/188954",
+   "is_public_domain": true,
+   "copyright_notice": null,
+   "rights_verified_at": "2026-10-09T21:20:11Z",
+   "image_sha256": "3c9e981211a487e70aa5331090db1bfa7aa9d9af38c3f237ea477b1c0c873b8a",
+   "image_bytes": 2036512,
+   "image_px": [
+    4000,
+    3175
+   ],
+   "mount": {
+    "pad": 0,
+    "color": "#19191a",
+    "border": "#272320"
+   },
+   "mount_source": "psyche.html .image-frame: border 1px solid #272320; .work-first .image-frame: background #19191a, padding 0 (the room's first work hangs edge to edge inside a hairline frame, so the card draws the hairline and no mat)",
+   "card_alt": "Artbitrage card: “The Lamp Between Us”, beneath 共照 and “A room after Cupid & Psyche”. Through an arched doorway in a near-black wall, the Met’s photograph of Antonio Canova’s plaster Cupid and Psyche, the winged Cupid bending over Psyche, hangs in a hairline frame in the next room."
   }
  ]
 }

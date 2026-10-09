@@ -3,6 +3,7 @@
   "recovered_at": "2026-10-08T09:21:19.135501+00:00",
   "integrated_at": "2026-10-08",
   "scope": "Public static front-end recovery for preview; no Worker bundle or exact deployment manifest was recovered.",
+  "status": "Historical record of the 2026-10-08 preview branch (art/psyche-lamp before its 2026-10-09 rebase onto main). Main has held the recovered front end since 974ea7aed and keeps root assets/* mirrors beside dist/assets/*; the Psyche images now live in assets/psyche/ (root and dist) and the catalogues have changed since. The hashes, file states and asset_convention below describe 2026-10-08, not the current repository.",
   "asset_convention": "All assets/* files, including handoff JSON and credits, live in dist/assets only. HTML/CSS/JS and map/sitemap have identical source-root and dist mirrors.",
   "preserved_catalogues": {
     "catalog/all.json": "6e593cdb0bf14bcefdb5cfad1268ebbd229d216120268835d2d845a784d204dd",

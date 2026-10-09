@@ -745,16 +745,21 @@ The five works also form the **psyche** current at `/river#psyche`,
 `catalog/psyche.json`, with museum attribution, source-declared image rights,
 source image URLs, retrieval dates, and SHA-256 hashes of the locally hosted
 images. Picot's date remains unspecified because the museum record supplies none.
-The original museum image downloads and preview images are in `dist/art/psyche-*`.
+The original museum image downloads and preview images are in `assets/psyche/`,
+mirrored byte-for-byte in `dist/assets/psyche/` (the catalogue records SHA-256
+hashes for both the full images and the `-t` previews).
 
 Keep source and `dist/` copies synchronized. Validate this room and its catalogue
 with `node tests/e2e-psyche.mjs`; add `--browser` for local Chrome checks.
 `node tests/e2e-map.mjs` checks its navigation. The room remains readable without
 JavaScript; image links then open the full image directly.
 
-**Preview:** https://psyche-lamp.artbitrage.pages.dev/psyche
+**Preview (2026-10-08, before the rebase onto main):** https://psyche-lamp.artbitrage.pages.dev/psyche
 
-**Publication check, 2026-10-08:** Cloudflare production deployment
+**Publication check, 2026-10-08 (historical):** *Written before this branch was
+rebased onto main on 2026-10-09. Main has held the recovered foyer and rooms since
+974ea7aed, so the statements below about the GitHub checkout and about this branch
+describe the pre-rebase branch, not the current repository.* Cloudflare production deployment
 `3b12a449-e1e0-4b59-84f5-da8bcb9ca686` was uploaded directly on September 29,
 with an empty commit hash and no repository clone or build stage. Its newer
 foyer, visitor guide, Trip, `/visit`, `/noticing`, `/behind-the-work`, `/explore`,

@@ -20,6 +20,8 @@ assert.ok(process.argv.slice(2).every(arg => arg === '--browser'), 'Only --brows
 assert.deepEqual(wing.artworks.map(key), expectedKeys);
 assert.equal(wing.count, expectedKeys.length);
 assert.equal(new Set(wing.artworks.map(key)).size, wing.count);
+// The catalogue with the Psyche wing: pinned, so a silent drop or duplicate in any shard shows up here.
+assert.deepEqual([index.total, index.unique_works, index.wings_count], [606, 596, 13], 'catalogue totals: placements, unique works, wings');
 
 for (const path of ['psyche.html', 'catalog/psyche.json', 'catalog/index.json', 'catalog/all.json', 'index.html', 'explore.html', 'map.html', 'map.json', 'sitemap.xml', '_redirects']) {
   assert.deepEqual(await read(path), await read(`dist/${path}`), `${path}: published mirror must match`);
@@ -68,8 +70,10 @@ for (const work of wing.artworks) {
   for (const field of ['image', 'thumbnail']) {
     const url = new URL(work[field]);
     assert.equal(url.origin, 'https://artbitrage.io');
-    assert.match(url.pathname, /^\/art\/psyche-[a-z-]+\.jpg$/);
+    // A curated room's images live in assets/<room>/, at the repo root (what tools/preview.mjs serves) and byte-identical in dist/ (what deploys).
+    assert.match(url.pathname, /^\/assets\/psyche\/[a-z]+(?:-t)?\.jpg$/);
     const bytes = await read(`dist${url.pathname}`);
+    assert.deepEqual(await read(url.pathname.slice(1)), bytes, `${url.pathname}: published mirror must match`);
     assert.equal(bytes.readUInt16BE(0), 0xffd8, `${url.pathname}: JPEG start`);
     assert.equal(bytes.readUInt16BE(bytes.length - 2), 0xffd9, `${url.pathname}: JPEG end`);
     assert.ok(bytes.length > 1000, `${url.pathname}: non-empty image`);
@@ -79,12 +83,24 @@ for (const work of wing.artworks) {
       assert.ok(source.includes(`href="${url.pathname.slice(1)}"`), `${key(work)}: closer view opens the shipped image`);
       assert.ok(source.includes(`${url.pathname.slice(1)} `), `${key(work)}: full image is a responsive candidate`);
     } else {
+      assert.equal(createHash('sha256').update(bytes).digest('hex'), work.thumbnail_sha256, `${key(work)}: thumbnail SHA-256`);
       assert.ok(source.includes(`src="${url.pathname.slice(1)}"`), `${key(work)}: room uses the shipped thumbnail fallback`);
     }
     images.set(url.pathname, bytes);
   }
 }
 assert.equal((source.match(/class="image-frame"/g) || []).length, wing.count);
+// Each frame is named "Look closer at …" and described by its image's alt; each closer link names its work too.
+for (const [frame, describedBy] of source.matchAll(/<a class="image-frame"[^>]*aria-describedby="([^"]+)"[^>]*>/g)) {
+  assert.match(frame, /aria-label="Look closer at [^"]+"/);
+  assert.match(source, new RegExp(`<img id="${describedBy}" [^>]*alt="[^"]{30,}"`), `${describedBy}: frame description is the image alt`);
+}
+assert.equal((source.match(/<a class="image-frame"[^>]*aria-describedby=/g) || []).length, wing.count);
+assert.equal((source.match(/<a class="closer"[^>]*aria-label="Look closer at [^"]+">Look closer<\/a>/g) || []).length, wing.count);
+assert.match(source, /<a href="https:\/\/ai-love\.cc\/">YOUSPEAK<\/a>/, 'YOUSPEAK links to its public home');
+// The shared 閒 icon block (tools/brand/head.py): the browser may ask for exactly these site-root files, nothing else.
+const iconFiles = new Set([...source.slice(0, source.indexOf('</head>')).matchAll(/<link rel="(?:icon|apple-touch-icon|manifest)" href="([^"]+)"/g)].map(match => match[1]));
+assert.deepEqual([...iconFiles].sort(), ['/apple-touch-icon.png', '/favicon-16.png', '/favicon-32.png', '/favicon.ico', '/favicon.svg', '/site.webmanifest'], 'the room carries the shared icon block');
 const scripts = [...source.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]);
 scripts.forEach(script => new Script(script));
 assert.doesNotMatch(scripts.join('\n'), /\b(?:fetch|XMLHttpRequest|WebSocket|EventSource|sendBeacon|localStorage|sessionStorage|indexedDB|setInterval)\b/);
@@ -140,7 +156,8 @@ if (process.argv.includes('--browser')) await withBrowser('psyche', async b => {
   };
   const state = () => evaluate(`(() => {
     const visible = node => { const s = getComputedStyle(node); return s.display !== 'none' && s.visibility === 'visible' && Number(s.opacity) > 0 && !!node.getBoundingClientRect().height; };
-    return { width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
+    return { width: innerWidth, clientWidth: document.documentElement.clientWidth, scrollWidth: document.documentElement.scrollWidth,
+      scale: visualViewport ? visualViewport.scale : 1,
       text: document.querySelector('main').innerText,
       images: [...document.querySelectorAll('.image-frame img')].map(img => ({ loaded: img.complete && img.naturalWidth > 0, width: img.naturalWidth, visible: visible(img), alt: img.alt })),
       open: document.querySelector('dialog').open,
@@ -149,7 +166,9 @@ if (process.argv.includes('--browser')) await withBrowser('psyche', async b => {
     };
   })()`);
   const readable = view => {
-    assert.ok(view.scrollWidth <= view.width + 1, `overflow: ${view.scrollWidth}/${view.width}`);
+    // clientWidth, not innerWidth: under mobile emulation Chrome zooms out to fit any overflow, so innerWidth grows with it.
+    assert.ok(view.scrollWidth <= view.clientWidth, `overflow: ${view.scrollWidth}/${view.clientWidth}`);
+    assert.equal(view.scale, 1, `no zoom-out to fit overflow at ${view.clientWidth}px`);
     assert.equal(view.images.length, wing.count);
     assert.match(view.text, /YOUSPEAK/);
     for (const name of ['Canova', 'Giovanni David', 'Picot', 'Rodin', 'Reymond']) assert.ok(view.text.includes(name), `${name}: readable without disclosure controls`);
@@ -162,8 +181,8 @@ if (process.argv.includes('--browser')) await withBrowser('psyche', async b => {
   }
   await load({ html: source, route });
   await revealImages();
-  for (const width of [1440, 390, 320]) {
-    await viewport(width, 1000, width < 700);
+  for (const width of [1440, 1280, 1024, 768, 390, 320]) {
+    await viewport(width, 1000, width < 800);
     const view = await state(); readable(view);
     assert.ok(view.images.every(image => image.loaded && image.visible && image.alt.length > 30));
     await evaluate('window.scrollTo(0,0)');
@@ -191,7 +210,7 @@ if (process.argv.includes('--browser')) await withBrowser('psyche', async b => {
   assert.equal((await state()).animations, 0, 'reduced motion has no ongoing animation');
   await media();
 
-  await load({ html: source, route: (url, type) => /^\/art\/psyche-canova(?:-t)?\.jpg$/.test(url.pathname) ? { status: 404, body: 'missing', type: 'text/plain' } : route(url, type) });
+  await load({ html: source, route: (url, type) => /^\/assets\/psyche\/canova(?:-t)?\.jpg$/.test(url.pathname) ? { status: 404, body: 'missing', type: 'text/plain' } : route(url, type) });
   await until(async () => (await state()).fallback[0], 'failed image has a visible fallback');
   readable(await state());
   assert.ok(await evaluate(`document.querySelector('#works a[href="${wing.artworks[0].url}"]') !== null`), 'museum source survives image failure');
@@ -208,12 +227,12 @@ if (process.argv.includes('--browser')) await withBrowser('psyche', async b => {
     readable(await state());
     assert.ok((await state()).images.every(image => image.loaded && image.visible));
     assert.equal((await state()).open, false);
-    assert.ok(await evaluate(`document.querySelector('.image-frame').getAttribute('href') === 'art/psyche-canova.jpg'`), 'no-JS image link remains usable');
+    assert.ok(await evaluate(`document.querySelector('.image-frame').getAttribute('href') === 'assets/psyche/canova.jpg'`), 'no-JS image link remains usable');
   } finally { await send('Emulation.setScriptExecutionDisabled', { value: false }); }
   for (const request of requests) {
     const url = new URL(request.url);
     assert.equal(url.origin, origin, `unexpected external runtime request: ${request.url}`);
-    assert.ok((request.resourceType === 'Document' && url.pathname === '/psyche.html') || (request.resourceType === 'Image' && images.has(url.pathname)) || url.pathname === '/favicon.ico', `unexpected runtime request: ${request.resourceType} ${request.url}`);
+    assert.ok((request.resourceType === 'Document' && url.pathname === '/psyche.html') || (request.resourceType === 'Image' && images.has(url.pathname)) || url.pathname === '/favicon.ico' || iconFiles.has(url.pathname), `unexpected runtime request: ${request.resourceType} ${request.url}`);
   }
-  console.log('Psyche browser PASS: actual shipped JPEG decoding, 320/390/1440px, keyboard dialog/focus, failed-image messages, reduced motion, readable no-JS and no external runtime calls.');
+  console.log('Psyche browser PASS: actual shipped JPEG decoding, no sideways scroll or zoom-out at 320/390/768/1024/1280/1440px, keyboard dialog/focus, failed-image messages, reduced motion, readable no-JS and no external runtime calls.');
 });

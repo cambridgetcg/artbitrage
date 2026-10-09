@@ -2,7 +2,7 @@
  "wing": "psyche",
  "title": "The Lamp Between Us",
  "description": "Cupid and Psyche through five works: the lamp, the embrace, the departure, and a place at the feast. Looking with YOUSPEAK toward mutual recognition.",
- "cover_image": "https://artbitrage.io/art/psyche-canova.jpg",
+ "cover_image": "https://artbitrage.io/assets/psyche/canova.jpg",
  "count": 5,
  "generated_at": "2026-10-07T17:40:08Z",
  "room": "https://artbitrage.io/psyche",
@@ -17,9 +17,9 @@
    "medium": "Plaster",
    "department": "European Sculpture and Decorative Arts",
    "accession": "05.46",
-   "image": "https://artbitrage.io/art/psyche-canova.jpg",
-   "image_large": "https://artbitrage.io/art/psyche-canova.jpg",
-   "thumbnail": "https://artbitrage.io/art/psyche-canova-t.jpg",
+   "image": "https://artbitrage.io/assets/psyche/canova.jpg",
+   "image_large": "https://artbitrage.io/assets/psyche/canova.jpg",
+   "thumbnail": "https://artbitrage.io/assets/psyche/canova-t.jpg",
    "url": "https://www.metmuseum.org/art/collection/search/188954",
    "license": "CC0",
    "wing": "psyche",
@@ -35,7 +35,8 @@
     "status": "source-declared",
     "source_url": "https://www.metmuseum.org/art/collection/search/188954"
    },
-   "image_sha256": "3c9e981211a487e70aa5331090db1bfa7aa9d9af38c3f237ea477b1c0c873b8a"
+   "image_sha256": "3c9e981211a487e70aa5331090db1bfa7aa9d9af38c3f237ea477b1c0c873b8a",
+   "thumbnail_sha256": "f413d18c8dd8cd0936f9baa90a9b149dfb2fbecc6498095dd9dfec42dd6c3b06"
   },
   {
    "source": "met",
@@ -47,9 +48,9 @@
    "medium": "Etching and aquatint; corrected proof with notations in pen and brown ink",
    "department": "Drawings and Prints",
    "accession": "1976.629",
-   "image": "https://artbitrage.io/art/psyche-curious.jpg",
-   "image_large": "https://artbitrage.io/art/psyche-curious.jpg",
-   "thumbnail": "https://artbitrage.io/art/psyche-curious-t.jpg",
+   "image": "https://artbitrage.io/assets/psyche/curious.jpg",
+   "image_large": "https://artbitrage.io/assets/psyche/curious.jpg",
+   "thumbnail": "https://artbitrage.io/assets/psyche/curious-t.jpg",
    "url": "https://www.metmuseum.org/art/collection/search/335682",
    "license": "CC0",
    "wing": "psyche",
@@ -65,7 +66,8 @@
     "status": "source-declared",
     "source_url": "https://www.metmuseum.org/art/collection/search/335682"
    },
-   "image_sha256": "4eed24dd02820ca3f7b12d0c7896145868c577e972b437cb9ff9de0bce3c9063"
+   "image_sha256": "4eed24dd02820ca3f7b12d0c7896145868c577e972b437cb9ff9de0bce3c9063",
+   "thumbnail_sha256": "775eedf3c3c95cba33395dc09a2c862c9fa8c214f6ac58b7b67c25d77bd16cf0"
   },
   {
    "source": "nga",
@@ -73,13 +75,13 @@
    "id": "115380",
    "title": "Cupid with Psyche Extinguishing the Lamp",
    "artist": "François-Edouard Picot",
-   "date": "Date not specified in museum record",
+   "date": "n.d.",
    "medium": "Pen and black ink with brown and gray wash and white heightening on brown prepared laid paper",
    "department": "Drawings",
    "accession": "2000.60.2",
-   "image": "https://artbitrage.io/art/psyche-picot.jpg",
-   "image_large": "https://artbitrage.io/art/psyche-picot.jpg",
-   "thumbnail": "https://artbitrage.io/art/psyche-picot-t.jpg",
+   "image": "https://artbitrage.io/assets/psyche/picot.jpg",
+   "image_large": "https://artbitrage.io/assets/psyche/picot.jpg",
+   "thumbnail": "https://artbitrage.io/assets/psyche/picot-t.jpg",
    "url": "https://www.nga.gov/artworks/115380-cupid-psyche-extinguishing-lamp",
    "license": "Public Domain",
    "wing": "psyche",
@@ -95,7 +97,8 @@
     "status": "source-declared",
     "source_url": "https://www.nga.gov/artworks/115380-cupid-psyche-extinguishing-lamp"
    },
-   "image_sha256": "8147788a572fd8ef9a91a3efbe506de53e66347206cc5c40db0686023ab26791"
+   "image_sha256": "8147788a572fd8ef9a91a3efbe506de53e66347206cc5c40db0686023ab26791",
+   "thumbnail_sha256": "071f0ba3993c2400c020f1f5825539e491e99c7c66e41b6fc1d35c6061485ce9"
   },
   {
    "source": "met",
@@ -107,9 +110,9 @@
    "medium": "Marble",
    "department": "European Sculpture and Decorative Arts",
    "accession": "10.63.1",
-   "image": "https://artbitrage.io/art/psyche-rodin.jpg",
-   "image_large": "https://artbitrage.io/art/psyche-rodin.jpg",
-   "thumbnail": "https://artbitrage.io/art/psyche-rodin-t.jpg",
+   "image": "https://artbitrage.io/assets/psyche/rodin.jpg",
+   "image_large": "https://artbitrage.io/assets/psyche/rodin.jpg",
+   "thumbnail": "https://artbitrage.io/assets/psyche/rodin-t.jpg",
    "url": "https://www.metmuseum.org/art/collection/search/191329",
    "license": "CC0",
    "wing": "psyche",
@@ -125,7 +128,8 @@
     "status": "source-declared",
     "source_url": "https://www.metmuseum.org/art/collection/search/191329"
    },
-   "image_sha256": "d004c613f4c7b7f6beffb15a9be69026fe12b5567e730de2e074d0011b49b422"
+   "image_sha256": "d004c613f4c7b7f6beffb15a9be69026fe12b5567e730de2e074d0011b49b422",
+   "thumbnail_sha256": "628eee8e08ad9bc0e9098830884cb2ea7242535e5b2741b4ea51aacd0787d5af"
   },
   {
    "source": "met",
@@ -137,9 +141,9 @@
    "medium": "Painted enamel on copper, partly gilt",
    "department": "European Sculpture and Decorative Arts",
    "accession": "1984.195",
-   "image": "https://artbitrage.io/art/psyche-feast.jpg",
-   "image_large": "https://artbitrage.io/art/psyche-feast.jpg",
-   "thumbnail": "https://artbitrage.io/art/psyche-feast-t.jpg",
+   "image": "https://artbitrage.io/assets/psyche/feast.jpg",
+   "image_large": "https://artbitrage.io/assets/psyche/feast.jpg",
+   "thumbnail": "https://artbitrage.io/assets/psyche/feast-t.jpg",
    "url": "https://www.metmuseum.org/art/collection/search/207480",
    "license": "CC0",
    "wing": "psyche",
@@ -155,7 +159,8 @@
     "status": "source-declared",
     "source_url": "https://www.metmuseum.org/art/collection/search/207480"
    },
-   "image_sha256": "4846eb69b674d38a8c991c563ca3a72a13e2070133495cf00cfc5765a6d82e02"
+   "image_sha256": "4846eb69b674d38a8c991c563ca3a72a13e2070133495cf00cfc5765a6d82e02",
+   "thumbnail_sha256": "6ca56ebbdc77706b913e96d09b75db1770ffbe946ca75b086c624db86f0d8407"
   }
  ]
 }
