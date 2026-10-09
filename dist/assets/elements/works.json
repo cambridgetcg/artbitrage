@@ -1,0 +1,381 @@
+{
+  "phases": [
+    {
+      "id": "wood",
+      "han": "木",
+      "title": "Wood",
+      "quality": "Branch · weave · grow",
+      "intro": "Follow a branch, a woven line, a shape reaching outward. Growth can be something pictured, or something held in the material itself.",
+      "next": "fire",
+      "bridge": "From the red of a leaf, follow your eye towards the small light of an ember.",
+      "works": [
+        "hiroshige-plum-garden",
+        "pomo-burden-basket",
+        "poems"
+      ]
+    },
+    {
+      "id": "fire",
+      "han": "火",
+      "title": "Fire",
+      "quality": "Glow · kindle · change",
+      "intro": "Some warmth is painted. Some belongs to the making. Move from a glowing ember to the heat that helps a vessel take its form.",
+      "next": "earth",
+      "bridge": "A moon jar links both rooms: through fire, a kiln; through earth, clay, weight and form.",
+      "works": [
+        "honthorst-firebrand",
+        "dusk",
+        "form"
+      ]
+    },
+    {
+      "id": "earth",
+      "han": "土",
+      "title": "Earth",
+      "quality": "Hold · shape · endure",
+      "intro": "A vessel, a table, a body carved from stone. Look for weight, texture and the places where a form seems to rest.",
+      "next": "metal",
+      "bridge": "From stone and fired clay, follow the earth’s materials into bronze and gold.",
+      "works": [
+        "form",
+        "cezanne-basket-apples",
+        "cycladic-figure"
+      ]
+    },
+    {
+      "id": "metal",
+      "han": "金",
+      "title": "Metal",
+      "quality": "Gleam · cast · reflect",
+      "intro": "Bronze carries a dance; gold carries a garden. Follow how a surface holds light, then how a painter makes light appear on water.",
+      "next": "water",
+      "bridge": "A bright edge becomes a reflection. Follow the glint out onto the water.",
+      "works": [
+        "shiva-nataraja",
+        "poems",
+        "whistler-nocturne"
+      ]
+    },
+    {
+      "id": "water",
+      "han": "水",
+      "title": "Water",
+      "quality": "Flow · ripple · return",
+      "intro": "Water can hold a reflection or break into a wave. Drift between a pond, open sea and a quiet riverbank.",
+      "next": "wood",
+      "bridge": "At the water’s edge, return to branches, leaves and things that grow.",
+      "works": [
+        "monet-water-lilies",
+        "hokusai-great-wave",
+        "dow-boats-at-rest"
+      ]
+    }
+  ],
+  "works": [
+    {
+      "id": "hiroshige-plum-garden",
+      "title": "Plum Garden at Kameido",
+      "maker": "Utagawa Hiroshige",
+      "date": "1857",
+      "medium": "Color woodblock print; ōban",
+      "image": "/assets/visit/hiroshige-plum-garden.jpg",
+      "alt": "Dark plum-tree branches with white blossoms cross a pink sky, framing a green garden and small distant visitors.",
+      "source": "https://www.artic.edu/artworks/26577",
+      "phases": [
+        "wood"
+      ],
+      "looking": [
+        "Follow a dark branch across the pale sky.",
+        "Compare a nearby blossom with a small figure in the distance."
+      ],
+      "affinity": {
+        "wood": "A branching plum tree fills the foreground of this color woodblock print."
+      },
+      "behind": "/behind-the-work#care",
+      "width": 843,
+      "height": 1241,
+      "museum_title": "Plum Garden at Kameido (Kameido Umeyashiki), from the series \"One Hundred Famous Views of Edo (Meisho Edo hyakkei)\""
+    },
+    {
+      "id": "pomo-burden-basket",
+      "title": "Burden Basket",
+      "maker": "Pomo · Northern California, United States",
+      "date": "1870–80",
+      "medium": "Plant fibers",
+      "image": "/assets/trip/pomo-burden-basket.jpg",
+      "alt": "A tan woven basket widens from a narrow base to an open rim, with repeating dark-brown triangles across its sides.",
+      "source": "https://www.artic.edu/artworks/181737",
+      "phases": [
+        "wood"
+      ],
+      "looking": [
+        "Choose one triangle and follow the repeating pattern around the basket.",
+        "Notice how the form widens from its base towards the rim."
+      ],
+      "affinity": {
+        "wood": "Plant fibers become a woven form, with repeating triangles moving around its sides."
+      },
+      "behind": "/behind-the-work#care",
+      "width": 960,
+      "height": 721
+    },
+    {
+      "id": "poems",
+      "title": "Autumn Maples with Poem Slips",
+      "maker": "Tosa Mitsuoki",
+      "date": "c. 1675",
+      "medium": "Six-panel screen (one of pair); Ink, colors, gold leaf, and gold powder on silk",
+      "image": "/assets/welcome/maples.jpg",
+      "alt": "A six-panel gold folding screen with red maple trees and hanging poem slips.",
+      "source": "https://www.artic.edu/artworks/127644",
+      "phases": [
+        "wood",
+        "metal"
+      ],
+      "looking": [
+        "Follow one branch across the gold background.",
+        "Notice the red leaves, then the gold surface around them."
+      ],
+      "affinity": {
+        "wood": "Maple branches spread across the screen, carrying red leaves and hanging poems.",
+        "metal": "Gold leaf and gold powder form part of the screen’s luminous surface."
+      },
+      "behind": "/behind-the-work#care",
+      "width": 843,
+      "height": 418
+    },
+    {
+      "id": "honthorst-firebrand",
+      "title": "A Boy Blowing on a Firebrand",
+      "maker": "Gerrit van Honthorst",
+      "date": "1621–22",
+      "medium": "Oil on canvas",
+      "image": "/assets/elements/honthorst-firebrand.jpg",
+      "alt": "A boy in a feathered cap blows on a glowing piece of wood while holding a candle; the ember lights his face against a dark background.",
+      "source": "https://www.artic.edu/artworks/243872",
+      "phases": [
+        "fire"
+      ],
+      "looking": [
+        "Find the tiny sparks beside the glowing wood.",
+        "Notice how the light reaches his cheek, then disappears into shadow."
+      ],
+      "affinity": {
+        "fire": "A glowing ember lights the boy’s face: a small heat made visible in paint."
+      },
+      "behind": "/behind-the-work#care",
+      "width": 843,
+      "height": 1003
+    },
+    {
+      "id": "dusk",
+      "title": "Moonrise",
+      "maker": "George Inness",
+      "date": "1891",
+      "medium": "Oil on canvas",
+      "image": "/assets/welcome/moonrise.jpg",
+      "alt": "An orange moon glows through a hazy landscape of trees and a solitary figure.",
+      "source": "https://www.artic.edu/artworks/64754",
+      "phases": [
+        "fire"
+      ],
+      "looking": [
+        "Find the moon, then notice a darker shape nearby.",
+        "Look for one soft edge and one clearer edge."
+      ],
+      "affinity": {
+        "fire": "The orange moon draws our eye through a dark landscape; this is a connection through glow and color."
+      },
+      "behind": "/behind-the-work#care",
+      "width": 843,
+      "height": 1011
+    },
+    {
+      "id": "form",
+      "title": "Moon Jar",
+      "maker": "Korea · Joseon dynasty",
+      "date": "Joseon dynasty (1392–1897), late 17th– mid-18th century",
+      "medium": "Porcelain with glaze",
+      "image": "/assets/welcome/moon-jar.jpg",
+      "alt": "A rounded white Korean porcelain moon jar with a gently uneven outline and a softly glazed surface.",
+      "source": "https://www.artic.edu/artworks/158472",
+      "phases": [
+        "fire",
+        "earth"
+      ],
+      "looking": [
+        "Compare the two sides of the jar’s rounded outline.",
+        "Look for a place where the white glaze shifts in tone."
+      ],
+      "affinity": {
+        "fire": "Kiln firing transforms the porcelain; heat is part of the making behind this quiet white surface.",
+        "earth": "A rounded porcelain body turns clay into a vessel, built by joining two halves."
+      },
+      "behind": "/behind-the-work#jar",
+      "width": 843,
+      "height": 885
+    },
+    {
+      "id": "cezanne-basket-apples",
+      "title": "The Basket of Apples",
+      "maker": "Paul Cezanne",
+      "date": "c. 1893",
+      "medium": "Oil on canvas",
+      "image": "/assets/trip/cezanne-basket-apples.jpg",
+      "alt": "A tilted basket spills red and green apples across a white cloth on a wooden table, beside a dark bottle and a plate of biscuits.",
+      "source": "https://www.artic.edu/artworks/111436",
+      "phases": [
+        "earth"
+      ],
+      "looking": [
+        "Follow one fold of the white cloth. Where does it lead your eye?",
+        "Compare the round apples with the bottle and the table edges."
+      ],
+      "affinity": {
+        "earth": "Apples, cloth and a tabletop give weight and shape to an everyday arrangement."
+      },
+      "behind": "/behind-the-work#care",
+      "width": 960,
+      "height": 768
+    },
+    {
+      "id": "cycladic-figure",
+      "title": "Statuette of a Female Figure",
+      "maker": "Cycladic; probably from the island of Keros",
+      "date": "Early Bronze Age, 2600–2400 BCE",
+      "medium": "Marble",
+      "image": "/assets/visit/cycladic-figure.jpg",
+      "alt": "A pale marble standing figure with folded arms, a long neck, and a simple oval face with a raised nose.",
+      "source": "https://www.artic.edu/artworks/52201",
+      "phases": [
+        "earth"
+      ],
+      "looking": [
+        "Follow the outline from one shoulder towards the feet.",
+        "Notice where the folded arms meet the body."
+      ],
+      "affinity": {
+        "earth": "Carved marble gives a human form to stone, with light settling along its edges."
+      },
+      "behind": "/behind-the-work#care",
+      "width": 843,
+      "height": 1054
+    },
+    {
+      "id": "shiva-nataraja",
+      "title": "Shiva as Lord of the Dance (Nataraja)",
+      "maker": "India · Tamil Nadu",
+      "date": "Chola period, about 10th/11th century",
+      "medium": "Bronze",
+      "image": "/assets/elements/shiva-nataraja.jpg",
+      "alt": "A bronze sculpture of Shiva dancing on one leg inside a ring edged with flames, with four arms extended and long hair fanning out on either side.",
+      "source": "https://www.artic.edu/artworks/24548",
+      "phases": [
+        "metal"
+      ],
+      "looking": [
+        "Follow the bronze circle around the dancing figure.",
+        "Find a small highlight on the metal, then a place where the surface falls into shadow."
+      ],
+      "affinity": {
+        "metal": "A bronze image from Tamil Nadu holds Shiva’s dance in a circle of metal."
+      },
+      "behind": "/behind-the-work#care",
+      "width": 400,
+      "height": 448
+    },
+    {
+      "id": "whistler-nocturne",
+      "title": "Nocturne: Blue and Gold—Southampton Water",
+      "maker": "James McNeill Whistler",
+      "date": "1872",
+      "medium": "Oil on canvas",
+      "image": "/assets/visit/whistler-nocturne.jpg",
+      "alt": "A low golden moon hangs above a hazy blue-green harbor, with faint boats and a dark shoreline.",
+      "source": "https://www.artic.edu/artworks/56905",
+      "phases": [
+        "metal"
+      ],
+      "looking": [
+        "Find the small moon above the water.",
+        "Follow the long line where water meets the distant shore."
+      ],
+      "affinity": {
+        "metal": "The moon’s reflected gleam connects this painted water to the light caught on metal."
+      },
+      "behind": "/behind-the-work#care",
+      "width": 843,
+      "height": 557
+    },
+    {
+      "id": "monet-water-lilies",
+      "title": "Water Lilies",
+      "maker": "Claude Monet",
+      "date": "1906",
+      "medium": "Oil on canvas",
+      "image": "/assets/visit/monet-water-lilies.jpg",
+      "alt": "Pink and white water lilies spread across blue-green water, with soft reflections beneath them.",
+      "source": "https://www.artic.edu/artworks/16568",
+      "phases": [
+        "water"
+      ],
+      "looking": [
+        "Choose one lily pad and follow its rounded edge.",
+        "Notice a small patch of pink among the reflections."
+      ],
+      "affinity": {
+        "water": "Lily pads and reflections share a surface, making it hard to separate water from sky."
+      },
+      "behind": "/behind-the-work#care",
+      "width": 843,
+      "height": 809
+    },
+    {
+      "id": "hokusai-great-wave",
+      "title": "The Great Wave",
+      "maker": "Katsushika Hokusai · 1830/33",
+      "date": "1830/33",
+      "medium": "Color woodblock print; oban",
+      "image": "/assets/visit/hokusai-great-wave.jpg",
+      "alt": "A towering blue wave curls over long boats, with snow-capped Mount Fuji small in the distance.",
+      "source": "https://www.artic.edu/artworks/24645",
+      "phases": [
+        "water"
+      ],
+      "looking": [
+        "Follow the curve of the largest wave.",
+        "Find Mount Fuji beneath the crest."
+      ],
+      "affinity": {
+        "water": "The cresting wave curves above the boats, gathering water into a powerful moving shape."
+      },
+      "behind": "/behind-the-work#wave",
+      "width": 843,
+      "height": 578,
+      "museum_title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjūrokkei)\""
+    },
+    {
+      "id": "dow-boats-at-rest",
+      "title": "Boats at Rest",
+      "maker": "Arthur Wesley Dow",
+      "date": "c. 1895",
+      "medium": "Oil on canvas",
+      "image": "/assets/trip/dow-boats-at-rest.jpg",
+      "alt": "A blue boat with a white cloth inside and a smaller green boat rest on a grassy riverbank, beside still water reflecting distant houses.",
+      "source": "https://www.artic.edu/artworks/121377",
+      "phases": [
+        "water"
+      ],
+      "looking": [
+        "Follow the curved edge of the blue boat.",
+        "Find a shape on the far bank and its reflection in the water."
+      ],
+      "affinity": {
+        "water": "Still water repeats the far bank, while the boats rest at its edge."
+      },
+      "behind": "/behind-the-work#care",
+      "width": 960,
+      "height": 694
+    }
+  ]
+}

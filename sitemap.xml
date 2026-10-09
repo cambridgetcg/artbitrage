@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://artbitrage.io/</loc><lastmod>2026-07-10</lastmod></url>
   <url><loc>https://artbitrage.io/map</loc><lastmod>2026-07-10</lastmod></url>
+  <url><loc>https://artbitrage.io/behind-the-work</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://artbitrage.io/depths</loc><lastmod>2026-08-20</lastmod></url>
   <url><loc>https://artbitrage.io/prehistoric</loc><lastmod>2026-07-10</lastmod></url>
   <url><loc>https://artbitrage.io/medieval</loc><lastmod>2026-07-10</lastmod></url>
@@ -16,6 +17,8 @@
   <url><loc>https://artbitrage.io/cigar</loc><lastmod>2026-07-10</lastmod></url>
   <url><loc>https://artbitrage.io/pairing</loc><lastmod>2026-07-10</lastmod></url>
   <url><loc>https://artbitrage.io/river</loc><lastmod>2026-07-10</lastmod></url>
+  <url><loc>https://artbitrage.io/noticing</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>https://artbitrage.io/elements</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://artbitrage.io/trip</loc><lastmod>2026-07-10</lastmod></url>
   <url><loc>https://artbitrage.io/rhymes</loc><lastmod>2026-07-10</lastmod></url>
   <url><loc>https://artbitrage.io/homecoming</loc><lastmod>2026-07-10</lastmod></url>
@@ -43,4 +46,6 @@
   <url><loc>https://artbitrage.io/pigments</loc><lastmod>2026-07-23</lastmod></url>
   <url><loc>https://artbitrage.io/uk-tax-tricks</loc><lastmod>2026-07-10</lastmod></url>
   <url><loc>https://artbitrage.io/crossover</loc><lastmod>2026-07-10</lastmod></url>
+  <url><loc>https://artbitrage.io/explore</loc></url>
+  <url><loc>https://artbitrage.io/visit</loc></url>
 </urlset>

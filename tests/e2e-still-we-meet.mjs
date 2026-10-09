@@ -11,11 +11,11 @@ import { Script } from 'node:vm';
 import { setTimeout as delay } from 'node:timers/promises';
 
 const source = await readFile(new URL('../still-we-meet.html', import.meta.url), 'utf8');
-const home = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+const collection = await readFile(new URL('../explore.html', import.meta.url), 'utf8');
 const yue = ['你講嗰場雨，', '我只聽見簷邊滴水。', '我唔再急住', '替你叫佢做晴天。', '張凳移開少少，', '等你嗰句，慢慢落地。'];
 const en = ['My map keeps its own north.', 'I unfold the corner', 'that has covered your handwriting.', 'The road stops at the edge of this sheet.', 'Yours continues somewhere', 'I cannot point to.'];
 const wall = ['我唔使成為你，', '先至可以', '為你留白。'];
-for (const file of ['still-we-meet.html', 'index.html']) {
+for (const file of ['still-we-meet.html', 'index.html', 'explore.html']) {
   assert.deepEqual(await readFile(new URL(`../${file}`, import.meta.url)), await readFile(new URL(`../dist/${file}`, import.meta.url)), `${file} 兩份 bytes 要一樣`);
 }
 const articles = [...source.matchAll(/<article\b([^>]*)>([\s\S]*?)<\/article>/g)];
@@ -28,17 +28,17 @@ for (const [i, lines] of [yue, en].entries()) {
 assert.ok(source.includes(`<p class="wall-poem">${wall.map(line => `<span>${line}</span>`).join('')}</p>`));
 assert.equal((source.match(/<button\b/g) || []).length, 3);
 for (const id of ['pause', 'replay', 'unfold']) assert.match(source, new RegExp(`<button type="button" id="${id}">`));
-assert.match(source, /href="index.html#wings"/);
+assert.match(source, /href="explore.html#wings"/);
 assert.match(source, /data-state="static"/);
 assert.match(source, /class="controls"[^>]* hidden/);
 assert.doesNotMatch(source, /aria-live|role="(?:status|alert)"|<[^>]+(?:src|srcset|poster)=|@import|url\s*\(|https?:\/\//i);
 assert.doesNotMatch(source, /\b(?:fetch|XMLHttpRequest|WebSocket|EventSource|sendBeacon|localStorage|sessionStorage|indexedDB|cookie|serviceWorker|setInterval|setTimeout)\b/);
 assert.doesNotMatch(source, /<\s*(?:iframe|img|audio|video|form|link|canvas)\b/i);
-assert.deepEqual([...source.matchAll(/href="([^"]+)"/g)].map(match => match[1]), ['index.html#wings']);
+assert.deepEqual([...source.matchAll(/href="([^"]+)"/g)].map(match => match[1]), ['explore.html#wings']);
 const scripts = [...source.matchAll(/<script>([\s\S]*?)<\/script>/g)];
 assert.equal(scripts.length, 1);
 new Script(scripts[0][1]);
-const wings = home.split('<div class="wings rise">')[1].split('</div>')[0];
+const wings = collection.split('<div class="wings rise">')[1].split('</div>')[0];
 const doors = [...wings.matchAll(/<a href="([^"]+)"/g)].map(match => match[1]);
 assert.equal(doors.filter(href => href === 'still-we-meet.html').length, 1);
 assert.equal(doors[doors.indexOf('maybe.html') + 1], 'still-we-meet.html');

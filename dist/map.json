@@ -1,9 +1,9 @@
 {
  "name": "map",
- "title": "地圖 The Map",
- "essence": "A directory of named Artbitrage rooms. It is not a complete inventory. A map is the arbitrage between a building and a visitor; knowing where you are is the bridge. 圖者，館與客之隙也。知其所在，便是橋。",
+ "title": "地圖 Visitor Guide",
+ "essence": "Art helps us feel, understand, and connect. A visitor guide and directory of named Artbitrage rooms; not a complete inventory. Follow your curiosity at your own pace.",
  "generated_at": "2026-07-10",
- "updated_at": "2026-08-20",
+ "updated_at": "2026-09-29",
  "groups": [
   {
    "id": "front-door",
@@ -14,7 +14,31 @@
      "path": "/",
      "name": "ARTBITRAGE",
      "cjk": "門",
-     "desc": "the night-museum walk · public doors · rights vary by record"
+     "desc": "why this place exists · ways into art · rights vary by record"
+    },
+    {
+     "path": "/visit",
+     "name": "The gallery visit",
+     "cjk": "遊",
+     "desc": "Five connected rooms of art, close looking, and museum notes."
+    },
+    {
+     "path": "/noticing",
+     "name": "What caught my eye",
+     "cjk": "看",
+     "desc": "a looking notebook · five artworks · small details and personal readings"
+    },
+    {
+     "path": "/behind-the-work",
+     "name": "Behind the work",
+     "cjk": "作",
+     "desc": "craft, colour and the continuing care behind a work of art"
+    },
+    {
+     "path": "/explore",
+     "name": "The collection",
+     "cjk": "藏",
+     "desc": "art history, paired works, and readings"
     }
    ]
   },
@@ -116,10 +140,16 @@
      "desc": "the catalogue in flow · choose a current"
     },
     {
+     "path": "/elements",
+     "name": "Five ways of looking",
+     "cjk": "五行",
+     "desc": "wood · fire · earth · metal · water · follow what pulls you"
+    },
+    {
      "path": "/trip",
      "name": "Good Trip",
      "cjk": "旅",
-     "desc": "a room for the journey · slow art · breath · anchor"
+     "desc": "the quiet room · slow art · breath · anchor"
     },
     {
      "path": "/rhymes",

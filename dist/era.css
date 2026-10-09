@@ -1,3 +1,5 @@
+@import url("/visitor-nav.css");
+
 /* ═══════════════════════════════════════════════════════════════
  * ARTBITRAGE — era.css
  *
@@ -15,7 +17,7 @@ a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
 
 /* ── Era tokens (overridden per page) ────────────────────────── */
-:root {
+:where(:root) {
   --era-bg: #0a0a0f;
   --era-surface: #111118;
   --era-fg: #e8e8f0;
@@ -37,66 +39,9 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Era nav (shared across all era pages) ───────────────────── */
-.era-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  background: rgba(10, 10, 15, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  transition: background 0.4s ease;
-}
-.era-nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 56px;
-}
-.era-nav-brand {
-  font-size: 1.1rem;
-  font-weight: bold;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #ff6b9d, #ffd700, #00f0ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.era-nav-brand a { text-decoration: none; }
-.era-nav-links {
-  display: flex;
-  gap: .35rem;
-  flex-wrap: wrap;
-}
-.era-nav-link {
-  font-family: var(--era-mono);
-  font-size: .72rem;
-  color: var(--era-dim);
-  padding: .3rem .55rem;
-  border-radius: 4px;
-  transition: all .2s;
-  white-space: nowrap;
-}
-.era-nav-link:hover { color: var(--era-fg); background: rgba(255,255,255,0.05); }
-.era-nav-link.active { color: var(--era-accent); background: var(--era-glow); }
-.era-nav-back {
-  font-family: var(--era-mono);
-  font-size: .72rem;
-  color: var(--era-dim);
-  padding: .3rem .55rem;
-  border-radius: 4px;
-  transition: all .2s;
-}
-.era-nav-back:hover { color: var(--era-fg); }
-
-@media (max-width: 768px) {
-  .era-nav-links { display: none; }
-  .era-nav-inner { justify-content: space-between; }
-}
+/* Shared visitor navigation lives in visitor-nav.css. */
+:focus-visible { outline: 2px solid var(--era-accent); outline-offset: 4px; }
+html { scroll-padding-top: calc(var(--visitor-nav-height) + 1rem); }
 
 /* ── Era hero ────────────────────────────────────────────────── */
 .era-hero {
@@ -106,7 +51,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 6rem 1.5rem 3rem;
+  padding: calc(var(--visitor-nav-height) + 3rem) 1.5rem 3rem;
   position: relative;
   overflow: hidden;
 }
@@ -121,7 +66,7 @@ body {
 .era-period {
   font-family: var(--era-mono);
   font-size: .8rem;
-  color: var(--era-dim);
+  color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%);
   letter-spacing: .15em;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -135,7 +80,7 @@ body {
 }
 .era-subtitle {
   font-size: clamp(1rem, 2.5vw, 1.4rem);
-  color: var(--era-dim);
+  color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%);
   font-style: italic;
   max-width: 600px;
   margin: 0 auto 2rem;
@@ -150,7 +95,7 @@ body {
   margin-top: 3rem;
   font-family: var(--era-mono);
   font-size: .7rem;
-  color: var(--era-dim);
+  color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%);
   letter-spacing: .1em;
   animation: bob 2s ease-in-out infinite;
 }
@@ -221,7 +166,7 @@ body {
   margin: 2rem 0;
   font-style: italic;
   font-size: 1.15rem;
-  color: var(--era-dim);
+  color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%);
 }
 .era-divider {
   width: 60px;
@@ -269,7 +214,7 @@ body {
 .context-card .ctx-body {
   font-size: .95rem;
   line-height: 1.7;
-  color: var(--era-dim);
+  color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%);
 }
 
 /* ── Timeline ────────────────────────────────────────────────── */
@@ -313,6 +258,8 @@ body {
 }
 .timeline-item .tl-content {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
   background: var(--era-surface);
   border: 1px solid rgba(255,255,255,0.05);
   border-radius: 10px;
@@ -324,14 +271,19 @@ body {
 }
 .timeline-item .tl-desc {
   font-size: .92rem;
-  color: var(--era-dim);
+  color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%);
   line-height: 1.6;
 }
 @media (max-width: 640px) {
   .timeline::before { left: 6px; }
-  .timeline-item, .timeline-item:nth-child(odd) { flex-direction: row; }
-  .timeline-item .tl-date { flex: 0 0 80px; text-align: left; padding-left: 1rem; }
-  .timeline-item .tl-dot { order: -1; }
+  .timeline-item, .timeline-item:nth-child(odd) {
+    display: grid;
+    grid-template-columns: 12px minmax(0, 1fr);
+    gap: .5rem 1rem;
+  }
+  .timeline-item .tl-date { grid-column: 2; grid-row: 1; text-align: left; padding: 0; }
+  .timeline-item .tl-dot { grid-column: 1; grid-row: 1; }
+  .timeline-item .tl-content { grid-column: 2; grid-row: 2; padding: 1rem; }
 }
 
 /* ── Art gallery (era-specific) ──────────────────────────────── */
@@ -375,7 +327,7 @@ body {
   border-radius: 4px;
 }
 .era-art-card .art-tag.form { background: var(--era-glow); color: var(--era-accent); }
-.era-art-card .art-tag.year { background: rgba(255,255,255,0.05); color: var(--era-dim); }
+.era-art-card .art-tag.year { background: rgba(255,255,255,0.05); color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%); }
 .era-art-card .art-body {
   font-size: .98rem;
   line-height: 1.85;
@@ -384,7 +336,7 @@ body {
 }
 .era-art-card .art-bridge {
   font-size: .85rem;
-  color: var(--era-dim);
+  color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%);
   font-style: italic;
   border-top: 1px solid rgba(255,255,255,0.05);
   padding-top: .75rem;
@@ -406,7 +358,7 @@ body {
 }
 .era-audio-header .audio-icon { font-size: 1.4rem; }
 .era-audio-header .audio-title { font-weight: bold; }
-.era-audio-header .audio-sub { font-size: .82rem; color: var(--era-dim); }
+.era-audio-header .audio-sub { font-size: .82rem; color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%); }
 .era-audio-player {
   display: flex;
   align-items: center;
@@ -418,7 +370,7 @@ body {
 }
 .era-audio-note {
   font-size: .82rem;
-  color: var(--era-dim);
+  color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%);
   font-style: italic;
   margin-top: .75rem;
 }
@@ -446,7 +398,7 @@ body {
   transform: translateX(-50%);
   font-family: var(--era-mono);
   font-size: .62rem;
-  color: var(--era-dim);
+  color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%);
   white-space: nowrap;
   opacity: 0;
   transition: opacity .2s;
@@ -470,8 +422,8 @@ body {
 }
 .artist-card:hover { border-color: var(--era-accent); }
 .artist-card .artist-name { font-weight: bold; margin-bottom: .25rem; }
-.artist-card .artist-years { font-family: var(--era-mono); font-size: .72rem; color: var(--era-dim); }
-.artist-card .artist-note { font-size: .85rem; color: var(--era-dim); margin-top: .5rem; font-style: italic; }
+.artist-card .artist-years { font-family: var(--era-mono); font-size: .72rem; color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%); }
+.artist-card .artist-note { font-size: .85rem; color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%); margin-top: .5rem; font-style: italic; }
 
 /* ── Key works list ──────────────────────────────────────────── */
 .key-works {
@@ -492,8 +444,8 @@ body {
 }
 .key-work .kw-info { flex: 1; }
 .key-work .kw-title { font-weight: bold; margin-bottom: .2rem; }
-.key-work .kw-artist { font-size: .85rem; color: var(--era-dim); }
-.key-work .kw-note { font-size: .88rem; color: var(--era-dim); margin-top: .3rem; font-style: italic; }
+.key-work .kw-artist { font-size: .85rem; color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%); }
+.key-work .kw-note { font-size: .88rem; color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%); margin-top: .3rem; font-style: italic; }
 .key-work .kw-look { font-size: .72rem; font-weight: normal; white-space: nowrap; margin-left: .5rem; }
 .key-work .kw-look a { color: var(--era-accent); text-decoration: none; border-bottom: 1px dotted var(--era-accent); opacity: .85; }
 .key-work .kw-look a:hover { opacity: 1; }
@@ -523,7 +475,7 @@ body {
 .era-footer {
   text-align: center;
   padding: 3rem 1.5rem;
-  color: var(--era-dim);
+  color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%);
   font-style: italic;
   font-size: .9rem;
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -540,7 +492,7 @@ body {
 .era-footer-nav a {
   font-family: var(--era-mono);
   font-size: .75rem;
-  color: var(--era-dim);
+  color: color-mix(in srgb, var(--era-dim) 60%, var(--era-fg) 40%);
   transition: color .2s;
 }
 .era-footer-nav a:hover { color: var(--era-accent); }
@@ -572,4 +524,21 @@ body {
   .context-grid { grid-template-columns: 1fr; }
   .era-gallery { grid-template-columns: 1fr; }
   .artists-grid { grid-template-columns: repeat(2, 1fr); }
+  .palette-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem .75rem; margin-bottom: 4rem; }
+  .palette-swatch { width: 100%; }
+  .palette-swatch:hover { transform: none; }
+  .palette-swatch .swatch-label {
+    top: 100%; bottom: auto; left: 0;
+    padding-top: .5rem;
+    transform: none;
+    white-space: normal;
+    line-height: 1.5;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .era-particles { display: none; }
 }

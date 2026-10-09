@@ -1,0 +1,90 @@
+{
+  "title": "Rooms of Light",
+  "file": "rooms-of-light.mp3",
+  "duration_seconds": 210,
+  "created_for": "Artbitrage",
+  "creation": "Original algorithmic composition and digital synthesis created for Artbitrage with Codex.",
+  "instruments": "Synthesized soft keys, warm sustained pads, and algorithmic room reverberation. The keys are not a recording of an acoustic piano.",
+  "sources": "No sampled audio, third-party music, or external sound recordings.",
+  "composition": "A recurring original motif moves through five gentle passages: water, dusk, form, poems, and colour, followed by a short closing tail.",
+  "passages": [
+    {
+      "room": "water",
+      "title": "Water / reflections",
+      "starts_at_seconds": 0,
+      "ends_at_seconds": 40,
+      "harmony": [
+        "Dmaj9",
+        "Bm9",
+        "Gmaj9",
+        "Asus2",
+        "Dmaj9"
+      ]
+    },
+    {
+      "room": "dusk",
+      "title": "Dusk / a distant light",
+      "starts_at_seconds": 40,
+      "ends_at_seconds": 80,
+      "harmony": [
+        "Bm9",
+        "Gmaj9",
+        "Em9",
+        "Asus2",
+        "Bm9"
+      ]
+    },
+    {
+      "room": "form",
+      "title": "Form / space around an object",
+      "starts_at_seconds": 80,
+      "ends_at_seconds": 120,
+      "harmony": [
+        "Dmaj9",
+        "G6",
+        "Dadd9/F#",
+        "Em9",
+        "Asus2"
+      ]
+    },
+    {
+      "room": "poems",
+      "title": "Poems / a line opening",
+      "starts_at_seconds": 120,
+      "ends_at_seconds": 160,
+      "harmony": [
+        "Gmaj9",
+        "Dmaj9",
+        "Em9",
+        "Bm9",
+        "Asus2"
+      ]
+    },
+    {
+      "room": "colour",
+      "title": "Colour / returning to light",
+      "starts_at_seconds": 160,
+      "ends_at_seconds": 200,
+      "harmony": [
+        "Dmaj9",
+        "Gmaj9",
+        "Bm9",
+        "Em9",
+        "Dmaj9"
+      ]
+    }
+  ],
+  "playback": {
+    "opt_in": true,
+    "suggested_initial_volume": 0.65,
+    "note": "A continuous soundtrack; passage changes are not synchronized to scrolling."
+  },
+  "render": {
+    "script": "tools/compose-visit-soundtrack.py",
+    "seed": 2799215,
+    "sample_rate": 44100,
+    "bitrate_kbps": 160,
+    "integrated_lufs": -20.45,
+    "true_peak_dbtp": -6.5
+  }
+}

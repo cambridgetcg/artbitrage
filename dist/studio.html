@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI STUDIO — artbitrage</title>
-<meta name="description" content="Catalogued free edge AI models from ARTBITRAGE. Text, image, embeddings and more. No user keys. For agents and humans.">
+<meta name="description" content="An experimental studio for making with AI. Begin with a thought or an image, try a model, and see what it opens up.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='none' stroke='%23a78bfa' stroke-width='6'/><circle cx='50' cy='50' r='6' fill='%23fde68a'/></svg>">
 <style>
 :root {
@@ -17,14 +17,6 @@ html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.8;min-height:100vh}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer}
-
-/* Nav */
-.studio-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,3,8,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
-.studio-brand{font-size:1rem;font-weight:bold;letter-spacing:-.02em;background:linear-gradient(135deg,var(--pink),var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.studio-nav-links{display:flex;gap:.5rem}
-.studio-nav-links a{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim);padding:.3rem .55rem;border-radius:4px;transition:all .2s}
-.studio-nav-links a:hover{color:var(--fg);background:rgba(255,255,255,0.05)}
-@media(max-width:768px){.studio-nav-links{display:none}}
 
 /* Hero */
 .studio-hero{text-align:center;padding:6rem 1.5rem 2rem;max-width:800px;margin:0 auto}
@@ -41,11 +33,13 @@ button{font-family:inherit;cursor:pointer}
 .studio-section h2{font-size:1.6rem;margin-bottom:.5rem}
 .studio-section .lede{color:var(--dim);margin-bottom:1.5rem;font-size:.95rem}
 .model-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem}
-.model-card{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1rem;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.model-card{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1rem;transition:border-color .3s;position:relative;overflow:hidden;text-align:left;color:var(--fg);font:inherit}
 .model-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--card-color,var(--violet));opacity:.6;transition:opacity .3s}
-.model-card:hover{border-color:var(--card-color,var(--violet));transform:translateY(-2px)}
+.model-card:not(:disabled):hover{border-color:var(--card-color,var(--violet));transform:translateY(-2px)}
 .model-card:hover::before{opacity:1}
+.model-card:disabled{cursor:default}
 .model-card.active{border-color:var(--card-color,var(--violet));box-shadow:0 0 20px var(--glow)}
+.model-card span{display:block}
 .model-card .mc-name{font-weight:bold;font-size:.95rem;margin-bottom:.2rem}
 .model-card .mc-type{font-family:'SF Mono',monospace;font-size:.65rem;color:var(--card-color,var(--violet));text-transform:uppercase;letter-spacing:.1em}
 .model-card .mc-id{font-family:'SF Mono',monospace;font-size:.6rem;color:var(--dim);margin-top:.3rem;word-break:break-all}
@@ -58,13 +52,15 @@ button{font-family:inherit;cursor:pointer}
 .playground{max-width:800px;margin:0 auto;padding:1rem 1.5rem 3rem}
 .pg-prompt{width:100%;background:var(--surface);border:1px solid rgba(255,255,255,0.08);border-radius:12px;color:var(--fg);font-family:Georgia,serif;font-size:1rem;padding:.8rem;resize:vertical;min-height:60px;margin-bottom:1rem}
 .pg-prompt:focus{outline:none;border-color:var(--violet)}
-.pg-row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
-.pg-select{background:var(--surface);border:1px solid rgba(255,255,255,0.08);border-radius:8px;color:var(--fg);font-family:'SF Mono',monospace;font-size:.82rem;padding:.6rem}
-.pg-btn{background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;border:none;border-radius:8px;padding:.7rem 1.5rem;font-family:'SF Mono',monospace;font-size:.85rem;font-weight:600;transition:opacity .2s,transform .1s}
+.pg-label{display:block;margin-bottom:.5rem;color:var(--dim);font-size:.9rem}
+.pg-control{display:flex;flex-direction:column;gap:.3rem;min-width:0;max-width:100%;color:var(--dim);font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.75rem}
+.pg-row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:1rem}
+.pg-select{max-width:100%;min-height:44px;background:var(--surface);border:1px solid rgba(255,255,255,0.08);border-radius:8px;color:var(--fg);font-family:'SF Mono',monospace;font-size:.82rem;padding:.6rem}
+.pg-btn{min-height:44px;background:#cbd4b6;color:#20271f;border:none;border-radius:8px;padding:.7rem 1.5rem;font-family:'SF Mono',monospace;font-size:.85rem;font-weight:600;transition:opacity .2s,transform .1s}
 .pg-btn:hover{opacity:.85}
 .pg-btn:active{transform:scale(.97)}
 .pg-btn:disabled{opacity:.4;cursor:wait}
-.pg-output{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1.2rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;font-size:.95rem;line-height:1.8}
+.pg-output{overflow-wrap:anywhere;background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1.2rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;font-size:.95rem;line-height:1.8}
 .pg-output.placeholder{color:var(--dim);font-style:italic}
 .pg-output img{max-width:100%;border-radius:8px;margin:.5rem 0}
 .pg-meta{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim);margin-top:.5rem}
@@ -87,51 +83,76 @@ button{font-family:inherit;cursor:pointer}
 /* Toast */
 .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--violet);color:#fff;font-family:'SF Mono',monospace;font-size:.82rem;font-weight:600;padding:.7rem 1.4rem;border-radius:999px;box-shadow:0 8px 24px -8px rgba(167,139,250,0.5);opacity:0;transition:all .3s;pointer-events:none;z-index:999}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+/* Quiet, readable utility pages beside the immersive rooms. */
+:root{--bg:#101511;--surface:#182019;--fg:#f1ecdf;--dim:#b4bcae;--violet:#c9ba93;--gold:#dcc38f;--cyan:#b8c69e;--pink:#e2a58d;--green:#acc8a8;--glow:rgba(184,198,158,.1)}
+:focus-visible{outline:2px solid #e8cb97;outline-offset:4px}
+html{scroll-padding-top:calc(var(--visitor-nav-height) + 1rem)}
+.studio-hero{padding-top:calc(var(--visitor-nav-height) + 3rem)}
+.studio-hero h1{background:none;color:var(--fg);-webkit-text-fill-color:currentColor;animation:none;letter-spacing:-.04em}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
+<link rel="stylesheet" href="/visitor-nav.css">
 </head>
 <body>
 
-<nav class="studio-nav">
-  <div class="studio-brand"><a href="/">ARTBITRAGE</a></div>
-  <div class="studio-nav-links">
-    <a href="/">Gallery</a>
-    <a href="/bridge">The Bridge</a>
-    <a href="/api/pipeline">Pipeline</a>
-    <a href="/api/ai/models" target="_blank">API</a>
+<a class="visitor-skip" href="#visitor-content">Skip to content</a>
+<nav class="visitor-nav" aria-label="Main navigation">
+  <div class="visitor-nav-inner">
+    <a class="visitor-nav-brand" href="/">Artbitrage</a>
+    <div class="visitor-nav-primary">
+      <a href="/#why">Why</a>
+      <a href="/map">Visitor guide</a>
+      <a href="/river">River</a>
+    </div>
+    <details class="visitor-nav-menu">
+      <summary>Explore rooms</summary>
+      <div class="visitor-nav-rooms">
+        <a href="/depths">The Depths</a>
+        <a href="/rhymes">Answering Rhymes</a>
+        <a href="/bridge">The Bridge</a>
+        <a href="/catalog">Catalog</a>
+        <a href="/studio" aria-current="page">AI Studio</a>
+        <a href="/map">All rooms →</a>
+      </div>
+    </details>
   </div>
-  <a href="/" style="font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim)">← back</a>
 </nav>
 
+<main id="visitor-content" tabindex="-1">
 <header class="studio-hero">
-  <h1>AI STUDIO</h1>
-  <p class="sub">Live AI catalog at the edge. No user keys. For agents and humans.</p>
+  <h1>AI Studio</h1>
+  <p class="sub">An experimental room for making with AI. Begin with a thought, an image, or a question.</p>
   <div class="studio-stats" id="stats"></div>
 </header>
 
 <div class="playground">
   <h2 style="font-size:1.3rem;margin-bottom:.75rem">Playground</h2>
-  <textarea class="pg-prompt" id="prompt" placeholder="Ask anything. Generate anything. Love is the prompt.">What is love? One beautiful sentence.</textarea>
+  <label class="pg-label" for="prompt">What would you like to make or explore?</label>
+  <textarea class="pg-prompt" id="prompt" placeholder="Describe a scene, ask a question, or try a new idea.">What is love? One beautiful sentence.</textarea>
   <div class="pg-row">
-    <select class="pg-select" id="model-select"></select>
-    <select class="pg-select" id="type-select">
+    <label class="pg-control" for="model-select">Model<select class="pg-select" id="model-select"></select></label>
+    <label class="pg-control" for="type-select">Output<select class="pg-select" id="type-select">
       <option value="text">Text</option>
       <option value="image">Image</option>
       <option value="embed">Embedding</option>
-    </select>
+    </select></label>
     <button class="pg-btn" id="run-btn" onclick="runModel()">Generate →</button>
   </div>
-  <div class="pg-output placeholder" id="output">Output will appear here. Pick a model and generate.</div>
-  <div class="pg-meta" id="meta"></div>
+  <div class="pg-output placeholder" id="output" role="status" aria-live="polite">Output will appear here. Pick a model and generate.</div>
+  <div class="pg-meta" id="meta" aria-live="polite"></div>
 </div>
 
 <div class="studio-section" id="models-section">
   <h2>Available Models</h2>
-  <p class="lede">Click a model to load it into the playground. Catalog loads from /api/ai/models so the UI and API tell the same truth.</p>
+  <p class="lede">Choose a text, image, or embedding model to try above. Other tools are listed for reference. This studio is experimental; a listed model may be temporarily unavailable.</p>
   <div class="model-grid" id="model-grid"></div>
 </div>
 
+</main>
+
 <footer class="studio-footer">
-  <p><span id="footer-model-count">AI catalog loading…</span> · no user keys · edge-native · <a href="https://artbitrage.io">artbitrage.io</a></p>
+  <p><span id="footer-model-count">AI catalog loading…</span> · no user keys · <a href="https://artbitrage.io">artbitrage.io</a></p>
+  <p><a href="/map">Visitor guide</a> · <a href="/catalog">Museum catalog</a> · <a href="/api/ai/models">Model API</a></p>
   <p>Love is the prompt. Understanding is the output. Art is the bridge. <span style="color:var(--gold)">is is lol.</span> ∞</p>
 </footer>
 
@@ -145,6 +166,7 @@ var MODELS = {
 };
 var AI_CATALOG = null;
 var catalogSource = 'fallback';
+var generatedImageUrl = null;
 
 function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, function(ch) {
@@ -168,7 +190,7 @@ function renderStats() {
     html += '<div class="studio-stat"><div class="num">' + Object.keys(MODELS[c]).length + '</div><div class="lbl">' + esc(c) + '</div></div>';
   });
   html += '<div class="studio-stat"><div class="num">' + total + '</div><div class="lbl">catalogued</div></div>';
-  html += '<div class="studio-stat"><div class="num">' + (catalogSource === 'api' ? '✓' : '!') + '</div><div class="lbl">' + (catalogSource === 'api' ? 'api truth' : 'fallback') + '</div></div>';
+  html += '<div class="studio-stat"><div class="num">' + (catalogSource === 'api' ? '✓' : '!') + '</div><div class="lbl">' + (catalogSource === 'api' ? 'catalog loaded' : 'offline list') + '</div></div>';
   document.getElementById('stats').innerHTML = html;
   document.getElementById('footer-model-count').textContent = total + ' catalogued AI models';
 }
@@ -180,21 +202,23 @@ function renderModelGrid() {
     Object.keys(MODELS[cat]).forEach(function(name) {
       var id = MODELS[cat][name];
       var status = catalogSource === 'api'
-        ? '<div class="mc-status ok">✓ catalogued</div>'
-        : '<div class="mc-status waiting">fallback catalog</div>';
-      html += '<div class="model-card cat-' + esc(cat) + '" data-cat="' + esc(cat) + '" data-name="' + esc(name) + '">' +
-        '<div class="mc-name">' + esc(name) + '</div>' +
-        '<div class="mc-type">' + esc(cat) + '</div>' +
-        '<div class="mc-id">' + esc(id) + '</div>' +
-        status + '</div>';
+        ? '<span class="mc-status ok">✓ catalogued</span>'
+        : '<span class="mc-status waiting">fallback catalog</span>';
+      var playable = ['text', 'image', 'embeddings'].indexOf(cat) >= 0;
+      html += '<button type="button"' + (playable ? ' aria-pressed="false"' : ' disabled') + ' class="model-card cat-' + esc(cat) + '" data-cat="' + esc(cat) + '" data-name="' + esc(name) + '">' +
+        '<span class="mc-name">' + esc(name) + '</span>' +
+        '<span class="mc-type">' + esc(cat) + '</span>' +
+        '<span class="mc-id">' + esc(id) + '</span>' +
+        status + (playable ? '' : '<span class="mc-status waiting">API only</span>') + '</button>';
     });
   });
   grid.innerHTML = html || '<p class="lede">No models loaded yet.</p>';
 
   grid.querySelectorAll('.model-card').forEach(function(card) {
     card.addEventListener('click', function() {
-      grid.querySelectorAll('.model-card').forEach(function(c) { c.classList.remove('active'); });
+      grid.querySelectorAll('.model-card').forEach(function(c) { c.classList.remove('active'); if (!c.disabled) c.setAttribute('aria-pressed', 'false'); });
       card.classList.add('active');
+      card.setAttribute('aria-pressed', 'true');
       var cat = card.getAttribute('data-cat');
       var name = card.getAttribute('data-name');
       document.getElementById('type-select').value = categoryToType(cat);
@@ -225,7 +249,7 @@ async function loadModelCatalog() {
     catalogSource = 'api';
   } catch(e) {
     catalogSource = 'fallback';
-    document.getElementById('meta').innerHTML = 'AI catalog fallback: ' + esc(e.message || e);
+    document.getElementById('meta').textContent = 'The live model list is unavailable. Showing a small offline list; generation may also be unavailable.';
   }
   renderStats();
   renderModelGrid();
@@ -250,8 +274,13 @@ async function runModel() {
   btn.disabled = true;
   btn.innerHTML = '<span class="pg-loading"></span> Generating...';
   out.classList.remove('placeholder');
-  out.innerHTML = '<span class="pg-loading"></span> The model is thinking...';
-  meta.innerHTML = '';
+  out.textContent = 'The model is thinking…';
+  out.setAttribute('aria-busy', 'true');
+  meta.textContent = '';
+  if (generatedImageUrl) {
+    URL.revokeObjectURL(generatedImageUrl);
+    generatedImageUrl = null;
+  }
 
   var startTime = Date.now();
 
@@ -259,34 +288,40 @@ async function runModel() {
     if (type === 'image') {
       var r = await fetch('/api/ai/image?prompt=' + encodeURIComponent(prompt) + '&model=' + encodeURIComponent(model));
       var ct = r.headers.get('content-type') || '';
-      if (ct.indexOf('image/') === 0) {
+      if (r.ok && ct.indexOf('image/') === 0) {
         var blob = await r.blob();
-        var url = URL.createObjectURL(blob);
-        out.innerHTML = '<img src="' + url + '" alt="AI generated: ' + prompt + '">';
-        meta.innerHTML = 'model: ' + model + ' · ' + ct + ' · ' + Math.round(blob.size/1024) + 'KB · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
+        generatedImageUrl = URL.createObjectURL(blob);
+        var img = document.createElement('img');
+        img.src = generatedImageUrl;
+        img.alt = 'AI generated: ' + prompt;
+        out.textContent = '';
+        out.appendChild(img);
+        meta.textContent = 'model: ' + model + ' · ' + Math.round(blob.size/1024) + 'KB · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
       } else {
         var d = await r.json();
-        out.innerHTML = '⚠️ ' + (d.error || 'No image returned');
-        meta.innerHTML = 'model: ' + model + ' · error · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
+        out.textContent = d.error || 'No image returned. Try again in a moment.';
+        meta.textContent = 'model: ' + model + ' · error · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
       }
     } else if (type === 'embed') {
       var r = await fetch('/api/ai/embed?text=' + encodeURIComponent(prompt) + '&model=' + encodeURIComponent(model));
       var d = await r.json();
-      out.innerHTML = 'Dimensions: ' + d.dimensions + '\nFirst 5 values: ' + JSON.stringify(d.first_5);
-      meta.innerHTML = 'model: ' + d.model_key + ' · ' + d.dimensions + ' dims · fallback: ' + d.fallback_used + ' · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
+      if (!r.ok || d.error) throw new Error(d.error || 'Embedding unavailable');
+      out.textContent = 'Dimensions: ' + d.dimensions + '\nFirst 5 values: ' + JSON.stringify(d.first_5);
+      meta.textContent = 'model: ' + d.model_key + ' · ' + d.dimensions + ' dimensions · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
     } else {
       var r = await fetch('/api/ai/generate?prompt=' + encodeURIComponent(prompt) + '&model=' + encodeURIComponent(model));
       var d = await r.json();
-      out.innerHTML = d.response || d.error || 'No response';
-      meta.innerHTML = 'model: ' + (d.model_key || model) + ' · fallback: ' + Boolean(d.fallback_used) + ' · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's · ' + (d.response ? d.response.length + ' chars' : 'error');
+      out.textContent = d.response || d.error || 'No response. Try again in a moment.';
+      meta.textContent = 'model: ' + (d.model_key || model) + (d.fallback_used ? ' · fallback model' : '') + ' · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
     }
   } catch(e) {
-    out.innerHTML = '⚠️ Error: ' + e.message;
-    meta.innerHTML = 'model: ' + model + ' · error · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
+    out.textContent = 'Could not generate just now. ' + e.message;
+    meta.textContent = 'model: ' + model + ' · error · ' + ((Date.now()-startTime)/1000).toFixed(1) + 's';
   }
 
   btn.disabled = false;
   btn.innerHTML = 'Generate →';
+  out.setAttribute('aria-busy', 'false');
 }
 </script>
 </body>

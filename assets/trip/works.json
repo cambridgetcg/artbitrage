@@ -1,0 +1,290 @@
+{
+  "routes": [
+    {
+      "id": "water-air",
+      "title": "Water & air",
+      "description": "Reflections, open water and soft skies. A route for wandering slowly."
+    },
+    {
+      "id": "quiet-forms",
+      "title": "Quiet forms",
+      "description": "Rounded edges, woven surfaces and familiar objects. Stay with one small detail."
+    },
+    {
+      "id": "colour-light",
+      "title": "Colour & light",
+      "description": "Gardens, bright shapes and changing light. A more colourful, playful route."
+    }
+  ],
+  "works": [
+    {
+      "id": "dow-boats-at-rest",
+      "title": "Boats at Rest",
+      "maker": "Arthur Wesley Dow",
+      "date": "c. 1895",
+      "image": "/assets/trip/dow-boats-at-rest.jpg",
+      "alt": "A blue boat with a white cloth inside and a smaller green boat rest on a grassy riverbank, beside still water reflecting distant houses.",
+      "source": "https://www.artic.edu/artworks/121377",
+      "looking": [
+        "Follow the curved edge of the blue boat.",
+        "Find a shape on the far bank and its reflection in the water."
+      ],
+      "route": "water-air"
+    },
+    {
+      "id": "monet-water-lilies",
+      "title": "Water Lilies",
+      "image": "/assets/visit/monet-water-lilies.jpg",
+      "alt": "Pink and white water lilies spread across blue-green water, with soft reflections beneath them.",
+      "source": "https://www.artic.edu/artworks/16568",
+      "maker": "Claude Monet",
+      "date": "1906",
+      "looking": [
+        "Choose one lily pad and follow its rounded edge.",
+        "Notice a small patch of pink among the reflections."
+      ],
+      "route": "water-air"
+    },
+    {
+      "id": "whistler-nocturne",
+      "title": "Nocturne: Blue and Gold—Southampton Water",
+      "image": "/assets/visit/whistler-nocturne.jpg",
+      "alt": "A low golden moon hangs above a hazy blue-green harbor, with faint boats and a dark shoreline.",
+      "source": "https://www.artic.edu/artworks/56905",
+      "maker": "James McNeill Whistler",
+      "date": "1872",
+      "looking": [
+        "Find the small moon above the water.",
+        "Follow the long line where water meets the distant shore."
+      ],
+      "route": "water-air"
+    },
+    {
+      "id": "twachtman-white-bridge",
+      "title": "The White Bridge",
+      "maker": "John Henry Twachtman",
+      "date": "after 1895",
+      "image": "/assets/trip/twachtman-white-bridge.jpg",
+      "alt": "A white footbridge crosses a brook behind slender trees, surrounded by soft green foliage and reflections.",
+      "source": "https://www.artic.edu/artworks/25872",
+      "looking": [
+        "Find the white railing among the green brushstrokes.",
+        "Follow one thin tree trunk from the bank towards the top."
+      ],
+      "route": "water-air"
+    },
+    {
+      "id": "redon-flower-clouds",
+      "title": "Flower Clouds",
+      "image": "/assets/visit/redon-flower-clouds.jpg",
+      "alt": "A small sailing boat with two figures floats beneath clouds of violet, orange, pink, and blue.",
+      "source": "https://www.artic.edu/artworks/76395",
+      "maker": "Odilon Redon",
+      "date": "c. 1903",
+      "looking": [
+        "Compare the small sail with the wide cloud above it.",
+        "Choose one patch of colour and follow its edge."
+      ],
+      "route": "water-air"
+    },
+    {
+      "id": "dusk",
+      "title": "Moonrise",
+      "image": "/assets/welcome/moonrise.jpg",
+      "alt": "An orange moon glows through a hazy landscape of trees and a solitary figure.",
+      "source": "https://www.artic.edu/artworks/64754",
+      "maker": "George Inness",
+      "date": "1891",
+      "looking": [
+        "Find the moon, then notice a darker shape nearby.",
+        "Look for one soft edge and one clearer edge."
+      ],
+      "route": "water-air"
+    },
+    {
+      "id": "water",
+      "title": "A Sunday on La Grande Jatte — 1884",
+      "image": "/assets/welcome/seurat.jpg",
+      "alt": "People with parasols gather in a sunlit park beside the Seine, with boats in the distance.",
+      "source": "https://www.artic.edu/artworks/27992",
+      "maker": "Georges Seurat",
+      "date": "1884–86, border added 1888–89",
+      "looking": [
+        "Choose a parasol and follow its curve.",
+        "Notice one figure near the front and another farther away."
+      ],
+      "route": "water-air"
+    },
+    {
+      "id": "form",
+      "title": "Moon Jar",
+      "image": "/assets/welcome/moon-jar.jpg",
+      "alt": "A rounded white Korean porcelain moon jar with a gently uneven outline and a softly glazed surface.",
+      "source": "https://www.artic.edu/artworks/158472",
+      "maker": "Korea · Joseon dynasty",
+      "date": "Late 17th–mid-18th century",
+      "looking": [
+        "Follow one side of the jar from its rim towards its base.",
+        "Compare the two sides of its rounded outline."
+      ],
+      "route": "quiet-forms"
+    },
+    {
+      "id": "roman-glass-bowl",
+      "title": "Bowl",
+      "image": "/assets/visit/roman-glass-bowl.jpg",
+      "alt": "A small pale mosaic-glass bowl with a rounded body, short foot, and dark striped rim, on a gray background.",
+      "source": "https://www.artic.edu/artworks/61905",
+      "maker": "Roman; probably Eastern Mediterranean",
+      "date": "Early 1st century BCE",
+      "looking": [
+        "Follow the dark oval around the rim.",
+        "Look for a small shape repeated in the glass."
+      ],
+      "route": "quiet-forms"
+    },
+    {
+      "id": "pomo-burden-basket",
+      "title": "Burden Basket",
+      "maker": "Pomo · Northern California, United States",
+      "date": "1870–80",
+      "image": "/assets/trip/pomo-burden-basket.jpg",
+      "alt": "A tan woven basket widens from a narrow base to an open rim, with repeating dark-brown triangles across its sides.",
+      "source": "https://www.artic.edu/artworks/181737",
+      "looking": [
+        "Choose one triangle and follow the repeating pattern around the basket.",
+        "Notice how the form widens from its base towards the rim."
+      ],
+      "route": "quiet-forms"
+    },
+    {
+      "id": "cezanne-basket-apples",
+      "title": "The Basket of Apples",
+      "maker": "Paul Cezanne",
+      "date": "c. 1893",
+      "image": "/assets/trip/cezanne-basket-apples.jpg",
+      "alt": "A tilted basket spills red and green apples across a white cloth on a wooden table, beside a dark bottle and a plate of biscuits.",
+      "source": "https://www.artic.edu/artworks/111436",
+      "looking": [
+        "Follow one fold of the white cloth. Where does it lead your eye?",
+        "Compare the round apples with the bottle and the table edges."
+      ],
+      "route": "quiet-forms"
+    },
+    {
+      "id": "cycladic-figure",
+      "title": "Statuette of a Female Figure",
+      "image": "/assets/visit/cycladic-figure.jpg",
+      "alt": "A pale marble standing figure with folded arms, a long neck, and a simple oval face with a raised nose.",
+      "source": "https://www.artic.edu/artworks/52201",
+      "maker": "Cycladic; probably from the island of Keros",
+      "date": "Early Bronze Age, 2600–2400 BCE",
+      "looking": [
+        "Follow the outline from one shoulder towards the feet.",
+        "Notice where the folded arms meet the body."
+      ],
+      "route": "quiet-forms"
+    },
+    {
+      "id": "blake-fruit-tree",
+      "title": "Thenot Under Fruit Tree",
+      "image": "/assets/visit/blake-fruit-tree.jpg",
+      "alt": "A small black-and-white wood engraving of resting figures under trees, with a round bright light above distant hills.",
+      "source": "https://www.artic.edu/artworks/18279",
+      "maker": "William Blake",
+      "date": "1821",
+      "looking": [
+        "Find a light gap between the dark branches.",
+        "Follow one curve of a hill in the distance."
+      ],
+      "route": "quiet-forms"
+    },
+    {
+      "id": "morisot-garden",
+      "title": "Woman in a Garden",
+      "image": "/assets/visit/morisot-garden.jpg",
+      "alt": "A seated woman in a blue dress and flowered hat, surrounded by loosely painted green foliage and pale flowers.",
+      "source": "https://www.artic.edu/artworks/153798",
+      "maker": "Berthe Morisot",
+      "date": "1882–83",
+      "looking": [
+        "Find the blue of the dress among the greens.",
+        "Choose one visible brushstroke and notice its direction."
+      ],
+      "route": "colour-light"
+    },
+    {
+      "id": "hiroshige-plum-garden",
+      "title": "Plum Garden at Kameido",
+      "image": "/assets/visit/hiroshige-plum-garden.jpg",
+      "alt": "Dark plum-tree branches with white blossoms cross a pink sky, framing a green garden and small distant visitors.",
+      "source": "https://www.artic.edu/artworks/26577",
+      "maker": "Utagawa Hiroshige",
+      "date": "1857",
+      "looking": [
+        "Follow a dark branch across the pale sky.",
+        "Compare a nearby blossom with a small figure in the distance."
+      ],
+      "route": "colour-light"
+    },
+    {
+      "id": "poems",
+      "title": "Autumn Maples with Poem Slips",
+      "image": "/assets/welcome/maples.jpg",
+      "alt": "A six-panel gold folding screen with red maple trees and hanging poem slips.",
+      "source": "https://www.artic.edu/artworks/127644",
+      "maker": "Tosa Mitsuoki",
+      "date": "c. 1675",
+      "looking": [
+        "Find three hanging poem slips among the leaves.",
+        "Follow one tree branch across the gold background."
+      ],
+      "route": "colour-light"
+    },
+    {
+      "id": "cross-beach-cabasson",
+      "title": "Beach at Cabasson (Baigne-Cul)",
+      "maker": "Henri Edmond Cross",
+      "date": "1891–92",
+      "image": "/assets/trip/cross-beach-cabasson.jpg",
+      "alt": "Three children play on a pale rocky shore beside a blue sea, with a pine branch above and many small touches of colour across the scene.",
+      "source": "https://www.artic.edu/artworks/100476",
+      "looking": [
+        "Let your eyes follow the line where sky meets sea.",
+        "Find a small patch of colour repeated in the shore and water."
+      ],
+      "route": "colour-light"
+    },
+    {
+      "id": "hartley-movement",
+      "title": "Movement",
+      "maker": "Marsden Hartley",
+      "date": "1913",
+      "image": "/assets/trip/hartley-movement.jpg",
+      "alt": "Orange circles, blue and green curves, and pale zigzags interweave with dark shapes in an abstract painting shown within a thin light frame.",
+      "source": "https://www.artic.edu/artworks/65916",
+      "looking": [
+        "Follow the edge of the large orange circle.",
+        "Find a curved line, then a zigzag."
+      ],
+      "route": "colour-light",
+      "attribution": "Photo: Wuselig · CC BY-SA 4.0",
+      "attributionSource": "https://commons.wikimedia.org/wiki/File:Art_Institute_of_Chicago-1035.jpg",
+      "attributionLicense": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "marc-bewitched-mill",
+      "title": "The Bewitched Mill",
+      "image": "/assets/visit/marc-bewitched-mill.jpg",
+      "alt": "White water streams through a vivid scene of red millwheels, blue buildings, green foliage, and small animals.",
+      "source": "https://www.artic.edu/artworks/9021",
+      "maker": "Franz Marc",
+      "date": "1913",
+      "looking": [
+        "Follow one white stream of water through the picture.",
+        "Find a circle, then an angular shape nearby."
+      ],
+      "route": "colour-light"
+    }
+  ]
+}

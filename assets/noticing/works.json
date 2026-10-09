@@ -1,0 +1,124 @@
+{
+  "works": [
+    {
+      "id": "cassatt-childs-bath",
+      "alt": "Seen from above, a woman in a striped dress supports a child on her lap and washes a small foot in a basin. A white pitcher stands beside them.",
+      "looking": [
+        "Follow the two hands: one steadies the child, one cups a foot.",
+        "Compare the oval basin with the rounded opening of the pitcher."
+      ],
+      "context": "Cassatt used a steep viewpoint and abundant pattern in this scene of a caregiver and child. The museum connects these choices to her engagement with Japanese art in the 1890s.",
+      "noted_details": [
+        "One hand rests across the child’s waist; the other holds a foot inside the basin.",
+        "Long stripes in the dress bend around the seated figures.",
+        "The white basin and pitcher repeat rounded openings near the bottom of the painting."
+      ],
+      "title": "The Child's Bath",
+      "maker": "Mary Cassatt",
+      "date": "1893",
+      "medium": "Oil on canvas",
+      "image": "/assets/noticing/cassatt-childs-bath.jpg",
+      "source": "https://www.artic.edu/artworks/111442",
+      "source_name": "Art Institute of Chicago",
+      "width": 960,
+      "height": 1457,
+      "context_source": "https://www.artic.edu/artworks/111442"
+    },
+    {
+      "id": "sargent-glass-workers",
+      "alt": "Workers sit in a dark Venetian workshop, handling bundles of long, pale glass canes. Light enters at the upper left and catches the rods and a white blouse.",
+      "looking": [
+        "Follow the pale glass canes from the foreground back to the workers’ hands.",
+        "Look for the brightest painted stroke in this mostly dark room."
+      ],
+      "context": "Sargent painted Venetian glass-bead workers in the early 1880s. The museum identifies the pale rods as glass canes, prepared for cutting into beads, then polishing and stringing into jewelry.",
+      "noted_details": [
+        "Pale green and white rods form several fans against the dark room.",
+        "The worker on the right holds glass near a small upright tool.",
+        "The window occupies only the upper-left corner, while light reappears across hands, clothing, and glass."
+      ],
+      "title": "Venetian Glass Workers",
+      "maker": "John Singer Sargent",
+      "date": "1880–82",
+      "medium": "Oil on canvas",
+      "image": "/assets/noticing/sargent-glass-workers.jpg",
+      "source": "https://www.artic.edu/artworks/110761",
+      "source_name": "Art Institute of Chicago",
+      "width": 960,
+      "height": 627,
+      "context_source": "https://www.artic.edu/artworks/110761"
+    },
+    {
+      "id": "pomo-burden-basket",
+      "title": "Burden Basket",
+      "maker": "Pomo · Northern California, United States",
+      "date": "1870–80",
+      "image": "/assets/trip/pomo-burden-basket.jpg",
+      "alt": "A tan woven basket widens from a narrow base to an open rim, with repeating dark-brown triangles across its sides.",
+      "source": "https://www.artic.edu/artworks/181737",
+      "looking": [
+        "Choose one triangle and follow the repeating pattern around the basket.",
+        "Notice how the form widens from its base towards the rim."
+      ],
+      "medium": "Plant fibers",
+      "source_name": "Art Institute of Chicago",
+      "width": 960,
+      "height": 721,
+      "context": "This Pomo basket from Northern California was made for practical use. Its diagonal twining carries triangular patterns that grow larger as the woven form widens toward its open rim.",
+      "context_source": "https://www.artic.edu/artworks/181737",
+      "noted_details": [
+        "Dark triangles grow larger as they rise from the narrow base.",
+        "Bands of smaller triangles make zigzag paths between the larger shapes.",
+        "The broad oval rim exposes the fine, paler weave inside the basket."
+      ]
+    },
+    {
+      "id": "mondrian-lozenge",
+      "alt": "A diamond-shaped white canvas contains horizontal and vertical black lines, a large yellow triangle at left, a blue wedge at right, a black rectangle, and a tiny red triangle below.",
+      "looking": [
+        "Follow a black line until it stops. Does it meet the edge?",
+        "Compare the small red triangle with the much larger yellow and blue areas."
+      ],
+      "context": "Mondrian rotated the square canvas while keeping its internal lines horizontal and vertical. The museum reads this as an exploration of the relationship between a painting and its enclosing edges.",
+      "noted_details": [
+        "The diamond’s slanted perimeter surrounds a level horizontal and vertical grid.",
+        "A small red wedge sits near the lower-left edge, below a broad black horizontal line.",
+        "Several black lines stop before the border, while the long line above the blue reaches the sloping right edge."
+      ],
+      "title": "Lozenge Composition with Yellow, Black, Blue, Red, and Gray",
+      "maker": "Piet Mondrian",
+      "date": "1921",
+      "medium": "Oil on canvas",
+      "image": "/assets/noticing/mondrian-lozenge.jpg",
+      "source": "https://www.artic.edu/artworks/109819",
+      "source_name": "Art Institute of Chicago",
+      "width": 960,
+      "height": 960,
+      "context_source": "https://www.artic.edu/artworks/109819"
+    },
+    {
+      "id": "hammershoi-music-room",
+      "alt": "An empty grey room contains a keyboard instrument, a chair, and a stringed instrument leaning at the right. A small framed picture hangs within a much larger rectangle of wall moulding.",
+      "looking": [
+        "Compare the small picture frame with the much larger rectangle around it.",
+        "Find the diagonal instrument among the room’s upright and level lines."
+      ],
+      "context": "Hammershøi repeatedly painted rooms in the Copenhagen apartment he shared with Ida. The museum describes furniture and objects rearranged for pictorial effect, with light entering from a window outside this composition.",
+      "noted_details": [
+        "A small dark picture frame sits inside a large rectangle of pale wall moulding.",
+        "An empty chair stands in front of the keyboard, partly overlapping it.",
+        "The stringed instrument leans diagonally beside the keyboard; the surrounding architecture stays mostly upright."
+      ],
+      "title": "Interior. The Music Room, Strandgade 30",
+      "maker": "Vilhelm Hammershøi",
+      "date": "1907",
+      "medium": "Oil on canvas",
+      "image": "/assets/noticing/hammershoi-music-room.jpg",
+      "source": "https://www.artic.edu/artworks/270002",
+      "source_name": "Art Institute of Chicago",
+      "width": 960,
+      "height": 1131,
+      "context_source": "https://www.artic.edu/artworks/270002"
+    }
+  ]
+}

@@ -17,7 +17,10 @@
   --era-glow: rgba(185, 138, 62, 0.12);
 }
 /* the pigment room — local styles */
-.swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.4rem; margin-top: 2rem; }
+.pigment-welcome { max-width: 660px; margin: 1rem auto 2rem; font-size: 1.1rem; line-height: 1.8; }
+.pigment-welcome p { margin: 0; }
+.pigment-welcome a { display: inline-flex; align-items: center; min-height: 44px; gap: .35rem; margin-top: .75rem; color: var(--era-fg); text-decoration: underline; text-underline-offset: .25em; }
+.swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 1.4rem; margin-top: 2rem; }
 .pig { background: var(--era-surface); border: 1px solid rgba(233,227,215,0.09); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
 .pig-swatch { height: 132px; position: relative; }
 .pig-swatch .approx { position: absolute; bottom: 6px; right: 8px; font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(0,0,0,0.5); background: rgba(255,255,255,0.55); padding: 1px 6px; border-radius: 3px; }
@@ -81,6 +84,10 @@
 <header class="era-hero">
   <div class="era-period">EST. 2026 — THE PIGMENT ROOM</div>
   <h1 class="era-title">Pigments</h1>
+  <div class="pigment-welcome">
+    <p>Colour is something people make, carry, choose and care for. Start with a shade that catches your eye, then follow its materials and the knowledge behind it.</p>
+    <a href="/behind-the-work#colour">Behind the work · follow the life of colour <span aria-hidden="true">↗</span></a>
+  </div>
   <p class="era-subtitle">The colours of art history, dated and cited — a tool that argues only against a claim, never for it</p>
   <p class="era-essence">
     Every colour has a birthday. Egyptian blue was fired before writing kept recipes; Prussian blue was an accident of 1704; titanium white could not exist before the First World War. Because a pigment cannot appear in a painting made before the pigment itself existed, the palette is a clock — but a one-directional one. A colour that is <em>too new</em> for a claimed date is strong evidence against it. A period-consistent palette proves <em>nothing</em>. This room holds each pigment as a machine-readable fact: what it is, when it first appears, and when it could not yet be — every figure carrying its source and a truth status. <em>No keys, no database, no funds, no take-rate.</em>
