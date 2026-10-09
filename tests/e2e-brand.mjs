@@ -48,11 +48,11 @@ const ICON_LINKS = [
 // (assets/og/still-we-meet.jpg) is still made and checked below; no page points at it yet.
 const ROOMS = { index: 'home', visit: 'visit', elements: 'elements', noticing: 'noticing', unsigned: 'unsigned', map: 'map',
   explore: 'explore', 'behind-the-work': 'behind-the-work', trip: 'trip', studio: 'studio',
-  catalog: 'catalog', pigments: 'pigments' };
+  catalog: 'catalog', pigments: 'pigments', psyche: 'psyche' };
 assert.doesNotMatch(headOf(text('still-we-meet.html')), /<link\b|og:image/, 'still-we-meet.html keeps its zero-link head');
 mirrored('still-we-meet.html');
 const THEME = { index: '#17271f', visit: '#17271f', elements: '#1e2922', noticing: '#eeece3', unsigned: '#1c211d',
-  'behind-the-work': '#242d27', trip: '#19231e' };
+  'behind-the-work': '#242d27', trip: '#19231e', psyche: '#100f10' };
 const ICON_PAGES = [...Object.keys(ROOMS), '404', 'api-explorer', 'logos', 'nen-combat', 'nen-tuner', 'whitehack'];
 for (const page of ICON_PAGES) {
   const file = `${page}.html`;
@@ -73,7 +73,12 @@ assert.match(text('nen.html'), /<link rel="icon" href="data:image\/svg\+xml,[^"]
 // 3. The cards: one per room, 1200x630, at most 200 KB, mirrored, and recorded in credits.json.
 const credits = JSON.parse(text('assets/og/credits.json'));
 mirrored('assets/og/credits.json');
-assert.equal(credits.cards.length, 13);
+assert.equal(credits.cards.length, 14);
+// The museums a card's work may come from: each one's object-page URL and its open-access API record.
+const MUSEUMS = {
+  'Art Institute of Chicago': { url: /^https:\/\/www\.artic\.edu\/artworks\/(\d+)$/, api: id => `https://api.artic.edu/api/v1/artworks/${id}` },
+  'The Metropolitan Museum of Art': { url: /^https:\/\/www\.metmuseum\.org\/art\/collection\/search\/(\d+)$/, api: id => `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}` },
+};
 assert.equal(credits.how.generator, 'tools/brand/gen_card.py');
 assert.ok(existsSync(new URL('../tools/brand/gen_card.py', import.meta.url)) && existsSync(new URL('../tools/brand/rooms.json', import.meta.url)));
 const jpegSize = buf => {
@@ -105,13 +110,15 @@ for (const card of credits.cards) {
   } else {
     const art = card.shows.artwork;
     for (const field of ['title', 'date', 'museum', 'museum_url', 'image', 'record_source']) assert.ok(art[field], `${card.slug}: artwork ${field}`);
-    assert.match(art.museum_url, /^https:\/\/www\.artic\.edu\/artworks\/\d+$/);
+    const museum = MUSEUMS[art.museum];
+    assert.ok(museum, `${card.slug}: the work's museum is one this test knows (${art.museum})`);
+    assert.match(art.museum_url, museum.url);
     assert.ok(existsSync(new URL(`../dist${art.image}`, import.meta.url)), `${card.slug}: the work's image is deployed`);
     assert.equal(card.hanging.work_pixels_identical_in_master, true, `${card.slug}: the work's pixels are untouched`);
     assert.ok(card.hanging.scale <= 1, `${card.slug}: never upscaled`);
     // R2: a work whose image has no credits file of its own carries its at-source rights check on the card.
     if (!/credits\.json/.test(art.record_source.split(';')[0]) || /has no credits\.json/.test(art.record_source)) {
-      assert.equal(art.api_source, `https://api.artic.edu/api/v1/artworks/${art.museum_url.split('/').pop()}`, `${card.slug}: museum API record`);
+      assert.equal(art.api_source, museum.api(art.museum_url.match(museum.url)[1]), `${card.slug}: museum API record`);
       assert.equal(art.is_public_domain, true, `${card.slug}: the museum marks it public domain`);
       assert.equal(art.copyright_notice, null);
       assert.match(art.rights_verified_at, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
@@ -125,6 +132,18 @@ assert.equal(bySlug.unsigned.shows, 'typographic', '/unsigned names no work on i
 assert.equal(bySlug.unsigned.far_wall.glyph, '無名');
 assert.equal(bySlug.unsigned.room_name, 'Hands without names');
 assert.equal(bySlug.explore.shows.artwork.api_source, 'https://api.artic.edu/api/v1/artworks/15468', '/explore card records its at-source check');
+// Every work on a card is from the Art Institute of Chicago, except /psyche's Canova, which is the Met's.
+assert.deepEqual(credits.cards.filter(card => card.shows !== 'typographic' && card.shows.artwork.museum !== 'Art Institute of Chicago').map(card => card.slug), ['psyche']);
+assert.equal(bySlug.psyche.shows.artwork.api_source, 'https://collectionapi.metmuseum.org/public/collection/v1/objects/188954', '/psyche card records its at-source check');
+// …and it is the room's own catalogued image: the same museum record and the same bytes as catalog/psyche.json.
+const psycheWork = JSON.parse(text('catalog/psyche.json')).artworks.find(work => work.url === bySlug.psyche.shows.artwork.museum_url);
+assert.ok(psycheWork, '/psyche card shows a work from its own room');
+assert.equal(`https://artbitrage.io${bySlug.psyche.shows.artwork.image}`, psycheWork.image, '/psyche card hangs the full image, not the -t thumbnail');
+assert.equal(bySlug.psyche.shows.artwork.image_sha256, psycheWork.image_sha256, '/psyche card image matches the room record');
+assert.equal(bySlug.psyche.shows.artwork.title, psycheWork.title);
+assert.equal(bySlug.psyche.shows.artwork.maker, psycheWork.artist);
+assert.equal(bySlug.psyche.shows.artwork.date, psycheWork.date);
+assert.equal(psycheWork.rights.public_domain, true);
 
 // 4. Each room page points its share tags at its own card.
 for (const [page, slug] of Object.entries(ROOMS)) {

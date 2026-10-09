@@ -96,6 +96,10 @@
     try { const url = new URL(value); return url.protocol === 'https:' ? url.href : ''; }
     catch { return ''; }
   }
+  function imageURL(value) {
+    const url = https(value);
+    return /^https:\/\/artbitrage\.io\/(?:art|assets)\//.test(url) ? url.slice('https://artbitrage.io'.length) : url;
+  }
   function node(tag, text) {
     const element = document.createElement(tag);
     if (text) element.textContent = text;
@@ -119,7 +123,7 @@
     const batch = matches.slice(shown, shown + pageSize);
     for (const work of batch) {
       const article = node('article'); article.className = 'result';
-      const imageUrl = https(work.thumbnail || work.image);
+      const imageUrl = imageURL(work.thumbnail || work.image);
       if (imageUrl) {
         const image = node('img'); image.src = imageUrl;
         image.alt = work.title || 'Artwork'; image.loading = 'lazy';

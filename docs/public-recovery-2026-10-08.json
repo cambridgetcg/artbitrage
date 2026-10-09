@@ -1,0 +1,588 @@
+{
+  "source_deployment": "https://3b12a449.artbitrage.pages.dev",
+  "recovered_at": "2026-10-08T09:21:19.135501+00:00",
+  "integrated_at": "2026-10-08",
+  "scope": "Public static front-end recovery for preview; no Worker bundle or exact deployment manifest was recovered.",
+  "status": "Historical record of the 2026-10-08 preview branch (art/psyche-lamp before its 2026-10-09 rebase onto main). Main has held the recovered front end since 974ea7aed and keeps root assets/* mirrors beside dist/assets/*; the Psyche images now live in assets/psyche/ (root and dist) and the catalogues have changed since. The hashes, file states and asset_convention below describe 2026-10-08, not the current repository.",
+  "asset_convention": "All assets/* files, including handoff JSON and credits, live in dist/assets only. HTML/CSS/JS and map/sitemap have identical source-root and dist mirrors.",
+  "preserved_catalogues": {
+    "catalog/all.json": "6e593cdb0bf14bcefdb5cfad1268ebbd229d216120268835d2d845a784d204dd",
+    "catalog/index.json": "50c03caaf81c4754963e84d9ea685a666a4de6b3cb6631a2b060ce169ee56cd7",
+    "catalog/psyche.json": "ceaf16a84812f55529432c994ce434549bb41d9e629bf952135acfd36a37d24b",
+    "dist/catalog/all.json": "6e593cdb0bf14bcefdb5cfad1268ebbd229d216120268835d2d845a784d204dd",
+    "dist/catalog/index.json": "50c03caaf81c4754963e84d9ea685a666a4de6b3cb6631a2b060ce169ee56cd7",
+    "dist/catalog/psyche.json": "ceaf16a84812f55529432c994ce434549bb41d9e629bf952135acfd36a37d24b"
+  },
+  "integration_changes": [
+    "Added the Psyche invitation to the newer foyer and cards to Explore and the visitor guide.",
+    "Extended the recovered map and sitemap without dropping newer rooms.",
+    "Changed Psyche return links to map.html#wings.",
+    "Map only canonical https://artbitrage.io/art/* image URLs to same-origin /art/* in foyer search and dynamic Explore artwork rendering; preserve external museum URLs."
+  ],
+  "files": [
+    {
+      "path": "assets/audio/rooms-of-light.mp3",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/audio/rooms-of-light.mp3",
+      "source_sha256": "47c1754055bb975dfba83819657542cfffbf1e171bb7da55e96717c28d5fc591",
+      "destinations": [
+        "dist/assets/audio/rooms-of-light.mp3"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/elements/honthorst-firebrand.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/elements/honthorst-firebrand.jpg",
+      "source_sha256": "dfbb706d67b92b9885891e4147893b2ef608f64199c0701249ed5e6f47e1e493",
+      "destinations": [
+        "dist/assets/elements/honthorst-firebrand.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/elements/shiva-nataraja.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/elements/shiva-nataraja.jpg",
+      "source_sha256": "3e8c03a3e8ac612d34820b9d423992e3b579220cdf83b316e59bc8a13667ca87",
+      "destinations": [
+        "dist/assets/elements/shiva-nataraja.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/elements/works.json",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/elements/works.json",
+      "source_sha256": "c52f8fb49b9a920ee8c98803a6b10771a42ecc0871131f8a53b8d7fbb905be60",
+      "destinations": [
+        "dist/assets/elements/works.json"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/guide/credits.json",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/guide/credits.json",
+      "source_sha256": "75fa74ea7c9547ea2a612455ab5cbb7583f9d3a1061df9b1a92a5c8aadea4a1d",
+      "destinations": [
+        "dist/assets/guide/credits.json"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/guide/kandinsky.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/guide/kandinsky.jpg",
+      "source_sha256": "d426aa505a1d71d7dd89d9c5320b77dddef0019795b5d0cabdfd7dc0943c9245",
+      "destinations": [
+        "dist/assets/guide/kandinsky.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/noticing/cassatt-childs-bath.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/noticing/cassatt-childs-bath.jpg",
+      "source_sha256": "0ab321a1adb37519c550059e96496a42b22dbc441b856e3589533815de88346d",
+      "destinations": [
+        "dist/assets/noticing/cassatt-childs-bath.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/noticing/credits.json",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/noticing/credits.json",
+      "source_sha256": "90e2f23b8da6998f242582fc60dc3d7f18aa338d80330fd1b7bfd34766c40860",
+      "destinations": [
+        "dist/assets/noticing/credits.json"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/noticing/hammershoi-music-room.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/noticing/hammershoi-music-room.jpg",
+      "source_sha256": "831b01073fdc91862fb6528098d1b207601b93108a262dbc0e3969dd1d42bea1",
+      "destinations": [
+        "dist/assets/noticing/hammershoi-music-room.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/noticing/mondrian-lozenge.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/noticing/mondrian-lozenge.jpg",
+      "source_sha256": "c5b21984e060b18a4245f3c74ee3276d7c82a556764704992e51f9d84ca7983a",
+      "destinations": [
+        "dist/assets/noticing/mondrian-lozenge.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/noticing/sargent-glass-workers.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/noticing/sargent-glass-workers.jpg",
+      "source_sha256": "7b966f7522adfed7647c7ce1d4abae750db6cc56237ab92380626e9e48e03211",
+      "destinations": [
+        "dist/assets/noticing/sargent-glass-workers.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/noticing/works.json",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/noticing/works.json",
+      "source_sha256": "ed78773110918061cf262ab1540b97c76877a60f0bd13c4be4620468fc730069",
+      "destinations": [
+        "dist/assets/noticing/works.json"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/trip/cezanne-basket-apples.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/trip/cezanne-basket-apples.jpg",
+      "source_sha256": "17fa8e013cc995178c05dfccdd26c7135d209295b3189c113e5d3831be019746",
+      "destinations": [
+        "dist/assets/trip/cezanne-basket-apples.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/trip/credits.json",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/trip/credits.json",
+      "source_sha256": "c08f8b158b5a73b81319458c47a9e5f62abdf6f3a5b4375c472e9229e71b8a78",
+      "destinations": [
+        "dist/assets/trip/credits.json"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/trip/cross-beach-cabasson.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/trip/cross-beach-cabasson.jpg",
+      "source_sha256": "2378ee019ee63d0f7e67da552e513e3c537358825e7a020ad64ca8a33ca2043f",
+      "destinations": [
+        "dist/assets/trip/cross-beach-cabasson.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/trip/dow-boats-at-rest.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/trip/dow-boats-at-rest.jpg",
+      "source_sha256": "6134bd5e49c64698f98108f0207b03ac50bc899bafb3d66d02cadef29e5506f0",
+      "destinations": [
+        "dist/assets/trip/dow-boats-at-rest.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/trip/hartley-movement.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/trip/hartley-movement.jpg",
+      "source_sha256": "82b31ab3596d1927e18beef03071b20652dcb3a348ae8a3d5b26d50153f27809",
+      "destinations": [
+        "dist/assets/trip/hartley-movement.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/trip/pomo-burden-basket.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/trip/pomo-burden-basket.jpg",
+      "source_sha256": "b7fe9dd6ca39189cfca2569f6759f12505342f70f756cc4ba954e96aec4e17a0",
+      "destinations": [
+        "dist/assets/trip/pomo-burden-basket.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/trip/twachtman-white-bridge.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/trip/twachtman-white-bridge.jpg",
+      "source_sha256": "90542c973f25ccc1758cf304663fb59e0339994fa0904799e58e002e910f8f53",
+      "destinations": [
+        "dist/assets/trip/twachtman-white-bridge.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/trip/works.json",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/trip/works.json",
+      "source_sha256": "c6db9d07dbfaa13bfd51973bd468be2dd79913659728126d9717844517f3b7c4",
+      "destinations": [
+        "dist/assets/trip/works.json"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/visit/blake-fruit-tree.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/visit/blake-fruit-tree.jpg",
+      "source_sha256": "d1cd990d0a91b683626498ef9b3f13d2ec34fa5b6fb97d34618a47f6caa3831c",
+      "destinations": [
+        "dist/assets/visit/blake-fruit-tree.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/visit/cycladic-figure.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/visit/cycladic-figure.jpg",
+      "source_sha256": "13de4cdd63eb9aa9bbb7a864f39deaf73cd5d641d31a5d46f60ba0a8360e183b",
+      "destinations": [
+        "dist/assets/visit/cycladic-figure.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/visit/hiroshige-plum-garden.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/visit/hiroshige-plum-garden.jpg",
+      "source_sha256": "21afdefa72775ef7e75ed67936c36b05043e837db405a0653d9dbb30da492142",
+      "destinations": [
+        "dist/assets/visit/hiroshige-plum-garden.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/visit/hokusai-great-wave.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/visit/hokusai-great-wave.jpg",
+      "source_sha256": "e0aa55ad5865f5ffa3e0fb7087e91a1e11ce5d7f13f392ba0f493c513b7f0f56",
+      "destinations": [
+        "dist/assets/visit/hokusai-great-wave.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/visit/marc-bewitched-mill.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/visit/marc-bewitched-mill.jpg",
+      "source_sha256": "159ce1ff42ed96f0406185d24833635f7fdc5b64099f6391391aa623605daa47",
+      "destinations": [
+        "dist/assets/visit/marc-bewitched-mill.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/visit/monet-water-lilies.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/visit/monet-water-lilies.jpg",
+      "source_sha256": "06367197ac8d6745537dcfe6722ff4b8ef2cb33e044168d8c471782b55f7dd39",
+      "destinations": [
+        "dist/assets/visit/monet-water-lilies.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/visit/morisot-garden.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/visit/morisot-garden.jpg",
+      "source_sha256": "d4f83fdf430648883813d7728502aa9654f901682df34306979f245a755f2e32",
+      "destinations": [
+        "dist/assets/visit/morisot-garden.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/visit/redon-flower-clouds.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/visit/redon-flower-clouds.jpg",
+      "source_sha256": "58d55b37fc083f2dba4f39856304bfc7713c58a497d5dd3d7ba38158a45abdc9",
+      "destinations": [
+        "dist/assets/visit/redon-flower-clouds.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/visit/roman-glass-bowl.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/visit/roman-glass-bowl.jpg",
+      "source_sha256": "d9815834589719936e880c5401a7a4a1a9a627c58c2984a9c682958d2658a524",
+      "destinations": [
+        "dist/assets/visit/roman-glass-bowl.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/visit/whistler-nocturne.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/visit/whistler-nocturne.jpg",
+      "source_sha256": "c0133be73f9a190d8b0e06bd8338a9b87d7e529b6917c0707966c30509baeca5",
+      "destinations": [
+        "dist/assets/visit/whistler-nocturne.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/visit/works.json",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/visit/works.json",
+      "source_sha256": "74745daf8b33e8e16f47746466db2131d3f09669c83f5b7df968938c3d754b77",
+      "destinations": [
+        "dist/assets/visit/works.json"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/welcome/credits.json",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/welcome/credits.json",
+      "source_sha256": "a1370356bb59493639f4e6baeb5e09b605ea2053577c99c4214eec9031b2f825",
+      "destinations": [
+        "dist/assets/welcome/credits.json"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/welcome/maples.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/welcome/maples.jpg",
+      "source_sha256": "14214db103c8e99a23b52e76f8dcae9a124a740704046c56efb391d1c89414e4",
+      "destinations": [
+        "dist/assets/welcome/maples.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/welcome/moon-jar.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/welcome/moon-jar.jpg",
+      "source_sha256": "cfe5e3c3b6706ac4cf1c1b6b4c4cddbd2168b8d39689d44c6937cf203ccba00b",
+      "destinations": [
+        "dist/assets/welcome/moon-jar.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/welcome/moonrise.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/welcome/moonrise.jpg",
+      "source_sha256": "80c3361b728e05f84dd0e33aea13741b300639126777ec98815327e5ccda4383",
+      "destinations": [
+        "dist/assets/welcome/moonrise.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "assets/welcome/seurat.jpg",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/assets/welcome/seurat.jpg",
+      "source_sha256": "90197c037e6041fcae1c35606b921b5b626d868c2ff21cd653edb640b3f6e2dd",
+      "destinations": [
+        "dist/assets/welcome/seurat.jpg"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "behind-the-work.css",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/behind-the-work.css",
+      "source_sha256": "1f89066123b5c4aca1f45ccc6f53af0c40aa19aa7059b33ae559f4f07020fd56",
+      "destinations": [
+        "behind-the-work.css",
+        "dist/behind-the-work.css"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "behind-the-work.html",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/behind-the-work",
+      "source_sha256": "e69933b3331b8ba459e06133d2117a995fcec54b22d6750d76701661be0d336f",
+      "destinations": [
+        "behind-the-work.html",
+        "dist/behind-the-work.html"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "behind-the-work.js",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/behind-the-work.js",
+      "source_sha256": "d89e1e8a411a6c160ef8b53c580e9a5fe418190032ca2edb7a4e1eafe6f71b0c",
+      "destinations": [
+        "behind-the-work.js",
+        "dist/behind-the-work.js"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "breathing.css",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/breathing.css",
+      "source_sha256": "dcd615613a7c4e68050ed4458db8dc1a4b54af82895da6daf452b9305412857e",
+      "destinations": [
+        "breathing.css",
+        "dist/breathing.css"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "breathing.js",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/breathing.js",
+      "source_sha256": "5f05592ac824aa394586a084e16d46a2dc11de7db6b31c4c25df9a5eb0409e8e",
+      "destinations": [
+        "breathing.js",
+        "dist/breathing.js"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "elements.css",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/elements.css",
+      "source_sha256": "86997d1118d512bbb495254532ee6d06b8c82732c72733a28690778ca8975f88",
+      "destinations": [
+        "elements.css",
+        "dist/elements.css"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "elements.html",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/elements",
+      "source_sha256": "99e3bdeec87fec4854b735c5cdd5c7630ed92b02e83ab434b6c2ed67d60aa05a",
+      "destinations": [
+        "elements.html",
+        "dist/elements.html"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "elements.js",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/elements.js",
+      "source_sha256": "bfd69fd869fa6c6be83bae9dd486fcdc9bd99ebac1c8229f2d2a8e34129eb5dc",
+      "destinations": [
+        "elements.js",
+        "dist/elements.js"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "explore.html",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/explore",
+      "source_sha256": "7564f3ed49b78cde7b089438dbfdb98dbb553e2069bff935c6578939b2f2bd3c",
+      "destinations": [
+        "explore.html",
+        "dist/explore.html"
+      ],
+      "unchanged_from_source": false
+    },
+    {
+      "path": "index.html",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/",
+      "source_sha256": "33dc5f262ee59bbbc9212538bccd6ee90ecdfbce11d8d3bff0f465e870b68d63",
+      "destinations": [
+        "index.html",
+        "dist/index.html"
+      ],
+      "unchanged_from_source": false
+    },
+    {
+      "path": "map.html",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/map",
+      "source_sha256": "39d79f4c4739151e8da771c3e2a4daed108031ec286eb34c80ed1551f4e0fd18",
+      "destinations": [
+        "map.html",
+        "dist/map.html"
+      ],
+      "unchanged_from_source": false
+    },
+    {
+      "path": "map.json",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/map.json",
+      "source_sha256": "804ffd30643d34dfcfb7b28bf8f2af5d02ffa4035f8c6699f9ce1a92bc4697b9",
+      "destinations": [
+        "map.json",
+        "dist/map.json"
+      ],
+      "unchanged_from_source": false
+    },
+    {
+      "path": "noticing.css",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/noticing.css",
+      "source_sha256": "a455c73a0a7d66e298cdd3ef58613f208a935a06ad1a9575f817b382e63ad9fa",
+      "destinations": [
+        "noticing.css",
+        "dist/noticing.css"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "noticing.html",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/noticing",
+      "source_sha256": "4ba1f41b828b6f0fd2f800ff102ca80ab971fe05199f1e749f9b81ab822baf91",
+      "destinations": [
+        "noticing.html",
+        "dist/noticing.html"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "noticing.js",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/noticing.js",
+      "source_sha256": "7ecb0e188ee0badb042f2805fe72d6413e9e64410a4b559eb0687aed3e60b1ab",
+      "destinations": [
+        "noticing.js",
+        "dist/noticing.js"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "trip.css",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/trip.css",
+      "source_sha256": "22065b277620b9a33e4f7ad75da9d6feac5dc48036c7656568fea63de9356842",
+      "destinations": [
+        "trip.css",
+        "dist/trip.css"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "trip.html",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/trip",
+      "source_sha256": "4578a7228a261162e119d090acc3e53c1a0d006804ca9c5b42117ee5a9a7454d",
+      "destinations": [
+        "trip.html",
+        "dist/trip.html"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "trip.js",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/trip.js",
+      "source_sha256": "d59c14bb1f97377fc41fb36ad8b1350539328660efeaff756fe47d3f1cbce819",
+      "destinations": [
+        "trip.js",
+        "dist/trip.js"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "visit.css",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/visit.css",
+      "source_sha256": "b2916bcdf653fd1691a38a46da2856a9e872b85292a54a8a8654b6b3516d62d8",
+      "destinations": [
+        "visit.css",
+        "dist/visit.css"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "visit.html",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/visit",
+      "source_sha256": "ee2bae084886d32f2b64b83ce87c9213238b08c43b2a29355cc734c387aef76b",
+      "destinations": [
+        "visit.html",
+        "dist/visit.html"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "visit.js",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/visit.js",
+      "source_sha256": "c6e84fa040cceee6057f0ebf9d55cb5393e08cc6e18565901be9c9ec18461f27",
+      "destinations": [
+        "visit.js",
+        "dist/visit.js"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "welcome.css",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/welcome.css",
+      "source_sha256": "ccddd647b75f8191383dabdd6808b80855beaa21dfcfc344ead340a40fda60d2",
+      "destinations": [
+        "welcome.css",
+        "dist/welcome.css"
+      ],
+      "unchanged_from_source": true
+    },
+    {
+      "path": "welcome.js",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/welcome.js",
+      "source_sha256": "3755119f649a49c12387517e1c51e726d34cae77c5237c17d726824abc27b239",
+      "destinations": [
+        "welcome.js",
+        "dist/welcome.js"
+      ],
+      "unchanged_from_source": false
+    },
+    {
+      "path": "sitemap.xml",
+      "source_url": "https://3b12a449.artbitrage.pages.dev/sitemap.xml",
+      "source_sha256": "9ad45193082b722e70f695c12178044e01524bb4eb6243eaa68861928ba10d34",
+      "destinations": [
+        "sitemap.xml",
+        "dist/sitemap.xml"
+      ],
+      "unchanged_from_source": false
+    }
+  ]
+}

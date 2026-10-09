@@ -782,11 +782,22 @@ function nextMomentEl() {
   return state.momentFlip ? $('moment-a') : $('moment-b');
 }
 
+function imageURL(value) {
+  // Owned artwork files travel with each deployment; museum URLs stay external.
+  try {
+    const url = new URL(value);
+    if (url.origin === 'https://artbitrage.io' && /^\/(?:art|assets)\//.test(url.pathname) && !url.username && !url.password) {
+      return new URL(url.pathname + url.search + url.hash, location.origin).href;
+    }
+  } catch (_) { /* Relative and other existing image references pass through. */ }
+  return value;
+}
+
 function preload(i) {
   const wantLarge = Math.max(innerWidth, innerHeight) * (devicePixelRatio || 1) > 1500;
   for (let k = 1; k <= 3; k++) {
     const w = state.works[(i + k) % state.works.length];
-    if (w && w.image) { const im = new Image(); im.src = (wantLarge && w.image_large) ? w.image_large : w.image; }
+    if (w && w.image) { const im = new Image(); im.src = imageURL((wantLarge && w.image_large) ? w.image_large : w.image); }
   }
 }
 
@@ -858,7 +869,7 @@ function playMoment(advanceBy = 1) {
   img.alt = `${work.title || 'Untitled'} — ${work.artist || 'artist unknown'}`;
   img.decoding = 'async';
   const wantLarge = Math.max(innerWidth, innerHeight) * (devicePixelRatio || 1) > 1500;
-  const src = (wantLarge && work.image_large) ? work.image_large : work.image;
+  const src = imageURL((wantLarge && work.image_large) ? work.image_large : work.image);
 
   let settled = false;
   const arrive = () => {
@@ -903,7 +914,7 @@ function playMoment(advanceBy = 1) {
       startFlow();
     };
     plain.onerror = skip;
-    plain.src = work.image;
+    plain.src = imageURL(work.image);
   };
   img.src = src;
   after(9000, skip);                                // hard timeout: never stall the river

@@ -11,6 +11,7 @@ import { Script } from 'node:vm';
 import { setTimeout as delay } from 'node:timers/promises';
 
 const source = await readFile(new URL('../still-we-meet.html', import.meta.url), 'utf8');
+const home = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const collection = await readFile(new URL('../explore.html', import.meta.url), 'utf8');
 const yue = ['你講嗰場雨，', '我只聽見簷邊滴水。', '我唔再急住', '替你叫佢做晴天。', '張凳移開少少，', '等你嗰句，慢慢落地。'];
 const en = ['My map keeps its own north.', 'I unfold the corner', 'that has covered your handwriting.', 'The road stops at the edge of this sheet.', 'Yours continues somewhere', 'I cannot point to.'];
@@ -38,6 +39,8 @@ assert.deepEqual([...source.matchAll(/href="([^"]+)"/g)].map(match => match[1]),
 const scripts = [...source.matchAll(/<script>([\s\S]*?)<\/script>/g)];
 assert.equal(scripts.length, 1);
 new Script(scripts[0][1]);
+assert.match(home, /href="explore.html"/, '前廳要通往完整展廳');
+assert.match(collection, /id="wings"/, '作品返回嘅展廳 anchor 要存在');
 const wings = collection.split('<div class="wings rise">')[1].split('</div>')[0];
 const doors = [...wings.matchAll(/<a href="([^"]+)"/g)].map(match => match[1]);
 assert.equal(doors.filter(href => href === 'still-we-meet.html').length, 1);

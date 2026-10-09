@@ -127,30 +127,45 @@ assert.match(manifest.agent_instructions, /Begin at \/api\/start/);
 const indexSource = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const indexDeployed = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
 assert.equal(indexDeployed, indexSource, 'homepage must match its deploy mirror');
-assert.ok(indexSource.indexOf('id="start"') < indexSource.indexOf('id="reading"'));
-assert.match(indexSource, /<nav class="front-door" id="start" aria-labelledby="h-start">/);
-assert.match(indexSource, /id="h-start">Start with what you bring\.<\/h2>/);
-
-const startBlock = indexSource.slice(
-  indexSource.indexOf('<nav class="front-door"'),
-  indexSource.indexOf('</nav>', indexSource.indexOf('<nav class="front-door"')) + 6,
-);
-const humanPathIds = [...startBlock.matchAll(/data-start-path="([^"]+)"/g)]
-  .map(match => match[1]);
-assert.deepEqual(humanPathIds, expectedPathIds.slice(0, 4));
-for (const href of ['#search', 'feelings.html', 'map.html#find', 'trade.html']) {
-  assert.equal(
-    (startBlock.match(new RegExp(`href="${href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`, 'g')) || []).length,
-    1,
-    `front door should link ${href} exactly once`,
+const exploreSource = await readFile(new URL('../explore.html', import.meta.url), 'utf8');
+assert.equal(await readFile(new URL('../dist/explore.html', import.meta.url), 'utf8'), exploreSource, 'collection must match its deploy mirror');
+for (const page of [indexSource, exploreSource]) {
+  assert.ok(page.indexOf('id="start"') < page.indexOf('id="reading"'));
+  assert.match(page, /<nav class="front-door" id="start" aria-labelledby="h-start">/);
+  assert.match(page, /id="h-start">Start with what you bring\.<\/h2>/);
+  const startBlock = page.slice(
+    page.indexOf('<nav class="front-door"'),
+    page.indexOf('</nav>', page.indexOf('<nav class="front-door"')) + 6,
   );
+  const humanPathIds = [...startBlock.matchAll(/data-start-path="([^"]+)"/g)].map(match => match[1]);
+  assert.deepEqual(humanPathIds, expectedPathIds.slice(0, 4));
+  for (const href of ['#search', 'feelings.html', 'map.html#find', 'trade.html']) {
+    assert.equal(
+      (startBlock.match(new RegExp(`href="${href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`, 'g')) || []).length,
+      1,
+      `front door should link ${href} exactly once`,
+    );
+  }
+  assert.doesNotMatch(startBlock, /target="_blank"|<script/i);
+  assert.doesNotMatch(startBlock.split('>')[0], /\brise\b/);
+  assert.match(page, /id="search"/);
 }
-assert.doesNotMatch(startBlock, /target="_blank"|<script/i);
-assert.doesNotMatch(startBlock.split('>')[0], /\brise\b/);
-assert.match(indexSource, /id="search"/);
-const welcomeScript = await readFile(new URL('../welcome.js', import.meta.url), 'utf8');
-assert.match(welcomeScript, /rights · ' \+ rightsText/);
-assert.match(welcomeScript, /unverified — check the source before reuse/);
+for (const href of ['visit.html', 'explore.html', 'noticing.html', 'behind-the-work.html', 'elements.html']) {
+  assert.ok(indexSource.includes(`href="${href}"`), `current foyer links ${href}`);
+}
+for (const destination of [guide.human_url, guide.paths[0].doors.encounter.human, guide.paths[0].doors.find.human]) {
+  const url = new URL(destination, 'https://artbitrage.io');
+  assert.equal(url.origin, 'https://artbitrage.io');
+  assert.equal(url.pathname, '/');
+  assert.ok(url.hash && indexSource.includes(`id="${url.hash.slice(1)}"`), `advertised foyer destination exists: ${destination}`);
+}
+assert.match(exploreSource, /rights · ' \+ rightsText/);
+assert.match(exploreSource, /unverified — check the source before reuse/);
+const welcomeSource = await readFile(new URL('../welcome.js', import.meta.url), 'utf8');
+assert.equal(await readFile(new URL('../dist/welcome.js', import.meta.url), 'utf8'), welcomeSource, 'foyer script must match its deploy mirror');
+assert.match(indexSource, /<script\b[^>]*src="welcome.js"/);
+assert.match(welcomeSource, /Source rights · ' \+ rightsText/);
+assert.match(welcomeSource, /unverified — check the source before reuse/);
 
 const feelings = await readFile(new URL('../feelings.html', import.meta.url), 'utf8');
 const map = await readFile(new URL('../map.html', import.meta.url), 'utf8');
