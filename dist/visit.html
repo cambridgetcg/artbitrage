@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A gallery visit — Artbitrage</title>
+<meta name="description" content="Wander through fifteen artworks in five connected rooms. Bring any two works together, layer their images, and share a connection of your own.">
+<meta property="og:title" content="Come in. Stay a little. — Artbitrage">
+<meta property="og:description" content="A digital gallery visit through art, feeling, and connection.">
+<meta property="og:image" content="https://artbitrage.io/assets/og/visit.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Artbitrage card: “A gallery visit”, beneath 遊 and “Five connected rooms”. Through an arched doorway in a dark green wall, Georges Seurat’s A Sunday on La Grande Jatte — 1884 hangs in a thin dark frame in the next room.">
+<meta property="og:site_name" content="Artbitrage">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://artbitrage.io/assets/og/visit.jpg">
+<link rel="canonical" href="https://artbitrage.io/visit">
+<!-- 閒 the gap: the artbitrage.io icon. Every file sits at the site root. /manifest.json stays the philosophy document. -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#17271f">
+<link rel="stylesheet" href="visit.css">
+<link rel="stylesheet" href="breathing.css">
+<script src="breathing.js" defer></script>
+<script src="visit.js" defer></script>
+</head>
+<body data-motion="off">
+<a class="skip-link" href="#water">Skip to the artworks</a>
+<header class="visit-header">
+  <a class="brand" href="/" aria-label="Artbitrage home"><span class="brand-mark" aria-hidden="true">a</span><span>ARTBITRAGE<small>A gallery visit</small></span></a>
+  <div class="visit-tools">
+    <button class="tool" id="motion-toggle" type="button" aria-pressed="false" hidden><span aria-hidden="true">≈</span> <span id="motion-label">Motion off</span></button>
+    <button class="tool" id="sound-toggle" type="button" aria-pressed="false" aria-describedby="sound-status" hidden><span aria-hidden="true">♫</span> <span id="sound-label">Play music</span></button>
+    <button class="tool" id="breath-toggle" type="button" aria-haspopup="dialog" hidden><span aria-hidden="true">◯</span> Breathe</button>
+    <div class="sound-feedback">
+      <label class="volume-control" hidden>Volume <input id="sound-volume" type="range" min="0" max="100" value="65" aria-label="Music volume"></label>
+      <p id="sound-status" role="status" aria-live="polite"></p>
+    </div>
+    <button class="tool" id="room-map-toggle" type="button" aria-haspopup="dialog" hidden>Room map <span aria-hidden="true">⊞</span></button>
+    <a class="tool guide-link" href="/map">Visitor guide <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
+<p class="sr-only" id="drift-status" role="status" aria-live="polite"></p>
+
+<main id="main">
+  <section class="gallery-room room-water is-active" id="water" data-room="0" data-name="By the water" tabindex="-1" aria-labelledby="water-title">
+    <div class="room-atmosphere" aria-hidden="true"><img src="assets/welcome/seurat.jpg" alt="" width="843" height="565"></div>
+    <div class="room-inner">
+      <div class="room-copy">
+        <p class="room-kicker"><span class="room-number">01</span> The arrival <span lang="zh-Hant" aria-hidden="true">遇</span></p>
+        <h1 id="water-title">Come in.<br>Stay a little.</h1>
+        <p class="room-intro">Art helps us feel, understand, and connect. This is a place to spend time with it.</p>
+        <p class="looking-prompt">Imagine yourself on this riverbank.<br>Where would you sit?</p>
+        <a class="wander-link" href="#water-companions">Discover two more works <span aria-hidden="true">↓</span></a>
+        <p class="pace-note">Five rooms. Fifteen works. Your own pace.</p>
+        <a class="between-invitation" href="#between-works" data-encounter="hokusai-great-wave,marc-bewitched-mill">Let two works meet <span aria-hidden="true">↔</span></a>
+        <details class="soundtrack-card">
+          <summary><span aria-hidden="true">♫</span> Music for wandering <span class="soundtrack-expand" aria-hidden="true">+</span></summary>
+          <div class="soundtrack-body">
+            <h2>Rooms of Light</h2>
+            <p>An original instrumental for this visit. Soft keys and warm, drifting textures move through water, dusk, quiet forms, a garden, and colour.</p>
+            <audio id="gallery-soundtrack" controls preload="none" loop src="assets/audio/rooms-of-light.mp3" aria-label="Rooms of Light gallery soundtrack"></audio>
+            <p class="soundtrack-note">Press play when you feel like it. The music follows your wandering.</p>
+            <a class="soundtrack-link" href="assets/audio/rooms-of-light.mp3">Open the soundtrack <span aria-hidden="true">↗</span></a>
+          </div>
+        </details>
+      </div>
+      <div class="exhibit">
+        <a class="artwork-view" href="assets/welcome/seurat.jpg" data-art="water" aria-label="Look closely at A Sunday on La Grande Jatte"><img class="artwork" src="assets/welcome/seurat.jpg" width="843" height="565" fetchpriority="high" alt="People with parasols gather in a sunlit park beside the Seine, with boats in the distance."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+        <div class="wall-label">
+          <div class="work-heading"><h2><cite>A Sunday on La Grande Jatte — 1884</cite></h2><p>Georges Seurat <span>·</span> 1884–86</p></div>
+          <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Oil on canvas · border added 1888–89</p><p>A whole afternoon holds still. Follow the light from the water into the shade, then notice how many small, separate worlds share the same patch of grass.</p><p class="note-invitation">A way of looking: move between the scene as a whole and a single figure.</p><a class="museum-source" href="https://www.artic.edu/artworks/27992">Art Institute of Chicago · CC0 ↗</a><a class="deeper-link" href="/explore#reading">Read a painting, layer by layer →</a></div></details>
+          <a class="making-link" data-behind-work="water" href="/behind-the-work#seurat">Behind this work · time, colour &amp; care <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <section class="room-companions" id="water-companions" aria-labelledby="water-companions-title">
+        <div class="companions-heading"><p class="companions-kicker">Stay a little longer · Two more works</p><h3 id="water-companions-title">Water, held and set free.</h3><p class="companions-intro">From a still pond to a rising wave, notice what happens to your own sense of pace.</p></div>
+        <div class="companion-grid">
+          <article class="exhibit companion-exhibit" aria-labelledby="monet-water-lilies-title">
+            <a class="artwork-view" href="assets/visit/monet-water-lilies.jpg" data-art="monet-water-lilies" aria-label="Look closely at Water Lilies"><img class="artwork" src="assets/visit/monet-water-lilies.jpg" width="843" height="809" loading="lazy" decoding="async" alt="Pink and white water lilies spread across blue-green water, with soft reflections beneath them."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+            <div class="wall-label">
+              <div class="work-heading"><h4 id="monet-water-lilies-title"><cite>Water Lilies</cite></h4><p>Claude Monet · 1906</p></div>
+              <p class="companion-prompt">Let your eye float between the lilies. Where does the water become a reflection of the sky?</p>
+              <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Oil on canvas</p><p>There is no horizon to settle the scene. Lilies, reflected light, and small touches of paint offer different places for the eye to rest.</p><a class="museum-source" href="https://www.artic.edu/artworks/16568">Art Institute of Chicago · CC0 ↗</a></div></details>
+            </div>
+          </article>
+          <article class="exhibit companion-exhibit" aria-labelledby="hokusai-great-wave-title">
+            <a class="artwork-view" href="assets/visit/hokusai-great-wave.jpg" data-art="hokusai-great-wave" aria-label="Look closely at The Great Wave"><img class="artwork" src="assets/visit/hokusai-great-wave.jpg" width="843" height="578" loading="lazy" decoding="async" alt="A towering blue wave curls over long boats, with snow-capped Mount Fuji small in the distance."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+            <div class="wall-label">
+              <div class="work-heading"><h4 id="hokusai-great-wave-title"><cite>The Great Wave</cite></h4><p>Katsushika Hokusai · 1830/33</p></div>
+              <p class="companion-prompt">Find the small mountain beneath the wave. Does it change how large the water feels?</p>
+              <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Colour woodblock print</p><p>A great curl of water fills the sky while Mount Fuji holds its small, steady shape beyond. Follow the repeated curves of wave, boats, and mountain.</p><a class="museum-source" href="https://www.artic.edu/artworks/24645">Art Institute of Chicago · CC0 ↗</a></div></details>
+          <a class="making-link" data-behind-work="hokusai-great-wave" href="/behind-the-work#wave">Behind this work · many hands, a travelling blue <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <div class="companions-footer"><a class="wander-link" href="#dusk">Continue into the evening <span aria-hidden="true">↓</span></a></div>
+      </section>
+    </div>
+  </section>
+
+  <section class="gallery-room room-dusk" id="dusk" data-room="1" data-name="After dusk" tabindex="-1" aria-labelledby="dusk-title">
+    <div class="room-atmosphere" aria-hidden="true"><img src="assets/welcome/moonrise.jpg" alt="" width="843" height="1011" loading="lazy"></div>
+    <div class="room-inner">
+      <div class="room-copy">
+        <p class="room-kicker"><span class="room-number">02</span> The evening room <span lang="zh-Hant" aria-hidden="true">感</span></p>
+        <h2 class="room-title" id="dusk-title">Let the world<br>grow quiet.</h2>
+        <p class="room-intro">Some works meet us as a feeling before they become a story.</p>
+        <p class="looking-prompt">Stay with the warm circle of light.<br>What begins to appear around it?</p>
+        <a class="wander-link" href="#dusk-companions">Discover two more works <span aria-hidden="true">↓</span></a>
+        <a class="room-door" href="/river">Stay with this feeling in the River ↗</a>
+      </div>
+      <div class="exhibit">
+        <a class="artwork-view" href="assets/welcome/moonrise.jpg" data-art="dusk" aria-label="Look closely at Moonrise"><img class="artwork" src="assets/welcome/moonrise.jpg" width="843" height="1011" loading="lazy" decoding="async" alt="An orange moon glows through a hazy landscape of trees and a solitary figure."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+        <div class="wall-label">
+          <div class="work-heading"><h3><cite>Moonrise</cite></h3><p>George Inness <span>·</span> 1891</p></div>
+          <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Oil on canvas</p><p>The trees, sky, and ground seem to soften into one another. The moon gives the eye somewhere to rest; the small figure gives the landscape a human scale.</p><p class="note-invitation">A way of looking: notice the edges that dissolve, and the ones that hold.</p><a class="museum-source" href="https://www.artic.edu/artworks/64754">Art Institute of Chicago · CC0 ↗</a><a class="deeper-link" href="/feelings">Explore what a work can stir in us →</a></div></details>
+        </div>
+      </div>
+
+      <section class="room-companions" id="dusk-companions" aria-labelledby="dusk-companions-title">
+        <div class="companions-heading"><p class="companions-kicker">Stay a little longer · Two more works</p><h3 id="dusk-companions-title">When looking becomes dreaming.</h3><p class="companions-intro">Give the darkness time. Then let a small boat carry you into coloured air.</p></div>
+        <div class="companion-grid">
+          <article class="exhibit companion-exhibit" aria-labelledby="whistler-nocturne-title">
+            <a class="artwork-view" href="assets/visit/whistler-nocturne.jpg" data-art="whistler-nocturne" aria-label="Look closely at Nocturne: Blue and Gold—Southampton Water"><img class="artwork" src="assets/visit/whistler-nocturne.jpg" width="843" height="557" loading="lazy" decoding="async" alt="A low golden moon hangs above a hazy blue-green harbor, with faint boats and a dark shoreline."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+            <div class="wall-label">
+              <div class="work-heading"><h4 id="whistler-nocturne-title"><cite>Nocturne: Blue and Gold—Southampton Water</cite></h4><p>James McNeill Whistler · 1872</p></div>
+              <p class="companion-prompt">Stay with the small golden light. What begins to appear when you give the darkness time?</p>
+              <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Oil on canvas</p><p>The scene nearly disappears into a few close tones. Small points of gold and faint silhouettes give the eye just enough to begin finding its way.</p><a class="museum-source" href="https://www.artic.edu/artworks/56905">Art Institute of Chicago · CC0 ↗</a></div></details>
+            </div>
+          </article>
+          <article class="exhibit companion-exhibit" aria-labelledby="redon-flower-clouds-title">
+            <a class="artwork-view" href="assets/visit/redon-flower-clouds.jpg" data-art="redon-flower-clouds" aria-label="Look closely at Flower Clouds"><img class="artwork" src="assets/visit/redon-flower-clouds.jpg" width="843" height="699" loading="lazy" decoding="async" alt="A small sailing boat with two figures floats beneath clouds of violet, orange, pink, and blue."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+            <div class="wall-label">
+              <div class="work-heading"><h4 id="redon-flower-clouds-title"><cite>Flower Clouds</cite></h4><p>Odilon Redon · c. 1903</p></div>
+              <p class="companion-prompt">Follow the sail into the coloured air. Where would this drifting boat take you?</p>
+              <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Pastel on paper</p><p>Clouds seem to bloom around a small boat. Stay with the meeting of the soft, coloured air and the few lines that hold the sail and figures in place.</p><a class="museum-source" href="https://www.artic.edu/artworks/76395">Art Institute of Chicago · CC0 ↗</a></div></details>
+            </div>
+          </article>
+        </div>
+        <div class="companions-footer"><a class="wander-link" href="#form">Follow the light into the object room <span aria-hidden="true">↓</span></a></div>
+      </section>
+      <aside class="rest-stop" aria-labelledby="rest-stop-title">
+        <div class="rest-mark" aria-hidden="true"><span></span></div>
+        <div><p class="companions-kicker">A little space between rooms</p><h3 id="rest-stop-title">Stay with this moment.</h3><p>The next room can wait. Spend a little longer with a work, follow a breath, or simply be here.</p><div class="rest-links"><a href="/trip?work=dusk&amp;room=dusk" data-rest-work="dusk">Take a breathing pause <span aria-hidden="true">◯</span></a><a href="/trip?work=dusk&amp;room=dusk">Stay longer in Good Trip <span aria-hidden="true">↗</span></a></div></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="gallery-room room-form" id="form" data-room="2" data-name="A quiet form" tabindex="-1" aria-labelledby="form-title">
+    <div class="room-atmosphere" aria-hidden="true"></div>
+    <div class="room-inner">
+      <div class="room-copy">
+        <p class="room-kicker"><span class="room-number">03</span> The object room <span lang="zh-Hant" aria-hidden="true">知</span></p>
+        <h2 class="room-title" id="form-title">A shape.<br>A human touch.</h2>
+        <p class="room-intro">There is a different kind of closeness in noticing how something is made.</p>
+        <p class="looking-prompt">Follow the outline slowly.<br>Where does its symmetry soften?</p>
+        <a class="wander-link" href="#form-companions">Discover two more works <span aria-hidden="true">↓</span></a>
+        <a class="room-door" href="/depths">Explore materials and making in the Depths ↗</a>
+      </div>
+      <div class="exhibit">
+        <a class="artwork-view" href="assets/welcome/moon-jar.jpg" data-art="form" aria-label="Look closely at the Moon Jar"><img class="artwork" src="assets/welcome/moon-jar.jpg" width="843" height="885" loading="lazy" decoding="async" alt="A rounded white Korean porcelain moon jar with a gently uneven outline and a softly glazed surface."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+        <div class="wall-label">
+          <div class="work-heading"><h3><cite>Moon Jar</cite></h3><p>Korea · Joseon dynasty</p></div>
+          <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Porcelain with glaze · late 17th–mid-18th century · maker unrecorded</p><p>A vessel can hold our attention through form alone. Look at the curve of the shoulder, the small foot, and the light travelling across the glaze.</p><p class="note-invitation">A way of looking: let the outline, then the surface, guide your eye.</p><a class="museum-source" href="https://www.artic.edu/artworks/158472">Art Institute of Chicago · CC0 ↗</a><a class="deeper-link" href="/atlas">Find the places where works live →</a></div></details>
+          <a class="making-link" data-behind-work="form" href="/behind-the-work#jar">Behind this work · clay, kilns &amp; care <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <section class="room-companions" id="form-companions" aria-labelledby="form-companions-title">
+        <div class="companions-heading"><p class="companions-kicker">Stay a little longer · Two more works</p><h3 id="form-companions-title">Small forms. Long echoes.</h3><p class="companions-intro">Move between porcelain, marble, and glass. Notice what each material asks of the light.</p></div>
+        <div class="companion-grid">
+          <article class="exhibit companion-exhibit" aria-labelledby="cycladic-figure-title">
+            <a class="artwork-view" href="assets/visit/cycladic-figure.jpg" data-art="cycladic-figure" aria-label="Look closely at Statuette of a Female Figure"><img class="artwork" src="assets/visit/cycladic-figure.jpg" width="843" height="1054" loading="lazy" decoding="async" alt="A pale marble standing figure with folded arms, a long neck, and a simple oval face with a raised nose."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+            <div class="wall-label">
+              <div class="work-heading"><h4 id="cycladic-figure-title"><cite>Statuette of a Female Figure</cite></h4><p>Cycladic; probably from the island of Keros · Early Bronze Age, 2600–2400 BCE</p></div>
+              <p class="companion-prompt">Follow the folded arms and long, quiet outline. How little does a form need to feel present?</p>
+              <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Marble</p><p>Folded arms, a long neck, and a raised nose give this small figure a strong presence. Let your eye move between the broad planes and the fine changes at their edges.</p><a class="museum-source" href="https://www.artic.edu/artworks/52201">Art Institute of Chicago · CC0 ↗</a></div></details>
+            </div>
+          </article>
+          <article class="exhibit companion-exhibit" aria-labelledby="roman-glass-bowl-title">
+            <a class="artwork-view" href="assets/visit/roman-glass-bowl.jpg" data-art="roman-glass-bowl" aria-label="Look closely at Bowl"><img class="artwork" src="assets/visit/roman-glass-bowl.jpg" width="843" height="576" loading="lazy" decoding="async" alt="A small pale mosaic-glass bowl with a rounded body, short foot, and dark striped rim, on a gray background."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+            <div class="wall-label">
+              <div class="work-heading"><h4 id="roman-glass-bowl-title"><cite>Bowl</cite></h4><p>Roman; probably Eastern Mediterranean · Early 1st century BCE</p></div>
+              <p class="companion-prompt">Trace the striped rim, then the curve below it. Can something so small hold your whole attention?</p>
+              <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Glass, mosaic glass technique</p><p>The bowl is just 5 cm high. A rhythm of dark stripes circles its rim, while the pale surface below catches the light in smaller, quieter ways.</p><a class="museum-source" href="https://www.artic.edu/artworks/61905">Art Institute of Chicago · CC0 ↗</a></div></details>
+            </div>
+          </article>
+        </div>
+        <div class="companions-footer"><a class="wander-link" href="#poems">Step into the garden <span aria-hidden="true">↓</span></a></div>
+      </section>
+    </div>
+  </section>
+
+  <section class="gallery-room room-poems" id="poems" data-room="3" data-name="Among poems" tabindex="-1" aria-labelledby="poems-title">
+    <div class="room-atmosphere" aria-hidden="true"><img src="assets/welcome/maples.jpg" alt="" width="843" height="418" loading="lazy"></div>
+    <div class="room-inner">
+      <div class="room-copy">
+        <p class="room-kicker"><span class="room-number">04</span> The garden room <span lang="zh-Hant" aria-hidden="true">連</span></p>
+        <h2 class="room-title" id="poems-title">One art<br>answers another.</h2>
+        <p class="room-intro">Words hang among the leaves. A painting becomes a place for poetry.</p>
+        <p class="looking-prompt">Let your eye follow a branch.<br>Imagine the words you might leave there.</p>
+        <a class="wander-link" href="#poems-companions">Discover two more works <span aria-hidden="true">↓</span></a>
+        <a class="room-door" href="/rhymes">Meet paintings and poems in Answering Rhymes ↗</a>
+      </div>
+      <div class="exhibit">
+        <a class="artwork-view" href="assets/welcome/maples.jpg" data-art="poems" aria-label="Look closely at Autumn Maples with Poem Slips"><img class="artwork" src="assets/welcome/maples.jpg" width="843" height="418" loading="lazy" decoding="async" alt="A six-panel gold folding screen with red maple trees and hanging poem slips."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+        <div class="wall-label">
+          <div class="work-heading"><h3><cite>Autumn Maples with Poem Slips</cite></h3><p>Tosa Mitsuoki <span>·</span> c. 1675</p></div>
+          <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Six-panel screen, one of a pair · ink, colours, gold leaf, and gold powder on silk</p><p>This work is also an object that shapes a room. Its six panels carry branches and poem slips across a gold ground, inviting the eye to wander between image and writing.</p><p class="note-invitation">A way of looking: follow the rhythm of the panels, then the branches that cross them.</p><a class="museum-source" href="https://www.artic.edu/artworks/127644">Art Institute of Chicago · CC0 ↗</a><a class="deeper-link" href="/rhymes">Follow a conversation between art and poetry →</a></div></details>
+        </div>
+      </div>
+
+      <section class="room-companions" id="poems-companions" aria-labelledby="poems-companions-title">
+        <div class="companions-heading"><p class="companions-kicker">Stay a little longer · Two more works</p><h3 id="poems-companions-title">A garden can be a verse.</h3><p class="companions-intro">A small engraving and a flowering branch offer two more places for the mind to wander.</p></div>
+        <div class="companion-grid">
+          <article class="exhibit companion-exhibit" aria-labelledby="blake-fruit-tree-title">
+            <a class="artwork-view" href="assets/visit/blake-fruit-tree.jpg" data-art="blake-fruit-tree" aria-label="Look closely at Thenot Under Fruit Tree"><img class="artwork" src="assets/visit/blake-fruit-tree.jpg" width="843" height="484" loading="lazy" decoding="async" alt="A small black-and-white wood engraving of resting figures under trees, with a round bright light above distant hills."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+            <div class="wall-label">
+              <div class="work-heading"><h4 id="blake-fruit-tree-title"><cite>Thenot Under Fruit Tree</cite></h4><p>William Blake · 1821</p></div>
+              <p class="companion-prompt">Move from the dark leaves to the round light. What rhythm do the small white marks make?</p>
+              <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Wood engraving on off-white paper</p><p>This image from The Pastorals of Virgil measures only 3.2 × 7.5 cm. Small white marks open trees, figures, and distant hills out of the darkness.</p><a class="museum-source" href="https://www.artic.edu/artworks/18279">Art Institute of Chicago · CC0 ↗</a></div></details>
+            </div>
+          </article>
+          <article class="exhibit companion-exhibit" aria-labelledby="hiroshige-plum-garden-title">
+            <a class="artwork-view" href="assets/visit/hiroshige-plum-garden.jpg" data-art="hiroshige-plum-garden" aria-label="Look closely at Plum Garden at Kameido"><img class="artwork" src="assets/visit/hiroshige-plum-garden.jpg" width="843" height="1241" loading="lazy" decoding="async" alt="Dark plum-tree branches with white blossoms cross a pink sky, framing a green garden and small distant visitors."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+            <div class="wall-label">
+              <div class="work-heading"><h4 id="hiroshige-plum-garden-title"><cite>Plum Garden at Kameido</cite></h4><p>Utagawa Hiroshige · 1857</p></div>
+              <p class="companion-prompt">Look through the nearby branches to the tiny people beyond. What changes when the tree becomes your doorway?</p>
+              <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Colour woodblock print</p><p>A branch fills the foreground while visitors become tiny figures beyond it. The space between near and far turns a garden view into somewhere to enter.</p><a class="museum-source" href="https://www.artic.edu/artworks/26577">Art Institute of Chicago · CC0 ↗</a></div></details>
+            </div>
+          </article>
+        </div>
+        <div class="companions-footer"><a class="wander-link" href="#colour">Follow a little colour <span aria-hidden="true">↓</span></a></div>
+      </section>
+    </div>
+  </section>
+
+  <section class="gallery-room room-colour" id="colour" data-room="4" data-name="Colour in motion" tabindex="-1" aria-labelledby="colour-title">
+    <div class="room-atmosphere" aria-hidden="true"><img src="assets/guide/kandinsky.jpg" alt="" width="843" height="847" loading="lazy"></div>
+    <div class="room-inner">
+      <div class="room-copy">
+        <p class="room-kicker"><span class="room-number">05</span> The open room <span lang="zh-Hant" aria-hidden="true">遊</span></p>
+        <h2 class="room-title" id="colour-title">Leave room<br>for surprise.</h2>
+        <p class="room-intro">A line can lead somewhere unexpected. So can a visit.</p>
+        <p class="looking-prompt">Choose a colour.<br>Follow it until it changes how you see the rest.</p>
+        <a class="wander-link" href="#colour-companions">Discover two more works <span aria-hidden="true">↓</span></a>
+        <a class="room-door" href="#water">Or spend another moment by the water ↶</a>
+      </div>
+      <div class="exhibit">
+        <a class="artwork-view" href="assets/guide/kandinsky.jpg" data-art="colour" aria-label="Look closely at Improvisation No. 30 (Cannons)"><img class="artwork" src="assets/guide/kandinsky.jpg" width="843" height="847" loading="lazy" decoding="async" alt="Black diagonal lines cross shifting red, yellow, blue, and green forms in an abstract painting."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+        <div class="wall-label">
+          <div class="work-heading"><h3><cite>Improvisation No. 30 (Cannons)</cite></h3><p>Vasily Kandinsky <span>·</span> 1913</p></div>
+          <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Oil on canvas</p><p>Colour and black lines create a restless field of directions. The title gives one possible foothold; your own attention may find other shapes and associations.</p><p class="note-invitation">A way of looking: try following colour first, then line.</p><a class="museum-source" href="https://www.artic.edu/artworks/8991">Art Institute of Chicago · CC0 ↗</a><a class="deeper-link" href="/modernism">Step into the Modernism room →</a></div></details>
+        </div>
+      </div>
+
+      <section class="room-companions" id="colour-companions" aria-labelledby="colour-companions-title">
+        <div class="companions-heading"><p class="companions-kicker">Stay a little longer · Two more works</p><h3 id="colour-companions-title">Let the world come loose.</h3><p class="companions-intro">A garden flickers into being; a mill becomes a current of colour. Leave room for either kind of surprise.</p></div>
+        <div class="companion-grid">
+          <article class="exhibit companion-exhibit" aria-labelledby="morisot-garden-title">
+            <a class="artwork-view" href="assets/visit/morisot-garden.jpg" data-art="morisot-garden" aria-label="Look closely at Woman in a Garden"><img class="artwork" src="assets/visit/morisot-garden.jpg" width="843" height="1128" loading="lazy" decoding="async" alt="A seated woman in a blue dress and flowered hat, surrounded by loosely painted green foliage and pale flowers."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+            <div class="wall-label">
+              <div class="work-heading"><h4 id="morisot-garden-title"><cite>Woman in a Garden</cite></h4><p>Berthe Morisot · 1882–83</p></div>
+              <p class="companion-prompt">Follow one loose brushstroke from a leaf into a sleeve. Where do the figure and garden begin to meet?</p>
+              <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Oil on canvas</p><p>The blue of a sleeve and the green of a leaf share the same quick, open brushwork. Look for the places where a figure comes into focus, then dissolves back into the garden.</p><a class="museum-source" href="https://www.artic.edu/artworks/153798">Art Institute of Chicago · CC0 ↗</a></div></details>
+            </div>
+          </article>
+          <article class="exhibit companion-exhibit" aria-labelledby="marc-bewitched-mill-title">
+            <a class="artwork-view" href="assets/visit/marc-bewitched-mill.jpg" data-art="marc-bewitched-mill" aria-label="Look closely at The Bewitched Mill"><img class="artwork" src="assets/visit/marc-bewitched-mill.jpg" width="843" height="1220" loading="lazy" decoding="async" alt="White water streams through a vivid scene of red millwheels, blue buildings, green foliage, and small animals."><span class="enlarge-hint" aria-hidden="true">Look closer ⤢</span></a>
+            <div class="wall-label">
+              <div class="work-heading"><h4 id="marc-bewitched-mill-title"><cite>The Bewitched Mill</cite></h4><p>Franz Marc · 1913</p></div>
+              <p class="companion-prompt">Follow the white water past the red wheel. Which colour makes the painting move for you?</p>
+              <details class="museum-note"><summary>About this work <span aria-hidden="true">+</span></summary><div class="note-body"><p class="material">Oil on canvas</p><p>Water, animals, buildings, and a red wheel gather into one restless scene. Follow a curve through it, then notice where an angular shape changes its direction.</p><a class="museum-source" href="https://www.artic.edu/artworks/9021">Art Institute of Chicago · CC0 ↗</a></div></details>
+            </div>
+          </article>
+        </div>
+        <div class="companions-footer"><a class="wander-link" href="#between-works">Find a connection of your own <span aria-hidden="true">↓</span></a></div>
+      </section>
+      <section id="between-works" class="between-works" aria-labelledby="between-title" tabindex="-1">
+        <div class="between-heading"><p class="companions-kicker">The gallery can move with you</p><h2 id="between-title">Between works.</h2><p>What would you hang beside what? Bring two works together, let their images overlap, and see what one helps you notice in the other.</p></div>
+        <div class="echo-grid">
+          <article class="echo-card" data-pair="hokusai-great-wave,marc-bewitched-mill">
+            <div class="echo-pictures">
+              <figure><a href="assets/visit/hokusai-great-wave.jpg" aria-label="View The Great Wave"><img src="assets/visit/hokusai-great-wave.jpg" width="843" height="578" loading="lazy" alt="A blue wave curls over boats, with Mount Fuji beyond."></a><figcaption>The Great Wave <span>Hokusai</span></figcaption></figure>
+              <figure><a href="assets/visit/marc-bewitched-mill.jpg" aria-label="View The Bewitched Mill"><img src="assets/visit/marc-bewitched-mill.jpg" width="843" height="1220" loading="lazy" alt="Animals and a red mill wheel gather among angular shapes and rushing water."></a><figcaption>The Bewitched Mill <span>Franz Marc</span></figcaption></figure>
+            </div>
+            <h3>Follow the current</h3><p class="echo-description">White water bends both scenes into motion. Follow it through the wave’s blue curl, then down past the mill’s red wheel.</p><p class="echo-question">What route does your eye take along the water—and where does it stop?</p>
+            <button class="echo-open" type="button" data-encounter="hokusai-great-wave,marc-bewitched-mill" hidden>Bring them together <span aria-hidden="true">↔</span></button>
+          </article>
+          <article class="echo-card" data-pair="hiroshige-plum-garden,morisot-garden">
+            <div class="echo-pictures">
+              <figure><a href="assets/visit/hiroshige-plum-garden.jpg" aria-label="View Plum Garden at Kameido"><img src="assets/visit/hiroshige-plum-garden.jpg" width="843" height="1241" loading="lazy" alt="A flowering plum branch fills the foreground of a garden with tiny visitors beyond."></a><figcaption>Plum Garden at Kameido <span>Hiroshige</span></figcaption></figure>
+              <figure><a href="assets/visit/morisot-garden.jpg" aria-label="View Woman in a Garden"><img src="assets/visit/morisot-garden.jpg" width="843" height="1128" loading="lazy" alt="A seated woman in blue and white emerges from loose strokes of green foliage."></a><figcaption>Woman in a Garden <span>Berthe Morisot</span></figcaption></figure>
+            </div>
+            <h3>Near enough to enter</h3><p class="echo-description">A dark branch interrupts the garden. A seated figure gathers out of loose strokes and leaves. Each gives you a different place to stand.</p><p class="echo-question">Follow the dark trunk, then the blue sleeve. Where are you drawn closer?</p>
+            <button class="echo-open" type="button" data-encounter="hiroshige-plum-garden,morisot-garden" hidden>Bring them together <span aria-hidden="true">↔</span></button>
+          </article>
+          <article class="echo-card" data-pair="form,whistler-nocturne">
+            <div class="echo-pictures">
+              <figure><a href="assets/welcome/moon-jar.jpg" aria-label="View the Moon Jar"><img src="assets/welcome/moon-jar.jpg" width="843" height="885" loading="lazy" alt="A rounded white porcelain jar with a softly glazed surface."></a><figcaption>Moon Jar <span>Korea · Joseon dynasty</span></figcaption></figure>
+              <figure><a href="assets/visit/whistler-nocturne.jpg" aria-label="View Nocturne: Blue and Gold—Southampton Water"><img src="assets/visit/whistler-nocturne.jpg" width="843" height="557" loading="lazy" alt="A small golden moon hangs above a hazy blue-green harbour."></a><figcaption>Nocturne: Blue and Gold <span>James McNeill Whistler</span></figcaption></figure>
+            </div>
+            <h3>Held by the light</h3><p class="echo-description">Light traces the jar’s rounded surface; a small golden glow steadies the hazy harbour. Let each bright place draw you in.</p><p class="echo-question">Where does light describe an edge, and where does it let an edge disappear?</p>
+            <button class="echo-open" type="button" data-encounter="form,whistler-nocturne" hidden>Bring them together <span aria-hidden="true">↔</span></button>
+          </article>
+        </div>
+        <p class="between-footnote">These are invitations to look. Your connection may be entirely different.</p>
+        <p><a class="wander-link" href="/elements">Follow wood, fire, earth, metal and water through art <span aria-hidden="true">↗</span></a></p>
+        <a class="wander-link" href="/map">Keep wandering through Artbitrage <span aria-hidden="true">↗</span></a>
+      </section>
+    </div>
+  </section>
+</main>
+
+<nav class="visit-route" aria-label="The five gallery rooms">
+  <span class="route-caption"><span id="room-count">01 / 05</span><button id="drift-toggle" type="button" aria-pressed="false" aria-describedby="drift-status" title="Move to the next room every 45 seconds" hidden>Start drifting ▷</button><noscript>Wander at your pace</noscript></span>
+  <div class="room-stops">
+    <a href="#water" aria-current="location"><span class="stop-number">01</span><span class="stop-name">By the water</span></a>
+    <a href="#dusk"><span class="stop-number">02</span><span class="stop-name">After dusk</span></a>
+    <a href="#form"><span class="stop-number">03</span><span class="stop-name">A quiet form</span></a>
+    <a href="#poems"><span class="stop-number">04</span><span class="stop-name">Among poems</span></a>
+    <a href="#colour"><span class="stop-number">05</span><span class="stop-name">Colour in motion</span></a>
+  </div>
+  <a class="route-exit" href="/map">All rooms <span aria-hidden="true">↗</span></a>
+</nav>
+
+<dialog id="room-map" class="visit-dialog" aria-labelledby="room-map-title">
+  <div class="dialog-header"><p class="dialog-eyebrow">You are welcome to wander</p><button class="dialog-close" type="button" autofocus>Close ×</button></div>
+  <h2 id="room-map-title">A small map of your visit.</h2>
+  <p class="map-intro">Five connected rooms, three works in each. Choose any room and take your time.</p>
+  <nav class="floor-plan" aria-label="Choose a gallery room">
+    <a href="#water" data-map-room="0"><span class="plan-number">01</span><img src="assets/welcome/seurat.jpg" alt="" width="843" height="565" loading="lazy"><strong>By the water</strong><span>Seurat · Monet · Hokusai</span></a>
+    <a href="#dusk" data-map-room="1"><span class="plan-number">02</span><img src="assets/welcome/moonrise.jpg" alt="" width="843" height="1011" loading="lazy"><strong>After dusk</strong><span>Inness · Whistler · Redon</span></a>
+    <a href="#form" data-map-room="2"><span class="plan-number">03</span><img src="assets/welcome/moon-jar.jpg" alt="" width="843" height="885" loading="lazy"><strong>A quiet form</strong><span>Porcelain · Marble · Glass</span></a>
+    <a href="#poems" data-map-room="3"><span class="plan-number">04</span><img src="assets/welcome/maples.jpg" alt="" width="843" height="418" loading="lazy"><strong>Among poems</strong><span>Mitsuoki · Blake · Hiroshige</span></a>
+    <a href="#colour" data-map-room="4"><span class="plan-number">05</span><img src="assets/guide/kandinsky.jpg" alt="" width="843" height="847" loading="lazy"><strong>Colour in motion</strong><span>Kandinsky · Morisot · Marc</span></a>
+  </nav>
+  <div class="map-footer"><p>Artworks: Art Institute of Chicago, CC0. Each work has a museum link in its notes. Ambient sound is optional.</p><a href="/map">Explore all of Artbitrage →</a></div>
+</dialog>
+
+<dialog id="art-viewer" class="visit-dialog artwork-dialog" aria-labelledby="viewer-title">
+  <div class="dialog-header"><p class="dialog-eyebrow">Take a closer look</p><button class="dialog-close" type="button" autofocus>Close ×</button></div>
+  <img id="viewer-image" alt="">
+  <div class="viewer-label"><h2 id="viewer-title"></h2><p id="viewer-maker"></p><a id="viewer-source" href="https://www.artic.edu/">View the museum record ↗</a><div class="viewer-actions"><button class="viewer-pair" id="viewer-pair" type="button" hidden>Pair this work <span aria-hidden="true">↔</span></button><button class="viewer-rest" id="viewer-rest" type="button" hidden>Stay with this work <span aria-hidden="true">◯</span></button><a class="viewer-behind" id="viewer-behind" href="/behind-the-work#care" hidden>Making &amp; caring for art ↗</a></div></div>
+  <nav class="viewer-browse" aria-label="Artworks in this room"><button id="viewer-previous" type="button" aria-label="Previous artwork">← Previous</button><p id="viewer-position" role="status" aria-live="polite"></p><button id="viewer-next" type="button" aria-label="Next artwork">Next →</button></nav>
+</dialog>
+<dialog id="encounter-dialog" class="visit-dialog encounter-dialog" aria-labelledby="encounter-title">
+  <div class="dialog-header"><p class="dialog-eyebrow">A meeting you can make</p><button class="dialog-close" type="button" autofocus>Close ×</button></div>
+  <h2 id="encounter-title">Between works.</h2>
+  <p class="encounter-intro">Choose what hangs beside what. Follow a resemblance, a contrast, or a feeling you can’t quite name.</p>
+  <div class="encounter-presets" role="group" aria-label="Starting connections">
+    <button type="button" data-pair="hokusai-great-wave,marc-bewitched-mill">Follow the current</button>
+    <button type="button" data-pair="hiroshige-plum-garden,morisot-garden">Near enough to enter</button>
+    <button type="button" data-pair="form,whistler-nocturne">Held by the light</button>
+  </div>
+  <div class="encounter-selectors"><label>First work<select id="encounter-left"></select></label><label>Second work<select id="encounter-right"></select></label></div>
+  <div class="encounter-toolbar">
+    <div class="encounter-modes" role="group" aria-label="Arrange the artworks"><button id="encounter-beside" type="button" aria-pressed="true">Beside each other</button><button id="encounter-layer" type="button" aria-pressed="false">Layer the images</button></div>
+    <div class="layer-control" hidden><label for="encounter-mix">Bring the second work forward</label><input id="encounter-mix" type="range" min="0" max="100" step="1" value="50" aria-describedby="encounter-note"><output id="encounter-balance" for="encounter-mix">50%</output></div>
+  </div>
+  <div class="encounter-stage" data-view="beside" style="--mix: .5">
+    <figure class="encounter-work" data-slot="left"><div class="encounter-image"><img alt=""></div><figcaption><h3></h3><p></p><a href="https://www.artic.edu/">Museum record ↗</a></figcaption></figure>
+    <figure class="encounter-work" data-slot="right"><div class="encounter-image"><img alt=""></div><figcaption><h3></h3><p></p><a href="https://www.artic.edu/">Museum record ↗</a></figcaption></figure>
+  </div>
+  <p class="encounter-note" id="encounter-note">Whole images fitted to your screen; their displayed sizes do not represent the objects’ relative sizes.</p>
+  <div class="encounter-reflection" aria-live="polite"><p id="encounter-prompt"></p><p id="encounter-question"></p></div>
+  <div class="encounter-share"><label for="encounter-url">Keep this meeting, or share it with someone.</label><input id="encounter-url" type="url" readonly spellcheck="false"><button id="encounter-copy" type="button">Copy link</button></div>
+  <p class="encounter-status" id="encounter-status" role="status" aria-live="polite"></p>
+</dialog>
+<dialog id="breathing-dialog" class="visit-dialog breathing-dialog" aria-labelledby="breathing-title">
+  <div class="breathing-atmosphere" aria-hidden="true"><img id="breathing-backdrop" alt=""></div>
+  <div class="dialog-header"><p class="dialog-eyebrow">Art can give us room</p><button class="dialog-close" type="button" autofocus>Return to the visit ×</button></div>
+  <h2 id="breathing-title">Stay with this moment.</h2>
+  <p class="breathing-intro">One work, a little space, and nothing to finish. Look quietly, follow a breath, or take your own time.</p>
+  <div class="breathing-layout">
+    <div class="breathing-guide" id="gallery-breath-host" data-breathing><p>Your own pace is welcome. The artwork can wait.</p></div>
+    <figure class="breathing-work"><img id="breathing-work-image" alt=""><figcaption><h3 id="breathing-work-title"></h3><p id="breathing-work-maker"></p><a id="breathing-work-source" href="https://www.artic.edu/">View the museum record ↗</a></figcaption></figure>
+  </div>
+  <div class="breathing-sound"><button class="viewer-rest" id="breathing-sound" type="button" aria-pressed="false">Play music</button><label id="breathing-volume-control" hidden>Music volume<input id="breathing-volume" type="range" min="0" max="100" value="65"></label><p id="breathing-sound-status" role="status" aria-live="polite"></p></div>
+  <div class="breathing-footer"><p>Stay as long as you like. Your place in the gallery is here when you return.</p><a id="breathing-trip" href="/trip">Stay longer in Good Trip <span aria-hidden="true">↗</span></a></div>
+</dialog>
+</body>
+</html>

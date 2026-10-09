@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
+  <title>間 the breathing gap — a mark for artbitrage.io</title>
+  <desc>An arched door in two leaves. The slit between them opens into a full round and closes again: the round is not drawn, it is the gap, and whatever is behind shows through. 閒, the old form of 間 (隙也。从門从月), is moonlight seen through the gap of a door. There&apos;s a space between looking and seeing. — artbitrage.io, art brings us closer.</desc>
+  <g id="artbitrage">
+    <path id="tile" d="M112 0 L400 0 C461.856 0 512 50.144 512 112 L512 400 C512 461.856 461.856 512 400 512 L112 512 C50.144 512 0 461.856 0 400 L0 112 C0 50.144 50.144 0 112 0 Z" fill="#17271f"/>
+    <path id="door" d="M116 452 L116 200 C116 133.473 162.817 76.134 228 62.829 L228 204.085 C186.467 216.468 158 254.661 158 298 C158 341.339 186.467 379.532 228 391.915 L228 452 Z M396 452 L396 200 C396 133.473 349.183 76.134 284 62.829 L284 204.085 C325.533 216.468 354 254.661 354 298 C354 341.339 325.533 379.532 284 391.915 L284 452 Z" fill="#dbcca7"/>
+  </g>
+</svg>

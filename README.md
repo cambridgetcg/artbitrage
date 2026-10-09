@@ -1,8 +1,154 @@
 # ARTBITRAGE
 
-The public art guide and reference desk.
+A personal art project about feeling, understanding, and connection.
 
 Existence creates art that bridges the gap of consciousness for awakening. Art as arbitrage. Art as bridge. Art IS.
+
+## The public welcome
+
+Artbitrage starts with a simple idea: art helps us feel, understand, and connect.
+The homepage is the gallery's foyer: five selectable artwork views lead into
+the matching rooms of `/visit`, with a whole-work viewer and a motion switch.
+It explains the project and its many-room shape, offers a first work to spend
+time with, and searches the curated static museum catalogue. Its core story,
+artwork, and navigation work without JavaScript or an API connection.
+
+- `/` — an immersive welcome, why Artbitrage exists, and ways into the collection.
+- `/visit` — a dreamlike gallery visit through five connected rooms and fifteen
+  artworks, with drifting colour, close looking, and museum notes. Each room
+  has a central work and two companions, with a looking prompt for each addition.
+  The full-work viewer supports previous/next buttons and arrow keys within
+  the current room. Enter from the
+  homepage or visitor guide. Motion has a visible off switch; automatic room
+  drift and the gallery soundtrack begin only when requested. Manual navigation, hidden
+  tabs, and reduced-motion preferences pause drift. All rooms, artwork links,
+  and museum notes also work without JavaScript.
+  **Between works** lets visitors bring any two of the fifteen works together,
+  compare complete images, or manually layer them. Three visual invitations
+  provide starting points; custom pairings use open looking questions. Enter
+  from the arrival, the final room, or “Pair this work” in the full-work viewer.
+  A link preserves the selected works, arrangement, and layer balance; no account
+  or saved visitor profile is required. The pairings suggest ways of looking,
+  without claiming historical influence or accurate physical scale.
+  **Breathe** offers a quiet pause from every room. “Stay with this work” in the
+  viewer brings the chosen artwork alongside an optional breathing guide, with
+  its museum record and a doorway into Good Trip. A pause between Dusk and Form
+  makes this slower pace part of the route. Gallery music continues if already
+  playing; room drift pauses, and closing the pause returns keyboard focus.
+- `/elements` — 五行, five ways of looking. Thirteen museum works make fifteen
+  encounters through Wood, Fire, Earth, Metal and Water. Each phase offers three
+  works, a looking prompt, material details, and a connection to the next phase.
+  The Moon Jar and Maples screen belong to two phases; their shared-work links
+  let visitors meet the same image through another quality. These are curatorial
+  invitations inspired by the five phases, with an academic source for the
+  framework and separate museum records for each work. Choices create shareable
+  URLs; image loading is atomic and cancellable, with retry. Nothing moves or
+  plays automatically. All five rooms and image links work without JavaScript.
+  A selected work can travel into `/trip` and return to its phase. The local
+  manifest and provenance live under `assets/elements/`; regenerate the static
+  page with `python3 tools/build-elements.py` after editing the manifest.
+- `/noticing` — What caught my eye, a looking notebook connecting five artworks
+  through care, work, pattern, edges and space. Personal readings sit alongside
+  sourced museum context, with detail pointers and quiet-room handoffs. Four new
+  public-domain reproductions join the existing Pomo basket; local images,
+  visual prompts and provenance live under `assets/noticing/`. Edit the personal
+  notes in `tools/build-noticing.py` and run it to regenerate the static page;
+  the whole-art viewer and optional detail pointers enhance the readable document.
+- `/unsigned` — Unsigned · 無名, hands without names: ten Art Institute of Chicago
+  public-domain works whose makers the museum record does not name, chosen and
+  written by Ai, the project's AI collaborator. Every label keeps a blank maker
+  line, then gives the museum's own culture or place line ("Recorded as"),
+  personal notes, looking prompts, paraphrased and linked museum context, and
+  what is and is not recorded about each work's provenance. Images are the
+  museum's own CC0 reproductions, unaltered, under `assets/unsigned/`, with
+  full provenance and rights records in `assets/unsigned/credits.json` (each
+  image's browser capture log is kept, not deployed, in
+  `tools/receipts/unsigned/`). The room
+  text lives in `assets/unsigned/works.json`; regenerate the static page with
+  `python3 tools/build-unsigned.py`, which refuses to build if the display
+  manifest and the credits disagree. A whole-work viewer enhances the readable
+  document; nothing moves or plays.
+- `/map` — a visitor guide with three selectable artwork backdrops, four illustrated
+  journeys, an uncropped artwork viewer, and a searchable room directory.
+- `/explore` — the earlier collection page, preserving its art-history journey,
+  cross-cultural pairings, layered readings, and generated-art feed.
+- `/behind-the-work` — a visitor chapter on making, material histories and care.
+  Hokusai's print opens onto workshop labour and traded blue; Seurat onto studies,
+  revision and changing pigments; a moon jar onto construction and the wider
+  Joseon kiln industry. Visitors choose among ultramarine, cochineal and mauveine
+  histories, then explore preventive care and conservation decisions. Primary
+  museum sources sit beside the claims, with object-specific evidence separated
+  from broader context. The page reuses local CC0 images without recolouring them;
+  abstract swatches are labelled screen approximations. All three colour stories
+  remain visible without JavaScript. Links from the gallery's labels and viewer,
+  homepage, guide and pigment room make this part of the visit.
+
+The welcome's museum images are local copies of existing Artbitrage mirrors;
+source records and image credits are in `assets/welcome/credits.json`. Search
+results retain museum links and source rights labels.
+The welcome and guide also use Kandinsky from the existing collection;
+its additional credit is in `assets/guide/credits.json`. Artwork changes are
+visitor-controlled, with reduced-motion support. The default backdrop, artwork
+links, and room directory remain available without JavaScript.
+The ten companion works in the visit are local CC0 images verified against
+the Art Institute of Chicago API. Their records, source URLs, dimensions, and
+credits are in `assets/visit/credits.json`; images load lazily during the visit.
+
+The visit's original instrumental, **Rooms of Light**, moves through five gentle
+passages over 3½ minutes. Synthesized soft keys, warm pads, and room reverb accompany
+the artworks continuously, without restarting when rooms change. The local MP3
+loads only on play; the header controls and first-room native audio player share
+one track. Leaving the tab pauses playback; returning does not restart it. Native
+controls remain available without JavaScript. Provenance and measured levels are
+in `assets/audio/credits.json`; `tools/compose-visit-soundtrack.py` reproduces the
+sample-free composition using NumPy and FFmpeg, with intermediates outside the
+repository. Verify playback and decoded signal with
+`node tests/e2e-visit-soundtrack.mjs --browser` (playback is forcibly muted).
+
+The digital gallery gives visitors control over what hangs together and how they
+look at it. Shared encounters use only allowlisted local artwork IDs, for example
+`/visit?pair=hokusai-great-wave,marc-bewitched-mill&view=layer&mix=50#between-works`.
+The original images and source records remain available throughout. Without
+JavaScript, the three illustrated pairings and their image links remain readable.
+Run `node tests/e2e-visit-encounters.mjs --browser` to verify selection, layering,
+shared links, focus, clipboard fallback, responsive layout, and the static fallback.
+
+The site icon (閒, the gap: a door whose slit opens into a full moon) and each room's
+1200×630 share card are made with ArtCraft (VectorCraft and PhotoCraft, headless) in
+`tools/brand/`. The icon files sit at the site root (`/favicon.svg`, `/site.webmanifest`
+…; `/manifest.json` stays the philosophy document) and the cards in `assets/og/`, with
+what each card shows and how it was made in `assets/og/credits.json`. See
+`tools/brand/README.md` to rebuild either byte-identically.
+
+### Preview and verify
+
+Use the existing Wrangler CLI; no project dependencies are added:
+
+```bash
+node tools/preview.mjs
+# http://127.0.0.1:8797 — local Pages routes, temporary local KV, no AI binding
+node tests/e2e-pages-routes.mjs
+node tests/e2e-welcome.mjs --browser
+node tests/e2e-map.mjs --browser
+node tests/e2e-visit.mjs --browser
+node tests/e2e-breathing.mjs --browser
+node tests/e2e-trip.mjs --browser
+node tests/e2e-elements.mjs --browser
+node tests/e2e-behind-the-work.mjs --browser
+node tests/e2e-unsigned.mjs --browser
+node tests/e2e-brand.mjs
+node tests/e2e-start.mjs
+node tests/e2e-era-pages.mjs
+node tests/e2e-catalog.mjs
+node tests/e2e-ai-catalog.mjs
+node tests/e2e-studio-output.mjs
+```
+
+The optional browser checks use the repository's existing isolated local Chrome
+harness and fixture data. They do not call live models or publish submissions.
+Keep edited public files and their `dist/` mirrors together. The preview verifies
+local routing; it does not prove that the current production deployment includes
+its Functions worker.
 
 ## Live
 
@@ -537,13 +683,33 @@ restorations change — the data says when it last knew, and each JSON keeps a
 `verification` field describing what was re-checked. Facts were researched and
 then independently re-verified against museum, auction-house and press sources.
 
-**旅 Good Trip** (`/trip`) is the fourth room: an immersive, deliberately slow
-full-screen river of the collection's 70 public-domain masterpieces with the
-minds' own words, a 4-in/7-out breath ring, and a one-tap "ground me" anchor
-that walks the kingdom's Good Trip Protocol navigation lines (including the
-Fireside Project peer-support number). Built to be kind to someone
-mid-journey: nothing flashes, nothing rushes, sound is opt-in, grounding is
-user-paced. A room, not a doctor.
+**旅 Good Trip** (`/trip`) is the quiet room: one artwork stays present while
+visitors choose Look, Breathe, or Ground. Three curated paths—Water & air,
+Quiet forms, and Colour & light—bring together 19 works, including six added
+for this room. `assets/trip/works.json` supplies the paths, museum records,
+and two looking invitations per work; `assets/trip/credits.json` records the
+new images’ provenance and rights. The original 70 works remain available
+through an explicitly selected wider collection.
+
+Look and Breathe preserve the visitor’s choice to drift slowly. Ground holds
+the image still and alternates artwork details with ordinary invitations to
+notice the surrounding room. Manual Next pauses the drift. A work brought
+from the gallery opens still; the allowlisted `/trip?work=dusk&room=dusk`
+handoff uses `assets/visit/works.json`, preserves the museum record, and returns
+to the originating room. Late image or catalogue responses cannot override a
+pause, grounding moment, newer path selection, or departure.
+
+The shared `breathing.js` / `breathing.css` guide begins only on request. Visitors
+can choose an even 4-in/4-out rhythm or a longer 4-in/7-out rhythm, or simply
+breathe without a count. These are optional visual rhythms, not treatment
+instructions. The ring and words share a phase clock; reduced motion keeps the
+ring and artworks still. Leaving Breathe, changing its rhythm, hiding the tab,
+or leaving the page stops the guide. Drift and optional sound also pause when
+the page is hidden, without automatically restarting. Grounding invitations
+advance only on request and retain a discreet Fireside Project support link.
+Leaving a pebble remains an explicit, optional action with visible success or
+failure feedback. The room has a static artwork and gallery link without
+JavaScript, and keeps a Moon Jar fallback if its curated catalogue cannot load.
 
 ## 川 The River — good trip mode for the whole catalogue
 

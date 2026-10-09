@@ -1,0 +1,26 @@
+/* Shared breathing space: ordinary breath is always an available pace. */
+[data-breathing] { --breath-ink: #eee9d9; --breath-muted: #bdc6b2; --breath-gold: #e4c98f; color: var(--breath-ink); }
+.breath-module { width: min(100%, 520px); margin: 0 auto; text-align: center; }
+.breath-orbit { position: relative; display: grid; place-items: center; width: 230px; height: 230px; max-width: 100%; margin: 1.4rem auto 1rem; }
+.breath-ring { position: absolute; inset: 8%; border: 1px solid var(--breath-gold); border-radius: 50%; background: radial-gradient(circle, #e4c98f03 35%, #e4c98f0d 75%, transparent); box-shadow: 0 0 50px #e4c98f0a, inset 0 0 35px #e4c98f08; transform: scale(.72); }
+.breath-ring::after { content: ''; position: absolute; inset: -12%; border: 1px solid #e4c98f25; border-radius: 50%; }
+.breath-centre { width: 5px; height: 5px; border-radius: 50%; background: var(--breath-gold); opacity: .8; }
+.breath-cue { min-height: 87px; margin-bottom: 1rem; }
+.breath-phase { margin: 0; color: var(--breath-ink); font: 400 2rem/1.25 var(--visit-serif, Georgia, serif); }
+.breath-count { margin: .55rem 0 0; color: var(--breath-muted); font: .75rem/1.6 var(--visit-sans, -apple-system, BlinkMacSystemFont, sans-serif); }
+.breath-options { display: flex; justify-content: center; align-items: end; flex-wrap: wrap; gap: .8rem 1rem; }
+.breath-options label { display: grid; gap: .35rem; min-width: 0; max-width: 100%; text-align: left; color: var(--breath-muted); font: .7rem/1.5 var(--visit-sans, -apple-system, BlinkMacSystemFont, sans-serif); }
+.breath-rhythm { min-height: 46px; min-width: 0; max-width: 100%; padding: .6rem .7rem; border: 1px solid #81916b; border-radius: 3px; background: #202b24; color: var(--breath-ink); font: .75rem/1.5 var(--visit-sans, -apple-system, BlinkMacSystemFont, sans-serif); }
+.breath-switch { min-height: 46px; min-width: 116px; padding: .6rem 1rem; border: 1px solid var(--breath-gold); border-radius: 3px; background: #e4c98f; color: #263126; cursor: pointer; font: .75rem/1.5 var(--visit-sans, -apple-system, BlinkMacSystemFont, sans-serif); }
+.breath-switch[aria-pressed="true"] { color: var(--breath-ink); background: transparent; }
+.breath-permission { max-width: 46ch; margin: 1.25rem auto 0; color: var(--breath-muted); font: .8rem/1.7 var(--visit-sans, -apple-system, BlinkMacSystemFont, sans-serif); }
+.breath-status { min-height: 2.9em; margin: .7rem auto 0; color: var(--breath-muted); font: .69rem/1.6 var(--visit-sans, -apple-system, BlinkMacSystemFont, sans-serif); }
+@media (max-width: 400px) {
+  .breath-orbit { width: 190px; height: 190px; margin-top: .7rem; }
+  .breath-options { flex-direction: column; align-items: stretch; }
+  .breath-options label { text-align: left; }
+  .breath-switch { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .breath-ring { transform: scale(.85); }
+}

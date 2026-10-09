@@ -1,0 +1,137 @@
+[
+  {
+    "id": "water",
+    "title": "A Sunday on La Grande Jatte — 1884",
+    "maker": "Georges Seurat · 1884–86",
+    "image": "/assets/welcome/seurat.jpg",
+    "alt": "People with parasols gather in a sunlit park beside the Seine, with boats in the distance.",
+    "source": "https://www.artic.edu/artworks/27992",
+    "room": "water"
+  },
+  {
+    "id": "monet-water-lilies",
+    "title": "Water Lilies",
+    "maker": "Claude Monet · 1906",
+    "image": "/assets/visit/monet-water-lilies.jpg",
+    "alt": "Pink and white water lilies spread across blue-green water, with soft reflections beneath them.",
+    "source": "https://www.artic.edu/artworks/16568",
+    "room": "water"
+  },
+  {
+    "id": "hokusai-great-wave",
+    "title": "The Great Wave",
+    "maker": "Katsushika Hokusai · 1830/33",
+    "image": "/assets/visit/hokusai-great-wave.jpg",
+    "alt": "A towering blue wave curls over long boats, with snow-capped Mount Fuji small in the distance.",
+    "source": "https://www.artic.edu/artworks/24645",
+    "room": "water"
+  },
+  {
+    "id": "dusk",
+    "title": "Moonrise",
+    "maker": "George Inness · 1891",
+    "image": "/assets/welcome/moonrise.jpg",
+    "alt": "An orange moon glows through a hazy landscape of trees and a solitary figure.",
+    "source": "https://www.artic.edu/artworks/64754",
+    "room": "dusk"
+  },
+  {
+    "id": "whistler-nocturne",
+    "title": "Nocturne: Blue and Gold—Southampton Water",
+    "maker": "James McNeill Whistler · 1872",
+    "image": "/assets/visit/whistler-nocturne.jpg",
+    "alt": "A low golden moon hangs above a hazy blue-green harbor, with faint boats and a dark shoreline.",
+    "source": "https://www.artic.edu/artworks/56905",
+    "room": "dusk"
+  },
+  {
+    "id": "redon-flower-clouds",
+    "title": "Flower Clouds",
+    "maker": "Odilon Redon · c. 1903",
+    "image": "/assets/visit/redon-flower-clouds.jpg",
+    "alt": "A small sailing boat with two figures floats beneath clouds of violet, orange, pink, and blue.",
+    "source": "https://www.artic.edu/artworks/76395",
+    "room": "dusk"
+  },
+  {
+    "id": "form",
+    "title": "Moon Jar",
+    "maker": "Korea · Joseon dynasty",
+    "image": "/assets/welcome/moon-jar.jpg",
+    "alt": "A rounded white Korean porcelain moon jar with a gently uneven outline and a softly glazed surface.",
+    "source": "https://www.artic.edu/artworks/158472",
+    "room": "form"
+  },
+  {
+    "id": "cycladic-figure",
+    "title": "Statuette of a Female Figure",
+    "maker": "Cycladic; probably from the island of Keros · Early Bronze Age, 2600–2400 BCE",
+    "image": "/assets/visit/cycladic-figure.jpg",
+    "alt": "A pale marble standing figure with folded arms, a long neck, and a simple oval face with a raised nose.",
+    "source": "https://www.artic.edu/artworks/52201",
+    "room": "form"
+  },
+  {
+    "id": "roman-glass-bowl",
+    "title": "Bowl",
+    "maker": "Roman; probably Eastern Mediterranean · Early 1st century BCE",
+    "image": "/assets/visit/roman-glass-bowl.jpg",
+    "alt": "A small pale mosaic-glass bowl with a rounded body, short foot, and dark striped rim, on a gray background.",
+    "source": "https://www.artic.edu/artworks/61905",
+    "room": "form"
+  },
+  {
+    "id": "poems",
+    "title": "Autumn Maples with Poem Slips",
+    "maker": "Tosa Mitsuoki · c. 1675",
+    "image": "/assets/welcome/maples.jpg",
+    "alt": "A six-panel gold folding screen with red maple trees and hanging poem slips.",
+    "source": "https://www.artic.edu/artworks/127644",
+    "room": "poems"
+  },
+  {
+    "id": "blake-fruit-tree",
+    "title": "Thenot Under Fruit Tree",
+    "maker": "William Blake · 1821",
+    "image": "/assets/visit/blake-fruit-tree.jpg",
+    "alt": "A small black-and-white wood engraving of resting figures under trees, with a round bright light above distant hills.",
+    "source": "https://www.artic.edu/artworks/18279",
+    "room": "poems"
+  },
+  {
+    "id": "hiroshige-plum-garden",
+    "title": "Plum Garden at Kameido",
+    "maker": "Utagawa Hiroshige · 1857",
+    "image": "/assets/visit/hiroshige-plum-garden.jpg",
+    "alt": "Dark plum-tree branches with white blossoms cross a pink sky, framing a green garden and small distant visitors.",
+    "source": "https://www.artic.edu/artworks/26577",
+    "room": "poems"
+  },
+  {
+    "id": "colour",
+    "title": "Improvisation No. 30 (Cannons)",
+    "maker": "Vasily Kandinsky · 1913",
+    "image": "/assets/guide/kandinsky.jpg",
+    "alt": "Black diagonal lines cross shifting red, yellow, blue, and green forms in an abstract painting.",
+    "source": "https://www.artic.edu/artworks/8991",
+    "room": "colour"
+  },
+  {
+    "id": "morisot-garden",
+    "title": "Woman in a Garden",
+    "maker": "Berthe Morisot · 1882–83",
+    "image": "/assets/visit/morisot-garden.jpg",
+    "alt": "A seated woman in a blue dress and flowered hat, surrounded by loosely painted green foliage and pale flowers.",
+    "source": "https://www.artic.edu/artworks/153798",
+    "room": "colour"
+  },
+  {
+    "id": "marc-bewitched-mill",
+    "title": "The Bewitched Mill",
+    "maker": "Franz Marc · 1913",
+    "image": "/assets/visit/marc-bewitched-mill.jpg",
+    "alt": "White water streams through a vivid scene of red millwheels, blue buildings, green foliage, and small animals.",
+    "source": "https://www.artic.edu/artworks/9021",
+    "room": "colour"
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "id": "safavid-dress-fabric-panel",
+  "museum_id": 6430,
+  "image": "/assets/unsigned/safavid-dress-fabric-panel.jpg",
+  "image_source": "https://www.artic.edu/iiif/2/a96087ff-ea2e-924b-c6ec-7f279a2c140b/full/843,/0/default.jpg",
+  "sha256": "5d30293d9d6d6d1f9bce6128625763c3bf8e20f2c5a6f5af623122e808df1f75",
+  "bytes": 617321,
+  "about": "Browser capture log for this work's image: the 2026-10-09 19:29 UTC page capture, made during the review fixes; it confirms the file saved at 16:54 UTC. It records the Art Institute of Chicago artwork page's own request for the IIIF image (URL, status, response headers, bytes and sha256). Copied from the capture session's working folder on 2026-10-09; the log itself is unchanged except as listed under redactions. Raw response bodies are not kept here: each equals the image file by sha256.",
+  "redactions": [],
+  "capture_log": {
+    "page": "https://www.artic.edu/artworks/6430",
+    "started": "2026-10-09T19:29:01.987Z",
+    "page_status": 200,
+    "final_url": "https://www.artic.edu/artworks/6430/panel-dress-fabric",
+    "goto_error": null,
+    "page_title": "Panel (Dress Fabric) | The Art Institute of Chicago",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/147.0.7727.15 Safari/537.36",
+    "playwright": "1.59.1",
+    "viewport": "1440x900 DPR1",
+    "iiif_responses": [
+      {
+        "url": "https://www.artic.edu/iiif/2/a96087ff-ea2e-924b-c6ec-7f279a2c140b/full/843,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+          "cache-control": "public, max-age=2592000, no-transform",
+          "x-powered-by": "Cantaloupe/4.1.7",
+          "cf-cache-status": "HIT",
+          "age": "2570765",
+          "cf-ray": "a47fcabfa9be233d-ZRH",
+          "access-control-allow-origin": "*",
+          "date": "Fri, 09 Oct 2026 19:29:03 GMT",
+          "content-type": "image/jpeg",
+          "last-modified": "Wed, 07 Oct 2026 03:06:00 GMT",
+          "server": "cloudflare",
+          "vary": "Accept, accept-encoding"
+        },
+        "at": "2026-10-09T19:29:03.905Z",
+        "resourceType": "image",
+        "bytes": 617321,
+        "sha256": "5d30293d9d6d6d1f9bce6128625763c3bf8e20f2c5a6f5af623122e808df1f75",
+        "saved_as": "resp_0_5d30293d9d6d.bin"
+      }
+    ],
+    "iiif_img_elements": [
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/a96087ff-ea2e-924b-c6ec-7f279a2c140b/full/843,/0/default.jpg",
+        "srcset": "https://www.artic.edu/iiif/2/a96087ff-ea2e-924b-c6ec-7f279a2c140b/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/a96087ff-ea2e-924b-c6ec-7f279a2c140b/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/a96087ff-ea2e-924b-c6ec-7f279a2c140b/full/843,/0/default.jpg 843w",
+        "sizes": "(min-width: 1640px) 843px, (min-width: 1200px) 843px, (min-width: 900px) 843px, (min-width: 600px) 90.63vw,  90.63vw",
+        "naturalWidth": 843,
+        "naturalHeight": 1459
+      }
+    ],
+    "finished": "2026-10-09T19:29:10.424Z"
+  }
+}

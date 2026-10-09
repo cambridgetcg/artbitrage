@@ -1,0 +1,54 @@
+{
+  "id": "bushong-womans-overskirt",
+  "museum_id": 69510,
+  "image": "/assets/unsigned/bushong-womans-overskirt.jpg",
+  "image_source": "https://www.artic.edu/iiif/2/d461b4be-3f7b-0eee-a3fa-d4da4e14e8b8/full/843,/0/default.jpg",
+  "sha256": "e0830d885a73f7776e0db86e6eaca5b5bc3a9637436e063e6c59fa43a427ed2f",
+  "bytes": 116398,
+  "about": "Browser capture log for this work's image: the 2026-10-09 17:28 UTC capture that produced the file. It records the Art Institute of Chicago artwork page's own request for the IIIF image (URL, status, response headers, bytes and sha256). Copied from the capture session's working folder on 2026-10-09; the log itself is unchanged except as listed under redactions. Raw response bodies are not kept here: each equals the image file by sha256.",
+  "redactions": [],
+  "capture_log": {
+    "started": "2026-10-09T17:28:32.463Z",
+    "finished": "2026-10-09T17:28:43.795Z",
+    "page": "https://www.artic.edu/artworks/69510",
+    "pageStatus": 200,
+    "pageErr": null,
+    "title": "Woman's Overskirt | The Art Institute of Chicago",
+    "viewport": "1440x900 DPR1",
+    "playwright": "chromium headless",
+    "hits": [
+      {
+        "url": "https://www.artic.edu/iiif/2/d461b4be-3f7b-0eee-a3fa-d4da4e14e8b8/full/843,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+          "cache-control": "public, max-age=2592000, no-transform",
+          "x-powered-by": "Cantaloupe/4.1.7",
+          "cf-cache-status": "HIT",
+          "cf-ray": "a47f1a406cfd1e6d-ZRH",
+          "access-control-allow-origin": "*",
+          "date": "Fri, 09 Oct 2026 17:28:35 GMT",
+          "content-type": "image/jpeg",
+          "last-modified": "Fri, 09 Oct 2026 17:28:35 GMT",
+          "server": "cloudflare",
+          "vary": "Accept, accept-encoding"
+        },
+        "at": "2026-10-09T17:28:35.689Z",
+        "bytes": 116398,
+        "sha256": "e0830d885a73f7776e0db86e6eaca5b5bc3a9637436e063e6c59fa43a427ed2f",
+        "saved_as": "0_e0830d885a73.bin"
+      }
+    ],
+    "imgs": [
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/d461b4be-3f7b-0eee-a3fa-d4da4e14e8b8/full/843,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhCgAFAPUAAD0NBj4NBz8OBj8PBz4PCEERCVAlFFQoFVQoF1MnGFMoGFQpGFYrG1ctG1MtHFovHFkwHmIxHV83JF42JV44IGYuImA7I2Y6JpuGdZqFdpmGd52LfZ6MfaGNfZ2Pg6GOgKGPgKKPgKCQhaORhKORiaOUiaGVi6SUi6WWiqiZjquelaqelq+jmq+km66jnLKkobOqpbWrqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAKAAUAAAYuQJdm0+GAQh8MjBRJIAyHhcJSelUKBIBgEHB4ThfJBPJoMCiilanFUqVQo0wsCAA7",
+        "srcset": "https://www.artic.edu/iiif/2/d461b4be-3f7b-0eee-a3fa-d4da4e14e8b8/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/d461b4be-3f7b-0eee-a3fa-d4da4e14e8b8/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/d461b4be-3f7b-0eee-a3fa-d4da4e14e8b8/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/d461b4be-3f7b-0eee-a3fa-d4da4e14e8b8/full/1686,/0/default.jpg 1686w",
+        "sizes": "(min-width: 1640px) 843px, (min-width: 1200px) 843px, (min-width: 900px) 843px, (min-width: 600px) 90.63vw,  90.63vw",
+        "alt": "A work made of raffia, plain weave; pieced; embroidered in lateral looping, and stem and running stitches cut to form pile; couching; joined by buttonhole, pearl, and trammed twisted buttonhole stitches; edged in lateral looping stitches.",
+        "naturalWidth": 843,
+        "naturalHeight": 407
+      }
+    ]
+  }
+}

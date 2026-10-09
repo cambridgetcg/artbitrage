@@ -74,7 +74,7 @@ try {
   const rendered = [];
   const elements = new Map();
   function el(id) {
-    if (!elements.has(id)) elements.set(id, { id, textContent: '', innerHTML: '', appendChild() {} });
+    if (!elements.has(id)) elements.set(id, { id, textContent: '', innerHTML: '', appendChild() {}, setAttribute() {} });
     return elements.get(id);
   }
   const sandbox = {
@@ -106,6 +106,7 @@ try {
   assert.ok(!grid.includes('<img src=x onerror=alert(1)>'));
   assert.ok(!grid.includes('<script>bad</script>'));
   assert.ok(grid.includes('src="data:image/gif;base64,AAAA"'), 'LQIP data URL should render directly');
+  assert.ok(grid.includes('data-full-src="/api/img?url='), 'Local preview should upgrade to the museum image');
   assert.ok(grid.includes('alt="&lt;alt bad&gt;"'), 'alt text should be escaped');
   assert.ok(!grid.includes('javascript:alert(1)'), 'javascript: source link must be stripped');
 

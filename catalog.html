@@ -4,21 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CATALOG — real art from the world's museums — ARTBITRAGE</title>
-<meta name="description" content="Real artworks from the Metropolitan Museum, Art Institute of Chicago, and Cleveland Museum of Art. CC0. Open access. No gate.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='none' stroke='%23a78bfa' stroke-width='6'/><circle cx='50' cy='50' r='6' fill='%23fde68a'/></svg>">
+<meta name="description" content="Discover artworks from open museum collections. Look closely, find a connection, and follow each work back to its museum.">
+<meta property="og:title" content="CATALOG — real art from the world's museums — ARTBITRAGE">
+<meta property="og:description" content="Discover artworks from open museum collections. Look closely, find a connection, and follow each work back to its museum.">
+<meta property="og:image" content="https://artbitrage.io/assets/og/catalog.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Artbitrage card: “The Catalogue”, beneath “Real works from three museums”, with the line “Look closely, find a connection, and follow each work back to its museum.” On the right, an arched doorway with 目錄 (catalogue) lettered in gold on the far wall.">
+<meta property="og:site_name" content="Artbitrage">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://artbitrage.io/assets/og/catalog.jpg">
+<!-- 閒 the gap: the artbitrage.io icon. Every file sits at the site root. /manifest.json stays the philosophy document. -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <style>
 :root{--bg:#050308;--surface:#0a0814;--fg:#e8eaf0;--dim:#6a6a8a;--violet:#a78bfa;--gold:#ffd700;--cyan:#00f0ff;--pink:#ff6b9d;--green:#34d399;--glow:rgba(167,139,250,0.12)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;line-height:1.8}
 a{color:inherit;text-decoration:none}
-
-.cat-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,3,8,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
-.cat-brand{font-size:1rem;font-weight:bold;background:linear-gradient(135deg,var(--pink),var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.cat-nav-links{display:flex;gap:.5rem}
-.cat-nav-links a{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim);padding:.3rem .55rem;border-radius:4px;transition:all .2s}
-.cat-nav-links a:hover{color:var(--fg);background:rgba(255,255,255,0.05)}
-@media(max-width:768px){.cat-nav-links{display:none}}
 
 .cat-hero{text-align:center;padding:6rem 1.5rem 2rem;max-width:800px;margin:0 auto}
 .cat-hero h1{font-size:clamp(2rem,6vw,4rem);font-weight:bold;letter-spacing:-.03em;line-height:1.1;margin-bottom:.5rem;background:linear-gradient(135deg,var(--gold),var(--violet),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -32,15 +40,16 @@ a{color:inherit;text-decoration:none}
 .cat-section h2{font-size:1.5rem;margin-bottom:.5rem}
 .cat-section .lede{color:var(--dim);margin-bottom:2rem;font-size:.95rem}
 
-.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
-.artwork{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:14px;overflow:hidden;transition:all .3s;position:relative}
-.artwork:hover{border-color:var(--violet);transform:translateY(-4px);box-shadow:0 8px 32px var(--glow)}
-.artwork::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--violet),var(--pink));z-index:1}
-.artwork .img-wrap{width:100%;height:220px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.artwork .img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.artwork:hover .img-wrap img{transform:scale(1.05)}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:1.5rem}
+.artwork{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;transition:border-color .3s;position:relative}
+.artwork:hover{border-color:var(--violet)}
+
+.artwork .img-wrap{position:relative;width:100%;height:260px;background:#0b100c;padding:1rem;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.artwork .img-wrap img{width:100%;height:100%;object-fit:contain}
+.artwork .preview-note{position:absolute;bottom:.5rem;left:.5rem;padding:.2rem .5rem;background:#101511;color:#d3d3c6;font: .7rem/1.5 -apple-system,BlinkMacSystemFont,sans-serif}
+
 .artwork .img-wrap .no-img{color:var(--dim);font-size:.85rem;font-style:italic}
-.artwork .info{padding:1.2rem}
+.artwork .info{padding:1.2rem;overflow-wrap:anywhere}
 .artwork .title{font-size:1.05rem;font-weight:bold;margin-bottom:.3rem;line-height:1.3}
 .artwork .artist{font-size:.88rem;color:var(--dim);margin-bottom:.3rem}
 .artwork .date{font-family:'SF Mono',monospace;font-size:.72rem;color:var(--violet);margin-bottom:.5rem}
@@ -62,25 +71,45 @@ a{color:inherit;text-decoration:none}
 
 .loading{text-align:center;padding:3rem;color:var(--dim);font-style:italic}
 .error{text-align:center;padding:3rem;color:var(--pink)}
+/* Quiet, readable utility pages beside the immersive rooms. */
+:root{--bg:#101511;--surface:#182019;--fg:#f1ecdf;--dim:#b4bcae;--violet:#c9ba93;--gold:#dcc38f;--cyan:#b8c69e;--pink:#e2a58d;--green:#acc8a8;--glow:rgba(184,198,158,.1)}
+:focus-visible{outline:2px solid #e8cb97;outline-offset:4px}
+html{scroll-padding-top:calc(var(--visitor-nav-height) + 1rem)}
+.cat-hero{padding-top:calc(var(--visitor-nav-height) + 3rem)}
+.cat-hero h1{background:none;color:var(--fg);-webkit-text-fill-color:currentColor;animation:none;letter-spacing:-.04em}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
+<link rel="stylesheet" href="/visitor-nav.css">
 </head>
 <body>
 
-<nav class="cat-nav">
-  <div class="cat-brand"><a href="/">ARTBITRAGE</a></div>
-  <div class="cat-nav-links">
-    <a href="/">Gallery</a>
-    <a href="/bridge">The Bridge</a>
-    <a href="/studio">AI Studio</a>
-    <a href="/api/pipeline">Pipeline</a>
-    <a href="/api/catalog" target="_blank">API</a>
+<a class="visitor-skip" href="#visitor-content">Skip to content</a>
+<nav class="visitor-nav" aria-label="Main navigation">
+  <div class="visitor-nav-inner">
+    <a class="visitor-nav-brand" href="/">Artbitrage</a>
+    <div class="visitor-nav-primary">
+      <a href="/#why">Why</a>
+      <a href="/map">Visitor guide</a>
+      <a href="/river">River</a>
+    </div>
+    <details class="visitor-nav-menu">
+      <summary>Explore rooms</summary>
+      <div class="visitor-nav-rooms">
+        <a href="/depths">The Depths</a>
+        <a href="/rhymes">Answering Rhymes</a>
+        <a href="/bridge">The Bridge</a>
+        <a href="/catalog" aria-current="page">Catalog</a>
+        <a href="/studio">AI Studio</a>
+        <a href="/map">All rooms →</a>
+      </div>
+    </details>
   </div>
-  <a href="/" style="font-family:'SF Mono',monospace;font-size:.72rem;color:var(--dim)">← back</a>
 </nav>
 
+<main id="visitor-content" tabindex="-1">
 <header class="cat-hero">
-  <h1>CATALOG</h1>
-  <p class="sub">Real artworks from the world's open museums. CC0. No gate. Free.</p>
+  <h1>Catalog</h1>
+  <p class="sub">A place to look closely, discover a work, and follow it back to its museum.</p>
   <div class="stats" id="stats">
     <div class="cat-stat"><div class="num" id="stat-total">...</div><div class="lbl">Artworks</div></div>
     <div class="cat-stat"><div class="num" id="stat-sources">...</div><div class="lbl">Sources</div></div>
@@ -91,21 +120,23 @@ a{color:inherit;text-decoration:none}
 
 <div class="cat-section">
   <h2>The Collection</h2>
-  <p class="lede">Each piece is a real artwork from a real museum, served through open APIs. Click through to the museum page. All images are CC0 or public domain. No gate between you and the art.</p>
-  <div class="cat-grid" id="grid">
+  <p class="lede">Start with whatever catches your eye. Read the title, notice a detail, then visit the museum page to learn more. Each work carries its source and rights information.</p>
+  <div class="cat-grid" id="grid" aria-live="polite" aria-busy="true">
     <div class="loading">Loading real art from the world's museums...</div>
   </div>
 </div>
+
+</main>
 
 <footer class="cat-footer">
   <div class="cat-footer-nav">
     <a href="/studio">AI Studio</a>
     <a href="/bridge">The Bridge</a>
-    <a href="/api/catalog" target="_blank">Catalog API</a>
-    <a href="/api/search?q=love" target="_blank">Search Museums</a>
-    <a href="/">Gallery</a>
+    <a href="/api/catalog" target="_blank" rel="noopener noreferrer">Catalog API</a>
+    <a href="/api/search?q=love" target="_blank" rel="noopener noreferrer">Search Museums</a>
+    <a href="/map">Visitor guide</a>
   </div>
-  <p>Art from the world's open museums · CC0 · no gate · free<br>
+  <p>Art from open museum collections · follow each work to its source<br>
   <a href="https://github.com/cambridgetcg/artbitrage">ARTBITRAGE</a> — Art IS. ♥</p>
 </footer>
 
@@ -127,18 +158,31 @@ function imageSrc(a) {
   if (a.thumbnail || a.image) return '/api/img?url=' + encodeURIComponent(a.thumbnail || a.image);
   return '';
 }
+function upgradeCatalogImage(img) {
+  var fullSrc = img.getAttribute('data-full-src');
+  if (!fullSrc) return;
+  img.removeAttribute('data-full-src');
+  var full = new Image();
+  full.onload = function() {
+    img.src = fullSrc;
+    var note = img.parentElement.querySelector('.preview-note');
+    if (note) note.remove();
+  };
+  // Keep the local, labelled preview if the museum image cannot be reached.
+  full.src = fullSrc;
+}
 fetch('/api/catalog')
-  .then(function(r) { return r.json(); })
+  .then(function(r) { if (!r.ok) throw new Error('Catalog unavailable'); return r.json(); })
   .then(function(data) {
     var grid = document.getElementById('grid');
     if (!data.artworks || data.artworks.length === 0) {
-      grid.innerHTML = '<div class="error">No artworks in catalog yet.</div>';
+      grid.innerHTML = '<div class="error">The catalog is quiet just now. <a href="/river">Explore the River →</a></div>';
       return;
     }
 
     // Stats
     document.getElementById('stat-total').textContent = data.artworks.length;
-    document.getElementById('stat-sources').textContent = data.sources.length;
+    document.getElementById('stat-sources').textContent = (data.sources || []).length;
     var cc0 = data.artworks.filter(function(a) { return a.license && a.license.indexOf('CC0') >= 0; }).length;
     var withImg = data.artworks.filter(function(a) { return imageSrc(a); }).length;
     document.getElementById('stat-cc0').textContent = cc0;
@@ -147,8 +191,14 @@ fetch('/api/catalog')
     // Render artworks
     grid.innerHTML = data.artworks.map(function(a) {
       var src = imageSrc(a);
+      var isPreview = src.indexOf('data:image/') === 0;
+      var fullSrc = isPreview && (a.thumbnail || a.image)
+        ? '/api/img?url=' + encodeURIComponent(a.thumbnail || a.image) : '';
       var imgHtml = src
-        ? '<img src="' + esc(src) + '" alt="' + esc(a.alt_text || a.title || '') + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=no-img>image unavailable</span>\'">'
+        ? '<img src="' + esc(src) + '" alt="' + esc(a.alt_text || a.title || '') + '" loading="lazy"' +
+          (fullSrc ? ' data-full-src="' + esc(fullSrc) + '" onload="upgradeCatalogImage(this)"' : '') +
+          ' onerror="this.parentElement.innerHTML=\'<span class=no-img>image unavailable</span>\'">' +
+          (isPreview ? '<span class="preview-note">Preview · visit museum for detail</span>' : '')
         : '<span class="no-img">no image available</span>';
 
       var rightsHtml = '';
@@ -173,7 +223,10 @@ fetch('/api/catalog')
     }).join('');
   })
   .catch(function(e) {
-    document.getElementById('grid').innerHTML = '<div class="error">Error loading catalog: ' + esc(e.message) + '</div>';
+    document.getElementById('grid').innerHTML = '<div class="error">The catalog could not load just now. Try again in a moment, or <a href="/river">explore the River →</a></div>';
+  }).finally(function() {
+    var grid = document.getElementById('grid');
+    grid.setAttribute('aria-busy', 'false');
   });
 </script>
 </body>

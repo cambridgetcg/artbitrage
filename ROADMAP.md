@@ -19,6 +19,15 @@ would lose the only source of what is live.
 **Done when:** whoever owns that worktree has committed and pushed those files,
 and the deployed pages compare equal to the committed ones.
 
+**Status (9 October 2026): done.** The worktree's files were committed
+byte-for-byte as `974ea7aed` on `codex/artbitrage-public-entry-20260927`, and
+all 56 deployed pages compared equal to it. The next release, `e54c10fc0`
+(the 閒 icon, doorway share cards and `/unsigned`), was deployed from a staged
+copy of that commit's `dist/` plus the root `functions/`, as Pages deployment
+`878a285a` with its commit hash recorded; all 57 live pages compare equal to
+it. Both commits reach `main` through PR "the 閒 door, doorway share cards, and
+a room without names".
+
 ## 2. Let the public site see the cycle again
 
 **Seen:** the live collection, feed and stats are frozen at

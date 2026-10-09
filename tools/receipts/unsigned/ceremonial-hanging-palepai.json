@@ -1,0 +1,108 @@
+{
+  "id": "ceremonial-hanging-palepai",
+  "museum_id": 180298,
+  "image": "/assets/unsigned/ceremonial-hanging-palepai.jpg",
+  "image_source": "https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/843,/0/default.jpg",
+  "sha256": "a849212fab16e9b53acf585d3784cc89782eaa6437c6f11530a48a494aef6f10",
+  "bytes": 72842,
+  "about": "Browser capture log for this work's image: the 2026-10-09 17:24 UTC capture that produced the file. It records the Art Institute of Chicago artwork page's own request for the IIIF image (URL, status, response headers, bytes and sha256). Copied from the capture session's working folder on 2026-10-09; the log itself is unchanged except as listed under redactions. Raw response bodies are not kept here: each equals the image file by sha256.",
+  "redactions": [],
+  "capture_log": {
+    "page": "https://www.artic.edu/artworks/180298",
+    "started": "2026-10-09T17:24:06.362Z",
+    "page_status": 200,
+    "page_title": "Ceremonial Hanging (Palepai) | The Art Institute of Chicago",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/147.0.7727.15 Safari/537.36",
+    "iiif_responses": [
+      {
+        "url": "https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/843,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+          "cache-control": "public, max-age=2592000, no-transform",
+          "x-powered-by": "Cantaloupe/4.1.7",
+          "cf-cache-status": "HIT",
+          "age": "913517",
+          "cf-ray": "a47f13c03c87fbd6-ZRH",
+          "access-control-allow-origin": "*",
+          "date": "Fri, 09 Oct 2026 17:24:08 GMT",
+          "content-type": "image/jpeg",
+          "last-modified": "Sun, 04 Oct 2026 17:32:51 GMT",
+          "server": "cloudflare",
+          "vary": "Accept, accept-encoding"
+        },
+        "at": "2026-10-09T17:24:08.298Z",
+        "resourceType": "image",
+        "bytes": 72842,
+        "sha256": "a849212fab16e9b53acf585d3784cc89782eaa6437c6f11530a48a494aef6f10",
+        "saved_as": "resp_0_a849212fab16.bin"
+      }
+    ],
+    "iiif_img_elements": [
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/843,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhEwAFAPYAAE42J044J0s0KEw1KE02KE82KU44Kk05LFA2KFA3KFE4KFI4KFA4KlE5KlM7KlA6LlE6Lk89M1I8MVI9MVA/MlY9MVU/MVNDMlJCM1VAMVRAM1ZBMldBM1ZDM1dDM1ZEMlZDNVVENFZENFhDMVhDM1pGNFhHNlpHNl1IM11JNV1KNVxIOVxLPWFKMGJMPFxLQWJSRHxybYJ2boR4boJ2cIJ3cIN3cIJ3cYJ3coJ3c4R5coR5c4N6d4d9d4Z8eIR8eoh+epyWlZ6YmJ6ZmZ2Ymp6Zm5+am5+bm5+cnqCbmqKcm6CbnKOdnaCdoKahoKeioaqmpqimqKyoqayrr62rr66sr6+sr6+usgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAATAAUAAAddgFNNSEeFhUlLS0xMSkJBR0lVUS8aJiYUISEUFCMjJiAmHxorT1UwDxotFygjFCAVFSkXKRoPLlBTLAEMA7y9BwYIAwgADAwaT1c/MTc7PT9AQDw5Ozc3MjM3OVKBADs=",
+        "srcset": "https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/1686,/0/default.jpg 1686w",
+        "sizes": "(min-width: 1640px) 843px, (min-width: 1200px) 843px, (min-width: 900px) 843px, (min-width: 600px) 90.63vw,  90.63vw",
+        "naturalWidth": 843,
+        "naturalHeight": 229,
+        "alt": "Large rectangle of fabric, geometric shapes depicting ship and people, in red, blue and yellow."
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/843,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhEwAFAPYAAE42J044J0s0KEw1KE02KE82KU44Kk05LFA2KFA3KFE4KFI4KFA4KlE5KlM7KlA6LlE6Lk89M1I8MVI9MVA/MlY9MVU/MVNDMlJCM1VAMVRAM1ZBMldBM1ZDM1dDM1ZEMlZDNVVENFZENFhDMVhDM1pGNFhHNlpHNl1IM11JNV1KNVxIOVxLPWFKMGJMPFxLQWJSRHxybYJ2boR4boJ2cIJ3cIN3cIJ3cYJ3coJ3c4R5coR5c4N6d4d9d4Z8eIR8eoh+epyWlZ6YmJ6ZmZ2Ymp6Zm5+am5+bm5+cnqCbmqKcm6CbnKOdnaCdoKahoKeioaqmpqimqKyoqayrr62rr66sr6+sr6+usgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAATAAUAAAddgFNNSEeFhUlLS0xMSkJBR0lVUS8aJiYUISEUFCMjJiAmHxorT1UwDxotFygjFCAVFSkXKRoPLlBTLAEMA7y9BwYIAwgADAwaT1c/MTc7PT9AQDw5Ozc3MjM3OVKBADs=",
+        "srcset": "https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/ca9c6ee4-58a1-38fa-362f-b00f9a5996d4/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 399,
+        "naturalHeight": 108,
+        "alt": "Large rectangle of fabric, geometric shapes depicting ship and people, in red, blue and yellow."
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/03b3c996-6df5-7393-e676-101f52555895/full/400,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhBwAFAPUAAEw1KE01KEw0KU02KUk3LEo3LEw4KU45Kk88K0o6LE45Lk48LFA4KVE6LlhDLU9AMVFBMVNAM1lHMl1JMl9PQ1lNRlxMRF9PRGBQQ2JRQmBQRXtuZn9zbIF1cIB1cYF2cYF4dQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAHAAUAAAYeQJBn2OlsCgwDYpFwRBoKSeQxKRgEWGzForlYMJggADs=",
+        "srcset": "https://www.artic.edu/iiif/2/03b3c996-6df5-7393-e676-101f52555895/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/03b3c996-6df5-7393-e676-101f52555895/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/03b3c996-6df5-7393-e676-101f52555895/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/03b3c996-6df5-7393-e676-101f52555895/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 400,
+        "naturalHeight": 300,
+        "alt": ""
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/7d1e6ed7-f5b8-fce0-36b5-1dafa237c382/full/400,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhEgAFAPYAAEg7MU0+MU4+MFBAM1BBM1BCN1JDNlNDNlJEN1ZFN1hGN1lGN1pIN11INVxJN19JNlBEO1VFOVdGOFZHOFRFOlVHOllJOFpJO1tKOlpKO11JOF5KOF5KOVxLOl5MO1hKPVhMP1xNP2BKN2JLNmZSPWZTPWRQP2VTP2ZTP2dUPmdUP2JRQGdTQGhVQmlWQmxXQIyEf4yEgY2GgY2Hg42HhY2Ih46Iho+Iho6Jho+Jh5CIhpCJh5CKhpKKiJCLi5uSjpqUkp6WkpiUlJmUlJiUlZuVlJqVlZyWlZyWlp2Xl5+Yl5yXmJ+amp+am6CZlqCbmaCbm6WgoamlpKynp6uoq66pqqyqrgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAASAAUAAAdVgFVIQ0BDSEpISExQi0tDj1Q/Bx0WHhYJCwUUFAgrFhSfUE4ULSompyYQHywqpS8hIFJBAQwjDw8jAQADCx0dDx0DB1FTMTEwMTw5PD3KOTQ50T1WgQA7",
+        "srcset": "https://www.artic.edu/iiif/2/7d1e6ed7-f5b8-fce0-36b5-1dafa237c382/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/7d1e6ed7-f5b8-fce0-36b5-1dafa237c382/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/7d1e6ed7-f5b8-fce0-36b5-1dafa237c382/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/7d1e6ed7-f5b8-fce0-36b5-1dafa237c382/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 400,
+        "naturalHeight": 113,
+        "alt": ""
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/a397761b-9a43-c9e7-7789-65259b03152b/full/400,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhCgAFAPUAAEw0J001KEw1KU02KE03Lk44KU45Kks4LU86LEw7Lk06L008LFA6K1I6L1M8LFE8LlA9LlNALk1AM1NAMFBAMlRBMVVCNFlHM1lENVlHNGVaVmlbVGtdVWxeVGxfVWxfVm5hW3BiVnBiWomAf4qCgIuCgYmCgo6GhY6HhpKKiZGKipKMjZqTk5uUlJ2YmJ6ZmqaipQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAKAAUAAAYswJVKhUKRRiQSTOFwTBSRRcHRsjQqGcllQsi8DoWAGBBgKFgajkftCYlAryAAOw==",
+        "srcset": "https://www.artic.edu/iiif/2/a397761b-9a43-c9e7-7789-65259b03152b/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/a397761b-9a43-c9e7-7789-65259b03152b/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/a397761b-9a43-c9e7-7789-65259b03152b/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/a397761b-9a43-c9e7-7789-65259b03152b/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 400,
+        "naturalHeight": 201,
+        "alt": ""
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/f5e5116f-a0d1-2f1d-a2ac-5319325a0213/full/400,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhCgAFAPUAAEI2LUg6Lks9Mk0/NEw/NU9BNk5BN1ZCMlBBNlRDNVVENVRFNllEM1pFNFtGNV9INVBFO1ZHOFdHOlRGPFlJOl1NO19OPF9PPWNPPWJPP3FoY3RrZndtZndtaHlxa3lxbHlyb351cn93dJGIhZiPjZeQjpSQkZWRk5mTlZmUlZiUlpiUl5qVl5mWmZ2Ym6KcnKmlqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAKAAUAAAYsQJirhVIZVSbTaCBZSCiFBaJQGmQs2EpmAiEFEg+Gw3EACF4aDmfj+XxCoiAAOw==",
+        "srcset": "https://www.artic.edu/iiif/2/f5e5116f-a0d1-2f1d-a2ac-5319325a0213/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/f5e5116f-a0d1-2f1d-a2ac-5319325a0213/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/f5e5116f-a0d1-2f1d-a2ac-5319325a0213/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/f5e5116f-a0d1-2f1d-a2ac-5319325a0213/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 400,
+        "naturalHeight": 211,
+        "alt": ""
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/a903b35b-64e9-4cba-a0a5-29ec591e801a/full/400,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhBwAFAPUAAD4yKkY6MEg6MU8/Mk1AMU5DOVNAMFJBMlVFNFVGNlpENFpFNFtGNV1HNVBDOVpJOFtKOFxLOV1MOl9OOmNPPF9WUGdbU2FZVGdcVGZcVWZcVmpeVmtgV21jXG5mX3BnXm1mYXJpZHVsaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAHAAUAAAYgQFEI5Pl0OAKAQcFsFBwUyCQyCQwMBAQEcalYMplNJggAOw==",
+        "srcset": "https://www.artic.edu/iiif/2/a903b35b-64e9-4cba-a0a5-29ec591e801a/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/a903b35b-64e9-4cba-a0a5-29ec591e801a/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/a903b35b-64e9-4cba-a0a5-29ec591e801a/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/a903b35b-64e9-4cba-a0a5-29ec591e801a/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 400,
+        "naturalHeight": 300,
+        "alt": ""
+      }
+    ],
+    "finished": "2026-10-09T17:24:14.462Z"
+  }
+}

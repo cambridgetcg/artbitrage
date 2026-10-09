@@ -148,8 +148,9 @@ for (const href of ['#search', 'feelings.html', 'map.html#find', 'trade.html']) 
 assert.doesNotMatch(startBlock, /target="_blank"|<script/i);
 assert.doesNotMatch(startBlock.split('>')[0], /\brise\b/);
 assert.match(indexSource, /id="search"/);
-assert.match(indexSource, /rights · ' \+ rightsText/);
-assert.match(indexSource, /unverified — check the source before reuse/);
+const welcomeScript = await readFile(new URL('../welcome.js', import.meta.url), 'utf8');
+assert.match(welcomeScript, /rights · ' \+ rightsText/);
+assert.match(welcomeScript, /unverified — check the source before reuse/);
 
 const feelings = await readFile(new URL('../feelings.html', import.meta.url), 'utf8');
 const map = await readFile(new URL('../map.html', import.meta.url), 'utf8');

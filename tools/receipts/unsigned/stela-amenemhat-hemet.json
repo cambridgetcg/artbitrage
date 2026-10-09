@@ -1,0 +1,93 @@
+{
+  "id": "stela-amenemhat-hemet",
+  "museum_id": 127859,
+  "image": "/assets/unsigned/stela-amenemhat-hemet.jpg",
+  "image_source": "https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/843,/0/default.jpg",
+  "sha256": "907429cada0044c15f7fc788479abc97cf2d002e4c2d2587980eafb972ad6187",
+  "bytes": 189469,
+  "about": "Browser capture log for this work's image: the 2026-10-09 19:29 UTC page capture, made during the review fixes; it confirms the file saved at about 16:52 UTC. It records the Art Institute of Chicago artwork page's own request for the IIIF image (URL, status, response headers, bytes and sha256). Copied from the capture session's working folder on 2026-10-09; the log itself is unchanged except as listed under redactions. Raw response bodies are not kept here: each equals the image file by sha256.",
+  "redactions": [],
+  "capture_log": {
+    "page": "https://www.artic.edu/artworks/127859",
+    "started": "2026-10-09T19:29:10.695Z",
+    "page_status": 200,
+    "final_url": "https://www.artic.edu/artworks/127859/stela-of-amenemhat-and-hemet",
+    "goto_error": null,
+    "page_title": "Stela of Amenemhat and Hemet | The Art Institute of Chicago",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/147.0.7727.15 Safari/537.36",
+    "playwright": "1.59.1",
+    "viewport": "1440x900 DPR1",
+    "iiif_responses": [
+      {
+        "url": "https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/400,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+          "cache-control": "public, max-age=2592000, no-transform",
+          "x-powered-by": "Cantaloupe/4.1.7",
+          "cf-cache-status": "HIT",
+          "age": "1200605",
+          "cf-ray": "a47fcaf4ccf58822-ZRH",
+          "access-control-allow-origin": "*",
+          "date": "Fri, 09 Oct 2026 19:29:12 GMT",
+          "content-type": "image/jpeg",
+          "last-modified": "Thu, 08 Oct 2026 16:02:01 GMT",
+          "server": "cloudflare",
+          "vary": "Accept, accept-encoding"
+        },
+        "at": "2026-10-09T19:29:12.393Z",
+        "resourceType": "image",
+        "bytes": 48857,
+        "sha256": "f47111a587b38c0fb32a815561433b8b6389737ad59c0092a14ca8a3fc858153",
+        "saved_as": "resp_0_f47111a587b3.bin"
+      },
+      {
+        "url": "https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/843,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+          "cache-control": "public, max-age=2592000, no-transform",
+          "x-powered-by": "Cantaloupe/4.1.7",
+          "cf-cache-status": "HIT",
+          "age": "1198426",
+          "cf-ray": "a47fcaf4ccf18822-ZRH",
+          "access-control-allow-origin": "*",
+          "date": "Fri, 09 Oct 2026 19:29:12 GMT",
+          "content-type": "image/jpeg",
+          "last-modified": "Sun, 04 Oct 2026 08:30:35 GMT",
+          "server": "cloudflare",
+          "vary": "Accept, accept-encoding"
+        },
+        "at": "2026-10-09T19:29:12.386Z",
+        "resourceType": "image",
+        "bytes": 189469,
+        "sha256": "907429cada0044c15f7fc788479abc97cf2d002e4c2d2587980eafb972ad6187",
+        "saved_as": "resp_1_907429cada00.bin"
+      }
+    ],
+    "iiif_img_elements": [
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/843,/0/default.jpg",
+        "srcset": "https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/1686,/0/default.jpg 1686w",
+        "sizes": "(min-width: 1640px) 843px, (min-width: 1200px) 843px, (min-width: 900px) 843px, (min-width: 600px) 90.63vw,  90.63vw",
+        "naturalWidth": 843,
+        "naturalHeight": 674
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/843,/0/default.jpg",
+        "srcset": "https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 399,
+        "naturalHeight": 319
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/2e074049-ba1e-5ca2-ace5-ffaf02316f43/full/400,/0/default.jpg",
+        "srcset": "https://www.artic.edu/iiif/2/2e074049-ba1e-5ca2-ace5-ffaf02316f43/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/2e074049-ba1e-5ca2-ace5-ffaf02316f43/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/2e074049-ba1e-5ca2-ace5-ffaf02316f43/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/2e074049-ba1e-5ca2-ace5-ffaf02316f43/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 400,
+        "naturalHeight": 319
+      }
+    ],
+    "finished": "2026-10-09T19:29:18.996Z"
+  }
+}

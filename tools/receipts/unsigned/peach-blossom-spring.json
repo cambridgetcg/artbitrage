@@ -1,0 +1,90 @@
+{
+  "id": "peach-blossom-spring",
+  "museum_id": 75361,
+  "image": "/assets/unsigned/peach-blossom-spring.jpg",
+  "image_source": "https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/843,/0/default.jpg",
+  "sha256": "a90a5ec2cf19c0d781ffcd45b8b756a3af28ad39fc399344f5dd02936be156eb",
+  "bytes": 84376,
+  "about": "Browser capture log for this work's image: the 2026-10-09 17:28 UTC capture that produced the file. It records the Art Institute of Chicago artwork page's own request for the IIIF image (URL, status, response headers, bytes and sha256). Copied from the capture session's working folder on 2026-10-09; the log itself is unchanged except as listed under redactions. Raw response bodies are not kept here: each equals the image file by sha256.",
+  "redactions": [],
+  "capture_log": {
+    "page": "https://www.artic.edu/artworks/75361",
+    "started": "2026-10-09T17:28:39.229Z",
+    "page_status": 200,
+    "page_title": "The Peach Blossom Spring 桃花源圖 | The Art Institute of Chicago",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/147.0.7727.15 Safari/537.36",
+    "iiif_responses": [
+      {
+        "url": "https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/843,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+          "cache-control": "public, max-age=2592000, no-transform",
+          "x-powered-by": "Cantaloupe/4.1.7",
+          "cf-cache-status": "HIT",
+          "age": "298358",
+          "cf-ray": "a47f1a630c70be77-ZRH",
+          "access-control-allow-origin": "*",
+          "date": "Fri, 09 Oct 2026 17:28:40 GMT",
+          "content-type": "image/jpeg",
+          "last-modified": "Fri, 09 Oct 2026 16:33:43 GMT",
+          "server": "cloudflare",
+          "vary": "Accept, accept-encoding"
+        },
+        "at": "2026-10-09T17:28:40.143Z",
+        "resourceType": "image",
+        "bytes": 84376,
+        "sha256": "a90a5ec2cf19c0d781ffcd45b8b756a3af28ad39fc399344f5dd02936be156eb",
+        "saved_as": "resp_0_a90a5ec2cf19.bin"
+      }
+    ],
+    "iiif_img_elements": [
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/843,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhEAAFAPYAAGReSG5nSWlkTG9mTHJqS3FrTnNrT3RpTXVqTXptTH5vTH1xTX9wTH9wTXxxT35zT3dwUHpwU3xwVHx3WYRyToN1TIF1T4l6Tot6T4t7T5J+T5N/T4N3UIZ5UoZ5VIh5UYh6Uo18UIx8UY5+UIp5VYh8VYx8VY9/VYJ6WYJ6WoR6WYZ9W4d+WoR7Xo1/Wot+XJJ/UJB/UoyAWomAXIuEX5GAUpOBU5aCUpOCVJWBVJaDVpODWJGDWpCCW5ODW5OFXJWFXZaFXpmHWpiHW5qHWpyGWZiGXJiHXZyIW5uIXZqJX5yJXoqBYo+EYJeHYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAQAAUAAAdSgENCOzwyKSosKz9IPiguEzQxODY1GSEWBA4nDAsFAgAQOjk3GxoLCQoNFAcIAxIRBh0eMCMXFRgiHAEPHyAkJiUzPUZKREVLSUdATk1MLS9BgQA7",
+        "srcset": "https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/1686,/0/default.jpg 1686w",
+        "sizes": "(min-width: 1640px) 843px, (min-width: 1200px) 843px, (min-width: 900px) 843px, (min-width: 600px) 90.63vw,  90.63vw",
+        "naturalWidth": 843,
+        "naturalHeight": 262,
+        "alt": "An ink and color handscroll of a landscape scene, mountains in the background, a river in the foreground and trees throughout the midground"
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/843,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhEAAFAPYAAGReSG5nSWlkTG9mTHJqS3FrTnNrT3RpTXVqTXptTH5vTH1xTX9wTH9wTXxxT35zT3dwUHpwU3xwVHx3WYRyToN1TIF1T4l6Tot6T4t7T5J+T5N/T4N3UIZ5UoZ5VIh5UYh6Uo18UIx8UY5+UIp5VYh8VYx8VY9/VYJ6WYJ6WoR6WYZ9W4d+WoR7Xo1/Wot+XJJ/UJB/UoyAWomAXIuEX5GAUpOBU5aCUpOCVJWBVJaDVpODWJGDWpCCW5ODW5OFXJWFXZaFXpmHWpiHW5qHWpyGWZiGXJiHXZyIW5uIXZqJX5yJXoqBYo+EYJeHYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAQAAUAAAdSgENCOzwyKSosKz9IPiguEzQxODY1GSEWBA4nDAsFAgAQOjk3GxoLCQoNFAcIAxIRBh0eMCMXFRgiHAEPHyAkJiUzPUZKREVLSUdATk1MLS9BgQA7",
+        "srcset": "https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/7d5dcd32-b556-6d64-c90e-d195717f633f/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 399,
+        "naturalHeight": 124,
+        "alt": "An ink and color handscroll of a landscape scene, mountains in the background, a river in the foreground and trees throughout the midground"
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/78738dee-be75-e2e0-a390-62fb0c1e3d2b/full/400,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhEAAFAPYAAGhcRG5jSW5nS25nTG9pTHppRnJqTXBoTndtTHZtT3lsSXhtTnxwS3pxTn9yT3VvU3VxU3ZxVXlyU390UXh0V350VH93WH99Wn58YIFvS4x6T4B1UYJ2UYB2UoV4UoZ4UoZ6VIl6UYx7VY59VI1+VoB4WIB4WoR+XYl+W4l/W4p/W5J8UJB/WoN9YIV/YIqCX5SAU5yDU5uGV52GVZ+IVpCCW5ODW5SCWZeEW5OFXpSEXpSEX5iFWZiFW5uGXJuIXpyIXp6MX6GKWKKLXKCLX46EYo6HZJCEYpWFYJCFZJ+MYJqMZZuMZaKNYaKOYKGQZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAQAAUAAAdSgCc5QTciQ05NSktPTCgmLi8EEx0cDh8jMjM0QikRDxAXAwcGCQsBADEwJDwqLRYUGBsNDAoaGQUrIR4lFRICCCAsNjU4PT4/REA6SUdIO0VGgQA7",
+        "srcset": "https://www.artic.edu/iiif/2/78738dee-be75-e2e0-a390-62fb0c1e3d2b/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/78738dee-be75-e2e0-a390-62fb0c1e3d2b/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/78738dee-be75-e2e0-a390-62fb0c1e3d2b/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/78738dee-be75-e2e0-a390-62fb0c1e3d2b/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 400,
+        "naturalHeight": 126,
+        "alt": ""
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/f4ce966d-fb42-680b-4358-026577844144/full/400,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhEAAFAPYAAHNsTn1wTXVuUHdyUnVzV3R1V31xUnt1Vn93VX13V3t4V395VHd2WHR0WnV1XHh2W3t4Wn94WH96W4B1UYF4V4x7Uo58UY59U45+U4J6WoN9WId8W4F+XIN+X4Z/Xoh/WZF8UY+AWouCX46EXZGBVpiBU5iCVZ2FVZOEWZOEW5WFW5aEW5eGW5CEXZGFXpOGXpeFXJiFXZmHXpWIW5eJX5qJX5uKX56KXp+LXoeEY4yDYI2EYImGZZKHYpWHYJKIYpCJZ5WIZZmJYZmKYaGPYaWQYKaQYaiUY6WWbc3DodDHpdDIptLKqtXOqwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAQAAUAAAdSgBIZIh47KS89NTZGRUdESEoFAwINBAwKHwgHKDMzARtNDw4JFBEcECMsKi00IQZBTAATFRcVFhggJScmJBoLP0sdOjArMTc4QjJDPi48OUBJgQA7",
+        "srcset": "https://www.artic.edu/iiif/2/f4ce966d-fb42-680b-4358-026577844144/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/f4ce966d-fb42-680b-4358-026577844144/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/f4ce966d-fb42-680b-4358-026577844144/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/f4ce966d-fb42-680b-4358-026577844144/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 400,
+        "naturalHeight": 125,
+        "alt": ""
+      },
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/a2c15007-6465-a67d-8295-3520ab8cfe20/full/400,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhEAAFAPYAAF9YQmFcQ2ReRW1iRW5lSG9oS3JmR3JoR3RpR3NoS3RpSXZoSHRrS3RtT3hqSHhsS3xwSntxTXxwTn9xT3JyV3twUHlwU3hyVn91Vnx6WoRzTIt3To14ToB2VYd7VIt7Uo5+U4p8V4x9V4N6WIF6WoJ6W4d6WYN9XYd/Xox+WYh/XZF+VIqCXYqBX42CXo2DXpCAVJeFV5qFVZmGVJuHVpGBWJODWJeGWJCDXpGFX5iGWZiHWpuIWp+JWYuCYo6FYomEZJGDY5WGYZGGZJeIYJKIZZ2LYJOKaKKPY6OQYqaSY8a5l8u/n9DFpNHHptLIqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAQAAUAAAdSgEtHHRYkLScsQEIuP0ZISklNPgEAAgUHCA8NFBkeNjQzT0MOEgQJCwYbHBoxNzw9Mk5FChEQAwwVHyAwKzo7IjVMQRcjIRMYJSYpKCo4OS9EgQA7",
+        "srcset": "https://www.artic.edu/iiif/2/a2c15007-6465-a67d-8295-3520ab8cfe20/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/a2c15007-6465-a67d-8295-3520ab8cfe20/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/a2c15007-6465-a67d-8295-3520ab8cfe20/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/a2c15007-6465-a67d-8295-3520ab8cfe20/full/1686,/0/default.jpg 1686w",
+        "sizes": "400px",
+        "naturalWidth": 400,
+        "naturalHeight": 126,
+        "alt": ""
+      }
+    ],
+    "finished": "2026-10-09T17:28:45.715Z"
+  }
+}

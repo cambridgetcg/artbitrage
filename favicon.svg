@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <title>閒 the gap — artbitrage.io</title>
+  <desc>A door in two leaves. The gap between them opens into a full round moon and closes again: the moon is not drawn, it is the gap, and whatever is behind the door shows through. 閒 (門 + 月, 隙也): moonlight seen through the gap of a door, the first way 間 was written. artbitrage.io, a place to meet art.</desc>
+  <style>
+    /* drawn at 22 px or less (a 16 px tab): the hand-hinted 16 px cut; larger: the 32 px cut */
+    #cut-16{display:none}
+    @media (max-width:22px){#cut-32{display:none}#cut-16{display:inline}}
+  </style>
+  <g id="artbitrage">
+    <path id="tile" d="M6 0 L26 0 C29.314 0 32 2.686 32 6 L32 26 C32 29.314 29.314 32 26 32 L6 32 C2.686 32 0 29.314 0 26 L0 6 C0 2.686 2.686 0 6 0 Z" fill="#17271f"/>
+    <g id="cut-16">
+      <path id="door-16" d="M10 2 L10 4 L8 4 L8 6 L6 6 L6 30 L14 30 L14 26 L12 26 L12 24 L10 24 L10 16 L12 16 L12 14 L14 14 L14 2 Z M18 2 L18 14 L20 14 L20 16 L22 16 L22 24 L20 24 L20 26 L18 26 L18 30 L26 30 L26 6 L24 6 L24 4 L22 4 L22 2 Z" fill="#dbcca7"/>
+      <path id="shoulders-16" d="M8 2 L10 2 L10 4 L8 4 Z M6 4 L8 4 L8 6 L6 6 Z M22 2 L24 2 L24 4 L22 4 Z M24 4 L26 4 L26 6 L24 6 Z" fill="#dbcca7" opacity="0.45"/>
+    </g>
+    <path id="cut-32" d="M6 30 L6 12 C6 7.248 9.344 3.152 14 2.202 L14 12.292 C11.033 13.176 9 15.904 9 19 C9 22.096 11.033 24.824 14 25.708 L14 30 Z M26 30 L26 12 C26 7.248 22.656 3.152 18 2.202 L18 12.292 C20.967 13.176 23 15.904 23 19 C23 22.096 20.967 24.824 18 25.708 L18 30 Z" fill="#dbcca7"/>
+  </g>
+</svg>

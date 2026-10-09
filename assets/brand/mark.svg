@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="72" viewBox="0 0 56 72">
+  <title>閒 the gap — artbitrage.io</title>
+  <desc>A door in two leaves. The gap between them opens into a full round moon and closes again: the moon is not drawn, it is the gap, and whatever is behind the door shows through. 閒 (門 + 月, 隙也): moonlight seen through the gap of a door, the first way 間 was written. artbitrage.io, a place to meet art.</desc>
+  <g id="artbitrage">
+    <path id="door" d="M8 64 L8 28 C8 18.496 14.688 10.305 24 8.404 L24 28.584 C18.067 30.353 14 35.809 14 42 C14 48.191 18.067 53.647 24 55.416 L24 64 Z M48 64 L48 28 C48 18.496 41.312 10.305 32 8.404 L32 28.584 C37.933 30.353 42 35.809 42 42 C42 48.191 37.933 53.647 32 55.416 L32 64 Z" fill="currentColor"/>
+  </g>
+</svg>

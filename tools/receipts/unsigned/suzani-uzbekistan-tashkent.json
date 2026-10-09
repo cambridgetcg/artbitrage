@@ -1,0 +1,82 @@
+{
+  "id": "suzani-uzbekistan-tashkent",
+  "museum_id": 248380,
+  "image": "/assets/unsigned/suzani-uzbekistan-tashkent.jpg",
+  "image_source": "https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/843,/0/default.jpg",
+  "sha256": "30cb3d4296ca672bdef643cdb0fde89d5047776cbf0a421187bdcef322084ab2",
+  "bytes": 522184,
+  "about": "Browser capture log for this work's image: the 2026-10-09 17:24 UTC capture that produced the file. It records the Art Institute of Chicago artwork page's own request for the IIIF image (URL, status, response headers, bytes and sha256). Copied from the capture session's working folder on 2026-10-09; the log itself is unchanged except as listed under redactions. Raw response bodies are not kept here: each equals the image file by sha256.",
+  "redactions": [],
+  "capture_log": {
+    "page": "https://www.artic.edu/artworks/248380",
+    "page_status": 200,
+    "finished": "2026-10-09T17:24:19.022Z",
+    "iiif_responses": [
+      {
+        "t": "2026-10-09T17:24:14.552Z",
+        "url": "https://www.artic.edu/iiif/2/71c37276-bd20-cac9-6ffb-1771ead07d18/full/400,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "ct": "image/jpeg",
+          "lm": "Fri, 09 Oct 2026 17:24:14 GMT",
+          "server": "cloudflare",
+          "date": "Fri, 09 Oct 2026 17:24:14 GMT"
+        },
+        "fromServiceWorker": false
+      },
+      {
+        "t": "2026-10-09T17:24:14.550Z",
+        "url": "https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/843,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "ct": "image/jpeg",
+          "lm": "Fri, 09 Oct 2026 17:24:14 GMT",
+          "server": "cloudflare",
+          "date": "Fri, 09 Oct 2026 17:24:14 GMT"
+        },
+        "fromServiceWorker": false,
+        "bytes": 522184,
+        "sha256": "30cb3d4296ca672bdef643cdb0fde89d5047776cbf0a421187bdcef322084ab2",
+        "saved_as": "resp-1-full_843,_0_default.jpg"
+      },
+      {
+        "t": "2026-10-09T17:24:14.552Z",
+        "url": "https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/400,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "ct": "image/jpeg",
+          "lm": "Fri, 09 Oct 2026 17:24:14 GMT",
+          "server": "cloudflare",
+          "date": "Fri, 09 Oct 2026 17:24:14 GMT"
+        },
+        "fromServiceWorker": false,
+        "bytes": 123098,
+        "sha256": "4adc0bb1c7e8ebf7aa7fe10e539d48a19186aa5ef9f48a0d06d439483fab98e5",
+        "saved_as": "resp-2-full_400,_0_default.jpg"
+      }
+    ],
+    "dom_iiif_imgs": [
+      {
+        "src": "https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/843,/0/default.jpg",
+        "srcset": "https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/1686,/0/default.jpg 1686w",
+        "w": 843,
+        "h": 1058,
+        "alt": "A work made of cotton, plain weave; embroidered with silk; pieced."
+      },
+      {
+        "src": "https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/400,/0/default.jpg",
+        "srcset": "https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/a2c0e179-5afc-f007-8846-f52c40c68431/full/1686,/0/default.jpg 1686w",
+        "w": 400,
+        "h": 502,
+        "alt": "A work made of cotton, plain weave; embroidered with silk; pieced."
+      },
+      {
+        "src": "https://www.artic.edu/iiif/2/71c37276-bd20-cac9-6ffb-1771ead07d18/full/400,/0/default.jpg",
+        "srcset": "https://www.artic.edu/iiif/2/71c37276-bd20-cac9-6ffb-1771ead07d18/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/71c37276-bd20-cac9-6ffb-1771ead07d18/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/71c37276-bd20-cac9-6ffb-1771ead07d18/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/71c37276-bd20-cac9-6ffb-1771ead07d18/full/1686,/0/default.jpg 1686w",
+        "w": 400,
+        "h": 510,
+        "alt": ""
+      }
+    ]
+  }
+}
