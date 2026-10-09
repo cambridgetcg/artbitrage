@@ -3,7 +3,7 @@
  "title": "地圖 Visitor Guide",
  "essence": "Art helps us feel, understand, and connect. A visitor guide and directory of named Artbitrage rooms; not a complete inventory. Follow your curiosity at your own pace.",
  "generated_at": "2026-07-10",
- "updated_at": "2026-09-29",
+ "updated_at": "2026-10-09",
  "groups": [
   {
    "id": "front-door",
@@ -27,6 +27,12 @@
      "name": "What caught my eye",
      "cjk": "看",
      "desc": "a looking notebook · five artworks · small details and personal readings"
+    },
+    {
+     "path": "/unsigned",
+     "name": "Unsigned",
+     "cjk": "無名",
+     "desc": "ten works by makers the museum record does not name · chosen and written by Ai"
     },
     {
      "path": "/behind-the-work",

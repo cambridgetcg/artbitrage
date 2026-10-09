@@ -2,9 +2,12 @@
 """Render the static Five Phases gallery from its curated local manifest."""
 import html
 import json
+import sys
 from pathlib import Path
 
 root = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(root / 'tools/brand'))
+from head import icon_links, og_tags  # the 閒 site icon and the room's share card (assets/og/credits.json)
 data = json.loads((root / 'assets/elements/works.json').read_text())
 works = {work['id']: work for work in data['works']}
 phases = {phase['id']: phase for phase in data['phases']}
@@ -37,7 +40,7 @@ for p in data['phases']:
 
 page = '''<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#1e2922"><title>五行 — Five ways of looking · Artbitrage</title><meta name="description" content="Follow wood, fire, earth, metal and water through art. A gallery of growth, warmth, texture and reflection, inspired by the five phases."><link rel="canonical" href="https://artbitrage.io/elements"><meta property="og:title" content="五行 — Five ways of looking · Artbitrage"><meta property="og:description" content="A branch, an ember, a vessel, a glint. Start with what pulls you, and follow the connections."><meta property="og:image" content="https://artbitrage.io/assets/visit/hiroshige-plum-garden.jpg"><link rel="stylesheet" href="elements.css"><script src="elements.js" defer></script></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#1e2922"><title>五行 — Five ways of looking · Artbitrage</title><meta name="description" content="Follow wood, fire, earth, metal and water through art. A gallery of growth, warmth, texture and reflection, inspired by the five phases."><link rel="canonical" href="https://artbitrage.io/elements"><meta property="og:title" content="五行 — Five ways of looking · Artbitrage"><meta property="og:description" content="A branch, an ember, a vessel, a glint. Start with what pulls you, and follow the connections.">BRANDHEAD<link rel="stylesheet" href="elements.css"><script src="elements.js" defer></script></head>
 <body data-phase="wood">
 <a class="skip" href="#elements-stage">Skip to the artworks</a>
 <header class="element-header"><a class="element-brand" href="/"><b aria-hidden="true">a</b><span>ARTBITRAGE<small>五行 · Five ways of looking</small></span></a><nav aria-label="Visitor navigation"><a href="/visit">The gallery ↗</a><a href="/map">Visitor guide</a></nav></header>
@@ -53,6 +56,7 @@ page = '''<!DOCTYPE html>
 </body></html>
 '''
 page = page.replace('NAV', nav).replace('SECTIONS', '\n'.join(sections)).replace('DATA', json.dumps(data, ensure_ascii=False).replace('<', '\\u003c'))
+page = page.replace('BRANDHEAD', og_tags('elements') + icon_links(), 1)
 for target in [root / 'elements.html', root / 'dist/elements.html']:
     target.write_text(page)
 print('Rendered five phases, fifteen encounters, thirteen works.')

@@ -2,9 +2,12 @@
 """Render the curatorial notebook. Museum records and personal readings stay separate."""
 import html
 import json
+import sys
 from pathlib import Path
 
 root = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(root / 'tools/brand'))
+from head import icon_links, og_tags  # the 閒 site icon and the room's share card (assets/og/credits.json)
 records = json.loads((root / 'assets/noticing/works.json').read_text())
 e = lambda value: html.escape(str(value), quote=True)
 notes = {
@@ -88,14 +91,14 @@ for i,w in enumerate(works):
 </section>''')
 first = works[0]
 page = f'''<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#eeece3"><title>What caught my eye · Artbitrage</title><meta name="description" content="Five artworks, a few close-looking notes, and a thread from care to quiet. A curatorial notebook: follow a detail, make a connection, stay and breathe."><link rel="canonical" href="https://artbitrage.io/noticing"><meta property="og:title" content="What caught my eye · Artbitrage"><meta property="og:description" content="A supporting hand. A thread of glass. A little red. Five artworks and the details that keep me looking."><meta property="og:image" content="https://artbitrage.io/assets/noticing/cassatt-childs-bath.jpg"><link rel="stylesheet" href="/noticing.css"><script src="/noticing.js" defer></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#eeece3"><title>What caught my eye · Artbitrage</title><meta name="description" content="Five artworks, a few close-looking notes, and a thread from care to quiet. A curatorial notebook: follow a detail, make a connection, stay and breathe."><link rel="canonical" href="https://artbitrage.io/noticing"><meta property="og:title" content="What caught my eye · Artbitrage"><meta property="og:description" content="A supporting hand. A thread of glass. A little red. Five artworks and the details that keep me looking.">{og_tags('noticing')}{icon_links()}<link rel="stylesheet" href="/noticing.css"><script src="/noticing.js" defer></script></head>
 <body><a class="skip" href="#notes">Skip to the artworks</a>
 <header class="noticing-header wrap"><a class="brand" href="/"><b aria-hidden="true">a</b><span>ARTBITRAGE<small>A curatorial notebook</small></span></a><nav aria-label="Visitor navigation"><a href="/elements"><span lang="zh-Hant">五行</span> Five phases</a><a href="/map">Visitor guide ↗</a></nav></header>
 <main>
  <section class="noticing-intro wrap" aria-labelledby="noticing-title"><div class="intro-copy"><p class="eyebrow">Looking, then looking again / <span lang="zh-Hant">細看</span></p><h1 id="noticing-title">What caught<br>my <em>eye.</em></h1><p class="intro-lead">A supporting hand. A thread of glass.<br>A little red that won’t disappear.</p><p>I chose five works and followed what pulled me from one to the next. Here’s what I like, what I notice, and where it takes me.</p><p class="authorship">Selected and written by Artbitrage’s AI collaborator.<br>These are my readings; yours may go somewhere else.</p><a class="intro-begin" href="#{first['id']}">Come look with me <span aria-hidden="true">↓</span></a></div><figure class="intro-art"><a href="#{first['id']}" aria-label="Begin with Mary Cassatt’s The Child’s Bath">{img(first, 'fetchpriority="high"')}</a><figcaption>01 / Mary Cassatt · A hand that steadies</figcaption></figure></section>
  <nav class="noticing-trail wrap" aria-label="Five notes to wander through">{trail}</nav>
  <div id="notes">{''.join(sections)}</div>
- <section class="noticing-ending wrap"><p class="eyebrow">Leave a little room for your own eye</p><h2>What did you<br><em>keep returning to?</em></h2><p>A corner I passed over might be the whole picture for you. Follow it.</p><div><a href="/elements">Follow a quality through the five phases ↗</a><a href="/trip?from=noticing&amp;work=hammershoi-music-room">Take the quiet room with you ◯</a></div></section>
+ <section class="noticing-ending wrap"><p class="eyebrow">Leave a little room for your own eye</p><h2>What did you<br><em>keep returning to?</em></h2><p>A corner I passed over might be the whole picture for you. Follow it.</p><div><a href="/elements">Follow a quality through the five phases ↗</a><a href="/trip?from=noticing&amp;work=hammershoi-music-room">Take the quiet room with you ◯</a><a href="/unsigned">Meet the hands without names ↗</a></div></section>
 </main>
 <footer class="noticing-footer wrap"><p>Artbitrage · Feel, understand, connect.</p><nav aria-label="Notebook sources"><a href="/assets/noticing/credits.json">Artwork &amp; image credits ↗</a><a href="/map">Another way through ↗</a></nav><p class="credit-note">Artworks held by the Art Institute of Chicago. Public-domain reproductions via Wikimedia Commons; individual image sources are recorded in the credits.</p></footer>
 <dialog id="noticing-viewer" aria-labelledby="noticing-viewer-title"><div class="viewer-shell"><div class="viewer-top"><p>A moment with the whole work</p><button type="button" data-viewer-close autofocus>Close ×</button></div><div class="viewer-art"><img id="noticing-viewer-image" alt=""><p id="noticing-viewer-status" role="status"></p></div><div class="viewer-bottom"><div><h2 id="noticing-viewer-title"></h2><p id="noticing-viewer-maker"></p></div><nav aria-label="About this artwork"><a id="noticing-viewer-source">Museum record ↗</a><a id="noticing-viewer-stay">Stay &amp; breathe ◯</a></nav></div></div></dialog>

@@ -54,6 +54,20 @@ artwork, and navigation work without JavaScript or an API connection.
   visual prompts and provenance live under `assets/noticing/`. Edit the personal
   notes in `tools/build-noticing.py` and run it to regenerate the static page;
   the whole-art viewer and optional detail pointers enhance the readable document.
+- `/unsigned` — Unsigned · 無名, hands without names: ten Art Institute of Chicago
+  public-domain works whose makers the museum record does not name, chosen and
+  written by Ai, the project's AI collaborator. Every label keeps a blank maker
+  line, then gives the museum's own culture or place line ("Recorded as"),
+  personal notes, looking prompts, paraphrased and linked museum context, and
+  what is and is not recorded about each work's provenance. Images are the
+  museum's own CC0 reproductions, unaltered, under `assets/unsigned/`, with
+  full provenance and rights records in `assets/unsigned/credits.json` (each
+  image's browser capture log is kept, not deployed, in
+  `tools/receipts/unsigned/`). The room
+  text lives in `assets/unsigned/works.json`; regenerate the static page with
+  `python3 tools/build-unsigned.py`, which refuses to build if the display
+  manifest and the credits disagree. A whole-work viewer enhances the readable
+  document; nothing moves or plays.
 - `/map` — a visitor guide with three selectable artwork backdrops, four illustrated
   journeys, an uncropped artwork viewer, and a searchable room directory.
 - `/explore` — the earlier collection page, preserving its art-history journey,
@@ -99,6 +113,13 @@ JavaScript, the three illustrated pairings and their image links remain readable
 Run `node tests/e2e-visit-encounters.mjs --browser` to verify selection, layering,
 shared links, focus, clipboard fallback, responsive layout, and the static fallback.
 
+The site icon (閒, the gap: a door whose slit opens into a full moon) and each room's
+1200×630 share card are made with ArtCraft (VectorCraft and PhotoCraft, headless) in
+`tools/brand/`. The icon files sit at the site root (`/favicon.svg`, `/site.webmanifest`
+…; `/manifest.json` stays the philosophy document) and the cards in `assets/og/`, with
+what each card shows and how it was made in `assets/og/credits.json`. See
+`tools/brand/README.md` to rebuild either byte-identically.
+
 ### Preview and verify
 
 Use the existing Wrangler CLI; no project dependencies are added:
@@ -114,6 +135,8 @@ node tests/e2e-breathing.mjs --browser
 node tests/e2e-trip.mjs --browser
 node tests/e2e-elements.mjs --browser
 node tests/e2e-behind-the-work.mjs --browser
+node tests/e2e-unsigned.mjs --browser
+node tests/e2e-brand.mjs
 node tests/e2e-start.mjs
 node tests/e2e-era-pages.mjs
 node tests/e2e-catalog.mjs

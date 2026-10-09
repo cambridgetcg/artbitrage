@@ -1,0 +1,53 @@
+{
+  "id": "sunburst-quilt-kentucky",
+  "museum_id": 158433,
+  "image": "/assets/unsigned/sunburst-quilt-kentucky.jpg",
+  "image_source": "https://www.artic.edu/iiif/2/e12cf9dd-102b-9505-a05f-6f95a88ef08f/full/843,/0/default.jpg",
+  "sha256": "e3b0fbe559d81829b1be569eeddaa0317cc3e059f86c049f439bc3f66f2e3b6e",
+  "bytes": 993478,
+  "about": "Browser capture log for this work's image: the 2026-10-09 17:27 UTC capture that produced the file. It records the Art Institute of Chicago artwork page's own request for the IIIF image (URL, status, response headers, bytes and sha256). Copied from the capture session's working folder on 2026-10-09; the log itself is unchanged except as listed under redactions. Raw response bodies are not kept here: each equals the image file by sha256.",
+  "redactions": [],
+  "capture_log": {
+    "page": "https://www.artic.edu/artworks/158433",
+    "started": "2026-10-09T17:27:45.302Z",
+    "page_status": 200,
+    "page_title": "Sunburst Quilt | The Art Institute of Chicago",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/147.0.7727.15 Safari/537.36",
+    "iiif_responses": [
+      {
+        "url": "https://www.artic.edu/iiif/2/e12cf9dd-102b-9505-a05f-6f95a88ef08f/full/843,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+          "cache-control": "public, max-age=2592000, no-transform",
+          "x-powered-by": "Cantaloupe/4.1.7",
+          "cf-cache-status": "HIT",
+          "cf-ray": "a47f191b9e172830-ZRH",
+          "access-control-allow-origin": "*",
+          "date": "Fri, 09 Oct 2026 17:27:47 GMT",
+          "content-type": "image/jpeg",
+          "last-modified": "Fri, 09 Oct 2026 17:27:47 GMT",
+          "server": "cloudflare",
+          "vary": "Accept, accept-encoding"
+        },
+        "at": "2026-10-09T17:27:47.852Z",
+        "resourceType": "image",
+        "bytes": 993478,
+        "sha256": "e3b0fbe559d81829b1be569eeddaa0317cc3e059f86c049f439bc3f66f2e3b6e",
+        "saved_as": "resp_0_e3b0fbe559d8.bin"
+      }
+    ],
+    "iiif_img_elements": [
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/e12cf9dd-102b-9505-a05f-6f95a88ef08f/full/843,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhBAAFAPQAAGtbR3xpT3FnV31rVntvWX50X392ZYRwV4R2W4Z1XZB6X4R7Z4V7aJR+Y4+BZ46GcpiLcJuNcqGTdq6ffwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAEAAUAAAURYIAQQAItAzNJjfFEilA4RwgAOw==",
+        "srcset": "https://www.artic.edu/iiif/2/e12cf9dd-102b-9505-a05f-6f95a88ef08f/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/e12cf9dd-102b-9505-a05f-6f95a88ef08f/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/e12cf9dd-102b-9505-a05f-6f95a88ef08f/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/e12cf9dd-102b-9505-a05f-6f95a88ef08f/full/1686,/0/default.jpg 1686w",
+        "sizes": "(min-width: 1640px) 843px, (min-width: 1200px) 843px, (min-width: 900px) 843px, (min-width: 600px) 90.63vw,  90.63vw",
+        "naturalWidth": 843,
+        "naturalHeight": 1043,
+        "alt": "A work made of cotton, plain weaves; printed; pieced; backed with cotton, plain weave; cotton batting; quilted with cotton thread."
+      }
+    ],
+    "finished": "2026-10-09T17:27:53.313Z"
+  }
+}

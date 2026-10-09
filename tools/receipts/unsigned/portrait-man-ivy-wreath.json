@@ -1,0 +1,50 @@
+{
+  "id": "portrait-man-ivy-wreath",
+  "museum_id": 5519,
+  "image": "/assets/unsigned/portrait-man-ivy-wreath.jpg",
+  "image_source": "https://www.artic.edu/iiif/2/6db509c1-1283-e323-c451-d2fc48f1aa01/full/843,/0/default.jpg",
+  "sha256": "37cd47ce2a98b18c5df77c5063bc578eef15fe19169f6b876857088dd191bcb4",
+  "bytes": 184862,
+  "about": "Browser capture log for this work's image: the 2026-10-09 17:24 UTC capture that produced the file. It records the Art Institute of Chicago artwork page's own request for the IIIF image (URL, status, response headers, bytes and sha256). Copied from the capture session's working folder on 2026-10-09; the log itself is unchanged except as listed under redactions. Raw response bodies are not kept here: each equals the image file by sha256.",
+  "redactions": [],
+  "capture_log": {
+    "started": "2026-10-09T17:24:03.614Z",
+    "page_url": "https://www.artic.edu/artworks/5519",
+    "page_status": 200,
+    "final_url": "https://www.artic.edu/artworks/5519/portrait-of-a-man-wearing-an-ivy-wreath",
+    "title": "Portrait of a Man Wearing an Ivy Wreath | The Art Institute of Chicago",
+    "iiif_responses": [
+      {
+        "url": "https://www.artic.edu/iiif/2/6db509c1-1283-e323-c451-d2fc48f1aa01/full/843,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+          "cache-control": "public, max-age=2592000, no-transform",
+          "x-powered-by": "Cantaloupe/4.1.7",
+          "cf-cache-status": "HIT",
+          "cf-ray": "a47f13b4ebefc8a4-ZRH",
+          "access-control-allow-origin": "*",
+          "date": "Fri, 09 Oct 2026 17:24:07 GMT",
+          "content-type": "image/jpeg",
+          "last-modified": "Fri, 09 Oct 2026 17:24:07 GMT",
+          "server": "cloudflare",
+          "vary": "Accept, accept-encoding"
+        },
+        "at": "2026-10-09T17:24:07.642Z",
+        "fromServiceWorker": false,
+        "bytes": 184862,
+        "sha256": "37cd47ce2a98b18c5df77c5063bc578eef15fe19169f6b876857088dd191bcb4",
+        "saved_as": "resp_0_37cd47ce2a98.bin"
+      }
+    ],
+    "page_iiif_imgs": [
+      {
+        "src": "https://www.artic.edu/iiif/2/6db509c1-1283-e323-c451-d2fc48f1aa01/full/843,/0/default.jpg",
+        "nw": 843,
+        "nh": 1124,
+        "alt": "A portrait of a young man with dark hair and beard painted on an irregular piece of wood. The background is gold as a wreath of ivy and necklace he wears. There are many areas where the paint has come off the surface."
+      }
+    ],
+    "finished": "2026-10-09T17:24:11.952Z"
+  }
+}

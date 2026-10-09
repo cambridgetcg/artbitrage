@@ -1,0 +1,54 @@
+{
+  "id": "millet-fields-under-sun-and-moon",
+  "museum_id": 75068,
+  "image": "/assets/unsigned/millet-fields-under-sun-and-moon.jpg",
+  "image_source": "https://www.artic.edu/iiif/2/3370476c-f1aa-d5d6-bd1e-2a4d940a2f9d/full/843,/0/default.jpg",
+  "sha256": "befbab1bb08e36c56922113f30f7425a4d94500e8cb071cce329a1c3719801a5",
+  "bytes": 114442,
+  "about": "Browser capture log for this work's image: the 2026-10-09 17:24 UTC capture that produced the file. It records the Art Institute of Chicago artwork page's own request for the IIIF image (URL, status, response headers, bytes and sha256). Copied from the capture session's working folder on 2026-10-09; the log itself is unchanged except as listed under redactions. Raw response bodies are not kept here: each equals the image file by sha256.",
+  "redactions": [],
+  "capture_log": {
+    "started": "2026-10-09T17:24:16.136Z",
+    "finished": "2026-10-09T17:24:26.590Z",
+    "page": "https://www.artic.edu/artworks/75068",
+    "pageStatus": 200,
+    "pageErr": null,
+    "title": "Millet Fields under Sun and Moon | The Art Institute of Chicago",
+    "viewport": "1440x900 DPR1",
+    "playwright": "1.59.1 chromium headless",
+    "hits": [
+      {
+        "url": "https://www.artic.edu/iiif/2/3370476c-f1aa-d5d6-bd1e-2a4d940a2f9d/full/843,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+          "cache-control": "public, max-age=2592000, no-transform",
+          "x-powered-by": "Cantaloupe/4.1.7",
+          "cf-cache-status": "HIT",
+          "cf-ray": "a47f13fd7f5a0211-ZRH",
+          "access-control-allow-origin": "*",
+          "date": "Fri, 09 Oct 2026 17:24:18 GMT",
+          "content-type": "image/jpeg",
+          "last-modified": "Fri, 09 Oct 2026 17:24:18 GMT",
+          "server": "cloudflare",
+          "vary": "Accept, accept-encoding"
+        },
+        "at": "2026-10-09T17:24:18.308Z",
+        "bytes": 114442,
+        "sha256": "befbab1bb08e36c56922113f30f7425a4d94500e8cb071cce329a1c3719801a5",
+        "saved_as": "0_befbab1bb08e.bin"
+      }
+    ],
+    "imgs": [
+      {
+        "currentSrc": "https://www.artic.edu/iiif/2/3370476c-f1aa-d5d6-bd1e-2a4d940a2f9d/full/843,/0/default.jpg",
+        "src": "data:image/gif;base64,R0lGODlhFgAFAPYAAGpWPG1YPW1ZPnlaN3JcPXteO3thP0JKT3ZfQXxjQ3JjTmZkXHdoUnJoVHdqVXZqVnZrV3dtWHluWF9kY29rYmxrZX92Z3N0cItePYBdRYpjRYViSIZiSIllSo9qTZxuR5FpSYhqVYZtXIdvXotvWYluW4lxXolxX4F1ZIpzYI92YoJ3aJB7YpJ+Z4N+dKN/YK6BWLKFXL6KWrmLX7+OX5mGbY6Ieo+MfZSMe56RfqCEYqKHb7iMYrqSYLqSY7uTbLuVb7+Yb6GPd6iNc66ScamXe7WZcsORYcmXY8uZZM2eZ8SZaMefdM+ga8+gbtCia86lccmidsqjd8iiesqlet2pcuKtd+Oud+Cufbigg8SohcWphtOtg9OuhNKwitKzjdS0j9a1j9a3j9q6kNq7ktq6k+GwguO2hOi5g+m5hOe4iOi5iOq9igAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAWAAUAAAdwgFpdYF5fYVkuFxM5QhQ3NjhiY2RlXFtSVmZYZ2tTLRULFigHKyxEbGhpaldRPzI0MDE8M0dOVUxBSE1JT1BLPj1KVC8YGhkcHh0bIB9AOgMGAAIJCAEEBUY7ISUiJyopIyYkQzUKDg4PEhENEAxFgQA7",
+        "srcset": "https://www.artic.edu/iiif/2/3370476c-f1aa-d5d6-bd1e-2a4d940a2f9d/full/200,/0/default.jpg 200w, https://www.artic.edu/iiif/2/3370476c-f1aa-d5d6-bd1e-2a4d940a2f9d/full/400,/0/default.jpg 400w, https://www.artic.edu/iiif/2/3370476c-f1aa-d5d6-bd1e-2a4d940a2f9d/full/843,/0/default.jpg 843w, https://www.artic.edu/iiif/2/3370476c-f1aa-d5d6-bd1e-2a4d940a2f9d/full/1686,/0/default.jpg 1686w",
+        "sizes": "(min-width: 1640px) 843px, (min-width: 1200px) 843px, (min-width: 900px) 843px, (min-width: 600px) 90.63vw,  90.63vw",
+        "alt": "A work made of pair of six-panel screens; ink, colors, and gold on paper.",
+        "naturalWidth": 843,
+        "naturalHeight": 195
+      }
+    ]
+  }
+}

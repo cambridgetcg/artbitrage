@@ -1,0 +1,49 @@
+{
+  "id": "iznik-tankard-tulips-hyacinths",
+  "museum_id": 69109,
+  "image": "/assets/unsigned/iznik-tankard-tulips-hyacinths.jpg",
+  "image_source": "https://www.artic.edu/iiif/2/9c807e61-db58-3f5f-d208-c1786ccbf520/full/843,/0/default.jpg",
+  "sha256": "da30619b10b143a4549d33ea8631e3679eaf84c9e7bb586c804faa88633fb20f",
+  "bytes": 123301,
+  "about": "Browser capture log for this work's image: the 2026-10-09 17:24 UTC capture that produced the file. It records the Art Institute of Chicago artwork page's own request for the IIIF image (URL, status, response headers, bytes and sha256). Copied from the capture session's working folder on 2026-10-09; the log itself is unchanged except as listed under redactions. Raw response bodies are not kept here: each equals the image file by sha256.",
+  "redactions": [
+    "saved.file: the absolute path of the capture session's scratchpad folder was cut to the file name."
+  ],
+  "capture_log": {
+    "page": "https://www.artic.edu/artworks/69109",
+    "page_status": 200,
+    "page_final_url": "https://www.artic.edu/artworks/69109/tankard-hanap-with-tulips-hyacinths-roses-and-carnations",
+    "captured_at": "2026-10-09T17:24:21.205Z",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/147.0.7727.15 Safari/537.36",
+    "iiif_responses": [
+      {
+        "url": "https://www.artic.edu/iiif/2/9c807e61-db58-3f5f-d208-c1786ccbf520/full/843,/0/default.jpg",
+        "status": 200,
+        "headers": {
+          "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+          "cache-control": "public, max-age=2592000, no-transform",
+          "x-powered-by": "Cantaloupe/4.1.7",
+          "cf-cache-status": "HIT",
+          "age": "1922811",
+          "cf-ray": "a47f13ddbc109808-ZRH",
+          "access-control-allow-origin": "*",
+          "date": "Fri, 09 Oct 2026 17:24:13 GMT",
+          "content-type": "image/jpeg",
+          "last-modified": "Sun, 04 Oct 2026 08:11:07 GMT",
+          "server": "cloudflare",
+          "vary": "Accept, accept-encoding"
+        },
+        "at": "2026-10-09T17:24:13.013Z",
+        "bytes": 123301,
+        "sha256": "da30619b10b143a4549d33ea8631e3679eaf84c9e7bb586c804faa88633fb20f"
+      }
+    ],
+    "saved": {
+      "file": "iznik-tankard-tulips-hyacinths.jpg",
+      "url": "https://www.artic.edu/iiif/2/9c807e61-db58-3f5f-d208-c1786ccbf520/full/843,/0/default.jpg",
+      "bytes": 123301,
+      "sha256": "da30619b10b143a4549d33ea8631e3679eaf84c9e7bb586c804faa88633fb20f",
+      "preferred_843": true
+    }
+  }
+}

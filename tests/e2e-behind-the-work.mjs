@@ -80,7 +80,9 @@ await withBrowser('behind-the-work',async b=>{
   assert.equal(await evaluate(`document.querySelectorAll('#colour-story-controls button[data-colour]').length`),3);
   assert.equal(await evaluate(`document.querySelectorAll('#colour-stage img').length`),0,'screen colour illustrations do not alter an artwork');
   await shot('chapter-arrival-desktop');
-  const nonImages=()=>requests.filter(request=>request.resourceType!=='Image'&&new URL(request.url).pathname!=='/favicon.ico').length;
+  // The browser's own tab-icon fetches (it asks again on each hash change while the cache is off) are not the page's requests.
+  const tabIcons=new Set(['/favicon.ico','/favicon.svg','/favicon-32.png','/favicon-16.png']);
+  const nonImages=()=>requests.filter(request=>request.resourceType!=='Image'&&!tabIcons.has(new URL(request.url).pathname)).length;
   const before=nonImages();
   for(const id of colours){await click(`[data-colour="${id}"]`);await selected(id);assert.equal(await evaluate('location.hash'),`#${id}`);}
   assert.equal(nonImages(),before,'colour choices require no API or document requests');

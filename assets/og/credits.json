@@ -1,0 +1,674 @@
+{
+ "about": "Open Graph share cards for artbitrage.io rooms: one 1200x630 JPEG per room, linked from each page's og:image and twitter:image. This file says what each card shows, where its record comes from, and how the cards are made.",
+ "how": {
+  "design": "THROUGH THE DOOR: you stand in the room (its wall colour); an arched door (the 閒 door's head) opens onto the next room, where the room's key work hangs whole, mounted as the room's own CSS mounts it. A room without a key work gets a typographic card: its glyph, or a line cited from the site, lettered on the far wall.",
+  "generator": "tools/brand/gen_card.py",
+  "specs": "tools/brand/rooms.json",
+  "rebuild": "python3 tools/brand/gen_card.py tools/brand/rooms.json --all",
+  "pipeline": [
+   "VectorCraft measures every line of type (area type converted to point type gives the app's own line breaks; CJK breaks only after its punctuation).",
+   "VectorCraft composes three layers: ground (room, door, next room, far-wall lettering), mount (the room's frame or mat, or a backing under the work) and type.",
+   "PhotoCraft downscales the work once with Lanczos, never above 100%, keeping its aspect.",
+   "PhotoCraft grains the ground, places the mount with a drop shadow, places the work at 100% on whole pixels with no style, places the type and flattens.",
+   "The work's pixels in the flattened master are compared with the downscaled work; any difference fails the card.",
+   "PhotoCraft writes the JPEG, stepping quality down from 92 until the file is 200 KB or less."
+  ],
+  "tools": {
+   "vectorcraft": "vectorcraft-cli 0.7.0",
+   "photocraft": "photocraft-cli 0.5.0 (e5e3e3975, 2026-10-08)"
+  },
+  "fonts": [
+   "Iowan Old Style (Roman, Italic)",
+   "Avenir Next (Medium)",
+   "Songti TC (Regular, Light)"
+  ],
+  "reproducible": "Same tool versions and macOS fonts give byte-identical cards (sha256 above)."
+ },
+ "cards": [
+  {
+   "slug": "home",
+   "page": "/",
+   "card": "/assets/og/home.jpg",
+   "og_image": "https://artbitrage.io/assets/og/home.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 137560,
+   "sha256": "44ca6bc088e53afee80d0757fd6d942dae66b0f1c461c6d6c93db755ff0de453",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “Art brings us closer”, beneath 門 and “A place to meet art”. On the right, an arched doorway in a dark green wall opens onto a lit room where Georges Seurat’s A Sunday on La Grande Jatte — 1884 hangs whole.",
+   "room_name": "Art brings us closer",
+   "glyph": "門",
+   "eyebrow": "A place to meet art",
+   "shows": {
+    "artwork": {
+     "title": "A Sunday on La Grande Jatte — 1884",
+     "maker": "Georges Seurat",
+     "date": "1884–86, border added 1888–89",
+     "museum": "Art Institute of Chicago",
+     "license": "CC0",
+     "museum_url": "https://www.artic.edu/artworks/27992",
+     "image": "/assets/welcome/seurat.jpg",
+     "record_source": "assets/welcome/credits.json",
+     "maker_note": null
+    }
+   },
+   "hanging": {
+    "natural_px": [
+     843,
+     565
+    ],
+    "placed_px": [
+     619,
+     207,
+     506,
+     339
+    ],
+    "scale": 0.6002,
+    "mounted_box_px": [
+     619,
+     207,
+     506,
+     339
+    ],
+    "mount": null,
+    "mount_source": "none: the home hero hangs the painting without a frame (welcome.css:46-60); the card gives it a backing that carries the shadow",
+    "work_pixels_identical_in_master": true,
+    "treatment": "whole and uncropped, downscaled once (Lanczos), never upscaled or recoloured"
+   },
+   "palette": {
+    "wall": "#17271f",
+    "ink": "#f0ead8",
+    "muted": "#c5cabb",
+    "accent": "#dbcca7",
+    "source": "welcome.css:2-8 (--forest, --cream); brand-mark #dbcca7 welcome.css:32"
+   },
+   "accent_word": {
+    "word": "closer",
+    "source": "index.html:38 h1 'Art brings us <em>closer.</em>' (welcome.css:60 colours it with the view's --hero-accent; the card uses the header's brand-mark gold #dbcca7)"
+   }
+  },
+  {
+   "slug": "visit",
+   "page": "/visit",
+   "card": "/assets/og/visit.jpg",
+   "og_image": "https://artbitrage.io/assets/og/visit.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 138078,
+   "sha256": "bb7418338e313d1ce1b47ad5ff1b9c04e71df4666c220e0d9f58edb7af1c3817",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “A gallery visit”, beneath 遊 and “Five connected rooms”. Through an arched doorway in a dark green wall, Georges Seurat’s A Sunday on La Grande Jatte — 1884 hangs in a thin dark frame in the next room.",
+   "room_name": "A gallery visit",
+   "glyph": "遊",
+   "eyebrow": "Five connected rooms",
+   "shows": {
+    "artwork": {
+     "title": "A Sunday on La Grande Jatte — 1884",
+     "maker": "Georges Seurat",
+     "date": "1884–86, border added 1888–89",
+     "museum": "Art Institute of Chicago",
+     "license": "CC0",
+     "museum_url": "https://www.artic.edu/artworks/27992",
+     "image": "/assets/welcome/seurat.jpg",
+     "record_source": "assets/welcome/credits.json",
+     "maker_note": null
+    }
+   },
+   "hanging": {
+    "natural_px": [
+     843,
+     565
+    ],
+    "placed_px": [
+     626,
+     210,
+     492,
+     330
+    ],
+    "scale": 0.5836,
+    "mounted_box_px": [
+     620,
+     204,
+     504,
+     342
+    ],
+    "mount": {
+     "pad": 5,
+     "color": "#202317",
+     "border": "#a89b7538"
+    },
+    "mount_source": "visit.css:148 .artwork-view: padding 5px, background var(--frame) #202317, border 1px #a89b7538",
+    "work_pixels_identical_in_master": true,
+    "treatment": "whole and uncropped, downscaled once (Lanczos), never upscaled or recoloured"
+   },
+   "palette": {
+    "wall": "#17281f",
+    "ink": "#f2edde",
+    "muted": "#c5cabb",
+    "accent": "#dec792",
+    "source": "visit.css:12 and :94 (water room --wall/--room-accent)"
+   }
+  },
+  {
+   "slug": "elements",
+   "page": "/elements",
+   "card": "/assets/og/elements.jpg",
+   "og_image": "https://artbitrage.io/assets/og/elements.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 131978,
+   "sha256": "dd4905f770aa7caded55816c510244a83b666ce43d34730df083bf273c9669e3",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “Five ways of looking”, beneath 五行 and “A gallery of changing things”. Through an arched doorway in a dark green wall, Utagawa Hiroshige’s woodblock print Plum Garden at Kameido hangs in the next room.",
+   "room_name": "Five ways of looking",
+   "glyph": "五行",
+   "eyebrow": "A gallery of changing things",
+   "shows": {
+    "artwork": {
+     "title": "Plum Garden at Kameido",
+     "maker": "Utagawa Hiroshige",
+     "date": "1857",
+     "museum": "Art Institute of Chicago",
+     "license": "CC0",
+     "museum_url": "https://www.artic.edu/artworks/26577",
+     "image": "/assets/visit/hiroshige-plum-garden.jpg",
+     "record_source": "assets/visit/credits.json (display_title)",
+     "maker_note": null
+    }
+   },
+   "hanging": {
+    "natural_px": [
+     843,
+     1241
+    ],
+    "placed_px": [
+     720,
+     97,
+     305,
+     449
+    ],
+    "scale": 0.3618,
+    "mounted_box_px": [
+     720,
+     97,
+     305,
+     449
+    ],
+    "mount": null,
+    "mount_source": "none: elements.css:9 .art-field img has no frame, only a drop shadow",
+    "work_pixels_identical_in_master": true,
+    "treatment": "whole and uncropped, downscaled once (Lanczos), never upscaled or recoloured"
+   },
+   "palette": {
+    "wall": "#1e2922",
+    "ink": "#ede8da",
+    "muted": "#bbc5b6",
+    "accent": "#c6d6a9",
+    "source": "elements.css:1"
+   }
+  },
+  {
+   "slug": "noticing",
+   "page": "/noticing",
+   "card": "/assets/og/noticing.jpg",
+   "og_image": "https://artbitrage.io/assets/og/noticing.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 114708,
+   "sha256": "6b05525b16b0e9957fb408aedced091f20bc2699f94049c9ec761d4e2300a4c5",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “What caught my eye”, beneath 看 and “Looking, then looking again”. Through an arched doorway in a pale wall, Mary Cassatt’s The Child’s Bath hangs on a beige mat in the next room.",
+   "room_name": "What caught my eye",
+   "glyph": "看",
+   "eyebrow": "Looking, then looking again",
+   "shows": {
+    "artwork": {
+     "title": "The Child’s Bath",
+     "maker": "Mary Cassatt",
+     "date": "1893",
+     "museum": "Art Institute of Chicago",
+     "license": "Public domain",
+     "museum_url": "https://www.artic.edu/artworks/111442",
+     "image": "/assets/noticing/cassatt-childs-bath.jpg",
+     "record_source": "assets/noticing/credits.json (reproduction delivered through Wikimedia Commons)",
+     "maker_note": null
+    }
+   },
+   "hanging": {
+    "natural_px": [
+     960,
+     1457
+    ],
+    "placed_px": [
+     740,
+     122,
+     265,
+     402
+    ],
+    "scale": 0.276,
+    "mounted_box_px": [
+     712,
+     100,
+     321,
+     446
+    ],
+    "mount": {
+     "pad": [
+      22,
+      28,
+      22,
+      28
+     ],
+     "color": "#c8bba9"
+    },
+    "mount_source": "noticing.css:1 .intro-art: background #c8bba9, padding 22px 28px (the page's 12px foot sits above a caption the card does not set, so the mat is balanced; the 1deg tilt is not copied, because rotating would resample the work)",
+    "work_pixels_identical_in_master": true,
+    "treatment": "whole and uncropped, downscaled once (Lanczos), never upscaled or recoloured"
+   },
+   "palette": {
+    "wall": "#eeece3",
+    "ink": "#29352d",
+    "muted": "#566054",
+    "accent": "#9a4938",
+    "source": "noticing.css:1; h1 em #9a4938"
+   },
+   "accent_word": {
+    "word": "eye",
+    "source": "noticing.html h1 'What caught my <em>eye.</em>', coloured #9a4938 (noticing.css .intro-copy h1 em)"
+   }
+  },
+  {
+   "slug": "behind-the-work",
+   "page": "/behind-the-work",
+   "card": "/assets/og/behind-the-work.jpg",
+   "og_image": "https://artbitrage.io/assets/og/behind-the-work.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 152189,
+   "sha256": "54b90f0ab1489d58dc989ed034f010f22149c080dd529cf35e7bee2e167eabb1",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “Behind the work”, beneath 作 and “Making · meaning · keeping”. Through an arched doorway in a dark green wall, Katsushika Hokusai’s The Great Wave hangs on a cream mat in the next room.",
+   "room_name": "Behind the work",
+   "glyph": "作",
+   "eyebrow": "Making · meaning · keeping",
+   "shows": {
+    "artwork": {
+     "title": "The Great Wave",
+     "maker": "Katsushika Hokusai",
+     "date": "1830/33",
+     "museum": "Art Institute of Chicago",
+     "license": "CC0",
+     "museum_url": "https://www.artic.edu/artworks/24645",
+     "image": "/assets/visit/hokusai-great-wave.jpg",
+     "record_source": "assets/visit/credits.json (display_title)",
+     "maker_note": null
+    }
+   },
+   "hanging": {
+    "natural_px": [
+     843,
+     578
+    ],
+    "placed_px": [
+     632,
+     208,
+     480,
+     329
+    ],
+    "scale": 0.5694,
+    "mounted_box_px": [
+     623,
+     199,
+     498,
+     347
+    ],
+    "mount": {
+     "pad": 8,
+     "color": "#dfd3b8",
+     "border": "#eee7d0"
+    },
+    "mount_source": "behind-the-work.css:35 .hero-art > a: padding 8px, background #dfd3b8, border 1px #eee7d0",
+    "work_pixels_identical_in_master": true,
+    "treatment": "whole and uncropped, downscaled once (Lanczos), never upscaled or recoloured"
+   },
+   "palette": {
+    "wall": "#242d27",
+    "ink": "#eee9db",
+    "muted": "#c3c8bb",
+    "accent": "#d9bf87",
+    "source": "behind-the-work.css:2 and :29; theme-color #242d27"
+   },
+   "accent_word": {
+    "word": "work",
+    "source": "behind-the-work.html:22 h1 'A world goes into a <em>work.</em>', coloured #e1c88f (behind-the-work.css:29)"
+   }
+  },
+  {
+   "slug": "trip",
+   "page": "/trip",
+   "card": "/assets/og/trip.jpg",
+   "og_image": "https://artbitrage.io/assets/og/trip.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 96819,
+   "sha256": "4c0c6313baf34f45754d8588e43001605f4c3355771f330aa29c1099065fcf5a",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “Good Trip”, beneath 旅 and “A little room to pause”. Through an arched doorway in a dark green wall, a white Moon Jar from Joseon-dynasty Korea is shown in a dark mount in the next room.",
+   "room_name": "Good Trip",
+   "glyph": "旅",
+   "eyebrow": "A little room to pause",
+   "shows": {
+    "artwork": {
+     "title": "Moon Jar",
+     "maker": "Korea · Joseon dynasty",
+     "date": "late 17th–mid-18th century",
+     "museum": "Art Institute of Chicago",
+     "license": "CC0",
+     "museum_url": "https://www.artic.edu/artworks/158472",
+     "image": "/assets/welcome/moon-jar.jpg",
+     "record_source": "assets/welcome/credits.json (title, date, url; artist field empty); maker line as the site gives it, assets/trip/works.json",
+     "maker_note": "The museum record names no artist. Following the site's rule for unnamed makers, the card gives culture and period as the site does ('Korea · Joseon dynasty', assets/trip/works.json)."
+    }
+   },
+   "hanging": {
+    "natural_px": [
+     843,
+     885
+    ],
+    "placed_px": [
+     683,
+     138,
+     378,
+     397
+    ],
+    "scale": 0.4484,
+    "mounted_box_px": [
+     672,
+     127,
+     400,
+     419
+    ],
+    "mount": {
+     "pad": 10,
+     "color": "#101811",
+     "border": "#7d896c66"
+    },
+    "mount_source": "trip.css:5 .trip-entry-art a: padding .6rem, background #101811, border 1px var(--line) #7d896c66 (trip.css:2)",
+    "work_pixels_identical_in_master": true,
+    "treatment": "whole and uncropped, downscaled once (Lanczos), never upscaled or recoloured"
+   },
+   "palette": {
+    "wall": "#19231e",
+    "ink": "#f0e9d7",
+    "muted": "#c2c6b6",
+    "accent": "#dec792",
+    "source": "trip.css:2"
+   }
+  },
+  {
+   "slug": "map",
+   "page": "/map",
+   "card": "/assets/og/map.jpg",
+   "og_image": "https://artbitrage.io/assets/og/map.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 77434,
+   "sha256": "df667dd19b04cefa9d0db9f07d24db2455cffda8670d05d2698cf3eeb5af791b",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “Visitor guide”, beneath “Find your way in”, with the line “Meet a work, slow down, follow a life, or make room for play.” On the right, an arched doorway in a cream wall, with 地圖 (map) lettered in rust on the far wall.",
+   "room_name": "Visitor guide",
+   "glyph": "地圖",
+   "eyebrow": "Find your way in",
+   "shows": "typographic",
+   "far_wall": {
+    "glyph": "地圖",
+    "source": "map.html eyebrow and <title> (the guide is not listed in its own map.json)"
+   },
+   "line": {
+    "text": "Meet a work, slow down, follow a life, or make room for play.",
+    "source": "map.html og:description, first sentence"
+   },
+   "palette": {
+    "wall": "#f6f2e9",
+    "ink": "#252c27",
+    "muted": "#4d5e4b",
+    "accent": "#b34c32",
+    "source": "map.html:13-23"
+   }
+  },
+  {
+   "slug": "explore",
+   "page": "/explore",
+   "card": "/assets/og/explore.jpg",
+   "og_image": "https://artbitrage.io/assets/og/explore.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 132789,
+   "sha256": "18472272f4255b034e1620e561334e7d5374707bdf2f7168be3bd3a192a1849c",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “The collection”, beneath 藏 and “Looking, reading, connecting”. Through an arched doorway in a near-black wall, Bernat Martorell’s Saint George and the Dragon hangs on a black mat in the next room.",
+   "room_name": "The collection",
+   "glyph": "藏",
+   "eyebrow": "Looking, reading, connecting",
+   "shows": {
+    "artwork": {
+     "title": "Saint George and the Dragon",
+     "maker": "Bernat Martorell",
+     "date": "1434–35",
+     "museum": "Art Institute of Chicago",
+     "license": "CC0",
+     "museum_url": "https://www.artic.edu/artworks/15468",
+     "image": "/art/artic-saint-george-and-the-dragon.jpg",
+     "record_source": "explore.html readings-data (title, artist, date). Licence checked at the source: the AIC API record https://api.artic.edu/api/v1/artworks/15468 gives is_public_domain true and copyright_notice null (2026-10-09T19:37:56Z); catalog/all.json id 15468 also labels it CC0 (source-declared). The image is the legacy /art/ mirror, which has no credits.json; its sha256 and size are recorded here, but no download receipt exists for it.",
+     "maker_note": null,
+     "api_source": "https://api.artic.edu/api/v1/artworks/15468",
+     "is_public_domain": true,
+     "copyright_notice": null,
+     "rights_verified_at": "2026-10-09T19:37:56Z",
+     "image_sha256": "7acb0493f820d54fd5a62de19cbc0f45e8c3e7db3c3439449af58bcbd3c6d6d3",
+     "image_bytes": 512967,
+     "image_px": [
+      843,
+      1351
+     ]
+    }
+   },
+   "hanging": {
+    "natural_px": [
+     843,
+     1351
+    ],
+    "placed_px": [
+     738,
+     106,
+     268,
+     429
+    ],
+    "scale": 0.3179,
+    "mounted_box_px": [
+     727,
+     95,
+     290,
+     451
+    ],
+    "mount": {
+     "pad": 10,
+     "color": "#0c0c0f",
+     "border": "#2a2a32"
+    },
+    "mount_source": "explore.html:104-109 .hung, 'mat + frame, the house style for every image': background var(--wall) #0c0c0f, border 1px var(--hair) #2a2a32, padding 10px",
+    "work_pixels_identical_in_master": true,
+    "treatment": "whole and uncropped, downscaled once (Lanczos), never upscaled or recoloured"
+   },
+   "palette": {
+    "wall": "#101014",
+    "ink": "#e9e6df",
+    "muted": "#a19e95",
+    "accent": "#b39958",
+    "source": "explore.html:33-46"
+   }
+  },
+  {
+   "slug": "studio",
+   "page": "/studio",
+   "card": "/assets/og/studio.jpg",
+   "og_image": "https://artbitrage.io/assets/og/studio.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 87269,
+   "sha256": "bcbfd65660a3607fadd8689f2b68867d4e416ff8ffa9bc09b3924b6015102984",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “AI Studio”, beneath “The working room”, with the line “Begin with a thought or an image, try a model, and see what it opens up.” On the right, an arched doorway with the words generate and remix lettered in gold on the far wall.",
+   "room_name": "AI Studio",
+   "glyph": null,
+   "eyebrow": "The working room",
+   "shows": "typographic",
+   "far_wall": {
+    "lettering": [
+     "generate",
+     "remix"
+    ],
+    "source": "map.json /studio desc 'generate · remix · the working room' (the site gives /studio no glyph)"
+   },
+   "line": {
+    "text": "Begin with a thought or an image, try a model, and see what it opens up.",
+    "source": "studio.html meta description, second sentence"
+   },
+   "palette": {
+    "wall": "#101511",
+    "ink": "#f1ecdf",
+    "muted": "#b9b6aa",
+    "accent": "#dcc38f",
+    "source": "studio.html:87 (visitor-nav forest palette)"
+   }
+  },
+  {
+   "slug": "still-we-meet",
+   "page": "/still-we-meet",
+   "card": "/assets/og/still-we-meet.jpg",
+   "og_image": "https://artbitrage.io/assets/og/still-we-meet.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 89599,
+   "sha256": "16245dfd32b27c9644e9c3acf8c273c9145ebb5e21ccc39491bff78c1413374e",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “Still, we meet.”, beneath “Text room”, with the Cantonese line 兩頁唔成為同一句，只係為對方留出可讀嘅位置。 On the right, an arched doorway in a dark wall, with 相遇 (meeting) lettered on the far wall.",
+   "room_name": "Still, we meet.",
+   "glyph": "相遇",
+   "eyebrow": "Text room",
+   "shows": "typographic",
+   "far_wall": {
+    "glyph": "相遇",
+    "source": "the room's own title 未必同感，仍可相遇 (not listed in map.json)"
+   },
+   "line": {
+    "text": "兩頁唔成為同一句，只係為對方留出可讀嘅位置。",
+    "source": "still-we-meet.html meta description"
+   },
+   "palette": {
+    "wall": "#171b1d",
+    "ink": "#e5e1d7",
+    "muted": "#aeaba3",
+    "accent": "#f2c99a",
+    "source": "still-we-meet.html:9-16"
+   }
+  },
+  {
+   "slug": "catalog",
+   "page": "/catalog",
+   "card": "/assets/og/catalog.jpg",
+   "og_image": "https://artbitrage.io/assets/og/catalog.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 91745,
+   "sha256": "bd54ff04496c7124b67f7e1efa6aa0b18bda8d6805d7fe8baf9c65575c89a79e",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “The Catalogue”, beneath “Real works from three museums”, with the line “Look closely, find a connection, and follow each work back to its museum.” On the right, an arched doorway with 目錄 (catalogue) lettered in gold on the far wall.",
+   "room_name": "The Catalogue",
+   "glyph": "目錄",
+   "eyebrow": "Real works from three museums",
+   "shows": "typographic",
+   "far_wall": {
+    "glyph": "目錄",
+    "source": "map.json group label_zh for the group that holds /catalog (the room itself lists no cjk)"
+   },
+   "line": {
+    "text": "Look closely, find a connection, and follow each work back to its museum.",
+    "source": "catalog.html meta description, second sentence"
+   },
+   "palette": {
+    "wall": "#101511",
+    "ink": "#f1ecdf",
+    "muted": "#b9b6aa",
+    "accent": "#dcc38f",
+    "source": "catalog.html:60 (visitor-nav forest palette)"
+   }
+  },
+  {
+   "slug": "pigments",
+   "page": "/pigments",
+   "card": "/assets/og/pigments.jpg",
+   "og_image": "https://artbitrage.io/assets/og/pigments.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 89465,
+   "sha256": "a37b4c9111f376af72c576c691b8ac6c0eb308f2459d3712eb13aa1ce78c17f9",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “The Pigment Cabinet”, beneath “Colour histories, dated and cited”, with the line “The colours of art history, dated and cited.” On the right, an arched doorway in a dark brown wall, with 色 (colour) lettered in ochre on the far wall.",
+   "room_name": "The Pigment Cabinet",
+   "glyph": "色",
+   "eyebrow": "Colour histories, dated and cited",
+   "shows": "typographic",
+   "far_wall": {
+    "glyph": "色",
+    "source": "map.json / cjk"
+   },
+   "line": {
+    "text": "The colours of art history, dated and cited.",
+    "source": "pigments.html hero line 'The colours of art history, dated and cited — …', first clause"
+   },
+   "palette": {
+    "wall": "#12100e",
+    "ink": "#efe7d8",
+    "muted": "#b3a993",
+    "accent": "#b98a3e",
+    "source": "pigments.html:10-18 / era.css pigments #12100e #b98a3e"
+   }
+  },
+  {
+   "slug": "unsigned",
+   "page": "/unsigned",
+   "card": "/assets/og/unsigned.jpg",
+   "og_image": "https://artbitrage.io/assets/og/unsigned.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 92215,
+   "sha256": "3e6e662bee1a2d93f1a30e0809bcf13cd2b46b56cb1867365d3ca13dd0f5fd90",
+   "jpeg_quality": 92,
+   "alt": "Artbitrage card: “Hands without names”, beneath “A room without names”, with the line “Ten works whose makers the record does not name.” On the right, an arched doorway in a dark wall, with 無名 (without a name) lettered in gold on the far wall.",
+   "room_name": "Hands without names",
+   "glyph": "無名",
+   "eyebrow": "A room without names",
+   "shows": "typographic",
+   "far_wall": {
+    "glyph": "無名",
+    "source": "assets/unsigned/works.json room.glyph; unsigned.html eyebrow 'Works whose makers the record forgot / 無名'"
+   },
+   "line": {
+    "text": "Ten works whose makers the record does not name.",
+    "source": "card copy, after the page's meta description 'Ten works by makers the museum record does not name …' (assets/unsigned/works.json room.meta_description)"
+   },
+   "palette": {
+    "wall": "#1c211d",
+    "ink": "#efe8d8",
+    "muted": "#b9b4a6",
+    "accent": "#d9bf87",
+    "source": "unsigned.css:2 (--wall, --paper, --muted, --gold); theme-color #1c211d"
+   },
+   "accent_word": {
+    "word": "names",
+    "source": "unsigned.html h1 'Hands without <em>names.</em>', coloured var(--gold) #d9bf87 (unsigned.css:36)"
+   }
+  }
+ ]
+}

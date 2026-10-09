@@ -231,7 +231,8 @@ if (process.argv.includes('--browser')) await withBrowser('map', async b => {
   assert.equal(fallbackLinks.length, 5);
   for (const link of fallbackLinks) assert.equal(link.href, `/${mediaPaths[link.key]}`, 'artwork links retain a direct-image fallback');
   assert.equal((await visibleRooms()).length, rooms.length, 'all directory links remain available without JavaScript');
-  assert.equal(await evaluate(`document.querySelectorAll('.steps a').length`), 11);
+  assert.equal(await evaluate(`document.querySelectorAll('.steps a').length`), 12);
+  assert.equal(await evaluate(`document.querySelectorAll('.steps a[href="/unsigned"]').length`), 1, 'the room without names remains available without JavaScript');
   assert.equal(await evaluate(`document.querySelectorAll('.steps a[href="/noticing"]').length`), 1, 'the looking notebook remains available without JavaScript');
   assert.equal(await evaluate(`document.querySelectorAll('.steps a[href="/elements"]').length`), 1, 'the five-phase journey remains available without JavaScript');
   assert.equal(await evaluate(`document.querySelectorAll('.steps a[href="/behind-the-work"]').length`), 1, 'the new making-and-care journey remains available without JavaScript');

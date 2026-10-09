@@ -17,7 +17,8 @@ for (const file of ['index.html', 'welcome.css', 'welcome.js', 'explore.html']) 
 }
 for (const match of html.matchAll(/(?:href|src)="([^"#?]+)(?:[#?][^"]*)?"/g)) {
   const path = match[1];
-  if (!/^(https?:|data:)/.test(path)) await access(new URL(path, root));
+  // A root-relative path (the shared icon links: /favicon.svg, /site.webmanifest …) is a file at the site root, i.e. the repo root.
+  if (!/^(https?:|data:)/.test(path)) await access(new URL(path.replace(/^\/(?!\/)/, ''), root));
 }
 assert.match(html, /id="why"/);
 assert.match(html, /Why all these rooms/);
