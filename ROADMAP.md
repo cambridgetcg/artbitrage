@@ -83,6 +83,10 @@ unrelated files such as "Sean Combs in 2023.png".
 is repaired or retired with a note, and archive results are filtered before they
 are stored.
 
+**Status (17 October 2026):** the Met source is repaired. `sources.py` now
+searches the Met's `v1.1` endpoint (see item 11). The search cache and the
+archive filtering are still open.
+
 ## 7. Quiet the loops that only keep warm
 
 **Seen:** `heartbeat.yml` is scheduled every 15 minutes and every 2 hours, but
@@ -150,4 +154,19 @@ checked against its README row. The Met source is moved to `v1.1` (or retired
 with a note). AIC totals and empty matches are reported honestly. Each
 upstream has a fixture-backed contract test plus one dated live probe. Any
 remaining legacy routes are either documented or retired.
+
+**Status (17 October 2026): the Met part is done.** The router, the pipeline
+library and `sources.py` now ask `/public/collection/v1.1/search` with
+`offset=0` and a `limit` of eight candidates per wanted result (capped at the
+Met's maximum of 500). Objects still come from `/v1/objects`.
+`tests/e2e-met-search.mjs` holds that contract with fixtures; it fails on the
+old code. A live probe the same night returned `total: 1756` for "love" with
+no error.
+
+**Still open:**
+- Met result quality: for "love", 15 of the first 16 v1.1 candidates had no
+  public image (mostly Costume Institute dresses), so `limit=2` returned one
+  work. A wider or concurrent candidate scan would help.
+- The AIC totals.
+- The route inventory.
 
