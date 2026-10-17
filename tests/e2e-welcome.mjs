@@ -39,7 +39,7 @@ if (!process.argv.includes('--browser')) process.exit(0);
 const works = JSON.parse(await readFile(new URL('catalog/all.json', root), 'utf8'));
 const route = async (url) => {
   if (url.pathname === '/catalog/all.json') return { type: 'application/json', body: JSON.stringify(works) };
-  if (/^\/(welcome\.(css|js)|assets\/welcome\/[a-z-]+\.jpg|assets\/guide\/kandinsky\.jpg|assets\/noticing\/cassatt-childs-bath\.jpg|assets\/psyche\/canova-t\.jpg)$/.test(url.pathname)) {
+  if (/^\/(welcome\.(css|js)|assets\/welcome\/[a-z-]+\.jpg|assets\/guide\/kandinsky\.jpg|assets\/noticing\/cassatt-childs-bath\.jpg|assets\/psyche\/canova-t\.jpg|assets\/vishenskaya\/poignant-wonder-t\.jpg)$/.test(url.pathname)) {
     return { type: url.pathname.endsWith('.css') ? 'text/css' : url.pathname.endsWith('.js') ? 'text/javascript' : 'image/jpeg', body: await readFile(new URL(url.pathname.slice(1), root)) };
   }
   return null;

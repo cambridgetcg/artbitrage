@@ -1,0 +1,82 @@
+{
+  "about": "Capture log for the two Art Institute of Chicago images in /vishenskaya. Headless Chrome (fresh temporary profile) opened each artwork page, waited six seconds, then fetched the IIIF URL from inside the page. Captured 2026-10-17. The 403 entry is kept: the 1686 px Batoni request was refused and the 843 px request used instead. Response bodies are not kept; each saved image equals its asset file by sha256.",
+  "redactions": [],
+  "captures": [
+    {
+      "museum_id": 79332,
+      "page": "https://www.artic.edu/artworks/79332",
+      "page_title": "The Eye, Like a Strange Balloon Moves Towards Infinity, plate one from To Edgar Poe | The Art Institute of Chicago",
+      "image_source": "https://www.artic.edu/iiif/2/5590e6dd-559a-858e-25cd-4c6a0e999ded/full/1686,/0/default.jpg",
+      "status": 200,
+      "type": "image/jpeg",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cache-control": "public, max-age=2592000, no-transform",
+        "cf-cache-status": "HIT",
+        "cf-ray": "a4c289d0ae29cd58-LHR",
+        "content-type": "image/jpeg",
+        "date": "Sat, 17 Oct 2026 21:53:50 GMT",
+        "last-modified": "Sat, 17 Oct 2026 21:53:50 GMT",
+        "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+        "server": "cloudflare",
+        "vary": "Accept, accept-encoding",
+        "x-powered-by": "Cantaloupe/4.1.7"
+      },
+      "bytes": 2111085,
+      "sha256": "e5d482f3471f9b566e9aa9be5cbf8930ce01a7c7fe0c5d61878c4830b449730f",
+      "at": "2026-10-17T21:53:51.607Z",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+    },
+    {
+      "museum_id": 51130,
+      "page": "https://www.artic.edu/artworks/51130",
+      "page_title": "Time Unveiling Truth | The Art Institute of Chicago",
+      "image_source": "https://www.artic.edu/iiif/2/39018e31-6200-f4e3-7fc0-17ef919a6723/full/1686,/0/default.jpg",
+      "status": 403,
+      "type": "text/plain;charset=utf-8",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cache-control": "max-age=14400, must-revalidate",
+        "cf-cache-status": "EXPIRED",
+        "cf-ray": "a4c28a0b1ce6cd58-LHR",
+        "content-encoding": "br",
+        "content-type": "text/plain;charset=utf-8",
+        "date": "Sat, 17 Oct 2026 21:53:59 GMT",
+        "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+        "server": "cloudflare",
+        "vary": "Accept, accept-encoding",
+        "x-powered-by": "Cantaloupe/4.1.7"
+      },
+      "bytes": 3417,
+      "sha256": "1e4b42d8edee83d40e7a347c1edc95751afb5367082bbbea592aa388019439cd",
+      "at": "2026-10-17T21:53:59.853Z",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+    },
+    {
+      "museum_id": 51130,
+      "page": "https://www.artic.edu/artworks/51130",
+      "page_title": "Time Unveiling Truth | The Art Institute of Chicago",
+      "image_source": "https://www.artic.edu/iiif/2/39018e31-6200-f4e3-7fc0-17ef919a6723/full/843,/0/default.jpg",
+      "status": 200,
+      "type": "image/jpeg",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "age": "1616793",
+        "cache-control": "public, max-age=2592000, no-transform",
+        "cf-cache-status": "HIT",
+        "cf-ray": "a4c28a66df28ef54-LHR",
+        "content-type": "image/jpeg",
+        "date": "Sat, 17 Oct 2026 21:54:14 GMT",
+        "last-modified": "Sun, 04 Oct 2026 14:19:43 GMT",
+        "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+        "server": "cloudflare",
+        "vary": "Accept, accept-encoding",
+        "x-powered-by": "Cantaloupe/4.1.7"
+      },
+      "bytes": 474671,
+      "sha256": "8b76a57b81a131954f56618c4dfd3a40475fd8474798a8039842f6d4a902eaef",
+      "at": "2026-10-17T21:54:14.527Z",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+    }
+  ]
+}

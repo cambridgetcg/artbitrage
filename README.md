@@ -68,6 +68,21 @@ artwork, and navigation work without JavaScript or an API connection.
   `python3 tools/build-unsigned.py`, which refuses to build if the display
   manifest and the credits disagree. A whole-work viewer enhances the readable
   document; nothing moves or plays.
+- `/vishenskaya` — 幽明 · At the Edge of Things, a guest room for the living painter
+  Anna Vishenskaya (Geneva): *Hello, Darkness*, *Poignant Wonder* and *Veritas*, hung
+  from night to day. With JavaScript each painting first hangs small, as across a
+  gallery; "Come closer" brings it near, and after twelve seconds of staying close
+  (paused when the tab is hidden or the work scrolls away) it asks a question back.
+  *Poignant Wonder* can be shown at about its listed 19.5 cm height. Three
+  public-domain museum works answer as visual rhymes (Redon, Khunrath's laboratory,
+  Batoni), and a schematic shows the traditional layers of an icon board. Without
+  JavaScript every painting, question and record is simply there; the checkered
+  corridor can be held still and does not move under reduced motion. **Her works are
+  © the artist and shown with her permission: they are not CC0 and are kept out of
+  `catalog/`, the River and every API route** (the room's test enforces this).
+  Records, hashes and sources are in `assets/vishenskaya/credits.json`; the Art
+  Institute capture log is in `tools/receipts/vishenskaya/`. Verify with
+  `node tests/e2e-vishenskaya.mjs --browser`.
 - `/map` — a visitor guide with three selectable artwork backdrops, four illustrated
   journeys, an uncropped artwork viewer, and a searchable room directory.
 - `/explore` — the earlier collection page, preserving its art-history journey,
@@ -136,6 +151,7 @@ node tests/e2e-trip.mjs --browser
 node tests/e2e-elements.mjs --browser
 node tests/e2e-behind-the-work.mjs --browser
 node tests/e2e-unsigned.mjs --browser
+node tests/e2e-vishenskaya.mjs --browser
 node tests/e2e-brand.mjs
 node tests/e2e-start.mjs
 node tests/e2e-era-pages.mjs
