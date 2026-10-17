@@ -83,6 +83,16 @@ artwork, and navigation work without JavaScript or an API connection.
   Records, hashes and sources are in `assets/vishenskaya/credits.json`; the Art
   Institute capture log is in `tools/receipts/vishenskaya/`. Verify with
   `node tests/e2e-vishenskaya.mjs --browser`.
+- `/leonardo` — 鏡書 · Read It in a Mirror: six sheets by Leonardo da Vinci from the
+  Met (a bear, compositional sketches, a profile he changed halfway, the lizard fable
+  and its stage-design verso, a follower's grotesque found beneath it, and the late
+  Head of the Virgin) and the 1509 *Divine Proportion* from the Art Institute, each
+  framed as one habit of a restless mind. Visitors can write a line in mirror script
+  and hold a mirror to both sides of the lizard sheet; a scale drawing shows every
+  sheet at its recorded size beside A4. All images are public domain, recorded in
+  `assets/leonardo/credits.json` (AIC capture log in `tools/receipts/leonardo/`).
+  `/davinci`, `/da-vinci` and `/davincii` redirect here. Verify with
+  `node tests/e2e-leonardo.mjs --browser`.
 - `/map` — a visitor guide with three selectable artwork backdrops, four illustrated
   journeys, an uncropped artwork viewer, and a searchable room directory.
 - `/explore` — the earlier collection page, preserving its art-history journey,
@@ -152,6 +162,7 @@ node tests/e2e-elements.mjs --browser
 node tests/e2e-behind-the-work.mjs --browser
 node tests/e2e-unsigned.mjs --browser
 node tests/e2e-vishenskaya.mjs --browser
+node tests/e2e-leonardo.mjs --browser
 node tests/e2e-brand.mjs
 node tests/e2e-start.mjs
 node tests/e2e-era-pages.mjs

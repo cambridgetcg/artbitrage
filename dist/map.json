@@ -158,6 +158,12 @@
      "desc": "a guest room · Anna Vishenskaya, a living painter · come closer and the paintings look back"
     },
     {
+     "path": "/leonardo",
+     "name": "Read It in a Mirror",
+     "cjk": "鏡書",
+     "desc": "Leonardo da Vinci · six sheets and a book · the habits of a restless mind"
+    },
+    {
      "path": "/elements",
      "name": "Five ways of looking",
      "cjk": "五行",
