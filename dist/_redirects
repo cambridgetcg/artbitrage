@@ -59,3 +59,9 @@
 /hammock/         /maybe 301
 /decide-later/    /maybe 301
 /unsigned/        /unsigned 301
+/vishenskaya/     /vishenskaya 301
+/anna-vishenskaya /vishenskaya 301
+/leonardo/        /leonardo 301
+/davinci          /leonardo 301
+/da-vinci         /leonardo 301
+/davincii         /leonardo 301

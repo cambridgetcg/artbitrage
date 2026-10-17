@@ -1,0 +1,316 @@
+{
+ "room": "/vishenskaya",
+ "title": "幽明 · At the Edge of Things",
+ "made": "2026-10-17",
+ "about": "Image records for the guest room of the living painter Anna Vishenskaya. Her works are © the artist and shown with permission; they are deliberately absent from catalog/*.json, the River and every /api route. The three museum works are public-domain reproductions.",
+ "artist_texts": {
+  "statement": "https://annavishenskaya.com/index#statement",
+  "bio": "https://annavishenskaya.com/index#bio",
+  "quoted": "The room quotes the artist’s statement and two shop descriptions word for word, with links. Her bio and exhibition list are paraphrased from her site."
+ },
+ "interpretation": "Passages marked “A reading” and each painting’s returned question are written for the room by Claude (Artbitrage’s AI collaborator), not by the artist.",
+ "works": [
+  {
+   "id": "hello-darkness",
+   "kind": "artist-work",
+   "artist": "Anna Vishenskaya",
+   "title": "Hello, Darkness",
+   "date": "2026",
+   "medium_as_listed": "Oil on canvas (listing header); the listing text says “painted in oil on canvas board”",
+   "dimensions_as_listed": "40 × 34 cm",
+   "framing_as_listed": "Framed",
+   "listing": "https://abracadabra-9668.myshopify.com/products/hello-darkness",
+   "listing_seen": "2026-10-17 (products.json updated_at 2026-10-17T23:44:32+02:00)",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/hello-darkness.jpg",
+     "bytes": 593387,
+     "sha256": "0d0a0e80098ca65e1e50e43ee7bae26ad1536de9a4e4287474b394e834305887",
+     "width": 1324,
+     "height": 1566,
+     "role": "full",
+     "source": "https://cdn.shopify.com/s/files/1/1001/7891/9759/files/2026-05-28_10.19.46.png?v=1791225789",
+     "source_sha256": "4e9e8f3c399e626b85bf9c60f3f7ac275fa9e7565649772d1b293a1107600c6e",
+     "processing": "The artist’s 1324×1566 PNG (a photograph of the framed painting), re-encoded as JPEG with macOS sips at quality 90. Same pixels, no crop."
+    },
+    {
+     "file": "/assets/vishenskaya/hello-darkness-t.jpg",
+     "bytes": 121549,
+     "sha256": "02aa7b5f7121428dc7ebf0b29565ca07a56d6d2e19a2def5a36b07ad3c2a7eff",
+     "width": 700,
+     "height": 828,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/hello-darkness.jpg",
+     "processing": "Resized to 700 px wide with sips."
+    },
+    {
+     "file": "/assets/vishenskaya/hello-darkness-path.jpg",
+     "bytes": 233202,
+     "sha256": "7586ad5052c5d4f9a15728db30a7f7a048dfbfdfce50083a0d8578f539aaccac",
+     "width": 1224,
+     "height": 1835,
+     "role": "detail",
+     "source": "https://cdn.shopify.com/s/files/1/1001/7891/9759/files/photo_2026-10-05_20.38.56.jpg?v=1791225678",
+     "processing": "Unaltered copy of the artist’s detail photograph."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the images published on her website (confirmed 2026-10-17). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   },
+   "resolution_note": "The best available image is a phone photograph of the framed work at 1324×1566. A straight-on, unframed photograph at higher resolution would serve the “come closer” view better."
+  },
+  {
+   "id": "poignant-wonder",
+   "kind": "artist-work",
+   "artist": "Anna Vishenskaya",
+   "title": "Poignant Wonder",
+   "date": "2026",
+   "medium_as_listed": null,
+   "dimensions_as_listed": "19.5 × 15.7 × 2.2 cm",
+   "availability_as_listed": "NOT AVAILABLE",
+   "listing": "https://annavishenskaya.com/index#gallery",
+   "listing_seen": "2026-10-17",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/poignant-wonder.jpg",
+     "bytes": 3005252,
+     "sha256": "d5c260a6b41715e7503a448d378fede72242063cc0e6426ed1b5dbb4cd48c3fe",
+     "width": 2683,
+     "height": 3328,
+     "role": "full",
+     "source": "https://cdn.b12.io/client_media/Wp5bL5kS/9990d18e-c897-11f1-85e3-0242ac110002-embryo_vishenskaya_2026.jpg",
+     "processing": "Unaltered copy of the image on the artist’s website."
+    },
+    {
+     "file": "/assets/vishenskaya/poignant-wonder-t.jpg",
+     "bytes": 187648,
+     "sha256": "68e680d74e61b43b8820b72581ef0773146fa8d36f66cff92af88b96b972c4c7",
+     "width": 700,
+     "height": 868,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/poignant-wonder.jpg",
+     "processing": "Resized to 700 px wide with sips. Also used as the room’s share image."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the images published on her website (confirmed 2026-10-17). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   },
+   "note": "The site gives no medium or note for this work; the room says so instead of guessing."
+  },
+  {
+   "id": "veritas",
+   "kind": "artist-work",
+   "artist": "Anna Vishenskaya",
+   "title": "Veritas",
+   "date": "2026",
+   "medium_as_listed": "Oil on a traditional gessoed icon board",
+   "dimensions_as_listed": null,
+   "framing_as_listed": "Framed with antiglare protective glass",
+   "listing": "https://abracadabra-9668.myshopify.com/products/veritas-2026",
+   "listing_seen": "2026-10-17 (products.json updated_at 2026-10-17T23:44:32+02:00)",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/veritas.jpg",
+     "bytes": 566791,
+     "sha256": "dcf1034e465ad856811dc73b783424103fd044ed746e7e534a97d35610ce1773",
+     "width": 1871,
+     "height": 2458,
+     "role": "full",
+     "source": "https://cdn.shopify.com/s/files/1/1001/7891/9759/files/VISHENSKAYAANNAveritas2026.jpg?v=1791224906",
+     "processing": "Unaltered copy of the artist’s image."
+    },
+    {
+     "file": "/assets/vishenskaya/veritas-t.jpg",
+     "bytes": 174386,
+     "sha256": "5304cd9b78f92685c2a06ce42a5707ac7f50d1a73a55151dbaf47773e96951c4",
+     "width": 700,
+     "height": 919,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/veritas.jpg",
+     "processing": "Resized to 700 px wide with sips."
+    },
+    {
+     "file": "/assets/vishenskaya/veritas-in-hand.jpg",
+     "bytes": 215106,
+     "sha256": "7c7b414e0a66988482a6796739a88ddf53af0d4bc6b3036b9c5e54a27ff76953",
+     "width": 1081,
+     "height": 1439,
+     "role": "scale photograph",
+     "source": "https://cdn.shopify.com/s/files/1/1001/7891/9759/files/IMG_6216.jpg?v=1791225126",
+     "processing": "Unaltered copy of the artist’s photograph."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the images published on her website (confirmed 2026-10-17). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   },
+   "note": "The gilt border around the image on the page is CSS drawn for the room, echoing the gold frame in the artist’s photographs; it is not a photograph of the frame."
+  }
+ ],
+ "museum_works": [
+  {
+   "id": "redon-eye",
+   "kind": "museum-work",
+   "rhymes_with": "hello-darkness",
+   "artist": "Odilon Redon",
+   "title": "The Eye, Like a Strange Balloon Moves Towards Infinity, plate one from To Edgar Poe",
+   "date": "1882",
+   "medium": "Lithograph in black on ivory China paper, laid down on white wove paper",
+   "dimensions": "Image/chine: 26.3 × 19.8 cm (10 3/8 × 7 13/16 in.); Sheet: 44.3 × 31.5 cm (17 1/2 × 12 7/16 in.)",
+   "museum": "The Art Institute of Chicago",
+   "credit_line": "The Stickney Collection",
+   "accession_number": "1920.1570",
+   "url": "https://www.artic.edu/artworks/79332",
+   "api_source": "https://api.artic.edu/api/v1/artworks/79332",
+   "museum_image_id": "5590e6dd-559a-858e-25cd-4c6a0e999ded",
+   "is_public_domain": true,
+   "images": [
+    {
+     "file": "/assets/vishenskaya/redon-eye.jpg",
+     "bytes": 2111085,
+     "sha256": "e5d482f3471f9b566e9aa9be5cbf8930ce01a7c7fe0c5d61878c4830b449730f",
+     "width": 1686,
+     "height": 2226,
+     "role": "full",
+     "source": "https://www.artic.edu/iiif/2/5590e6dd-559a-858e-25cd-4c6a0e999ded/full/1686,/0/default.jpg",
+     "processing": "Unaltered museum IIIF image, captured from inside the artwork page; see tools/receipts/vishenskaya/artic-captures.json."
+    },
+    {
+     "file": "/assets/vishenskaya/redon-eye-t.jpg",
+     "bytes": 269390,
+     "sha256": "08d2ac0327224cc77c2faa55b9b2b9bda169a42e7f923831e8c56c58deb9c1f8",
+     "width": 700,
+     "height": 924,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/redon-eye.jpg",
+     "processing": "Resized to 700 px wide with sips."
+    }
+   ],
+   "rights": {
+    "public_domain": true,
+    "license": "CC0 / Public Domain",
+    "reusable": true,
+    "credit": "The Art Institute of Chicago, The Stickney Collection",
+    "note": "AIC API: is_public_domain true; data CC0; image under the CC0 Public Domain Designation."
+   },
+   "context_source": "https://getty.edu/news/black-is-the-most-essential-color-odilon-redons-noirs (read 2026-10-17: “From 1870 to 1890, Odilon Redon … created predominantly black artworks”; noirs = black drawings and lithographs)"
+  },
+  {
+   "id": "khunrath-laboratory",
+   "kind": "museum-work",
+   "rhymes_with": "poignant-wonder",
+   "artist": "Peter van der Doort (born Antwerp, active Hamburg ca. 1590–1605), engraver",
+   "title": "The Alchemist’s Laboratory from Heinrich Khunrath, Amphiteatrum sapientiae aeternae",
+   "date": "n.d. (museum record); book first printed 1595, probably Hamburg (UW–Madison Special Collections)",
+   "medium": "Engraving",
+   "dimensions": "sheet: diameter 16 1/8 in. (41 cm)",
+   "museum": "The Metropolitan Museum of Art",
+   "credit_line": "Purchase, C. G. Boerner Gift, 2011",
+   "accession_number": "2011.302",
+   "url": "https://www.metmuseum.org/art/collection/search/397573",
+   "api_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/397573",
+   "is_public_domain": true,
+   "images": [
+    {
+     "file": "/assets/vishenskaya/khunrath-laboratory.jpg",
+     "bytes": 2219624,
+     "sha256": "a976aa6b601f6bfa9a204d4b3f5bfb90c4394170432fe24b3f55a926cae860d7",
+     "width": 2000,
+     "height": 2019,
+     "role": "full",
+     "source": "https://images.metmuseum.org/CRDImages/dp/original/DP820688.jpg",
+     "source_sha256": "e8e2080eea81fdb63002084d0bccfaf9247af75489f54d93156296c92a2af4e3",
+     "source_bytes": 5169710,
+     "source_pixels": "3578×3612",
+     "fetched": "2026-10-17T21:57:39Z",
+     "processing": "Resized from the Met’s 3578×3612 primaryImage to 2000 px wide with sips (quality 86). No crop, no colour change."
+    },
+    {
+     "file": "/assets/vishenskaya/khunrath-laboratory-t.jpg",
+     "bytes": 211001,
+     "sha256": "0bdef8478b6e4242fa8b8f709d144e95c1bdcf4972c7d1b29326532468cdfea3",
+     "width": 700,
+     "height": 706,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/khunrath-laboratory.jpg",
+     "processing": "Resized to 700 px wide with sips."
+    }
+   ],
+   "rights": {
+    "public_domain": true,
+    "license": "CC0 / Public Domain",
+    "reusable": true,
+    "credit": "The Metropolitan Museum of Art, Purchase, C. G. Boerner Gift, 2011",
+    "note": "Met API: isPublicDomain true, rightsAndReproduction empty (2026-10-17)."
+   },
+   "lettering_read_from_image": [
+    "ORATORIVM (canopy, left)",
+    "LABORATORIVM (sign, right)",
+    "DORMIENS VIGILA (over the far doorway)",
+    "FESTINA LENTE (on the furnace, front right)"
+   ],
+   "context_source": "Plate lettering read from the Met image; 1595 edition from https://www.library.wisc.edu/specialcollections/collections/history-of-science/khunraths-amphitheatrum-sapientiae-aeternae-1595/ (read 2026-10-17)"
+  },
+  {
+   "id": "batoni-time-truth",
+   "kind": "museum-work",
+   "rhymes_with": "veritas",
+   "artist": "Pompeo Girolamo Batoni (Italian, 1708–1787)",
+   "title": "Time Unveiling Truth",
+   "date": "1740–45",
+   "medium": "Oil on canvas",
+   "dimensions": "43.3 × 26.5 cm (17 1/16 × 10 7/16 in.); Framed: 52.1 × 35.6 × 3.9 cm",
+   "museum": "The Art Institute of Chicago",
+   "credit_line": "Harold T. Martin Trust",
+   "accession_number": "1976.291",
+   "url": "https://www.artic.edu/artworks/51130",
+   "api_source": "https://api.artic.edu/api/v1/artworks/51130",
+   "museum_image_id": "39018e31-6200-f4e3-7fc0-17ef919a6723",
+   "is_public_domain": true,
+   "images": [
+    {
+     "file": "/assets/vishenskaya/batoni-time-truth.jpg",
+     "bytes": 474671,
+     "sha256": "8b76a57b81a131954f56618c4dfd3a40475fd8474798a8039842f6d4a902eaef",
+     "width": 843,
+     "height": 1373,
+     "role": "full",
+     "source": "https://www.artic.edu/iiif/2/39018e31-6200-f4e3-7fc0-17ef919a6723/full/843,/0/default.jpg",
+     "processing": "Unaltered museum IIIF image at 843 px, captured from inside the artwork page. A 1686 px request returned 403; see the receipts."
+    },
+    {
+     "file": "/assets/vishenskaya/batoni-time-truth-t.jpg",
+     "bytes": 179057,
+     "sha256": "34ab7df8cbe2722189b8899050227c0f0bd86a9f40047f86064e27209040f68a",
+     "width": 600,
+     "height": 977,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/batoni-time-truth.jpg",
+     "processing": "Resized to 600 px wide with sips."
+    }
+   ],
+   "rights": {
+    "public_domain": true,
+    "license": "CC0 / Public Domain",
+    "reusable": true,
+    "credit": "The Art Institute of Chicago, Harold T. Martin Trust",
+    "note": "AIC API: is_public_domain true. The room paraphrases the museum’s description field (CC BY 4.0) and names it as the source."
+   },
+   "context_source": "AIC description field (CC BY 4.0), paraphrased; Gellius, Attic Nights 12.11.7 via https://fgh.perseids.org/read/latinLit/phi1254/phi001/perseus-eng1/12.10-12.11 (read 2026-10-17)"
+  }
+ ]
+}

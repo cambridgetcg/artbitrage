@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鏡書 · Read It in a Mirror — ARTBITRAGE</title>
+<meta name="description" content="Six sheets by Leonardo da Vinci and one book he illustrated, from the Met and the Art Institute of Chicago: a bear, a nose changed halfway, a lizard fable written backwards, and the habits of a restless mind.">
+<link rel="canonical" href="https://artbitrage.io/leonardo">
+<meta property="og:title" content="鏡書 · Read It in a Mirror — ARTBITRAGE">
+<meta property="og:description" content="Leonardo’s habits, sheet by sheet: watch the animal, try again, change your mind, write it backwards.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://artbitrage.io/assets/leonardo/lizard-t.jpg">
+<meta property="og:image:width" content="700">
+<meta property="og:image:height" content="1032">
+<meta property="og:image:alt" content="Leonardo’s Allegory on the Fidelity of the Lizard: four lines of mirror writing above a small round drawing of a man asleep by a tree.">
+<meta property="og:site_name" content="Artbitrage">
+<meta property="og:url" content="https://artbitrage.io/leonardo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://artbitrage.io/assets/leonardo/lizard-t.jpg">
+<!-- 閒 the gap: the artbitrage.io icon. Every file sits at the site root. /manifest.json stays the philosophy document. -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#efe6d6">
+<style>
+:root{color-scheme:light;--paper:#efe6d6;--sheet:#e6dac5;--mount:#f7f1e6;--ink:#2a2118;--quiet:#6b5d4c;--sanguine:#a3452c;--line:#d3c4ab;--serif:Georgia,'Times New Roman',serif;--cjk:'Songti TC','Noto Serif TC','PMingLiU',serif;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.8 var(--serif);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.3em}
+a:hover{color:var(--sanguine)}
+button,input{font:inherit}
+:focus-visible{outline:2px solid var(--sanguine);outline-offset:5px}
+::selection{background:#a3452c;color:white}
+[hidden]{display:none!important}
+img{display:block;max-width:100%;height:auto}
+.skip{position:absolute;left:20px;top:12px;z-index:10;padding:8px 16px;background:var(--ink);color:var(--paper);transform:translateY(-180%)}
+.skip:focus{transform:none;color:var(--paper)}
+.wrap{width:min(1240px,100%);padding-inline:clamp(16px,5vw,64px);margin-inline:auto}
+.door{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-block:28px;border-bottom:1px solid var(--line)}
+.door a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.wordmark,.eyebrow,.ordinal,.label,.source,.door-note,.room-links,.toggle,.scale-note,.mirror-writer label{font:11px/1.8 var(--mono);letter-spacing:.11em;text-transform:uppercase}
+.wordmark{font-size:12px;letter-spacing:.17em}
+.door-note{color:var(--quiet);margin:0}
+.intro{padding-block:64px 36px}
+.eyebrow{color:var(--sanguine);margin:0 0 22px}
+.title-row{display:flex;align-items:start;justify-content:space-between;gap:32px}
+h1{font-size:clamp(3.1rem,7.4vw,6.4rem);font-weight:400;line-height:1.04;letter-spacing:-.05em;margin:0;max-width:860px}
+h1 em{font-weight:400}
+.han{font:400 clamp(2rem,4vw,3rem)/1.45 var(--cjk);letter-spacing:.18em;writing-mode:vertical-rl;color:var(--sanguine);margin:9px 0 0}
+.intro-bottom{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(28px,6vw,96px);margin-top:46px;align-items:start}
+.question{font-size:clamp(1.2rem,2.1vw,1.55rem);font-style:italic;line-height:1.6;margin:0;max-width:24ch}
+.opening{color:var(--quiet);margin:0;max-width:58ch;font-size:1.0625rem}
+.opening em,.opening i{color:var(--ink)}
+.room-links{display:flex;gap:6px 26px;flex-wrap:wrap;margin:26px 0 0}
+.room-links a{display:inline-flex;align-items:center;min-height:44px}
+
+.mirror{margin:20px 0 0;padding:36px clamp(20px,4vw,48px);background:var(--mount);border:1px solid var(--line)}
+.mirror h2{font-size:clamp(1.5rem,2.6vw,2rem);font-weight:400;margin:0 0 12px}
+.mirror p{margin:0 0 14px;max-width:62ch;color:var(--quiet)}
+.mirror-writer{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:20px 0 0}
+.mirror-writer label{color:var(--sanguine)}
+.mirror-writer input{flex:1 1 260px;max-width:520px;min-height:44px;padding:8px 12px;border:1px solid var(--line);background:#fffaf2;color:var(--ink)}
+.mirrored{display:block;margin:22px 0 4px;font:italic clamp(1.6rem,4vw,2.8rem)/1.3 var(--serif);color:#5a3a22;transform:scaleX(-1);text-align:right;overflow-wrap:anywhere;min-height:1.3em}
+
+.scale{margin:56px 0 0}
+.scale h2{font-size:clamp(1.4rem,2.4vw,1.8rem);font-weight:400;margin:0 0 6px}
+.scale-box{overflow-x:auto;margin-top:16px;padding-bottom:6px}
+.scale svg{display:block;width:100%;min-width:760px;height:auto}
+.scale-note{color:var(--quiet);margin:8px 0 0;text-transform:none;letter-spacing:.02em;font-size:12px}
+
+.habit{padding-block:64px;border-top:1px solid var(--line)}
+.habit-head{display:flex;gap:10px 24px;align-items:baseline;justify-content:space-between;flex-wrap:wrap;margin-bottom:24px}
+.habit-head h2{margin:0;font-size:clamp(1.9rem,3.8vw,3rem);font-weight:400;line-height:1.2;letter-spacing:-.02em}
+.ordinal{color:var(--sanguine)}
+.ordinal span[lang]{font:15px/1 var(--cjk);letter-spacing:.1em;text-transform:none}
+.habit-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(26px,5vw,72px);align-items:start}
+.sheet{margin:0}
+.sheet .frame{display:flex;justify-content:center;align-items:center;min-height:200px;padding:clamp(14px,3vw,36px);background:var(--mount);border:1px solid var(--line);text-decoration:none;line-height:0;overflow:hidden}
+.sheet .frame img{max-height:640px;width:auto;box-shadow:0 1px 0 #0000000d,0 8px 22px #3b2a1a1f;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.sheet.narrow .frame img{max-height:520px}
+.sheet.is-mirrored .frame img{transform:scaleX(-1)}
+.sheet figcaption{margin-top:10px;font-size:.8125rem;color:var(--quiet)}
+.image-error{line-height:1.7;color:var(--quiet);text-align:center;max-width:32ch;padding:30px 10px;display:block}
+.is-missing img{display:none}
+.toggle{margin-top:12px;background:transparent;color:var(--sanguine);border:1px solid var(--sanguine);padding:6px 16px;min-height:44px;cursor:pointer}
+.toggle:hover{background:#a3452c12}
+.mirror-state{font-size:.875rem;color:var(--quiet);margin:8px 0 0;min-height:1.5em}
+.label{color:var(--sanguine);margin:0 0 8px}
+.museum{margin:0 0 24px;font-size:1rem;color:var(--quiet)}
+.museum q{color:var(--ink)}
+.reading{margin:0 0 24px;font-size:clamp(1.03rem,1.6vw,1.15rem);line-height:1.85;max-width:56ch}
+.metadata{font-size:.9375rem;line-height:1.75;color:var(--quiet);margin:0}
+.metadata strong{color:var(--ink);font-weight:400}
+.source{display:inline-flex;align-items:center;min-height:44px;margin:6px 22px 0 0;font-size:10px;letter-spacing:.07em}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,44px);margin-top:10px}
+.inscription{margin:22px 0 0;padding:18px 20px;background:var(--mount);border-left:2px solid var(--sanguine)}
+.inscription p{margin:0 0 10px}
+.inscription .italian{font-style:italic;color:var(--quiet);font-size:.9375rem}
+.companion{display:grid;grid-template-columns:minmax(120px,.35fr) minmax(0,1fr);gap:clamp(18px,3vw,36px);align-items:start;margin-top:44px;padding-top:28px;border-top:1px dashed var(--line)}
+.companion .frame{padding:14px}
+.companion .frame img{max-height:300px}
+.companion h3{font-size:1.25rem;font-weight:400;margin:0 0 10px}
+.lettering{font:13px/1.7 var(--mono);letter-spacing:.12em}
+
+.closing{padding-block:64px 30px;border-top:1px solid var(--line)}
+.closing h2{font-size:clamp(1.9rem,3.8vw,3rem);font-weight:400;margin:0 0 18px;letter-spacing:-.02em}
+.closing p{max-width:60ch;margin:0 0 16px}
+.habits-list{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-wrap:wrap;gap:8px 12px}
+.habits-list li{border:1px solid var(--line);padding:4px 12px;background:var(--mount);font-size:.9375rem}
+.closing .next-door{margin:34px 0 0;padding:22px 24px;background:#1b1a1d;color:#efe9dd}
+.next-door a{color:#e6b97c}
+.farewell{text-align:center;padding:40px 0 30px}
+.farewell p{margin:0 auto}
+.farewell .canto{font:400 clamp(1.4rem,3vw,2rem)/1.6 var(--cjk);letter-spacing:.12em;color:var(--sanguine)}
+.farewell .en{font-style:italic;color:var(--quiet);margin-top:8px}
+.colophon{padding-block:28px 46px;color:var(--quiet);font-size:.875rem;border-top:1px solid var(--line)}
+.colophon p{max-width:82ch;margin:0 0 16px}
+.colophon nav{display:flex;gap:6px 28px;flex-wrap:wrap;padding-top:8px}
+.colophon nav a{display:inline-flex;align-items:center;min-height:44px}
+
+@media(max-width:860px){.habit-grid{grid-template-columns:1fr}}
+@media(max-width:700px){
+ .door{padding-block:18px;gap:3px 18px}.door-note{font-size:10px}.intro{padding-block:40px 28px}.title-row{gap:13px}h1{font-size:clamp(2.7rem,11.5vw,4.6rem)}.han{font-size:1.7rem;margin-top:4px}.intro-bottom{grid-template-columns:1fr;gap:20px;margin-top:28px}
+ .habit{padding-block:44px}.pair{grid-template-columns:1fr}.companion{grid-template-columns:1fr}.sheet .frame img{max-height:480px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sheet .frame img{transition:none}}
+@media(forced-colors:active){.sheet .frame,.mirror,.inscription{border:1px solid CanvasText}.next-door{border:1px solid CanvasText}}
+@media print{.door,.room-links,.toggle,.mirror-writer,.colophon nav,.scale-box{display:none}.sheet .frame img{max-height:420px;box-shadow:none}.habit{break-inside:avoid}.next-door{background:white;color:black}}
+</style>
+</head>
+<body>
+<a class="skip" href="#habits">Skip to the drawings</a>
+<div class="wrap">
+  <header class="door">
+    <a class="wordmark" href="map.html#wings">← ARTBITRAGE</a>
+    <p class="door-note">A room for a fascinating guy</p>
+  </header>
+  <main id="main">
+    <section class="intro" aria-labelledby="room-title">
+      <p class="eyebrow">Leonardo da Vinci · 1452–1519 · six sheets and a book</p>
+      <div class="title-row">
+        <h1 id="room-title">Read It<br><em>in a Mirror</em></h1>
+        <p class="han" lang="zh-Hant">鏡書</p>
+      </div>
+      <div class="intro-bottom">
+        <p class="question">What does a mind look like while it is still working?</p>
+        <p class="opening">Only a small number of paintings by Leonardo survive. What he left in quantity is paper. The Met holds a handful of his sheets, none much larger than a hand, and they show habits more than masterpieces: he watched animals, tried one idea again and again, changed a face halfway through, and wrote from right to left. An old mount for one of these sheets, inscribed in an early nineteenth-century French hand, says it plainly: the writing <i lang="fr">“doit se lire dans une glace”</i>, must be read in a mirror.</p>
+      </div>
+      <nav class="room-links" aria-label="Inside this room">
+        <a href="#mirror">Write like him</a>
+        <a href="#scale">Everything at true scale</a>
+        <a href="#habits">Six habits</a>
+        <a href="#closing">Habits, not masterpieces</a>
+      </nav>
+    </section>
+
+    <section class="mirror" id="mirror" aria-labelledby="mirror-title">
+      <h2 id="mirror-title">Try his direction</h2>
+      <p>Leonardo was left-handed, and his notes run from right to left, “as is usual for Leonardo”, in the words of the Met’s curators. The letters are reversed too, so a mirror sets them right. Why he wrote this way is still argued over. What it does to a reader is simple: it slows you down.</p>
+      <form class="mirror-writer" id="mirror-form" hidden>
+        <label for="mirror-input">Write a line</label>
+        <input id="mirror-input" type="text" maxlength="80" autocomplete="off" spellcheck="false" value="Read it in a mirror">
+      </form>
+      <p class="mirrored" id="mirror-output" aria-describedby="mirror-hint">Read it in a mirror</p>
+      <p class="scale-note" id="mirror-hint">Shown flipped left to right, the way his notes look on the page.</p>
+    </section>
+
+    <section class="scale" id="scale" aria-labelledby="scale-title">
+      <h2 id="scale-title">Everything in this room, at the same scale</h2>
+      <div class="scale-box">
+        <svg viewBox="0 0 1260 372" role="img" aria-labelledby="scale-svg-title scale-svg-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="scale-svg-title">The six sheets and the book at their recorded sizes, beside a sheet of A4</title>
+          <desc id="scale-svg-desc">Drawn at one scale, bottom-aligned: an outline of A4 paper (21 by 29.7 centimetres); the 1509 book, the same height as A4; the Head of the Virgin, 20.3 by 15.6; the lizard sheet, 20.2 by 13.3; the sketches, 19.3 by 16.2; the bear, 10.3 by 13.3; the head of a man, 11.7 by 5.2; and a follower’s copy of a grotesque head, 9.2 by 5.4 centimetres.</desc>
+          <g font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" fill="#6b5d4c" letter-spacing="1">
+            <rect x="0.5" y="33.5" width="210" height="297" fill="none" stroke="#a3452c" stroke-dasharray="5 4"/>
+            <text x="105" y="190" text-anchor="middle" fill="#a3452c">A4</text>
+            <image href="assets/leonardo/solids-icosahedron-t.jpg" x="230" y="33" width="204" height="297" preserveAspectRatio="xMidYMid meet"/>
+            <rect x="230.5" y="33.5" width="204" height="297" fill="none" stroke="#d3c4ab"/>
+            <image href="assets/leonardo/virgin-t.jpg" x="454" y="127" width="156" height="203" preserveAspectRatio="xMidYMid meet"/>
+            <image href="assets/leonardo/lizard-t.jpg" x="630" y="128" width="133" height="202" preserveAspectRatio="xMidYMid meet"/>
+            <image href="assets/leonardo/sketches-t.jpg" x="783" y="137" width="162" height="193" preserveAspectRatio="xMidYMid meet"/>
+            <image href="assets/leonardo/bear-t.jpg" x="965" y="227" width="133" height="103" preserveAspectRatio="xMidYMid meet"/>
+            <image href="assets/leonardo/head-t.jpg" x="1118" y="213" width="52" height="117" preserveAspectRatio="xMidYMid meet"/>
+            <image href="assets/leonardo/grotesque-t.jpg" x="1190" y="238" width="54" height="92" preserveAspectRatio="xMidYMid meet"/>
+            <path d="M0 331.5H1260" stroke="#d3c4ab"/>
+            <text x="230" y="352">BOOK, 1509</text>
+            <text x="454" y="352">VIRGIN</text>
+            <text x="630" y="352">LIZARD</text>
+            <text x="783" y="352">SKETCHES</text>
+            <text x="965" y="352">BEAR</text>
+            <text x="1118" y="352">HEAD</text>
+            <text x="1190" y="352">COPY</text>
+            <path d="M0 18.5H100" stroke="#6b5d4c"/><path d="M0.5 13V24M100.5 13V24" stroke="#6b5d4c"/><text x="108" y="22">10 CM</text>
+          </g>
+        </svg>
+      </div>
+      <p class="scale-note">Sizes as the museums record them: each sheet’s height and width, and the closed book’s binding. Each picture is fitted inside its outline without cropping.</p>
+    </section>
+
+    <div id="habits">
+    <article class="habit" id="bear" aria-labelledby="bear-title">
+      <div class="habit-head"><h2 id="bear-title">Watch the animal</h2><span class="ordinal">I · <span lang="zh-Hant">觀</span></span></div>
+      <div class="habit-grid">
+        <figure class="sheet">
+          <a class="frame" href="assets/leonardo/bear.jpg"><img src="assets/leonardo/bear-t.jpg" srcset="assets/leonardo/bear-t.jpg 700w, assets/leonardo/bear.jpg 2000w" sizes="(max-width:860px) calc(100vw - 72px), 560px" width="2000" height="1543" fetchpriority="high" alt="A silverpoint drawing on buff paper of a bear walking to the left, its fur and claws drawn in fine grey lines. At lower left, one paw is drawn again, larger, on its own. Faint lines of another figure lie underneath."><span class="image-error" hidden>This drawing is resting. The museum record remains beside it.</span></a>
+          <figcaption>Public domain · The Metropolitan Museum of Art</figcaption>
+        </figure>
+        <div>
+          <p class="label">From the museum</p>
+          <p class="museum">The Met thinks he probably drew this from life, and that dissecting bears may have helped his understanding of the animal. It belongs with bear studies for an anatomical treatise he planned, about which he wrote: <q>I will discourse of the hands of each animal to show in what way they vary, as in the bear which has the ligatures of the toes joined above the instep.</q> Beneath the bear, the faint outlines of a seated woman show that he reused the sheet.</p>
+          <p class="label">A reading</p>
+          <p class="reading">Silverpoint is hard to erase, so every line here was a decision. He gives the bear a heavy, careful walk, then draws one paw again beside it, larger, as if the first try had not answered his question. Look under the bear and you can just find another drawing, a seated woman nobody finished. Paper was precious. So, apparently, was the bear.</p>
+          <p class="label">Museum record</p>
+          <p class="metadata"><strong>Leonardo da Vinci</strong><br><i>A Bear Walking</i>, ca. 1482–85<br>Silverpoint on light buff prepared paper · 10.3 × 13.3 cm<br>The Metropolitan Museum of Art · Robert Lehman Collection, 1975 · 1975.1.369</p>
+          <a class="source" href="https://www.metmuseum.org/art/collection/search/459184">View the collection record ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="habit" id="sketches" aria-labelledby="sketches-title">
+      <div class="habit-head"><h2 id="sketches-title">Try it again, and again</h2><span class="ordinal">II · <span lang="zh-Hant">試</span></span></div>
+      <div class="habit-grid">
+        <figure class="sheet">
+          <a class="frame" href="assets/leonardo/sketches.jpg"><img src="assets/leonardo/sketches-t.jpg" srcset="assets/leonardo/sketches-t.jpg 700w, assets/leonardo/sketches.jpg 1430w" sizes="(max-width:860px) calc(100vw - 72px), 560px" width="1430" height="1692" loading="lazy" decoding="async" alt="A sheet of pink prepared paper with several small pen and silverpoint sketches of the Virgin kneeling: in an arched niche, in the open with two infants, turned to the right, and again in a second arch. Loose studies of babies sit below, and ruled lines run across the lower right."><span class="image-error" hidden>This drawing is resting. The museum record remains beside it.</span></a>
+          <figcaption>Public domain · The Metropolitan Museum of Art</figcaption>
+        </figure>
+        <div>
+          <p class="label">From the museum</p>
+          <p class="museum">The Met calls these <q>dazzling sketches</q> of the Virgin kneeling before the Christ Child, a theme Leonardo would also use in the <i>Virgin of the Rocks</i>. He worked in silverpoint and reinforced the shadows with pen. The geometric lines at lower right are his attempts to work out the perspective from the viewer’s point of view.</p>
+          <p class="label">A reading</p>
+          <p class="reading">She kneels in an arched niche; again in the open, with two children; again, turning away; and once more in a second arch. Between them, babies drawn in quick loops. This is what deciding looks like before anything is decided: not one picture but several, all allowed to stay on the page. In the corner, ruled lines try to work out where you, the viewer, will stand.</p>
+          <p class="label">Museum record</p>
+          <p class="metadata"><strong>Leonardo da Vinci</strong><br><i>Compositional Sketches for the Virgin Adoring the Christ Child, with and without the Infant St. John the Baptist; Diagram of a Perspectival Projection</i> (recto), 1480–85<br>Silverpoint, partly reworked by the artist with pen and dark brown ink on pink prepared paper · 19.3 × 16.2 cm<br>The Metropolitan Museum of Art · Rogers Fund, 1917 · 17.142.1</p>
+          <a class="source" href="https://www.metmuseum.org/art/collection/search/337494">View the collection record ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="habit" id="profile" aria-labelledby="profile-title">
+      <div class="habit-head"><h2 id="profile-title">Change your mind</h2><span class="ordinal">III · <span lang="zh-Hant">改</span></span></div>
+      <div class="habit-grid">
+        <figure class="sheet narrow">
+          <a class="frame" href="assets/leonardo/head.jpg"><img src="assets/leonardo/head-t.jpg" srcset="assets/leonardo/head-t.jpg 420w, assets/leonardo/head.jpg 1300w" sizes="(max-width:860px) 60vw, 280px" width="1300" height="2599" loading="lazy" decoding="async" alt="A narrow, irregular scrap of paper on a grey-green mount: the profile of a man facing left, with tight curls, drawn in brown ink with dense straight hatching."><span class="image-error" hidden>This drawing is resting. The museum record remains beside it.</span></a>
+          <figcaption>Public domain · The Metropolitan Museum of Art</figcaption>
+        </figure>
+        <div>
+          <p class="label">From the museum</p>
+          <p class="museum">The Met explains that Leonardo began this head in charcoal or soft black chalk as the hooked profile of a grotesque old man, then reworked it in pen and ink into a younger man. <q>The most dramatic change occurs in the nose, which in the pen-and-ink drawing appears shorter and straighter.</q></p>
+          <p class="label">A reading</p>
+          <p class="reading">This scrap holds two people. Underneath, in soft chalk, an old man with a hooked nose; on top, in ink, someone younger, the nose cut back and straightened. He did not throw the first face away. He drew through it, and every confident line on top is also a correction.</p>
+          <p class="label">Museum record</p>
+          <p class="metadata"><strong>Leonardo da Vinci</strong><br><i>Head of a Man in Profile Facing to the Left</i>, 1490–94<br>Pen and brown ink, over soft black chalk · 11.7 × 5.2 cm<br>The Metropolitan Museum of Art · Rogers Fund, 1909 · 10.45.1</p>
+          <a class="source" href="https://www.metmuseum.org/art/collection/search/339116">View the collection record ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="habit" id="lizard" aria-labelledby="lizard-title">
+      <div class="habit-head"><h2 id="lizard-title">Write it backwards</h2><span class="ordinal">IV · <span lang="zh-Hant">鏡</span></span></div>
+      <div class="pair">
+        <figure class="sheet" id="lizard-recto" data-mirror>
+          <a class="frame" href="assets/leonardo/lizard.jpg"><img src="assets/leonardo/lizard-t.jpg" srcset="assets/leonardo/lizard-t.jpg 700w, assets/leonardo/lizard.jpg 1600w" sizes="(max-width:700px) calc(100vw - 72px), 540px" width="1600" height="2360" loading="lazy" decoding="async" alt="The front of the sheet: four lines of small brown mirror writing across the top, and below them a round pen drawing of a man asleep against a tree beside water, a lizard and a snake by his head."><span class="image-error" hidden>This drawing is resting. The museum record remains below.</span></a>
+          <figcaption>Front · the fable · public domain, The Metropolitan Museum of Art</figcaption>
+          <button class="toggle" type="button" aria-pressed="false" hidden>Hold up a mirror</button>
+          <p class="mirror-state" aria-live="polite"></p>
+        </figure>
+        <figure class="sheet" id="lizard-verso" data-mirror>
+          <a class="frame" href="assets/leonardo/lizard-verso.jpg"><img src="assets/leonardo/lizard-verso-t.jpg" srcset="assets/leonardo/lizard-verso-t.jpg 700w, assets/leonardo/lizard-verso.jpg 2000w" sizes="(max-width:700px) calc(100vw - 72px), 540px" width="2000" height="1366" loading="lazy" decoding="async" alt="The back of the same sheet: a column of mirror-written names with numbers and fractions at upper left, and quick pen sketches of a stage, an arched niche with a figure, and a curved architectural setting."><span class="image-error" hidden>This drawing is resting. The museum record remains below.</span></a>
+          <figcaption>Back · the stage · public domain, The Metropolitan Museum of Art</figcaption>
+          <button class="toggle" type="button" aria-pressed="false" hidden>Hold up a mirror</button>
+          <p class="mirror-state" aria-live="polite"></p>
+        </figure>
+      </div>
+      <div class="habit-grid" style="margin-top:34px">
+        <div>
+          <p class="label">What the front says</p>
+          <div class="inscription">
+            <p class="italian" lang="it">il ramarro . fedele allomo vede[n]do quello adorme[n]/tato . co[n] batte . cholla bisscia esse vede no[n]lla potere / vincere core sopra il uolto dello mo . ello dessta accioche / essa . bisscia no no ffenda loadorme[n]tato . homo.</p>
+            <p>“The green lizard, faithful to man, seeing him asleep, fights the grass snake; and if it sees it cannot overcome it, it runs over the man’s face and wakes him, so that the snake may not harm the sleeping man.”</p>
+          </div>
+          <p class="scale-note">Transcription as published by the Met; translation mine.</p>
+        </div>
+        <div>
+          <p class="label">From the museum</p>
+          <p class="museum">The Met describes the little round scene on the front as intended for a medal on a theatrical costume. The back holds Leonardo’s working sketches for staging <i>La Danae</i>, a comedy by Baldassare Taccone performed on 31 January 1496: a list of actors at upper left with measurements for where each should stand, <q>as is usual for Leonardo</q> written from right to left, and the stage drawn as an elevation, a plan and a bird’s-eye view.</p>
+          <p class="label">A reading</p>
+          <p class="reading">One side of this sheet is a fable, the other a backstage plan. On the front, a lizard keeps watch over a sleeping man and, if it cannot win the fight, runs across his face to wake him. On the back, Leonardo works out where each actor should stand for a comedy at court. Hold up the mirror and his hand turns readable, though still in his own Italian spelling, which no mirror can modernise.</p>
+          <p class="label">Museum record</p>
+          <p class="metadata"><strong>Leonardo da Vinci</strong><br><i>Allegory on the Fidelity of the Lizard</i> (recto); <i>Design for a Stage Setting</i> (verso), 1496<br>Pen and brown ink (recto and verso) · 20.2 × 13.3 cm<br>The Metropolitan Museum of Art · Rogers Fund, 1917 · 17.142.2</p>
+          <a class="source" href="https://www.metmuseum.org/art/collection/search/339130">View the collection record ↗</a>
+        </div>
+      </div>
+      <div class="companion">
+        <figure class="sheet">
+          <a class="frame" href="assets/leonardo/grotesque.jpg"><img src="assets/leonardo/grotesque-t.jpg" srcset="assets/leonardo/grotesque-t.jpg 420w, assets/leonardo/grotesque.jpg 1003w" sizes="200px" width="1003" height="1674" loading="lazy" decoding="async" alt="A small pen drawing on darkened paper of a grotesque man in profile facing right, with a jutting chin and heavy brow."><span class="image-error" hidden>This drawing is resting.</span></a>
+        </figure>
+        <div>
+          <h3>Found underneath</h3>
+          <p class="museum">When the Met acquired the lizard sheet in 1917, this small head was discovered beneath it. The lizard sheet was then hinged to an old blue mount whose French inscription says the writing must be read in a mirror. The Met catalogues the head as <i>after</i> Leonardo, a follower’s work, <q>dry and awkward in execution</q>.</p>
+          <p class="reading">A copy that travelled pressed against the real thing. Even his imitators kept his company.</p>
+          <p class="metadata"><strong>After Leonardo da Vinci</strong><br><i>The Head of a Grotesque Man in Profile Facing Right</i>, after 1500<br>Pen and brown ink, on off-white paper (now darkened) · 9.2 × 5.4 cm<br>The Metropolitan Museum of Art · Rogers Fund, 1917 · 17.142.3</p>
+          <a class="source" href="https://www.metmuseum.org/art/collection/search/338125">View the collection record ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="habit" id="virgin" aria-labelledby="virgin-title">
+      <div class="habit-head"><h2 id="virgin-title">The left hand gives him away</h2><span class="ordinal">V · <span lang="zh-Hant">左</span></span></div>
+      <div class="habit-grid">
+        <figure class="sheet">
+          <a class="frame" href="assets/leonardo/virgin.jpg"><img src="assets/leonardo/virgin-t.jpg" srcset="assets/leonardo/virgin-t.jpg 700w, assets/leonardo/virgin.jpg 1700w" sizes="(max-width:860px) calc(100vw - 72px), 560px" width="1700" height="2186" loading="lazy" decoding="async" alt="A chalk drawing of a young woman’s head tilted down to the right, eyes lowered. The face is modelled in soft, smoky black and red chalk with no hard outlines; loose curls fall at the right."><span class="image-error" hidden>This drawing is resting. The museum record remains beside it.</span></a>
+          <figcaption>Public domain · The Metropolitan Museum of Art</figcaption>
+        </figure>
+        <div>
+          <p class="label">From the museum</p>
+          <p class="museum">Some scholars doubted this drawing, perhaps, the Met suggests, because <q>its magical beauty renders it suspicious</q>. Scientific study in 2002–3 found a nearly seamless <i>sfumato</i> with extensive left-handed strokes in the rubbed-in shadows, and the Met concludes that the drawing <q>must unquestionably be authentic</q>.</p>
+          <p class="label">A reading</p>
+          <p class="reading">Late in his life the lines almost disappear. Shadow turns into skin without an edge you could point to. That softness was the reason for doubt, and it was also where the proof was hiding: underneath the haze, strokes laid down by a left hand. His.</p>
+          <p class="label">Museum record</p>
+          <p class="metadata"><strong>Leonardo da Vinci</strong><br><i>The Head of the Virgin in Three-Quarter View Facing Right</i>, 1510–13<br>Black chalk, charcoal, and red chalk, with some traces of white chalk (?) · 20.3 × 15.6 cm<br>The Metropolitan Museum of Art · Harris Brisbane Dick Fund, 1951 · 51.90</p>
+          <a class="source" href="https://www.metmuseum.org/art/collection/search/337496">View the collection record ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="habit" id="solids" aria-labelledby="solids-title">
+      <div class="habit-head"><h2 id="solids-title">Make the invisible solid</h2><span class="ordinal">VI · <span lang="zh-Hant">形</span></span></div>
+      <div class="pair">
+        <figure class="sheet">
+          <a class="frame" href="assets/leonardo/solids-icosahedron.jpg"><img src="assets/leonardo/solids-icosahedron-t.jpg" srcset="assets/leonardo/solids-icosahedron-t.jpg 560w, assets/leonardo/solids-icosahedron.jpg 843w" sizes="(max-width:700px) calc(100vw - 72px), 520px" width="843" height="1228" loading="lazy" decoding="async" alt="A printed page with a woodcut of a hollow, many-sided solid made of pentagons and hexagons, drawn as a frame you can see through. The caption reads Icosaedron abscisum Vacuum."><span class="image-error" hidden>This page is resting. The museum record remains below.</span></a>
+          <figcaption>Plate XXIIII · public domain, The Art Institute of Chicago</figcaption>
+        </figure>
+        <figure class="sheet">
+          <a class="frame" href="assets/leonardo/solids-tetrahedron.jpg"><img src="assets/leonardo/solids-tetrahedron-t.jpg" srcset="assets/leonardo/solids-tetrahedron-t.jpg 560w, assets/leonardo/solids-tetrahedron.jpg 843w" sizes="(max-width:700px) calc(100vw - 72px), 520px" width="843" height="1224" loading="lazy" decoding="async" alt="A printed page with a woodcut of a hollow tetrahedron with points raised on its faces, drawn as a see-through frame. Beneath it: Tetraedron elevatum vacuum, and Horum inventor. Magister Lucas Paciolus."><span class="image-error" hidden>This page is resting. The museum record remains below.</span></a>
+          <figcaption>Plate VI · public domain, The Art Institute of Chicago</figcaption>
+        </figure>
+      </div>
+      <div class="habit-grid" style="margin-top:34px">
+        <div>
+          <p class="label">From a library</p>
+          <p class="museum">The University of Oklahoma Libraries note that Leonardo provided the geometrical figures in the last section of Luca Pacioli’s book, and that <q>these drawings are the only material of Leonardo’s published in print form during his own lifetime</q>.</p>
+          <p class="label">Museum record</p>
+          <p class="metadata"><strong>Leonardo da Vinci</strong>; written by Luca Pacioli<br><i>Divine Proportion</i>, Venice: Paganinus de Paganinus, 1509<br>Letterpress and woodcut in black with hand lettering in red ink, on ivory laid paper · 29.7 × 20.4 × 3.2 cm<br>The Art Institute of Chicago · Gift of Mr. F.A. Wells · 2024.56</p>
+          <a class="source" href="https://www.artic.edu/artworks/272694">View the collection record ↗</a>
+          <a class="source" href="https://galileo.ou.edu/exhibits/divine-proportion.html">OU Libraries ↗</a>
+        </div>
+        <div>
+          <p class="label">A reading</p>
+          <p class="reading">Pacioli wrote the mathematics; Leonardo made the shapes visible, some solid and some hollow, the hollow ones drawn as frames you can see through to their back faces. One is captioned <span class="lettering">ICOSAEDRON ABSCISUM VACUUM</span>, a hollow truncated icosahedron: twelve pentagons and twenty hexagons, the pattern of a classic football and, since 1985, of the carbon molecule C60. On another page, under a hollow tetrahedron with raised points, the book prints <span class="lettering">HORUM INVENTOR. MAGISTER LUCAS PACIOLUS</span>, “their inventor, Master Luca Pacioli”. The picture of it, all the same, came from Leonardo.</p>
+        </div>
+      </div>
+    </article>
+    </div>
+
+    <section class="closing" id="closing" aria-labelledby="closing-title">
+      <h2 id="closing-title">Habits, not masterpieces</h2>
+      <p>Leonardo is famous for a few paintings. These sheets are famous for nothing in particular, which is what makes them good company: they show an ordinary working day of an unusual mind.</p>
+      <ul class="habits-list" aria-label="The six habits">
+        <li>Watch the animal</li><li>Try it again</li><li>Change your mind</li><li>Keep the first attempt</li><li>Write it your own way</li><li>Make the invisible solid</li>
+      </ul>
+      <p class="next-door">Next door, in <a href="vishenskaya.html#rhymes">At the Edge of Things</a>, an alchemist’s laboratory from 1595 is lettered <span class="lettering">DORMIENS VIGILA</span>, “sleeping, keep watch”. Leonardo’s lizard does exactly that.</p>
+    </section>
+  </main>
+  <footer class="colophon">
+    <div class="farewell">
+      <p class="canto" lang="yue-Hant">睇佢點樣諗，唔止睇佢諗咗啲乜。</p>
+      <p class="en">Watch how he thought, not only what he thought.</p>
+    </div>
+    <p>All images are public-domain reproductions from The Metropolitan Museum of Art and the Art Institute of Chicago, credited beside each work. Passages marked “From the museum” paraphrase and quote each institution’s own notes, which are linked; passages marked “A reading”, the translation of the lizard fable and the scale drawing are written for this room by Claude, Artbitrage’s AI collaborator. <a href="assets/leonardo/credits.json">Image records and credits</a> accompany this selection.</p>
+    <nav aria-label="Continue through the gallery"><a href="map.html#wings">← All the rooms</a><a href="vishenskaya.html">At the Edge of Things</a><a href="psyche.html">The Lamp Between Us</a><a href="renaissance.html">The Renaissance</a></nav>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  document.documentElement.classList.add('js');
+
+  document.querySelectorAll('.frame img').forEach(img => {
+    const frame = img.parentElement;
+    const fallback = frame.querySelector('.image-error');
+    if (!fallback) return;
+    const fail = () => { frame.classList.add('is-missing'); fallback.hidden = false; };
+    img.addEventListener('error', fail);
+    img.addEventListener('load', () => { frame.classList.remove('is-missing'); fallback.hidden = true; });
+    if (img.complete && !img.naturalWidth) fail();
+  });
+
+  const form = document.getElementById('mirror-form');
+  const input = document.getElementById('mirror-input');
+  const output = document.getElementById('mirror-output');
+  if (form && input && output) {
+    form.hidden = false;
+    form.addEventListener('submit', event => event.preventDefault());
+    const render = () => { output.textContent = input.value.trim() || 'Read it in a mirror'; };
+    input.addEventListener('input', render);
+    render();
+  }
+
+  document.querySelectorAll('[data-mirror]').forEach(sheet => {
+    const button = sheet.querySelector('.toggle');
+    const state = sheet.querySelector('.mirror-state');
+    if (!button || !state) return;
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      const on = !sheet.classList.contains('is-mirrored');
+      sheet.classList.toggle('is-mirrored', on);
+      button.setAttribute('aria-pressed', String(on));
+      button.textContent = on ? 'Put the mirror away' : 'Hold up a mirror';
+      state.textContent = on ? 'Mirrored: the writing now runs left to right, and the drawing is reversed.' : '';
+    });
+  });
+})();
+</script>
+</body>
+</html>

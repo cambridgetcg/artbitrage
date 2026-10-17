@@ -104,6 +104,10 @@ repositories. `artbitrage.io` and `artbitrage.pages.dev` are live.
 **Done when:** the mirror is restored through a public projection, or the README
 stops listing it.
 
+**Status (17 October 2026):** `gh repo view` reports the repository as public
+again, and `https://cambridgetcg.github.io/artbitrage/` answers 200. Not yet
+checked: whether the mirror serves the current pages.
+
 ## 9. Bring the stale main checkout's two commits home
 
 **Seen:** the local `main` checkout is about 525 commits behind GitHub. It holds
@@ -121,3 +125,29 @@ with a note.
 
 **Done when:** `tools/true-up.py` has been rerun and the report carries a date
 from this season.
+
+## 11. Review and fix the API services
+
+**Seen (17 October 2026, read-only GETs to artbitrage.io):**
+
+- `/api/search` still asks the Met's `/public/collection/v1/search`. That
+  endpoint was retired on 1 October 2026 and now answers HTTP 410, naming
+  `/public/collection/v1.1/search` (paginated with `offset` and `limit`) as
+  its replacement. The default search reports 3 of 4 sources successful, and
+  `/api/sources` still advertises the retired URL. The same URL is in
+  `functions/api/pipeline-lib.js`, `functions/api/[[route]].js` and
+  `sources.py` (item 6 covers the cycle side).
+- The Art Institute's search reports `total: 133170`, which is the whole
+  collection, for every query, and a nonsense word (`zxqvbn`) still returns
+  a work. So `total_artworks_available` overstates, and AIC results for
+  unmatched words are not matches.
+- `/api/feed` is still `as_of` 2026-07-13 (item 2).
+- `/api` inventories 143 routes as a `documented_subset`; the catch-all
+  router carries more that nobody has listed.
+
+**Done when:** every route in `/api` has been called once and its answer
+checked against its README row. The Met source is moved to `v1.1` (or retired
+with a note). AIC totals and empty matches are reported honestly. Each
+upstream has a fixture-backed contract test plus one dated live probe. Any
+remaining legacy routes are either documented or retired.
+

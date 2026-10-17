@@ -1,0 +1,422 @@
+{
+ "room": "/leonardo",
+ "title": "鏡書 · Read It in a Mirror",
+ "made": "2026-10-17",
+ "about": "Image records for the Leonardo room. Every image is a public-domain reproduction from The Metropolitan Museum of Art or the Art Institute of Chicago.",
+ "interpretation": "Passages marked “A reading”, the English translation of the lizard inscription (from the Met’s published transcription) and the scale drawing are written for the room by Claude, Artbitrage’s AI collaborator.",
+ "works": [
+  {
+   "id": "bear",
+   "museum": "The Metropolitan Museum of Art",
+   "museum_id": 459184,
+   "artist": "Leonardo da Vinci",
+   "title": "A Bear Walking",
+   "date": "ca. 1482–85",
+   "medium": "silverpoint on light buff prepared paper",
+   "dimensions": "4 1/16 x 5 1/4 in. (10.3 x 13.3 cm)",
+   "credit_line": "Robert Lehman Collection, 1975",
+   "accession_number": "1975.1.369",
+   "url": "https://www.metmuseum.org/art/collection/search/459184",
+   "api_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/459184",
+   "is_public_domain": true,
+   "images": [
+    {
+     "file": "/assets/leonardo/bear.jpg",
+     "bytes": 1105940,
+     "sha256": "3d82e6b5d5e05628722315500c47eafb4146db1a45136d64cce065e3172ad701",
+     "width": 2000,
+     "height": 1543,
+     "role": "full",
+     "source": "https://images.metmuseum.org/CRDImages/rl/original/DP324213.jpg",
+     "source_sha256": "95b8eaf48ad0309a48267b4e252422ac23488a9c5eb9d99cab99b5dee26fb1d9",
+     "source_bytes": 2085743,
+     "source_pixels": "2997×2313",
+     "fetched": "Sat, 17 Oct 2026 22:33:11 GMT",
+     "processing": "Resized from the Met’s 2997×2313 image to 2000 px wide with macOS sips (JPEG quality 86). No crop, no colour change."
+    },
+    {
+     "file": "/assets/leonardo/bear-t.jpg",
+     "bytes": 92019,
+     "sha256": "1740097b06a8777e3d41ab8328b1267a9ebe53ad1864d198a1a809efcc9aa7bc",
+     "width": 700,
+     "height": 540,
+     "role": "thumbnail",
+     "derived_from": "/assets/leonardo/bear.jpg",
+     "processing": "Resized with sips; also used in the scale drawing."
+    }
+   ],
+   "rights": {
+    "public_domain": true,
+    "license": "CC0 / Public Domain",
+    "reusable": true,
+    "credit": "The Metropolitan Museum of Art, Robert Lehman Collection, 1975",
+    "note": "Met API: isPublicDomain true (checked 2026-10-17)."
+   },
+   "context_source": "Museum label text on https://www.metmuseum.org/art/collection/search/459184, read 2026-10-17 in a headless browser; quoted and paraphrased with attribution."
+  },
+  {
+   "id": "sketches",
+   "museum": "The Metropolitan Museum of Art",
+   "museum_id": 337494,
+   "artist": "Leonardo da Vinci",
+   "title": "Compositional Sketches for the Virgin Adoring the Christ Child, with and without the Infant St. John the Baptist; Diagram of a Perspectival Projection (recto); Slight Doodles (verso)",
+   "date": "1480–85",
+   "medium": "Silverpoint, partly reworked by the artist with pen and dark brown ink on pink prepared paper; lines ruled with metalpoint (recto); pen and brown ink (verso)",
+   "dimensions": "7 5/8 x 6 3/8 in. (19.3 x 16.2 cm)",
+   "credit_line": "Rogers Fund, 1917",
+   "accession_number": "17.142.1",
+   "url": "https://www.metmuseum.org/art/collection/search/337494",
+   "api_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/337494",
+   "is_public_domain": true,
+   "images": [
+    {
+     "file": "/assets/leonardo/sketches.jpg",
+     "bytes": 1957416,
+     "sha256": "b769125a5c480254963748c17fba5c807b6410595c8d920c942975280512926a",
+     "width": 1430,
+     "height": 1692,
+     "role": "full",
+     "source": "https://images.metmuseum.org/CRDImages/dp/original/DP832657.jpg",
+     "source_sha256": "b769125a5c480254963748c17fba5c807b6410595c8d920c942975280512926a",
+     "source_bytes": 1957416,
+     "source_pixels": "1430×1692",
+     "fetched": "Sat, 17 Oct 2026 22:33:12 GMT",
+     "processing": "Unaltered copy of the Met’s image."
+    },
+    {
+     "file": "/assets/leonardo/sketches-t.jpg",
+     "bytes": 154176,
+     "sha256": "8c3d9ca46cbdba5fc9b038638ecc6d5f230b50291744329198270d9e101e9f14",
+     "width": 700,
+     "height": 828,
+     "role": "thumbnail",
+     "derived_from": "/assets/leonardo/sketches.jpg",
+     "processing": "Resized with sips; also used in the scale drawing."
+    }
+   ],
+   "rights": {
+    "public_domain": true,
+    "license": "CC0 / Public Domain",
+    "reusable": true,
+    "credit": "The Metropolitan Museum of Art, Rogers Fund, 1917",
+    "note": "Met API: isPublicDomain true (checked 2026-10-17)."
+   },
+   "context_source": "Museum label text on https://www.metmuseum.org/art/collection/search/337494, read 2026-10-17 in a headless browser; quoted and paraphrased with attribution."
+  },
+  {
+   "id": "head",
+   "museum": "The Metropolitan Museum of Art",
+   "museum_id": 339116,
+   "artist": "Leonardo da Vinci",
+   "title": "Head of a Man in Profile Facing to the Left",
+   "date": "1490–94",
+   "medium": "Pen and brown ink, over soft black chalk",
+   "dimensions": "4 5/8 x 2 1/16in. (11.7 x 5.2cm)",
+   "credit_line": "Rogers Fund, 1909",
+   "accession_number": "10.45.1",
+   "url": "https://www.metmuseum.org/art/collection/search/339116",
+   "api_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/339116",
+   "is_public_domain": true,
+   "images": [
+    {
+     "file": "/assets/leonardo/head.jpg",
+     "bytes": 806911,
+     "sha256": "e226de9e803bf5ed04da4820389999c272217879f9970d008255686255dcaf49",
+     "width": 1300,
+     "height": 2599,
+     "role": "full",
+     "source": "https://images.metmuseum.org/CRDImages/dp/original/DP810248.jpg",
+     "source_sha256": "e226de9e803bf5ed04da4820389999c272217879f9970d008255686255dcaf49",
+     "source_bytes": 806911,
+     "source_pixels": "1300×2599",
+     "fetched": "Sat, 17 Oct 2026 22:33:13 GMT",
+     "processing": "Unaltered copy of the Met’s image."
+    },
+    {
+     "file": "/assets/leonardo/head-t.jpg",
+     "bytes": 117014,
+     "sha256": "00f6d301d8ede00d58e36bd10eede8f2e98bbf6409ac0b2fb2d3fd910ab767ca",
+     "width": 420,
+     "height": 839,
+     "role": "thumbnail",
+     "derived_from": "/assets/leonardo/head.jpg",
+     "processing": "Resized with sips; also used in the scale drawing."
+    }
+   ],
+   "rights": {
+    "public_domain": true,
+    "license": "CC0 / Public Domain",
+    "reusable": true,
+    "credit": "The Metropolitan Museum of Art, Rogers Fund, 1909",
+    "note": "Met API: isPublicDomain true (checked 2026-10-17)."
+   },
+   "context_source": "Museum label text on https://www.metmuseum.org/art/collection/search/339116, read 2026-10-17 in a headless browser; quoted and paraphrased with attribution."
+  },
+  {
+   "id": "lizard",
+   "museum": "The Metropolitan Museum of Art",
+   "museum_id": 339130,
+   "artist": "Leonardo da Vinci",
+   "title": "Allegory on the Fidelity of the Lizard (recto); Design for a Stage Setting (verso)",
+   "date": "1496",
+   "medium": "Pen and brown ink (recto and verso)",
+   "dimensions": "7 15/16 x 5 1/4in. (20.2 x 13.3cm)",
+   "credit_line": "Rogers Fund, 1917",
+   "accession_number": "17.142.2",
+   "url": "https://www.metmuseum.org/art/collection/search/339130",
+   "api_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/339130",
+   "is_public_domain": true,
+   "images": [
+    {
+     "file": "/assets/leonardo/lizard.jpg",
+     "bytes": 1116715,
+     "sha256": "9221d650b7629d43531c7f0438d9b605bb949a4cf62cae4a882d60208153c868",
+     "width": 1600,
+     "height": 2360,
+     "role": "full",
+     "source": "https://images.metmuseum.org/CRDImages/dp/original/DT232678.jpg",
+     "source_sha256": "0b882c8af9e3960e28ebe4577bc5df5aeed7b32b664b05f5772bbd4accf69803",
+     "source_bytes": 1891048,
+     "source_pixels": "2523×3722",
+     "fetched": "Sat, 17 Oct 2026 22:33:13 GMT",
+     "processing": "Resized from the Met’s 2523×3722 image to 1600 px wide with macOS sips (JPEG quality 86). No crop, no colour change."
+    },
+    {
+     "file": "/assets/leonardo/lizard-t.jpg",
+     "bytes": 168413,
+     "sha256": "12fa89b64100c6485b045300eb9091b3fe3a26a5832eef233026b3455e78e5c2",
+     "width": 700,
+     "height": 1032,
+     "role": "thumbnail",
+     "derived_from": "/assets/leonardo/lizard.jpg",
+     "processing": "Resized with sips; also used in the scale drawing."
+    }
+   ],
+   "rights": {
+    "public_domain": true,
+    "license": "CC0 / Public Domain",
+    "reusable": true,
+    "credit": "The Metropolitan Museum of Art, Rogers Fund, 1917",
+    "note": "Met API: isPublicDomain true (checked 2026-10-17)."
+   },
+   "context_source": "Museum label text on https://www.metmuseum.org/art/collection/search/339130, read 2026-10-17 in a headless browser; quoted and paraphrased with attribution."
+  },
+  {
+   "id": "lizard-verso",
+   "museum": "The Metropolitan Museum of Art",
+   "museum_id": 339130,
+   "artist": "Leonardo da Vinci",
+   "title": "Allegory on the Fidelity of the Lizard (recto); Design for a Stage Setting (verso) — verso",
+   "date": "1496",
+   "medium": "Pen and brown ink (recto and verso)",
+   "dimensions": "7 15/16 x 5 1/4in. (20.2 x 13.3cm)",
+   "credit_line": "Rogers Fund, 1917",
+   "accession_number": "17.142.2",
+   "url": "https://www.metmuseum.org/art/collection/search/339130",
+   "api_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/339130",
+   "is_public_domain": true,
+   "images": [
+    {
+     "file": "/assets/leonardo/lizard-verso.jpg",
+     "bytes": 857059,
+     "sha256": "5a31d1ff5de192711a198778cc536eafd05d8ce6f1fe1fffc0507bef56048a50",
+     "width": 2000,
+     "height": 1366,
+     "role": "full",
+     "source": "https://images.metmuseum.org/CRDImages/dp/original/DT339729.jpg",
+     "source_sha256": "52853675ece3191342125a8be31a8359d5da2459f0c605ba34731b773e00663a",
+     "source_bytes": 2144238,
+     "source_pixels": "3811×2603",
+     "fetched": "Sat, 17 Oct 2026 22:33:15 GMT",
+     "processing": "Resized from the Met’s 3811×2603 image to 2000 px wide with macOS sips (JPEG quality 86). No crop, no colour change."
+    },
+    {
+     "file": "/assets/leonardo/lizard-verso-t.jpg",
+     "bytes": 91208,
+     "sha256": "1ce01bedce26a5f87bc67051cea0eeb3394211288bb142d858cb244b07172677",
+     "width": 700,
+     "height": 478,
+     "role": "thumbnail",
+     "derived_from": "/assets/leonardo/lizard-verso.jpg",
+     "processing": "Resized with sips; also used in the scale drawing."
+    }
+   ],
+   "rights": {
+    "public_domain": true,
+    "license": "CC0 / Public Domain",
+    "reusable": true,
+    "credit": "The Metropolitan Museum of Art, Rogers Fund, 1917",
+    "note": "Met API: isPublicDomain true (checked 2026-10-17)."
+   },
+   "context_source": "Museum label text on https://www.metmuseum.org/art/collection/search/339130, read 2026-10-17 in a headless browser; quoted and paraphrased with attribution."
+  },
+  {
+   "id": "grotesque",
+   "museum": "The Metropolitan Museum of Art",
+   "museum_id": 338125,
+   "artist": "After Leonardo da Vinci",
+   "title": "The Head of a Grotesque Man in Profile Facing Right",
+   "date": "after 1500",
+   "medium": "Pen and brown ink, on off-white paper (now darkened)",
+   "dimensions": "(irregular): 3 5/8 × 2 1/8 in. (9.2 × 5.4 cm)",
+   "credit_line": "Rogers Fund, 1917",
+   "accession_number": "17.142.3",
+   "url": "https://www.metmuseum.org/art/collection/search/338125",
+   "api_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/338125",
+   "is_public_domain": true,
+   "images": [
+    {
+     "file": "/assets/leonardo/grotesque.jpg",
+     "bytes": 334445,
+     "sha256": "48f20b28dcef1fd08e083eede6ee2c62fe241b40459c2fe2337785760b316daf",
+     "width": 1003,
+     "height": 1674,
+     "role": "full",
+     "source": "https://images.metmuseum.org/CRDImages/dp/original/DP808305.jpg",
+     "source_sha256": "48f20b28dcef1fd08e083eede6ee2c62fe241b40459c2fe2337785760b316daf",
+     "source_bytes": 334445,
+     "source_pixels": "1003×1674",
+     "fetched": "Sat, 17 Oct 2026 22:33:16 GMT",
+     "processing": "Unaltered copy of the Met’s image."
+    },
+    {
+     "file": "/assets/leonardo/grotesque-t.jpg",
+     "bytes": 89993,
+     "sha256": "d8531f92a955a51eb338f1c9c779ebfac6d23ce30f9a041ae24581da5cd9d8ab",
+     "width": 420,
+     "height": 701,
+     "role": "thumbnail",
+     "derived_from": "/assets/leonardo/grotesque.jpg",
+     "processing": "Resized with sips; also used in the scale drawing."
+    }
+   ],
+   "rights": {
+    "public_domain": true,
+    "license": "CC0 / Public Domain",
+    "reusable": true,
+    "credit": "The Metropolitan Museum of Art, Rogers Fund, 1917",
+    "note": "Met API: isPublicDomain true (checked 2026-10-17)."
+   },
+   "context_source": "Museum label text on https://www.metmuseum.org/art/collection/search/338125, read 2026-10-17 in a headless browser; quoted and paraphrased with attribution."
+  },
+  {
+   "id": "virgin",
+   "museum": "The Metropolitan Museum of Art",
+   "museum_id": 337496,
+   "artist": "Leonardo da Vinci",
+   "title": "The Head of the Virgin in Three-Quarter View Facing Right",
+   "date": "1510–13",
+   "medium": "Black chalk, charcoal, and red chalk, with some traces of white chalk (?); some remains of framing lines in pen and brown ink at upper right (not by Leonardo)",
+   "dimensions": "Sheet: 8 x 6 1/8 in. (20.3 x 15.6 cm)",
+   "credit_line": "Harris Brisbane Dick Fund, 1951",
+   "accession_number": "51.90",
+   "url": "https://www.metmuseum.org/art/collection/search/337496",
+   "api_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/337496",
+   "is_public_domain": true,
+   "images": [
+    {
+     "file": "/assets/leonardo/virgin.jpg",
+     "bytes": 1351486,
+     "sha256": "9732492ff757421ca9bf3c3630ebf6c2b0600c9987dc09827fcf05da9db71c26",
+     "width": 1700,
+     "height": 2186,
+     "role": "full",
+     "source": "https://images.metmuseum.org/CRDImages/dp/original/DP102382.jpg",
+     "source_sha256": "d0bc8c66e26cbd01259df8a98d0c3291a05d07b22404b7cac35bcb40f402ecb0",
+     "source_bytes": 2625212,
+     "source_pixels": "2972×3822",
+     "fetched": "Sat, 17 Oct 2026 22:33:17 GMT",
+     "processing": "Resized from the Met’s 2972×3822 image to 1700 px wide with macOS sips (JPEG quality 86). No crop, no colour change."
+    },
+    {
+     "file": "/assets/leonardo/virgin-t.jpg",
+     "bytes": 195705,
+     "sha256": "fedcc8989e0a4242f55b015cc6724e8805ef231ee846901f6e26ad4d853da90f",
+     "width": 700,
+     "height": 900,
+     "role": "thumbnail",
+     "derived_from": "/assets/leonardo/virgin.jpg",
+     "processing": "Resized with sips; also used in the scale drawing."
+    }
+   ],
+   "rights": {
+    "public_domain": true,
+    "license": "CC0 / Public Domain",
+    "reusable": true,
+    "credit": "The Metropolitan Museum of Art, Harris Brisbane Dick Fund, 1951",
+    "note": "Met API: isPublicDomain true (checked 2026-10-17)."
+   },
+   "context_source": "Museum label text on https://www.metmuseum.org/art/collection/search/337496, read 2026-10-17 in a headless browser; quoted and paraphrased with attribution."
+  },
+  {
+   "id": "divine-proportion",
+   "museum": "The Art Institute of Chicago",
+   "museum_id": 272694,
+   "artist": "Leonardo da Vinci (Italian, 1452-1519); written by Luca Pacioli (Italian, 1445-1517)",
+   "title": "Divine Proportion",
+   "date": "Venice: Paganinus de Paganinus, 1509",
+   "medium": "Letterpress and woodcut in black with hand lettering in red ink, on ivory laid paper; binding in full buckram bookcloth",
+   "dimensions": "29.7 × 20.4 × 3.2 cm (11 3/4 × 8 1/16 × 1 5/16 in.)",
+   "credit_line": "Gift of Mr. F.A. Wells",
+   "accession_number": "2024.56",
+   "url": "https://www.artic.edu/artworks/272694",
+   "api_source": "https://api.artic.edu/api/v1/artworks/272694",
+   "is_public_domain": true,
+   "images": [
+    {
+     "file": "/assets/leonardo/solids-icosahedron.jpg",
+     "bytes": 313290,
+     "sha256": "345538f7cad73eccddc8d634c46fb288d6fca85ef2cc48f265882789162caf21",
+     "width": 843,
+     "height": 1228,
+     "role": "full",
+     "source": "https://www.artic.edu/iiif/2/7d0d6e90-b6ee-0ff1-2e0e-983ccf0c4236/pct:50,3,46,94/843,/0/default.jpg",
+     "processing": "Unaltered museum IIIF region (right-hand page of the spread, plate XXIIII), captured from inside the artwork page; see tools/receipts/leonardo/artic-captures.json."
+    },
+    {
+     "file": "/assets/leonardo/solids-icosahedron-t.jpg",
+     "bytes": 102306,
+     "sha256": "862980f3f222d1f029e92c428263bf73f0dfd69fa3a75792b4e1221585987751",
+     "width": 560,
+     "height": 815,
+     "role": "thumbnail",
+     "derived_from": "/assets/leonardo/solids-icosahedron.jpg",
+     "processing": "Resized to 560 px wide with sips."
+    },
+    {
+     "file": "/assets/leonardo/solids-tetrahedron.jpg",
+     "bytes": 312359,
+     "sha256": "a63bc8f993743d091310dc4152f2838a839a41933ebf1a184870262fe614105c",
+     "width": 843,
+     "height": 1224,
+     "role": "full",
+     "source": "https://www.artic.edu/iiif/2/5e7f5bd0-a027-547e-2ada-252ba3971411/pct:50,3,46,94/843,/0/default.jpg",
+     "processing": "Unaltered museum IIIF region (right-hand page of the spread, plate VI), captured from inside the artwork page; see tools/receipts/leonardo/artic-captures.json."
+    },
+    {
+     "file": "/assets/leonardo/solids-tetrahedron-t.jpg",
+     "bytes": 106599,
+     "sha256": "ed5d557321de4f99d57890fd55cf575b5aedeae08fa13f7e91b49bb58261496b",
+     "width": 560,
+     "height": 813,
+     "role": "thumbnail",
+     "derived_from": "/assets/leonardo/solids-tetrahedron.jpg",
+     "processing": "Resized to 560 px wide with sips."
+    }
+   ],
+   "rights": {
+    "public_domain": true,
+    "license": "CC0 / Public Domain",
+    "reusable": true,
+    "credit": "The Art Institute of Chicago, Gift of Mr. F.A. Wells",
+    "note": "AIC API: is_public_domain true (checked 2026-10-17)."
+   },
+   "lettering_read_from_image": [
+    "Icosaedron abscisum Vacuum (plate XXIIII)",
+    "Tetraedron elevatum vacuum (plate VI)",
+    "Horum inventor. Magister Lucas Paciolus de burgo Sancti Sepulchri, Ordinis Minorum (plate VI)"
+   ],
+   "context_source": "https://galileo.ou.edu/exhibits/divine-proportion.html (read 2026-10-17): Leonardo provided the geometrical figures; the only Leonardo material printed in his lifetime."
+  }
+ ]
+}

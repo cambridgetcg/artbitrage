@@ -1,0 +1,82 @@
+{
+  "about": "Capture log for the two Art Institute of Chicago page images in /leonardo. Headless Chrome (fresh temporary profile) opened the artwork page, waited, then fetched each IIIF region (the right-hand page of a spread) from inside the page. Captured 2026-10-17. Response bodies are not kept; each saved image equals its asset file by sha256.",
+  "redactions": [],
+  "captures": [
+    {
+      "museum_id": 272694,
+      "label": "div-hollow-right",
+      "page": "https://www.artic.edu/artworks/272694",
+      "image_source": "https://www.artic.edu/iiif/2/7d0d6e90-b6ee-0ff1-2e0e-983ccf0c4236/pct:50,3,46,94/843,/0/default.jpg",
+      "status": 200,
+      "type": "image/jpeg",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "age": "23",
+        "cache-control": "public, max-age=2592000, no-transform",
+        "cf-cache-status": "HIT",
+        "cf-ray": "a4c2c0d9783d19a3-LHR",
+        "content-type": "image/jpeg",
+        "date": "Sat, 17 Oct 2026 22:31:24 GMT",
+        "last-modified": "Sat, 17 Oct 2026 22:31:00 GMT",
+        "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+        "server": "cloudflare",
+        "vary": "Accept, accept-encoding",
+        "x-powered-by": "Cantaloupe/4.1.7"
+      },
+      "bytes": 313290,
+      "sha256": "345538f7cad73eccddc8d634c46fb288d6fca85ef2cc48f265882789162caf21",
+      "at": "2026-10-17T22:31:25.335Z",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+    },
+    {
+      "museum_id": 272694,
+      "label": "div-star-right",
+      "page": "https://www.artic.edu/artworks/272694",
+      "image_source": "https://www.artic.edu/iiif/2/28e2c365-a8c5-37b8-e113-28b96a06b6a4/pct:50,3,46,94/843,/0/default.jpg",
+      "status": 200,
+      "type": "image/jpeg",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cache-control": "public, max-age=2592000, no-transform",
+        "cf-cache-status": "MISS",
+        "cf-ray": "a4c2c0e48a1919a3-LHR",
+        "content-type": "image/jpeg",
+        "date": "Sat, 17 Oct 2026 22:31:27 GMT",
+        "last-modified": "Sat, 17 Oct 2026 22:31:27 GMT",
+        "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+        "server": "cloudflare",
+        "vary": "Accept, accept-encoding",
+        "x-powered-by": "Cantaloupe/4.1.7"
+      },
+      "bytes": 297164,
+      "sha256": "2d0ac8bd42d494a30eec05f8e9fa55ac3f2175339f8d1fd90fee4baff10e04b6",
+      "at": "2026-10-17T22:31:28.167Z",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+    },
+    {
+      "museum_id": 272694,
+      "label": "div-skeleton-right",
+      "page": "https://www.artic.edu/artworks/272694",
+      "image_source": "https://www.artic.edu/iiif/2/5e7f5bd0-a027-547e-2ada-252ba3971411/pct:50,3,46,94/843,/0/default.jpg",
+      "status": 200,
+      "type": "image/jpeg",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cache-control": "public, max-age=2592000, no-transform",
+        "cf-cache-status": "MISS",
+        "cf-ray": "a4c2c0f67eeb19a3-LHR",
+        "content-type": "image/jpeg",
+        "date": "Sat, 17 Oct 2026 22:31:30 GMT",
+        "last-modified": "Sat, 17 Oct 2026 22:31:30 GMT",
+        "link": "<http://iiif.io/api/image/2/level2.json>;rel=\"profile\"",
+        "server": "cloudflare",
+        "vary": "Accept, accept-encoding",
+        "x-powered-by": "Cantaloupe/4.1.7"
+      },
+      "bytes": 312359,
+      "sha256": "a63bc8f993743d091310dc4152f2838a839a41933ebf1a184870262fe614105c",
+      "at": "2026-10-17T22:31:30.990Z",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+    }
+  ]
+}
