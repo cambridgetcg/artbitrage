@@ -9,8 +9,10 @@ const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","
 const SOURCE_KEYS = ["met", "artic", "cma", "wikimedia", "internet_archive"];
 const DEFAULT_SOURCE_KEYS = ["met", "artic", "cma", "wikimedia"];
 
+// The Met retired /v1/search on 2026-10-01; /v1.1/search pages by offset+limit (default 100, max 500).
+const MET_SEARCH_PAGE_MAX = 500;
 const OPEN_ART_SOURCES = {
-  met: { source: "met", source_name: "Metropolitan Museum of Art", url: "https://collectionapi.metmuseum.org/public/collection/v1/search", open_access: true, auth: "none" },
+  met: { source: "met", source_name: "Metropolitan Museum of Art", url: "https://collectionapi.metmuseum.org/public/collection/v1.1/search", open_access: true, auth: "none" },
   artic: { source: "artic", source_name: "Art Institute of Chicago", url: "https://api.artic.edu/api/v1/artworks/search", open_access: true, auth: "none" },
   cma: { source: "cma", source_name: "Cleveland Museum of Art", url: "https://openaccess-api.clevelandart.org/api/artworks/", open_access: true, auth: "none" },
   wikimedia: { source: "wikimedia", source_name: "Wikimedia Commons", url: "https://commons.wikimedia.org/w/api.php", open_access: true, auth: "none" },
@@ -523,9 +525,10 @@ export class ArtbitragePipeline {
 
     try {
       if (sourceKey === "met") {
-        const searchUrl = `${source.url}?hasImages=true&q=${encodeURIComponent(query)}`;
+        const pageSize = Math.min(MET_SEARCH_PAGE_MAX, Math.max(limit * 8, limit));
+        const searchUrl = `${source.url}?hasImages=true&q=${encodeURIComponent(query)}&offset=0&limit=${pageSize}`;
         const data = await this.fetchJson(searchUrl);
-        const ids = (data.objectIDs || []).slice(0, Math.max(limit * 8, limit));
+        const ids = (data.objectIDs || []).slice(0, pageSize);
         const artworks = [];
         for (const id of ids) {
           if (artworks.length >= limit) break;

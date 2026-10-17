@@ -68,6 +68,7 @@ SOURCES = {
         "name": "Metropolitan Museum of Art",
         "location": "New York, USA",
         "api_base": "https://collectionapi.metmuseum.org/public/collection/v1",
+        "search_base": "https://collectionapi.metmuseum.org/public/collection/v1.1",
         "auth": "none",
         "total_objects": 500000,
         "open_access": True,
@@ -75,7 +76,7 @@ SOURCES = {
             "objects": "/objects",
             "object": "/objects/:id",
             "departments": "/departments",
-            "search": "/search?q=",
+            "search": "/search?q=&offset=&limit= (on search_base; v1/search retired 2026-10-01)",
         },
     },
     "artic": {
@@ -263,15 +264,18 @@ class ArtFetcher:
     def fetch_met(self, query="love", limit=5):
         """Fetch artworks from the MET."""
         base = "https://collectionapi.metmuseum.org/public/collection/v1"
+        # The Met retired /v1/search on 2026-10-01; /v1.1/search pages by offset+limit (max 500).
+        page_size = min(500, max(limit * 8, limit))
         
         # Search for objects
-        search_url = f"{base}/search?hasImages=true&q={urllib.parse.quote(query)}"
+        search_url = (f"{base}.1/search?hasImages=true&q={urllib.parse.quote(query)}"
+                      f"&offset=0&limit={page_size}")
         search = self._fetch(search_url)
         
         if "error" in search:
             return {"source": "met", "error": search["error"]}
         
-        object_ids = search.get("objectIDs", [])[:max(limit * 8, limit)]
+        object_ids = (search.get("objectIDs") or [])[:page_size]
         results = []
         
         for oid in object_ids:
