@@ -40,6 +40,14 @@ new ids, `/api/art/<id>` returns 404.
 feed and stats from this repository, and the newest piece here can be reached
 at `/api/art/<id>`.
 
+**Status (18 October 2026): the publish step exists; it is not deployed yet.**
+`node tools/build-dist.mjs` copies the cycle's `collection.json` into `dist/`
+and bakes it into `dist/data/collection/`, and the README's "Publish" section
+gives the repeatable sequence (rebase, build, test, compare, deploy, compare).
+Yu chose (18 October) that the live API serves the current collection. Once
+deployed, live is as current as the last deploy; an automatic deploy after
+each cycle would need a deploy credential and is not set up.
+
 ## 3. Write down where the cycle runs
 
 **Seen:** the 4-hourly "art: new pieces from artbitrage cycle" commits are
@@ -169,4 +177,19 @@ no error.
   work. A wider or concurrent candidate scan would help.
 - The AIC totals.
 - The route inventory.
+
+**Status (18 October 2026): rebuilt on branch `api/restructure`, not deployed
+yet.** See `docs/api-architecture.md` for the design and Yu's five decisions.
+- Route inventory: done. `/api` is generated from the route table and lists
+  all 178 GET and POST routes (`route_coverage.status: "complete"`); the 33
+  that were missing, including the lore routes, are listed.
+- AIC totals: done. Zero-score works are dropped, and the collection-wide
+  total is reported as `total_reported` with `total: null`; every source says
+  whether its total is exact.
+- Met: candidates are now read four at a time within a 6-second budget, and
+  objects are cached for a week per location.
+- Each upstream has a fixture-backed contract test (`e2e-search-sources`,
+  `e2e-met-search`, `e2e-guests`). A dated live probe of each upstream is not
+  written yet; `/api/sources` reports what each edge isolate has seen.
+- The cycle's own AIC search in `sources.py` is unchanged (item 6).
 

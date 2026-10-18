@@ -1,8 +1,64 @@
 # The Artbitrage API: how it is built, and how it could be
 
 Written on 18 October 2026 from a read of `origin/main` at `82e2f83cc`, local
-runs of the handlers, and read-only requests to artbitrage.io. This is a design
-proposal, not a change. Nothing here alters a path or a response yet.
+runs of the handlers, and read-only requests to artbitrage.io. Sections 1–7 are
+the proposal as first written (with corrections marked); section 0 records what
+Yu decided and what was then built on branch `api/restructure`.
+
+## 0. Status (18 October 2026)
+
+**Yu's decisions** (the five questions in section 6):
+
+1. Keep the third-party play routes, with a timeout, a cache and a fallback line.
+2. Cap the AI endpoints at a sensible daily budget.
+3. The live API serves the cycle's current collection.
+4. `dist/` stays in git, as build output nobody edits by hand.
+5. Document every lore route in the generated manifest.
+
+**Built** (each a commit on `api/restructure`; nothing deployed yet):
+
+| Phase | Commit | What changed |
+|---|---|---|
+| 0 | `test: pin every API route…` | `tests/e2e-api-golden.mjs`: 381 cases through a wrangler-ordered dispatcher, byte for byte |
+| 1–3 | `refactor: one route table…` | `functions/_kernel/` + `functions/_domains/`; one file route; second implementations and `dist/functions` removed; golden cases byte-identical |
+| 2 | (same commit) | only collection routes read the collection: 182 cases stopped reading it |
+| — | `feat(api): every answer names its route…` | `X-Artbitrage-Route`; trailing slashes everywhere; JSON 500s; `artbitrage.error/1` on kernel errors |
+| 3 | `feat(api): /api lists every route…` | manifest generated from the table: 178 routes, `route_coverage: complete` |
+| 5 | `feat(play): …` | guests: 4 s timeout, Cache API copy, stale-on-error, written line (decision 1) |
+| 5 | `feat(search): …` | one search for `/api/search` and the pipeline; AIC zero scores dropped and its collection total no longer counted; Met read four at a time within 6 s; `total_is_exact` everywhere |
+| 5 | `feat(ai): …` | daily AI budget weighed by model, exact with D1, per isolate without (decision 2) |
+| 4 | `feat(build): …` | `tools/build-dist.mjs`: sync, bake, `_build.json`; collection routes read the bake (decisions 3, 4) |
+
+**Still to do before it is live:** create the D1 database for the AI budget and
+bind it as `AI_BUDGET` (until then the budget is counted per edge isolate, and
+says so); rebase onto the cycle's latest commit, build `dist/`, commit it, and
+deploy through the README's "Publish" sequence.
+
+**Left open on purpose:** a dated live probe of each upstream; the cycle's own
+AIC search in `sources.py`; an automatic deploy after each cycle (it needs a
+deploy credential); cache classes per route (each route keeps its own
+`Cache-Control`); the seven module-local JSON helpers in the reference
+verticals, pebbles and testimony (their headers differ on purpose, so they stay
+until each is checked against its clients).
+
+**Corrections to the first reading:**
+- `functions/api/ai.js` and `pipeline.js` only ever answered their bare paths
+  (`/api/ai`, `/api/pipeline`) in production; their sub-route code was
+  unreachable. The five vertical index files (`trade.js`, `wine.js`, `cigar.js`,
+  `pair.js`, `pigments.js`) never answered at all: their catch-alls also match
+  zero segments and wrangler sorts them first. Live `/api/trade` was
+  byte-identical to `trade/[[route]].js`, not `trade.js`.
+- `dist/functions` was never deployed: wrangler 4.99 compiles
+  `cwd/functions` (`functionsDirectory = … path.join(process.cwd(), "functions")`).
+- Pages Functions cannot bind Cloudflare's rate-limiting API, so the AI budget
+  uses D1 (atomic upsert per run, checked against wrangler's local D1).
+- The bake differs from the sketch in section 4: append-only pages plus small
+  id→page shards (to keep git churn low with `dist/` committed), and no search
+  index; a filtered listing still reads the whole collection.
+- Responses keep `Content-Type: application/json` (no charset parameter), so no
+  client sees a header change.
+- Two GitHub workflows (`heartbeat.yml`, `joke-loop.yml`) call AI routes on the
+  live site, about 144 text units a day, inside the budget.
 
 ## 1. What the API is for (unchanged)
 
@@ -84,6 +140,8 @@ Ranked by what it costs now.
    - `/api/ai` and `/api/pipeline` are each answered by two implementations:
      exact-path files that win in production, and router branches that only
      tests reach. They are identical today, so drift would go unseen.
+     *(Corrected in section 0: the exact-path files only answered the bare
+     path, and the vertical index files never answered.)*
    - Fourteen files define their own JSON response helper.
 5. **Three lists of the routes, none complete.**
    - The `/api` manifest documents 143 routes and calls itself a
@@ -272,6 +330,8 @@ Phases 1 and 2 are small and pay off at once. Phase 3 is the long one and should
 go domain by domain so it never blocks other hands working the repo.
 
 ## 6. Decisions only Yu can make
+
+*(Answered 18 October 2026; see section 0. Each default below was chosen.)*
 
 1. **Third-party play routes** (`/api/fun/*`, `/api/anime/*`, `/api/ghibli/*`,
    `/api/games/*`, twelve outside APIs). The default proposal is to keep them, in
