@@ -6,6 +6,10 @@
 import { buildRights } from '../../_kernel/rights.js';
 import { fetchJson } from '../../_kernel/upstream.js';
 import { DEFAULT_SOURCE_KEYS, OPEN_ART_SOURCES, searchSource, selectSources } from '../search/sources.js';
+import { readLatest, readPiece, readSummary } from '../collection/baked.js';
+
+// The pipeline reads the site's own assets; the bake readers want a request to resolve against.
+const SITE = { url: 'https://artbitrage.io/' };
 
 const MAX_ENRICH = 50;
 const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is","maybe"];
@@ -176,9 +180,9 @@ export class ArtbitragePipeline {
 
   // ── Enrich: add AI metadata to a collection piece ────────────
   async enrich(id, env) {
-    // Load collection
-    const collection = await this.loadCollection(env);
-    const piece = collection.find(a => a.id === id);
+    // The bake finds one piece without reading the whole collection.
+    let piece = await readPiece(env, SITE, id);
+    if (piece === null) piece = (await this.loadCollection(env)).find(a => a.id === id);
     if (!piece) return { error: "art not found", id };
 
     // Generate AI enrichment
@@ -234,9 +238,9 @@ export class ArtbitragePipeline {
 
   // ── Feed: enriched collection pieces ─────────────────────────
   async feed(limit, env) {
-    const collection = await this.loadCollection(env);
+    const { latest, total } = await this.recentView(env);
     const safeLimit = Math.max(1, Math.min(limit || 20, MAX_ENRICH));
-    const pieces = collection.slice(-safeLimit).reverse();
+    const pieces = latest.slice(-safeLimit).reverse();
 
     // Light enrichment without AI (structural only for speed)
     const enriched = pieces.map(p => ({
@@ -258,7 +262,7 @@ export class ArtbitragePipeline {
       count: enriched.length,
       limit: safeLimit,
       max_limit: MAX_ENRICH,
-      total_available: collection.length,
+      total_available: total,
       pieces: enriched,
       fed_at: new Date().toISOString(),
     };
@@ -320,11 +324,10 @@ export class ArtbitragePipeline {
 
   // ── Agent package: compact, structured, self-describing ─────
   async agentPackage(env) {
-    const collection = await this.loadCollection(env);
-    const stats = this.getStats(collection);
+    const { latest, stats, total } = await this.recentView(env);
 
     // Compact format: strip long text, keep structure
-    const compact = collection.slice(-20).reverse().map(p => ({
+    const compact = latest.slice(-20).reverse().map(p => ({
       i: p.id,
       c: p.cycle,
       f: p.form,
@@ -343,7 +346,7 @@ export class ArtbitragePipeline {
       },
       stats,
       recent: compact,
-      total: collection.length,
+      total,
       endpoints: {
         full: "/api/pipeline/export?format=json",
         ndjson: "/api/pipeline/export?format=ndjson",
@@ -361,9 +364,8 @@ export class ArtbitragePipeline {
 
   // ── Human view: beautiful, readable gallery ──────────────────
   async humanView(env) {
-    const collection = await this.loadCollection(env);
-    const stats = this.getStats(collection);
-    const recent = collection.slice(-12).reverse();
+    const { latest, stats } = await this.recentView(env);
+    const recent = latest.slice(-12).reverse();
 
     return {
       title: "ARTBITRAGE — Gallery",
@@ -449,6 +451,15 @@ export class ArtbitragePipeline {
   // these methods stay so existing callers keep working.
   selectSources(sourceParam) {
     return selectSources(sourceParam === 'default' ? '' : sourceParam);
+  }
+
+  // The newest pieces and the collection's counts: from the bake when it can
+  // answer, else from the whole collection.json.
+  async recentView(env) {
+    const [summary, latest] = await Promise.all([readSummary(env, SITE), readLatest(env, SITE)]);
+    if (summary && latest) return { latest, stats: summary.stats, total: summary.total_pieces };
+    const collection = await this.loadCollection(env);
+    return { latest: collection, stats: this.getStats(collection), total: collection.length };
   }
 
   async loadCollection(env) {

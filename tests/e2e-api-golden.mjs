@@ -374,6 +374,26 @@ for (const c of CASES) {
   results[key] = await runCase(dispatch, c);
 }
 
+// The baked collection must answer exactly as the whole collection does. Bake
+// the fixture with the real build tool, run every collection and pipeline
+// case again, and require the same status, headers and body, without reading
+// collection.json except where a route has no baked answer.
+const { bakeCollection } = await import('../tools/build-dist.mjs');
+const bakeCases = CASES.filter(c => c.method === 'GET' && /^\/api\/(art|stats|forms|gaps|feed|pipeline\/(feed|agent|human|enrich))(\/|\?|$)/.test(c.path));
+for (const [path, text] of bakeCollection(JSON.parse(collectionFixture), { collectionSha256: sha256(collectionFixture) })) overlay.set(path, text);
+const STILL_WHOLE = /[?&](form|state|gap|q)=|^\/api\/art\/generate/;
+for (const c of bakeCases) {
+  const key = caseKey(c);
+  const unbaked = results[key];
+  const baked = await runCase(dispatch, c);
+  assert.equal(baked.status, unbaked.status, `${key}: baked status`);
+  assert.deepEqual(baked.headers, unbaked.headers, `${key}: baked headers`);
+  assert.equal(baked._text, unbaked._text, `${key}: the baked answer must equal the whole-collection answer`);
+  if (!STILL_WHOLE.test(c.path)) assert.ok(!baked.reads.includes('/collection.json'), `${key} should not read collection.json when baked (read ${baked.reads.join(', ')})`);
+}
+for (const path of [...overlay.keys()]) if (path !== '/collection.json') overlay.delete(path);
+console.log(`API golden: ${bakeCases.length} collection cases answer identically from the bake`);
+
 if (DUMP) {
   await mkdir(DUMP, { recursive: true });
   for (const [key, r] of Object.entries(results)) {
