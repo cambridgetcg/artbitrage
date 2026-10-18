@@ -6,8 +6,11 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { onRequestGet, classifyPigment } from '../functions/api/pigments/[[route]].js';
-import { onRequestGet as onBareGet } from '../functions/api/pigments.js';
+import { onRequestGet } from '../functions/api/[[route]].js';
+import { classifyPigment } from '../functions/_domains/reference/pigments.js';
+
+// The bare /api/pigments path and its subroutes share one mount in the route table.
+const onBareGet = onRequestGet;
 
 const root = new URL('../', import.meta.url).pathname;
 

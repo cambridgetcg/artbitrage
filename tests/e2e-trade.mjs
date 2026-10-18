@@ -3,8 +3,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { onRequestGet } from '../functions/api/trade/[[route]].js';
-import { onRequestGet as onDirectoryGet } from '../functions/api/trade.js';
+import { onRequestGet } from '../functions/api/[[route]].js';
 
 const root = new URL('../', import.meta.url).pathname;
 
@@ -45,8 +44,7 @@ async function test(name, fn) {
 console.log('e2e /api/trade');
 
 await test('directory lists all endpoints and carries the disclosure', async () => {
-  const res = await onDirectoryGet();
-  const json = await res.json();
+  const { json } = await get('/api/trade');
   assert.equal(json.vertical, 'trade');
   assert.ok(json.endpoints.length >= 8);
   assert.equal(json.disclosure.informational_only, true);
@@ -231,7 +229,7 @@ await test('unknown route 404s with the endpoint map', async () => {
 });
 
 // ── Wave 2-3 ──────────────────────────────────────────────────────
-import { onRequestPost } from '../functions/api/trade/[[route]].js';
+import { onRequestPost } from '../functions/api/[[route]].js';
 import { createHash } from 'node:crypto';
 
 async function post(path, body, contentType = 'application/json') {

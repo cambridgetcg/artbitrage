@@ -18,6 +18,7 @@
 //   node tests/e2e-api-golden.mjs --dump DIR   also write every response to DIR, for diffing two trees
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
+import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
@@ -327,6 +328,11 @@ async function runCase(dispatch, c) {
     _text: text,
   };
 }
+
+// `wrangler pages deploy dist`, run from the repo root, compiles the root
+// functions/ directory; a dist/functions copy was never deployed and only
+// drifted. Keep it gone so nobody edits the wrong file.
+assert.ok(!existsSync(join(ROOT, 'dist/functions')), 'dist/functions must not exist: Functions deploy from the root functions/ directory');
 
 const routes = await loadPagesRoutes(join(ROOT, 'functions'));
 const dispatch = createDispatcher(routes);

@@ -1,6 +1,6 @@
 // E2E: truth in distribution — every source must carry honest rights/attribution.
 import assert from 'node:assert/strict';
-import { ArtbitragePipeline } from '../functions/api/pipeline-lib.js';
+import { ArtbitragePipeline } from '../functions/_domains/pipeline/pipeline.js';
 
 const pipeline = new ArtbitragePipeline();
 const originalFetch = globalThis.fetch;

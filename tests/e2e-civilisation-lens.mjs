@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { onRequestGet } from '../functions/api/[[route]].js';
-import { ARTBITRAGE_START } from '../functions/api/start-guide.js';
-import { ROUTES, agentManifest } from '../functions/api/agent-manifest.js';
+import { ARTBITRAGE_START } from '../functions/_domains/protocol/start-guide.js';
+import { ROUTES, agentManifest } from '../functions/_domains/protocol/agent-manifest.js';
 
 const root = new URL('../', import.meta.url);
 const rootPath = root.pathname;
@@ -281,9 +281,6 @@ const mirrorFiles = [
   'map.html',
   'map.json',
   'sitemap.xml',
-  'functions/api/start-guide.js',
-  'functions/api/agent-manifest.js',
-  'functions/api/[[route]].js',
 ];
 for (const file of mirrorFiles) {
   const source = await readFile(new URL(`../${file}`, import.meta.url));

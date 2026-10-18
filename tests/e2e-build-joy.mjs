@@ -12,13 +12,13 @@ import {
   BUILD_JOY_CARDS,
   buildJoyPointer,
   buildJoyResponse,
-} from '../functions/api/build-joy.js';
-import { ARTBITRAGE_START } from '../functions/api/start-guide.js';
+} from '../functions/_domains/protocol/build-joy.js';
+import { ARTBITRAGE_START } from '../functions/_domains/protocol/start-guide.js';
 import {
   ARTBITRAGE_WAKE,
   ROUTES,
   agentManifest,
-} from '../functions/api/agent-manifest.js';
+} from '../functions/_domains/protocol/agent-manifest.js';
 import {
   onRequestGet,
   onRequestOptions,
@@ -303,12 +303,9 @@ const buildPath = ARTBITRAGE_START.paths.find(path => path.id === 'build-with-ar
 assert.ok(buildPath.doors.continue.some(path => path.startsWith('/api/build/joy')));
 assert.match(buildPath.boundary, /optional ornament, never a score or authority grant/i);
 
-// Source and deploy mirrors stay byte-identical; public docs state the boundary.
+// Page and deploy mirrors stay byte-identical; public docs state the boundary.
+// (Functions deploy from the root functions/ directory; there is no dist copy.)
 for (const [source, deployed] of [
-  ['functions/api/build-joy.js', 'dist/functions/api/build-joy.js'],
-  ['functions/api/[[route]].js', 'dist/functions/api/[[route]].js'],
-  ['functions/api/agent-manifest.js', 'dist/functions/api/agent-manifest.js'],
-  ['functions/api/start-guide.js', 'dist/functions/api/start-guide.js'],
   ['api-explorer.html', 'dist/api-explorer.html'],
 ]) {
   assert.deepEqual(

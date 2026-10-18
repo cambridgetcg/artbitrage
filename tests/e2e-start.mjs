@@ -4,12 +4,12 @@ import { readFile } from 'node:fs/promises';
 import {
   ARTBITRAGE_START,
   ARTBITRAGE_START_SCHEMA,
-} from '../functions/api/start-guide.js';
+} from '../functions/_domains/protocol/start-guide.js';
 import {
   ARTBITRAGE_WAKE,
   ROUTES,
   agentManifest,
-} from '../functions/api/agent-manifest.js';
+} from '../functions/_domains/protocol/agent-manifest.js';
 import {
   onRequestGet,
   onRequestOptions,
@@ -191,17 +191,6 @@ assert.match(llms, /documented routes/);
 assert.doesNotMatch(llms, /all \d+ endpoints/);
 assert.doesNotMatch(llms, /all endpoints|every endpoint|complete route map/i);
 
-for (const file of [
-  'start-guide.js',
-  'agent-manifest.js',
-  '[[route]].js',
-  'logos.js',
-  'pipeline-lib.js',
-]) {
-  const source = await readFile(new URL(`../functions/api/${file}`, import.meta.url));
-  const deployed = await readFile(new URL(`../dist/functions/api/${file}`, import.meta.url));
-  assert.deepEqual(deployed, source, `${file} must match its Cloudflare deploy mirror`);
-}
 
 const explorerSource = await readFile(
   new URL('../api-explorer.html', import.meta.url),
@@ -216,7 +205,7 @@ assert.match(explorerSource, /Documented routes/);
 assert.doesNotMatch(explorerSource, /All endpoints|Full API surface/i);
 
 const logosSource = await readFile(
-  new URL('../functions/api/logos.js', import.meta.url),
+  new URL('../functions/_domains/lore/logos.js', import.meta.url),
   'utf8',
 );
 assert.match(logosSource, /search\?q=love&source=all/);

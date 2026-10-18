@@ -11,12 +11,12 @@ import {
   CASTLE_REFERENCE_SCHEMA,
   CASTLE_SOURCE_REVISION,
   castleReferenceIsDisabled,
-} from '../functions/api/castle-reference.js';
+} from '../functions/_domains/protocol/castle-reference.js';
 import {
   ARTBITRAGE_WAKE,
   ROUTES,
   agentManifest,
-} from '../functions/api/agent-manifest.js';
+} from '../functions/_domains/protocol/agent-manifest.js';
 import {
   onRequestGet,
   onRequestOptions,
@@ -195,14 +195,5 @@ assert.equal(manifest.castle_reference.schema, CASTLE_REFERENCE_SCHEMA);
 assert.match(manifest.agent_instructions, /never a Castle proxy or action grant/);
 assert.ok(ROUTES.culture.routes.some(route => route.path === '/api/castle'));
 
-for (const file of [
-  'castle-reference.js',
-  'agent-manifest.js',
-  '[[route]].js',
-]) {
-  const source = await readFile(new URL(`../functions/api/${file}`, import.meta.url));
-  const deployed = await readFile(new URL(`../dist/functions/api/${file}`, import.meta.url));
-  assert.deepEqual(deployed, source, `${file} must match its Cloudflare deploy mirror`);
-}
 
 console.log('castle reference e2e passed');

@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { onRequestGet } from '../functions/api/[[route]].js';
-import { ArtbitragePipeline } from '../functions/api/pipeline-lib.js';
+import { ArtbitragePipeline } from '../functions/_domains/pipeline/pipeline.js';
 
 const SEARCH = 'https://collectionapi.metmuseum.org/public/collection/v1.1/search';
 const OBJECT = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/';
