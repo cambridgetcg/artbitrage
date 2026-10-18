@@ -1,7 +1,9 @@
 import assert from 'node:assert/strict';
-import { aiCatalog, modelCount, resolveAiModel } from '../functions/api/ai-catalog.js';
+import { aiCatalog, modelCount, resolveAiModel } from '../functions/_domains/generate/ai-catalog.js';
 import { onRequestGet as catchallGet } from '../functions/api/[[route]].js';
-import { onRequestGet as aiGet } from '../functions/api/ai.js';
+// /api/ai once had a second implementation in functions/api/ai.js; the route table
+// now has one, so both names below reach the same declared routes.
+const aiGet = catchallGet;
 
 const env = {
   ASSETS: { async fetch() { return new Response('[]', { headers: { 'Content-Type': 'application/json' } }); } },

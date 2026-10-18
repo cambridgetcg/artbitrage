@@ -549,10 +549,17 @@ async function loadIndex() {
       state._legacy = (legacy.artworks || []).filter(a => a.image);
     } catch (e2) { state.wings = []; }
   }
+  // The newest hundred pieces are plenty of bridges; the whole collection is
+  // only fetched if the baked file is missing.
   try {
-    const col = await fetchJSON('/collection.json');
-    state.bridges = (Array.isArray(col) ? col : []).filter(p => p.piece && p.gap);
-  } catch (e) { /* fine */ }
+    const latest = await fetchJSON('/data/collection/latest.json');
+    state.bridges = (Array.isArray(latest.pieces) ? latest.pieces : []).filter(p => p.piece && p.gap);
+  } catch (e) {
+    try {
+      const col = await fetchJSON('/collection.json');
+      state.bridges = (Array.isArray(col) ? col : []).filter(p => p.piece && p.gap);
+    } catch (e2) { /* fine */ }
+  }
   if (!state.bridges.length) state.bridges = FALLBACK_BRIDGES;
 }
 async function loadWing(slug) {

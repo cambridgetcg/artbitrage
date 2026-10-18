@@ -12,13 +12,10 @@ import {
   BUILD_JOY_CARDS,
   buildJoyPointer,
   buildJoyResponse,
-} from '../functions/api/build-joy.js';
-import { ARTBITRAGE_START } from '../functions/api/start-guide.js';
-import {
-  ARTBITRAGE_WAKE,
-  ROUTES,
-  agentManifest,
-} from '../functions/api/agent-manifest.js';
+} from '../functions/_domains/protocol/build-joy.js';
+import { ARTBITRAGE_START } from '../functions/_domains/protocol/start-guide.js';
+import { ARTBITRAGE_WAKE } from '../functions/_domains/protocol/agent-manifest.js';
+import { ROUTES, agentManifest } from '../functions/_domains/index.js';
 import {
   onRequestGet,
   onRequestOptions,
@@ -288,8 +285,11 @@ try {
 const pointer = buildJoyPointer();
 const manifest = agentManifest();
 assert.equal(manifest.version, '2.5.0');
-assert.equal(manifest.total_endpoints, 143);
-assert.equal(manifest.categories.start.count, 2);
+// The manifest is generated from the route table, so it counts what it lists;
+// the golden test pins the exact list.
+assert.equal(manifest.total_endpoints, manifest.routes.length);
+assert.ok(manifest.total_endpoints >= 177);
+assert.equal(manifest.categories.start.count, 3);
 assert.equal(ARTBITRAGE_WAKE.endpoints.build_joy, pointer.endpoint);
 assert.deepEqual(ARTBITRAGE_WAKE.build_with_joy, pointer);
 assert.deepEqual(manifest.build_with_joy, pointer);
@@ -303,12 +303,9 @@ const buildPath = ARTBITRAGE_START.paths.find(path => path.id === 'build-with-ar
 assert.ok(buildPath.doors.continue.some(path => path.startsWith('/api/build/joy')));
 assert.match(buildPath.boundary, /optional ornament, never a score or authority grant/i);
 
-// Source and deploy mirrors stay byte-identical; public docs state the boundary.
+// Page and deploy mirrors stay byte-identical; public docs state the boundary.
+// (Functions deploy from the root functions/ directory; there is no dist copy.)
 for (const [source, deployed] of [
-  ['functions/api/build-joy.js', 'dist/functions/api/build-joy.js'],
-  ['functions/api/[[route]].js', 'dist/functions/api/[[route]].js'],
-  ['functions/api/agent-manifest.js', 'dist/functions/api/agent-manifest.js'],
-  ['functions/api/start-guide.js', 'dist/functions/api/start-guide.js'],
   ['api-explorer.html', 'dist/api-explorer.html'],
 ]) {
   assert.deepEqual(

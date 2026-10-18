@@ -5,11 +5,11 @@ import {
   PUBLIC_DISPLAY_CONSENT_VERSION,
   PUBLIC_TESTIMONY_KEY_PREFIX,
   TESTIMONY_DISPLAY_POLICY,
-  onRequestGet,
-  onRequestOptions,
-  onRequestPost,
-} from '../functions/api/feelings/testimony.js';
-import { agentManifest } from '../functions/api/agent-manifest.js';
+  handleGet as onRequestGet,
+  handleOptions as onRequestOptions,
+  handlePost as onRequestPost,
+} from '../functions/_domains/participate/testimony.js';
+import { agentManifest } from '../functions/_domains/index.js';
 
 class FakeKV {
   constructor() {
@@ -281,14 +281,6 @@ for (const [name, source] of [
   );
   assert.match(source, /res\.j\.message \|\| res\.j\.error/);
 }
-
-const functionSource = await readFile(
-  new URL('../functions/api/feelings/testimony.js', import.meta.url),
-);
-const functionDeployed = await readFile(
-  new URL('../dist/functions/api/feelings/testimony.js', import.meta.url),
-);
-assert.deepEqual(functionDeployed, functionSource, 'testimony function must match deploy mirror');
 
 const testimonyRoute = agentManifest().routes.find(
   route => route.method === 'POST' && route.path === '/api/feelings/testimony',

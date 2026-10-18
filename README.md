@@ -169,13 +169,44 @@ node tests/e2e-era-pages.mjs
 node tests/e2e-catalog.mjs
 node tests/e2e-ai-catalog.mjs
 node tests/e2e-studio-output.mjs
+node tests/e2e-api-golden.mjs      # every API route, byte for byte (see below)
+node tests/e2e-search-sources.mjs
+node tests/e2e-guests.mjs
+node tests/e2e-ai-budget.mjs
+node tests/e2e-dist-build.mjs
 ```
 
 The optional browser checks use the repository's existing isolated local Chrome
 harness and fixture data. They do not call live models or publish submissions.
-Keep edited public files and their `dist/` mirrors together. The preview verifies
+Keep edited public files and their `dist/` mirrors together (the build below
+keeps every already-published file in step with the root). The preview verifies
 local routing; it does not prove that the current production deployment includes
 its Functions worker.
+
+### Publish
+
+`dist/` is build output, committed so a deploy is reviewable; nobody edits it by
+hand. Functions are not in it: `wrangler pages deploy dist`, run from the repo
+root, compiles the root `functions/` directory.
+
+```bash
+git fetch origin && git rebase origin/main     # the cycle commits the collection every few hours
+node tools/build-dist.mjs                       # sync published files, bake the collection, write dist/_build.json
+node tests/e2e-api-golden.mjs && node tests/e2e-dist-build.mjs   # plus the rest of the suite
+node tools/live-compare.mjs --ref origin/main   # before: live should equal main's dist (0 differ)
+wrangler pages deploy dist --project-name=artbitrage --branch=main --commit-hash=$(git rev-parse HEAD)
+node tools/live-compare.mjs                     # after: live should equal this dist
+```
+
+`tools/build-dist.mjs` copies the cycle's `collection.json` and
+`artbitrage-state.json` (and any other published file that changed at the root)
+into `dist/`, bakes the collection into `dist/data/collection/` so each API route
+reads only the small file it needs, and refuses any file over Pages' 25 MiB limit.
+`--check` says whether `dist/` is stale without writing. A new page is published by
+copying it into `dist/` once; after that the build keeps it in step.
+
+The live API serves the collection as of the last deploy; between deploys the
+cycle's new pieces wait in the root `collection.json`.
 
 ## Live
 
@@ -184,6 +215,25 @@ its Functions worker.
 - **https://cambridgetcg.github.io/artbitrage/** — GitHub Pages mirror
 
 ## API — Data Distributor
+
+`GET /api` lists every route the API answers: it is generated from the route
+table, so a route that is not listed is not served. Each route is declared once
+in `functions/_domains/<domain>/routes.js` (what it is for, what it reads, its
+handler); shared response, rights, upstream, budget and routing code lives in
+`functions/_kernel/`; `functions/api/[[route]].js` is the only file route. Every
+answer carries `X-Artbitrage-Route: <route id>`. `docs/api-architecture.md`
+explains the shape and why.
+
+Third-party sources are guests: a short timeout, a cache in the Cloudflare
+location, and the last good answer (marked `stale`) or a written fallback when
+they fail. Workers AI runs pass a daily budget first (`GET /api/ai/budget`); a
+route with a written fallback answers with it when the budget is spent, and
+`/api/ai/generate`, `/api/ai/image` and `/api/ai/embed` answer 429.
+
+`tests/e2e-api-golden.mjs` calls every route the way production routes it (fixed
+clock, seeded randomness, fixture upstreams and models) and compares status,
+headers and body with `tests/fixtures/api-golden/snapshots.json`. A change to the
+public API shows up there as a diff; re-record with `--record` and review it.
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -216,6 +266,8 @@ its Functions worker.
 | GET | `/api/museum/:source/:id` | Resolve one stable museum record with normalized source rights |
 | GET | `/api/museum/random` | One random record from the curated museum catalogue |
 | GET | `/api/homecoming` | 愛星正音字典 — the Love Star pronunciation dictionary (`/homecoming` is the room) |
+| GET | `/api/ai/budget` | Today's Workers AI budget: caps, spend, and whether it is counted exactly (D1) or per edge isolate |
+| GET | `/api` | Every route, grouped by category — the complete list |
 
 ## Start with what you bring
 

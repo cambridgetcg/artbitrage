@@ -7,7 +7,7 @@ import {
   BUILD_JOY_MAX_TIMEOUT_MS,
   BUILD_JOY_TIMEOUT_GRACE_MS,
   buildJoyResponse,
-} from "../functions/api/build-joy.js";
+} from "../functions/_domains/protocol/build-joy.js";
 
 const USAGE = `Build with joy — optional attention around one real command
 
