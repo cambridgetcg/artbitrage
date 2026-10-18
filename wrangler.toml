@@ -5,7 +5,13 @@ pages_build_output_dir = "."
 [ai]
 binding = "AI"
 
-# the cairn — wordless "someone was here" pebbles (see functions/api/pebbles.js)
+# the cairn — wordless "someone was here" pebbles (see functions/_domains/participate/pebbles.js)
 [[kv_namespaces]]
 binding = "PEBBLES"
 id = "1a1d4741ef35485eb1ff48caa3fa485e"
+
+# the daily Workers AI budget, shared by every location (see functions/_kernel/budget.js)
+[[d1_databases]]
+binding = "AI_BUDGET"
+database_name = "artbitrage-ai-budget"
+database_id = "b6eaefd9-75d2-414b-b316-02f693554115"
