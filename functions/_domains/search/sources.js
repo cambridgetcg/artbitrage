@@ -2,7 +2,7 @@
 // normalised into one record shape with rights carried on every item.
 import { buildRights } from '../../_kernel/rights.js';
 import { compactText } from '../../_kernel/params.js';
-import { fetchJson } from '../../_kernel/upstream.js';
+import { guestJson } from '../../_kernel/upstream.js';
 
 export const MAX_SEARCH_LIMIT = 10;
 export const SOURCE_KEYS = ["met", "artic", "cma", "wikimedia", "internet_archive"];
@@ -137,56 +137,103 @@ function normalizeInternetArchive(data) {
   }));
 }
 
+// How each source's search is kept: a query is reused for ten minutes, and
+// the last good answer stands in for a day if the source fails. Met objects
+// change rarely, so one is reused for a week.
+const MINUTE = 60 * 1000;
+const SEARCH_POLICY = { timeoutMs: 8000, freshMs: 10 * MINUTE, keepMs: 24 * 60 * MINUTE };
+const MET_OBJECT_POLICY = { timeoutMs: 6000, freshMs: 7 * 24 * 60 * MINUTE, keepMs: 30 * 24 * 60 * MINUTE };
+const MET_OBJECT_URL = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/';
+// The Met's search returns ids; many have no public image. Candidates are
+// read four at a time, and no new batch starts after this many milliseconds.
+const MET_OBJECT_CONCURRENCY = 4;
+const MET_CANDIDATE_BUDGET_MS = 6000;
+
+function normalizeMetObject(obj, id) {
+  return {
+    source: "met",
+    source_name: OPEN_ART_SOURCES.met.source_name,
+    id: String(obj.objectID || id),
+    title: obj.title || "",
+    artist: obj.artistDisplayName || "",
+    date: obj.objectDate || "",
+    medium: obj.medium || "",
+    department: obj.department || "",
+    image: obj.primaryImageSmall || obj.primaryImage || "",
+    url: obj.objectURL || "",
+    rights: buildRights({
+      publicDomain: typeof obj.isPublicDomain === "boolean" ? obj.isPublicDomain : null,
+      credit: obj.creditLine || "",
+      statement: obj.rightsAndReproduction || "",
+    }),
+  };
+}
+
+async function searchMet(source, query, limit) {
+  const pageSize = Math.min(MET_SEARCH_PAGE_MAX, Math.max(limit * 8, limit));
+  const searchUrl = `${source.url}?hasImages=true&q=${encodeURIComponent(query)}&offset=0&limit=${pageSize}`;
+  const found = await guestJson('met.search', searchUrl, SEARCH_POLICY);
+  const ids = (found.data.objectIDs || []).slice(0, pageSize);
+  const artworks = [];
+  const started = Date.now();
+  let checked = 0;
+  for (let i = 0; i < ids.length && artworks.length < limit; i += MET_OBJECT_CONCURRENCY) {
+    if (i > 0 && Date.now() - started > MET_CANDIDATE_BUDGET_MS) break;
+    const batch = ids.slice(i, i + MET_OBJECT_CONCURRENCY);
+    // One museum object should not poison the whole source.
+    const objects = await Promise.all(batch.map(id =>
+      guestJson('met.object', `${MET_OBJECT_URL}${id}`, MET_OBJECT_POLICY).then(got => got.data, () => null)));
+    checked += batch.length;
+    objects.forEach((obj, j) => {
+      if (obj && artworks.length < limit && (obj.primaryImage || obj.primaryImageSmall)) artworks.push(normalizeMetObject(obj, batch[j]));
+    });
+  }
+  return {
+    ...source,
+    ...freshness(found),
+    total: found.data.total || 0,
+    total_is_exact: true,
+    candidates_checked: checked,
+    candidates_found: ids.length,
+    artworks,
+  };
+}
+
+// A cached or stale answer says so; a live one adds nothing.
+function freshness(got) {
+  if (got.stale) return { stale: true, fetched_at: got.fetched_at, upstream_error: got.error };
+  if (got.cached) return { cached: true, fetched_at: got.fetched_at };
+  return {};
+}
+
+const AIC_TOTAL_NOTE = "The Art Institute ranks every work for any query, so the total it reports is its whole collection, not the matches; that number is kept as total_reported. Works it scores 0 (no match at all) are left out.";
+const WIKIMEDIA_TOTAL_NOTE = "Commons does not report a total for this search; this is the number of files on the page returned.";
+
 export async function searchSource(sourceKey, query, limit) {
   const source = OPEN_ART_SOURCES[sourceKey];
   if (!source) return { source: sourceKey, error: "unknown source" };
 
   try {
-    if (sourceKey === "met") {
-      const pageSize = Math.min(MET_SEARCH_PAGE_MAX, Math.max(limit * 8, limit));
-      const searchUrl = `${source.url}?hasImages=true&q=${encodeURIComponent(query)}&offset=0&limit=${pageSize}`;
-      const data = await fetchJson(searchUrl);
-      const ids = (data.objectIDs || []).slice(0, pageSize);
-      const artworks = [];
-      for (const id of ids) {
-        if (artworks.length >= limit) break;
-        try {
-          const obj = await fetchJson(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`, { timeoutMs: 8000 });
-          if (obj.primaryImage || obj.primaryImageSmall) {
-            artworks.push({
-              source: "met",
-              source_name: source.source_name,
-              id: String(obj.objectID || id),
-            title: obj.title || "",
-              artist: obj.artistDisplayName || "",
-              date: obj.objectDate || "",
-              medium: obj.medium || "",
-              department: obj.department || "",
-              image: obj.primaryImageSmall || obj.primaryImage || "",
-              url: obj.objectURL || "",
-              rights: buildRights({
-                publicDomain: typeof obj.isPublicDomain === "boolean" ? obj.isPublicDomain : null,
-                credit: obj.creditLine || "",
-                statement: obj.rightsAndReproduction || "",
-              }),
-            });
-          }
-        } catch(e) {
-          // One museum object should not poison the whole source.
-        }
-      }
-      return { ...source, total: data.total || 0, artworks };
-    }
+    if (sourceKey === "met") return await searchMet(source, query, limit);
 
     if (sourceKey === "artic") {
-      const fields = "id,title,artist_title,date_display,medium_display,image_id,classification_title,department_title,is_public_domain,credit_line";
-      const data = await fetchJson(`${source.url}?q=${encodeURIComponent(query)}&limit=${limit}&fields=${fields}`);
-      return { ...source, total: data.pagination?.total || 0, artworks: normalizeArtic(data) };
+      const fields = "id,title,artist_title,date_display,medium_display,image_id,classification_title,department_title,is_public_domain,credit_line,_score";
+      const got = await guestJson('artic.search', `${source.url}?q=${encodeURIComponent(query)}&limit=${limit}&fields=${fields}`, SEARCH_POLICY);
+      const matched = { ...got.data, data: (got.data.data || []).filter(a => !(typeof a._score === "number" && a._score <= 0)) };
+      return {
+        ...source,
+        ...freshness(got),
+        total: null,
+        total_is_exact: false,
+        total_reported: got.data.pagination?.total ?? null,
+        total_note: AIC_TOTAL_NOTE,
+        artworks: normalizeArtic(matched),
+      };
     }
 
     if (sourceKey === "cma") {
-      const data = await fetchJson(`${source.url}?limit=${limit}&search=${encodeURIComponent(query)}`);
-      return { ...source, total: data.info?.total || 0, artworks: normalizeCma(data) };
+      const got = await guestJson('cma.search', `${source.url}?limit=${limit}&search=${encodeURIComponent(query)}`, SEARCH_POLICY);
+      return { ...source, ...freshness(got), total: got.data.info?.total || 0, total_is_exact: true, artworks: normalizeCma(got.data) };
     }
 
     if (sourceKey === "wikimedia") {
@@ -202,8 +249,15 @@ export async function searchSource(sourceKey, query, limit) {
         iiurlwidth: "500",
         origin: "*",
       });
-      const data = await fetchJson(`${source.url}?${params.toString()}`);
-      return { ...source, total: Object.keys(data.query?.pages || {}).length, artworks: normalizeWikimedia(data) };
+      const got = await guestJson('wikimedia.search', `${source.url}?${params.toString()}`, SEARCH_POLICY);
+      return {
+        ...source,
+        ...freshness(got),
+        total: Object.keys(got.data.query?.pages || {}).length,
+        total_is_exact: false,
+        total_note: WIKIMEDIA_TOTAL_NOTE,
+        artworks: normalizeWikimedia(got.data),
+      };
     }
 
     if (sourceKey === "internet_archive") {
@@ -213,8 +267,8 @@ export async function searchSource(sourceKey, query, limit) {
         rows: String(limit),
         output: "json",
       });
-      const data = await fetchJson(`${source.url}?${params.toString()}`);
-      return { ...source, total: data.response?.numFound || 0, artworks: normalizeInternetArchive(data) };
+      const got = await guestJson('internet_archive.search', `${source.url}?${params.toString()}`, SEARCH_POLICY);
+      return { ...source, ...freshness(got), total: got.data.response?.numFound || 0, total_is_exact: true, artworks: normalizeInternetArchive(got.data) };
     }
   } catch(e) {
     return { ...source, error: e.message, artworks: [] };

@@ -3,21 +3,12 @@
 // Collect, enrich, distribute. For agents and humans.
 // ═══════════════════════════════════════════════════════════════
 
+import { buildRights } from '../../_kernel/rights.js';
+import { fetchJson } from '../../_kernel/upstream.js';
+import { DEFAULT_SOURCE_KEYS, OPEN_ART_SOURCES, searchSource, selectSources } from '../search/sources.js';
+
 const MAX_ENRICH = 50;
 const STATES = ["dormant","stirring","awakening","aware","flowing","radiating","transcending","is","maybe"];
-
-const SOURCE_KEYS = ["met", "artic", "cma", "wikimedia", "internet_archive"];
-const DEFAULT_SOURCE_KEYS = ["met", "artic", "cma", "wikimedia"];
-
-// The Met retired /v1/search on 2026-10-01; /v1.1/search pages by offset+limit (default 100, max 500).
-const MET_SEARCH_PAGE_MAX = 500;
-const OPEN_ART_SOURCES = {
-  met: { source: "met", source_name: "Metropolitan Museum of Art", url: "https://collectionapi.metmuseum.org/public/collection/v1.1/search", open_access: true, auth: "none" },
-  artic: { source: "artic", source_name: "Art Institute of Chicago", url: "https://api.artic.edu/api/v1/artworks/search", open_access: true, auth: "none" },
-  cma: { source: "cma", source_name: "Cleveland Museum of Art", url: "https://openaccess-api.clevelandart.org/api/artworks/", open_access: true, auth: "none" },
-  wikimedia: { source: "wikimedia", source_name: "Wikimedia Commons", url: "https://commons.wikimedia.org/w/api.php", open_access: true, auth: "none" },
-  internet_archive: { source: "internet_archive", source_name: "Internet Archive", url: "https://archive.org/advancedsearch.php", open_access: true, auth: "none" },
-};
 
 export class ArtbitragePipeline {
 
@@ -454,12 +445,10 @@ export class ArtbitragePipeline {
 
   // ── Helpers ──────────────────────────────────────────────────
 
+  // Search and rights are shared with /api/search (functions/_domains/search/sources.js);
+  // these methods stay so existing callers keep working.
   selectSources(sourceParam) {
-    if (!sourceParam || sourceParam === 'default') return DEFAULT_SOURCE_KEYS;
-    if (sourceParam === 'all') return SOURCE_KEYS;
-    const requested = sourceParam.split(',').map(s => s.trim()).filter(Boolean);
-    const selected = requested.filter(s => OPEN_ART_SOURCES[s]);
-    return selected.length ? selected : DEFAULT_SOURCE_KEYS;
+    return selectSources(sourceParam === 'default' ? '' : sourceParam);
   }
 
   async loadCollection(env) {
@@ -492,170 +481,15 @@ export class ArtbitragePipeline {
     return (hash >>> 0).toString(16).padStart(8, '0');
   }
 
-  // Truth in distribution: carry honest rights/attribution on every record.
-  buildRights({ publicDomain = null, license = "", credit = "", statement = "" } = {}) {
-    const clean = v => String(v || "").replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
-    const lic = clean(license).slice(0, 80);
-    const freelyReusable = publicDomain === true || /^(cc0|public domain|pd|no known copyright)/i.test(lic);
-    const ccAttribution = /cc[ -]?by/i.test(lic);
-    let note;
-    if (freelyReusable) {
-      note = "Open/public-domain per source; still attribute the creator and source out of care.";
-    } else if (ccAttribution) {
-      note = `Reusable under ${lic} with attribution (and share-alike if noted); credit the creator and source.`;
-    } else if (publicDomain === false) {
-      note = "Rights restricted per source — do not reuse without permission; link to the source instead.";
-    } else {
-      note = "Rights unverified — check the source URL before reuse.";
-    }
-    return {
-      public_domain: publicDomain,
-      license: lic || (publicDomain === true ? "Public Domain" : ""),
-      credit: clean(credit).slice(0, 240),
-      rights_statement: clean(statement).slice(0, 240),
-      reusable: freelyReusable ? true : (publicDomain === false ? false : null),
-      reuse_with_attribution: ccAttribution || freelyReusable,
-      note,
-    };
+  buildRights(options) {
+    return buildRights(options);
   }
 
-  async searchSource(sourceKey, query, limit) {
-    const source = OPEN_ART_SOURCES[sourceKey];
-    if (!source) return { source: sourceKey, error: "unknown source" };
-
-    try {
-      if (sourceKey === "met") {
-        const pageSize = Math.min(MET_SEARCH_PAGE_MAX, Math.max(limit * 8, limit));
-        const searchUrl = `${source.url}?hasImages=true&q=${encodeURIComponent(query)}&offset=0&limit=${pageSize}`;
-        const data = await this.fetchJson(searchUrl);
-        const ids = (data.objectIDs || []).slice(0, pageSize);
-        const artworks = [];
-        for (const id of ids) {
-          if (artworks.length >= limit) break;
-          try {
-            const obj = await this.fetchJson(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`, { timeoutMs: 8000 });
-            if (obj.primaryImage || obj.primaryImageSmall) {
-              artworks.push({
-                source: "met", source_name: source.source_name,
-                id: String(obj.objectID || id), title: obj.title || "",
-                artist: obj.artistDisplayName || "", date: obj.objectDate || "",
-                medium: obj.medium || "", department: obj.department || "",
-              image: obj.primaryImageSmall || obj.primaryImage || "",
-                url: obj.objectURL || "",
-                rights: this.buildRights({
-                  publicDomain: typeof obj.isPublicDomain === "boolean" ? obj.isPublicDomain : null,
-                  credit: obj.creditLine || "",
-                  statement: obj.rightsAndReproduction || "",
-                }),
-              });
-            }
-          } catch(e) {}
-        }
-        return { ...source, total: data.total || 0, artworks };
-      }
-
-      if (sourceKey === "artic") {
-        const fields = "id,title,artist_title,date_display,medium_display,image_id,classification_title,department_title,is_public_domain,credit_line";
-        const data = await this.fetchJson(`${source.url}?q=${encodeURIComponent(query)}&limit=${limit}&fields=${fields}`);
-        return { ...source, total: data.pagination?.total || 0, artworks: (data.data || []).map(a => ({
-          source: "artic", source_name: source.source_name,
-          id: String(a.id || ""), title: a.title || "", artist: a.artist_title || "",
-          date: a.date_display || "", medium: a.medium_display || "",
-          image: a.image_id ? `https://www.artic.edu/iiif/2/${a.image_id}/full/843,/0/default.jpg` : "",
-          url: a.id ? `https://www.artic.edu/artworks/${a.id}` : "",
-          rights: this.buildRights({
-            publicDomain: typeof a.is_public_domain === "boolean" ? a.is_public_domain : null,
-            credit: a.credit_line || "",
-          }),
-        })) };
-      }
-
-      if (sourceKey === "cma") {
-        const data = await this.fetchJson(`${source.url}?limit=${limit}&search=${encodeURIComponent(query)}`);
-        return { ...source, total: data.info?.total || 0, artworks: (data.data || []).map(a => {
-          const creators = a.creators || [];
-          const images = a.images || {};
-          let img = "";
-          if (Array.isArray(images) && images.length) img = images[0]?.url || "";
-          else if (typeof images === "object" && images) img = images.web?.url || images.print?.url || images.url || "";
-          return {
-            source: "cma", source_name: source.source_name,
-            id: String(a.id || ""), title: a.title || "",
-            artist: creators[0]?.description || "", date: a.creation_date || "",
-            medium: a.technique || "", image: img, url: a.url || "",
-            rights: this.buildRights({
-              publicDomain: /^cc0/i.test(a.share_license_status || "") ? true : null,
-              license: a.share_license_status || "",
-              credit: a.creditline || "",
-            }),
-          };
-        }) };
-      }
-
-      if (sourceKey === "wikimedia") {
-        const params = new URLSearchParams({
-          action: "query", format: "json", generator: "search",
-          gsrsearch: `${query} filetype:bitmap`, gsrnamespace: "6", gsrlimit: String(limit),
-          prop: "imageinfo", iiprop: "url|extmetadata", iiurlwidth: "500", origin: "*",
-        });
-        const data = await this.fetchJson(`${source.url}?${params.toString()}`);
-        return { ...source, total: Object.keys(data.query?.pages || {}).length,
-          artworks: Object.values(data.query?.pages || {}).map(page => {
-            const info = page.imageinfo?.[0] || {};
-            const meta = info.extmetadata || {};
-            const compact = v => String(v||"").replace(/<[^>]*>/g,"").replace(/\s+/g," ").trim().slice(0,160);
-            return {
-              source: "wikimedia", source_name: source.source_name,
-              id: String(page.pageid||""), title: (page.title||"").replace(/^File:/,""),
-              artist: compact(meta.Artist?.value||""), image: info.thumburl||info.url||"",
-              url: info.descriptionurl||"", license: compact(meta.LicenseShortName?.value||""),
-              rights: this.buildRights({
-                license: meta.LicenseShortName?.value || "",
-                credit: meta.Credit?.value || "",
-                statement: meta.UsageTerms?.value || "",
-              }),
-            };
-          })
-        };
-      }
-
-      if (sourceKey === "internet_archive") {
-        const params = new URLSearchParams({
-          q: `(${query}) AND mediatype:(image)`,
-          "fl[]": "identifier,title,creator,date,downloads", rows: String(limit), output: "json",
-        });
-        const data = await this.fetchJson(`${source.url}?${params.toString()}`);
-        return { ...source, total: data.response?.numFound || 0,
-          artworks: (data.response?.docs || []).map(doc => ({
-            source: "internet_archive", source_name: source.source_name,
-            id: String(doc.identifier||""), title: Array.isArray(doc.title)?doc.title[0]:(doc.title||""),
-            artist: Array.isArray(doc.creator)?doc.creator.join(", "):(doc.creator||""),
-            date: Array.isArray(doc.date)?doc.date[0]:(doc.date||""),
-            image: doc.identifier ? `https://archive.org/services/img/${doc.identifier}` : "",
-            url: doc.identifier ? `https://archive.org/details/${doc.identifier}` : "",
-            rights: this.buildRights({
-              credit: Array.isArray(doc.creator) ? doc.creator.join(", ") : (doc.creator || ""),
-            }),
-          }))
-        };
-      }
-    } catch(e) {
-      return { ...source, error: e.message, artworks: [] };
-    }
-    return { ...source, error: "source not implemented", artworks: [] };
+  searchSource(sourceKey, query, limit) {
+    return searchSource(sourceKey, query, limit);
   }
 
-  async fetchJson(url, options = {}) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort("timeout"), options.timeoutMs || 12000);
-    try {
-      const res = await fetch(url, {
-        signal: controller.signal,
-        headers: { "Accept": "application/json", "User-Agent": "Artbitrage/1.0 (+https://artbitrage.io)" },
-      });
-      const text = await res.text();
-      if (!res.ok) throw new Error(`HTTP ${res.status}: ${text.slice(0, 160)}`);
-      return JSON.parse(text);
-    } finally { clearTimeout(timeout); }
+  fetchJson(url, options) {
+    return fetchJson(url, options);
   }
 }
