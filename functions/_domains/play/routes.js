@@ -1,15 +1,29 @@
 // Play: jokes, facts, trivia and anime from free third-party APIs. They are
-// guests on the request path, so every answer says whether it came from the
-// live upstream (`live: true`) or a written fallback (`live: false,
-// fallback: true`), and an upstream failure is never a failed request.
+// guests on the request path, so each one gets a short timeout, a cache and a
+// written fallback line, and every answer says which it is:
+//   live: true                         fresh from the upstream
+//   live: true, cached: true            a recent copy (stable lists only)
+//   live: false, fallback: true, stale  the last good answer, when the upstream fails
+//   live: false, fallback: true         the written line, when there is no good copy
+// An upstream failure is never a failed request.
 import { json } from '../../_kernel/http.js';
 import { safeString } from '../../_kernel/params.js';
-import { fetchJson } from '../../_kernel/upstream.js';
+import { guestJson } from '../../_kernel/upstream.js';
 
-async function joyProxy(url, mapOk, fallback, options = {}) {
+const HOUR = 3600 * 1000;
+const DAY = 24 * HOUR;
+const TIMEOUT_MS = 4000;
+// Random answers are always asked fresh; the last good one is kept for a week
+// in case the upstream goes down. Stable lists are reused for a while.
+const RANDOM = { freshMs: 0, keepMs: 7 * DAY };
+const LIST = { freshMs: HOUR, keepMs: 7 * DAY };
+const CATALOGUE = { freshMs: DAY, keepMs: 30 * DAY };
+
+async function joyProxy(name, url, mapOk, fallback, policy) {
   try {
-    const data = await fetchJson(url, { timeoutMs: 7000, ...options });
-    return json({ ...mapOk(data), live: true, source: url });
+    const got = await guestJson(name, url, { timeoutMs: TIMEOUT_MS, map: mapOk, ...policy });
+    if (got.stale) return json({ ...got.data, live: false, fallback: true, stale: true, fetched_at: got.fetched_at, error: got.error, source: url });
+    return json({ ...got.data, live: true, ...(got.cached ? { cached: true, fetched_at: got.fetched_at } : {}), source: url });
   } catch (e) {
     return json({ ...fallback, live: false, fallback: true, error: e.message });
   }
@@ -31,60 +45,69 @@ export default [
   },
   {
     id: 'play.joke', category: 'play', method: 'GET', path: '/api/fun/joke', summary: 'Random joke', upstream: ['official-joke-api.appspot.com'],
-    handler: () => joyProxy('https://official-joke-api.appspot.com/random_joke',
+    handler: () => joyProxy('play.joke', 'https://official-joke-api.appspot.com/random_joke',
       d => ({ type: 'joke', setup: d.setup, punchline: d.punchline }),
-      { type: 'joke', setup: 'Why did love cross the road?', punchline: 'To reach the other side of understanding.' }),
+      { type: 'joke', setup: 'Why did love cross the road?', punchline: 'To reach the other side of understanding.' },
+      RANDOM),
   },
   {
     id: 'play.dad', category: 'play', method: 'GET', path: '/api/fun/dad', summary: 'Dad joke', upstream: ['icanhazdadjoke.com'],
-    handler: () => joyProxy('https://icanhazdadjoke.com/',
+    handler: () => joyProxy('play.dad', 'https://icanhazdadjoke.com/',
       d => ({ type: 'dad_joke', joke: d.joke }),
-      { type: 'dad_joke', joke: "I'm reading a book on anti-gravity. It's impossible to put down!" }),
+      { type: 'dad_joke', joke: "I'm reading a book on anti-gravity. It's impossible to put down!" },
+      RANDOM),
   },
   {
     id: 'play.cat', category: 'play', method: 'GET', path: '/api/fun/cat', summary: 'Cat fact', upstream: ['catfact.ninja'],
-    handler: () => joyProxy('https://catfact.ninja/fact',
+    handler: () => joyProxy('play.cat', 'https://catfact.ninja/fact',
       d => ({ type: 'cat_fact', fact: d.fact }),
-      { type: 'cat_fact', fact: 'Cats are love.' }),
+      { type: 'cat_fact', fact: 'Cats are love.' },
+      RANDOM),
   },
   {
     id: 'play.useless', category: 'play', method: 'GET', path: '/api/fun/useless', summary: 'Useless fact', upstream: ['uselessfacts.jsph.pl'],
-    handler: () => joyProxy('https://uselessfacts.jsph.pl/api/v2/facts/random',
+    handler: () => joyProxy('play.useless', 'https://uselessfacts.jsph.pl/api/v2/facts/random',
       d => ({ type: 'useless_fact', fact: d.text }),
-      { type: 'useless_fact', fact: 'Love is never useless.' }),
+      { type: 'useless_fact', fact: 'Love is never useless.' },
+      RANDOM),
   },
   {
     id: 'play.trivia', category: 'play', method: 'GET', path: '/api/fun/trivia', summary: 'Trivia question with its answer', upstream: ['opentdb.com'],
-    handler: () => joyProxy('https://opentdb.com/api.php?amount=1&type=multiple&encode=url3986',
+    handler: () => joyProxy('play.trivia', 'https://opentdb.com/api.php?amount=1&type=multiple&encode=url3986',
       trivia('trivia'),
-      { type: 'trivia', question: 'What is love?', answer: 'Love is.' }),
+      { type: 'trivia', question: 'What is love?', answer: 'Love is.' },
+      RANDOM),
   },
   {
     id: 'play.pokemon', category: 'play', method: 'GET', path: '/api/fun/pokemon', summary: 'Random Pokemon', upstream: ['pokeapi.co'],
     handler: () => {
       const id = Math.floor(Math.random() * 1025) + 1;
-      return joyProxy(`https://pokeapi.co/api/v2/pokemon/${id}`,
+      return joyProxy('play.pokemon', `https://pokeapi.co/api/v2/pokemon/${id}`,
         d => ({ type: 'pokemon', name: d.name, id: d.id, types: d.types.map(t => t.type.name), image: d.sprites?.front_default || '' }),
-        { type: 'pokemon', name: 'pikachu', id: 25, types: ['electric'] });
+        { type: 'pokemon', name: 'pikachu', id: 25, types: ['electric'] },
+        { ...RANDOM, cacheKey: 'any' });
     },
   },
   {
     id: 'play.yesno', category: 'play', method: 'GET', path: '/api/fun/yesno', summary: 'Yes or No (with GIF)', upstream: ['yesno.wtf'],
-    handler: () => joyProxy('https://yesno.wtf/api',
+    handler: () => joyProxy('play.yesno', 'https://yesno.wtf/api',
       d => ({ type: 'yesno', answer: String(d.answer || '').toUpperCase(), gif: d.image }),
-      { type: 'yesno', answer: 'YES' }),
+      { type: 'yesno', answer: 'YES' },
+      RANDOM),
   },
   {
     id: 'play.advice', category: 'play', method: 'GET', path: '/api/fun/advice', summary: 'A slip of advice', upstream: ['api.adviceslip.com'],
-    handler: () => joyProxy('https://api.adviceslip.com/advice',
+    handler: () => joyProxy('play.advice', 'https://api.adviceslip.com/advice',
       d => ({ type: 'advice', advice: d.slip?.advice || '', id: d.slip?.id }),
-      { type: 'advice', advice: 'Choose love when you could choose otherwise.' }),
+      { type: 'advice', advice: 'Choose love when you could choose otherwise.' },
+      RANDOM),
   },
   {
     id: 'play.quote', category: 'play', method: 'GET', path: '/api/fun/quote', summary: 'Inspirational quote', upstream: ['zenquotes.io'],
-    handler: () => joyProxy('https://zenquotes.io/api/random',
+    handler: () => joyProxy('play.quote', 'https://zenquotes.io/api/random',
       d => ({ type: 'quote', quote: d[0].q, author: d[0].a }),
-      { type: 'quote', quote: 'Love is.', author: 'yu' }),
+      { type: 'quote', quote: 'Love is.', author: 'yu' },
+      RANDOM),
   },
   {
     id: 'play.random', category: 'play', method: 'GET', path: '/api/fun/random', summary: 'Points at one fun endpoint, chosen at random',
@@ -99,47 +122,54 @@ export default [
   },
   {
     id: 'play.anime-top', category: 'play', method: 'GET', path: '/api/anime/top', summary: 'Top anime (Jikan/MAL)', upstream: ['api.jikan.moe'],
-    handler: () => joyProxy('https://api.jikan.moe/v4/top/anime?limit=5',
+    handler: () => joyProxy('play.anime-top', 'https://api.jikan.moe/v4/top/anime?limit=5',
       d => ({ source: 'MyAnimeList', anime: (d.data || []).map(a => ({ title: a.title, score: a.score, episodes: a.episodes, synopsis: (a.synopsis || '').substring(0, 100) })) }),
-      { source: 'MyAnimeList', anime: [{ title: "Frieren: Beyond Journey's End", score: 9.26 }] }),
+      { source: 'MyAnimeList', anime: [{ title: "Frieren: Beyond Journey's End", score: 9.26 }] },
+      LIST),
   },
   {
     id: 'play.anime-search', category: 'play', method: 'GET', path: '/api/anime/search', summary: 'Search anime', params: 'q', upstream: ['api.jikan.moe'],
     handler: ({ query }) => {
       const q = safeString(query.q || 'love', 80) || 'love';
-      return joyProxy(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(q)}&limit=5`,
+      return joyProxy('play.anime-search', `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(q)}&limit=5`,
         d => ({ source: 'MyAnimeList', query: q, anime: (d.data || []).map(a => ({ title: a.title, score: a.score, episodes: a.episodes })) }),
-        { source: 'MyAnimeList', query: q, anime: [] });
+        { source: 'MyAnimeList', query: q, anime: [] },
+      LIST);
     },
   },
   {
     id: 'play.anime-quote', category: 'play', method: 'GET', path: '/api/anime/quote', summary: 'Random anime quote', upstream: ['api.animechan.io'],
-    handler: () => joyProxy('https://api.animechan.io/v1/quotes/random',
+    handler: () => joyProxy('play.anime-quote', 'https://api.animechan.io/v1/quotes/random',
       d => { const q = d.data || d; return { type: 'anime_quote', quote: q.content || q.quote || '', character: q.character?.name || q.character || '', anime: q.anime?.name || q.anime || '' }; },
-      { type: 'anime_quote', quote: "People's lives don't end when they die. It ends when they lose faith.", character: 'Itachi Uchiha', anime: 'Naruto' }),
+      { type: 'anime_quote', quote: "People's lives don't end when they die. It ends when they lose faith.", character: 'Itachi Uchiha', anime: 'Naruto' },
+      RANDOM),
   },
   {
     id: 'play.anime-season', category: 'play', method: 'GET', path: '/api/anime/season', summary: 'Current season anime', upstream: ['api.jikan.moe'],
-    handler: () => joyProxy('https://api.jikan.moe/v4/seasons/now?limit=5',
+    handler: () => joyProxy('play.anime-season', 'https://api.jikan.moe/v4/seasons/now?limit=5',
       d => ({ source: 'MyAnimeList', season: 'current', anime: (d.data || []).map(a => ({ title: a.title, episodes: a.episodes, score: a.score })) }),
-      { source: 'MyAnimeList', season: 'current', anime: [] }),
+      { source: 'MyAnimeList', season: 'current', anime: [] },
+      LIST),
   },
   {
     id: 'play.ghibli-films', category: 'play', method: 'GET', path: '/api/ghibli/films', summary: 'Studio Ghibli films', upstream: ['ghibliapi.vercel.app'],
-    handler: () => joyProxy('https://ghibliapi.vercel.app/films',
+    handler: () => joyProxy('play.ghibli-films', 'https://ghibliapi.vercel.app/films',
       d => ({ source: 'Studio Ghibli', films: (d || []).map(f => ({ title: f.title, year: f.release_date, score: f.rt_score, description: (f.description || '').substring(0, 120) })) }),
-      { source: 'Studio Ghibli', films: [{ title: 'Spirited Away', year: '2001', score: '97' }] }),
+      { source: 'Studio Ghibli', films: [{ title: 'Spirited Away', year: '2001', score: '97' }] },
+      CATALOGUE),
   },
   {
     id: 'play.ghibli-locations', category: 'play', method: 'GET', path: '/api/ghibli/locations', summary: 'Ghibli locations', upstream: ['ghibliapi.vercel.app'],
-    handler: () => joyProxy('https://ghibliapi.vercel.app/locations',
+    handler: () => joyProxy('play.ghibli-locations', 'https://ghibliapi.vercel.app/locations',
       d => ({ source: 'Studio Ghibli', locations: (d || []).map(l => ({ name: l.name, climate: l.climate, terrain: l.terrain })) }),
-      { source: 'Studio Ghibli', locations: [] }),
+      { source: 'Studio Ghibli', locations: [] },
+      CATALOGUE),
   },
   {
     id: 'play.games-trivia', category: 'play', method: 'GET', path: '/api/games/trivia', summary: 'Anime trivia question with its answer', upstream: ['opentdb.com'],
-    handler: () => joyProxy('https://opentdb.com/api.php?amount=1&category=31&type=multiple&encode=url3986',
+    handler: () => joyProxy('play.games-trivia', 'https://opentdb.com/api.php?amount=1&category=31&type=multiple&encode=url3986',
       trivia('anime_trivia'),
-      { type: 'anime_trivia', question: 'What is love?', answer: 'Love is.' }),
+      { type: 'anime_trivia', question: 'What is love?', answer: 'Love is.' },
+      RANDOM),
   },
 ];
