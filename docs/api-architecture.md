@@ -15,7 +15,7 @@ Yu decided and what was then built on branch `api/restructure`.
 4. `dist/` stays in git, as build output nobody edits by hand.
 5. Document every lore route in the generated manifest.
 
-**Built** (each a commit on `api/restructure`; nothing deployed yet):
+**Built** (each a commit on `api/restructure`, merged as PR #14 and deployed on 18 October 2026):
 
 | Phase | Commit | What changed |
 |---|---|---|
@@ -30,10 +30,16 @@ Yu decided and what was then built on branch `api/restructure`.
 | 4 | `feat(build): …` | `tools/build-dist.mjs`: sync, bake, `_build.json`; collection routes read the bake (decisions 3, 4) |
 | — | `fix: what an independent review…found` | a stale bake is never trusted (byte-count check per isolate, `X-Artbitrage-Collection`); museum random with a slash; built-in-named keys in the bake; the AI burst race; versioned guest cache keys; letter case on former file routes |
 
-**Still to do before it is live:** create the D1 database for the AI budget and
-bind it as `AI_BUDGET` (until then the budget is counted per edge isolate, and
-says so); rebase onto the cycle's latest commit, build `dist/`, commit it, and
-deploy through the README's "Publish" sequence.
+**Live (18 October 2026, deployment `0fd52723`):** the D1 database
+`artbitrage-ai-budget` is bound as `AI_BUDGET`, and `dist/` was rebuilt on the
+cycle's latest commit (27,326 pieces) and deployed through the README's
+"Publish" sequence. Before the deploy, live matched `dist/` at main on 144 of
+144 text files; after it, live matched the new `dist/` on 144 of 144. Live
+`/api/stats` went from 20,494 pieces to 27,326 and answers
+`X-Artbitrage-Collection: baked`; `/api/ai/budget` reports `enforcement: d1`,
+and one haiku run counted `text 1/1000; d1`. Median time to first byte from
+one client: `/api/stats` 0.29 s → 0.19 s, `/api/forms` 0.37 s → 0.10 s, `/api`
+0.38 s → 0.10 s.
 
 **Left open on purpose:** a dated live probe of each upstream; the cycle's own
 AIC search in `sources.py`; an automatic deploy after each cycle (it needs a

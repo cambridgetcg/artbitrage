@@ -40,13 +40,15 @@ new ids, `/api/art/<id>` returns 404.
 feed and stats from this repository, and the newest piece here can be reached
 at `/api/art/<id>`.
 
-**Status (18 October 2026): the publish step exists; it is not deployed yet.**
-`node tools/build-dist.mjs` copies the cycle's `collection.json` into `dist/`
-and bakes it into `dist/data/collection/`, and the README's "Publish" section
-gives the repeatable sequence (rebase, build, test, compare, deploy, compare).
-Yu chose (18 October) that the live API serves the current collection. Once
-deployed, live is as current as the last deploy; an automatic deploy after
-each cycle would need a deploy credential and is not set up.
+**Status (18 October 2026): done and deployed (PR #14).** `node
+tools/build-dist.mjs` copies the cycle's `collection.json` into `dist/` and
+bakes it into `dist/data/collection/`, and the README's "Publish" section gives
+the repeatable sequence (rebase, build, test, compare, deploy, compare). Yu
+chose (18 October) that the live API serves the current collection. Live
+`/api/stats` now shows 27,326 pieces, the repository's count at the deploy, and
+pieces from the latest cycle answer at `/api/art/<id>`. Live is as current as
+the last deploy; an automatic deploy after each cycle would need a deploy
+credential and is not set up.
 
 ## 3. Write down where the cycle runs
 
@@ -178,8 +180,9 @@ no error.
 - The AIC totals.
 - The route inventory.
 
-**Status (18 October 2026): rebuilt on branch `api/restructure`, not deployed
-yet.** See `docs/api-architecture.md` for the design and Yu's five decisions.
+**Status (18 October 2026): rebuilt and deployed (PR #14).** See
+`docs/api-architecture.md` for the design, Yu's five decisions and the live
+checks.
 - Route inventory: done. `/api` is generated from the route table and lists
   all 178 GET and POST routes (`route_coverage.status: "complete"`); the 33
   that were missing, including the lore routes, are listed.
