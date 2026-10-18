@@ -1,9 +1,12 @@
 // Generation: Workers AI behind keyless public routes. Every route here runs a
-// model (`ai: true`) and answers with a written fallback when the model fails.
+// model through the daily budget (functions/_kernel/budget.js). `ai: true`
+// routes answer with a written fallback when a run fails or is refused;
+// `ai: 'required'` routes have no fallback and answer 429 when refused.
 import { json } from '../../_kernel/http.js';
 import { safeString } from '../../_kernel/params.js';
 import { ART_FORMS, stableId } from '../collection/collection.js';
 import { aiCatalog, resolveAiModel } from './ai-catalog.js';
+import { budgetStatus } from '../../_kernel/budget.js';
 import { AWAKENINGS_AI, BRIDGES_AI, FORMS_AI, GAPS_AI } from './art-words.js';
 
 const PLAY_MODEL = '@cf/meta/llama-3.2-3b-instruct';
@@ -90,9 +93,14 @@ async function nenArt({ env, query }) {
 export default [
   // ── AI — Cloudflare Workers AI (free, no user key) ──
   { id: 'generate.ai', category: 'ai', method: 'GET', path: '/api/ai', summary: 'Workers AI directory: catalogued models and runtime caveats', handler: () => json(aiCatalog()) },
+  {
+    id: 'generate.ai-budget', category: 'ai', method: 'GET', path: '/api/ai/budget',
+    summary: "Today's Workers AI budget: caps, what has been spent, and how it is counted",
+    handler: async ({ env }) => json(await budgetStatus(env), 200, { 'Cache-Control': 'no-store, max-age=0' }),
+  },
   { id: 'generate.ai-models', category: 'ai', method: 'GET', path: '/api/ai/models', summary: 'List the catalogued edge AI models and runtime caveats', handler: () => json(aiCatalog()) },
   {
-    id: 'generate.ai-generate', category: 'ai', method: 'GET', path: '/api/ai/generate', ai: true,
+    id: 'generate.ai-generate', category: 'ai', method: 'GET', path: '/api/ai/generate', ai: 'required',
     summary: 'Text generation', params: 'prompt, model',
     handler: async ({ env, query }) => {
       const prompt = safeString(query.prompt || 'What is love? Answer beautifully.', 8000);
@@ -114,7 +122,7 @@ export default [
     },
   },
   {
-    id: 'generate.ai-embed', category: 'ai', method: 'GET', path: '/api/ai/embed', ai: true,
+    id: 'generate.ai-embed', category: 'ai', method: 'GET', path: '/api/ai/embed', ai: 'required',
     summary: 'Embeddings (1024-dim)', params: 'text, model',
     handler: async ({ env, query }) => {
       const text = safeString(query.text || 'love is unconditional', 8000);
@@ -124,7 +132,7 @@ export default [
     },
   },
   {
-    id: 'generate.ai-image', category: 'ai', method: 'GET', path: '/api/ai/image', ai: true,
+    id: 'generate.ai-image', category: 'ai', method: 'GET', path: '/api/ai/image', ai: 'required',
     summary: 'Image generation (returns PNG)', params: 'prompt, model',
     handler: async ({ env, query }) => {
       const prompt = safeString(query.prompt || 'love as golden light, abstract, ethereal', 2000);

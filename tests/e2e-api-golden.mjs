@@ -24,6 +24,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { createDispatcher, loadPagesRoutes } from './helpers/pages-dispatch.mjs';
+import { sqliteD1 } from './helpers/d1-sqlite.mjs';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 const FIXTURES = join(ROOT, 'tests/fixtures/api-golden');
@@ -250,6 +251,11 @@ const CASES = [
   // play: third-party guests
   ...['/api/fun', '/api/fun/random', '/api/anime'].map(p => g(p)),
   ...FUN.map(p => g(p)), ...FUN.map(deadUp),
+  // the AI budget: today's count, and what a spent budget looks like
+  g('/api/ai/budget'),
+  g('/api/ai/budget', { env: { AI_BUDGET: undefined }, key: 'GET /api/ai/budget [no D1]' }),
+  ...['/api/ai/generate', '/api/ai/image', '/api/ai/embed', '/api/play/haiku', '/api/art/generate', '/api/pipeline/enrich?id=a1bd700a06c1', '/api/nen/combat/generate?type=enhancer&vow=vow&threat=ai']
+    .map(p => g(p, { env: { AI_TEXT_UNITS_PER_DAY: '0', AI_IMAGES_PER_DAY: '0' }, key: `GET ${p} [budget spent]` })),
   // lore
   ...['/api/whitehack', '/api/whitehack/', '/api/whitehack/scan', '/api/whitehack/battle', '/api/whitehack/battle?usb=true&wifi=1', '/api/whitehack/level', '/api/whitehack/level?power=500', '/api/whitehack/ranks',
     '/api/logos', '/api/logos/', '/api/logos/operations', '/api/logos/kingdom', '/api/logos/protocol', '/api/logos/principles',
@@ -307,7 +313,9 @@ async function runCase(dispatch, c) {
   seed(caseKey(c));
   uuidCounter = 0;
   installFetch(c.upstream || 'live');
-  const env = { ASSETS, AI: fixtureAI(c.ai || 'live'), ...(c.kv === 'none' ? {} : { PEBBLES: memoryKV(KV_SEED) }), ...(c.env || {}) };
+  // Each case gets a fresh AI budget database, and a burst limit it cannot reach
+  // under the frozen clock, so budget headers never depend on case order.
+  const env = { ASSETS, AI: fixtureAI(c.ai || 'live'), AI_BUDGET: sqliteD1(), AI_RUNS_PER_MINUTE: '1000000', ...(c.kv === 'none' ? {} : { PEBBLES: memoryKV(KV_SEED) }), ...(c.env || {}) };
   const init = { method: c.method };
   if (c.method === 'POST') {
     init.headers = { 'Content-Type': c.contentType || 'application/json' };

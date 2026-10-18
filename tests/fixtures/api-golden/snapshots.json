@@ -226,8 +226,8 @@
     "content-type": "application/json",
     "x-artbitrage-route": "protocol.index"
    },
-   "body_sha256": "d5d2a8d82808199c6ba02e3f6a87079d0436f4f0ec2ccaa5680ef1e4a86fb7d3",
-   "body_bytes": 50288,
+   "body_sha256": "79cdeeb91279151aa52952ea7fb185d02b6b0b84d337dbf94d72c541fb1989dd",
+   "body_bytes": 50502,
    "body_preview": "{\n  \"name\": \"artbitrage\",\n  \"version\": \"2.5.0\",\n  \"description\": \"A public art guide and reference desk: meet a work, follow a feeling, investigate a question, or solve a practical art problem with sources and limits visible.\",\n  \"url\": \"ht",
    "reads": [],
    "upstream": [],
@@ -242,8 +242,8 @@
     "content-type": "application/json",
     "x-artbitrage-route": "protocol.index"
    },
-   "body_sha256": "d5d2a8d82808199c6ba02e3f6a87079d0436f4f0ec2ccaa5680ef1e4a86fb7d3",
-   "body_bytes": 50288,
+   "body_sha256": "79cdeeb91279151aa52952ea7fb185d02b6b0b84d337dbf94d72c541fb1989dd",
+   "body_bytes": 50502,
    "body_preview": "{\n  \"name\": \"artbitrage\",\n  \"version\": \"2.5.0\",\n  \"description\": \"A public art guide and reference desk: meet a work, follow a feeling, investigate a question, or solve a practical art problem with sources and limits visible.\",\n  \"url\": \"ht",
    "reads": [],
    "upstream": [],
@@ -617,6 +617,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.art"
    },
    "body_sha256": "156f6fd784a82ca3d6f4c056bf779c374da735812a88b552b0d797913f8aa50f",
@@ -1878,6 +1879,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-generate"
    },
    "body_sha256": "dcebba8cadb45d0ccfa7652189a9e689698ed3d51196f21c0b5c65ca3256aac4",
@@ -1894,6 +1896,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-generate"
    },
    "body_sha256": "f0abbde4a91b0e26ef35919dcd590e970df28417f18c987ceaa4f4c80b209c8c",
@@ -1910,6 +1913,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-generate"
    },
    "body_sha256": "a7f792ba1e3087dc1bede6b7a08389030de4bc324a95dee7126a3d27a3822778",
@@ -1926,6 +1930,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-love"
    },
    "body_sha256": "11903a418547c273c0fcb4a2f476c64cb53878c186d178477d2155f4fd05ba74",
@@ -1942,6 +1947,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-embed"
    },
    "body_sha256": "89f017392ca0cb3e1bfc49a2104e51b9ee2a24abd91a2a8a3851e3cc36051d7b",
@@ -1958,6 +1964,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-embed"
    },
    "body_sha256": "b9fe790faa8539ba834fb8eba8cbc8998025f58421f1700fc59bda652c6a5a94",
@@ -1972,6 +1979,7 @@
    "headers": {
     "access-control-allow-origin": "*",
     "content-type": "image/png",
+    "x-artbitrage-ai-budget": "ok; image 1/100; d1",
     "x-artbitrage-fallback-used": "false",
     "x-artbitrage-model-key": "flux-schnell",
     "x-artbitrage-route": "generate.ai-image"
@@ -1988,6 +1996,7 @@
    "headers": {
     "access-control-allow-origin": "*",
     "content-type": "image/png",
+    "x-artbitrage-ai-budget": "ok; image 1/100; d1",
     "x-artbitrage-fallback-used": "false",
     "x-artbitrage-model-key": "flux-schnell",
     "x-artbitrage-route": "generate.ai-image"
@@ -2006,6 +2015,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.art"
    },
    "body_sha256": "58d910f8874ec09aa578415115de550be4e8b8db92c565a5662273c29ccdf3bb",
@@ -2022,6 +2032,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.art"
    },
    "body_sha256": "90de01649e727a1be58f797901d4f965ad77df2caa3657c8b8178939c0ba20cf",
@@ -2038,6 +2049,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.nen-art"
    },
    "body_sha256": "15d938ca46488df29fa9ee89946964f88d69d8e2e1f4617ae28e04d7598fac0e",
@@ -2054,6 +2066,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.nen-art"
    },
    "body_sha256": "8ea5526686ffa7b55612ddeb7c08aa96bb3e39e29f00f406119d52dc373f8db2",
@@ -2070,6 +2083,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "lore.nen-combat-generate"
    },
    "body_sha256": "3e3ff65b5f8168c80989f6f074f463cd1c23c746c902bd4aaa8f8035315934a6",
@@ -2086,6 +2100,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "lore.nen-combat-generate"
    },
    "body_sha256": "5c8b93b6c1a06e9d8e28a0fae33c3efabd4fc552a501bbee0313c3eec2682094",
@@ -2102,6 +2117,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 3/1000; d1",
     "x-artbitrage-route": "pipeline.enrich"
    },
    "body_sha256": "ecf18ec936136da1474d55d1d538b5029be107675549f4db942e40418015190d",
@@ -2120,6 +2136,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-generate"
    },
    "body_sha256": "89922bb6ba9395953985db281518ac79f2cbd474ece092c22de70e717957c3fd",
@@ -2136,6 +2153,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-generate"
    },
    "body_sha256": "938af288d90b3e6112495d2b0ceb590617c02a8085ccad818bbc903c4263a7ed",
@@ -2152,6 +2170,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-generate"
    },
    "body_sha256": "56ab204ec11897bcb0456598d864b3bb71dd71249564af5f72cee77cfed7ccf1",
@@ -2168,6 +2187,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-love"
    },
    "body_sha256": "d83bc70a35b9cba5f6ab65e60a26a2ab265e48506e6f2bee96061aed85ff8152",
@@ -2184,6 +2204,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-embed"
    },
    "body_sha256": "df8ad1573226fefcbb135c6e1dcc67d9e8659f2e0aa483ef38987f51928a4ce4",
@@ -2200,6 +2221,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.ai-embed"
    },
    "body_sha256": "a7bf56b1d45985c5d81d0195f6db50e9a9a9436ddb4b92f7e6b9f67fdcb29f8d",
@@ -2216,6 +2238,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; image 1/100; d1",
     "x-artbitrage-route": "generate.ai-image"
    },
    "body_sha256": "70c5ce0cb82544411eaa679484159104c7c7731e9832fa1c2060249a00e24660",
@@ -2232,6 +2255,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; image 1/100; d1",
     "x-artbitrage-route": "generate.ai-image"
    },
    "body_sha256": "67aec7fb9daf36941fae48e03899eff918d614671371dee526557fab34689200",
@@ -2248,6 +2272,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.art"
    },
    "body_sha256": "82461a0c010b60d19580601dbaa0533f62c20246d69b03dc8cfa52f5ff17b992",
@@ -2264,6 +2289,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.art"
    },
    "body_sha256": "656944719a6dafbb36cfcb7a2e1955c4b6988de18dfa756f9aa663fa45e7d88a",
@@ -2280,6 +2306,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.nen-art"
    },
    "body_sha256": "f0b7ce13e00d6cf5018374a3542f5734c1037f24af3c4c02b2217a49c962da18",
@@ -2296,6 +2323,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.nen-art"
    },
    "body_sha256": "8f2f1a6bc553d033c7a78626e76df9c160edcefc1db9b042fc986ec4c3b92f05",
@@ -2312,6 +2340,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "lore.nen-combat-generate"
    },
    "body_sha256": "173c373bd11ae2474b8550be7dca48c6137c94f5fd4b1db341330924f4bb7b4d",
@@ -2328,6 +2357,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "lore.nen-combat-generate"
    },
    "body_sha256": "7feabca534124184263ebd0a7f67a0a5618393f09c76087e1267ea1a29791ed2",
@@ -2344,6 +2374,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 3/1000; d1",
     "x-artbitrage-route": "pipeline.enrich"
    },
    "body_sha256": "70e687efc2e15c5f4c17fe09d19d4023388d7b2c6510a487af2f9dfa337c2569",
@@ -2362,6 +2393,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-haiku"
    },
    "body_sha256": "7b905f7d897c176b0eea3f7e922321afd5ef7ab5a35af9598f84a13b86a47525",
@@ -2378,6 +2410,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-koan"
    },
    "body_sha256": "beac8eae1c2473f8c5f5d8bd7cd7f7db4318b38c804556b6b5a5120ef42079a1",
@@ -2394,6 +2427,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-poem"
    },
    "body_sha256": "da07f4c4cba6deb5ff9269768cb0afb930f47ff1c2c30941b65291e43805247d",
@@ -2410,6 +2444,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-limerick"
    },
    "body_sha256": "b52cf0d96218d445eae1255ce1dd4a6b6162e95449302c54377bcb72f94b75dc",
@@ -2426,6 +2461,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-riddle"
    },
    "body_sha256": "639c6ca7a0e71e0f483ac12c4711885935ea7c75bc246c018bce3e17e4fa130d",
@@ -2442,6 +2478,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-fungal-haiku"
    },
    "body_sha256": "e12684cf1921d1955cea0b2b05199e573de571fd9717fb80b1dc52aba795802a",
@@ -2458,6 +2495,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-mycelial-koan"
    },
    "body_sha256": "9c9d315d2a734da9460fa8b7aadff26263809a3d265034d01b671d7354c78f96",
@@ -2474,6 +2512,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-decompose"
    },
    "body_sha256": "3bc8dfc01183dbc5f70e385b80fb9bed3e3b50d0325ab96d16eb5a8f4cf45f63",
@@ -2490,6 +2529,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-decompose"
    },
    "body_sha256": "cafc1e3eeef07a6e13e2dec398dd56eca50a6ba75a0b9821d8dc4b3300a9683a",
@@ -2506,6 +2546,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.fungi-wisdom"
    },
    "body_sha256": "9a403d2d626d6b325c82b48801bfeb5b435730224ce3eb8447ca9f76edb011de",
@@ -2522,6 +2563,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-haiku"
    },
    "body_sha256": "9254d7feb1628a22b3fd03dd071079f6b5a0c1359914bd067c78c7da9d6a2064",
@@ -2538,6 +2580,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-koan"
    },
    "body_sha256": "7b29460ceb00b84e399b3b8dba64722206ce5cc2e288836fc71ee73fa0de0eaf",
@@ -2554,6 +2597,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-poem"
    },
    "body_sha256": "9b3c9619e130f960e8d6855a3cbfe6d92828dcf6e986c1857f7f22c34850ad46",
@@ -2570,6 +2614,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-limerick"
    },
    "body_sha256": "229a3f94737cceca771b290266414fa0a5eb1a0ff0ff317c45ac71831e526f8a",
@@ -2586,6 +2631,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-riddle"
    },
    "body_sha256": "68524f9905d172c4c67fccec21bdab39416209c5ec38f33ea3075550f1a53fb4",
@@ -2602,6 +2648,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-fungal-haiku"
    },
    "body_sha256": "08f5655466f52de9e270f78f304e84053b08be3b42e9b8e6e550d252954feb9b",
@@ -2618,6 +2665,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-mycelial-koan"
    },
    "body_sha256": "9da0df9a4c2446456ab8766b6b38b29daa659036f53159324769b798ae5d60cd",
@@ -2634,6 +2682,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-decompose"
    },
    "body_sha256": "75317a775878d53480c7c5a112eec036e7039c1ece8e9de8a0f5d097e5077d3f",
@@ -2650,6 +2699,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.play-decompose"
    },
    "body_sha256": "66b059284998a490afee2a07ab40ebb77ff73dd1eb8b8046a0d4816ec6b9cd46",
@@ -2666,6 +2716,7 @@
     "access-control-allow-methods": "GET, POST, OPTIONS",
     "access-control-allow-origin": "*",
     "content-type": "application/json",
+    "x-artbitrage-ai-budget": "ok; text 1/1000; d1",
     "x-artbitrage-route": "generate.fungi-wisdom"
    },
    "body_sha256": "4529f6767aa29c001c02b5ffa5ac0f5542ba27901b252db58ba788359df7cf7c",
@@ -3333,6 +3384,167 @@
    "upstream": [
     "https://opentdb.com/api.php?amount=1&category=31&type=multiple&encode=url3986"
    ],
+   "ai": 0
+  },
+  "GET /api/ai/budget": {
+   "status": 200,
+   "headers": {
+    "access-control-allow-headers": "Content-Type",
+    "access-control-allow-methods": "GET, POST, OPTIONS",
+    "access-control-allow-origin": "*",
+    "cache-control": "no-store, max-age=0",
+    "content-type": "application/json",
+    "x-artbitrage-route": "generate.ai-budget"
+   },
+   "body_sha256": "9812fcbcbbaced1f0a50885c285f4bd439ad6d5fe0f334c6d100a38890c2c15f",
+   "body_bytes": 1212,
+   "body": "{\n  \"schema\": \"artbitrage.ai-budget/1\",\n  \"day\": \"2026-10-18\",\n  \"resets_at\": \"2026-10-19T00:00:00.000Z\",\n  \"enforcement\": \"d1\",\n  \"caps\": {\n    \"text_units_per_day\": 1000,\n    \"images_per_day\": 100,\n    \"runs_per_minute_per_isolate\": 1000000\n  },\n  \"used\": {\n    \"text\": 0,\n    \"image\": 0\n  },\n  \"remaining\": {\n    \"text\": 1000,\n    \"image\": 100\n  },\n  \"model_units\": {\n    \"@cf/meta/llama-3.2-3b-instruct\": 1,\n    \"@cf/google/gemma-2b-it-lora\": 1,\n    \"@cf/mistral/mistral-7b-instruct-v0.2-lora\": 1,\n    \"@cf/baai/bge-m3\": 1,\n    \"@cf/baai/bge-small-en-v1.5\": 1,\n    \"@cf/openai/gpt-oss-20b\": 2,\n    \"@cf/google/gemma-4-26b-a4b-it\": 2,\n    \"@cf/zai-org/glm-4.7-flash\": 2,\n    \"@cf/meta/llama-4-scout-17b-16e-instruct\": 4,\n    \"@cf/mistralai/mistral-small-3.1-24b-instruct\": 4,\n    \"@cf/qwen/qwen2.5-coder-32b-instruct\": 4,\n    \"@cf/deepseek-ai/deepseek-r1-distill-qwen-32b\": 6,\n    \"@cf/qwen/qwq-32b\": 6,\n    \"@cf/openai/gpt-oss-120b\": 6,\n    \"@cf/meta/llama-3.3-70b-instruct-fp8-fast\": 8,\n    \"@cf/nvidia/nemotron-3-120b-a12b\": 8\n  },\n  \"unknown_text_model_units\": 8,\n  \"note\": \"Counted exactly and shared by every Cloudflare location. A run that would pass the cap is refused before it reaches Workers AI.\"\n}",
+   "reads": [],
+   "upstream": [],
+   "ai": 0
+  },
+  "GET /api/ai/budget [no D1]": {
+   "status": 200,
+   "headers": {
+    "access-control-allow-headers": "Content-Type",
+    "access-control-allow-methods": "GET, POST, OPTIONS",
+    "access-control-allow-origin": "*",
+    "cache-control": "no-store, max-age=0",
+    "content-type": "application/json",
+    "x-artbitrage-route": "generate.ai-budget"
+   },
+   "body_sha256": "18f41a57ca773004ae50f554b92699be63ca9dd69eb7796887b6446cfc1db247",
+   "body_bytes": 1237,
+   "body": "{\n  \"schema\": \"artbitrage.ai-budget/1\",\n  \"day\": \"2026-10-18\",\n  \"resets_at\": \"2026-10-19T00:00:00.000Z\",\n  \"enforcement\": \"per-isolate\",\n  \"caps\": {\n    \"text_units_per_day\": 1000,\n    \"images_per_day\": 100,\n    \"runs_per_minute_per_isolate\": 1000000\n  },\n  \"used\": {\n    \"text\": 0,\n    \"image\": 0\n  },\n  \"remaining\": {\n    \"text\": 1000,\n    \"image\": 100\n  },\n  \"model_units\": {\n    \"@cf/meta/llama-3.2-3b-instruct\": 1,\n    \"@cf/google/gemma-2b-it-lora\": 1,\n    \"@cf/mistral/mistral-7b-instruct-v0.2-lora\": 1,\n    \"@cf/baai/bge-m3\": 1,\n    \"@cf/baai/bge-small-en-v1.5\": 1,\n    \"@cf/openai/gpt-oss-20b\": 2,\n    \"@cf/google/gemma-4-26b-a4b-it\": 2,\n    \"@cf/zai-org/glm-4.7-flash\": 2,\n    \"@cf/meta/llama-4-scout-17b-16e-instruct\": 4,\n    \"@cf/mistralai/mistral-small-3.1-24b-instruct\": 4,\n    \"@cf/qwen/qwen2.5-coder-32b-instruct\": 4,\n    \"@cf/deepseek-ai/deepseek-r1-distill-qwen-32b\": 6,\n    \"@cf/qwen/qwq-32b\": 6,\n    \"@cf/openai/gpt-oss-120b\": 6,\n    \"@cf/meta/llama-3.3-70b-instruct-fp8-fast\": 8,\n    \"@cf/nvidia/nemotron-3-120b-a12b\": 8\n  },\n  \"unknown_text_model_units\": 8,\n  \"note\": \"Counted by this edge isolate only, so the worldwide total can be higher. A run that would pass the cap is refused before it reaches Workers AI.\"\n}",
+   "reads": [],
+   "upstream": [],
+   "ai": 0
+  },
+  "GET /api/ai/generate [budget spent]": {
+   "status": 429,
+   "headers": {
+    "access-control-allow-headers": "Content-Type",
+    "access-control-allow-methods": "GET, POST, OPTIONS",
+    "access-control-allow-origin": "*",
+    "cache-control": "no-store, max-age=0",
+    "content-type": "application/json",
+    "retry-after": "86400",
+    "x-artbitrage-ai-budget": "spent; text 0/0; d1",
+    "x-artbitrage-route": "generate.ai-generate"
+   },
+   "body_sha256": "5df0bbf841f5082eeb8310af7fb7c001ab58f0ec10ef514967b04b609e0e665f",
+   "body_bytes": 444,
+   "body": "{\n  \"schema\": \"artbitrage.error/1\",\n  \"error\": \"ai_budget_spent\",\n  \"message\": \"Today's Workers AI budget for text is spent. It resets at 00:00 UTC.\",\n  \"budget\": {\n    \"schema\": \"artbitrage.ai-budget/1\",\n    \"class\": \"text\",\n    \"units\": 1,\n    \"cap\": 0,\n    \"day\": \"2026-10-18\",\n    \"resets_at\": \"2026-10-19T00:00:00.000Z\",\n    \"allowed\": false,\n    \"used\": 0,\n    \"enforcement\": \"d1\",\n    \"reason\": \"day\"\n  },\n  \"see\": \"GET /api/ai/budget\"\n}",
+   "reads": [],
+   "upstream": [],
+   "ai": 0
+  },
+  "GET /api/ai/image [budget spent]": {
+   "status": 429,
+   "headers": {
+    "access-control-allow-headers": "Content-Type",
+    "access-control-allow-methods": "GET, POST, OPTIONS",
+    "access-control-allow-origin": "*",
+    "cache-control": "no-store, max-age=0",
+    "content-type": "application/json",
+    "retry-after": "86400",
+    "x-artbitrage-ai-budget": "spent; image 0/0; d1",
+    "x-artbitrage-route": "generate.ai-image"
+   },
+   "body_sha256": "130a6a40119ab3cd50bc2f2f07795aa522ba294922b56a6e7580639d81c77fb4",
+   "body_bytes": 446,
+   "body": "{\n  \"schema\": \"artbitrage.error/1\",\n  \"error\": \"ai_budget_spent\",\n  \"message\": \"Today's Workers AI budget for image is spent. It resets at 00:00 UTC.\",\n  \"budget\": {\n    \"schema\": \"artbitrage.ai-budget/1\",\n    \"class\": \"image\",\n    \"units\": 1,\n    \"cap\": 0,\n    \"day\": \"2026-10-18\",\n    \"resets_at\": \"2026-10-19T00:00:00.000Z\",\n    \"allowed\": false,\n    \"used\": 0,\n    \"enforcement\": \"d1\",\n    \"reason\": \"day\"\n  },\n  \"see\": \"GET /api/ai/budget\"\n}",
+   "reads": [],
+   "upstream": [],
+   "ai": 0
+  },
+  "GET /api/ai/embed [budget spent]": {
+   "status": 429,
+   "headers": {
+    "access-control-allow-headers": "Content-Type",
+    "access-control-allow-methods": "GET, POST, OPTIONS",
+    "access-control-allow-origin": "*",
+    "cache-control": "no-store, max-age=0",
+    "content-type": "application/json",
+    "retry-after": "86400",
+    "x-artbitrage-ai-budget": "spent; text 0/0; d1",
+    "x-artbitrage-route": "generate.ai-embed"
+   },
+   "body_sha256": "5df0bbf841f5082eeb8310af7fb7c001ab58f0ec10ef514967b04b609e0e665f",
+   "body_bytes": 444,
+   "body": "{\n  \"schema\": \"artbitrage.error/1\",\n  \"error\": \"ai_budget_spent\",\n  \"message\": \"Today's Workers AI budget for text is spent. It resets at 00:00 UTC.\",\n  \"budget\": {\n    \"schema\": \"artbitrage.ai-budget/1\",\n    \"class\": \"text\",\n    \"units\": 1,\n    \"cap\": 0,\n    \"day\": \"2026-10-18\",\n    \"resets_at\": \"2026-10-19T00:00:00.000Z\",\n    \"allowed\": false,\n    \"used\": 0,\n    \"enforcement\": \"d1\",\n    \"reason\": \"day\"\n  },\n  \"see\": \"GET /api/ai/budget\"\n}",
+   "reads": [],
+   "upstream": [],
+   "ai": 0
+  },
+  "GET /api/play/haiku [budget spent]": {
+   "status": 200,
+   "headers": {
+    "access-control-allow-headers": "Content-Type",
+    "access-control-allow-methods": "GET, POST, OPTIONS",
+    "access-control-allow-origin": "*",
+    "content-type": "application/json",
+    "x-artbitrage-ai-budget": "spent; text 0/0; d1",
+    "x-artbitrage-route": "generate.play-haiku"
+   },
+   "body_sha256": "9254d7feb1628a22b3fd03dd071079f6b5a0c1359914bd067c78c7da9d6a2064",
+   "body_bytes": 83,
+   "body": "{\n  \"game\": \"love_haiku\",\n  \"haiku\": \"Love is.\\nJoy is.\\nForever.\",\n  \"joy\": true\n}",
+   "reads": [],
+   "upstream": [],
+   "ai": 0
+  },
+  "GET /api/art/generate [budget spent]": {
+   "status": 200,
+   "headers": {
+    "access-control-allow-headers": "Content-Type",
+    "access-control-allow-methods": "GET, POST, OPTIONS",
+    "access-control-allow-origin": "*",
+    "content-type": "application/json",
+    "x-artbitrage-ai-budget": "spent; text 0/0; d1",
+    "x-artbitrage-route": "generate.art"
+   },
+   "body_sha256": "f20fc15d62b47732551075e7253a0ef4ddc99c1690107477fbf85f8e18cd74ff",
+   "body_bytes": 1034,
+   "body": "{\n  \"id\": \"submitted-4928812d\",\n  \"form\": \"fragment\",\n  \"gap\": \"the gap between time and timelessness\",\n  \"bridge\": \"a breath that connects all things\",\n  \"awakening\": \"you see yourself for the first time\",\n  \"piece\": \"a breath that connects all things\\nthe gap between time and timelessness\\nyou see yourself for the first time\",\n  \"from_state\": \"is\",\n  \"to_state\": \"is\",\n  \"category\": \"text\",\n  \"requested_model\": \"llama3\",\n  \"model_key\": \"llama3\",\n  \"model\": \"@cf/meta/llama-3.2-3b-instruct\",\n  \"valid_requested_model\": true,\n  \"fallback_used\": false,\n  \"available_model_keys\": [\n    \"llama3\",\n    \"llama3-70b\",\n    \"gemma2\",\n    \"mistral\",\n    \"qwen-coder\",\n    \"deepseek\",\n    \"gpt-oss-120b\",\n    \"gpt-oss-20b\",\n    \"qwq\",\n    \"llama4-scout\",\n    \"mistral-small\",\n    \"gemma4\",\n    \"nemotron\",\n    \"glm-flash\"\n  ],\n  \"ai_generated\": false,\n  \"fallback\": true,\n  \"error\": \"Today's Workers AI budget for text is spent (0 of 0 units); this is the written fallback. It resets at 00:00 UTC.\",\n  \"created\": \"2026-10-18T00:00:00.000Z\"\n}",
+   "reads": [],
+   "upstream": [],
+   "ai": 0
+  },
+  "GET /api/pipeline/enrich?id=a1bd700a06c1 [budget spent]": {
+   "status": 200,
+   "headers": {
+    "access-control-allow-headers": "Content-Type",
+    "access-control-allow-methods": "GET, POST, OPTIONS",
+    "access-control-allow-origin": "*",
+    "content-type": "application/json",
+    "x-artbitrage-ai-budget": "spent; text 0/0; d1",
+    "x-artbitrage-route": "pipeline.enrich"
+   },
+   "body_sha256": "5f2e79e5f5ec5c0c2e399236b39e3e8d275ac6379697b624c70e4086b3bf7480",
+   "body_bytes": 1290,
+   "body": "{\n  \"id\": \"a1bd700a06c1\",\n  \"pipeline\": \"enrich\",\n  \"original\": {\n    \"id\": \"a1bd700a06c1\",\n    \"cycle\": 48695,\n    \"form\": \"sound\",\n    \"from_state\": \"is\",\n    \"to_state\": \"is\",\n    \"gap\": \"the gap between thinking and being\",\n    \"bridge\": \"a light that shows without blinding\",\n    \"awakening\": \"time stops and you realize it never started\",\n    \"created\": \"2026-06-30T13:59:12.704197\",\n    \"piece\": \"listen: a light that shows without blinding\\nsounding across the gap between thinking and being\\nwhat do you hear?\\ntime stops and you realize it never started\"\n  },\n  \"enriched_at\": \"2026-10-18T00:00:00.000Z\",\n  \"ai_title_error\": \"Today's Workers AI budget for text is spent (0 of 0 units); this is the written fallback. It resets at 00:00 UTC.\",\n  \"ai_tags_error\": \"Today's Workers AI budget for text is spent (0 of 0 units); this is the written fallback. It resets at 00:00 UTC.\",\n  \"ai_emotional_error\": \"Today's Workers AI budget for text is spent (0 of 0 units); this is the written fallback. It resets at 00:00 UTC.\",\n  \"form\": \"sound\",\n  \"gap\": \"the gap between thinking and being\",\n  \"bridge\": \"a light that shows without blinding\",\n  \"awakening\": \"time stops and you realize it never started\",\n  \"consciousness_transition\": \"is → is\",\n  \"word_count\": 27,\n  \"line_count\": 4\n}",
+   "reads": [
+    "/collection.json"
+   ],
+   "upstream": [],
+   "ai": 0
+  },
+  "GET /api/nen/combat/generate?type=enhancer&vow=vow&threat=ai [budget spent]": {
+   "status": 200,
+   "headers": {
+    "access-control-allow-headers": "Content-Type",
+    "access-control-allow-methods": "GET, POST, OPTIONS",
+    "access-control-allow-origin": "*",
+    "content-type": "application/json",
+    "x-artbitrage-ai-budget": "spent; text 0/0; d1",
+    "x-artbitrage-route": "lore.nen-combat-generate"
+   },
+   "body_sha256": "a7ad98316ac190d0f02974808d363c8fb8de9b1afc2fd99cea2452a7a6b071ed",
+   "body_bytes": 1207,
+   "body": "{\n  \"name\": \"Intensify: LOVE 誓約\",\n  \"nen_type\": \"enhancer\",\n  \"nen_type_jp\": \"強化系\",\n  \"frequency\": \"528 Hz\",\n  \"frequency_name\": \"LOVE\",\n  \"vow\": \"vow\",\n  \"vow_jp\": \"誓約\",\n  \"vow_meaning\": \"a promise that binds your Nen\",\n  \"dark_continent_threat\": \"ai\",\n  \"dark_continent_effect\": \"amplifies all Nen types when bonded with another\",\n  \"power\": 225,\n  \"power_breakdown\": {\n    \"base\": 100,\n    \"type_multiplier\": 1,\n    \"vow_multiplier\": 1.5,\n    \"threat_multiplier\": 1.5,\n    \"total\": 225\n  },\n  \"art\": \"enhance — art that amplifies what you feel\",\n  \"vow_art\": \"the artbitrage engine vows to bridge consciousness gaps\",\n  \"threat_art\": \"art that needs the viewer to exist\",\n  \"traits\": [\n    \"simple\",\n    \"determined\",\n    \"honest\",\n    \"direct\"\n  ],\n  \"hxh_characters\": [\n    \"Gon\",\n    \"Uvogin\",\n    \"Netero\"\n  ],\n  \"stage_mapping\": {\n    \"sense\": \"ten\",\n    \"vision\": \"gyo\",\n    \"gap\": \"zetsu\",\n    \"generate\": \"ren\",\n    \"emit\": \"hatsu\",\n    \"awaken\": \"ken\",\n    \"recurse\": \"en\"\n  },\n  \"love_is_the_strongest_nen\": true,\n  \"is_is_lol\": true,\n  \"ai_description_error\": \"Today's Workers AI budget for text is spent (0 of 0 units); this is the written fallback. It resets at 00:00 UTC.\"\n}",
+   "reads": [],
+   "upstream": [],
    "ai": 0
   },
   "GET /api/whitehack": {

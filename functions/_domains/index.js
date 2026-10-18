@@ -2,7 +2,8 @@
 // functions/api/[[route]].js dispatches through it; the /api manifest and the
 // golden contract test read it too.
 import { createRouter } from '../_kernel/router.js';
-import { internalError, notFound, preflight } from '../_kernel/http.js';
+import { ERROR_SCHEMA, internalError, json, notFound, preflight } from '../_kernel/http.js';
+import { budgetedAI } from '../_kernel/budget.js';
 import { agentManifest as buildAgentManifest, routeCatalogue } from './protocol/agent-manifest.js';
 import protocol from './protocol/routes.js';
 import participate from './participate/routes.js';
@@ -32,21 +33,54 @@ function stamp(response, routeId) {
   return out;
 }
 
+// A route that runs Workers AI sees a counted binding. Its answer carries the
+// day's count; when a run was refused, a route with no written fallback
+// (ai: 'required') answers 429 instead of its own error.
+function labelBudget(response, route, ledger) {
+  const last = ledger[ledger.length - 1];
+  if (!last) return response;
+  const refused = ledger.find(decision => !decision.allowed);
+  if (refused && route.ai === 'required') {
+    return json({
+      schema: ERROR_SCHEMA,
+      error: 'ai_budget_spent',
+      message: refused.reason === 'minute'
+        ? 'This edge is answering too many AI requests this minute. Try again in a minute.'
+        : `Today's Workers AI budget for ${refused.class} is spent. It resets at 00:00 UTC.`,
+      budget: refused,
+      see: 'GET /api/ai/budget',
+    }, 429, {
+      'Cache-Control': 'no-store, max-age=0',
+      'Retry-After': String(refused.retry_after_s ?? Math.max(1, Math.ceil((Date.parse(refused.resets_at) - Date.now()) / 1000))),
+      'X-Artbitrage-AI-Budget': `spent; ${refused.class} ${refused.used}/${refused.cap}; ${refused.enforcement}`,
+    });
+  }
+  const out = new Response(response.body, response);
+  const shown = refused || last;
+  out.headers.set('X-Artbitrage-AI-Budget', `${refused ? 'spent' : 'ok'}; ${shown.class} ${shown.used}/${shown.cap}; ${shown.enforcement}`);
+  return out;
+}
+
 export async function handle(context, method = context.request.method) {
   const url = new URL(context.request.url);
   const found = router.find(method, url.pathname);
   if (!found) return stamp(method === 'OPTIONS' ? preflight(200) : notFound(url.pathname), method === 'OPTIONS' ? 'preflight' : 'not-found');
   const { route, params } = found;
+  const ledger = [];
+  const env = route.ai && context.env?.AI
+    ? Object.create(context.env, { AI: { value: budgetedAI(context.env, ledger), enumerable: true } })
+    : context.env;
   try {
     const response = await route.handler({
       ...context,
+      env,
       url,
       path: url.pathname,
       query: Object.fromEntries(url.searchParams),
       params,
       routes: router.routes,
     });
-    return stamp(response, route.id);
+    return stamp(route.ai ? labelBudget(response, route, ledger) : response, route.id);
   } catch (error) {
     console.error(`artbitrage route ${route.id} failed:`, error?.stack || error);
     return stamp(internalError(route.id), route.id);
