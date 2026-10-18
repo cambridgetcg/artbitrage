@@ -45,7 +45,8 @@ assert.equal(build.collection.sha256, summary.collection_sha256);
 assert.equal(build.collection.pieces, collection.length);
 
 // Every baked file is exactly what the build would produce, and nothing else is there.
-const expected = bakeCollection(collection, { collectionSha256: summary.collection_sha256 });
+assert.equal(summary.collection_bytes, collectionBytes.length, 'the bake records the byte count the API checks it against');
+const expected = bakeCollection(collection, { collectionSha256: summary.collection_sha256, collectionBytes: collectionBytes.length });
 const onDisk = (await walk(join(DIST, 'data/collection'))).map(f => f.slice(DIST.length).split('\\').join('/'));
 assert.deepEqual(onDisk.sort(), [...expected.keys()].sort(), 'the baked file set matches the collection');
 for (const [path, text] of expected) {

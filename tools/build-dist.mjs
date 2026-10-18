@@ -51,23 +51,29 @@ function newestCreated(pieces) {
 }
 
 // The baked files for one collection, as a Map of path (under the site root) → JSON text.
-export function bakeCollection(pieces, { collectionSha256 }) {
+export function bakeCollection(pieces, { collectionSha256, collectionBytes }) {
   if (!Array.isArray(pieces)) throw new Error('collection must be a JSON array');
   const files = new Map();
   const put = (path, value) => files.set(path, JSON.stringify(value));
   const pageCount = Math.ceil(pieces.length / PAGE_SIZE);
 
-  const formTotals = {};
-  const formSamples = {};
+  // Null-prototype maps: a form or id named like a built-in ('constructor',
+  // '__proto__') is just another key.
+  const formTotals = Object.create(null);
+  const formSamples = Object.create(null);
   for (const piece of pieces) {
     if (typeof piece.form !== 'string' || !piece.form) continue;
     formTotals[piece.form] = (formTotals[piece.form] || 0) + 1;
-    if (SAFE_FORM.test(piece.form)) (formSamples[piece.form] ||= []).length < FORM_SAMPLE_SIZE && formSamples[piece.form].push(piece);
+    if (SAFE_FORM.test(piece.form)) {
+      const sample = (formSamples[piece.form] ||= []);
+      if (sample.length < FORM_SAMPLE_SIZE) sample.push(piece);
+    }
   }
 
   put(`${BAKED_ROOT}/summary.json`, {
     schema: BAKED_SCHEMA,
     collection_sha256: collectionSha256,
+    collection_bytes: collectionBytes,
     as_of: newestCreated(pieces),
     total_pieces: pieces.length,
     page_size: PAGE_SIZE,
@@ -82,7 +88,7 @@ export function bakeCollection(pieces, { collectionSha256 }) {
   for (let n = 0; n < pageCount; n++) {
     put(pagePath(n), { schema: BAKED_SCHEMA, page: n, offset: n * PAGE_SIZE, pieces: pieces.slice(n * PAGE_SIZE, (n + 1) * PAGE_SIZE) });
   }
-  const shards = Array.from({ length: SHARD_COUNT }, () => ({}));
+  const shards = Array.from({ length: SHARD_COUNT }, () => Object.create(null));
   pieces.forEach((piece, index) => {
     if (typeof piece.id !== 'string') return;
     const shard = shards[parseInt(shardOf(piece.id), 16)];
@@ -135,7 +141,7 @@ async function plan() {
   const synced = changes.find(c => c.rel === 'collection.json');
   const collectionBytes = synced ? synced.bytes : await readFile(join(DIST, 'collection.json'));
   const collectionSha256 = sha256(collectionBytes);
-  const baked = bakeCollection(JSON.parse(collectionBytes.toString('utf8')), { collectionSha256 });
+  const baked = bakeCollection(JSON.parse(collectionBytes.toString('utf8')), { collectionSha256, collectionBytes: collectionBytes.length });
   let bakedOnDisk = [];
   try { bakedOnDisk = (await walk(BAKED_DIR)).map(f => '/' + relative(DIST, f).split(sep).join('/')); } catch {}
   for (const [path, text] of baked) {

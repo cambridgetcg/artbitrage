@@ -34,13 +34,16 @@ async function loadMuseumWorks(env, request) {
   return data && Array.isArray(data.artworks) ? data.artworks : null;
 }
 
-async function museumList({ env, request, path, query }) {
+async function museumRandom({ env, request }) {
   const works = await loadMuseumWorks(env, request);
   if (works === null) return json({ error: 'museum catalog unavailable' }, 503);
-  if (path === '/api/museum/random') {
-    if (!works.length) return json({ error: 'no museum works available' }, 404);
-    return json(works[Math.floor(Math.random() * works.length)]);
-  }
+  if (!works.length) return json({ error: 'no museum works available' }, 404);
+  return json(works[Math.floor(Math.random() * works.length)]);
+}
+
+async function museumList({ env, request, query }) {
+  const works = await loadMuseumWorks(env, request);
+  if (works === null) return json({ error: 'museum catalog unavailable' }, 503);
   let results = works;
   if (query.wing) results = results.filter(a => a.wing === query.wing);
   if (query.source) results = results.filter(a => a.source === query.source);
@@ -169,6 +172,6 @@ export default [
     id: 'museum.random', category: 'search', method: 'GET', path: '/api/museum/random',
     summary: 'One random work from the curated museum catalogue',
     reads: ['catalog/all.json'],
-    handler: museumList,
+    handler: museumRandom,
   },
 ];

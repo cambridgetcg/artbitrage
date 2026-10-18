@@ -45,7 +45,11 @@ export class AiBudgetSpent extends Error {
   constructor(decision) {
     super(decision.reason === 'minute'
       ? `This edge is answering too many AI requests this minute (${decision.used} of ${decision.cap}); this is the written fallback. Try again in a minute.`
-      : `Today's Workers AI budget for ${decision.class} is spent (${decision.used} of ${decision.cap} ${decision.class === 'image' ? 'images' : 'units'}); this is the written fallback. It resets at 00:00 UTC.`);
+      : decision.reason === 'off'
+        ? `Workers AI is switched off here (the daily ${decision.class} cap is 0); this is the written fallback.`
+        : decision.reason === 'too_large'
+        ? `This model costs ${decision.units} units a run, more than the whole daily cap of ${decision.cap}; this is the written fallback. A smaller model fits.`
+        : `Today's Workers AI budget for ${decision.class} is spent (${decision.used} of ${decision.cap} ${decision.class === 'image' ? 'images' : 'units'}); this is the written fallback. It resets at 00:00 UTC.`);
     this.name = 'AiBudgetSpent';
     this.decision = decision;
   }
@@ -96,9 +100,6 @@ function ensureTable(db) {
 
 // One atomic statement: add the units only if the day's total stays within the cap.
 async function d1Spend(db, day, cls, units, cap) {
-  // The first run of a day inserts its units unchecked, so a run larger than
-  // the whole cap is refused here.
-  if (units > cap) return { allowed: false, used: 0 };
   await ensureTable(db);
   const row = await db.prepare(
     'INSERT INTO ai_budget (day, class, used) VALUES (?1, ?2, ?3) '
@@ -115,24 +116,32 @@ export async function spend(env, model) {
   const { class: cls, units } = weigh(model);
   const cap = cls === 'image' ? caps.images_per_day : caps.text_units_per_day;
   const base = { schema: AI_BUDGET_SCHEMA, class: cls, units, cap, day: utcDay(), resets_at: nextUtcMidnight() };
+  // The first run of a day inserts its units unchecked, so a run larger than
+  // the whole cap is refused before anything is counted; it can never fit.
+  if (units > cap) return { ...base, allowed: false, reason: cap === 0 ? 'off' : 'too_large', used: 0, enforcement: env?.AI_BUDGET ? 'd1' : 'per-isolate' };
   rollMemory();
   if (memory.runs >= caps.runs_per_minute_per_isolate) {
     return { ...base, allowed: false, reason: 'minute', used: memory.runs, cap: caps.runs_per_minute_per_isolate, enforcement: 'per-isolate', retry_after_s: 60 - Math.floor((Date.now() / 1000) % 60) };
   }
+  // Take the minute slot before waiting on D1, so concurrent runs cannot all pass the burst check.
+  memory.runs += 1;
+  const release = () => { memory.runs = Math.max(0, memory.runs - 1); };
   let enforcement = 'per-isolate';
   if (env?.AI_BUDGET) {
     try {
       const counted = await d1Spend(env.AI_BUDGET, base.day, cls, units, cap);
-      if (counted.allowed) memory.runs += 1;
+      if (!counted.allowed) release();
       return { ...base, ...counted, enforcement: 'd1', ...(counted.allowed ? {} : { reason: 'day' }) };
     } catch (error) {
       console.error('artbitrage AI budget: D1 unavailable, counting per isolate:', error?.message || error);
       enforcement = 'per-isolate (D1 unavailable)';
     }
   }
-  if (memory.used[cls] + units > cap) return { ...base, allowed: false, reason: 'day', used: memory.used[cls], enforcement };
+  if (memory.used[cls] + units > cap) {
+    release();
+    return { ...base, allowed: false, reason: 'day', used: memory.used[cls], enforcement };
+  }
   memory.used[cls] += units;
-  memory.runs += 1;
   return { ...base, allowed: true, used: memory.used[cls], enforcement };
 }
 

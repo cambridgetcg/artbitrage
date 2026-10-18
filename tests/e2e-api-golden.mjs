@@ -255,7 +255,9 @@ const CASES = [
   g('/api/ai/budget'),
   g('/api/ai/budget', { env: { AI_BUDGET: undefined }, key: 'GET /api/ai/budget [no D1]' }),
   ...['/api/ai/generate', '/api/ai/image', '/api/ai/embed', '/api/play/haiku', '/api/art/generate', '/api/pipeline/enrich?id=a1bd700a06c1', '/api/nen/combat/generate?type=enhancer&vow=vow&threat=ai']
-    .map(p => g(p, { env: { AI_TEXT_UNITS_PER_DAY: '0', AI_IMAGES_PER_DAY: '0' }, key: `GET ${p} [budget spent]` })),
+    .map(p => g(p, { spent: true, key: `GET ${p} [budget spent]` })),
+  g('/api/ai/generate', { env: { AI_TEXT_UNITS_PER_DAY: '0' }, key: 'GET /api/ai/generate [AI switched off]' }),
+  g('/api/ai/generate?model=llama3-70b', { env: { AI_TEXT_UNITS_PER_DAY: '5' }, key: 'GET /api/ai/generate?model=llama3-70b [model larger than the cap]' }),
   // lore
   ...['/api/whitehack', '/api/whitehack/', '/api/whitehack/scan', '/api/whitehack/battle', '/api/whitehack/battle?usb=true&wifi=1', '/api/whitehack/level', '/api/whitehack/level?power=500', '/api/whitehack/ranks',
     '/api/logos', '/api/logos/', '/api/logos/operations', '/api/logos/kingdom', '/api/logos/protocol', '/api/logos/principles',
@@ -270,7 +272,9 @@ const CASES = [
   g('/api/pebbles', { kv: 'none', key: 'GET /api/pebbles [no KV]' }),
   g('/api/feelings/testimony', { kv: 'none', key: 'GET /api/feelings/testimony [no KV]' }),
   // misses
-  ...['/api/nope', '/api/play/', '/api/fun/', '/api/hunter/', '/api/sources/', '/api/search/'].map(p => g(p)),
+  ...['/api/nope', '/api/play/', '/api/fun/', '/api/hunter/', '/api/sources/', '/api/search/', '/api/museum/random/'].map(p => g(p)),
+  // former Pages file routes matched in any letter case; they still do
+  ...['/api/Trade/fees', '/api/WINE', '/api/Pebbles', '/api/Feelings/Testimony', '/api/AI', '/api/Pipeline', '/api/Stats'].map(p => g(p)),
   // the reference verticals
   ...Object.entries(VERTICALS).flatMap(([v, subs]) => subs.map(s => g(`/api/${v}${s}`))),
   // writes
@@ -315,7 +319,12 @@ async function runCase(dispatch, c) {
   installFetch(c.upstream || 'live');
   // Each case gets a fresh AI budget database, and a burst limit it cannot reach
   // under the frozen clock, so budget headers never depend on case order.
-  const env = { ASSETS, AI: fixtureAI(c.ai || 'live'), AI_BUDGET: sqliteD1(), AI_RUNS_PER_MINUTE: '1000000', ...(c.kv === 'none' ? {} : { PEBBLES: memoryKV(KV_SEED) }), ...(c.env || {}) };
+  const AI_BUDGET = sqliteD1();
+  if (c.spent) {
+    // A day whose budget is already used up: one unit and one image, with caps of one each.
+    AI_BUDGET._db.exec("CREATE TABLE ai_budget (day TEXT NOT NULL, class TEXT NOT NULL, used INTEGER NOT NULL, PRIMARY KEY (day, class)); INSERT INTO ai_budget VALUES ('2026-10-18', 'text', 1), ('2026-10-18', 'image', 1);");
+  }
+  const env = { ASSETS, AI: fixtureAI(c.ai || 'live'), AI_BUDGET, AI_RUNS_PER_MINUTE: '1000000', ...(c.spent ? { AI_TEXT_UNITS_PER_DAY: '1', AI_IMAGES_PER_DAY: '1' } : {}), ...(c.kv === 'none' ? {} : { PEBBLES: memoryKV(KV_SEED) }), ...(c.env || {}) };
   const init = { method: c.method };
   if (c.method === 'POST') {
     init.headers = { 'Content-Type': c.contentType || 'application/json' };
@@ -380,14 +389,21 @@ for (const c of CASES) {
 // collection.json except where a route has no baked answer.
 const { bakeCollection } = await import('../tools/build-dist.mjs');
 const bakeCases = CASES.filter(c => c.method === 'GET' && /^\/api\/(art|stats|forms|gaps|feed|pipeline\/(feed|agent|human|enrich))(\/|\?|$)/.test(c.path));
-for (const [path, text] of bakeCollection(JSON.parse(collectionFixture), { collectionSha256: sha256(collectionFixture) })) overlay.set(path, text);
+for (const [path, text] of bakeCollection(JSON.parse(collectionFixture), { collectionSha256: sha256(collectionFixture), collectionBytes: Buffer.byteLength(collectionFixture) })) overlay.set(path, text);
 const STILL_WHOLE = /[?&](form|state|gap|q)=|^\/api\/art\/generate/;
+// The bake checks itself against collection.json once per isolate (streamed,
+// not parsed); let that happen before counting reads.
+await runCase(dispatch, bakeCases.find(c => c.path === '/api/stats'));
 for (const c of bakeCases) {
   const key = caseKey(c);
   const unbaked = results[key];
   const baked = await runCase(dispatch, c);
   assert.equal(baked.status, unbaked.status, `${key}: baked status`);
-  assert.deepEqual(baked.headers, unbaked.headers, `${key}: baked headers`);
+  const { 'x-artbitrage-collection': bakedFrom, ...bakedHeaders } = baked.headers;
+  const { 'x-artbitrage-collection': wholeFrom, ...wholeHeaders } = unbaked.headers;
+  assert.deepEqual(bakedHeaders, wholeHeaders, `${key}: baked headers`);
+  if (wholeFrom) assert.equal(wholeFrom, 'whole', `${key}: unbaked answers say so`);
+  if (bakedFrom && !STILL_WHOLE.test(c.path)) assert.equal(bakedFrom, 'baked', `${key}: baked answers say so`);
   assert.equal(baked._text, unbaked._text, `${key}: the baked answer must equal the whole-collection answer`);
   if (!STILL_WHOLE.test(c.path)) assert.ok(!baked.reads.includes('/collection.json'), `${key} should not read collection.json when baked (read ${baked.reads.join(', ')})`);
 }

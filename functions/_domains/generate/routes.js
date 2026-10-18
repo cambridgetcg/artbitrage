@@ -92,7 +92,7 @@ async function nenArt({ env, query }) {
 
 export default [
   // ── AI — Cloudflare Workers AI (free, no user key) ──
-  { id: 'generate.ai', category: 'ai', method: 'GET', path: '/api/ai', summary: 'Workers AI directory: catalogued models and runtime caveats', handler: () => json(aiCatalog()) },
+  { id: 'generate.ai', category: 'ai', method: 'GET', anyCase: true, path: '/api/ai', summary: 'Workers AI directory: catalogued models and runtime caveats', handler: () => json(aiCatalog()) },
   {
     id: 'generate.ai-budget', category: 'ai', method: 'GET', path: '/api/ai/budget',
     summary: "Today's Workers AI budget: caps, what has been spent, and how it is counted",

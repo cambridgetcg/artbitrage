@@ -11,14 +11,18 @@
 //   '/api/trade/**'              a mount: the prefix itself and everything under it
 // Every exact or one-segment route also accepts one trailing slash
 // (`slash: false` opts out); a rest-of-path route takes the slash as part of
-// what it captures.
+// what it captures. `anyCase: true` matches in any letter case, as Pages file
+// routes did; mounts always do.
 
 const PARAM = /^:(\w+)(?:\(([^)]+)\))?(\+)?$/;
 
-export function compilePath(path, { slash = true } = {}) {
+export function compilePath(path, { slash = true, anyCase = false } = {}) {
   if (path.endsWith('/**')) {
-    const prefix = path.slice(0, -3);
-    return pathname => (pathname === prefix || pathname.startsWith(`${prefix}/`) ? {} : null);
+    const prefix = path.slice(0, -3).toLowerCase();
+    return pathname => {
+      const lower = pathname.toLowerCase();
+      return lower === prefix || lower.startsWith(`${prefix}/`) ? {} : null;
+    };
   }
   const names = [];
   const body = path.split('/').filter(Boolean).map(segment => {
@@ -28,7 +32,7 @@ export function compilePath(path, { slash = true } = {}) {
     if (param[3]) { slash = false; return '/(.+)'; }
     return `/(${param[2] || '[^/]+'})`;
   }).join('');
-  const regex = new RegExp(`^${body || '/'}${slash ? '/?' : ''}$`);
+  const regex = new RegExp(`^${body || '/'}${slash ? '/?' : ''}$`, anyCase ? 'i' : '');
   return pathname => {
     const m = regex.exec(pathname);
     if (!m) return null;

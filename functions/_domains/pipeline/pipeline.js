@@ -6,7 +6,7 @@
 import { buildRights } from '../../_kernel/rights.js';
 import { fetchJson } from '../../_kernel/upstream.js';
 import { DEFAULT_SOURCE_KEYS, OPEN_ART_SOURCES, searchSource, selectSources } from '../search/sources.js';
-import { readLatest, readPiece, readSummary } from '../collection/baked.js';
+import { openBake, readLatest, readPiece } from '../collection/baked.js';
 
 // The pipeline reads the site's own assets; the bake readers want a request to resolve against.
 const SITE = { url: 'https://artbitrage.io/' };
@@ -181,7 +181,7 @@ export class ArtbitragePipeline {
   // ── Enrich: add AI metadata to a collection piece ────────────
   async enrich(id, env) {
     // The bake finds one piece without reading the whole collection.
-    let piece = await readPiece(env, SITE, id);
+    let piece = (await openBake(env, SITE)) ? await readPiece(env, SITE, id) : null;
     if (piece === null) piece = (await this.loadCollection(env)).find(a => a.id === id);
     if (!piece) return { error: "art not found", id };
 
@@ -456,7 +456,8 @@ export class ArtbitragePipeline {
   // The newest pieces and the collection's counts: from the bake when it can
   // answer, else from the whole collection.json.
   async recentView(env) {
-    const [summary, latest] = await Promise.all([readSummary(env, SITE), readLatest(env, SITE)]);
+    const summary = await openBake(env, SITE);
+    const latest = summary && await readLatest(env, SITE);
     if (summary && latest) return { latest, stats: summary.stats, total: summary.total_pieces };
     const collection = await this.loadCollection(env);
     return { latest: collection, stats: this.getStats(collection), total: collection.length };

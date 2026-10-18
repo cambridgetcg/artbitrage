@@ -46,12 +46,17 @@ function labelBudget(response, route, ledger) {
       error: 'ai_budget_spent',
       message: refused.reason === 'minute'
         ? 'This edge is answering too many AI requests this minute. Try again in a minute.'
-        : `Today's Workers AI budget for ${refused.class} is spent. It resets at 00:00 UTC.`,
+        : refused.reason === 'off'
+          ? `Workers AI is switched off here (the daily ${refused.class} cap is 0).`
+          : refused.reason === 'too_large'
+          ? `This model costs ${refused.units} units a run, more than the whole daily cap of ${refused.cap}. A smaller model fits.`
+          : `Today's Workers AI budget for ${refused.class} is spent. It resets at 00:00 UTC.`,
       budget: refused,
       see: 'GET /api/ai/budget',
     }, 429, {
       'Cache-Control': 'no-store, max-age=0',
-      'Retry-After': String(refused.retry_after_s ?? Math.max(1, Math.ceil((Date.parse(refused.resets_at) - Date.now()) / 1000))),
+      // A run too large for the cap will not fit tomorrow either, so it gets no Retry-After.
+      ...(refused.reason === 'too_large' || refused.reason === 'off' ? {} : { 'Retry-After': String(refused.retry_after_s ?? Math.max(1, Math.ceil((Date.parse(refused.resets_at) - Date.now()) / 1000))) }),
       'X-Artbitrage-AI-Budget': `spent; ${refused.class} ${refused.used}/${refused.cap}; ${refused.enforcement}`,
     });
   }

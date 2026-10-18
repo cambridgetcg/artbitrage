@@ -8,7 +8,7 @@ const pipeline = new ArtbitragePipeline();
 const TEXT_FORMATS = { csv: 'text/csv', ndjson: 'application/x-ndjson', markdown: 'text/markdown' };
 
 export default [
-  { id: 'pipeline.index', category: 'pipeline', method: 'GET', path: '/api/pipeline', summary: 'Pipeline manifest', handler: () => json(pipeline.manifest()) },
+  { id: 'pipeline.index', category: 'pipeline', method: 'GET', anyCase: true, path: '/api/pipeline', summary: 'Pipeline manifest', handler: () => json(pipeline.manifest()) },
   { id: 'pipeline.workflow', category: 'pipeline', method: 'GET', path: '/api/pipeline/workflow', summary: 'Workflow guide', handler: () => json(pipeline.workflow()) },
   {
     id: 'pipeline.collect', category: 'pipeline', method: 'GET', path: '/api/pipeline/collect',

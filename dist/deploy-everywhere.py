@@ -207,6 +207,14 @@ def deploy_to_cloudflare(project_dir):
                 if "=" in line:
                     k, v = line.split("=", 1)
                     env[k.strip()] = v.strip()
+        # dist/ is build output: refuse to publish one whose collection bake is
+        # stale (node tools/build-dist.mjs builds it; README "Publish").
+        check = subprocess.run(
+            ["node", "tools/build-dist.mjs", "--check"],
+            capture_output=True, text=True, timeout=300, cwd=project_dir,
+        )
+        if check.returncode != 0:
+            return {"ok": False, "error": (check.stdout or check.stderr).strip()[-160:] + " — run node tools/build-dist.mjs first"}
         r = subprocess.run(
             "wrangler pages deploy dist --project-name=artbitrage --branch=main --commit-dirty=true".split(),
             capture_output=True, text=True, timeout=120,

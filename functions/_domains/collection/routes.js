@@ -15,7 +15,7 @@ import {
   latestTimestamp,
   loadCollection,
 } from './collection.js';
-import { readFormSample, readLatest, readPiece, readRange, readSummary } from './baked.js';
+import { openBake, readFormSample, readLatest, readPiece, readRange } from './baked.js';
 
 const SAFE_FORM = /^[a-z0-9-]+$/;
 const BAKED = ['data/collection/*'];
@@ -27,10 +27,14 @@ const withCollection = handler => async ctx => {
   return handler({ ...ctx, collection, allArt: collection.pieces });
 };
 
-// Try the bake first; a null answer means "ask the whole collection".
+// Try the bake first; a null answer means "ask the whole collection". The
+// answer says which one it came from.
 const bakedFirst = (fromBake, fromCollection) => async ctx => {
-  const answer = await fromBake(ctx);
-  return answer ?? withCollection(fromCollection)(ctx);
+  const baked = await fromBake(ctx);
+  const response = baked ?? await withCollection(fromCollection)(ctx);
+  const out = new Response(response.body, response);
+  out.headers.set('X-Artbitrage-Collection', baked ? 'baked' : 'whole');
+  return out;
 };
 
 const page = (total, offset, limit, pieces) => ({ total, limit, offset, count: Math.min(limit, Math.max(0, total - offset)), pieces });
@@ -64,7 +68,7 @@ export default [
     reads: [...BAKED, 'collection.json (filtered listings)'],
     handler: bakedFirst(async ({ env, request, query }) => {
       if (query.form || query.state || query.gap || query.q) return null;
-      const summary = await readSummary(env, request);
+      const summary = await openBake(env, request);
       if (!summary) return null;
       const offset = boundedInt(query.offset, 0, 0, Number.MAX_SAFE_INTEGER);
       const limit = boundedInt(query.limit, 20, 1, MAX_PAGE_LIMIT);
@@ -77,7 +81,7 @@ export default [
     summary: 'Random art piece',
     reads: [...BAKED, FALLBACK],
     handler: bakedFirst(async ({ env, request }) => {
-      const summary = await readSummary(env, request);
+      const summary = await openBake(env, request);
       if (!summary) return null;
       if (summary.total_pieces === 0) return json({ error: 'no art available' }, 404);
       const [piece] = await readRange(env, request, summary, Math.floor(Math.random() * summary.total_pieces), 1) ?? [];
@@ -92,7 +96,7 @@ export default [
     summary: 'Catalogue statistics',
     reads: [...BAKED, FALLBACK],
     handler: bakedFirst(async ({ env, request }) => {
-      const summary = await readSummary(env, request);
+      const summary = await openBake(env, request);
       return summary && json(summary.stats);
     }, ({ allArt }) => json(getStats(allArt))),
   },
@@ -101,7 +105,7 @@ export default [
     summary: 'All art forms',
     reads: [...BAKED, FALLBACK],
     handler: bakedFirst(async ({ env, request }) => {
-      const summary = await readSummary(env, request);
+      const summary = await openBake(env, request);
       return summary && json({ forms: summary.forms_list, count: summary.forms_list.length });
     }, ({ allArt }) => {
       const forms = [...new Set(allArt.map(a => a.form).filter(Boolean))].sort();
@@ -118,7 +122,7 @@ export default [
     summary: 'All gaps bridged',
     reads: [...BAKED, FALLBACK],
     handler: bakedFirst(async ({ env, request }) => {
-      const summary = await readSummary(env, request);
+      const summary = await openBake(env, request);
       return summary && json({ gaps: summary.gaps_list, count: summary.gaps_list.length });
     }, ({ allArt }) => {
       const gaps = [...new Set(allArt.map(a => a.gap).filter(Boolean))].sort();
@@ -130,6 +134,7 @@ export default [
     summary: 'Versioned latest-art feed (artbitrage.feed/1)', params: 'limit (1-100, default 20)',
     reads: [...BAKED, FALLBACK],
     handler: bakedFirst(async ctx => {
+      if (!await openBake(ctx.env, ctx.request)) return null;
       const latest = await readLatest(ctx.env, ctx.request);
       return latest && feed({ ...ctx, collection: { source_state: 'asset-read' }, allArt: latest });
     }, feed),
@@ -140,7 +145,7 @@ export default [
     reads: [...BAKED, FALLBACK],
     handler: bakedFirst(async ({ env, request, params }) => {
       const form = decodeURIComponent(params.form);
-      const summary = await readSummary(env, request);
+      const summary = await openBake(env, request);
       if (!summary) return null;
       const total = Object.hasOwn(summary.form_totals, form) ? summary.form_totals[form] : 0;
       if (total === 0) return json(page(0, 0, 20, []));
@@ -155,6 +160,7 @@ export default [
     reads: [...BAKED, FALLBACK],
     handler: bakedFirst(async ({ env, request, params }) => {
       const id = decodeURIComponent(params.id);
+      if (!await openBake(env, request)) return null;
       const piece = await readPiece(env, request, id);
       if (piece === undefined) return json({ error: 'art not found', id }, 404);
       return piece && json(piece);

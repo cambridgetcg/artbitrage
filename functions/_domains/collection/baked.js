@@ -7,9 +7,12 @@
 //   ids/<xx>.json      id → page number, 256 shards by FNV-1a of the id
 //   forms/<form>.json  the first 20 pieces of each form
 //
-// Every reader returns null when its file is missing or unreadable, and the
-// routes then fall back to the whole collection.json, so a deploy without the
-// bake (or a test with only collection.json) answers exactly as before.
+// A route opens the bake first: openBake() returns the summary only when it
+// describes the collection.json this deployment publishes (same byte count,
+// checked once per isolate by streaming the file, never parsing it). A stale
+// bake, a missing one, or any unreadable file makes a reader return null, and
+// the route falls back to the whole collection.json, so a deploy without a
+// current bake answers exactly as before instead of confidently wrong.
 import { readJsonAsset } from '../../_kernel/assets.js';
 
 export const BAKED_ROOT = '/data/collection';
@@ -31,9 +34,34 @@ export function shardOf(id) {
 
 export const pagePath = n => `${BAKED_ROOT}/pages/${String(n).padStart(5, '0')}.json`;
 
-export async function readSummary(env, request) {
+// Assets never change under a running isolate, so one check per bake is enough.
+const verified = new Map();
+
+async function publishedBytes(env, request) {
+  try {
+    const res = await env.ASSETS.fetch(new URL('/collection.json', request.url));
+    if (!res.ok || !res.body) return null;
+    let bytes = 0;
+    const reader = res.body.getReader();
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) return bytes;
+      bytes += value.byteLength;
+    }
+  } catch {
+    return null;
+  }
+}
+
+export async function openBake(env, request) {
   const summary = await readJsonAsset(env, request, `${BAKED_ROOT}/summary.json`);
-  return summary?.schema === BAKED_SCHEMA ? summary : null;
+  if (summary?.schema !== BAKED_SCHEMA || !Number.isInteger(summary.collection_bytes)) return null;
+  const key = `${summary.collection_sha256}:${summary.collection_bytes}`;
+  if (!verified.has(key)) verified.set(key, publishedBytes(env, request));
+  const bytes = await verified.get(key);
+  // An unreadable collection is asked again next time; a definite mismatch is remembered.
+  if (bytes === null) verified.delete(key);
+  return bytes === summary.collection_bytes ? summary : null;
 }
 
 export async function readLatest(env, request) {

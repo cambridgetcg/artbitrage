@@ -49,7 +49,11 @@ env = { ...base, AI_BUDGET: sqliteD1(), AI_TEXT_UNITS_PER_DAY: '12' };
 assert.equal((await get('/api/ai/generate?model=llama3-70b', env)).budget, 'ok; text 8/12; d1');
 assert.equal((await get('/api/ai/generate?model=llama3-70b', env)).res.status, 429);
 assert.equal((await get('/api/ai/generate?model=llama3', env)).budget, 'ok; text 9/12; d1', 'a small run still fits');
-assert.equal((await get('/api/ai/generate?model=llama3-70b', { ...base, AI_BUDGET: sqliteD1(), AI_TEXT_UNITS_PER_DAY: '5' })).res.status, 429, 'a run larger than the whole cap is refused on the first try');
+out = await get('/api/ai/generate?model=llama3-70b', { ...base, AI_BUDGET: sqliteD1(), AI_TEXT_UNITS_PER_DAY: '5' });
+assert.equal(out.res.status, 429, 'a run larger than the whole cap is refused on the first try');
+assert.equal(out.json.budget.reason, 'too_large');
+assert.match(out.json.message, /more than the whole daily cap/);
+assert.equal(out.res.headers.get('retry-after'), null, 'waiting would not help, so no Retry-After');
 
 // 5. Images are counted apart from text.
 env = { ...base, AI_BUDGET: sqliteD1(), AI_IMAGES_PER_DAY: '1' };
@@ -89,7 +93,17 @@ assert.equal(out.res.status, 429);
 assert.equal(out.json.budget.reason, 'minute');
 assert.ok(Number(out.res.headers.get('retry-after')) <= 60);
 
-// 11. Routes that never call Workers AI carry no budget header.
+// 11. The burst limit holds under concurrency: the minute slot is taken before D1 answers.
+// A fresh minute, so the isolate's burst count starts at zero.
+const realNow = Date.now;
+const later = realNow() + 3 * 60 * 1000;
+Date.now = () => later;
+env = { ...base, AI_BUDGET: sqliteD1(), AI_RUNS_PER_MINUTE: '3' };
+const burst = (await Promise.all(Array.from({ length: 10 }, () => get('/api/ai/generate', env)))).map(r => r.res.status);
+Date.now = realNow;
+assert.equal(burst.filter(s => s === 200).length, 3, `exactly 3 of 10 parallel runs pass a burst limit of 3 (got ${burst.filter(s => s === 200).length})`);
+
+// 12. Routes that never call Workers AI carry no budget header.
 assert.equal((await get('/api/ai/models', env)).budget, null);
 
 console.log('AI budget e2e passed: weights, exact D1 count, refusal before Workers AI, fallbacks, large models, images apart, no overspend in parallel, status route, per-isolate and D1-failure modes, burst limit');

@@ -38,6 +38,18 @@ export async function fetchJson(url, options = {}) {
 // local tools), so behaviour there is always live-or-fail.
 
 const CACHE_ORIGIN = 'https://artbitrage.io/__guest';
+
+// A kept answer is the mapped answer, so its key carries a fingerprint of the
+// mapper's source: when a deploy changes how an answer is shaped, old copies
+// are simply never found again.
+function fingerprint(text) {
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < text.length; i++) {
+    hash ^= text.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193);
+  }
+  return (hash >>> 0).toString(16).padStart(8, '0');
+}
 const health = new Map();
 
 function edgeCache() {
@@ -72,7 +84,7 @@ export function guestHealth(name) {
 
 export async function guestJson(name, url, { timeoutMs = 8000, freshMs = 0, keepMs = 0, cacheKey = url, map = data => data, headers } = {}) {
   const cache = keepMs > 0 ? edgeCache() : null;
-  const key = cache ? new Request(`${CACHE_ORIGIN}/${encodeURIComponent(name)}?k=${encodeURIComponent(cacheKey)}`) : null;
+  const key = cache ? new Request(`${CACHE_ORIGIN}/${encodeURIComponent(name)}?m=${fingerprint(String(map))}&k=${encodeURIComponent(cacheKey)}`) : null;
   let kept = null;
   if (cache) {
     try {
