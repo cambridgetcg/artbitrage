@@ -12,11 +12,8 @@ import {
   CASTLE_SOURCE_REVISION,
   castleReferenceIsDisabled,
 } from '../functions/_domains/protocol/castle-reference.js';
-import {
-  ARTBITRAGE_WAKE,
-  ROUTES,
-  agentManifest,
-} from '../functions/_domains/protocol/agent-manifest.js';
+import { ARTBITRAGE_WAKE } from '../functions/_domains/protocol/agent-manifest.js';
+import { ROUTES, agentManifest } from '../functions/_domains/index.js';
 import {
   onRequestGet,
   onRequestOptions,

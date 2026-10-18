@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { onRequestGet } from '../functions/api/[[route]].js';
 import { ARTBITRAGE_START } from '../functions/_domains/protocol/start-guide.js';
-import { ROUTES, agentManifest } from '../functions/_domains/protocol/agent-manifest.js';
+import { ROUTES, agentManifest } from '../functions/_domains/index.js';
 
 const root = new URL('../', import.meta.url);
 const rootPath = root.pathname;

@@ -101,7 +101,7 @@ export const OPERATIONS = {
     nen: "Ken",
     action: "armor — the new baseline holds",
     api: "GET /api",
-    art: "the agent manifest catalogs documented routes; legacy router paths may sit outside it",
+    art: "the agent manifest lists every route the router answers, generated from the one route table",
   },
 };
 

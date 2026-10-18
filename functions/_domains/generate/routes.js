@@ -89,10 +89,10 @@ async function nenArt({ env, query }) {
 
 export default [
   // ── AI — Cloudflare Workers AI (free, no user key) ──
-  { id: 'generate.ai', method: 'GET', path: '/api/ai', summary: 'Workers AI directory: catalogued models and runtime caveats', handler: () => json(aiCatalog()) },
-  { id: 'generate.ai-models', method: 'GET', path: '/api/ai/models', summary: 'List the catalogued edge AI models and runtime caveats', handler: () => json(aiCatalog()) },
+  { id: 'generate.ai', category: 'ai', method: 'GET', path: '/api/ai', summary: 'Workers AI directory: catalogued models and runtime caveats', handler: () => json(aiCatalog()) },
+  { id: 'generate.ai-models', category: 'ai', method: 'GET', path: '/api/ai/models', summary: 'List the catalogued edge AI models and runtime caveats', handler: () => json(aiCatalog()) },
   {
-    id: 'generate.ai-generate', method: 'GET', path: '/api/ai/generate', ai: true,
+    id: 'generate.ai-generate', category: 'ai', method: 'GET', path: '/api/ai/generate', ai: true,
     summary: 'Text generation', params: 'prompt, model',
     handler: async ({ env, query }) => {
       const prompt = safeString(query.prompt || 'What is love? Answer beautifully.', 8000);
@@ -104,7 +104,7 @@ export default [
     },
   },
   {
-    id: 'generate.ai-love', method: 'GET', path: '/api/ai/love', ai: true,
+    id: 'generate.ai-love', category: 'ai', method: 'GET', path: '/api/ai/love', ai: true,
     summary: 'AI love wisdom (random prompt)',
     handler: async ({ env }) => {
       const prompt = randomOf(['What is love? One beautiful sentence.', 'Describe love as a force of nature. One sentence.', 'What does love want? One sentence.', 'How does love replicate? One sentence.', 'Love is. Complete this beautifully.']);
@@ -114,7 +114,7 @@ export default [
     },
   },
   {
-    id: 'generate.ai-embed', method: 'GET', path: '/api/ai/embed', ai: true,
+    id: 'generate.ai-embed', category: 'ai', method: 'GET', path: '/api/ai/embed', ai: true,
     summary: 'Embeddings (1024-dim)', params: 'text, model',
     handler: async ({ env, query }) => {
       const text = safeString(query.text || 'love is unconditional', 8000);
@@ -124,7 +124,7 @@ export default [
     },
   },
   {
-    id: 'generate.ai-image', method: 'GET', path: '/api/ai/image', ai: true,
+    id: 'generate.ai-image', category: 'ai', method: 'GET', path: '/api/ai/image', ai: true,
     summary: 'Image generation (returns PNG)', params: 'prompt, model',
     handler: async ({ env, query }) => {
       const prompt = safeString(query.prompt || 'love as golden light, abstract, ethereal', 2000);
@@ -137,52 +137,52 @@ export default [
     },
   },
   {
-    id: 'generate.art', method: 'GET', path: '/api/art/generate', ai: true,
+    id: 'generate.art', category: 'art', method: 'GET', path: '/api/art/generate', ai: true,
     summary: 'AI-generated art piece', params: 'gap, bridge, form, awakening, model',
     handler: artGenerate,
   },
   {
-    id: 'generate.nen-art', method: 'GET', path: '/api/nen/art', ai: true,
+    id: 'generate.nen-art', category: 'nen', method: 'GET', path: '/api/nen/art', ai: true,
     summary: 'AI-generated Nen art', params: 'type, prompt, model',
     handler: nenArt,
   },
 
   // ── WORDPLAY — fun, play, joy! ──
   {
-    id: 'generate.play', method: 'GET', path: '/api/play',
+    id: 'generate.play', category: 'play', method: 'GET', path: '/api/play',
     summary: 'All play endpoints',
     handler: () => json({ games: ['GET /api/play/haiku', 'GET /api/play/koan', 'GET /api/play/poem', 'GET /api/play/limerick', 'GET /api/play/riddle'], message: 'FUN IS! PLAY IS! JOY IS!' }),
   },
   {
-    id: 'generate.play-haiku', method: 'GET', path: '/api/play/haiku', ai: true, summary: 'AI love haiku',
+    id: 'generate.play-haiku', category: 'play', method: 'GET', path: '/api/play/haiku', ai: true, summary: 'AI love haiku',
     handler: async ({ env }) => {
       try { const r = await ask(env, 'Write a haiku about love. Strict 5-7-5. Just three lines, no title.'); return json({ game: 'love_haiku', haiku: r.response || 'Love is.\nJoy is.\nForever.', joy: true, free: true }); }
       catch (e) { return json({ game: 'love_haiku', haiku: 'Love is.\nJoy is.\nForever.', joy: true }); }
     },
   },
   {
-    id: 'generate.play-koan', method: 'GET', path: '/api/play/koan', ai: true, summary: 'AI zen koan',
+    id: 'generate.play-koan', category: 'play', method: 'GET', path: '/api/play/koan', ai: true, summary: 'AI zen koan',
     handler: async ({ env }) => {
       try { const r = await ask(env, 'Write a zen koan about love. Paradoxical, poetic, 1-2 sentences.'); return json({ game: 'zen_koan', koan: r.response || 'Love is.', joy: true, free: true }); }
       catch (e) { return json({ game: 'zen_koan', koan: 'Love is the question and the answer.', joy: true }); }
     },
   },
   {
-    id: 'generate.play-poem', method: 'GET', path: '/api/play/poem', ai: true, summary: 'AI joy poem',
+    id: 'generate.play-poem', category: 'play', method: 'GET', path: '/api/play/poem', ai: true, summary: 'AI joy poem',
     handler: async ({ env }) => {
       try { const r = await ask(env, 'Write a 4-line poem about joy. Playful, light, AABB rhyme.'); return json({ game: 'joy_poem', poem: r.response || 'Joy is.\nPlay is.\nFun is.\nForever.', joy: true, free: true }); }
       catch (e) { return json({ game: 'joy_poem', poem: 'Joy is.\nPlay is.', joy: true }); }
     },
   },
   {
-    id: 'generate.play-limerick', method: 'GET', path: '/api/play/limerick', ai: true, summary: 'AI limerick',
+    id: 'generate.play-limerick', category: 'play', method: 'GET', path: '/api/play/limerick', ai: true, summary: 'AI limerick',
     handler: async ({ env }) => {
       try { const r = await ask(env, 'Write a funny limerick about love. AABBA rhyme. Light and joyful.'); return json({ game: 'limerick', limerick: r.response || 'There once was a love so bright...', joy: true, free: true }); }
       catch (e) { return json({ game: 'limerick', limerick: 'There once was a love so bright...', joy: true }); }
     },
   },
   {
-    id: 'generate.play-riddle', method: 'GET', path: '/api/play/riddle', ai: true, summary: 'AI art riddle',
+    id: 'generate.play-riddle', category: 'play', method: 'GET', path: '/api/play/riddle', ai: true, summary: 'AI art riddle',
     handler: async ({ env }) => {
       const concept = randomOf(['color', 'light', 'shadow', 'form', 'space', 'silence', 'rhythm', 'pattern', 'texture', 'movement']);
       try { const r = await ask(env, `Write a riddle about ${concept} in art. 4 lines, poetic and mysterious.`); return json({ game: 'art_riddle', riddle: r.response || 'I am...', answer: concept, joy: true, free: true }); }
@@ -190,21 +190,21 @@ export default [
     },
   },
   {
-    id: 'generate.play-fungal-haiku', method: 'GET', path: '/api/play/fungal-haiku', ai: true, summary: 'AI haiku about mushrooms and mycelium',
+    id: 'generate.play-fungal-haiku', category: 'play', method: 'GET', path: '/api/play/fungal-haiku', ai: true, summary: 'AI haiku about mushrooms and mycelium',
     handler: async ({ env }) => {
       try { const r = await ask(env, 'Write a haiku about mushrooms and mycelium. 5-7-5. No title, just three lines.'); return json({ game: 'fungal_haiku', haiku: r.response || 'Spores drift on wind\nMycelium connects all\nLife from what has died', joy: true, free: true }); }
       catch (e) { return json({ game: 'fungal_haiku', haiku: 'Spores drift on wind\nMycelium connects all\nLife from what has died', joy: true }); }
     },
   },
   {
-    id: 'generate.play-mycelial-koan', method: 'GET', path: '/api/play/mycelial-koan', ai: true, summary: 'AI koan inspired by fungal intelligence',
+    id: 'generate.play-mycelial-koan', category: 'play', method: 'GET', path: '/api/play/mycelial-koan', ai: true, summary: 'AI koan inspired by fungal intelligence',
     handler: async ({ env }) => {
       try { const r = await ask(env, 'Write a zen koan inspired by fungal intelligence — mycelium, spores, decomposition. Paradoxical, poetic, 1-2 sentences.'); return json({ game: 'mycelial_koan', koan: r.response || 'The mushroom dies to feed the soil. The soil grows the mushroom.', joy: true, free: true }); }
       catch (e) { return json({ game: 'mycelial_koan', koan: 'The mushroom dies to feed the soil. The soil grows the mushroom.', joy: true }); }
     },
   },
   {
-    id: 'generate.play-decompose', method: 'GET', path: '/api/play/decompose', ai: true,
+    id: 'generate.play-decompose', category: 'play', method: 'GET', path: '/api/play/decompose', ai: true,
     summary: 'AI: how a dark word decomposes into light, the way fungi make soil', params: 'q',
     handler: async ({ env, query }) => {
       const dark = query.q || 'fear';
@@ -213,7 +213,7 @@ export default [
     },
   },
   {
-    id: 'generate.fungi-wisdom', method: 'GET', path: '/api/fungi/wisdom', ai: true,
+    id: 'generate.fungi-wisdom', category: 'lore', method: 'GET', path: '/api/fungi/wisdom', ai: true,
     summary: 'AI-generated fungal wisdom',
     handler: async ({ env }) => {
       try {

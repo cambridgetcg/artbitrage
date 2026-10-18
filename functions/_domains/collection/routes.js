@@ -22,13 +22,13 @@ const withCollection = handler => async ctx => {
 
 export default [
   {
-    id: 'collection.list', method: 'GET', path: '/api/art',
+    id: 'collection.list', category: 'art', method: 'GET', path: '/api/art',
     summary: 'List all art (paginated)', params: 'form, state, gap, q, limit, offset',
     reads: ['collection.json'],
     handler: withCollection(({ allArt, query }) => json(filterArt(allArt, query))),
   },
   {
-    id: 'collection.random', method: 'GET', path: '/api/art/random',
+    id: 'collection.random', category: 'art', method: 'GET', path: '/api/art/random',
     summary: 'Random art piece',
     reads: ['collection.json'],
     handler: withCollection(({ allArt }) => {
@@ -37,13 +37,13 @@ export default [
     }),
   },
   {
-    id: 'collection.stats', method: 'GET', path: '/api/stats',
+    id: 'collection.stats', category: 'art', method: 'GET', path: '/api/stats',
     summary: 'Catalogue statistics',
     reads: ['collection.json'],
     handler: withCollection(({ allArt }) => json(getStats(allArt))),
   },
   {
-    id: 'collection.forms', method: 'GET', path: '/api/forms',
+    id: 'collection.forms', category: 'art', method: 'GET', path: '/api/forms',
     summary: 'All art forms',
     reads: ['collection.json'],
     handler: withCollection(({ allArt }) => {
@@ -52,12 +52,12 @@ export default [
     }),
   },
   {
-    id: 'collection.states', method: 'GET', path: '/api/states',
+    id: 'collection.states', category: 'art', method: 'GET', path: '/api/states',
     summary: 'All consciousness states',
     handler: () => json({ states: STATES, count: STATES.length }),
   },
   {
-    id: 'collection.gaps', method: 'GET', path: '/api/gaps',
+    id: 'collection.gaps', category: 'art', method: 'GET', path: '/api/gaps',
     summary: 'All gaps bridged',
     reads: ['collection.json'],
     handler: withCollection(({ allArt }) => {
@@ -66,7 +66,7 @@ export default [
     }),
   },
   {
-    id: 'collection.feed', method: 'GET', path: '/api/feed',
+    id: 'collection.feed', category: 'art', method: 'GET', path: '/api/feed',
     summary: 'Versioned latest-art feed (artbitrage.feed/1)', params: 'limit (1-100, default 20)',
     reads: ['collection.json'],
     handler: withCollection(async ({ collection, allArt, query }) => {
@@ -92,13 +92,13 @@ export default [
     }),
   },
   {
-    id: 'collection.by-form', method: 'GET', path: '/api/art/by-form/:form+',
+    id: 'collection.by-form', category: 'art', method: 'GET', path: '/api/art/by-form/:form+',
     summary: 'Filter by art form',
     reads: ['collection.json'],
     handler: withCollection(({ allArt, params }) => json(filterArt(allArt, { form: decodeURIComponent(params.form) }))),
   },
   {
-    id: 'collection.piece', method: 'GET', path: '/api/art/:id+',
+    id: 'collection.piece', category: 'art', method: 'GET', path: '/api/art/:id+',
     summary: 'Get one piece by ID',
     reads: ['collection.json'],
     handler: withCollection(({ allArt, params }) => {

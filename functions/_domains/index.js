@@ -3,6 +3,7 @@
 // golden contract test read it too.
 import { createRouter } from '../_kernel/router.js';
 import { internalError, notFound, preflight } from '../_kernel/http.js';
+import { agentManifest as buildAgentManifest, routeCatalogue } from './protocol/agent-manifest.js';
 import protocol from './protocol/routes.js';
 import participate from './participate/routes.js';
 import reference from './reference/routes.js';
@@ -18,6 +19,10 @@ import pipeline from './pipeline/routes.js';
 export const DOMAINS = { protocol, participate, reference, collection, museum, rooms, search, generate, play, lore, pipeline };
 
 export const router = createRouter(Object.values(DOMAINS).flat());
+
+// The manifest /api serves, and its category view, built from the same table.
+export const agentManifest = () => buildAgentManifest(router.routes);
+export const ROUTES = routeCatalogue(router.routes);
 
 // Every answer names the route that gave it, so a log line or a bug report
 // can point at one declaration.
@@ -39,6 +44,7 @@ export async function handle(context, method = context.request.method) {
       path: url.pathname,
       query: Object.fromEntries(url.searchParams),
       params,
+      routes: router.routes,
     });
     return stamp(response, route.id);
   } catch (error) {

@@ -22,6 +22,7 @@ export default VERTICALS.flatMap(({ name, module, reads, summary, endpoints }) =
     .filter(([, exportName]) => typeof module[exportName] === 'function')
     .map(([method, exportName]) => ({
       id: `reference.${name}`,
+      category: name,
       method,
       path: `/api/${name}/**`,
       summary,

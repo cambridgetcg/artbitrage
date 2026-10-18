@@ -337,6 +337,24 @@ async function runCase(dispatch, c) {
 // drifted. Keep it gone so nobody edits the wrong file.
 assert.ok(!existsSync(join(ROOT, 'dist/functions')), 'dist/functions must not exist: Functions deploy from the root functions/ directory');
 
+// The route table is the manifest: every GET and POST route has a category the
+// manifest knows and a summary, and /api lists exactly what the table serves.
+const { router, agentManifest } = await import('../functions/_domains/index.js');
+const { CATEGORIES } = await import('../functions/_domains/protocol/agent-manifest.js');
+for (const route of router.routes) {
+  if (route.method === 'OPTIONS' || route.manifest === false) continue;
+  assert.ok(CATEGORIES[route.category], `${route.method} ${route.id} needs a known manifest category`);
+  assert.ok(route.summary, `${route.method} ${route.id} needs a summary for /api`);
+}
+const listed = agentManifest();
+assert.equal(listed.route_coverage.status, 'complete');
+assert.equal(listed.total_endpoints, listed.routes.length);
+assert.ok(!listed.categories.other, 'no route falls into the Other bucket');
+for (const entry of listed.routes) {
+  const sample = entry.path.replace(/:\w+/g, 'sample');
+  assert.ok(router.find(entry.method, sample), `manifest lists ${entry.method} ${entry.path}, which the router does not answer`);
+}
+
 const routes = await loadPagesRoutes(join(ROOT, 'functions'));
 const dispatch = createDispatcher(routes);
 const seen = new Set();

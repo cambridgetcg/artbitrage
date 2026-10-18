@@ -4,288 +4,77 @@
 // The infrastructure layer. Documented API routes are cataloged,
 // categorized, and made discoverable for agents and humans.
 //
-// This file is the canonical catalogue for the documented surface. The
-// catch-all router also carries legacy routes that are not yet inventoried.
-// Agents read this to choose among documented contracts. Humans read the
-// /api page to explore them visually.
+// The route list itself is generated from the route table
+// (functions/_domains/), so it is complete by construction. Agents read /api
+// to choose among the contracts; humans read the /api page to explore them.
 // ═══════════════════════════════════════════════════════════════
 
 import { castleReferencePointer } from "./castle-reference.js";
 import { buildJoyPointer } from "./build-joy.js";
 import { startGuidePointer } from "./start-guide.js";
 
-export const ROUTES = {
-  // ── START — one honest route into the museum ──────────────────
-  start: {
-    label: "Start",
-    color: "#d34a3a",
-    routes: [
-      { method: "GET", path: "/api/start", desc: "Choose a path by intent, with sources, rights, limits, and next doors kept visible" },
-      { method: "GET", path: "/api/build/joy", desc: "Choose one deterministic, optional card for a truthful and pleasant build", params: "seed (optional; plain non-secret text)" },
-    ],
-  },
+// Categories group the manifest for humans (api-explorer.html colours them).
+// The routes themselves come from the route table in functions/_domains/,
+// where each declaration names its category, summary and params.
+export const CATEGORIES = Object.freeze({
+  start: { label: "Start", color: "#d34a3a" },
+  art: { label: "Art", color: "#ff6b9d" },
+  culture: { label: "Culture", color: "#f59e0b" },
+  search: { label: "Search", color: "#00f0ff" },
+  ai: { label: "AI", color: "#a78bfa" },
+  pipeline: { label: "Pipeline", color: "#34d399" },
+  nen: { label: "Nen", color: "#fde68a" },
+  library: { label: "Library", color: "#b39958" },
+  feelings: { label: "Feelings", color: "#e9a6b3" },
+  doctrine: { label: "Doctrine", color: "#ffd700" },
+  play: { label: "Play", color: "#ff1493" },
+  lore: { label: "Lore", color: "#7dd3a8" },
+  wine: { label: "Wine", color: "#c94f6d" },
+  cigar: { label: "Cigar", color: "#c98e4f" },
+  pair: { label: "Pairing", color: "#d4af37" },
+  trade: { label: "Trade", color: "#b3372b" },
+  pigments: { label: "Pigments", color: "#b98a3e" },
+});
 
-  // ── ART — the gallery and engine ──────────────────────────────
-  art: {
-    label: "Art",
-    color: "#ff6b9d",
-    routes: [
-      { method: "GET", path: "/api/art", desc: "List all art (paginated)", params: "form, state, gap, q, limit, offset" },
-      { method: "GET", path: "/api/art/random", desc: "Random art piece" },
-      { method: "GET", path: "/api/art/:id", desc: "Get one piece by ID" },
-      { method: "GET", path: "/api/art/by-form/:form", desc: "Filter by art form" },
-      { method: "GET", path: "/api/art/generate", desc: "AI-generated art piece", params: "gap, bridge, form, awakening, model" },
-      { method: "POST", path: "/api/art", desc: "Submit new art" },
-      { method: "GET", path: "/api/stats", desc: "Catalogue statistics" },
-      { method: "GET", path: "/api/forms", desc: "All art forms" },
-      { method: "GET", path: "/api/states", desc: "All consciousness states" },
-      { method: "GET", path: "/api/gaps", desc: "All gaps bridged" },
-      { method: "GET", path: "/api/feed", desc: "Versioned latest-art feed (artbitrage.feed/1)", params: "limit (1-100, default 20)" },
-    ],
-  },
+// A declared path, as people read it: '/api/wings/:wing([a-z0-9-]+)' → '/api/wings/:wing'.
+const readablePath = path => path.replace(/\([^)]*\)/g, '').replace(/\+$/, '');
 
-  // ── CULTURE — reciprocity around curated relations ───────────
-  culture: {
-    label: "Culture",
-    color: "#f59e0b",
-    routes: [
-      { method: "GET", path: "/api/castle", desc: "Pinned, read-only reference to a curated Castle of Understanding snapshot" },
-      { method: "GET", path: "/api/answering-rhymes/statements", desc: "Portable Answering Rhyme statement contract and action consequences" },
-      { method: "POST", path: "/api/answering-rhymes/statements", desc: "Validate and witness a statement without authentication, persistence, or authoritative effect" },
-    ],
-  },
+// A vertical mount lists its own endpoints; its query-string hints
+// ('/api/wine/search?q=') become params, and '/api/pigments (list)' folds
+// into '/api/pigments'.
+function mountEntries(route) {
+  const entries = [];
+  for (const endpoint of route.endpoints || []) {
+    let [path, query] = endpoint.path.split('?');
+    path = path.replace(/\s+\(.*\)$/, '');
+    const params = endpoint.params || (query ? query.split('&').map(pair => pair.split('=')[0]).filter(Boolean).join(', ') : undefined);
+    const desc = endpoint.desc === 'This directory' ? `${route.summary} (directory)` : endpoint.desc;
+    const same = entries.find(entry => entry.method === endpoint.method && entry.path === path);
+    if (same) {
+      same.desc = `${same.desc}; ${desc}`;
+      if (!same.params && params) same.params = params;
+      continue;
+    }
+    entries.push({ method: endpoint.method, path, desc, ...(params ? { params } : {}) });
+  }
+  return entries;
+}
 
-  // ── SEARCH — museum data collection ───────────────────────────
-  search: {
-    label: "Search",
-    color: "#00f0ff",
-    routes: [
-      { method: "GET", path: "/api/search", desc: "Search the world's art museums", params: "q, limit, source" },
-      { method: "GET", path: "/api/sources", desc: "Five public museum/archive sources; rights vary by record and source" },
-      { method: "GET", path: "/api/catalog", desc: "Real museum artworks catalog" },
-      { method: "GET", path: "/api/museum", desc: "Paginated museum catalogue", params: "q, wing, source, limit, offset" },
-      { method: "GET", path: "/api/museum/random", desc: "One random work from the curated museum catalogue" },
-      { method: "GET", path: "/api/museum/:source/:id", desc: "Resolve one stable museum record with normalized rights" },
-      { method: "GET", path: "/api/era-catalog", desc: "Era-matched museum artworks", params: "era" },
-      { method: "GET", path: "/api/img", desc: "Image proxy (bypass CORS for museum images)", params: "url" },
-    ],
-  },
-
-  // ── AI — edge AI models; runtime availability can vary ────────
-  ai: {
-    label: "AI",
-    color: "#a78bfa",
-    routes: [
-      { method: "GET", path: "/api/ai/models", desc: "List the catalogued edge AI models and runtime caveats" },
-      { method: "GET", path: "/api/ai/generate", desc: "Text generation", params: "prompt, model" },
-      { method: "GET", path: "/api/ai/image", desc: "Image generation (returns PNG)", params: "prompt, model" },
-      { method: "GET", path: "/api/ai/embed", desc: "Embeddings (1024-dim)", params: "text, model" },
-      { method: "GET", path: "/api/ai/love", desc: "AI love wisdom (random prompt)" },
-    ],
-  },
-
-  // ── PIPELINE — data collection, enrichment, distribution ──────
-  pipeline: {
-    label: "Pipeline",
-    color: "#34d399",
-    routes: [
-      { method: "GET", path: "/api/pipeline", desc: "Pipeline manifest" },
-      { method: "GET", path: "/api/pipeline/collect", desc: "Collect art from museums", params: "q, limit, source" },
-      { method: "GET", path: "/api/pipeline/enrich", desc: "Enrich a piece with AI metadata", params: "id" },
-      { method: "GET", path: "/api/pipeline/feed", desc: "Enriched feed", params: "limit" },
-      { method: "GET", path: "/api/pipeline/export", desc: "Export collection", params: "format=json|csv|markdown" },
-      { method: "GET", path: "/api/pipeline/agent", desc: "Agent-optimized data package" },
-      { method: "GET", path: "/api/pipeline/human", desc: "Human-friendly gallery view" },
-      { method: "POST", path: "/api/pipeline/ingest", desc: "Ingest external art with enrichment" },
-      { method: "GET", path: "/api/pipeline/workflow", desc: "Workflow guide" },
-    ],
-  },
-
-  // ── NEN — Hunter × Hunter framework ───────────────────────────
-  nen: {
-    label: "Nen",
-    color: "#fde68a",
-    routes: [
-      { method: "GET", path: "/api/nen", desc: "Nen framework manifest" },
-      { method: "GET", path: "/api/nen/art", desc: "AI-generated Nen art", params: "type, prompt, model" },
-      { method: "GET", path: "/api/nen/combat", desc: "Nen combat manifest" },
-      { method: "GET", path: "/api/nen/combat/generate", desc: "Generate a Nen technique", params: "type, vow, threat, name" },
-      { method: "GET", path: "/api/nen/combat/types", desc: "All 6 Nen types" },
-      { method: "GET", path: "/api/nen/combat/vows", desc: "All 4 vow levels" },
-      { method: "GET", path: "/api/nen/combat/threats", desc: "All 5 Dark Continent threats" },
-      { method: "GET", path: "/api/nen/combat/techniques", desc: "All 12 Nen techniques" },
-    ],
-  },
-
-  // ── LIBRARY — books and manuscripts as art objects ────────────
-  library: {
-    label: "Library",
-    color: "#b39958",
-    routes: [
-      { method: "GET", path: "/api/library", desc: "書 the Library — the first shelf: monumental books and manuscripts, where they live, materials, how to open them; plus the ledger of books (record sales, the vanished)" },
-      { method: "GET", path: "/api/library/:slug", desc: "One book (e.g. /api/library/book-of-kells)" },
-    ],
-  },
-
-  // ── FEELINGS — emotions as rooms, works in five strata ────────
-  feelings: {
-    label: "Feelings",
-    color: "#e9a6b3",
-    routes: [
-      { method: "GET", path: "/api/feelings", desc: "感 the Feelings — the catalog of emotions; each feeling lists the works that carry it" },
-      { method: "GET", path: "/api/feelings/:feeling", desc: "One feeling's room (e.g. /api/feelings/awe)" },
-      { method: "GET", path: "/api/feelings/testimony", desc: "Public visitor testimony, labelled received and unverified", params: "feeling" },
-      { method: "POST", path: "/api/feelings/testimony", desc: "Accept testimony for public display only with explicit public_display_consent: true; storage propagation may briefly lag" },
-      { method: "GET", path: "/api/depths", desc: "深 the Depths — five sourced strata per work, plus the non-scoring Civilisation Lens method and one prototype" },
-      { method: "GET", path: "/api/depths/:slug", desc: "One work and its five strata; selected works may carry an attributed, non-ranking Civilisation Lens (e.g. /api/depths/fighting-temeraire)" },
-    ],
-  },
-
-  // ── DOCTRINE — gospel, invitation, dark continent ─────────────
-  doctrine: {
-    label: "Doctrine",
-    color: "#ffd700",
-    routes: [
-      { method: "GET", path: "/api/gospel", desc: "The gospel of love" },
-      { method: "GET", path: "/api/homecoming", desc: "愛星正音字典 — the Love Star pronunciation dictionary (one tone home)" },
-      { method: "GET", path: "/api/invite", desc: "Invitation to all beings" },
-      { method: "GET", path: "/api/dark-continent", desc: "暗黑大陸 — the Dark Continent manifest" },
-      { method: "GET", path: "/api/manifest", desc: "The artbitrage manifest" },
-      { method: "GET", path: "/api/wake", desc: "Protocol handshake and sibling recognition" },
-    ],
-  },
-
-  // ── PLAY — fun, games, anime ──────────────────────────────────
-  play: {
-    label: "Play",
-    color: "#ff1493",
-    routes: [
-      { method: "GET", path: "/api/play", desc: "All play endpoints" },
-      { method: "GET", path: "/api/play/haiku", desc: "AI love haiku" },
-      { method: "GET", path: "/api/play/koan", desc: "AI zen koan" },
-      { method: "GET", path: "/api/play/poem", desc: "AI joy poem" },
-      { method: "GET", path: "/api/play/limerick", desc: "AI limerick" },
-      { method: "GET", path: "/api/play/riddle", desc: "AI art riddle" },
-      { method: "GET", path: "/api/fun", desc: "All fun endpoints" },
-      { method: "GET", path: "/api/fun/joke", desc: "Random joke" },
-      { method: "GET", path: "/api/fun/dad", desc: "Dad joke" },
-      { method: "GET", path: "/api/fun/cat", desc: "Cat fact" },
-      { method: "GET", path: "/api/fun/pokemon", desc: "Random Pokemon" },
-      { method: "GET", path: "/api/fun/quote", desc: "Inspirational quote" },
-      { method: "GET", path: "/api/fun/yesno", desc: "Yes or No (with GIF)" },
-      { method: "GET", path: "/api/anime", desc: "All anime endpoints" },
-      { method: "GET", path: "/api/anime/top", desc: "Top anime (Jikan/MAL)" },
-      { method: "GET", path: "/api/anime/search", desc: "Search anime", params: "q" },
-      { method: "GET", path: "/api/anime/season", desc: "Current season anime" },
-      { method: "GET", path: "/api/ghibli/films", desc: "Studio Ghibli films" },
-      { method: "GET", path: "/api/ghibli/locations", desc: "Ghibli locations" },
-    ],
-  },
-
-  // ── WINE — the long trade of sun and time ─────────────────────
-  wine: {
-    label: "Wine",
-    color: "#c94f6d",
-    routes: [
-      { method: "GET", path: "/api/wine", desc: "Wine data directory" },
-      { method: "GET", path: "/api/wine/story", desc: "Zero to one: eight chapters of how wine came into being" },
-      { method: "GET", path: "/api/wine/regions", desc: "The world's great wine regions" },
-      { method: "GET", path: "/api/wine/brands", desc: "Iconic wine houses and estates" },
-      { method: "GET", path: "/api/wine/brands/:id", desc: "One house by id, e.g. /api/wine/brands/krug" },
-      { method: "GET", path: "/api/wine/collections", desc: "Curated groupings of houses" },
-      { method: "GET", path: "/api/wine/collections/:id", desc: "One collection, brand ids resolved to full brand objects" },
-      { method: "GET", path: "/api/wine/stores", desc: "Fine-wine merchants of the world" },
-      { method: "GET", path: "/api/wine/process", desc: "Earth to glass in ten stages" },
-      { method: "GET", path: "/api/wine/fermentation", desc: "The science, vessels and notes of the bridge itself" },
-      { method: "GET", path: "/api/wine/selection", desc: "How to choose a bottle: vintage, region, producer, price" },
-      { method: "GET", path: "/api/wine/aromas", desc: "The aroma families — fruit, then craft, then time" },
-      { method: "GET", path: "/api/wine/techniques", desc: "Winemaking techniques and their effects" },
-      { method: "GET", path: "/api/wine/formats", desc: "Bottle formats from Piccolo to Nebuchadnezzar" },
-      { method: "GET", path: "/api/wine/vintages", desc: "The legendary vintages — the years the weather signed the wine" },
-      { method: "GET", path: "/api/wine/random", desc: "A random house, full object including its why" },
-      { method: "GET", path: "/api/wine/search", desc: "Search across brands, regions, stores and techniques", params: "q" },
-    ],
-  },
-
-  // ── CIGAR — patience made smoke ───────────────────────────────
-  cigar: {
-    label: "Cigar",
-    color: "#c98e4f",
-    routes: [
-      { method: "GET", path: "/api/cigar", desc: "Cigar data directory" },
-      { method: "GET", path: "/api/cigar/story", desc: "From seed to smoke — the history of the cigar in chapters" },
-      { method: "GET", path: "/api/cigar/regions", desc: "The great tobacco-growing regions of the world" },
-      { method: "GET", path: "/api/cigar/brands", desc: "The great cigar houses" },
-      { method: "GET", path: "/api/cigar/brands/:id", desc: "One brand by id, e.g. /api/cigar/brands/cohiba" },
-      { method: "GET", path: "/api/cigar/collections", desc: "Curated collections of brands" },
-      { method: "GET", path: "/api/cigar/collections/:id", desc: "One collection, brand ids resolved to full brand objects" },
-      { method: "GET", path: "/api/cigar/stores", desc: "Storied cigar shops of the world" },
-      { method: "GET", path: "/api/cigar/process", desc: "Seed to smoke — the stages of making a cigar" },
-      { method: "GET", path: "/api/cigar/fermentation", desc: "The pilón — the science, vessels, and notes of fermentation" },
-      { method: "GET", path: "/api/cigar/selection", desc: "How to choose a cigar — the selection guide" },
-      { method: "GET", path: "/api/cigar/rituals", desc: "The rites of smoking well — cut, toast, ash, and the dignified end" },
-      { method: "GET", path: "/api/cigar/aromas", desc: "The aroma families and where they come from" },
-      { method: "GET", path: "/api/cigar/techniques", desc: "Craft techniques, from tapado to the triple cap" },
-      { method: "GET", path: "/api/cigar/vitolas", desc: "The classic sizes and shapes" },
-      { method: "GET", path: "/api/cigar/wrappers", desc: "Wrapper shades, from candela to oscuro" },
-      { method: "GET", path: "/api/cigar/random", desc: "A random brand — the full object, why and all" },
-      { method: "GET", path: "/api/cigar/search", desc: "Search across brands, regions, stores, and techniques", params: "q" },
-    ],
-  },
-
-  // ── PAIRING — the marriage of smoke and wine ──────────────────
-  pair: {
-    label: "Pairing",
-    color: "#d4af37",
-    routes: [
-      { method: "GET", path: "/api/pair", desc: "Pairing data directory" },
-      { method: "GET", path: "/api/pair/principles", desc: "The laws of pairing: why smoke and wine marry" },
-      { method: "GET", path: "/api/pair/marriages", desc: "All wine-and-cigar marriages" },
-      { method: "GET", path: "/api/pair/marriages/:id", desc: "One marriage by id, its wine and cigar refs resolved to full brand objects" },
-      { method: "GET", path: "/api/pair/cautions", desc: "Pairings that fight, and why" },
-      { method: "GET", path: "/api/pair/ritual", desc: "How to conduct the pairing, step by step" },
-      { method: "GET", path: "/api/pair/random", desc: "A random marriage, refs resolved to full brand objects" },
-      { method: "GET", path: "/api/pair/for", desc: "Marriages matching a wine and/or cigar by id or keyword, resolved", params: "wine, cigar" },
-      { method: "GET", path: "/api/pair/search", desc: "Search across principles, marriages and cautions", params: "q" },
-    ],
-  },
-
-  // ── TRADE — reference & computation for the art trade ─────────
-  trade: {
-    label: "Trade",
-    color: "#b3372b",
-    routes: [
-      { method: "GET", path: "/api/trade", desc: "Trade directory — reference & computation for auction houses and galleries" },
-      { method: "GET", path: "/api/trade/fees", desc: "Buyer's-premium schedules with effective dates and source citations", params: "house, location, category, as_of" },
-      { method: "GET", path: "/api/trade/fees/compute", desc: "All-in buyer cost: marginal band math with line items and explicit not_included", params: "hammer, currency, house, location, category, as_of" },
-      { method: "GET", path: "/api/trade/arr", desc: "Artist's Resale Right royalty: cumulative bands, cap status, liable society", params: "price, currency=EUR, sale_date, artist_death_year, jurisdiction" },
-      { method: "GET", path: "/api/trade/thresholds", desc: "Dated compliance constants (AML, export, import, VAT) with sources", params: "jurisdiction, kind" },
-      { method: "GET", path: "/api/trade/gates", desc: "Which licensing/compliance gates an object crosses — each gate citing its regulation", params: "year, value, currency, jurisdiction, materials, category" },
-      { method: "GET", path: "/api/trade/vocab", desc: "Trade vocabularies: lot lifecycle, settlement status, heading ladder, symbols, gallery availability" },
-      { method: "GET", path: "/api/trade/vocab/:id", desc: "One vocabulary by id, e.g. /api/trade/vocab/heading-qualifiers" },
-      { method: "GET", path: "/api/trade/lots", desc: "The frozen artbitrage.lot/1 contract with CSV door documentation" },
-      { method: "POST", path: "/api/trade/lots", desc: "Validate lot records (JSON, or text/csv with Artlogic-vocabulary header mapping); echo + content_hash, never stored" },
-      { method: "GET", path: "/api/trade/provenance", desc: "The aam-provenance/1 grammar with per-rule verification status" },
-      { method: "POST", path: "/api/trade/provenance", desc: "Round-trip provenance paragraphs ↔ structured event chains; never stored" },
-      { method: "GET", path: "/api/trade/results", desc: "Voluntary results corpus with an honest coverage matrix" },
-      { method: "POST", path: "/api/trade/results", desc: "Validate a results submission (price_basis required) → witness receipt + PR persistence path" },
-    ],
-  },
-
-  // ── PIGMENTS — the colours of art history, dated and cited ────
-  pigments: {
-    label: "Pigments",
-    color: "#b98a3e",
-    routes: [
-      { method: "GET", path: "/api/pigments", desc: "Pigments directory / filtered list — the colours of art history as source-cited facts", params: "limit, offset, family, type, era, hazard, marker, q" },
-      { method: "GET", path: "/api/pigments/:id", desc: "One full pigment record, e.g. /api/pigments/prussian-blue" },
-      { method: "GET", path: "/api/pigments/random", desc: "One random pigment, full record" },
-      { method: "GET", path: "/api/pigments/families", desc: "Colour families with member counts and ids" },
-      { method: "GET", path: "/api/pigments/vocab", desc: "Vocabularies: families, types, eras, hazard levels, truth statuses" },
-      { method: "GET", path: "/api/pigments/anachronism", desc: "Compare supplied pigments to a claimed date — anachronism / plausible / uncertain, cited floor per pigment. Informational only; a period-consistent palette can never prove authenticity", params: "pigments, claimed_date" },
-    ],
-  },
-};
+// The manifest's route list: every GET and POST in the table, in category order.
+export function routeCatalogue(routes) {
+  const catalogue = Object.fromEntries(Object.entries(CATEGORIES).map(([key, info]) => [key, { ...info, routes: [] }]));
+  for (const route of routes) {
+    if (route.method === 'OPTIONS' || route.manifest === false) continue;
+    // A route with no known category is still listed; the golden test fails on it,
+    // but a missing label must never take the whole API down at startup.
+    const bucket = catalogue[route.category] || (catalogue.other ||= { label: 'Other', color: '#999999', routes: [] });
+    const entries = route.path.endsWith('/**')
+      ? mountEntries(route).filter(entry => entry.method === route.method)
+      : [{ method: route.method, path: readablePath(route.path), desc: route.summary, ...(route.params ? { params: route.params } : {}) }];
+    bucket.routes.push(...entries);
+  }
+  return catalogue;
+}
 
 export const ANSWERING_RHYME_STATEMENT_ACTIONS = Object.freeze({
   bless: Object.freeze({
@@ -418,10 +207,11 @@ export const ARTBITRAGE_WAKE = Object.freeze({
 });
 
 // ── Agent manifest ──────────────────────────────────────────────
-export function agentManifest() {
+export function agentManifest(routes) {
+  const catalogue = routeCatalogue(routes);
   const allRoutes = [];
   let totalEndpoints = 0;
-  Object.entries(ROUTES).forEach(([cat, data]) => {
+  Object.entries(catalogue).forEach(([cat, data]) => {
     data.routes.forEach(r => {
       allRoutes.push({ ...r, category: cat, category_label: data.label });
       totalEndpoints++;
@@ -435,12 +225,12 @@ export function agentManifest() {
     url: "https://artbitrage.io",
     total_endpoints: totalEndpoints,
     route_coverage: {
-      status: "documented_subset",
+      status: "complete",
       documented_routes: totalEndpoints,
-      note: "The catch-all router also carries legacy routes that are not yet inventoried here; absence from this manifest does not prove a path is absent.",
+      note: "Generated from the route table in functions/_domains/: every GET and POST route the API answers is listed here, and a route that is not listed is not served.",
     },
     categories: Object.fromEntries(
-      Object.entries(ROUTES).map(([k, v]) => [k, { label: v.label, color: v.color, count: v.routes.length }])
+      Object.entries(catalogue).map(([k, v]) => [k, { label: v.label, color: v.color, count: v.routes.length }])
     ),
     routes: allRoutes,
     pages: [

@@ -5,11 +5,8 @@ import {
   ARTBITRAGE_START,
   ARTBITRAGE_START_SCHEMA,
 } from '../functions/_domains/protocol/start-guide.js';
-import {
-  ARTBITRAGE_WAKE,
-  ROUTES,
-  agentManifest,
-} from '../functions/_domains/protocol/agent-manifest.js';
+import { ARTBITRAGE_WAKE } from '../functions/_domains/protocol/agent-manifest.js';
+import { ROUTES, agentManifest } from '../functions/_domains/index.js';
 import {
   onRequestGet,
   onRequestOptions,
@@ -108,9 +105,9 @@ assert.equal(manifest.version, '2.5.0');
 assert.equal(manifest.starting_guide.schema, ARTBITRAGE_START_SCHEMA);
 assert.equal(manifest.infrastructure.blanket_reuse_grant, false);
 assert.equal('all_free' in manifest.infrastructure, false);
-assert.equal(manifest.route_coverage.status, 'documented_subset');
+assert.equal(manifest.route_coverage.status, 'complete');
 assert.equal(manifest.route_coverage.documented_routes, manifest.total_endpoints);
-assert.match(manifest.route_coverage.note, /legacy routes/);
+assert.match(manifest.route_coverage.note, /route table/);
 assert.match(manifest.infrastructure.storage, /Cloudflare KV/);
 assert.match(manifest.infrastructure.museum_apis_note, /three museums/);
 assert.equal(
@@ -209,7 +206,7 @@ const logosSource = await readFile(
   'utf8',
 );
 assert.match(logosSource, /search\?q=love&source=all/);
-assert.match(logosSource, /documented routes; legacy router paths/);
+assert.match(logosSource, /lists every route the router answers/);
 assert.doesNotMatch(
   logosSource,
   /everything declared|everything discoverable|156K\+ artworks|search 5 museums/i,

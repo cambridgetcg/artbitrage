@@ -9,7 +9,7 @@ import {
   handleOptions as onRequestOptions,
   handlePost as onRequestPost,
 } from '../functions/_domains/participate/testimony.js';
-import { agentManifest } from '../functions/_domains/protocol/agent-manifest.js';
+import { agentManifest } from '../functions/_domains/index.js';
 
 class FakeKV {
   constructor() {

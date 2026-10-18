@@ -58,7 +58,7 @@ async function museumList({ env, request, path, query }) {
 
 export default [
   {
-    id: 'museum.record', method: 'GET', path: '/api/museum/:source/:id',
+    id: 'museum.record', category: 'search', method: 'GET', path: '/api/museum/:source/:id',
     summary: 'Resolve one stable museum record with normalized rights',
     reads: ['catalog/all.json'],
     handler: async ({ env, request, params }) => {
@@ -80,7 +80,7 @@ export default [
     },
   },
   {
-    id: 'museum.catalog', method: 'GET', path: '/api/catalog',
+    id: 'museum.catalog', category: 'search', method: 'GET', path: '/api/catalog',
     summary: 'Real museum artworks catalog',
     reads: ['catalog.json'],
     handler: async ({ env, request }) => {
@@ -89,7 +89,7 @@ export default [
     },
   },
   {
-    id: 'museum.era-catalog', method: 'GET', path: '/api/era-catalog',
+    id: 'museum.era-catalog', category: 'search', method: 'GET', path: '/api/era-catalog',
     summary: 'Era-matched museum artworks', params: 'era',
     reads: ['era-catalog.json'],
     handler: async ({ env, request, query }) => {
@@ -103,7 +103,7 @@ export default [
     },
   },
   {
-    id: 'museum.img', method: 'GET', path: '/api/img',
+    id: 'museum.img', category: 'search', method: 'GET', path: '/api/img',
     summary: 'Image proxy (bypass CORS for museum images)', params: 'url',
     upstream: IMAGE_HOSTS,
     // Only HTTPS images from known museum/media hostnames. Truth/safety:
@@ -142,7 +142,7 @@ export default [
     },
   },
   {
-    id: 'museum.wings', method: 'GET', path: '/api/wings',
+    id: 'museum.wings', category: 'search', method: 'GET', path: '/api/wings',
     summary: '川 The River — themed museum catalogue wings',
     reads: ['catalog/index.json'],
     handler: async ({ env, request }) => {
@@ -151,7 +151,7 @@ export default [
     },
   },
   {
-    id: 'museum.wing', method: 'GET', path: '/api/wings/:wing([a-z0-9-]+)',
+    id: 'museum.wing', category: 'search', method: 'GET', path: '/api/wings/:wing([a-z0-9-]+)',
     summary: 'One wing of the River, its works and their rights',
     reads: ['catalog/<wing>.json'],
     handler: async ({ env, request, params }) => {
@@ -160,13 +160,13 @@ export default [
     },
   },
   {
-    id: 'museum.list', method: 'GET', path: '/api/museum',
+    id: 'museum.list', category: 'search', method: 'GET', path: '/api/museum',
     summary: 'Paginated museum catalogue', params: 'q, wing, source, limit, offset',
     reads: ['catalog/all.json'],
     handler: museumList,
   },
   {
-    id: 'museum.random', method: 'GET', path: '/api/museum/random',
+    id: 'museum.random', category: 'search', method: 'GET', path: '/api/museum/random',
     summary: 'One random work from the curated museum catalogue',
     reads: ['catalog/all.json'],
     handler: museumList,

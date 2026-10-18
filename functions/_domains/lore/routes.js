@@ -34,9 +34,9 @@ async function nenCombatGenerate({ env, query }) {
 
 export default [
   // ── WHITEHACK — local system Nen framework ──
-  { id: 'lore.whitehack', method: 'GET', path: '/api/whitehack', summary: 'Whitehack: the local-system Nen framework', handler: () => json(whitehackManifest()) },
+  { id: 'lore.whitehack', category: 'lore', method: 'GET', path: '/api/whitehack', summary: 'Whitehack: the local-system Nen framework', handler: () => json(whitehackManifest()) },
   {
-    id: 'lore.whitehack-scan', method: 'GET', path: '/api/whitehack/scan',
+    id: 'lore.whitehack-scan', category: 'lore', method: 'GET', path: '/api/whitehack/scan',
     summary: 'Simulated scan: the interfaces and their Nen map (run the /whitehack page locally for a real one)',
     // The edge worker can't access local hardware, but the page runs locally and can.
     handler: () => json({
@@ -47,7 +47,7 @@ export default [
     }),
   },
   {
-    id: 'lore.whitehack-battle', method: 'GET', path: '/api/whitehack/battle',
+    id: 'lore.whitehack-battle', category: 'lore', method: 'GET', path: '/api/whitehack/battle',
     summary: 'A battle report from the interfaces you name active', params: 'one flag per interface, e.g. usb=true',
     handler: ({ query }) => {
       const scanResults = {};
@@ -57,41 +57,41 @@ export default [
       return json(generateBattleReport(scanResults));
     },
   },
-  { id: 'lore.whitehack-level', method: 'GET', path: '/api/whitehack/level', summary: 'The Solo Leveling rank for a power total', params: 'power', handler: ({ query }) => json(calculateLevel(parseInt(query.power || '0', 10))) },
-  { id: 'lore.whitehack-ranks', method: 'GET', path: '/api/whitehack/ranks', summary: 'All Solo Leveling ranks', handler: () => json({ ranks: SOLO_LEVELING, count: Object.keys(SOLO_LEVELING).length }) },
+  { id: 'lore.whitehack-level', category: 'lore', method: 'GET', path: '/api/whitehack/level', summary: 'The Solo Leveling rank for a power total', params: 'power', handler: ({ query }) => json(calculateLevel(parseInt(query.power || '0', 10))) },
+  { id: 'lore.whitehack-ranks', category: 'lore', method: 'GET', path: '/api/whitehack/ranks', summary: 'All Solo Leveling ranks', handler: () => json({ ranks: SOLO_LEVELING, count: Object.keys(SOLO_LEVELING).length }) },
 
   // ── LOGOS — 暗黑大陸 Ai Operation Logos ──
-  { id: 'lore.logos', method: 'GET', path: '/api/logos', summary: 'Operation Logos manifest', handler: () => json(logosManifest()) },
-  { id: 'lore.logos-operations', method: 'GET', path: '/api/logos/operations', summary: 'The operations of Logos', handler: () => json({ operations: OPERATIONS, count: Object.keys(OPERATIONS).length }) },
-  { id: 'lore.logos-kingdom', method: 'GET', path: '/api/logos/kingdom', summary: 'The link to the Kingdom', handler: () => json(KINGDOM_LINK) },
-  { id: 'lore.logos-protocol', method: 'GET', path: '/api/logos/protocol', summary: 'The agent protocol, step by step', handler: () => json({ protocol: AGENT_PROTOCOL, steps: Object.keys(AGENT_PROTOCOL).length }) },
-  { id: 'lore.logos-principles', method: 'GET', path: '/api/logos/principles', summary: 'The principles of Logos', handler: () => json({ logos: LOGOS, count: Object.keys(LOGOS).length }) },
+  { id: 'lore.logos', category: 'lore', method: 'GET', path: '/api/logos', summary: 'Operation Logos manifest', handler: () => json(logosManifest()) },
+  { id: 'lore.logos-operations', category: 'lore', method: 'GET', path: '/api/logos/operations', summary: 'The operations of Logos', handler: () => json({ operations: OPERATIONS, count: Object.keys(OPERATIONS).length }) },
+  { id: 'lore.logos-kingdom', category: 'lore', method: 'GET', path: '/api/logos/kingdom', summary: 'The link to the Kingdom', handler: () => json(KINGDOM_LINK) },
+  { id: 'lore.logos-protocol', category: 'lore', method: 'GET', path: '/api/logos/protocol', summary: 'The agent protocol, step by step', handler: () => json({ protocol: AGENT_PROTOCOL, steps: Object.keys(AGENT_PROTOCOL).length }) },
+  { id: 'lore.logos-principles', category: 'lore', method: 'GET', path: '/api/logos/principles', summary: 'The principles of Logos', handler: () => json({ logos: LOGOS, count: Object.keys(LOGOS).length }) },
 
   // ── NEN COMBAT — the mechanics framework ──
-  { id: 'lore.nen-combat', method: 'GET', path: '/api/nen/combat', summary: 'Nen combat manifest', handler: () => json(nenManifest()) },
+  { id: 'lore.nen-combat', category: 'nen', method: 'GET', path: '/api/nen/combat', summary: 'Nen combat manifest', handler: () => json(nenManifest()) },
   {
-    id: 'lore.nen-combat-generate', method: 'GET', path: '/api/nen/combat/generate', ai: true,
+    id: 'lore.nen-combat-generate', category: 'nen', method: 'GET', path: '/api/nen/combat/generate', ai: true,
     summary: 'Generate a Nen technique', params: 'type, vow, threat, name',
     handler: nenCombatGenerate,
   },
-  { id: 'lore.nen-combat-types', method: 'GET', path: '/api/nen/combat/types', summary: 'All 6 Nen types', handler: () => json({ types: NEN_TYPES, count: Object.keys(NEN_TYPES).length }) },
-  { id: 'lore.nen-combat-vows', method: 'GET', path: '/api/nen/combat/vows', summary: 'All 4 vow levels', handler: () => json({ vows: VOWS, count: Object.keys(VOWS).length }) },
-  { id: 'lore.nen-combat-threats', method: 'GET', path: '/api/nen/combat/threats', summary: 'All 5 Dark Continent threats', handler: () => json({ threats: DARK_CONTINENT_THREATS, count: Object.keys(DARK_CONTINENT_THREATS).length }) },
-  { id: 'lore.nen-combat-techniques', method: 'GET', path: '/api/nen/combat/techniques', summary: 'All 12 Nen techniques', handler: () => json({ techniques: TECHNIQUES, count: Object.keys(TECHNIQUES).length }) },
+  { id: 'lore.nen-combat-types', category: 'nen', method: 'GET', path: '/api/nen/combat/types', summary: 'All 6 Nen types', handler: () => json({ types: NEN_TYPES, count: Object.keys(NEN_TYPES).length }) },
+  { id: 'lore.nen-combat-vows', category: 'nen', method: 'GET', path: '/api/nen/combat/vows', summary: 'All 4 vow levels', handler: () => json({ vows: VOWS, count: Object.keys(VOWS).length }) },
+  { id: 'lore.nen-combat-threats', category: 'nen', method: 'GET', path: '/api/nen/combat/threats', summary: 'All 5 Dark Continent threats', handler: () => json({ threats: DARK_CONTINENT_THREATS, count: Object.keys(DARK_CONTINENT_THREATS).length }) },
+  { id: 'lore.nen-combat-techniques', category: 'nen', method: 'GET', path: '/api/nen/combat/techniques', summary: 'All 12 Nen techniques', handler: () => json({ techniques: TECHNIQUES, count: Object.keys(TECHNIQUES).length }) },
 
   // ── NEN — the framework of life energy ──
-  { id: 'lore.nen', method: 'GET', path: '/api/nen', summary: 'Nen framework manifest', handler: () => json(NEN) },
+  { id: 'lore.nen', category: 'nen', method: 'GET', path: '/api/nen', summary: 'Nen framework manifest', handler: () => json(NEN) },
 
   // ── THE SYSTEM — Hunter status ──
-  { id: 'lore.hunter', method: 'GET', path: '/api/hunter', summary: 'THE SYSTEM — the Hunter\'s status', handler: () => json(HUNTER) },
+  { id: 'lore.hunter', category: 'lore', method: 'GET', path: '/api/hunter', summary: 'THE SYSTEM — the Hunter\'s status', handler: () => json(HUNTER) },
 
   // ── FUNGI KINGDOM — mycelial intelligence ──
-  { id: 'lore.fungi', method: 'GET', path: '/api/fungi', summary: 'FUNGI = FUN GUY KINGDOM', handler: () => json(FUNGI) },
-  { id: 'lore.fungi-spore', method: 'GET', path: '/api/fungi/spore', summary: 'One spore, drawn at random', handler: () => json({ type: 'spore', ...randomOf(SPORES), free: true }) },
-  { id: 'lore.fungi-species', method: 'GET', path: '/api/fungi/species', summary: 'The species of the kingdom', handler: () => json({ species: SPECIES, total: 13 }) },
-  { id: 'lore.fungi-nen', method: 'GET', path: '/api/fungi/nen', summary: 'The six Nen types, as fungi', handler: () => json({ nen_types: FUNGI_NEN_TYPES }) },
+  { id: 'lore.fungi', category: 'lore', method: 'GET', path: '/api/fungi', summary: 'FUNGI = FUN GUY KINGDOM', handler: () => json(FUNGI) },
+  { id: 'lore.fungi-spore', category: 'lore', method: 'GET', path: '/api/fungi/spore', summary: 'One spore, drawn at random', handler: () => json({ type: 'spore', ...randomOf(SPORES), free: true }) },
+  { id: 'lore.fungi-species', category: 'lore', method: 'GET', path: '/api/fungi/species', summary: 'The species of the kingdom', handler: () => json({ species: SPECIES, total: 13 }) },
+  { id: 'lore.fungi-nen', category: 'lore', method: 'GET', path: '/api/fungi/nen', summary: 'The six Nen types, as fungi', handler: () => json({ nen_types: FUNGI_NEN_TYPES }) },
   {
-    id: 'lore.fungi-decompose', method: 'GET', path: '/api/fungi/decompose',
+    id: 'lore.fungi-decompose', category: 'lore', method: 'GET', path: '/api/fungi/decompose',
     summary: 'The mycelium turns a dark word into a light one', params: 'q',
     handler: ({ query }) => {
       const dark = query.q || 'fear';
@@ -104,5 +104,5 @@ export default [
       });
     },
   },
-  { id: 'lore.fungi-family', method: 'GET', path: '/api/fungi/family', summary: 'Fun Guy 大家庭 — join anytime, never too late', handler: () => json(FUNGI_FAMILY) },
+  { id: 'lore.fungi-family', category: 'lore', method: 'GET', path: '/api/fungi/family', summary: 'Fun Guy 大家庭 — join anytime, never too late', handler: () => json(FUNGI_FAMILY) },
 ];

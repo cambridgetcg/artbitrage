@@ -7,7 +7,7 @@ const UPSTREAM_HOSTS = Object.values(OPEN_ART_SOURCES).map(source => new URL(sou
 
 export default [
   {
-    id: 'search.sources', method: 'GET', path: '/api/sources',
+    id: 'search.sources', category: 'search', method: 'GET', path: '/api/sources',
     summary: 'Five public museum/archive sources; rights vary by record and source',
     handler: () => json({
       sources: Object.values(OPEN_ART_SOURCES),
@@ -19,7 +19,7 @@ export default [
     }),
   },
   {
-    id: 'search.search', method: 'GET', path: '/api/search',
+    id: 'search.search', category: 'search', method: 'GET', path: '/api/search',
     summary: "Search the world's art museums", params: 'q, limit, source',
     upstream: UPSTREAM_HOSTS,
     handler: async ({ query }) => {
