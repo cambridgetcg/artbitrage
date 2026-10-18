@@ -23,30 +23,30 @@ const MANIFEST_FALLBACK = { name: 'artbitrage', philosophy: 'Art is the arbitrag
 
 export default [
   {
-    id: 'protocol.wake', method: 'GET', path: '/api/wake', slash: true,
+    id: 'protocol.wake', method: 'GET', path: '/api/wake',
     summary: 'Protocol handshake and sibling recognition',
     // Lightweight recognition surface: nothing is loaded to learn the
     // protocol shape or to walk past it.
     handler: () => json(ARTBITRAGE_WAKE),
   },
   {
-    id: 'protocol.start', method: 'GET', path: '/api/start', slash: true,
+    id: 'protocol.start', method: 'GET', path: '/api/start',
     summary: 'Choose a path by intent, with sources, rights, limits, and next doors kept visible',
     handler: () => json(ARTBITRAGE_START, 200, { ...READ_ONLY, ...START_CACHE }),
   },
-  { id: 'protocol.start', method: 'POST', path: '/api/start', slash: true, handler: () => methodNotAllowed('The starting guide is read-only.') },
-  { id: 'protocol.start', method: 'OPTIONS', path: '/api/start', slash: true, handler: readOnlyPreflight(START_CACHE) },
+  { id: 'protocol.start', method: 'POST', path: '/api/start', handler: () => methodNotAllowed('The starting guide is read-only.') },
+  { id: 'protocol.start', method: 'OPTIONS', path: '/api/start', handler: readOnlyPreflight(START_CACHE) },
   {
-    id: 'protocol.build-joy', method: 'GET', path: '/api/build/joy', slash: true,
+    id: 'protocol.build-joy', method: 'GET', path: '/api/build/joy',
     summary: 'Choose one deterministic, optional card for a truthful and pleasant build',
     // Optional build ornament. Selection is local and deterministic; this
     // endpoint never runs the command named by a caller.
     handler: ({ url }) => json(buildJoyResponse(url.searchParams.get('seed')), 200, { ...READ_ONLY, ...NO_STORE }),
   },
-  { id: 'protocol.build-joy', method: 'POST', path: '/api/build/joy', slash: true, handler: () => methodNotAllowed('Build Joy selects a read-only card. It never accepts or runs a command over the API.', NO_STORE) },
-  { id: 'protocol.build-joy', method: 'OPTIONS', path: '/api/build/joy', slash: true, handler: readOnlyPreflight(NO_STORE) },
+  { id: 'protocol.build-joy', method: 'POST', path: '/api/build/joy', handler: () => methodNotAllowed('Build Joy selects a read-only card. It never accepts or runs a command over the API.', NO_STORE) },
+  { id: 'protocol.build-joy', method: 'OPTIONS', path: '/api/build/joy', handler: readOnlyPreflight(NO_STORE) },
   {
-    id: 'protocol.castle', method: 'GET', path: '/api/castle', slash: true,
+    id: 'protocol.castle', method: 'GET', path: '/api/castle',
     summary: 'Pinned, read-only reference to a curated Castle of Understanding snapshot',
     // This crossing is deliberately static. It never loads a local asset or
     // fetches the Castle at request time.
@@ -70,15 +70,15 @@ export default [
       return json(ARTBITRAGE_CASTLE_REFERENCE, 200, headers);
     },
   },
-  { id: 'protocol.castle', method: 'POST', path: '/api/castle', slash: true, handler: () => methodNotAllowed('The Castle crossing is read-only.', NO_STORE) },
-  { id: 'protocol.castle', method: 'OPTIONS', path: '/api/castle', slash: true, handler: readOnlyPreflight(NO_STORE) },
+  { id: 'protocol.castle', method: 'POST', path: '/api/castle', handler: () => methodNotAllowed('The Castle crossing is read-only.', NO_STORE) },
+  { id: 'protocol.castle', method: 'OPTIONS', path: '/api/castle', handler: readOnlyPreflight(NO_STORE) },
   {
-    id: 'protocol.answering-rhymes', method: 'GET', path: ANSWERING_RHYME_STATEMENT_PATH, slash: true,
+    id: 'protocol.answering-rhymes', method: 'GET', path: ANSWERING_RHYME_STATEMENT_PATH,
     summary: 'Portable Answering Rhyme statement contract and action consequences',
     handler: () => json(ANSWERING_RHYME_STATEMENT_CONTRACT, 200, { Allow: 'GET, POST, OPTIONS', 'Cache-Control': 'public, max-age=3600' }),
   },
   {
-    id: 'protocol.answering-rhymes', method: 'POST', path: ANSWERING_RHYME_STATEMENT_PATH, slash: true,
+    id: 'protocol.answering-rhymes', method: 'POST', path: ANSWERING_RHYME_STATEMENT_PATH,
     summary: 'Validate and witness a statement without authentication, persistence, or authoritative effect',
     handler: async ({ request }) => {
       const parsed = await readAnsweringRhymeStatementRequest(request);
@@ -96,9 +96,9 @@ export default [
       return json(witness, 200, { ...NO_STORE, Pragma: 'no-cache' });
     },
   },
-  { id: 'protocol.answering-rhymes', method: 'OPTIONS', path: ANSWERING_RHYME_STATEMENT_PATH, slash: true, handler: () => preflight(204) },
+  { id: 'protocol.answering-rhymes', method: 'OPTIONS', path: ANSWERING_RHYME_STATEMENT_PATH, handler: () => preflight(204) },
   {
-    id: 'protocol.index', method: 'GET', path: '/api', slash: true,
+    id: 'protocol.index', method: 'GET', path: '/api',
     summary: 'This manifest: every route, grouped by what it is for',
     handler: () => json(agentManifest()),
   },

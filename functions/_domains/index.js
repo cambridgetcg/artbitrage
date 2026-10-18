@@ -2,7 +2,7 @@
 // functions/api/[[route]].js dispatches through it; the /api manifest and the
 // golden contract test read it too.
 import { createRouter } from '../_kernel/router.js';
-import { notFound, preflight } from '../_kernel/http.js';
+import { internalError, notFound, preflight } from '../_kernel/http.js';
 import protocol from './protocol/routes.js';
 import participate from './participate/routes.js';
 import reference from './reference/routes.js';
@@ -19,15 +19,30 @@ export const DOMAINS = { protocol, participate, reference, collection, museum, r
 
 export const router = createRouter(Object.values(DOMAINS).flat());
 
+// Every answer names the route that gave it, so a log line or a bug report
+// can point at one declaration.
+function stamp(response, routeId) {
+  const out = new Response(response.body, response);
+  out.headers.set('X-Artbitrage-Route', routeId);
+  return out;
+}
+
 export async function handle(context, method = context.request.method) {
   const url = new URL(context.request.url);
   const found = router.find(method, url.pathname);
-  if (!found) return method === 'OPTIONS' ? preflight(200) : notFound(url.pathname);
-  return found.route.handler({
-    ...context,
-    url,
-    path: url.pathname,
-    query: Object.fromEntries(url.searchParams),
-    params: found.params,
-  });
+  if (!found) return stamp(method === 'OPTIONS' ? preflight(200) : notFound(url.pathname), method === 'OPTIONS' ? 'preflight' : 'not-found');
+  const { route, params } = found;
+  try {
+    const response = await route.handler({
+      ...context,
+      url,
+      path: url.pathname,
+      query: Object.fromEntries(url.searchParams),
+      params,
+    });
+    return stamp(response, route.id);
+  } catch (error) {
+    console.error(`artbitrage route ${route.id} failed:`, error?.stack || error);
+    return stamp(internalError(route.id), route.id);
+  }
 }

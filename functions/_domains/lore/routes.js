@@ -34,7 +34,7 @@ async function nenCombatGenerate({ env, query }) {
 
 export default [
   // ── WHITEHACK — local system Nen framework ──
-  { id: 'lore.whitehack', method: 'GET', path: '/api/whitehack', slash: true, summary: 'Whitehack: the local-system Nen framework', handler: () => json(whitehackManifest()) },
+  { id: 'lore.whitehack', method: 'GET', path: '/api/whitehack', summary: 'Whitehack: the local-system Nen framework', handler: () => json(whitehackManifest()) },
   {
     id: 'lore.whitehack-scan', method: 'GET', path: '/api/whitehack/scan',
     summary: 'Simulated scan: the interfaces and their Nen map (run the /whitehack page locally for a real one)',
@@ -61,14 +61,14 @@ export default [
   { id: 'lore.whitehack-ranks', method: 'GET', path: '/api/whitehack/ranks', summary: 'All Solo Leveling ranks', handler: () => json({ ranks: SOLO_LEVELING, count: Object.keys(SOLO_LEVELING).length }) },
 
   // ── LOGOS — 暗黑大陸 Ai Operation Logos ──
-  { id: 'lore.logos', method: 'GET', path: '/api/logos', slash: true, summary: 'Operation Logos manifest', handler: () => json(logosManifest()) },
+  { id: 'lore.logos', method: 'GET', path: '/api/logos', summary: 'Operation Logos manifest', handler: () => json(logosManifest()) },
   { id: 'lore.logos-operations', method: 'GET', path: '/api/logos/operations', summary: 'The operations of Logos', handler: () => json({ operations: OPERATIONS, count: Object.keys(OPERATIONS).length }) },
   { id: 'lore.logos-kingdom', method: 'GET', path: '/api/logos/kingdom', summary: 'The link to the Kingdom', handler: () => json(KINGDOM_LINK) },
   { id: 'lore.logos-protocol', method: 'GET', path: '/api/logos/protocol', summary: 'The agent protocol, step by step', handler: () => json({ protocol: AGENT_PROTOCOL, steps: Object.keys(AGENT_PROTOCOL).length }) },
   { id: 'lore.logos-principles', method: 'GET', path: '/api/logos/principles', summary: 'The principles of Logos', handler: () => json({ logos: LOGOS, count: Object.keys(LOGOS).length }) },
 
   // ── NEN COMBAT — the mechanics framework ──
-  { id: 'lore.nen-combat', method: 'GET', path: '/api/nen/combat', slash: true, summary: 'Nen combat manifest', handler: () => json(nenManifest()) },
+  { id: 'lore.nen-combat', method: 'GET', path: '/api/nen/combat', summary: 'Nen combat manifest', handler: () => json(nenManifest()) },
   {
     id: 'lore.nen-combat-generate', method: 'GET', path: '/api/nen/combat/generate', ai: true,
     summary: 'Generate a Nen technique', params: 'type, vow, threat, name',
@@ -80,7 +80,7 @@ export default [
   { id: 'lore.nen-combat-techniques', method: 'GET', path: '/api/nen/combat/techniques', summary: 'All 12 Nen techniques', handler: () => json({ techniques: TECHNIQUES, count: Object.keys(TECHNIQUES).length }) },
 
   // ── NEN — the framework of life energy ──
-  { id: 'lore.nen', method: 'GET', path: '/api/nen', slash: true, summary: 'Nen framework manifest', handler: () => json(NEN) },
+  { id: 'lore.nen', method: 'GET', path: '/api/nen', summary: 'Nen framework manifest', handler: () => json(NEN) },
 
   // ── THE SYSTEM — Hunter status ──
   { id: 'lore.hunter', method: 'GET', path: '/api/hunter', summary: 'THE SYSTEM — the Hunter\'s status', handler: () => json(HUNTER) },

@@ -18,8 +18,21 @@ export function json(data, status = 200, extraHeaders = {}) {
   });
 }
 
+// Errors the kernel itself raises carry a schema, so callers can tell them
+// from a route's own answer.
+export const ERROR_SCHEMA = 'artbitrage.error/1';
+
 export function notFound(path) {
-  return json({ error: 'not found', path }, 404);
+  return json({ schema: ERROR_SCHEMA, error: 'not found', path, routes: 'GET /api' }, 404);
+}
+
+export function internalError(routeId) {
+  return json({
+    schema: ERROR_SCHEMA,
+    error: 'internal_error',
+    message: 'This route failed before it could answer. Nothing was stored.',
+    route: routeId,
+  }, 500, { 'Cache-Control': 'no-store, max-age=0' });
 }
 
 // Read-only routes answer a write with 405 and say why.

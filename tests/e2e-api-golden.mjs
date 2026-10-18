@@ -16,6 +16,7 @@
 //   node tests/e2e-api-golden.mjs              verify
 //   node tests/e2e-api-golden.mjs --record     rewrite tests/fixtures/api-golden/snapshots.json
 //   node tests/e2e-api-golden.mjs --dump DIR   also write every response to DIR, for diffing two trees
+//   node tests/e2e-api-golden.mjs --ignore-header NAME   hide one header while reviewing a change
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
@@ -32,6 +33,8 @@ const BODY_TEXT_LIMIT = 16384;
 const args = process.argv.slice(2);
 const RECORD = args.includes('--record');
 const DUMP = args.includes('--dump') ? args[args.indexOf('--dump') + 1] : null;
+// Review aid: --ignore-header NAME hides one header's changes while reading a diff.
+const IGNORED_HEADERS = new Set(args.flatMap((a, i) => (a === '--ignore-header' ? [args[i + 1].toLowerCase()] : [])));
 
 const sha256 = data => createHash('sha256').update(data).digest('hex');
 
@@ -390,7 +393,7 @@ for (const [key, want] of Object.entries(snapshot.cases)) {
   const problems = [];
   if (got.status !== want.status) problems.push(`status ${want.status} → ${got.status}`);
   const headerNames = new Set([...Object.keys(want.headers), ...Object.keys(got.headers)]);
-  for (const h of headerNames) if (want.headers[h] !== got.headers[h]) problems.push(`header ${h}: ${JSON.stringify(want.headers[h])} → ${JSON.stringify(got.headers[h])}`);
+  for (const h of headerNames) if (!IGNORED_HEADERS.has(h) && want.headers[h] !== got.headers[h]) problems.push(`header ${h}: ${JSON.stringify(want.headers[h])} → ${JSON.stringify(got.headers[h])}`);
   if (got.body_sha256 !== want.body_sha256) {
     problems.push(want.body !== undefined && got._text !== null ? `body differs at ${firstDiff(want.body, got._text)}` : `body differs (sha256 ${want.body_sha256.slice(0, 12)} → ${got.body_sha256.slice(0, 12)}, ${want.body_bytes} → ${got.body_bytes} bytes)`);
   }

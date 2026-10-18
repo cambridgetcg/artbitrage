@@ -8,7 +8,7 @@ const pipeline = new ArtbitragePipeline();
 const TEXT_FORMATS = { csv: 'text/csv', ndjson: 'application/x-ndjson', markdown: 'text/markdown' };
 
 export default [
-  { id: 'pipeline.index', method: 'GET', path: '/api/pipeline', slash: true, summary: 'Pipeline manifest', handler: () => json(pipeline.manifest()) },
+  { id: 'pipeline.index', method: 'GET', path: '/api/pipeline', summary: 'Pipeline manifest', handler: () => json(pipeline.manifest()) },
   { id: 'pipeline.workflow', method: 'GET', path: '/api/pipeline/workflow', summary: 'Workflow guide', handler: () => json(pipeline.workflow()) },
   {
     id: 'pipeline.collect', method: 'GET', path: '/api/pipeline/collect',
@@ -49,7 +49,7 @@ export default [
   { id: 'pipeline.agent', method: 'GET', path: '/api/pipeline/agent', summary: 'Agent-optimized data package', reads: ['collection.json'], handler: async ({ env }) => json(await pipeline.agentPackage(env)) },
   { id: 'pipeline.human', method: 'GET', path: '/api/pipeline/human', summary: 'Human-friendly gallery view', reads: ['collection.json'], handler: async ({ env }) => json(await pipeline.humanView(env)) },
   {
-    id: 'pipeline.ingest', method: 'POST', path: '/api/pipeline/ingest', slash: true,
+    id: 'pipeline.ingest', method: 'POST', path: '/api/pipeline/ingest',
     summary: 'Ingest external art with enrichment',
     handler: async ({ env, request }) => {
       let body;

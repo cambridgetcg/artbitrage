@@ -22,7 +22,7 @@ const withCollection = handler => async ctx => {
 
 export default [
   {
-    id: 'collection.list', method: 'GET', path: '/api/art', slash: true,
+    id: 'collection.list', method: 'GET', path: '/api/art',
     summary: 'List all art (paginated)', params: 'form, state, gap, q, limit, offset',
     reads: ['collection.json'],
     handler: withCollection(({ allArt, query }) => json(filterArt(allArt, query))),
@@ -66,7 +66,7 @@ export default [
     }),
   },
   {
-    id: 'collection.feed', method: 'GET', path: '/api/feed', slash: true,
+    id: 'collection.feed', method: 'GET', path: '/api/feed',
     summary: 'Versioned latest-art feed (artbitrage.feed/1)', params: 'limit (1-100, default 20)',
     reads: ['collection.json'],
     handler: withCollection(async ({ collection, allArt, query }) => {

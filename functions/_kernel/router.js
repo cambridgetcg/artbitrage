@@ -9,11 +9,13 @@
 //   '/api/wings/:wing([a-z0-9-]+)'  one segment, constrained
 //   '/api/art/:id+'              the rest of the path (one or more characters)
 //   '/api/trade/**'              a mount: the prefix itself and everything under it
-// `slash: true` also accepts one trailing slash.
+// Every exact or one-segment route also accepts one trailing slash
+// (`slash: false` opts out); a rest-of-path route takes the slash as part of
+// what it captures.
 
 const PARAM = /^:(\w+)(?:\(([^)]+)\))?(\+)?$/;
 
-export function compilePath(path, { slash = false } = {}) {
+export function compilePath(path, { slash = true } = {}) {
   if (path.endsWith('/**')) {
     const prefix = path.slice(0, -3);
     return pathname => (pathname === prefix || pathname.startsWith(`${prefix}/`) ? {} : null);
@@ -23,7 +25,7 @@ export function compilePath(path, { slash = false } = {}) {
     const param = PARAM.exec(segment);
     if (!param) return `/${segment.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`;
     names.push(param[1]);
-    if (param[3]) return '/(.+)';
+    if (param[3]) { slash = false; return '/(.+)'; }
     return `/(${param[2] || '[^/]+'})`;
   }).join('');
   const regex = new RegExp(`^${body || '/'}${slash ? '/?' : ''}$`);

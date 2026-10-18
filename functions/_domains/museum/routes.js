@@ -58,7 +58,7 @@ async function museumList({ env, request, path, query }) {
 
 export default [
   {
-    id: 'museum.record', method: 'GET', path: '/api/museum/:source/:id', slash: true,
+    id: 'museum.record', method: 'GET', path: '/api/museum/:source/:id',
     summary: 'Resolve one stable museum record with normalized rights',
     reads: ['catalog/all.json'],
     handler: async ({ env, request, params }) => {
@@ -80,7 +80,7 @@ export default [
     },
   },
   {
-    id: 'museum.catalog', method: 'GET', path: '/api/catalog', slash: true,
+    id: 'museum.catalog', method: 'GET', path: '/api/catalog',
     summary: 'Real museum artworks catalog',
     reads: ['catalog.json'],
     handler: async ({ env, request }) => {
@@ -89,7 +89,7 @@ export default [
     },
   },
   {
-    id: 'museum.era-catalog', method: 'GET', path: '/api/era-catalog', slash: true,
+    id: 'museum.era-catalog', method: 'GET', path: '/api/era-catalog',
     summary: 'Era-matched museum artworks', params: 'era',
     reads: ['era-catalog.json'],
     handler: async ({ env, request, query }) => {
@@ -142,7 +142,7 @@ export default [
     },
   },
   {
-    id: 'museum.wings', method: 'GET', path: '/api/wings', slash: true,
+    id: 'museum.wings', method: 'GET', path: '/api/wings',
     summary: '川 The River — themed museum catalogue wings',
     reads: ['catalog/index.json'],
     handler: async ({ env, request }) => {
@@ -151,7 +151,7 @@ export default [
     },
   },
   {
-    id: 'museum.wing', method: 'GET', path: '/api/wings/:wing([a-z0-9-]+)', slash: true,
+    id: 'museum.wing', method: 'GET', path: '/api/wings/:wing([a-z0-9-]+)',
     summary: 'One wing of the River, its works and their rights',
     reads: ['catalog/<wing>.json'],
     handler: async ({ env, request, params }) => {
@@ -160,7 +160,7 @@ export default [
     },
   },
   {
-    id: 'museum.list', method: 'GET', path: '/api/museum', slash: true,
+    id: 'museum.list', method: 'GET', path: '/api/museum',
     summary: 'Paginated museum catalogue', params: 'q, wing, source, limit, offset',
     reads: ['catalog/all.json'],
     handler: museumList,
