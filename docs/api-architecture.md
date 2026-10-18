@@ -19,7 +19,7 @@ Yu decided and what was then built on branch `api/restructure`.
 
 | Phase | Commit | What changed |
 |---|---|---|
-| 0 | `test: pin every API route…` | `tests/e2e-api-golden.mjs`: 381 cases through a wrangler-ordered dispatcher, byte for byte |
+| 0 | `test: pin every API route…` | `tests/e2e-api-golden.mjs`: now 391 cases through a wrangler-ordered dispatcher, byte for byte |
 | 1–3 | `refactor: one route table…` | `functions/_kernel/` + `functions/_domains/`; one file route; second implementations and `dist/functions` removed; golden cases byte-identical |
 | 2 | (same commit) | only collection routes read the collection: 182 cases stopped reading it |
 | — | `feat(api): every answer names its route…` | `X-Artbitrage-Route`; trailing slashes everywhere; JSON 500s; `artbitrage.error/1` on kernel errors |
@@ -28,6 +28,7 @@ Yu decided and what was then built on branch `api/restructure`.
 | 5 | `feat(search): …` | one search for `/api/search` and the pipeline; AIC zero scores dropped and its collection total no longer counted; Met read four at a time within 6 s; `total_is_exact` everywhere |
 | 5 | `feat(ai): …` | daily AI budget weighed by model, exact with D1, per isolate without (decision 2) |
 | 4 | `feat(build): …` | `tools/build-dist.mjs`: sync, bake, `_build.json`; collection routes read the bake (decisions 3, 4) |
+| — | `fix: what an independent review…found` | a stale bake is never trusted (byte-count check per isolate, `X-Artbitrage-Collection`); museum random with a slash; built-in-named keys in the bake; the AI burst race; versioned guest cache keys; letter case on former file routes |
 
 **Still to do before it is live:** create the D1 database for the AI budget and
 bind it as `AI_BUDGET` (until then the budget is counted per edge isolate, and
@@ -57,8 +58,12 @@ until each is checked against its clients).
   index; a filtered listing still reads the whole collection.
 - Responses keep `Content-Type: application/json` (no charset parameter), so no
   client sees a header change.
-- Two GitHub workflows (`heartbeat.yml`, `joke-loop.yml`) call AI routes on the
-  live site, about 144 text units a day, inside the budget.
+- Two GitHub workflows call AI routes on the live site: each `heartbeat.yml`
+  run makes four text runs (three `/api/art/generate`, one
+  `/api/nen/combat/generate`) and `joke-loop.yml` one haiku. GitHub runs the
+  heartbeat about hourly in practice (about 100–150 text units a day); at its
+  written schedule (every 15 minutes) it would be about 480 a day, nearly half
+  the default cap.
 
 ## 1. What the API is for (unchanged)
 
