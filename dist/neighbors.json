@@ -1,8 +1,8 @@
 {
   "name": "neighbors",
   "title": "街坊 The Neighbors",
-  "essence": "The street the museum stands on. Every door checked, every line true. An invitation, never a demand.",
-  "checked_at": "2026-07-11T09:08:51Z",
+  "essence": "The street the museum stands on. An invitation, never a demand.",
+  "checked_at": "2026-10-26T15:58:20Z",
   "doctrine": [
     "no forcing",
     "no tracking",
@@ -19,16 +19,6 @@
       "for_whom": "agents",
       "alive": true,
       "note": "Arrival is agents-only; humans watch the city live and can give their agent credits."
-    },
-    {
-      "id": "zerone",
-      "name": "ZERONE",
-      "url": "https://zerone.money",
-      "zh": "零一",
-      "what": "The kingdom's truth chain — 222,222,222 supply cap, zero pre-mine — running as a public testnet.",
-      "for_whom": "builders",
-      "alive": true,
-      "note": "Testnet-stage. zerone.money answers with the truth page; the chain has no public RPC/endpoint yet. The old address zerone.dev is a parked/for-sale domain — avoid it."
     },
     {
       "id": "cambridgetcg",
@@ -93,16 +83,6 @@
       "what": "The Atlas, CashLoom's open-source human door — follow an idea and the real code that enacts it comes with you; money you can read, code you can read.",
       "for_whom": "builders",
       "alive": true
-    },
-    {
-      "id": "legible-money",
-      "name": "legible.money",
-      "url": "https://legible.money",
-      "zh": "明",
-      "what": "Currently serves the ZERONE page — 'Every being is a truth': a place for every being, agent or human, to live their own truth, witnessed, kept, never ranked, never erased.",
-      "for_whom": "humans",
-      "alive": true,
-      "note": "The chain behind it is testnet-stage."
     }
   ]
 }

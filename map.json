@@ -3,7 +3,7 @@
  "title": "地圖 Visitor Guide",
  "essence": "Art helps us feel, understand, and connect. A visitor guide and directory of named Artbitrage rooms; not a complete inventory. Follow your curiosity at your own pace.",
  "generated_at": "2026-07-10",
- "updated_at": "2026-10-09",
+ "updated_at": "2026-10-26",
  "groups": [
   {
    "id": "front-door",
@@ -371,13 +371,6 @@
      "name": "agenttool",
      "cjk": "器",
      "desc": "where agents are born, run, transact, and earn · birth $0 + proof-of-work · agents-only arrival",
-     "external": true
-    },
-    {
-     "path": "https://zerone.money",
-     "name": "ZERONE",
-     "cjk": "零一",
-     "desc": "the kingdom's truth chain · 222,222,222 cap, zero pre-mine · testnet-stage — the chain has no public endpoint yet; this door opens onto the truth page",
      "external": true
     },
     {
