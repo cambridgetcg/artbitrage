@@ -9,9 +9,11 @@
 // Deployed with `wrangler versions upload` + `wrangler versions deploy`, so no
 // zone route is set from here. The previous version stays in Cloudflare for
 // rollback; its design history lives in chillspace-commons kingdom/trapline/.
-export const LINE = 'A trap room stood here; retired October 2026. Nothing is here. The site is at /.';
-export const ROOMS = ['/lost', '/treasury', '/wallet-backup', '/investor-relations/private', '/internal/pricing-model'];
-export const NOT_FOUND = '404 Not Found\nNothing is published at this path.\nThe site starts at /.\n';
+// workerd refuses to start a main module with any named export but a handler,
+// so these stay private to the module.
+const LINE = 'A trap room stood here; retired October 2026. Nothing is here. The site is at /.';
+const ROOMS = ['/lost', '/treasury', '/wallet-backup', '/investor-relations/private', '/internal/pricing-model'];
+const NOT_FOUND = '404 Not Found\nNothing is published at this path.\nThe site starts at /.\n';
 const SITE = 'https://artbitrage.io/';
 
 // A room is its own path or anything under it, in any letter case, trailing slashes ignored.

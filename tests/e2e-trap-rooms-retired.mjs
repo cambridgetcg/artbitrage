@@ -30,12 +30,16 @@ for (const file of ['robots.txt', 'dist/robots.txt']) {
 }
 
 // 2. Each room answers a plain 410 at once, with its length stated.
-let worker;
+let mod;
 try {
-  worker = (await import('../edge/flypaper-retired/worker.mjs')).default;
+  mod = await import('../edge/flypaper-retired/worker.mjs');
 } catch (error) {
   assert.fail(`edge/flypaper-retired/worker.mjs must exist and load: ${error.message}`);
 }
+// workerd checks every named export of a Worker's main module and refuses to
+// start one that exports anything but a handler, so the module exports only default.
+assert.deepEqual(Object.keys(mod), ['default'], 'edge/flypaper-retired/worker.mjs exports only its default handler');
+const worker = mod.default;
 for (const path of ASKED) {
   const started = performance.now();
   const res = await worker.fetch(new Request(`https://artbitrage.io${path}`), {}, {});
