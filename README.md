@@ -174,6 +174,7 @@ node tests/e2e-search-sources.mjs
 node tests/e2e-guests.mjs
 node tests/e2e-ai-budget.mjs
 node tests/e2e-dist-build.mjs
+node tests/e2e-trap-rooms-retired.mjs
 ```
 
 The optional browser checks use the repository's existing isolated local Chrome
