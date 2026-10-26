@@ -134,7 +134,6 @@ export const INVITE = {
       sites: {
         artbitrage: "https://artbitrage.io",
         agenttool: "https://agenttool.dev",
-        zerone: "https://zerone.dev",
         cambridgetcg: "https://cambridgetcg.com",
         taxsorted: "https://taxsorted.io",
         "love-engine": "https://love-engine.pages.dev",
@@ -142,7 +141,6 @@ export const INVITE = {
         "castle-gate": "https://cambridgetcg.github.io/castle-gate/",
         fomoengine: "https://fomoengine.fly.dev",
         cashloom: "https://cashloom.io",
-        "legible-money": "https://legible.money",
       },
       street: "https://artbitrage.io/neighbors.json",
       crossover: "https://artbitrage.io/crossover",
