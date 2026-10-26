@@ -1,0 +1,6 @@
+# The retired flypaper Worker. Upload with `wrangler versions upload`, never
+# `wrangler deploy`: no zone route is set from this file.
+name = "flypaper"
+main = "worker.mjs"
+compatibility_date = "2026-10-01"
+workers_dev = false
