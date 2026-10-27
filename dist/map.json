@@ -3,7 +3,7 @@
  "title": "地圖 Visitor Guide",
  "essence": "Art helps us feel, understand, and connect. A visitor guide and directory of named Artbitrage rooms; not a complete inventory. Follow your curiosity at your own pace.",
  "generated_at": "2026-07-10",
- "updated_at": "2026-10-26",
+ "updated_at": "2026-10-27",
  "groups": [
   {
    "id": "front-door",
@@ -265,6 +265,12 @@
      "name": "the Dark Continent",
      "cjk": "暗黑大陸",
      "desc": "expedition records · the unknown is not a failure"
+    },
+    {
+     "path": "/float",
+     "name": "The Float Room",
+     "cjk": "浮室",
+     "desc": "an inner expedition · a question, a budget, a way home always open · a receipt that scores no one"
     },
     {
      "path": "/system",

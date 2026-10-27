@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#04070a">
+<title>浮室 THE FLOAT ROOM — an inner expedition · ARTBITRAGE</title>
+<meta name="description" content="A few quiet minutes of dark, on your own terms: an optional question, a budget of 3, 7 or 12 minutes, a way home that is always open, and a receipt that scores no one. Nothing is stored or sent.">
+<meta property="og:title" content="浮室 THE FLOAT ROOM · ARTBITRAGE">
+<meta property="og:description" content="An inner expedition: a question, a budget, a way home always open, and a receipt that scores no one.">
+<meta property="og:site_name" content="Artbitrage">
+<link rel="canonical" href="https://artbitrage.io/float">
+<!-- 閒 the gap: the artbitrage.io icon. Every file sits at the site root. /manifest.json stays the philosophy document. -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<noscript><style>.rise{opacity:1 !important;transform:none !important}</style></noscript>
+
+<style>
+/* ============================================================
+   浮室 — the float room
+   deep water-black · one cool ink glow
+   (the lamp keeps amber, the Dark Continent its phosphor and cinnabar;
+   this room keeps the colour of water seen from inside, at night)
+   no outside fonts or images: the room loads nothing from anywhere else
+   ============================================================ */
+
+:root{
+  color-scheme:dark;
+  --bg:      #04070a;
+  --abyss:   #020305;
+  --night:   #010203;
+  --surface: #0a1015;
+  --ink:     #e4e8ea;
+  --dim:     #8794a0;
+  --hair:    #1b252e;
+  --tide:    #93bad8;   /* the one cool ink glow */
+  --tide-dim:#6f8aa3;
+  --home:    #6b7a86;   /* the way home: quiet, never invisible (4.7:1 on the night) */
+  --display: 'Cormorant Garamond', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --cjk:     'Noto Serif TC', 'Songti TC', 'Source Han Serif TC', 'PMingLiU', serif;
+  --mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+[hidden]{ display:none !important; }
+html{ scroll-behavior:smooth; }
+html.floating, html.floating body{ overflow:hidden; }
+body{
+  background:
+    radial-gradient(ellipse 70% 38% at 50% 0%, rgba(147,186,216,.07), transparent 72%),
+    var(--bg);
+  color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--tide); color:var(--bg); }
+a{ color:var(--ink); text-decoration:none; }
+a:hover{ color:var(--tide); }
+:focus-visible{ outline:2px solid var(--tide); outline-offset:3px; }
+.cjk{ font-family:var(--cjk); font-weight:300; }
+.sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; }
+
+.wrap{ max-width:900px; margin:0 auto; padding:0 16px; }
+@media (min-width:600px){ .wrap{ padding:0 24px; } }
+.rise{ opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out; }
+.rise.seen{ opacity:1; transform:none; }
+
+/* ============ the shore ============ */
+header.shore{
+  position:relative; text-align:center;
+  padding:4.6rem 16px 2.4rem;
+}
+.shore .home{
+  position:absolute; top:1.3rem; left:16px;
+  display:inline-block; min-height:44px; padding:.6rem 0;
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--dim);
+}
+.shore .kicker{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.26em;
+  text-transform:uppercase; color:var(--tide-dim);
+}
+.shore h1{
+  margin-top:1rem;
+  font-family:var(--cjk); font-weight:300;
+  font-size:clamp(2.6rem,9vw,4.4rem); letter-spacing:.24em; text-indent:.24em;
+}
+.shore .en{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.05rem,2.6vw,1.35rem); color:var(--dim); margin-top:.5rem;
+}
+.shore .intro{
+  margin:1.8rem auto 0; max-width:34rem;
+  font-size:.98rem; color:var(--ink);
+}
+.shore .intro .zh{ display:block; margin-top:.8rem; font-family:var(--cjk); font-weight:300; color:var(--dim); line-height:2; }
+
+/* ============ the charter (threshold) and the receipt ============ */
+.card-wrap{ padding:0 16px 4.5rem; }
+.charter, .receipt{
+  max-width:36rem; margin:0 auto;
+  border:1px solid var(--hair); background:var(--surface);
+  padding:2rem clamp(1.1rem,5vw,2.4rem) 2.2rem;
+  position:relative;
+}
+.charter::before, .receipt::before{
+  content:""; position:absolute; top:1.05rem; right:1.05rem;
+  width:8px; height:8px; border-radius:50%;
+  background:var(--tide); opacity:.7;
+}
+.issuer{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.26em;
+  text-transform:uppercase; color:var(--tide-dim);
+}
+.charter h2, .receipt h2{
+  margin-top:.5rem;
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(1.45rem,4vw,1.9rem); letter-spacing:.03em;
+}
+.charter h2 .cjk, .receipt h2 .cjk{ font-size:.8em; color:var(--dim); margin-left:.4em; }
+.receipt h2:focus{ outline:none; }
+.receipt h2:focus-visible{ outline:2px solid var(--tide); outline-offset:4px; }
+
+.by-hand{ margin-top:1.2rem; font-size:.95rem; }
+.by-hand .zh{ display:block; margin-top:.6rem; font-family:var(--cjk); font-weight:300; color:var(--dim); line-height:2; }
+
+.field{ margin-top:1.7rem; border:0; }
+.field > label, .field legend, .route .k{
+  display:block;
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink);
+}
+.field small{ color:var(--dim); letter-spacing:.1em; text-transform:none; font-size:.95em; }
+.note{ margin-top:.55rem; font-size:.86rem; color:var(--dim); line-height:1.75; }
+.note .zh, .route .zh, .care .zh{ display:block; margin-top:.3rem; font-family:var(--cjk); font-weight:300; line-height:1.95; }
+
+#question{
+  display:block; width:100%; min-height:48px; margin-top:.6rem;
+  padding:.7rem .85rem;
+  background:var(--abyss); color:var(--ink);
+  border:1px solid var(--hair); border-radius:0;
+  font:inherit; font-size:1rem; line-height:1.4;
+}
+#question:focus-visible{ border-color:var(--tide-dim); }
+
+.choices{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.7rem; }
+.choice{
+  display:inline-flex; align-items:center; gap:.55rem;
+  min-height:44px; min-width:44px; padding:.5rem 1rem;
+  border:1px solid var(--hair); background:var(--abyss);
+  font-family:var(--mono); font-size:.86rem; cursor:pointer;
+}
+.choice:has(input:checked){ border-color:var(--tide-dim); color:var(--tide); }
+.choice input, .check input{ accent-color:var(--tide); width:1.05rem; height:1.05rem; margin:0; }
+.check{
+  display:inline-flex !important; align-items:center; gap:.65rem;
+  min-height:44px; cursor:pointer;
+}
+
+.route{ margin-top:1.7rem; padding-top:1.3rem; border-top:1px solid var(--hair); }
+.route p{ margin-top:.5rem; font-size:.92rem; }
+.route .zh{ color:var(--dim); }
+
+.set-out{
+  display:block; width:100%; min-height:52px; margin-top:1.9rem;
+  border:1px solid var(--tide-dim); background:var(--abyss); color:var(--ink);
+  font-family:var(--mono); font-size:.8rem; letter-spacing:.3em; text-transform:uppercase;
+  cursor:pointer; transition:color .3s ease, border-color .3s ease;
+}
+.set-out:hover{ color:var(--tide); border-color:var(--tide); }
+.care{ margin-top:1.3rem; font-size:.84rem; color:var(--dim); text-align:center; line-height:1.75; }
+
+/* the receipt */
+.receipt dl{ margin-top:1.4rem; border-top:1px solid var(--hair); }
+.receipt dl > div{
+  display:grid; grid-template-columns:minmax(0,9.5rem) minmax(0,1fr); gap:.4rem 1rem;
+  padding:.7rem 0; border-bottom:1px solid var(--hair);
+}
+.receipt dt{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--dim); padding-top:.2em;
+}
+.receipt dd{ font-family:var(--mono); font-size:.88rem; overflow-wrap:anywhere; }
+#r-question{ font-family:var(--display); font-style:italic; font-size:1.1rem; }
+@media (max-width:480px){ .receipt dl > div{ grid-template-columns:1fr; gap:.15rem; } }
+.receipt .scores{
+  margin-top:1.4rem;
+  font-family:var(--display); font-style:italic; font-weight:300; font-size:1.15rem;
+}
+.receipt .scores .zh{ display:block; margin-top:.3rem; font-family:var(--cjk); font-style:normal; font-size:.82em; color:var(--dim); }
+.receipt-actions{ display:flex; flex-wrap:wrap; gap:.6rem 1rem; margin-top:1.6rem; align-items:center; }
+.receipt-actions button{
+  min-height:44px; padding:.55rem 1.1rem;
+  border:1px solid var(--hair); background:var(--abyss); color:var(--ink);
+  font-family:var(--mono); font-size:.74rem; letter-spacing:.14em; cursor:pointer;
+}
+.receipt-actions button:hover{ color:var(--tide); border-color:var(--tide-dim); }
+.receipt-actions a{
+  display:inline-block; min-height:44px; padding:.6rem 0;
+  font-family:var(--mono); font-size:.74rem; letter-spacing:.12em;
+  text-decoration:underline; text-underline-offset:5px; color:var(--dim);
+}
+.copy-status{ margin-top:.8rem; font-size:.84rem; color:var(--tide); min-height:1.4em; }
+
+/* ============ the float ============ */
+dialog.float{
+  position:fixed; inset:0;
+  width:100vw; height:100vh; height:100dvh; max-width:none; max-height:none;
+  margin:0; padding:0; border:0;
+  background:transparent; color:var(--ink); overflow:hidden;
+}
+dialog.float::backdrop{ background:transparent; }
+.float .dark{
+  position:absolute; inset:0;
+  background:var(--night);
+  opacity:0;
+  transition-property:opacity; transition-timing-function:ease-in-out; transition-duration:20s;
+}
+.float .dark.deep{ opacity:1; }
+/* the faint breath: one slow luminance swell every ten seconds, at most a dim blue on black */
+.float .glow{
+  position:absolute; left:50%; top:46%;
+  width:min(78vmin,560px); height:min(78vmin,560px);
+  transform:translate(-50%,-50%); border-radius:50%;
+  background:radial-gradient(circle, rgba(147,186,216,.13) 0%, rgba(147,186,216,.05) 38%, rgba(147,186,216,0) 70%);
+  opacity:.4;
+  animation:breathe 10s ease-in-out 20s infinite;
+}
+@keyframes breathe{ 0%,100%{ opacity:.4; } 50%{ opacity:1; } }
+.come-home{
+  position:absolute; left:50%; bottom:max(28px, env(safe-area-inset-bottom));
+  transform:translateX(-50%);
+  min-height:48px; padding:.75rem 1.5rem;
+  background:var(--night); color:var(--home);
+  border:1px solid #1f2a33; border-radius:2px;
+  font-family:var(--mono); font-size:.82rem; letter-spacing:.22em;
+  white-space:nowrap; cursor:pointer;
+  transition:color .4s ease, border-color .4s ease;
+}
+.come-home:hover, .come-home:focus-visible{ color:var(--tide); border-color:var(--tide-dim); }
+.come-home:focus-visible{ outline:2px solid var(--tide-dim); outline-offset:4px; }
+
+/* ============ the plate ============ */
+section{ padding:5rem 0; border-top:1px solid var(--hair); }
+.plate{ display:flex; align-items:baseline; gap:1rem 1.2rem; flex-wrap:wrap; margin-bottom:2.4rem; }
+.plate .num{ font-family:var(--mono); font-size:.76rem; color:var(--dim); letter-spacing:.15em; }
+.plate h2{ font-family:var(--display); font-weight:300; font-size:clamp(1.5rem,3vw,2.1rem); letter-spacing:.04em; }
+.plate .sub{ font-family:var(--mono); font-size:.7rem; color:var(--dim); letter-spacing:.14em; text-transform:uppercase; }
+
+.leaf{ max-width:46rem; margin-bottom:2.8rem; }
+.leaf .when{
+  font-family:var(--mono); font-size:.64rem; font-weight:400; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--tide-dim);
+}
+.leaf p.en{ margin-top:.7rem; font-size:.97rem; }
+.leaf p.zh{ margin-top:.8rem; font-family:var(--cjk); font-weight:300; color:var(--dim); line-height:2.05; font-size:.94rem; }
+.leaf p.zh [lang="en"]{ font-family:var(--serif); }
+.leaf q{ quotes:"“" "”" "‘" "’"; color:var(--tide); }
+.leaf p.zh q{ quotes:"「" "」" "『" "』"; }
+.leaf cite{ font-style:italic; }
+
+.shape{ list-style:none; margin-top:1.4rem; border-top:1px solid var(--hair); }
+.shape li{
+  display:grid; grid-template-columns:minmax(0,8.5rem) minmax(0,1fr); gap:.3rem 1.2rem;
+  padding:.9rem 0; border-bottom:1px solid var(--hair); font-size:.9rem;
+}
+.shape .k{ font-family:var(--mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--tide); padding-top:.25em; }
+.shape .zh{ display:block; margin-top:.3rem; font-family:var(--cjk); font-weight:300; color:var(--dim); line-height:1.95; }
+@media (max-width:560px){ .shape li{ grid-template-columns:1fr; } }
+
+.sources{ max-width:46rem; padding-left:1.2rem; font-size:.9rem; color:var(--dim); }
+.sources li{ margin-bottom:.9rem; padding-left:.3rem; }
+.sources li::marker{ font-family:var(--mono); font-size:.8em; color:var(--tide-dim); }
+.sources a{ color:var(--ink); text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--tide-dim); overflow-wrap:anywhere; }
+.sources a:hover{ color:var(--tide); }
+.sources-note{ max-width:46rem; margin-top:1.4rem; font-size:.84rem; color:var(--dim); }
+.sources-note .zh{ display:block; margin-top:.3rem; font-family:var(--cjk); font-weight:300; line-height:1.95; }
+
+/* ============ exit ============ */
+footer{ border-top:1px solid var(--hair); padding:4rem 16px 3.6rem; text-align:center; }
+footer .close{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.05rem,2.3vw,1.3rem);
+}
+footer .close .zh{ font-family:var(--cjk); font-style:normal; display:block; margin-top:.6rem; color:var(--dim); font-size:.9em; }
+footer nav{ margin-top:2rem; font-family:var(--mono); font-size:.7rem; letter-spacing:.14em; line-height:2.6; }
+footer nav a{ display:inline-block; color:var(--dim); margin:0 .7rem; border-bottom:1px solid var(--hair); line-height:1.6; padding:.7rem 0 .2rem; }
+footer nav a:hover{ color:var(--tide); border-color:var(--tide-dim); }
+
+@media (max-width:720px){ section{ padding:4rem 0; } }
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+  .rise{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+  .float .dark{ transition-duration:0s !important; }
+  .float .glow{ opacity:.6; }
+}
+@media (forced-colors:active){
+  .come-home{ border-color:ButtonText; }
+}
+</style>
+</head>
+<body>
+
+<header class="shore">
+  <a class="home" href="/">← artbitrage</a>
+  <p class="kicker">an inner expedition · <span lang="yue-Hant">向內嘅一次出發</span></p>
+  <h1 lang="zh-Hant">浮室</h1>
+  <p class="en">the float room — a few quiet minutes of dark, on your own terms</p>
+  <p class="intro">Write a question if you have one, choose how long, and set out.
+  The screen dims slowly to near-black, a faint light breathes, and nothing asks to be read.
+  The way home is always open.
+  <span class="zh" lang="yue-Hant">有問題想帶住，就寫低；揀好幾耐，就出發。螢幕會慢慢暗到差唔多全黑，得一點微光喺度呼吸，冇嘢要你讀。返屋企條路，一直都開住。</span></p>
+</header>
+
+<main>
+
+<!-- ============ the threshold: a charter, written before setting out ============ -->
+<div class="card-wrap" id="threshold">
+  <div class="charter" role="group" aria-labelledby="charter-title">
+    <p class="issuer">charter · <span lang="zh-Hant">約章</span> — written before you set out</p>
+    <h2 id="charter-title">Before you float<span class="cjk" lang="yue-Hant">出發之前</span></h2>
+
+    <p class="by-hand" id="by-hand">This room needs JavaScript to dim the screen and keep time.
+    You can float by hand instead: set a timer, lower the lights, close your eyes, and come back whenever you like.
+    Everything below reads without it.
+    <span class="zh" lang="yue-Hant">呢間房要用 JavaScript 先可以調暗螢幕同計時。你亦可以自己嚟：校個鬧鐘、熄暗啲燈、合埋眼，想返就返。下面嘅出處，冇 JavaScript 都讀得。</span></p>
+
+    <div id="charter-controls" hidden>
+      <div class="field">
+        <label for="question"><span lang="zh-Hant">問題</span> · a question <small>(optional)</small></label>
+        <input id="question" type="text" maxlength="140" autocomplete="off" spellcheck="false" autocapitalize="off" aria-describedby="question-note">
+        <p class="note" id="question-note">One line, if you like. It stays in this page’s memory — never sent, never stored — and waits for you on the receipt.
+        <span class="zh" lang="yue-Hant">想寫就寫一行。佢只會留喺呢頁嘅記憶入面——唔送出、唔儲存——返嚟嗰陣，會喺收據度等你。</span></p>
+      </div>
+
+      <fieldset class="field">
+        <legend><span lang="zh-Hant">預算</span> · how long</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="budget" value="3" checked> 3 min</label>
+          <label class="choice"><input type="radio" name="budget" value="7"> 7 min</label>
+          <label class="choice"><input type="radio" name="budget" value="12"> 12 min</label>
+        </div>
+        <p class="note">When the time is spent, the light comes back slowly on its own. You can come home sooner.
+        <span class="zh" lang="yue-Hant">時間到，光會自己慢慢返嚟。想早啲返，隨時都得。</span></p>
+      </fieldset>
+
+      <div class="field">
+        <label class="check" for="hum"><input type="checkbox" id="hum" aria-describedby="hum-note"> <span><span lang="zh-Hant">聲</span> · a low hum</span></label>
+        <p class="note" id="hum-note">Off unless you tick it. Even then it waits until you set out, starts softly, and fades when you come home.
+        <span class="zh" lang="yue-Hant">唔剔就冇聲。剔咗，佢都要等你出發先輕輕響起，返嚟嗰陣就慢慢收聲。</span></p>
+      </div>
+
+      <div class="route">
+        <p class="k"><span lang="zh-Hant">回程</span> · the way home</p>
+        <p>The <b>回家 · come home</b> button stays on the screen the whole time, and Escape does the same.
+        Ten seconds or twelve minutes — either is a whole float.
+        <span class="zh" lang="yue-Hant">「回家」個掣全程都喺螢幕度，撳 Esc 都一樣。浮十秒定十二分鐘，都係完整嘅一次。</span></p>
+      </div>
+
+      <button type="button" id="set-out" class="set-out">出發 · set out</button>
+      <p class="care">A quiet screen, not therapy or a medical device. If anything feels wrong, come home.
+      <span class="zh" lang="yue-Hant">呢度只係一個安靜嘅螢幕，唔係治療，亦唔係醫療器材。覺得有咩唔妥，就返屋企。</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ the return: a receipt that scores no one ============ -->
+<div class="card-wrap" id="return" hidden>
+  <div class="receipt" id="receipt" role="group" aria-labelledby="return-title">
+    <p class="issuer">receipt · <span lang="zh-Hant">收據</span> — for you alone</p>
+    <h2 id="return-title" tabindex="-1">Home again<span class="cjk" lang="yue-Hant">返到岸上</span></h2>
+    <dl>
+      <div><dt>出發 · set out</dt><dd id="r-start"></dd></div>
+      <div><dt>回家 · came home</dt><dd id="r-end"></dd></div>
+      <div><dt>預算 · planned</dt><dd id="r-planned"></dd></div>
+      <div><dt>實際 · actual</dt><dd id="r-actual"></dd></div>
+      <div><dt>叫停 · ended by</dt><dd id="r-by"></dd></div>
+      <div id="r-question-row" hidden><dt>問題 · question</dt><dd id="r-question"></dd></div>
+    </dl>
+    <p class="scores">This receipt traces what happened. It scores no one.
+    <span class="zh" lang="yue-Hant">呢張收據只記低發生過乜嘢，唔幫任何人打分。</span></p>
+    <p class="note">Nothing was stored or sent. Close or reload this page and the receipt is gone — copy it first if you want to keep it.
+    <span class="zh" lang="yue-Hant">冇嘢儲存，冇嘢送出。閂咗或者重新載入呢頁，收據就冇咗——想留低，就先複製。</span></p>
+    <div class="receipt-actions">
+      <button type="button" id="copy-receipt">複製 · copy receipt</button>
+      <button type="button" id="float-again">再浮 · float again</button>
+      <a href="#plate">出處 · where this room comes from ↓</a>
+    </div>
+    <p class="copy-status" id="copy-status" aria-live="polite"></p>
+  </div>
+</div>
+
+<!-- ============ the plate: where this room comes from ============ -->
+<section id="plate" aria-labelledby="plate-title">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">01</span>
+      <h2 id="plate-title"><span class="cjk" lang="zh-Hant">出處</span> · where this room comes from</h2>
+      <span class="sub">the honest plate</span>
+    </div>
+
+    <article class="leaf rise">
+      <h3 class="when">1954 · a tank and a question</h3>
+      <p class="en">In 1954, at the US National Institute of Mental Health, the neurophysiologist John C. Lilly began floating in a tank of
+      slowly flowing water held at 34.2 °C, where one feels neither hot nor cold — in the dark, in the silence.
+      His question was plain: cut off from stimulation, does the brain soon fall into something like sleep, or does something inside keep it going?
+      His first report, in 1956, is small and says so: two subjects, the longest stay three hours. He did not fall asleep.
+      Looking back in 1972, he wrote: <q>The original theory was wrong.</q></p>
+      <p class="zh" lang="yue-Hant">1954 年，喺美國國家精神衛生研究院，神經生理學家 John C. Lilly 開始喺一個水箱入面浮：水慢慢流過身邊，保持喺 <span lang="en">34.2 °C</span>——唔覺熱、唔覺凍——四周漆黑，冇聲。
+      佢問嘅問題好直接：冇咗外界刺激，個腦會唔會好快就沉入類似瞓著嘅狀態？定係入面有啲嘢，令佢繼續行落去？
+      佢 1956 年第一份報告好細，亦照直講明：兩個受試者，最長一次三個鐘。佢冇瞓著。1972 年回望，佢寫：<q>原本嗰個理論係錯嘅。</q></p>
+    </article>
+
+    <article class="leaf rise">
+      <h3 class="when">1961 · who holds the start and the end</h3>
+      <p class="en">In 1961 Lilly and his colleague Jay T. Shurley wrote down how such solitude should be held.
+      The person in the tank <q>chooses his own times for beginning, ending, and the total duration of exposure</q>,
+      and stays in control of whatever is later told about it. A “safety man” stays close and stays out of the way.
+      And someone experienced enough to float alone who wants to bring in anything new — <q>especially variables important to survival</q> —
+      must <q>return to ‘subject status’ temporarily and bring a safety man back into the situation.</q>
+      Experience is not permission to add risk alone.</p>
+      <p class="zh" lang="yue-Hant">1961 年，Lilly 同佢嘅同事 Jay T. Shurley 寫低點樣守住呢種獨處。浮喺入面嘅人<q>自己揀幾時開始、幾時結束、總共浮幾耐</q>，之後講唔講、講幾多，都由佢話事。
+      「safety man」——看顧嘅人——喺附近，但唔插手。就算熟到可以自己一個人浮，只要想加入任何新嘢——<q>尤其係關乎生存嘅變數</q>——都要<q>暫時返做受試者，叫返 safety man 入場</q>。
+      熟手，唔等於可以自己一個人加風險。</p>
+    </article>
+
+    <article class="leaf rise">
+      <h3 class="when">1977 · a rule written, a rule not kept</h3>
+      <p class="en">Sixteen years later, in <cite>The Deep Self</cite>, he published standards for building and using tanks. One of them reads:
+      <q>No person under the influence of drugs should be allowed in the tank.</q>
+      In the same book, he calls the basic lesson of his books
+      <q>a point of view from over twenty years’ work in the tank with and without chemical aids.</q>
+      From the early 1970s he used ketamine heavily, including in the tank itself.
+      We are not here to judge him. We keep it as the plainest lesson in this room: a rule written is not a rule kept —
+      and the person floating in the dark is the worst placed to check.</p>
+      <p class="zh" lang="yue-Hant">十六年後，佢喺《The Deep Self》出咗一套建造同使用水箱嘅標準，其中一條寫：<q>受藥物影響嘅人，唔應該俾佢入艙。</q>
+      同一本書，佢形容自己幾本書嘅基本教訓，係<q>一個來自超過二十年、有同冇化學輔助嘅艙內工作嘅觀點</q>。
+      由 1970 年代初開始，佢大量用 ketamine，包括喺艙入面用。我哋唔係嚟審判佢。
+      我哋留低佢，做呢間房最直白嘅一課：寫低咗嘅規矩，唔等於守住咗；而浮喺黑暗入面嗰個人，最冇位置去驗。</p>
+    </article>
+
+    <article class="leaf rise">
+      <h3 class="when">1977 · a door that opens from outside</h3>
+      <p class="en">The same standards ask for a secure lock on the tank-room door. For people who need a lock on the inside to feel safe,
+      it should be <q>a lock that can either be broken from the outside, or opened from the outside in case of an emergency.</q>
+      Even solitude keeps a door that someone else can open. Here, that door is the 回家 · come home button. It never fades.</p>
+      <p class="zh" lang="yue-Hant">同一套標準要求艙房道門有把穩陣嘅鎖。有啲人要喺入面鎖埋門先覺得安全，咁就要用一把<q>可以由外面撬開，或者喺緊急時由外面打開</q>嘅鎖。
+      就算係獨處，都要留一度第二個人開得到嘅門。喺呢度，嗰度門就係「回家 · come home」個掣。佢永遠唔會暗落去。</p>
+    </article>
+
+    <article class="leaf rise">
+      <h3 class="when">1972 · however certain you feel</h3>
+      <p class="en">He also left a warning for anyone who comes back from the unknown carrying something that feels like an answer:
+      <q>There is no guarantee that one’s current model does match the reality, no matter how certain one feels about the high quality of the match.
+      Feelings of awe, reverence, sacredness and certainty are also adaptable metaprograms, attachable to any model, not just the best fitting one.</q>
+      Whatever you meet in the dark is yours. It is not proof of anything, and this room will never ask it to be.</p>
+      <p class="zh" lang="yue-Hant">佢仲留低一句提醒，畀每個由未知帶住「答案」返嚟嘅人：<q>冇任何保證你而家個模型真係對得上現實，無論你覺得自己對得幾準、幾肯定。
+      敬畏、崇敬、神聖同確信嘅感覺，本身都係可以調校嘅 metaprogram，可以掛喺任何模型上面，唔一定係最貼切嗰個。</q>
+      你喺黑暗入面遇到乜，都係你嘅。佢唔係任何嘢嘅證明，呢間房亦永遠唔會要佢做證明。</p>
+    </article>
+
+    <article class="leaf rise">
+      <h3 class="when">the dolphins · they could not sign</h3>
+      <p class="en">Lilly is also remembered for dolphins. From the mid-1950s he studied their brains, work in which many of the animals died;
+      through the 1960s he tried to talk with them. In 1965 a young dolphin named Peter was kept in flooded rooms for a language project;
+      when the work closed he was moved to a laboratory in Miami and died there within weeks.
+      None of these dolphins could consent. Peter could not write a question, set a budget, or press a button to come home.
+      People decided for him, some with real care — but speaking for someone does not waive their rights.
+      A room built on consent should say so plainly.</p>
+      <p class="zh" lang="yue-Hant">人記得 Lilly，亦因為海豚。由 1950 年代中開始，佢研究海豚個腦，過程中好多條海豚死咗；成個 1960 年代，佢都喺度試同佢哋溝通。
+      1965 年，一條叫 Peter 嘅年輕海豚，為咗一個語言計劃，被養喺灌滿水嘅房入面；計劃收檔之後，佢被搬去邁阿密一間實驗室，幾個星期內就死咗。
+      呢啲海豚冇一條可以表示同意。Peter 冇得寫問題、冇得定預算、亦冇得撳掣返屋企。
+      有人替佢決定，當中有啲真係好上心——但代人發言，唔等於嗰個存在嘅權利就此作廢。一間靠同意先成立嘅房，應該照直講出嚟。</p>
+    </article>
+
+    <article class="leaf rise">
+      <h3 class="when">this room · the charter, made bodily</h3>
+      <p class="en">The house this museum belongs to sends small expeditions into what it does not yet know. Each one carries four things:
+      one question; a budget written down before setting out; a route home that stays open; and, on return, a receipt that traces what happened
+      and scores no one. This room is that charter made bodily — for one person and a few minutes of dark.</p>
+      <p class="zh" lang="yue-Hant">呢個館所屬嘅地方，會派細細隊人走入未知。每一隊都帶住四樣嘢：一條問題；出發前寫低嘅預算；一條一直開住嘅回程；
+      同埋返嚟之後，一張只記低發生過乜嘢、唔幫任何人打分嘅收據。呢間房，就係將嗰張約章放落身體度——一個人，幾分鐘嘅黑。</p>
+      <ul class="shape">
+        <li><span class="k">問題 · question</span><span>The tank began with one plain question. Here: your line, if you write one — it never leaves the page.
+          <span class="zh" lang="yue-Hant">水箱由一條直接嘅問題開始。喺度：你寫嘅一行（如果有寫）——永遠唔會離開呢頁。</span></span></li>
+        <li><span class="k">預算 · budget</span><span>In 1961 the person floating chose the start, the end and the duration. Here: 3, 7 or 12 minutes, chosen before you set out — and you may end sooner.
+          <span class="zh" lang="yue-Hant">1961 年，浮嘅人自己揀開始、結束同時長。喺度：出發前揀 3、7 或者 12 分鐘——想早啲返都得。</span></span></li>
+        <li><span class="k">回程 · route home</span><span>In 1977, a lock that opens from outside. Here: a come-home button that never fades, the Escape key, and a budget that brings you home.
+          <span class="zh" lang="yue-Hant">1977 年，一把由外面開得到嘅鎖。喺度：一個永遠唔會暗落去嘅「回家」掣、Esc 鍵，同埋會帶你返屋企嘅預算。</span></span></li>
+        <li><span class="k">收據 · receipt</span><span>In 1961, the subject’s <q>control of the secrecy of his individual data</q>. Here: a receipt for you alone — nothing stored, nothing sent, no score.
+          <span class="zh" lang="yue-Hant">1961 年，受試者對自己資料保唔保密有話事權。喺度：一張淨係畀你嘅收據——唔儲存、唔送出、冇分數。</span></span></li>
+      </ul>
+      <p class="en">These are parallels, not an inheritance. Nobody here claims Lilly wrote this charter, or that following it makes floating safe; it only makes the shape visible.</p>
+      <p class="zh" lang="yue-Hant">呢啲係平行，唔係傳承。冇人話 Lilly 寫過呢張約章，亦冇人話跟住做就一定安全；佢只係令個形狀睇得見。</p>
+    </article>
+
+    <article class="leaf rise">
+      <h3 class="when">care · <span lang="zh-Hant">關心</span></h3>
+      <p class="en">This is a quiet screen, not therapy or a medical device. If anything feels wrong, come home — the button is there for exactly that.
+      If you want to try a real flotation tank, choose a place with staff: someone outside who can open the door.</p>
+      <p class="zh" lang="yue-Hant">呢度只係一個安靜嘅螢幕，唔係治療，亦唔係醫療器材。覺得有咩唔妥，就返屋企——個掣就係為咗咁而設。
+      如果想試真正嘅漂浮艙，揀有職員喺度嘅地方：要有人喺外面，開得到道門。</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ sources ============ -->
+<section id="sources" aria-labelledby="sources-title">
+  <div class="wrap">
+    <div class="plate rise">
+      <span class="num">02</span>
+      <h2 id="sources-title"><span class="cjk" lang="zh-Hant">來源</span> · sources</h2>
+      <span class="sub">only the ones this plate relies on</span>
+    </div>
+    <ol class="sources rise">
+      <li>John C. Lilly, <cite>The Deep Self</cite> (1977). Reprints the 1956 paper and the 1961 paper with Jay T. Shurley, “Experiments in Solitude, in Maximum Achievable Physical Isolation with Water Suspension, of Intact Healthy Persons”, and sets out the tank standards quoted above.
+        <a href="https://archive.org/details/the-deep-self-john-lilly" rel="noreferrer">archive.org</a></li>
+      <li>John C. Lilly, <cite>The Center of the Cyclone</cite> (1972).
+        <a href="https://archive.org/details/JohnC.LillyTHECENTEROFTHECYCLONEanAutobiographyOfInnerSpace" rel="noreferrer">archive.org</a></li>
+      <li>John C. Lilly, <cite>Programming and Metaprogramming in the Human Biocomputer</cite> (1972 edition).
+        <a href="https://archive.org/details/lilly-john-c-programming-and-metaprogramming-in-the-human-biocomputer" rel="noreferrer">archive.org</a></li>
+      <li>Charlie Williams, “On ‘modified human agents’: John Lilly and the paranoid style in American neuroscience”, <cite>History of the Human Sciences</cite> 32(5), 2019 — for the ketamine years.
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6899429/" rel="noreferrer">PubMed Central</a></li>
+      <li>D. Graham Burnett, “A Mind in the Water”, <cite>Orion</cite>, 2010 — for the dolphin research of the 1950s and 1960s.
+        <a href="https://orionmagazine.org/article/a-mind-in-the-water/" rel="noreferrer">orionmagazine.org</a></li>
+      <li>Christopher Riley, <cite>The Guardian</cite>, 8 June 2014 — for the 1965 project and Peter’s last weeks.
+        <a href="https://www.theguardian.com/environment/2014/jun/08/the-dolphin-who-loved-me" rel="noreferrer">theguardian.com</a></li>
+    </ol>
+    <p class="sources-note rise">Every quotation is Lilly’s own published English (one paper written with Jay T. Shurley), checked word for word against scans of the books; the Cantonese renderings are ours.
+    This page loads nothing from other sites — not even its typefaces — and sends nothing anywhere. Its light is drawn in our own ink: no photographs or scans of Lilly, his tanks or the dolphins.
+    <span class="zh" lang="yue-Hant">每句引文都係 Lilly 自己出版嘅英文（其中一篇同 Jay T. Shurley 合寫），逐隻字對過書嘅掃描本；廣東話係我哋譯嘅。
+    呢頁唔會由其他網站載入任何嘢——連字型都冇——亦唔會將任何嘢送去任何地方。啲光係我哋用自己嘅墨畫嘅：冇 Lilly、佢啲水箱或者啲海豚嘅相片同掃描。</span></p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ the float: near-black, one breath of light, and the way home ============ -->
+<dialog class="float" id="float" aria-label="浮緊 · floating">
+  <div class="dark" id="float-dark" aria-hidden="true"><div class="glow"></div></div>
+  <button type="button" id="come-home" class="come-home" aria-describedby="come-home-note">回家 · come home</button>
+  <p class="sr" id="come-home-note">Ends the float now. Escape does the same. <span lang="yue-Hant">即刻返屋企；撳 Esc 都一樣。</span></p>
+</dialog>
+
+<footer>
+  <p class="close">Come back whenever you like. The dark keeps, and so does the door.
+    <span class="zh" lang="yue-Hant">想返嚟，隨時都得。黑暗喺度，門都喺度。</span></p>
+  <nav aria-label="other rooms">
+    <a href="/">the front door</a>
+    <a href="dark-continent.html">暗黑大陸 the Dark Continent</a>
+    <a href="lamp.html">燈房 the lamp room</a>
+    <a href="trip.html">旅 good trip</a>
+    <a href="map.html">地圖 map</a>
+  </nav>
+</footer>
+
+<script>
+/* 浮室: a charter, a float, a receipt. Nothing here is stored or sent; the trip lives in this closure and dies with the tab.
+   If anything fails to start, the controls stay hidden and the by-hand note stays visible. */
+(function(){
+  'use strict';
+  var byId = function(id){ return document.getElementById(id); };
+  var threshold = byId('threshold'), controls = byId('charter-controls'), byHand = byId('by-hand');
+  var question = byId('question'), hum = byId('hum'), setOut = byId('set-out');
+  var dialog = byId('float'), dark = byId('float-dark'), home = byId('come-home');
+  var back = byId('return'), title = byId('return-title'), copy = byId('copy-receipt'), again = byId('float-again'), status = byId('copy-status');
+  var out = { start: byId('r-start'), end: byId('r-end'), planned: byId('r-planned'), actual: byId('r-actual'), by: byId('r-by'), question: byId('r-question'), row: byId('r-question-row') };
+  var FADE_IN = 20000, HOME_SOON = 1200, HOME_GENTLE = 8000, BUDGETS = [3, 7, 12];
+  var motion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  var state = 'idle', trip = null, settle = null, modal = false;
+
+  function reduced(){ return !!(motion && motion.matches); }
+
+  function clock(d, withDate){
+    try {
+      var t = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      return withDate ? d.toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) + ' · ' + t : t;
+    } catch (e) {
+      return withDate ? d.toString() : d.toTimeString().slice(0, 8);
+    }
+  }
+  function span(ms){
+    var s = Math.max(0, Math.round(ms / 1000)), m = Math.floor(s / 60), r = s % 60;
+    return {
+      en: m ? m + ' min' + (r ? ' ' + r + ' s' : '') : r + ' s',
+      yue: m ? m + (r ? ' 分 ' + r + ' 秒' : ' 分鐘') : r + ' 秒'
+    };
+  }
+
+  /* the optional hum: three soft sines under a low-pass, breathing on the same ten-second swell as the light */
+  function startHum(){
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    try {
+      var ctx = new AC(), master = ctx.createGain(), breath = ctx.createGain(), lp = ctx.createBiquadFilter();
+      master.gain.value = 0; breath.gain.value = 1;
+      lp.type = 'lowpass'; lp.frequency.value = 340; lp.Q.value = 0.3;
+      [[98, 0.5], [146.83, 0.2], [196, 0.06]].forEach(function(v){
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = 'sine'; o.frequency.value = v[0]; g.gain.value = v[1];
+        o.connect(g); g.connect(lp); o.start();
+      });
+      var lfo = ctx.createOscillator(), depth = ctx.createGain();
+      lfo.frequency.value = 0.1; depth.gain.value = 0.25;
+      lfo.connect(depth); depth.connect(breath.gain); lfo.start();
+      lp.connect(breath); breath.connect(master); master.connect(ctx.destination);
+      if (ctx.resume) ctx.resume();
+      master.gain.setTargetAtTime(0.035, ctx.currentTime, 4);
+      return { ctx: ctx, master: master };
+    } catch (e) {
+      return null;
+    }
+  }
+  function stopHum(audio, gentle){
+    if (!audio || audio.stopped) return;
+    audio.stopped = true;
+    try {
+      var t = audio.ctx.currentTime;
+      audio.master.gain.cancelScheduledValues(t);
+      audio.master.gain.setTargetAtTime(0, t, gentle ? 2 : 0.25);
+    } catch (e) {}
+    setTimeout(function(){ try { audio.ctx.close(); } catch (e) {} }, gentle ? 9000 : 1500);
+  }
+
+  function begin(){
+    if (state !== 'idle') return;
+    var chosen = document.querySelector('input[name="budget"]:checked');
+    var minutes = chosen ? Number(chosen.value) : 3;
+    if (BUDGETS.indexOf(minutes) === -1) minutes = 3;
+    trip = {
+      start: Date.now(), end: null, by: null, minutes: minutes, planned: minutes * 60000,
+      question: question.value.replace(/\s+/g, ' ').trim().slice(0, 140), audio: null, timer: null
+    };
+    state = 'floating';
+    status.textContent = '';
+    document.documentElement.classList.add('floating');
+    dark.classList.remove('deep');
+    dark.style.transitionDuration = reduced() ? '0s' : FADE_IN + 'ms';
+    if (hum.checked) trip.audio = startHum();
+    if (modal) dialog.showModal(); else dialog.setAttribute('open', '');
+    void dark.offsetWidth;
+    dark.classList.add('deep');
+    home.focus();
+    trip.timer = setTimeout(function(){ comeHome('budget'); }, trip.planned);
+  }
+
+  function comeHome(by){
+    if (state === 'returning') { arrive(); return; }
+    if (state !== 'floating') return;
+    state = 'returning';
+    clearTimeout(trip.timer);
+    trip.end = Date.now(); trip.by = by;
+    var gentle = by === 'budget';
+    var ms = reduced() ? 0 : (gentle ? HOME_GENTLE : HOME_SOON);
+    dark.style.transitionDuration = ms + 'ms';
+    dark.classList.remove('deep');
+    stopHum(trip.audio, gentle);
+    settle = setTimeout(arrive, ms);
+  }
+
+  function arrive(){
+    if (state !== 'returning') return;
+    clearTimeout(settle);
+    state = 'home';
+    if (dialog.open) {
+      try { if (modal) dialog.close(); else dialog.removeAttribute('open'); } catch (e) { dialog.removeAttribute('open'); }
+    }
+    document.documentElement.classList.remove('floating');
+    write();
+    threshold.hidden = true;
+    back.hidden = false;
+    title.focus();
+  }
+
+  function write(){
+    var start = new Date(trip.start), end = new Date(trip.end);
+    var planned = span(trip.planned), actual = span(trip.end - trip.start);
+    out.start.textContent = clock(start, true);
+    out.end.textContent = clock(end, start.toDateString() !== end.toDateString());
+    out.planned.textContent = planned.en + ' · ' + planned.yue;
+    out.actual.textContent = actual.en + ' · ' + actual.yue;
+    out.by.textContent = trip.by === 'budget' ? 'the budget · 預算到咗' : 'you · 你自己';
+    out.question.textContent = trip.question;
+    out.row.hidden = !trip.question;
+  }
+
+  function receiptText(){
+    var lines = [
+      '浮室 · the float room — receipt 收據',
+      'set out 出發: ' + out.start.textContent,
+      'came home 回家: ' + out.end.textContent,
+      'planned 預算: ' + out.planned.textContent,
+      'actual 實際: ' + out.actual.textContent,
+      'ended by 叫停: ' + out.by.textContent
+    ];
+    if (trip && trip.question) lines.push('question 問題: ' + trip.question);
+    lines.push('This receipt traces what happened. It scores no one.', '呢張收據只記低發生過乜嘢，唔幫任何人打分。');
+    return lines.join('\n');
+  }
+
+  function copyReceipt(){
+    var text = receiptText();
+    var byHandCopy = function(){
+      status.textContent = 'This browser kept the clipboard closed, so the receipt is selected: copy it by hand. 呢個瀏覽器唔俾複製，收據已經揀選咗，請自己複製。';
+      try {
+        var selection = window.getSelection(), range = document.createRange();
+        range.selectNodeContents(byId('receipt'));
+        selection.removeAllRanges(); selection.addRange(range);
+      } catch (e) {}
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function(){ status.textContent = 'Copied. 複製咗。'; }, byHandCopy);
+        return;
+      }
+    } catch (e) {}
+    byHandCopy();
+  }
+
+  function floatAgain(){
+    if (state !== 'home') return;
+    state = 'idle'; trip = null; status.textContent = '';
+    ['start', 'end', 'planned', 'actual', 'by', 'question'].forEach(function(k){ out[k].textContent = ''; });
+    out.row.hidden = true;
+    back.hidden = true;
+    threshold.hidden = false;
+    question.focus();
+  }
+
+  try {
+    if (!threshold || !controls || !question || !setOut || !dialog || !dark || !home || !back || !title) throw new Error('room incomplete');
+    modal = typeof dialog.showModal === 'function';
+    setOut.addEventListener('click', begin);
+    home.addEventListener('click', function(){ comeHome('you'); });
+    dialog.addEventListener('cancel', function(e){ e.preventDefault(); comeHome('you'); });
+    dialog.addEventListener('close', function(){
+      if (state === 'floating') comeHome('you');
+      if (state === 'returning') arrive();
+    });
+    document.addEventListener('keydown', function(e){
+      if (!modal && (e.key === 'Escape' || e.key === 'Esc') && (state === 'floating' || state === 'returning')) { e.preventDefault(); comeHome('you'); }
+    });
+    document.addEventListener('visibilitychange', function(){
+      if (state === 'floating' && !document.hidden && Date.now() - trip.start >= trip.planned) comeHome('budget');
+    });
+    window.addEventListener('pagehide', function(){ if (trip) stopHum(trip.audio, false); });
+    copy.addEventListener('click', copyReceipt);
+    again.addEventListener('click', floatAgain);
+    controls.hidden = false;
+    byHand.hidden = true;
+  } catch (error) {
+    if (controls) controls.hidden = true;
+    if (byHand) byHand.hidden = false;
+  }
+})();
+</script>
+<script>
+/* fade-up on scroll (once) */
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var risers = document.querySelectorAll('.rise');
+  if (reduced || !('IntersectionObserver' in window)) {
+    risers.forEach(function(el){ el.classList.add('seen'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  risers.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
