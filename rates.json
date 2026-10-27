@@ -1,7 +1,7 @@
 {
   "schema": "artbitrage.baked-rates/1",
   "baked_at": "2026-07-22T21:15:13.179Z",
-  "generated_by": "MONEYWORLD /v1/fx (cashloom sovereign node, http://127.0.0.1:4747) — run your own: github.com/cambridgetcg/cashloom",
+  "generated_by": "MONEYWORLD /v1/fx (cashloom sovereign node, http://127.0.0.1:4747) — run your own: https://cashloom.io",
   "note": "ECB reference rates as cited MoneyFacts, baked at build time. Each fact carries its own staleness; a fact past stale_after_s is served AS stale, never refreshed silently.",
   "count": 30,
   "facts": [

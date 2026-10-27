@@ -44,7 +44,7 @@ try {
 const out = {
   schema: 'artbitrage.baked-rates/1',
   baked_at: new Date().toISOString(),
-  generated_by: `MONEYWORLD /v1/fx (cashloom sovereign node, ${NODE}) — run your own: github.com/cambridgetcg/cashloom`,
+  generated_by: `MONEYWORLD /v1/fx (cashloom sovereign node, ${NODE}) — run your own: https://cashloom.io`,
   note: 'ECB reference rates as cited MoneyFacts, baked at build time. Each fact carries its own staleness; a fact past stale_after_s is served AS stale, never refreshed silently.',
   count: facts.length,
   facts,

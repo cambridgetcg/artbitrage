@@ -327,7 +327,7 @@ function handleRates(rates) {
   if (!rates || !Array.isArray(rates.facts)) {
     return jsonResponse({
       error: 'no rates baked on this deployment',
-      hint: 'node tools/bake-rates.mjs (needs a local MONEYWORLD node on 127.0.0.1:4747 — github.com/cambridgetcg/cashloom)',
+      hint: 'node tools/bake-rates.mjs (needs a local MONEYWORLD node on 127.0.0.1:4747 — https://cashloom.io)',
     }, 503);
   }
   return jsonResponse({
