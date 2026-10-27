@@ -17,7 +17,7 @@
   "/manifest.json": "44b61eb4743dbeddd781488fa98635bf591d3851f10bf38c0e4c4129c345a4b6",
   "/pairings.json": "a70724df8746bfa2541b9e11c8f3f4ca1c53b35ebdbf40a25e0dec4520e17c02",
   "/pigments.json": "cf8fa2475b0a96064a10ae7a25ca57c4fcf70aaca66c6a3de9a63c88767f39cf",
-  "/rates.json": "bef66d34a235e3e95da8c9c120f0c8245b241921cbcccfcdb4bd06cd5a4ea5e0",
+  "/rates.json": "ded58d9dd807a7bba19bfd1c30eee3d5a11c713d0e6448167dc191a76666e4c4",
   "/trade.json": "d65952ee650a8570e54601850f21796778f9e7f15127b952d0895f78bdbdcd88",
   "/wine.json": "3248841bbb62729661be456253948c9ef529fda58ae707f51672fb3f4594b711"
  },
@@ -4819,9 +4819,9 @@
     "content-type": "application/json",
     "x-artbitrage-route": "reference.trade"
    },
-   "body_sha256": "5ff20c06e8546b4c1ae013607bb1966a8774d73663e725dbb2700f82c79c97ad",
-   "body_bytes": 27712,
-   "body_preview": "{\n  \"schema\": \"artbitrage.baked-rates/1\",\n  \"baked_at\": \"2026-07-22T21:15:13.179Z\",\n  \"generated_by\": \"MONEYWORLD /v1/fx (cashloom sovereign node, http://127.0.0.1:4747) — run your own: github.com/cambridgetcg/cashloom\",\n  \"note\": \"ECB refe",
+   "body_sha256": "6ba1a0793ff95d2ceacc09cf240179887af2380f32b2c81337186b684ff81377",
+   "body_bytes": 27699,
+   "body_preview": "{\n  \"schema\": \"artbitrage.baked-rates/1\",\n  \"baked_at\": \"2026-07-22T21:15:13.179Z\",\n  \"generated_by\": \"MONEYWORLD /v1/fx (cashloom sovereign node, http://127.0.0.1:4747) — run your own: https://cashloom.io\",\n  \"note\": \"ECB reference rates a",
    "reads": [],
    "upstream": [],
    "ai": 0
