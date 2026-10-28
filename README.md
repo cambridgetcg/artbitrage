@@ -93,6 +93,15 @@ artwork, and navigation work without JavaScript or an API connection.
   `assets/leonardo/credits.json` (AIC capture log in `tools/receipts/leonardo/`).
   `/davinci`, `/da-vinci` and `/davincii` redirect here. Verify with
   `node tests/e2e-leonardo.mjs --browser`.
+- `/float` — 浮室 · The Float Room, an inner expedition. A small charter before you
+  float (an optional one-line question, a budget of 3, 7 or 12 minutes, sound off
+  unless asked), then the screen dims slowly to near-black with one faint breathing
+  light. The 回家 · come home button never fades, Escape also comes home, and the
+  budget's end brings you back gently, to a receipt that traces what happened and
+  scores no one. Nothing is stored or sent, and the page loads nothing from other
+  sites. Below, an honest plate on John C. Lilly's isolation tank (1954), the 1961
+  safety rules, the 1977 standards and the dolphins who could not consent, with
+  sources. Reduced motion dims at once. Verify with `node tests/e2e-float.mjs --browser`.
 - `/map` — a visitor guide with three selectable artwork backdrops, four illustrated
   journeys, an uncropped artwork viewer, and a searchable room directory.
 - `/explore` — the earlier collection page, preserving its art-history journey,
@@ -163,6 +172,7 @@ node tests/e2e-behind-the-work.mjs --browser
 node tests/e2e-unsigned.mjs --browser
 node tests/e2e-vishenskaya.mjs --browser
 node tests/e2e-leonardo.mjs --browser
+node tests/e2e-float.mjs --browser
 node tests/e2e-brand.mjs
 node tests/e2e-start.mjs
 node tests/e2e-era-pages.mjs
