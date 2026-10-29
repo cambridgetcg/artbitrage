@@ -1,0 +1,43 @@
+{
+  "about": "Painted textures for the foyer (index.html only). They are AI-generated images, not artworks: each was made from a text prompt alone, with no reference image and no artist named. The foyer's palette and motifs are drawn in CSS after Anna Vishenskaya's panels, with her blessing; none of her images were shown to any model.",
+  "generator": {
+    "service": "Grok Imagine (xAI), grok.com/imagine",
+    "mode": "Image, Quality 2.0",
+    "account": "the site's own Grok account",
+    "generated": "2026-10-29",
+    "rights": "AI-generated output; use follows xAI's terms of service. No third-party artwork was supplied as input."
+  },
+  "processing": "Picked one of four results per prompt, then resized and re-encoded as baseline JPEG with macOS sips. Re-encoding drops the original EXIF, including the signature xAI embeds in ImageDescription; original_sha256 identifies the untouched download.",
+  "textures": [
+    {
+      "file": "foyer-clouds.jpg",
+      "use": "Hero sky: .hero-atmosphere::before, soft-light over each view's gradient",
+      "prompt": "Oil painting of a quiet sky full of soft rounded clouds, painted on a smooth gesso panel. Visible fine brushstrokes and gentle glazes. Pale silver-grey and faint lilac tones, almost monochrome, even soft light, no sun. The clouds fill the whole frame; no horizon, no land, no water, no buildings, no people, no birds, no text, no signature, no frame.",
+      "aspect": "16:9",
+      "original": { "width": 1792, "height": 1008, "bytes": 597513, "sha256": "365db8413023f74f9e7fb910236294524aaae38b8818f50a784709bab0c12c26" },
+      "width": 1280,
+      "height": 720,
+      "sha256": "c0a1475eeeb246a6650b534542a3f998c84f734d8e1a03328113b8fa3dcc0b22"
+    },
+    {
+      "file": "foyer-night.jpg",
+      "use": "Rooms section: .shape-section::before, fading out above the room cards",
+      "prompt": "Oil painting of a deep night sky, indigo fading to violet-black, scattered tiny pinpoint stars, a few thin veils of dark cloud. Fine visible brush texture on a smooth gesso panel. No moon, no horizon, no land, no water, no buildings, no people, no text, no signature, no frame.",
+      "aspect": "16:9",
+      "original": { "width": 1792, "height": 1008, "bytes": 738113, "sha256": "ad98af3db11dfb09d8ede1a981585745010fa69f3595ef23a7765b007fd3acd7" },
+      "width": 1440,
+      "height": 810,
+      "sha256": "e6b7e18a707293af7244abfb516d5f4a6a2add2d2ccc4bcc849cbff823afb7f3"
+    },
+    {
+      "file": "foyer-gesso.jpg",
+      "use": "Why section ground: .why-section background",
+      "prompt": "Seamless flat texture of a hand-prepared gesso ground on a wooden panel, seen straight on. Warm ivory off-white, very fine sanding marks, faint brush ridges and tiny pits, soft even daylight. The texture fills the entire frame edge to edge; no objects, no paint, no shadows, no vignette, no text, no frame.",
+      "aspect": "1:1",
+      "original": { "width": 1408, "height": 1408, "bytes": 711617, "sha256": "6c401ead6ec5cb158d3ebdf90d911e4ca0a092086cdddd44f81d27c344581ec5" },
+      "width": 900,
+      "height": 900,
+      "sha256": "58e29e67b1295f25ad320028e46a0a01ecb349f5cc2740b670be0eb4b9bcc810"
+    }
+  ]
+}
