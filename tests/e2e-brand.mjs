@@ -51,7 +51,7 @@ const ROOMS = { index: 'home', visit: 'visit', elements: 'elements', noticing: '
   catalog: 'catalog', pigments: 'pigments', psyche: 'psyche' };
 assert.doesNotMatch(headOf(text('still-we-meet.html')), /<link\b|og:image/, 'still-we-meet.html keeps its zero-link head');
 mirrored('still-we-meet.html');
-const THEME = { index: '#17271f', visit: '#17271f', elements: '#1e2922', noticing: '#eeece3', unsigned: '#1c211d',
+const THEME = { index: '#121018', visit: '#17271f', elements: '#1e2922', noticing: '#eeece3', unsigned: '#1c211d',
   'behind-the-work': '#242d27', trip: '#19231e', psyche: '#100f10' };
 const ICON_PAGES = [...Object.keys(ROOMS), '404', 'api-explorer', 'logos', 'nen-combat', 'nen-tuner', 'whitehack'];
 for (const page of ICON_PAGES) {

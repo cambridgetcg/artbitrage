@@ -121,7 +121,8 @@ assert.match(source, /id="corridor-hold"/, 'the moving corridor can be held stil
 
 // 6. Doors: the foyer, the visitor guide, the sitemap and the short paths lead here once each.
 const home = await text('index.html');
-assert.equal((home.match(/href="vishenskaya\.html"/g) || []).length, 2, 'the foyer door: image and text link');
+assert.equal((home.match(/href="vishenskaya\.html"/g) || []).length, 3, 'the foyer door (image and text link) and the footer credit for the foyer palette');
+assert.match(home, /class="footer-palette">The foyer’s sky, floor and thread of gold come from Anna Vishenskaya’s panels/);
 assert.match(home, /© the artist/);
 assert.ok(JSON.parse(await text('map.json')).groups.flatMap(group => group.rooms).filter(room => room.path === '/vishenskaya').length === 1);
 assert.equal(((await text('map.html')).match(/href="\/vishenskaya"/g) || []).length, 1);
