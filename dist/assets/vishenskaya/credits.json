@@ -6,7 +6,8 @@
  "artist_texts": {
   "statement": "https://annavishenskaya.com/index#statement",
   "bio": "https://annavishenskaya.com/index#bio",
-  "quoted": "The room quotes the artist’s statement and two shop descriptions word for word, with links. Her bio and exhibition list are paraphrased from her site."
+  "quoted": "The room quotes the artist’s statement, two shop descriptions and passages from her ArtConnect portfolio word for word, with links. Her bio and exhibition list are paraphrased from her site. The artist agreed to these quotations on 2026-10-24.",
+  "portfolio": "https://www.artconnect.com/anna-vishenskaya-GOfOR9OOOj2zzx8s_KSzi?tab=portfolio"
  },
  "interpretation": "Passages marked “A reading” and each painting’s returned question are written for the room by Claude (Artbitrage’s AI collaborator), not by the artist.",
  "works": [
@@ -114,7 +115,7 @@
    "title": "Veritas",
    "date": "2026",
    "medium_as_listed": "Oil on a traditional gessoed icon board",
-   "dimensions_as_listed": null,
+   "dimensions_as_listed": "17H × 13W × 2D cm (ArtConnect portfolio, seen 2026-10-21; the shop listing gives none)",
    "framing_as_listed": "Framed with antiglare protective glass",
    "listing": "https://abracadabra-9668.myshopify.com/products/veritas-2026",
    "listing_seen": "2026-10-17 (products.json updated_at 2026-10-17T23:44:32+02:00)",
@@ -158,7 +159,412 @@
     "permission": "Shown with the artist’s permission to use the images published on her website (confirmed 2026-10-17). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
     "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
    },
-   "note": "The gilt border around the image on the page is CSS drawn for the room, echoing the gold frame in the artist’s photographs; it is not a photograph of the frame."
+   "note": "The gilt border around the image on the page is CSS drawn for the room, echoing the gold frame in the artist’s photographs; it is not a photograph of the frame.",
+   "portfolio": "https://www.artconnect.com/artworks/vKjeWcJ3CGF4D2C05pWJ3"
+  },
+  {
+   "id": "extraction",
+   "kind": "artist-work",
+   "shown_as": "wall",
+   "artist": "Anna Vishenskaya",
+   "title": "Extraction",
+   "date": "2015",
+   "medium_as_listed": "Oil & acrylic on canvas",
+   "dimensions_as_listed": "200H x 150W",
+   "listing": "https://www.artconnect.com/artworks/hx5eT_vTwvvKpUOg6P3jH",
+   "listing_seen": "2026-10-21 (ArtConnect portfolio)",
+   "statement": "https://www.artconnect.com/artworks/hx5eT_vTwvvKpUOg6P3jH",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/extraction.jpg",
+     "bytes": 91796,
+     "sha256": "d65b18a0faedee969a6ef5f1c68262e5c0becb30fcbe9cafa84801b1b8d4574a",
+     "width": 702,
+     "height": 1038,
+     "role": "full",
+     "source": "https://r2.ac-img.com/2026/da5af88f-d319-49ad-b27e-d1de060af0f1.png",
+     "source_bytes": 337921,
+     "source_sha256": "89a134c5a0b700c4dd232724ab8605f60575d9a29c93d3cc3a834472c16b5644",
+     "source_pixels": "702×1038",
+     "processing": "Converted from PNG to JPEG with sips (quality 92); metadata removed."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the works in her ArtConnect portfolio (confirmed 2026-10-21). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   }
+  },
+  {
+   "id": "system-update",
+   "kind": "artist-work",
+   "shown_as": "wall",
+   "artist": "Anna Vishenskaya",
+   "title": "System Update",
+   "date": "2020",
+   "medium_as_listed": "Watercolor",
+   "dimensions_as_listed": "30 x  20 cm",
+   "listing": "https://www.artconnect.com/artworks/pUcq_3-rCs-316ICO5y8z",
+   "listing_seen": "2026-10-21 (ArtConnect portfolio)",
+   "statement": "https://www.artconnect.com/artworks/pUcq_3-rCs-316ICO5y8z",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/system-update.jpg",
+     "bytes": 2192358,
+     "sha256": "d73b8a8356753e9d3fe5637fbdd359366e2cc39666abbc60e408e1088e19ce8b",
+     "width": 2000,
+     "height": 2674,
+     "role": "full",
+     "source": "https://r2.ac-img.com/2026/8561a13a-78bc-47f3-8019-806e2ea64f5c.jpg",
+     "source_bytes": 6309723,
+     "source_sha256": "d84dac4e252f605aa1a6cb3ea9bed858c3c3b185e2c7dce673857c44ac12de8b",
+     "source_pixels": "2694×3602",
+     "processing": "Resized from 2694 to 2000 px wide with sips (JPEG quality 90); metadata removed."
+    },
+    {
+     "file": "/assets/vishenskaya/system-update-t.jpg",
+     "bytes": 253435,
+     "sha256": "12060bb726b50e69c843f1498f0846be1ebc84e375dcde6c00c8e77a748d0c26",
+     "width": 700,
+     "height": 936,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/system-update.jpg",
+     "processing": "Resized to 700 px wide with sips (JPEG quality 85); metadata removed."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the works in her ArtConnect portfolio (confirmed 2026-10-21). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   }
+  },
+  {
+   "id": "the-origin",
+   "kind": "artist-work",
+   "shown_as": "wall",
+   "artist": "Anna Vishenskaya",
+   "title": "The Origin",
+   "date": "2025",
+   "medium_as_listed": "Oil on wood",
+   "dimensions_as_listed": "24H × 18W cm",
+   "listing": "https://www.artconnect.com/artworks/-xegknDUEb9jRWVykdaYe",
+   "listing_seen": "2026-10-21 (ArtConnect portfolio)",
+   "statement": "https://www.artconnect.com/artworks/-xegknDUEb9jRWVykdaYe",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/the-origin.jpg",
+     "bytes": 879305,
+     "sha256": "b96c9c1b40f9509f90da0eb4698c0e8929b8a36ac661af88668f972d5d0d2b19",
+     "width": 1923,
+     "height": 2560,
+     "role": "full",
+     "source": "https://r2.ac-img.com/2026/8a38c704-633e-43bf-a98d-ffe40d66a71f.jpeg",
+     "source_bytes": 879305,
+     "source_sha256": "b96c9c1b40f9509f90da0eb4698c0e8929b8a36ac661af88668f972d5d0d2b19",
+     "source_pixels": "1923×2560",
+     "processing": "Unaltered copy of the image as published on her portfolio (it carries no metadata)."
+    },
+    {
+     "file": "/assets/vishenskaya/the-origin-t.jpg",
+     "bytes": 334627,
+     "sha256": "ad8b3a52cf11fde7f7670b3d55273565b3700b8c17f89cb3f0040e5af55be7a6",
+     "width": 700,
+     "height": 932,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/the-origin.jpg",
+     "processing": "Resized to 700 px wide with sips (JPEG quality 85); metadata removed."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the works in her ArtConnect portfolio (confirmed 2026-10-21). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   }
+  },
+  {
+   "id": "the-father",
+   "kind": "artist-work",
+   "shown_as": "wall",
+   "artist": "Anna Vishenskaya",
+   "title": "The Father",
+   "date": "2025",
+   "medium_as_listed": "Oil on canvas",
+   "dimensions_as_listed": "22H × 14W cm",
+   "listing": "https://www.artconnect.com/artworks/GqXA_e201cwiW6Qg74rZN",
+   "listing_seen": "2026-10-21 (ArtConnect portfolio)",
+   "statement": "https://www.artconnect.com/artworks/GqXA_e201cwiW6Qg74rZN",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/the-father.jpg",
+     "bytes": 2591902,
+     "sha256": "0771e62f293928a23f465c71f4e23f1e487b6c3c42052fd1fb0ee69c957def20",
+     "width": 1610,
+     "height": 2560,
+     "role": "full",
+     "source": "https://r2.ac-img.com/2026/d1f82f0f-d0b7-48d8-bc02-e197022dd04b.jpg",
+     "source_bytes": 2609022,
+     "source_sha256": "2ee24dcd67d80ae7e92508c874c738881c51fdf02be876881fc0b9db408bfc5e",
+     "source_pixels": "1610×2560",
+     "processing": "Camera and editing metadata removed without re-encoding; the pixels are the artist’s image as published."
+    },
+    {
+     "file": "/assets/vishenskaya/the-father-t.jpg",
+     "bytes": 341600,
+     "sha256": "3c88b4074fb6e4d56ecc504abd25161dcd48d70e8c706807f642929147957b99",
+     "width": 700,
+     "height": 1113,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/the-father.jpg",
+     "processing": "Resized to 700 px wide with sips (JPEG quality 85); metadata removed."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the works in her ArtConnect portfolio (confirmed 2026-10-21). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   }
+  },
+  {
+   "id": "mothers-milk",
+   "kind": "artist-work",
+   "shown_as": "wall",
+   "artist": "Anna Vishenskaya",
+   "title": "Mother’s Milk",
+   "date": "2025",
+   "medium_as_listed": "Oil on wood",
+   "dimensions_as_listed": "12 W x 15 H x 2 D cm",
+   "listing": "https://www.artconnect.com/artworks/Eg8QsP40-pXjVbpWGhTBs",
+   "listing_seen": "2026-10-21 (ArtConnect portfolio)",
+   "statement": "https://www.artconnect.com/artworks/Eg8QsP40-pXjVbpWGhTBs",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/mothers-milk.jpg",
+     "bytes": 1413567,
+     "sha256": "e0e6a0fd39df5adb47da014a1abc4d4d90e18bfae32204736ca73162e1419e2f",
+     "width": 1684,
+     "height": 2132,
+     "role": "full",
+     "source": "https://r2.ac-img.com/2026/d372884a-0160-4c91-962f-eda647b6dda6.jpg",
+     "source_bytes": 1431892,
+     "source_sha256": "0abff85b9db0e9b5a653e8c76c8e06ac1088ba63c586ae564a74dc703173053a",
+     "source_pixels": "1684×2132",
+     "processing": "Camera and editing metadata removed without re-encoding; the pixels are the artist’s image as published."
+    },
+    {
+     "file": "/assets/vishenskaya/mothers-milk-t.jpg",
+     "bytes": 165913,
+     "sha256": "d5a1c3460bf796ad4cf77d8120202ccd80a7c759b7dc6d76774ab337c57c0d4a",
+     "width": 700,
+     "height": 886,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/mothers-milk.jpg",
+     "processing": "Resized to 700 px wide with sips (JPEG quality 85); metadata removed."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the works in her ArtConnect portfolio (confirmed 2026-10-21). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   }
+  },
+  {
+   "id": "custodia",
+   "kind": "artist-work",
+   "shown_as": "wall",
+   "artist": "Anna Vishenskaya",
+   "title": "Custodia",
+   "date": "2026",
+   "medium_as_listed": "Oil on canvas",
+   "dimensions_as_listed": "60 x 70 cm",
+   "listing": "https://www.artconnect.com/artworks/TiT-k-1QzhImhgcRRjtxs",
+   "listing_seen": "2026-10-21 (ArtConnect portfolio)",
+   "statement": "https://www.artconnect.com/artworks/TiT-k-1QzhImhgcRRjtxs",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/custodia.jpg",
+     "bytes": 1177901,
+     "sha256": "4ce97aac5501088cc2330f88bbc62bde6de3b8f554a96d882d6763ff093c9def",
+     "width": 1639,
+     "height": 1913,
+     "role": "full",
+     "source": "https://r2.ac-img.com/2026/6b76c4df-213a-47bf-b8d6-cb0357a43539.JPG",
+     "source_bytes": 1181916,
+     "source_sha256": "f0f89eb3558e95ca0521a1b89ca708ccfe96c34ef3e840561400831fc819191c",
+     "source_pixels": "1639×1913",
+     "processing": "Camera and editing metadata removed without re-encoding; the pixels are the artist’s image as published."
+    },
+    {
+     "file": "/assets/vishenskaya/custodia-t.jpg",
+     "bytes": 240864,
+     "sha256": "59f402bb737b508bac8b34e828248be9e30cb71ae03b781da5ba0df9b01c1d36",
+     "width": 700,
+     "height": 817,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/custodia.jpg",
+     "processing": "Resized to 700 px wide with sips (JPEG quality 85); metadata removed."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the works in her ArtConnect portfolio (confirmed 2026-10-21). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   }
+  },
+  {
+   "id": "becoming-human",
+   "kind": "artist-work",
+   "shown_as": "wall",
+   "artist": "Anna Vishenskaya",
+   "title": "Becoming Human",
+   "date": "2026",
+   "medium_as_listed": "Oil on wood",
+   "dimensions_as_listed": "22.5 × 28 x 3 cm",
+   "listing": "https://www.artconnect.com/artworks/GHQD6Txd7d5ZRQJVOqcfB",
+   "listing_seen": "2026-10-21 (ArtConnect portfolio)",
+   "statement": "https://www.artconnect.com/artworks/GHQD6Txd7d5ZRQJVOqcfB",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/becoming-human.jpg",
+     "bytes": 2252393,
+     "sha256": "c0090665be59b44ead534b0823832e130ad8bf3c72575486354cb30e6b87fb5d",
+     "width": 2000,
+     "height": 2587,
+     "role": "full",
+     "source": "https://r2.ac-img.com/2026/f33b908b-0bed-4f5d-a360-828ba6bb61a8.jpg",
+     "source_bytes": 2276331,
+     "source_sha256": "1837e56705c404d00f887a519afa8f63463f765b0a9292c27f98ee6ac81c1d1d",
+     "source_pixels": "2000×2587",
+     "processing": "Camera and editing metadata removed without re-encoding; the pixels are the artist’s image as published."
+    },
+    {
+     "file": "/assets/vishenskaya/becoming-human-t.jpg",
+     "bytes": 283012,
+     "sha256": "4eba12f5e9126b1da9e4247d83c46165bf42646dec88cd76c4131b8663214b70",
+     "width": 700,
+     "height": 905,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/becoming-human.jpg",
+     "processing": "Resized to 700 px wide with sips (JPEG quality 85); metadata removed."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the works in her ArtConnect portfolio (confirmed 2026-10-21). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   }
+  },
+  {
+   "id": "pleroma",
+   "kind": "artist-work",
+   "shown_as": "wall",
+   "artist": "Anna Vishenskaya",
+   "title": "Pleroma",
+   "date": "2026",
+   "medium_as_listed": "Oil on wood",
+   "dimensions_as_listed": "H15 × W12 × D2 cm",
+   "listing": "https://www.artconnect.com/artworks/py9m_qedT0q75z79pazIs",
+   "listing_seen": "2026-10-21 (ArtConnect portfolio)",
+   "statement": "https://www.artconnect.com/artworks/py9m_qedT0q75z79pazIs",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/pleroma.jpg",
+     "bytes": 1340815,
+     "sha256": "745d145b07c25adee7c2fcd259323f2f3565962af50d18a77e994942f0f98c36",
+     "width": 1494,
+     "height": 1966,
+     "role": "full",
+     "source": "https://r2.ac-img.com/2026/0556ed6d-85fe-4dc8-a94f-6b85414ed62e.jpg",
+     "source_bytes": 1357697,
+     "source_sha256": "7577b6f66f53e4e2f41285c1009c7bbfb5c8afa495fbdbd9b643d405a83085bf",
+     "source_pixels": "1494×1966",
+     "processing": "Camera and editing metadata removed without re-encoding; the pixels are the artist’s image as published."
+    },
+    {
+     "file": "/assets/vishenskaya/pleroma-t.jpg",
+     "bytes": 153476,
+     "sha256": "5008db7852a57dc46a752e6afa021e398b389da761effcacde2a953603145943",
+     "width": 700,
+     "height": 921,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/pleroma.jpg",
+     "processing": "Resized to 700 px wide with sips (JPEG quality 85); metadata removed."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the works in her ArtConnect portfolio (confirmed 2026-10-21). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   }
+  },
+  {
+   "id": "rivers-of-time",
+   "kind": "artist-work",
+   "shown_as": "wall",
+   "artist": "Anna Vishenskaya",
+   "title": "Rivers of Time",
+   "date": "2026",
+   "medium_as_listed": "Oil and 22K gold on wood",
+   "dimensions_as_listed": "16 W x 19 H x 2.3 D cm",
+   "listing": "https://www.artconnect.com/artworks/H9yAXxlbGrKq8FgMIZTcJ",
+   "listing_seen": "2026-10-21 (ArtConnect portfolio)",
+   "statement": "https://www.artconnect.com/artworks/H9yAXxlbGrKq8FgMIZTcJ",
+   "images": [
+    {
+     "file": "/assets/vishenskaya/rivers-of-time.jpg",
+     "bytes": 686503,
+     "sha256": "6a5d369a5aed5254bdbdcb81be3eb9695a15d30ebfde5ba784fb7aa11fe0270c",
+     "width": 1202,
+     "height": 1446,
+     "role": "full",
+     "source": "https://r2.ac-img.com/2026/0b3471f8-a1ee-4990-ba55-61837ed238a1.png",
+     "source_bytes": 3013733,
+     "source_sha256": "89dc7429feb3d6a0fc27a8b71057a90d9d340b5059ddb751a5803209190b44d0",
+     "source_pixels": "1202×1446",
+     "processing": "Converted from PNG to JPEG with sips (quality 92); metadata removed."
+    },
+    {
+     "file": "/assets/vishenskaya/rivers-of-time-t.jpg",
+     "bytes": 226862,
+     "sha256": "2dcf61a7129d5f558f55901ba8e15f5100cf4e0bd1bc74f08c5f9d86d93c219b",
+     "width": 700,
+     "height": 842,
+     "role": "thumbnail",
+     "derived_from": "/assets/vishenskaya/rivers-of-time.jpg",
+     "processing": "Resized to 700 px wide with sips (JPEG quality 85); metadata removed."
+    }
+   ],
+   "rights": {
+    "public_domain": false,
+    "license": "All rights reserved",
+    "copyright": "© Anna Vishenskaya",
+    "reusable": false,
+    "permission": "Shown with the artist’s permission to use the works in her ArtConnect portfolio (confirmed 2026-10-21). The permission covers display in this room; it is not a licence for anyone else to reuse the images.",
+    "note": "Not part of the Artbitrage open catalogue, River or API. Do not copy or reuse; ask the artist."
+   }
   }
  ],
  "museum_works": [
@@ -312,5 +718,6 @@
    },
    "context_source": "AIC description field (CC BY 4.0), paraphrased; Gellius, Attic Nights 12.11.7 via https://fgh.perseids.org/read/latinLit/phi1254/phi001/perseus-eng1/12.10-12.11 (read 2026-10-17)"
   }
- ]
+ ],
+ "portfolio": "https://www.artconnect.com/anna-vishenskaya-GOfOR9OOOj2zzx8s_KSzi?tab=portfolio"
 }

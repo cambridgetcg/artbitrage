@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>幽明 · At the Edge of Things — ARTBITRAGE</title>
-<meta name="description" content="A guest room for the living painter Anna Vishenskaya: three small paintings of a shadow greeted, a beginning held and a truth growing up through the ground, shown with the artist’s permission beside three older works from the open collection.">
+<meta name="description" content="A guest room for the living painter Anna Vishenskaya: three small paintings of a shadow greeted, a beginning held and a truth growing up through the ground, shown with the artist’s permission beside three older works from the open collection, and nine more from her portfolio.">
 <meta name="robots" content="noimageindex">
 <link rel="canonical" href="https://artbitrage.io/vishenskaya">
 <meta property="og:title" content="幽明 · At the Edge of Things — ARTBITRAGE">
-<meta property="og:description" content="Three small paintings by Anna Vishenskaya. Come closer, stay a little, and they look back.">
+<meta property="og:description" content="Paintings by Anna Vishenskaya. Come closer, stay a little, and they look back.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://artbitrage.io/assets/vishenskaya/poignant-wonder-t.jpg">
 <meta property="og:image:width" content="700">
@@ -179,6 +179,19 @@ h1 em{font-weight:400}
 .layers-note{font-size:.8125rem;color:var(--quiet);margin:10px 0 0}
 .one-sentence{font-size:clamp(1.2rem,2.2vw,1.6rem);font-style:italic;line-height:1.55;margin:40px 0 0;max-width:40ch}
 
+/* Further in: nine more works hung as a wall, in year order. */
+.further{padding-block:54px 34px}
+.further .quietly{color:var(--quiet);font-size:.9375rem}
+.salon{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:60px clamp(26px,4vw,52px)}
+.piece{display:flex;flex-direction:column}
+.piece-art{margin:0}
+.piece-art a{display:flex;align-items:center;justify-content:center;height:clamp(300px,36vw,420px);padding:clamp(14px,2.2vw,24px);background:var(--wall);border:1px solid var(--line);line-height:0}
+.piece-art img{width:auto;max-width:100%;max-height:100%;box-shadow:4px 6px 0 -1px #050405,5px 8px 16px #00000080}
+.piece-year{font:11px/1.8 var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--accent);margin:18px 0 2px}
+.piece h3{font-size:1.5rem;font-weight:400;font-style:italic;line-height:1.3;margin:0 0 6px}
+.piece .metadata{margin-bottom:14px}
+.piece .words{font-size:.96875rem;line-height:1.75}
+
 .artist{padding-block:54px 70px}
 .engraved{font:400 clamp(1.8rem,6.4vw,4.4rem)/1.1 var(--serif);letter-spacing:.16em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px var(--ink);margin:0 0 30px;overflow-wrap:anywhere}
 @supports not (-webkit-text-stroke:1px black){.engraved{color:var(--ink)}}
@@ -205,8 +218,8 @@ h1 em{font-weight:400}
  .js .wall{min-height:62vh}.js .wall .panel img{max-height:min(28vh,240px)}.js .wall.is-close .panel img{max-height:78vh}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.c-plane{animation:none}.js .wall .panel img{transition:none}.wall::before{transition:none}.returned.is-answered{animation:none}}
-@media(forced-colors:active){.wall,.rhyme-art a,.corridor{border:1px solid CanvasText}.engraved{color:CanvasText;-webkit-text-stroke:0}.c-shade{display:none}}
-@media print{body,.tone{background:white!important;color:black!important}.door,.room-links,.threshold,.wall-actions,.true-size,.true-note,.colophon nav,.band{display:none}.js .wall{min-height:0}.js .wall .panel img{max-height:420px}.wall,.rhyme-art a{background:white}.work,.rhyme{break-inside:avoid}.engraved{color:black;-webkit-text-stroke:0}}
+@media(forced-colors:active){.wall,.rhyme-art a,.piece-art a,.corridor{border:1px solid CanvasText}.engraved{color:CanvasText;-webkit-text-stroke:0}.c-shade{display:none}}
+@media print{body,.tone{background:white!important;color:black!important}.door,.room-links,.threshold,.wall-actions,.true-size,.true-note,.colophon nav,.band{display:none}.js .wall{min-height:0}.js .wall .panel img{max-height:420px}.wall,.rhyme-art a{background:white}.work,.rhyme,.piece{break-inside:avoid}.engraved{color:black;-webkit-text-stroke:0}}
 </style>
 </head>
 <body>
@@ -233,7 +246,7 @@ h1 em{font-weight:400}
       <div class="intro-bottom">
         <p class="question">What does a painting see, once you come close enough?</p>
         <div>
-          <p class="opening">Anna Vishenskaya paints small. <em>Poignant Wonder</em> is smaller than a sheet of A4 paper, and she says the size is the point: the works ask for “an unusual proximity”. So this room is built around one gesture. Each painting first hangs as it would across a gallery, small in a lot of dark. Come closer, stay a little, and it looks back.</p>
+          <p class="opening">Anna Vishenskaya’s panels are small. <em>Poignant Wonder</em> is smaller than a sheet of A4 paper, and she says the size is the point: the works ask for “an unusual proximity”. So this room is built around one gesture. Each painting first hangs as it would across a gallery, small in a lot of dark. Come closer, stay a little, and it looks back.</p>
           <p class="han-note"><span lang="zh-Hant">幽明</span>, the hidden and the bright. The Book of Changes says that by looking up at the patterns of heaven and down at the order of the earth, one comes to know the reasons of the hidden and the bright: <span lang="zh-Hant">仰以觀於天文，俯以察於地理，是故知幽明之故</span> (<a href="https://ctext.org/book-of-changes/xi-ci-shang/zh?en=on">Xici&nbsp;I&nbsp;↗</a>; translation mine).</p>
         </div>
       </div>
@@ -241,6 +254,7 @@ h1 em{font-weight:400}
         <a href="#works">Enter the paintings</a>
         <a href="#rhymes">Older rooms, same weather</a>
         <a href="#process">How a panel is made</a>
+        <a href="#further">Further in: nine more works</a>
         <a href="#artist">Visit the artist</a>
       </nav>
     </section>
@@ -352,7 +366,7 @@ h1 em{font-weight:400}
       <p class="returned" data-returned><span class="label">The painting asks back</span><span class="returned-text" aria-live="polite">What do you already know that is still waiting for you to see it?</span></p>
       <div class="notes">
         <div><p class="label">In the artist’s words</p><blockquote class="words"><p><i>Veritas</i> is about the nature of truth and its tendency to reveal itself. Even when hidden, buried or distorted, truth eventually finds its way to the surface and crystallises into something that can no longer be ignored. The work reflects my interest in truth as a force that exists independently of our willingness to see it.</p></blockquote></div>
-        <div><p class="label">Record</p><p class="metadata"><strong>Anna Vishenskaya</strong><br><i>Veritas</i>, 2026<br>Oil on a traditional gessoed icon board<br>Dimensions not listed<br>Framed with anti-glare protective glass</p><a class="source" href="https://abracadabra-9668.myshopify.com/products/veritas-2026">The artist’s listing ↗</a></div>
+        <div><p class="label">Record</p><p class="metadata"><strong>Anna Vishenskaya</strong><br><i>Veritas</i>, 2026<br>Oil on a traditional gessoed icon board<br>17 × 13 × 2 cm, as listed on her portfolio<br>Framed with anti-glare protective glass</p><a class="source" href="https://abracadabra-9668.myshopify.com/products/veritas-2026">The artist’s listing ↗</a><a class="source" href="https://www.artconnect.com/artworks/vKjeWcJ3CGF4D2C05pWJ3">On her portfolio ↗</a></div>
         <div class="reading-col"><p class="label">A reading</p><p class="reading">The sky takes nearly half the panel, overcast and patient. Below, the ground has been opened like a drawing in section, and in the hollow a skull rests on a bed of moss. Between the two, a cluster of quartz has pushed up through the grass. It is the only thing in the landscape with straight edges, and it holds colours the clouds are not giving. Nobody in the picture is digging. Truth here is not uncovered by anyone; it grows, on its own schedule, out of what was buried.</p></div>
       </div>
       <figure class="detail">
@@ -432,6 +446,7 @@ h1 em{font-weight:400}
       <div class="process-grid">
         <div>
           <blockquote>Working primarily in oil on traditional wooden panels, I have developed a slow, layered process inspired by medieval painting techniques. Each work unfolds gradually over weeks or months, allowing the image to reveal itself in its own time.<cite>Anna Vishenskaya, artistic statement</cite></blockquote>
+          <blockquote>The traditional limewood icon panel and layered oil technique echo the theme of time and endurance. The slow process mirrors accumulated moments, while the icon-like style places the image outside a specific era, allowing it to function as a contemplative object.<cite>Anna Vishenskaya, on <i>Veritas</i> and <i>Rivers of Time</i> · <a href="https://www.artconnect.com/artworks/H9yAXxlbGrKq8FgMIZTcJ">her portfolio ↗</a></cite></blockquote>
           <p><i>Veritas</i> is painted on a “traditional gessoed icon board”. In one method of the icon tradition, as the Icon Museum and Study Center describes it, the wood is cut to size and given a shallow recess, the <i>kovcheg</i>, Russian for “ark”. Linen is glued to the surface, and several layers of gesso, a mixture of chalk, marble dust, water and glue, go on top. Dried and polished, the board becomes “hard but absorbent”.</p>
           <p>In the same tradition, icons are painted in egg tempera, starting from dark base layers and building up through layers of increasingly bright pigment. Anna paints in oil, and calls her process her own, refined through continuous experimentation. So the drawing here shows the board’s traditional anatomy, not her studio steps.</p>
           <p class="quietly">Source: <a href="https://www.iconmuseum.org/wp-content/uploads/2024/11/Creation-of-an-Icon.pdf">“Creation of an Icon”, the Icon Museum and Study Center ↗</a>, describing the Prosopon School’s method, “just one of many ways to create an icon”.</p>
@@ -471,6 +486,89 @@ h1 em{font-weight:400}
 
 <div class="tone tone-dusk">
 <div class="wrap">
+    <section class="further" id="further" aria-labelledby="further-title">
+      <div class="section-head">
+        <p class="eyebrow">From the artist’s portfolio · 2015–2026 · <span lang="zh-Hant">深</span></p>
+        <h2 id="further-title">Further in</h2>
+        <p>Nine more works, hung in the order of their years: from an oil-and-acrylic canvas of 2015 and a watercolour made during Covid to the small oil paintings on wood that make up most of the recent work in this room. The titles, dates, media and sizes are as she lists them, and the words beside each are hers.</p>
+        <p class="quietly">Where she marks height and width, height comes first. Open any work to see it whole.</p>
+      </div>
+      <ol class="salon">
+        <li class="piece" id="extraction">
+          <figure class="piece-art"><a href="assets/vishenskaya/extraction.jpg"><img src="assets/vishenskaya/extraction.jpg" width="702" height="1038" loading="lazy" decoding="async" alt="On a black ground, a human spine of pale grey vertebrae rises in a column. Toward its base the vertebrae break apart and drift outward in fragments, and from a gold thread running up through the bones, gold roots spread out below into the dark."><span class="image-error" hidden>This painting is resting. Its record and the artist’s words remain below.</span></a></figure>
+          <p class="piece-year">2015</p>
+          <h3>Extraction</h3>
+          <p class="metadata">Oil &amp; acrylic on canvas<br>200 × 150, height × width; no unit given</p>
+          <blockquote class="words"><p>It is about uncovering what lies beneath structure and identity. Something rigid must fracture so that something living can grow.</p></blockquote>
+          <a class="source" href="https://www.artconnect.com/artworks/hx5eT_vTwvvKpUOg6P3jH">On her portfolio ↗</a>
+        </li>
+        <li class="piece" id="system-update">
+          <figure class="piece-art"><a href="assets/vishenskaya/system-update.jpg"><img src="assets/vishenskaya/system-update-t.jpg" srcset="assets/vishenskaya/system-update-t.jpg 700w, assets/vishenskaya/system-update.jpg 2000w" sizes="(max-width:700px) calc(100vw - 64px), 380px" width="2000" height="2674" loading="lazy" decoding="async" alt="A watercolour. A tall six-sided crystal, washed in violet, pink and blue, floats upright in a misty sky of blue and green. Below it, on a flat green plain ringed by dark jagged rocks, a round black hole opens, scattered with white points like stars."><span class="image-error" hidden>This painting is resting. Its record and the artist’s words remain below.</span></a></figure>
+          <p class="piece-year">2020</p>
+          <h3>System Update</h3>
+          <p class="metadata">Watercolour<br>30 × 20 cm</p>
+          <blockquote class="words"><p>This work was created during the time of Covid, when the external world slowed down and the inner world became louder. The floating crystal represents a reset. It does not touch the ground, yet it transforms the space around it.</p></blockquote>
+          <a class="source" href="https://www.artconnect.com/artworks/pUcq_3-rCs-316ICO5y8z">On her portfolio ↗</a>
+        </li>
+        <li class="piece" id="the-origin">
+          <figure class="piece-art"><a href="assets/vishenskaya/the-origin.jpg"><img src="assets/vishenskaya/the-origin-t.jpg" srcset="assets/vishenskaya/the-origin-t.jpg 700w, assets/vishenskaya/the-origin.jpg 1923w" sizes="(max-width:700px) calc(100vw - 64px), 380px" width="1923" height="2560" loading="lazy" decoding="async" alt="A tree heavy with red apples stands on a yellow-green plain under a purple, cloud-banded sky, with a snow-capped peak behind. A white serpent coils around its trunk and slides across the ground toward a crack opening in the earth; a few apples have fallen. The initials AV are at the lower left."><span class="image-error" hidden>This painting is resting. Its record and the artist’s words remain below.</span></a></figure>
+          <p class="piece-year">2025</p>
+          <h3>The Origin</h3>
+          <p class="metadata">Oil on wood<br>24 × 18 cm</p>
+          <blockquote class="words"><p>Choice appears. Knowledge appears. With it comes responsibility. I do not see this as a fall, but as a necessary step.</p></blockquote>
+          <a class="source" href="https://www.artconnect.com/artworks/-xegknDUEb9jRWVykdaYe">On her portfolio ↗</a>
+        </li>
+        <li class="piece" id="the-father">
+          <figure class="piece-art"><a href="assets/vishenskaya/the-father.jpg"><img src="assets/vishenskaya/the-father-t.jpg" srcset="assets/vishenskaya/the-father-t.jpg 700w, assets/vishenskaya/the-father.jpg 1610w" sizes="(max-width:700px) calc(100vw - 64px), 380px" width="1610" height="2560" loading="lazy" decoding="async" alt="A tall, cracked stone building like a monolith stands alone on an orange desert scattered with pale stones, under a deep blue sky with white clouds. Steps lead up to a dark doorway where small white figures stand, and a round hole is cut in the wall above. In the sky hangs a pale eyeball, its dark pupil echoing the hole. The initials AV are at the lower left."><span class="image-error" hidden>This painting is resting. Its record and the artist’s words remain below.</span></a></figure>
+          <p class="piece-year">2025</p>
+          <h3>The Father</h3>
+          <p class="metadata">Oil on canvas<br>22 × 14 cm</p>
+          <blockquote class="words"><p>It stands firmly, even in an empty landscape. It does not shout. It simply exists, grounded and unwavering.</p></blockquote>
+          <a class="source" href="https://www.artconnect.com/artworks/GqXA_e201cwiW6Qg74rZN">On her portfolio ↗</a>
+        </li>
+        <li class="piece" id="mothers-milk">
+          <figure class="piece-art"><a href="assets/vishenskaya/mothers-milk.jpg"><img src="assets/vishenskaya/mothers-milk-t.jpg" srcset="assets/vishenskaya/mothers-milk-t.jpg 700w, assets/vishenskaya/mothers-milk.jpg 1684w" sizes="(max-width:700px) calc(100vw - 64px), 380px" width="1684" height="2132" loading="lazy" decoding="async" alt="A grey-blue star of many points floats in a cloudy lilac-grey sky. At its centre is a single eye, and from its lower lid a white stream runs down in a thin line into a pale pool in the green and ochre valley below. The initials AV are at the lower right."><span class="image-error" hidden>This painting is resting. Its record and the artist’s words remain below.</span></a></figure>
+          <p class="piece-year">2025</p>
+          <h3>Mother’s Milk</h3>
+          <p class="metadata">Oil on wood<br>15 × 12 × 2 cm</p>
+          <blockquote class="words"><p>The image emerges from the archetype of the Great Mother, the source that gives and withdraws. Her nourishment follows the same law that governs all growth: what is sustained must one day separate.</p></blockquote>
+          <a class="source" href="https://www.artconnect.com/artworks/Eg8QsP40-pXjVbpWGhTBs">On her portfolio ↗</a>
+        </li>
+        <li class="piece" id="custodia">
+          <figure class="piece-art"><a href="assets/vishenskaya/custodia.jpg"><img src="assets/vishenskaya/custodia-t.jpg" srcset="assets/vishenskaya/custodia-t.jpg 700w, assets/vishenskaya/custodia.jpg 1639w" sizes="(max-width:700px) calc(100vw - 64px), 380px" width="1639" height="1913" loading="lazy" decoding="async" alt="A weeping willow with a twisting dark trunk leans out from a grassy point over a calm, shining lake, with blue, snow-touched mountains beyond. In the pale blue sky around it, human eyes float and look out, as if keeping watch. The initials AV are at the lower left."><span class="image-error" hidden>This painting is resting. Its record and the artist’s words remain below.</span></a></figure>
+          <p class="piece-year">2026</p>
+          <h3>Custodia</h3>
+          <p class="metadata">Oil on canvas<br>60 × 70 cm</p>
+          <blockquote class="words"><p>A protective work created to guard the space and the person it belongs to. It carries a quiet, steady presence, acting as a form of protection rather than representation.</p></blockquote>
+          <a class="source" href="https://www.artconnect.com/artworks/TiT-k-1QzhImhgcRRjtxs">On her portfolio ↗</a>
+        </li>
+        <li class="piece" id="becoming-human">
+          <figure class="piece-art"><a href="assets/vishenskaya/becoming-human.jpg"><img src="assets/vishenskaya/becoming-human-t.jpg" srcset="assets/vishenskaya/becoming-human-t.jpg 700w, assets/vishenskaya/becoming-human.jpg 2000w" sizes="(max-width:700px) calc(100vw - 64px), 380px" width="2000" height="2587" loading="lazy" decoding="async" alt="A figure made only of branching red veins, with a single eye where a face would be, stands on a black-and-white chequered floor at the edge of a dry plain under a grey sky. A cracked and broken marble column rises at the left; far off lies a small green oasis. The initials AV are at the lower left."><span class="image-error" hidden>This painting is resting. Its record and the artist’s words remain below.</span></a></figure>
+          <p class="piece-year">2026</p>
+          <h3>Becoming Human</h3>
+          <p class="metadata">Oil on wood<br>22.5 × 28 × 3 cm</p>
+          <blockquote class="words"><p>I painted it from a very simple fear: how do we adapt to what is coming without losing the part of ourselves that makes us human?</p></blockquote>
+          <a class="source" href="https://www.artconnect.com/artworks/GHQD6Txd7d5ZRQJVOqcfB">On her portfolio ↗</a>
+        </li>
+        <li class="piece" id="pleroma">
+          <figure class="piece-art"><a href="assets/vishenskaya/pleroma.jpg"><img src="assets/vishenskaya/pleroma-t.jpg" srcset="assets/vishenskaya/pleroma-t.jpg 700w, assets/vishenskaya/pleroma.jpg 1494w" sizes="(max-width:700px) calc(100vw - 64px), 380px" width="1494" height="1966" loading="lazy" decoding="async" alt="A large pale egg hangs in black space. Its shell is veined with fine red threads, and through it the inside glows, white light branching outward like lightning from a bright centre. Below, on a black-and-white chequered floor, lies a long needle with a green jewelled head, a small red drop near its point. The initials AV, in green, are at the lower left."><span class="image-error" hidden>This painting is resting. Its record and the artist’s words remain below.</span></a></figure>
+          <p class="piece-year">2026</p>
+          <h3>Pleroma</h3>
+          <p class="metadata">Oil on wood<br>15 × 12 × 2 cm</p>
+          <blockquote class="words"><p>The needle on the floor comes from the Russian tale of Koschei, whose life was hidden inside an egg. I placed it there for the viewer. It is a quiet question about control and choice. The power inside the egg does not belong to the needle. The viewer decides when, or if, it is time.</p></blockquote>
+          <a class="source" href="https://www.artconnect.com/artworks/py9m_qedT0q75z79pazIs">On her portfolio ↗</a>
+        </li>
+        <li class="piece" id="rivers-of-time">
+          <figure class="piece-art"><a href="assets/vishenskaya/rivers-of-time.jpg"><img src="assets/vishenskaya/rivers-of-time-t.jpg" srcset="assets/vishenskaya/rivers-of-time-t.jpg 700w, assets/vishenskaya/rivers-of-time.jpg 1202w" sizes="(max-width:700px) calc(100vw - 64px), 380px" width="1202" height="1446" loading="lazy" decoding="async" alt="A hooded figure seen from behind, in a long dark robe covered with small silver marks like script, a long white braid down its back. Behind its head blazes a great star of gold, with an eye at its top point and a single dark drop beside the hood. On either side, a grey, snowy land is cut by dark streams, with spires of dark rock and pale clouds beyond. The initials AV are at the lower left."><span class="image-error" hidden>This painting is resting. Its record and the artist’s words remain below.</span></a></figure>
+          <p class="piece-year">2026</p>
+          <h3>Rivers of Time</h3>
+          <p class="metadata">Oil and 22K gold on wood<br>19 × 16 × 2.3 cm</p>
+          <blockquote class="words"><p>I hope the viewer senses a pause, a moment of standing between timelines. A recognition of those <i>silent turning points</i> where one knows a change has occurred, and an invitation to reflect on personal responsibility for one’s path.</p></blockquote>
+          <a class="source" href="https://www.artconnect.com/artworks/H9yAXxlbGrKq8FgMIZTcJ">On her portfolio ↗</a>
+        </li>
+      </ol>
+    </section>
+
     <section class="artist" id="artist" aria-labelledby="artist-title">
       <p class="eyebrow">Visit the artist</p>
       <h2 class="engraved" id="artist-title">Anna Vishenskaya</h2>
@@ -536,7 +634,7 @@ h1 em{font-weight:400}
     hold.addEventListener('click', () => setStill(!corridor.classList.contains('is-still')));
   }
 
-  document.querySelectorAll('.panel img, .rhyme-art img, .detail img').forEach(img => {
+  document.querySelectorAll('.panel img, .rhyme-art img, .detail img, .piece-art img').forEach(img => {
     const frame = img.parentElement;
     const fallback = frame.querySelector('.image-error');
     if (!fallback) return;

@@ -47,8 +47,37 @@ for (const [file, { work, image }] of recorded) {
 const referenced = new Set([...source.matchAll(/assets\/vishenskaya\/[a-z-]+\.jpg/g)].map(match => `/${match[0]}`));
 assert.deepEqual([...referenced].sort(), [...recorded.keys()].sort(), 'the page references exactly the recorded files');
 
+// A JPEG's Exif block points to a GPS directory with tag 0x8825.
+function gpsIn(bytes) {
+  for (let i = 2; i + 4 < bytes.length && bytes[i] === 0xff;) {
+    const marker = bytes[i + 1];
+    if (marker === 0xda) return false;
+    const length = bytes.readUInt16BE(i + 2);
+    if (marker === 0xe1 && bytes.toString('latin1', i + 4, i + 10) === 'Exif\0\0') {
+      const tiff = bytes.subarray(i + 10, i + 2 + length);
+      const little = tiff.toString('latin1', 0, 2) === 'II';
+      const u16 = at => (little ? tiff.readUInt16LE(at) : tiff.readUInt16BE(at));
+      const u32 = at => (little ? tiff.readUInt32LE(at) : tiff.readUInt32BE(at));
+      const ifd = u32(4);
+      for (let n = 0; n < u16(ifd); n++) if (u16(ifd + 2 + 12 * n) === 0x8825) return true;
+    }
+    i += 2 + length;
+  }
+  return false;
+}
+
 // 3. The artist's rights stay hers: not CC0, not in the catalogue, the River or any API.
-assert.equal(credits.works.length, 3);
+// Three works hang in full; nine more from her portfolio hang on the "Further in" wall.
+assert.equal(credits.works.length, 12);
+const wallWorks = credits.works.filter(work => work.shown_as === 'wall');
+assert.equal(wallWorks.length, 9);
+for (const work of wallWorks) {
+  assert.ok(source.includes(`<li class="piece" id="${work.id}">`), `${work.id}: hangs on the wall`);
+  assert.ok(source.includes(`<p class="piece-year">${work.date}</p>`), `${work.id}: its year is shown`);
+  assert.ok(source.includes(`href="${work.listing}"`), `${work.id}: its portfolio page is linked`);
+}
+const wallYears = [...source.matchAll(/<p class="piece-year">(\d{4})<\/p>/g)].map(match => Number(match[1]));
+assert.deepEqual(wallYears, [...wallYears].sort((a, b) => a - b), 'the wall hangs in year order');
 for (const work of credits.works) {
   assert.equal(work.artist, 'Anna Vishenskaya');
   assert.equal(work.rights.public_domain, false, `${work.id}: not public domain`);
@@ -56,7 +85,8 @@ for (const work of credits.works) {
   assert.equal(work.rights.copyright, '© Anna Vishenskaya');
   assert.match(work.rights.permission, /permission/);
   for (const image of work.images) {
-    if (image.source) assert.match(new URL(image.source).hostname, /^(?:cdn\.b12\.io|cdn\.shopify\.com)$/, `${image.file}: from the artist's own site or shop`);
+    if (image.source) assert.match(new URL(image.source).hostname, /^(?:cdn\.b12\.io|cdn\.shopify\.com|r2\.ac-img\.com)$/, `${image.file}: from the artist's own site, shop or portfolio`);
+    assert.equal(gpsIn(await read(image.file.slice(1))), false, `${image.file}: carries no location data`);
   }
 }
 for (const work of credits.museum_works) {
@@ -91,6 +121,17 @@ const ARTIST_WORDS = [
   '<i>Hello, Darkness</i> explores the encounter with one’s own shadow. Inspired by Jung’s concept of the shadow, the work is about turning towards the parts of ourselves we fear or reject, rather than escaping them. Darkness here is not evil, but something familiar that asks to be recognised and integrated.',
   '<i>Veritas</i> is about the nature of truth and its tendency to reveal itself. Even when hidden, buried or distorted, truth eventually finds its way to the surface and crystallises into something that can no longer be ignored. The work reflects my interest in truth as a force that exists independently of our willingness to see it.',
   'Working primarily in oil on traditional wooden panels, I have developed a slow, layered process inspired by medieval painting techniques. Each work unfolds gradually over weeks or months, allowing the image to reveal itself in its own time.',
+  // From her ArtConnect portfolio.
+  'The traditional limewood icon panel and layered oil technique echo the theme of time and endurance. The slow process mirrors accumulated moments, while the icon-like style places the image outside a specific era, allowing it to function as a contemplative object.',
+  'It is about uncovering what lies beneath structure and identity. Something rigid must fracture so that something living can grow.',
+  'This work was created during the time of Covid, when the external world slowed down and the inner world became louder. The floating crystal represents a reset. It does not touch the ground, yet it transforms the space around it.',
+  'Choice appears. Knowledge appears. With it comes responsibility. I do not see this as a fall, but as a necessary step.',
+  'It stands firmly, even in an empty landscape. It does not shout. It simply exists, grounded and unwavering.',
+  'The image emerges from the archetype of the Great Mother, the source that gives and withdraws. Her nourishment follows the same law that governs all growth: what is sustained must one day separate.',
+  'A protective work created to guard the space and the person it belongs to. It carries a quiet, steady presence, acting as a form of protection rather than representation.',
+  'I painted it from a very simple fear: how do we adapt to what is coming without losing the part of ourselves that makes us human?',
+  'The needle on the floor comes from the Russian tale of Koschei, whose life was hidden inside an egg. I placed it there for the viewer. It is a quiet question about control and choice. The power inside the egg does not belong to the needle. The viewer decides when, or if, it is time.',
+  'I hope the viewer senses a pause, a moment of standing between timelines. A recognition of those <i>silent turning points</i> where one knows a change has occurred, and an invitation to reflect on personal responsibility for one’s path.',
 ];
 for (const words of ARTIST_WORDS) assert.ok(source.includes(words), `artist's words verbatim: ${words.slice(0, 48)}…`);
 assert.equal((source.match(/<p class="label">A reading<\/p>/g) || []).length, 3);
