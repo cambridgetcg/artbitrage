@@ -42,5 +42,90 @@
     "file": "moon-jar.jpg",
     "image_source": "https://www.artic.edu/iiif/2/e8ec6920-7f8b-5854-ea60-13f7d7614ae0/full/843,/0/default.jpg",
     "existing_mirror": "https://artbitrage.io/art/artic-moon-jar.jpg"
+  },
+  {
+    "title": "Markandeya Viewing Krishna in the Cosmic Ocean",
+    "artist": "",
+    "date": "c. 1680",
+    "culture": "Northern India, Jammu and Kashmir, Pahari Kingdom of Basohli",
+    "source_name": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/1967.241",
+    "license": "CC0",
+    "file": "markandeya.jpg",
+    "image_source": "https://openaccess-cdn.clevelandart.org/1967.241/1967.241_print.jpg"
+  },
+  {
+    "title": "Two Men Contemplating the Moon",
+    "artist": "Caspar David Friedrich",
+    "date": "ca. 1825–30",
+    "source_name": "The Metropolitan Museum of Art",
+    "url": "https://www.metmuseum.org/art/collection/search/438417",
+    "license": "CC0",
+    "file": "friedrich-moon.jpg",
+    "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP-31997-001-NEW.jpg",
+    "note": "The black photographic surround is trimmed; the canvas is whole."
+  },
+  {
+    "title": "Vase (Meiping) with Waves",
+    "artist": "",
+    "date": "1200s–1300s",
+    "culture": "China, Jiangxi Province, Yonghezhen, Yuan dynasty (1271–1368); Jizhou ware",
+    "source_name": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/1980.186",
+    "license": "CC0",
+    "file": "jizhou-waves-vase.jpg",
+    "image_source": "https://openaccess-cdn.clevelandart.org/1980.186/1980.186_print.jpg"
+  },
+  {
+    "title": "Leaf from a Book of Hours: St. Matthew",
+    "artist": "Limbourg Brothers",
+    "date": "c. 1415–20",
+    "source_name": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/2005.204",
+    "license": "CC0",
+    "file": "limbourg-matthew.jpg",
+    "image_source": "https://openaccess-cdn.clevelandart.org/2005.204/2005.204_print.jpg",
+    "note": "The museum credits the Limbourg Brothers and links the miniature to them by its style."
+  },
+  {
+    "title": "Orpheus",
+    "artist": "Odilon Redon",
+    "date": "c. 1903–10",
+    "source_name": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/1926.25",
+    "license": "CC0",
+    "file": "redon-orpheus.jpg",
+    "image_source": "https://openaccess-cdn.clevelandart.org/1926.25/1926.25_print.jpg"
+  },
+  {
+    "title": "Lobed Mirror with a Tortoise Knob, Musician, and Phoenix",
+    "artist": "",
+    "date": "late 700s",
+    "culture": "China, Tang dynasty (618–907)",
+    "source_name": "Cleveland Museum of Art",
+    "url": "https://clevelandart.org/art/1995.369",
+    "license": "CC0",
+    "file": "tang-mirror.jpg",
+    "image_source": "https://openaccess-cdn.clevelandart.org/1995.369/1995.369_print.jpg"
+  },
+  {
+    "title": "Rough Waves",
+    "artist": "Ogata Kōrin",
+    "date": "ca. 1704–9",
+    "source_name": "The Metropolitan Museum of Art",
+    "url": "https://www.metmuseum.org/art/collection/search/44918",
+    "license": "CC0",
+    "file": "korin-waves.jpg",
+    "image_source": "https://images.metmuseum.org/CRDImages/as/original/DT1615.jpg"
+  },
+  {
+    "title": "The Nativity",
+    "artist": "Lorenzo Monaco (Piero di Giovanni)",
+    "date": "ca. 1406–10",
+    "source_name": "The Metropolitan Museum of Art",
+    "url": "https://www.metmuseum.org/art/collection/search/459007",
+    "license": "CC0",
+    "file": "monaco-nativity.jpg",
+    "image_source": "https://images.metmuseum.org/CRDImages/rl/original/DT709.jpg"
   }
 ]
