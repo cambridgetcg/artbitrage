@@ -5,11 +5,11 @@
   const controls = document.querySelector('.arrival-views');
   if (!hero || !controls) return;
   const works = {
-    water: { title: 'A Sunday on La Grande Jatte — 1884', maker: 'Georges Seurat · 1884–86', source: '27992' },
-    dusk: { title: 'Moonrise', maker: 'George Inness · 1891', source: '64754' },
-    form: { title: 'Moon Jar', maker: 'Korea · Joseon dynasty · late 17th–mid-18th century', source: '158472' },
-    poems: { title: 'Autumn Maples with Poem Slips', maker: 'Tosa Mitsuoki · c. 1675', source: '127644' },
-    colour: { title: 'Improvisation No. 30 (Cannons)', maker: 'Vasily Kandinsky · 1913', source: '8991' },
+    water: { title: 'Markandeya Viewing Krishna in the Cosmic Ocean', maker: 'Northern India, Basohli · c. 1680', source: 'https://clevelandart.org/art/1967.241', museum: 'Cleveland Museum of Art' },
+    dusk: { title: 'Two Men Contemplating the Moon', maker: 'Caspar David Friedrich · c. 1825–30', source: 'https://www.metmuseum.org/art/collection/search/438417', museum: 'The Metropolitan Museum of Art' },
+    form: { title: 'Vase (Meiping) with Waves', maker: 'China · Yuan dynasty · Jizhou ware · 1200s–1300s', source: 'https://clevelandart.org/art/1980.186', museum: 'Cleveland Museum of Art' },
+    poems: { title: 'Leaf from a Book of Hours: St. Matthew', maker: 'Limbourg Brothers · c. 1415–20', source: 'https://clevelandart.org/art/2005.204', museum: 'Cleveland Museum of Art' },
+    colour: { title: 'Orpheus', maker: 'Odilon Redon · c. 1903–10', source: 'https://clevelandart.org/art/1926.25', museum: 'Cleveland Museum of Art' },
   };
   const pictures = [...document.querySelectorAll('[data-hero-scene]')];
   const credit = document.getElementById('arrival-credit');
@@ -71,7 +71,9 @@
     image.alt = picture.alt;
     document.getElementById('arrival-viewer-title').textContent = work.title;
     document.getElementById('arrival-viewer-maker').textContent = work.maker;
-    document.getElementById('arrival-viewer-source').href = `https://www.artic.edu/artworks/${work.source}`;
+    const source = document.getElementById('arrival-viewer-source');
+    source.href = work.source;
+    source.textContent = `${work.museum} · CC0 ↗`;
     viewer.showModal();
   });
   viewer.querySelector('.viewer-close').addEventListener('click', () => viewer.close());
