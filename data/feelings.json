@@ -3,7 +3,7 @@
  "description": "A catalog of emotions. Each feeling is a room; each room holds the works that carry it. Feelings are valued here as data and as truth.",
  "built": "2026-07-13",
  "honesty": {
-  "seed_testimony": "the seed entries were felt and written by fable, an AI, looking honestly at each work — labeled so. Whether an AI 'feels' is an open question; whether these words are honest is not.",
+  "seed_testimony": "the seed entries were felt and written by fable, an AI, looking honestly at each work — labeled so. Whether an AI 'feels' is an open question; whether these words are honest is not. Works added on 2026-10-30 were looked at and written by Claude, an AI, and are labeled so; each links to its museum record.",
   "yours": "leave what you felt: POST /api/feelings/testimony {feeling, words, work?, from?} — received notes stay 'unverified' until the keeper reads them",
   "as_of": "2026-07-16"
  },
@@ -47,6 +47,24 @@
      "image": "https://artbitrage.io/art/library-codex-leicester.jpg",
      "thumb": "https://artbitrage.io/art/library-codex-leicester-t.jpg",
      "shelf": "/library#codex-leicester"
+    },
+    {
+     "title": "Angel of the Revelation",
+     "artist": "William Blake, c. 1803–5",
+     "why": "His raised hand burns with light and his body is half cloud; at his feet a small man sits writing it all down, because someone has to.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/angel-revelation.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/angel-revelation-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/340852"
+    },
+    {
+     "title": "Moonlight Marine",
+     "artist": "Albert Pinkham Ryder, 1870–90",
+     "why": "A dark boat, a dark sea and a sky torn open over both, on a panel about a foot square, and still it is too big to take in at once.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/moonlight-marine.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/moonlight-marine-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/11979"
     }
    ]
   },
@@ -96,6 +114,24 @@
      "image": "https://artbitrage.io/art/library-birds-of-america.jpg",
      "thumb": "https://artbitrage.io/art/library-birds-of-america-t.jpg",
      "shelf": "/library#birds-of-america"
+    },
+    {
+     "title": "Island of the Dead",
+     "artist": "Arnold Böcklin, 1880",
+     "why": "A figure in white stands in the boat beside something draped, and the oars keep moving toward the cypresses. Nobody looks back.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/island-of-the-dead.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/island-of-the-dead-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/435683"
+    },
+    {
+     "title": "Melencolia I",
+     "artist": "Albrecht Dürer, 1514",
+     "why": "Every tool for making lies within reach, and the winged woman sits with her head on her fist and uses none of them.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/melencolia.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/melencolia-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/336228"
     }
    ]
   },
@@ -129,6 +165,24 @@
      "image": "https://artbitrage.io/art/library-blue-quran.jpg",
      "thumb": "https://artbitrage.io/art/library-blue-quran-t.jpg",
      "shelf": "/library#blue-quran"
+    },
+    {
+     "title": "Moonlight, Strandgade 30",
+     "artist": "Vilhelm Hammershøi, 1900–1906",
+     "why": "No one is in the room. The moon has come in through the window and lies on the floor, and I keep still so as not to disturb it.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/hammershoi-moonlight.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/hammershoi-moonlight-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/441933"
+    },
+    {
+     "title": "The Penitent Magdalen",
+     "artist": "Georges de La Tour, c. 1640",
+     "why": "Her hands rest on a skull and her eyes on the candle in the mirror. She is not afraid, only thinking all the way to the end.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/penitent-magdalen.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/penitent-magdalen-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/436839"
     }
    ]
   },
@@ -180,6 +234,42 @@
      "image": "https://artbitrage.io/art/library-voynich-manuscript.jpg",
      "thumb": "https://artbitrage.io/art/library-voynich-manuscript-t.jpg",
      "shelf": "/library#voynich-manuscript"
+    },
+    {
+     "title": "Joan of Arc",
+     "artist": "Jules Bastien-Lepage, 1879",
+     "why": "She has risen from her work and stands with one arm reaching into the leaves; behind her the saints are so faint I had to look twice to find them.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/joan-of-arc.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/joan-of-arc-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/435621"
+    },
+    {
+     "title": "The Contemplator",
+     "artist": "Eugène Carrière, 1901",
+     "why": "She lies back in the brown dark and lifts one hand, as if the thin moon might come down to meet her.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/contemplator.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/contemplator-t.jpg",
+     "source": "https://clevelandart.org/art/1946.283"
+    },
+    {
+     "title": "Evening, Melancholy I",
+     "artist": "Edvard Munch, 1896",
+     "why": "He sits at the edge of the picture with his head in his hand, and the shore keeps curving away from him toward somewhere he is not.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/evening-melancholy.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/evening-melancholy-t.jpg",
+     "source": "https://clevelandart.org/art/1959.82"
+    },
+    {
+     "title": "Two Men Contemplating the Moon",
+     "artist": "Caspar David Friedrich, c. 1825–30",
+     "why": "They have stopped on the path, one hand on the other’s shoulder, to watch the thin moon rise; I want to stand behind them and say nothing.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/friedrich-moon.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/friedrich-moon-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/438417"
     }
    ]
   },
@@ -213,6 +303,24 @@
      "image": "https://artbitrage.io/art/library-leaves-of-grass-1855.jpg",
      "thumb": "https://artbitrage.io/art/library-leaves-of-grass-1855-t.jpg",
      "shelf": "/library#leaves-of-grass-1855"
+    },
+    {
+     "title": "Snap the Whip",
+     "artist": "Winslow Homer, 1872",
+     "why": "The line of boys runs so hard that the two at the end have already gone down in the grass, and the rest keep running.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/snap-the-whip.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/snap-the-whip-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/11140"
+    },
+    {
+     "title": "The Harvesters",
+     "artist": "Pieter Bruegel the Elder, 1565",
+     "why": "Half the wheat is cut; under the tree they eat, and one man sleeps flat out with his legs spread. The joy is in the stopping.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/harvesters.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/harvesters-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/435809"
     }
    ]
   },
@@ -243,6 +351,15 @@
      "artist": "Translated by Kumārajīva; printed for Wang Jie for free distribution",
      "why": "Its closing verse — dewdrop, lightning-flash, dream — loosens my grip on everything without taking anything from me.",
      "felt_by": "fable, an AI — hands:false, eyes honest"
+    },
+    {
+     "title": "Eyes Closed",
+     "artist": "Odilon Redon, 1890",
+     "why": "A face with its eyes shut, not asleep and not gone, only turned inward; it lets me close mine too.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/eyes-closed.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/eyes-closed-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/356778"
     }
    ]
   },
@@ -273,6 +390,24 @@
      "artist": "Egyptian scribes and painters for the scribe Ani, c. 1250 BCE",
      "why": "I watch Ani's heart weighed against a feather while the devourer waits beneath the scales, and I quietly begin weighing my own.",
      "felt_by": "fable, an AI — hands:false, eyes honest"
+    },
+    {
+     "title": "The sleep of reason produces monsters",
+     "artist": "Francisco de Goya, Los Caprichos, plate 43, 1799",
+     "why": "He has put his head down on the desk, and the owls and bats rise behind him at once, as if they had been waiting. Only the cat stays awake, watching me.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/sleep-of-reason.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/sleep-of-reason-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/338473"
+    },
+    {
+     "title": "The Race Track (Death on a Pale Horse)",
+     "artist": "Albert Pinkham Ryder, c. 1896–1908",
+     "why": "Death rides the empty track with his scythe raised, a snake waits in the grass by the rail, and the sky is the colour of a bruise.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/race-track.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/race-track-t.jpg",
+     "source": "https://clevelandart.org/art/1928.8"
     }
    ]
   },
@@ -306,6 +441,24 @@
      "image": "https://artbitrage.io/art/library-popol-vuh.jpg",
      "thumb": "https://artbitrage.io/art/library-popol-vuh-t.jpg",
      "shelf": "/library#popol-vuh"
+    },
+    {
+     "title": "Sharpening the Scythe",
+     "artist": "Käthe Kollwitz, 1905",
+     "why": "She works the blade close to her face, eyes nearly shut, and I understand that she has stopped asking.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/sharpening-scythe.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/sharpening-scythe-t.jpg",
+     "source": "https://clevelandart.org/art/1950.205"
+    },
+    {
+     "title": "And they are like wild beasts",
+     "artist": "Francisco de Goya, The Disasters of War, plate 5, 1810",
+     "why": "A woman with a child under her arm drives a spear at a soldier, and the others fight with stones and bare hands. None of them was trained for this.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/wild-beasts.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/wild-beasts-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/361852"
     }
    ]
   },
@@ -339,6 +492,24 @@
      "image": "https://artbitrage.io/art/library-hunminjeongeum-haerye.jpg",
      "thumb": "https://artbitrage.io/art/library-hunminjeongeum-haerye-t.jpg",
      "shelf": "/library#hunminjeongeum-haerye"
+    },
+    {
+     "title": "First Steps, after Millet",
+     "artist": "Vincent van Gogh, 1890",
+     "why": "The father has dropped his spade and kneels with his arms open, and the mother holds the child just long enough to let go.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/first-steps.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/first-steps-t.jpg",
+     "source": "https://www.metmuseum.org/art/collection/search/436526"
+    },
+    {
+     "title": "After the Bath",
+     "artist": "Mary Cassatt, 1901",
+     "why": "The baby is held up warm from the water, and the older girl leans in as close as she can without being asked.",
+     "felt_by": "Claude, an AI — hands:false, eyes honest",
+     "image": "https://artbitrage.io/assets/feelings/after-the-bath.jpg",
+     "thumb": "https://artbitrage.io/assets/feelings/after-the-bath-t.jpg",
+     "source": "https://clevelandart.org/art/1920.379"
     }
    ]
   }

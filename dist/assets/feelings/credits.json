@@ -1,0 +1,277 @@
+{
+  "about": "Image records for the paintings and prints added to the Feelings rooms and to the front page’s “Inside us” wall on 2026-10-30. All are public domain and CC0 at their museums. The words beside each work in /feelings were written by Claude, an AI, from looking at it.",
+  "processing": "Resized with macOS sips: the large file to 1600 px on its long edge, the thumbnail to 640 px.",
+  "works": [
+    {
+      "title": "Joan of Arc",
+      "artist": "Jules Bastien-Lepage",
+      "date": "1879",
+      "medium": "Oil on canvas",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/435621",
+      "license": "CC0",
+      "files": [
+        "joan-of-arc.jpg",
+        "joan-of-arc-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP-14201-049.jpg",
+      "note": "The museum photograph includes the gilt frame; it is trimmed to the canvas."
+    },
+    {
+      "title": "The Contemplator",
+      "artist": "Eugène Carrière (French, 1849–1906)",
+      "date": "1901",
+      "medium": "oil on fabric",
+      "source_name": "Cleveland Museum of Art",
+      "url": "https://clevelandart.org/art/1946.283",
+      "license": "CC0",
+      "files": [
+        "contemplator.jpg",
+        "contemplator-t.jpg"
+      ],
+      "image_source": "https://openaccess-cdn.clevelandart.org/1946.283/1946.283_print.jpg"
+    },
+    {
+      "title": "Evening, Melancholy I",
+      "artist": "Edvard Munch (Norwegian, 1863–1944)",
+      "date": "1896",
+      "medium": "Hand-colored woodcut",
+      "source_name": "Cleveland Museum of Art",
+      "url": "https://clevelandart.org/art/1959.82",
+      "license": "CC0",
+      "files": [
+        "evening-melancholy.jpg",
+        "evening-melancholy-t.jpg"
+      ],
+      "image_source": "https://openaccess-cdn.clevelandart.org/1959.82/1959.82_print.jpg"
+    },
+    {
+      "title": "Two Men Contemplating the Moon",
+      "artist": "Caspar David Friedrich",
+      "date": "ca. 1825–30",
+      "medium": "Oil on canvas",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/438417",
+      "license": "CC0",
+      "files": [
+        "friedrich-moon.jpg",
+        "friedrich-moon-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP-31997-001-NEW.jpg",
+      "note": "The black photographic surround is trimmed; the canvas is whole."
+    },
+    {
+      "title": "Plate 43 from \"Los Caprichos\": The sleep of reason produces monsters (El sueño de la razon produce monstruos)",
+      "artist": "Goya (Francisco de Goya y Lucientes)",
+      "date": "1799",
+      "medium": "Etching, aquatint",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/338473",
+      "license": "CC0",
+      "files": [
+        "sleep-of-reason.jpg",
+        "sleep-of-reason-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/dp/original/DP816992.jpg",
+      "note": "Trimmed to the plate mark with a narrow margin of the sheet."
+    },
+    {
+      "title": "The Race Track (Death on a Pale Horse)",
+      "artist": "Albert Pinkham Ryder (American, 1847–1917)",
+      "date": "c. 1896–1908",
+      "medium": "oil on canvas",
+      "source_name": "Cleveland Museum of Art",
+      "url": "https://clevelandart.org/art/1928.8",
+      "license": "CC0",
+      "files": [
+        "race-track.jpg",
+        "race-track-t.jpg"
+      ],
+      "image_source": "https://openaccess-cdn.clevelandart.org/1928.8/1928.8_print.jpg"
+    },
+    {
+      "title": "Island of the Dead",
+      "artist": "Arnold Böcklin",
+      "date": "1880",
+      "medium": "Oil on wood",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/435683",
+      "license": "CC0",
+      "files": [
+        "island-of-the-dead.jpg",
+        "island-of-the-dead-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP-47457-001.jpg",
+      "note": "The black photographic surround is trimmed; the panel is whole."
+    },
+    {
+      "title": "Melencolia I",
+      "artist": "Albrecht Dürer",
+      "date": "1514",
+      "medium": "Engraving",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/336228",
+      "license": "CC0",
+      "files": [
+        "melencolia.jpg",
+        "melencolia-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/dp/original/DP820348.jpg"
+    },
+    {
+      "title": "Moonlight, Strandgade 30",
+      "artist": "Vilhelm Hammershøi",
+      "date": "1900–1906",
+      "medium": "Oil on canvas",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/441933",
+      "license": "CC0",
+      "files": [
+        "hammershoi-moonlight.jpg",
+        "hammershoi-moonlight-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP273105.jpg"
+    },
+    {
+      "title": "The Penitent Magdalen",
+      "artist": "Georges de La Tour",
+      "date": "ca. 1640",
+      "medium": "Oil on canvas",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/436839",
+      "license": "CC0",
+      "files": [
+        "penitent-magdalen.jpg",
+        "penitent-magdalen-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP-27910-001.jpg"
+    },
+    {
+      "title": "First Steps, after Millet",
+      "artist": "Vincent van Gogh",
+      "date": "1890",
+      "medium": "Oil on canvas",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/436526",
+      "license": "CC0",
+      "files": [
+        "first-steps.jpg",
+        "first-steps-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP124808.jpg"
+    },
+    {
+      "title": "After the Bath",
+      "artist": "Mary Cassatt (American, 1844–1926)",
+      "date": "1901",
+      "medium": "pastel",
+      "source_name": "Cleveland Museum of Art",
+      "url": "https://clevelandart.org/art/1920.379",
+      "license": "CC0",
+      "files": [
+        "after-the-bath.jpg",
+        "after-the-bath-t.jpg"
+      ],
+      "image_source": "https://openaccess-cdn.clevelandart.org/1920.379/1920.379_print.jpg"
+    },
+    {
+      "title": "Angel of the Revelation (Book of Revelation, chapter 10)",
+      "artist": "William Blake",
+      "date": "ca. 1803–5",
+      "medium": "Watercolor, pen and black ink, brush and wash, over traces of graphite",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/340852",
+      "license": "CC0",
+      "files": [
+        "angel-revelation.jpg",
+        "angel-revelation-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/dp/original/DP805380.jpg"
+    },
+    {
+      "title": "Moonlight Marine",
+      "artist": "Albert Pinkham Ryder",
+      "date": "1870–90",
+      "medium": "Oil and possibly wax on wood panel",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/11979",
+      "license": "CC0",
+      "files": [
+        "moonlight-marine.jpg",
+        "moonlight-marine-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/ad/original/DT240273.jpg"
+    },
+    {
+      "title": "Snap the Whip",
+      "artist": "Winslow Homer",
+      "date": "1872",
+      "medium": "Oil on canvas",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/11140",
+      "license": "CC0",
+      "files": [
+        "snap-the-whip.jpg",
+        "snap-the-whip-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/ad/original/DP-20820-001.jpg"
+    },
+    {
+      "title": "The Harvesters",
+      "artist": "Pieter Bruegel the Elder",
+      "date": "1565",
+      "medium": "Oil on oak",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/435809",
+      "license": "CC0",
+      "files": [
+        "harvesters.jpg",
+        "harvesters-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP119115.jpg"
+    },
+    {
+      "title": "Eyes Closed",
+      "artist": "Odilon Redon",
+      "date": "1890",
+      "medium": "Lithograph",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/356778",
+      "license": "CC0",
+      "files": [
+        "eyes-closed.jpg",
+        "eyes-closed-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/dp/original/DP824897.jpg"
+    },
+    {
+      "title": "Sharpening the Scythe",
+      "artist": "Käthe Kollwitz (German, 1867–1945)",
+      "date": "1905",
+      "medium": "etching",
+      "source_name": "Cleveland Museum of Art",
+      "url": "https://clevelandart.org/art/1950.205",
+      "license": "CC0",
+      "files": [
+        "sharpening-scythe.jpg",
+        "sharpening-scythe-t.jpg"
+      ],
+      "image_source": "https://openaccess-cdn.clevelandart.org/1950.205/1950.205_print.jpg"
+    },
+    {
+      "title": "Plate 5 from \"The Disasters of War\" (Los Desastres de la Guerra): 'And they are like wild beasts' (Y son fieras)",
+      "artist": "Goya (Francisco de Goya y Lucientes)",
+      "date": "1810 (published 1863)",
+      "medium": "Etching, burnished aquatint, drypoint",
+      "source_name": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/361852",
+      "license": "CC0",
+      "files": [
+        "wild-beasts.jpg",
+        "wild-beasts-t.jpg"
+      ],
+      "image_source": "https://images.metmuseum.org/CRDImages/dp/original/DP817148.jpg",
+      "note": "Trimmed to the plate mark with a narrow margin of the sheet."
+    }
+  ]
+}

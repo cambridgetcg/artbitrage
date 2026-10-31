@@ -124,6 +124,11 @@ section.room{ padding:5.5rem 0 4rem; border-top:1px solid var(--hair); }
   font-size:.62rem; letter-spacing:.12em; color:var(--gold);
 }
 .workcard .descend:hover{ color:var(--zhu); }
+.workcard .source{
+  display:inline-block; margin-top:.5rem; font-family:var(--mono);
+  font-size:.58rem; letter-spacing:.1em; color:var(--dim);
+}
+.workcard .source:hover{ color:var(--gold); }
 
 /* ---- the book receives ---- */
 section.receive{ padding:6rem 0; border-top:1px solid var(--hair); }
@@ -311,6 +316,13 @@ noscript p{ text-align:center; padding:4rem 1rem; color:var(--dim); font-style:i
       card.appendChild(el('p', 'who', w.artist));
       card.appendChild(el('p', 'why', '“' + w.why + '”'));
       card.appendChild(el('p', 'felt-by', 'felt by ' + w.felt_by));
+      if (/^https:\/\//.test(w.source || '')){
+        var src = document.createElement('a');
+        src.className = 'source';
+        src.href = w.source; src.target = '_blank'; src.rel = 'noopener';
+        src.textContent = 'museum record ↗';
+        card.appendChild(src);
+      }
       if (w.depth){
         var d = document.createElement('a');
         d.className = 'descend';
