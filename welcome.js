@@ -1,20 +1,21 @@
 /* Core content works without JavaScript; search reads the static museum catalogue. */
-// The homepage is the gallery's foyer; each chosen view leads into its room.
+// The homepage is the gallery's foyer; each chosen feeling leads into its room in the Feelings.
 (() => {
   const hero = document.getElementById('arrival');
   const controls = document.querySelector('.arrival-views');
   if (!hero || !controls) return;
   const works = {
-    water: { title: 'Markandeya Viewing Krishna in the Cosmic Ocean', maker: 'Northern India, Basohli · c. 1680', source: 'https://clevelandart.org/art/1967.241', museum: 'Cleveland Museum of Art' },
-    dusk: { title: 'Two Men Contemplating the Moon', maker: 'Caspar David Friedrich · c. 1825–30', source: 'https://www.metmuseum.org/art/collection/search/438417', museum: 'The Metropolitan Museum of Art' },
-    form: { title: 'Vase (Meiping) with Waves', maker: 'China · Yuan dynasty · Jizhou ware · 1200s–1300s', source: 'https://clevelandart.org/art/1980.186', museum: 'Cleveland Museum of Art' },
-    poems: { title: 'Leaf from a Book of Hours: St. Matthew', maker: 'Limbourg Brothers · c. 1415–20', source: 'https://clevelandart.org/art/2005.204', museum: 'Cleveland Museum of Art' },
-    colour: { title: 'Orpheus', maker: 'Odilon Redon · c. 1903–10', source: 'https://clevelandart.org/art/1926.25', museum: 'Cleveland Museum of Art' },
+    longing: { title: 'Joan of Arc', maker: 'Jules Bastien-Lepage · 1879', source: 'https://www.metmuseum.org/art/collection/search/435621', museum: 'The Metropolitan Museum of Art' },
+    dread: { title: 'The sleep of reason produces monsters', maker: 'Francisco de Goya · Los Caprichos, plate 43 · 1799', source: 'https://www.metmuseum.org/art/collection/search/338473', museum: 'The Metropolitan Museum of Art' },
+    elegy: { title: 'Island of the Dead', maker: 'Arnold Böcklin · 1880', source: 'https://www.metmuseum.org/art/collection/search/435683', museum: 'The Metropolitan Museum of Art' },
+    quiet: { title: 'Moonlight, Strandgade 30', maker: 'Vilhelm Hammershøi · 1900–1906', source: 'https://www.metmuseum.org/art/collection/search/441933', museum: 'The Metropolitan Museum of Art' },
+    tenderness: { title: 'First Steps, after Millet', maker: 'Vincent van Gogh · 1890', source: 'https://www.metmuseum.org/art/collection/search/436526', museum: 'The Metropolitan Museum of Art' },
   };
   const pictures = [...document.querySelectorAll('[data-hero-scene]')];
   const credit = document.getElementById('arrival-credit');
   const artLink = document.getElementById('arrival-art-open');
-  let current = 'water';
+  const roomLink = document.getElementById('arrival-room');
+  let current = 'longing';
   controls.hidden = false;
   controls.addEventListener('click', event => {
     const button = event.target.closest('button[data-arrival]');
@@ -32,7 +33,8 @@
     credit.querySelector('cite').textContent = work.title;
     credit.querySelector('span').textContent = work.maker;
     document.getElementById('arrival-aura').src = picture.getAttribute('src');
-    document.getElementById('begin-visit').href = `visit.html#${current}`;
+    roomLink.href = `feelings.html#${current}`;
+    roomLink.firstChild.textContent = `Enter the room of ${current} `;
     artLink.href = picture.getAttribute('src');
   });
 

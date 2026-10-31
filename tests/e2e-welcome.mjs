@@ -4,13 +4,13 @@ import { withBrowser, until } from './helpers/browser.mjs';
 const root = new URL('../', import.meta.url);
 const html = await readFile(new URL('index.html', root), 'utf8');
 const welcomeScript = await readFile(new URL('welcome.js', root), 'utf8');
-const visit = await readFile(new URL('visit.html', root), 'utf8');
+const feelings = JSON.parse(await readFile(new URL('data/feelings.json', root), 'utf8')).vocabulary;
 const arrivals = [
-  { id:'water', image:'assets/welcome/markandeya.jpg', title:'Markandeya Viewing Krishna in the Cosmic Ocean', maker:'Northern India, Basohli · c. 1680', source:'https://clevelandart.org/art/1967.241', museum:'Cleveland Museum of Art' },
-  { id:'dusk', image:'assets/welcome/friedrich-moon.jpg', title:'Two Men Contemplating the Moon', maker:'Caspar David Friedrich · c. 1825–30', source:'https://www.metmuseum.org/art/collection/search/438417', museum:'The Metropolitan Museum of Art' },
-  { id:'form', image:'assets/welcome/jizhou-waves-vase.jpg', title:'Vase (Meiping) with Waves', maker:'China · Yuan dynasty · Jizhou ware · 1200s–1300s', source:'https://clevelandart.org/art/1980.186', museum:'Cleveland Museum of Art' },
-  { id:'poems', image:'assets/welcome/limbourg-matthew.jpg', title:'Leaf from a Book of Hours: St. Matthew', maker:'Limbourg Brothers · c. 1415–20', source:'https://clevelandart.org/art/2005.204', museum:'Cleveland Museum of Art' },
-  { id:'colour', image:'assets/welcome/redon-orpheus.jpg', title:'Orpheus', maker:'Odilon Redon · c. 1903–10', source:'https://clevelandart.org/art/1926.25', museum:'Cleveland Museum of Art' },
+  { id:'longing', image:'assets/welcome/joan-of-arc.jpg', title:'Joan of Arc', maker:'Jules Bastien-Lepage · 1879', source:'https://www.metmuseum.org/art/collection/search/435621', museum:'The Metropolitan Museum of Art' },
+  { id:'dread', image:'assets/welcome/sleep-of-reason.jpg', title:'The sleep of reason produces monsters', maker:'Francisco de Goya · Los Caprichos, plate 43 · 1799', source:'https://www.metmuseum.org/art/collection/search/338473', museum:'The Metropolitan Museum of Art' },
+  { id:'elegy', image:'assets/welcome/island-of-the-dead.jpg', title:'Island of the Dead', maker:'Arnold Böcklin · 1880', source:'https://www.metmuseum.org/art/collection/search/435683', museum:'The Metropolitan Museum of Art' },
+  { id:'quiet', image:'assets/welcome/hammershoi-moonlight.jpg', title:'Moonlight, Strandgade 30', maker:'Vilhelm Hammershøi · 1900–1906', source:'https://www.metmuseum.org/art/collection/search/441933', museum:'The Metropolitan Museum of Art' },
+  { id:'tenderness', image:'assets/welcome/first-steps.jpg', title:'First Steps, after Millet', maker:'Vincent van Gogh · 1890', source:'https://www.metmuseum.org/art/collection/search/436526', museum:'The Metropolitan Museum of Art' },
 ];
 for (const file of ['index.html', 'welcome.css', 'welcome.js', 'explore.html']) {
   assert.equal(await readFile(new URL(file, root), 'utf8'), await readFile(new URL('dist/' + file, root), 'utf8'), file + ' deploy mirror');
@@ -29,7 +29,9 @@ assert.match(html, /class="arrival-views" hidden/);
 assert.doesNotMatch(html, /<(?:audio|video)\b/i);
 assert.doesNotMatch(welcomeScript, /\b(?:AudioContext|webkitAudioContext|Audio|createOscillator)\b/);
 for (const room of arrivals) {
-  assert.ok(visit.includes(`id="${room.id}"`), `${room.id} is a real gallery destination`);
+  const feeling = feelings.find(item => item.id === room.id);
+  assert.ok(feeling, `${room.id} is a real room in the Feelings`);
+  assert.ok(feeling.works.some(work => work.source === room.source), `${room.id}: its arrival work also hangs in that room`);
   assert.ok(html.includes(`data-arrival="${room.id}"`));
   assert.deepEqual(await readFile(new URL(room.image, root)), await readFile(new URL(`dist/${room.image}`, root)), `${room.image} deploy mirror`);
 }
@@ -39,7 +41,7 @@ if (!process.argv.includes('--browser')) process.exit(0);
 const works = JSON.parse(await readFile(new URL('catalog/all.json', root), 'utf8'));
 const route = async (url) => {
   if (url.pathname === '/catalog/all.json') return { type: 'application/json', body: JSON.stringify(works) };
-  if (/^\/(welcome\.(css|js)|assets\/welcome\/[a-z-]+\.jpg|assets\/guide\/kandinsky\.jpg|assets\/noticing\/cassatt-childs-bath\.jpg|assets\/psyche\/canova-t\.jpg|assets\/vishenskaya\/poignant-wonder-t\.jpg|assets\/leonardo\/lizard-t\.jpg)$/.test(url.pathname)) {
+  if (/^\/(welcome\.(css|js)|assets\/welcome\/[a-z-]+\.jpg|assets\/feelings\/[a-z-]+\.jpg|assets\/guide\/kandinsky\.jpg|assets\/noticing\/cassatt-childs-bath\.jpg|assets\/psyche\/canova-t\.jpg|assets\/vishenskaya\/poignant-wonder-t\.jpg|assets\/leonardo\/lizard-t\.jpg)$/.test(url.pathname)) {
     return { type: url.pathname.endsWith('.css') ? 'text/css' : url.pathname.endsWith('.js') ? 'text/javascript' : 'image/jpeg', body: await readFile(new URL(url.pathname.slice(1), root)) };
   }
   return null;
@@ -62,14 +64,16 @@ await withBrowser('welcome', async browser => {
   const scrollTo = selector => evaluate(`document.querySelector(${JSON.stringify(selector)}).scrollIntoView({behavior:'instant',block:'start'})`);
   const imageLoaded = selector => until(() => evaluate(`document.querySelector(${JSON.stringify(selector)})?.naturalWidth > 0`), `${selector} image loads`);
   const expectArrival = async room => {
-    const state = await evaluate(`({view:document.querySelector('#arrival').dataset.view, current:[...document.querySelectorAll('[data-hero-scene].is-current')].map(img=>img.dataset.heroScene), exposed:[...document.querySelectorAll('[data-hero-scene]')].filter(img=>img.getAttribute('aria-hidden')!=='true').map(img=>img.dataset.heroScene), pressed:[...document.querySelectorAll('[data-arrival][aria-pressed="true"]')].map(button=>button.dataset.arrival), title:document.querySelector('#arrival-credit cite').textContent, maker:document.querySelector('#arrival-credit span').textContent, begin:document.querySelector('#begin-visit').getAttribute('href'), image:document.querySelector('#arrival-art-open').getAttribute('href'), aura:document.querySelector('#arrival-aura').getAttribute('src')})`);
+    const state = await evaluate(`({view:document.querySelector('#arrival').dataset.view, current:[...document.querySelectorAll('[data-hero-scene].is-current')].map(img=>img.dataset.heroScene), exposed:[...document.querySelectorAll('[data-hero-scene]')].filter(img=>img.getAttribute('aria-hidden')!=='true').map(img=>img.dataset.heroScene), pressed:[...document.querySelectorAll('[data-arrival][aria-pressed="true"]')].map(button=>button.dataset.arrival), title:document.querySelector('#arrival-credit cite').textContent, maker:document.querySelector('#arrival-credit span').textContent, begin:document.querySelector('#begin-visit').getAttribute('href'),room:document.querySelector('#arrival-room').getAttribute('href'),roomText:document.querySelector('#arrival-room').textContent, image:document.querySelector('#arrival-art-open').getAttribute('href'), aura:document.querySelector('#arrival-aura').getAttribute('src')})`);
     assert.equal(state.view, room.id);
     assert.deepEqual(state.current, [room.id]);
     assert.deepEqual(state.exposed, [room.id], 'only the selected artwork is exposed to assistive technology');
     assert.deepEqual(state.pressed, [room.id]);
     assert.equal(state.title, room.title);
     assert.equal(state.maker, room.maker);
-    assert.equal(state.begin, `visit.html#${room.id}`);
+    assert.equal(state.begin, 'visit.html', 'the gallery visit still begins at its own door');
+    assert.equal(state.room, `feelings.html#${room.id}`);
+    assert.match(state.roomText, new RegExp(`room of ${room.id}`));
     assert.equal(state.image, room.image);
     assert.equal(state.aura, room.image);
     await imageLoaded(`[data-hero-scene="${room.id}"]`);
@@ -110,7 +114,7 @@ await withBrowser('welcome', async browser => {
     await openViewer(room);
     await closeViewer(index % 2 === 0);
   }
-  await click('[data-arrival="water"]');
+  await click('[data-arrival="longing"]');
   await expectArrival(arrivals[0]);
   assert.ok(await evaluate(`document.querySelector('#arrival').getAnimations({subtree:true}).some(animation=>animation.playState==='running')`), 'visible arrival has ambient movement');
   await click('#home-motion');
@@ -137,7 +141,7 @@ await withBrowser('welcome', async browser => {
   await shot('desktop-full', 'body');
   for (const width of [320, 390, 768, 1024, 1440]) {
     await viewport(width);
-    for (const selector of ['#arrival','.hero-actions','.arrival-views','#why','.shape-section','.notebook-door','#start','#reading','#search','.closing','.site-footer']) {
+    for (const selector of ['#arrival','.hero-actions','.arrival-views','#why','#inside','.shape-section','.notebook-door','#start','#reading','#search','.closing','.site-footer']) {
       await scrollTo(selector);
       await layout(`${selector} at ${width}px`);
     }
@@ -193,7 +197,7 @@ await withBrowser('welcome', async browser => {
   await expectArrival(arrivals[0]);
   assert.equal(await evaluate(`document.querySelector('#arrival-viewer').open`), false);
   await click('#arrival-art-open');
-  await until(() => evaluate(`location.pathname === '/assets/welcome/markandeya.jpg' && document.querySelector('img')?.naturalWidth > 0`), 'no-JavaScript direct artwork link works');
+  await until(() => evaluate(`location.pathname === '/assets/welcome/joan-of-arc.jpg' && document.querySelector('img')?.naturalWidth > 0`), 'no-JavaScript direct artwork link works');
   await send('Emulation.setScriptExecutionDisabled', { value: false });
-  console.log('welcome browser passed: five arrival views and real gallery destinations, artwork viewer + focus return, optional/offscreen/reduced motion, no audio, 320–1440px, search pagination/error/unsafe data, and no-JavaScript purpose/navigation/artwork');
+  console.log('welcome browser passed: five feelings leading into their Feelings rooms, artwork viewer + focus return, optional/offscreen/reduced motion, no audio, 320–1440px, search pagination/error/unsafe data, and no-JavaScript purpose/navigation/artwork');
 });

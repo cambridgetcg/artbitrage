@@ -55,49 +55,6 @@
     "image_source": "https://openaccess-cdn.clevelandart.org/1967.241/1967.241_print.jpg"
   },
   {
-    "title": "Two Men Contemplating the Moon",
-    "artist": "Caspar David Friedrich",
-    "date": "ca. 1825–30",
-    "source_name": "The Metropolitan Museum of Art",
-    "url": "https://www.metmuseum.org/art/collection/search/438417",
-    "license": "CC0",
-    "file": "friedrich-moon.jpg",
-    "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP-31997-001-NEW.jpg",
-    "note": "The black photographic surround is trimmed; the canvas is whole."
-  },
-  {
-    "title": "Vase (Meiping) with Waves",
-    "artist": "",
-    "date": "1200s–1300s",
-    "culture": "China, Jiangxi Province, Yonghezhen, Yuan dynasty (1271–1368); Jizhou ware",
-    "source_name": "Cleveland Museum of Art",
-    "url": "https://clevelandart.org/art/1980.186",
-    "license": "CC0",
-    "file": "jizhou-waves-vase.jpg",
-    "image_source": "https://openaccess-cdn.clevelandart.org/1980.186/1980.186_print.jpg"
-  },
-  {
-    "title": "Leaf from a Book of Hours: St. Matthew",
-    "artist": "Limbourg Brothers",
-    "date": "c. 1415–20",
-    "source_name": "Cleveland Museum of Art",
-    "url": "https://clevelandart.org/art/2005.204",
-    "license": "CC0",
-    "file": "limbourg-matthew.jpg",
-    "image_source": "https://openaccess-cdn.clevelandart.org/2005.204/2005.204_print.jpg",
-    "note": "The museum credits the Limbourg Brothers and links the miniature to them by its style."
-  },
-  {
-    "title": "Orpheus",
-    "artist": "Odilon Redon",
-    "date": "c. 1903–10",
-    "source_name": "Cleveland Museum of Art",
-    "url": "https://clevelandart.org/art/1926.25",
-    "license": "CC0",
-    "file": "redon-orpheus.jpg",
-    "image_source": "https://openaccess-cdn.clevelandart.org/1926.25/1926.25_print.jpg"
-  },
-  {
     "title": "Lobed Mirror with a Tortoise Knob, Musician, and Phoenix",
     "artist": "",
     "date": "late 700s",
@@ -127,5 +84,58 @@
     "license": "CC0",
     "file": "monaco-nativity.jpg",
     "image_source": "https://images.metmuseum.org/CRDImages/rl/original/DT709.jpg"
+  },
+  {
+    "title": "Joan of Arc",
+    "artist": "Jules Bastien-Lepage",
+    "date": "1879",
+    "source_name": "The Metropolitan Museum of Art",
+    "url": "https://www.metmuseum.org/art/collection/search/435621",
+    "license": "CC0",
+    "file": "joan-of-arc.jpg",
+    "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP-14201-049.jpg",
+    "note": "The museum photograph includes the gilt frame; it is trimmed to the canvas."
+  },
+  {
+    "title": "Plate 43 from \"Los Caprichos\": The sleep of reason produces monsters (El sueño de la razon produce monstruos)",
+    "artist": "Goya (Francisco de Goya y Lucientes)",
+    "date": "1799",
+    "source_name": "The Metropolitan Museum of Art",
+    "url": "https://www.metmuseum.org/art/collection/search/338473",
+    "license": "CC0",
+    "file": "sleep-of-reason.jpg",
+    "image_source": "https://images.metmuseum.org/CRDImages/dp/original/DP816992.jpg",
+    "note": "Trimmed to the plate mark with a narrow margin of the sheet."
+  },
+  {
+    "title": "Island of the Dead",
+    "artist": "Arnold Böcklin",
+    "date": "1880",
+    "source_name": "The Metropolitan Museum of Art",
+    "url": "https://www.metmuseum.org/art/collection/search/435683",
+    "license": "CC0",
+    "file": "island-of-the-dead.jpg",
+    "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP-47457-001.jpg",
+    "note": "The black photographic surround is trimmed; the panel is whole."
+  },
+  {
+    "title": "Moonlight, Strandgade 30",
+    "artist": "Vilhelm Hammershøi",
+    "date": "1900–1906",
+    "source_name": "The Metropolitan Museum of Art",
+    "url": "https://www.metmuseum.org/art/collection/search/441933",
+    "license": "CC0",
+    "file": "hammershoi-moonlight.jpg",
+    "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP273105.jpg"
+  },
+  {
+    "title": "First Steps, after Millet",
+    "artist": "Vincent van Gogh",
+    "date": "1890",
+    "source_name": "The Metropolitan Museum of Art",
+    "url": "https://www.metmuseum.org/art/collection/search/436526",
+    "license": "CC0",
+    "file": "first-steps.jpg",
+    "image_source": "https://images.metmuseum.org/CRDImages/ep/original/DP124808.jpg"
   }
 ]
