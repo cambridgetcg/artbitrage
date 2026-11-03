@@ -1,8 +1,8 @@
 {
  "schema": "artbitrage.build/1",
- "built_at": "2026-10-31T09:27:06.683Z",
+ "built_at": "2026-11-03T12:12:34.751Z",
  "source_commit": {
-  "sha": "f0f786cb03d2d28e2b28e6ce34b51da5ec545954",
+  "sha": "84dffcafbfdb2cf01e25a32f32210e16a6cb02ae",
   "collection_uncommitted": false
  },
  "collection": {

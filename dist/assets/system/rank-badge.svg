@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="138" viewBox="0 0 120 138">
+  <title>Untitled-1</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <polygon points="60,3 117.158,36 117.158,102 60,135 2.842,102 2.842,36" fill="none" stroke="#9ed8f5" stroke-width="1.5" stroke-miterlimit="10"/>
+    <path d="M0 69 C0 35.863 26.863 9 60 9 C93.137 9 120 35.863 120 69 C120 102.137 93.137 129 60 129 C26.863 129 0 102.137 0 69 Z" fill="none" stroke="#4f7f99" stroke-width="4" stroke-miterlimit="10" stroke-dasharray="1 6.854"/>
+    <polygon points="60,15 106.765,42 106.765,96 60,123 13.235,96 13.235,42" fill="none" stroke="#4f7f99" stroke-miterlimit="10"/>
+    <polyline points="52,6 60,1.5 68,6" fill="none" stroke="#9ed8f5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
