@@ -330,6 +330,52 @@ footer .sig{
 #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
 #toast .sysw{ padding:1rem 1.4rem; }
 
+/* ============ crafted art (assets/system/crafting.json) ============
+   a rift of light behind the mark, a gate sigil, cut-corner windows, hex rank crests,
+   smoke under the shadow gallery — drawn in VectorCraft and PhotoCraft from tools/craft/render.py */
+header.boot{ overflow:hidden; isolation:isolate; }
+header.boot::before{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:url(assets/system/gate-rift.jpg) 50% 0 / cover no-repeat;
+  mix-blend-mode:screen; opacity:.72;
+  -webkit-mask-image:linear-gradient(180deg, #000 30%, transparent 68%); mask-image:linear-gradient(180deg, #000 30%, transparent 68%);
+}
+header.boot::after{
+  content:""; position:absolute; left:50%; top:clamp(9rem, 30vh, 17rem); z-index:-1; pointer-events:none;
+  width:min(92vw, 640px); aspect-ratio:1; translate:-50% -50%;
+  background:url(assets/system/gate-sigil.svg) center / contain no-repeat; opacity:.2;
+}
+.sysw{
+  background:repeating-linear-gradient(180deg, rgba(158,216,245,.022) 0 1px, transparent 1px 3px),
+             linear-gradient(180deg, rgba(158,216,245,.05), rgba(158,216,245,.012) 40%), var(--panel);
+}
+.sysw::before, .sysw::after{
+  width:24px; height:24px; border:0; opacity:.95;
+  background:url(assets/system/sys-corner-tl.svg) 0 0 / 100% 100% no-repeat;
+}
+.sysw::after{ background-image:url(assets/system/sys-corner-br.svg); }
+.status-grid .cell:first-child .v{
+  display:inline-grid; place-items:center; width:3.4em; aspect-ratio:120/138;
+  background:url(assets/system/rank-badge.svg) center / contain no-repeat;
+}
+.gatezw .g-rank{
+  border:0; width:3rem; height:3.45rem; opacity:.55;
+  background:url(assets/system/rank-badge.svg) center / contain no-repeat;
+}
+.gatezw.open .g-rank{ border:0; box-shadow:none; opacity:1; filter:drop-shadow(0 0 8px rgba(158,216,245,.25)); }
+#gates{ position:relative; overflow:hidden; isolation:isolate; }
+#gates::before{
+  content:""; position:absolute; right:-180px; top:50%; z-index:-1; pointer-events:none;
+  width:620px; aspect-ratio:1; translate:0 -50%;
+  background:url(assets/system/gate-sigil.svg) center / contain no-repeat; opacity:.06;
+}
+#shadows-hall{
+  background:linear-gradient(180deg, var(--bg), rgba(8,9,12,.18) 40%, transparent),
+             url(assets/system/shadow-smoke.jpg) 50% 100% / cover no-repeat, var(--bg);
+}
+@media print{ header.boot::before, header.boot::after, #gates::before{ display:none; } #shadows-hall{ background:none; } }
+@media (forced-colors:active){ header.boot::before, header.boot::after, #gates::before{ display:none; } }
+
 @media (max-width:640px){
   .gatezw{ grid-template-columns:3.6rem 1fr; }
   .gatezw a.g-go{ grid-column:2; justify-self:start; }

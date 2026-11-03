@@ -1,0 +1,77 @@
+{
+  "about": "Art for /greed-island, drawn with the ArtCraft team's Crafting Apps from the command recipes in tools/craft/render.py. No model generated these files and no reference image was used; the room is a homage in our own ink.",
+  "tools": {
+    "vectorcraft": {
+      "release": "https://github.com/storytold/vectorcraft/releases/tag/v0.21.0",
+      "asset": "vectorcraft-cli-0.21.0-macos-universal.zip",
+      "sha256": "1c645c749759654223136f9a4c0c6ea73867e79a3969b17844e3cdabaec07429"
+    },
+    "photocraft": {
+      "release": "https://github.com/storytold/photocraft/releases/tag/v0.20.1",
+      "asset": "photocraft-cli-0.20.1-macos-universal.zip",
+      "sha256": "e006ef0ae3ca46cbf55c1235a7105f896750373e4f87bc2ae875ad822c994d5d"
+    }
+  },
+  "assets": [
+    {
+      "file": "binder-leather.jpg",
+      "tool": "photocraft",
+      "version": "photocraft-cli 0.20.1 (327c4cc82, 2026-11-03)",
+      "recipe": "tools/craft/render.py binder-leather",
+      "recipe_sha256": "bcad278d851deef5dce6db0c0e497eb5b9541df073b20810f0c1720502c5abf3",
+      "bytes": 204266,
+      "sha256": "08069c635764c7c321ac9690d4c8af3f08519b3816d49e47426189f3b790488c",
+      "rendered": "2026-11-03"
+    },
+    {
+      "file": "card-back.svg",
+      "tool": "vectorcraft",
+      "version": "vectorcraft-cli 0.21.0",
+      "recipe": "tools/craft/render.py card-back",
+      "recipe_sha256": "c9a99bbfee897be7c5e8b09ad3aaa62ea771b9186c92777beba6bf0cf18d2c98",
+      "bytes": 3796,
+      "sha256": "8b00de5591c9b4f0de97690af03e762b50ebeb43aca9cb9ce747deb9bbf2e70c",
+      "rendered": "2026-11-03"
+    },
+    {
+      "file": "gilt-corner-br.svg",
+      "tool": "vectorcraft",
+      "version": "vectorcraft-cli 0.21.0",
+      "recipe": "tools/craft/render.py gilt-corner-br",
+      "recipe_sha256": "334a9648c7d52d18ec04abdfa6f582d4fc8b502b0a96bb3c7d5e467293c13509",
+      "bytes": 777,
+      "sha256": "9eaf4c8b6f1eb5bb668975526e8981af136e7ee6be08ff56351f79a001e31093",
+      "rendered": "2026-11-03"
+    },
+    {
+      "file": "gilt-corner-tl.svg",
+      "tool": "vectorcraft",
+      "version": "vectorcraft-cli 0.21.0",
+      "recipe": "tools/craft/render.py gilt-corner-tl",
+      "recipe_sha256": "e3f142e9ffc3d658cadaeee0735c1c225b0c9322cd4a787dad20a2f9972fcbd8",
+      "bytes": 759,
+      "sha256": "6a3741383dfdcc93694cd5935ccfe6d0d5f36f25ef149b9d74412f1f635a58f6",
+      "rendered": "2026-11-03"
+    },
+    {
+      "file": "record-paper.jpg",
+      "tool": "photocraft",
+      "version": "photocraft-cli 0.20.1 (327c4cc82, 2026-11-03)",
+      "recipe": "tools/craft/render.py record-paper",
+      "recipe_sha256": "b3ef50e24b575d811e3b10df75ed90c9fd6da917a0515b5da0ae842e8940cd2b",
+      "bytes": 26441,
+      "sha256": "1f4bd066d611f4895b2ff7e0f7b8f117baf239e3595e09c38c88d3b6bfdc4274",
+      "rendered": "2026-11-03"
+    },
+    {
+      "file": "seal.svg",
+      "tool": "vectorcraft",
+      "version": "vectorcraft-cli 0.21.0",
+      "recipe": "tools/craft/render.py seal",
+      "recipe_sha256": "6b4e8e3036366befcdb7ed4183f64a1b05a7946e3fb960fb54ccb6dc9d8c974e",
+      "bytes": 8066,
+      "sha256": "4bb32ffb042e29b9e46a4c396241967dad6a650df613d4c2c0c8d4475abda0b0",
+      "rendered": "2026-11-03"
+    }
+  ]
+}

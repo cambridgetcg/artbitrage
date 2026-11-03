@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <title>Untitled-1</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <polyline points="38.5,18 38.5,38.5 18,38.5" fill="none" stroke="#9ed8f5" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10"/>
+    <line x1="32" y1="26" x2="26" y2="32" fill="none" stroke="#9ed8f5" stroke-miterlimit="10"/>
+    <line x1="38.5" y1="12" x2="35" y2="12" fill="none" stroke="#4f7f99" stroke-miterlimit="10"/>
+    <line x1="38.5" y1="7" x2="36" y2="7" fill="none" stroke="#4f7f99" stroke-miterlimit="10"/>
+    <line x1="38.5" y1="2" x2="37" y2="2" fill="none" stroke="#4f7f99" stroke-miterlimit="10"/>
+    <line x1="12" y1="38.5" x2="12" y2="35" fill="none" stroke="#4f7f99" stroke-miterlimit="10"/>
+    <line x1="7" y1="38.5" x2="7" y2="36" fill="none" stroke="#4f7f99" stroke-miterlimit="10"/>
+    <line x1="2" y1="38.5" x2="2" y2="37" fill="none" stroke="#4f7f99" stroke-miterlimit="10"/>
+  </g>
+</svg>

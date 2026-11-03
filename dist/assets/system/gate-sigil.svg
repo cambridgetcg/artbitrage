@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600" viewBox="0 0 600 600">
+  <title>Untitled-1</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <path d="M18 300 C18 144.256 144.256 18 300 18 C455.744 18 582 144.256 582 300 C582 455.744 455.744 582 300 582 C144.256 582 18 455.744 18 300 Z" fill="none" stroke="#9ed8f5" stroke-width="8" stroke-miterlimit="10" stroke-dasharray="1.2 13.565"/>
+    <circle cx="300" cy="300" r="270" fill="none" stroke="#4f7f99" stroke-miterlimit="10"/>
+    <path d="M72 300 C72 174.079 174.079 72 300 72 C425.921 72 528 174.079 528 300 C528 425.921 425.921 528 300 528 C174.079 528 72 425.921 72 300 Z" fill="none" stroke="#9ed8f5" stroke-width="22" stroke-miterlimit="10" stroke-dasharray="2 117.381"/>
+    <polygon points="354.87,95.224 449.907,150.093 504.776,245.13 504.776,354.87 449.907,449.907 354.87,504.776 245.13,504.776 150.093,449.907 95.224,354.87 95.224,245.13 150.093,150.093 245.13,95.224" fill="none" stroke="#4f7f99" stroke-miterlimit="10"/>
+    <polygon points="300,124 476,300 300,476 124,300" fill="none" stroke="#4f7f99" stroke-miterlimit="10"/>
+    <rect x="175.549" y="175.549" width="248.902" height="248.902" fill="none" stroke="#4f7f99" stroke-miterlimit="10"/>
+    <circle cx="300" cy="300" r="128" fill="none" stroke="#9ed8f5" stroke-miterlimit="10"/>
+    <path d="M184 300 C184 235.935 235.935 184 300 184 C364.065 184 416 235.935 416 300 C416 364.065 364.065 416 300 416 C235.935 416 184 364.065 184 300 Z" fill="none" stroke="#4f7f99" stroke-width="10" stroke-miterlimit="10" stroke-dasharray="1.2 19.046"/>
+    <circle cx="300" cy="300" r="60" fill="none" stroke="#9ed8f5" stroke-width="1.5" stroke-miterlimit="10"/>
+    <circle cx="300" cy="300" r="5" fill="#9ed8f5"/>
+  </g>
+</svg>
