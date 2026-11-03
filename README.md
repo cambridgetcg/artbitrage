@@ -154,6 +154,12 @@ The site icon (閒, the gap: a door whose slit opens into a full moon) and each 
 what each card shows and how it was made in `assets/og/credits.json`. See
 `tools/brand/README.md` to rebuild either byte-identically.
 
+The art of 系統 `/system` and 卡書 `/greed-island` (the rift, sigil, window corners and
+rank crests; the leather, gilt corners, card back and seals) is drawn the same way, from
+the recipes in `tools/craft/render.py` (VectorCraft, PhotoCraft, and DesignCraft for the
+mockups in `docs/craft/`), and each file is recorded in `assets/<room>/crafting.json`.
+`docs/room-aesthetics.md` gathers what the look passes taught, for the next room.
+
 ### Preview and verify
 
 Use the existing Wrangler CLI; no project dependencies are added:

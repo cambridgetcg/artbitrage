@@ -1,0 +1,77 @@
+{
+  "about": "Art for /system, drawn with the ArtCraft team's Crafting Apps from the command recipes in tools/craft/render.py. No model generated these files and no reference image was used; the room is a homage in our own ink.",
+  "tools": {
+    "vectorcraft": {
+      "release": "https://github.com/storytold/vectorcraft/releases/tag/v0.21.0",
+      "asset": "vectorcraft-cli-0.21.0-macos-universal.zip",
+      "sha256": "1c645c749759654223136f9a4c0c6ea73867e79a3969b17844e3cdabaec07429"
+    },
+    "photocraft": {
+      "release": "https://github.com/storytold/photocraft/releases/tag/v0.20.1",
+      "asset": "photocraft-cli-0.20.1-macos-universal.zip",
+      "sha256": "e006ef0ae3ca46cbf55c1235a7105f896750373e4f87bc2ae875ad822c994d5d"
+    }
+  },
+  "assets": [
+    {
+      "file": "gate-rift.jpg",
+      "tool": "photocraft",
+      "version": "photocraft-cli 0.20.1 (327c4cc82, 2026-11-03)",
+      "recipe": "tools/craft/render.py gate-rift",
+      "recipe_sha256": "ac03b55bb5ff01d008cc0a5f1f662251729136dbc4311392264b9abe26e82150",
+      "bytes": 38826,
+      "sha256": "08dbfbd531ec50b9f3fd495dab60292192dddd9019ac09fa0fda695956750631",
+      "rendered": "2026-11-03"
+    },
+    {
+      "file": "gate-sigil.svg",
+      "tool": "vectorcraft",
+      "version": "vectorcraft-cli 0.21.0",
+      "recipe": "tools/craft/render.py gate-sigil",
+      "recipe_sha256": "39d3ff4c74bf1b311e987e75da4ff42578e4e06ce70c9f5dd1337d71e8749c58",
+      "bytes": 1844,
+      "sha256": "9e6fccc6c7c88beecae319763bcbca673279604ec57e53a912a835ea2c4df014",
+      "rendered": "2026-11-03"
+    },
+    {
+      "file": "rank-badge.svg",
+      "tool": "vectorcraft",
+      "version": "vectorcraft-cli 0.21.0",
+      "recipe": "tools/craft/render.py rank-badge",
+      "recipe_sha256": "385e0b97b78002bd12aa519267d23d336eab0049d120fa30a9316a27b4e8c7ba",
+      "bytes": 879,
+      "sha256": "3162ef28e7d1021184d3b930775b9bcbbdb32f02b95a96ea7e7848881b8a4a6f",
+      "rendered": "2026-11-03"
+    },
+    {
+      "file": "shadow-smoke.jpg",
+      "tool": "photocraft",
+      "version": "photocraft-cli 0.20.1 (327c4cc82, 2026-11-03)",
+      "recipe": "tools/craft/render.py shadow-smoke",
+      "recipe_sha256": "112291498c306c4910cec7e0d75ee98b0d9faefe99ca1f440486340ef4ffe251",
+      "bytes": 24396,
+      "sha256": "aef8fdf797e9f9f2999c442e3b5cf44166745e1981e1b988302bad5e21dc8aa3",
+      "rendered": "2026-11-03"
+    },
+    {
+      "file": "sys-corner-br.svg",
+      "tool": "vectorcraft",
+      "version": "vectorcraft-cli 0.21.0",
+      "recipe": "tools/craft/render.py sys-corner-br",
+      "recipe_sha256": "546d1f3df3ed46f31ca6e143aa78172a83b77589945625c65c78f186b825e07a",
+      "bytes": 1067,
+      "sha256": "b70da218ca367fa21518c3eb77b89464a6c580bbf5a19be9d293f4e93ebf7686",
+      "rendered": "2026-11-03"
+    },
+    {
+      "file": "sys-corner-tl.svg",
+      "tool": "vectorcraft",
+      "version": "vectorcraft-cli 0.21.0",
+      "recipe": "tools/craft/render.py sys-corner-tl",
+      "recipe_sha256": "f293fd6f4b0774a398f740bd44a761aa701d7f0d69a8a910684e1d4539ff18cd",
+      "bytes": 1057,
+      "sha256": "3c8fa2ac9bce58bef680f395538811200c2c75018e6c0b196065b5dd3de72c35",
+      "rendered": "2026-11-03"
+    }
+  ]
+}
