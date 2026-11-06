@@ -1,0 +1,129 @@
+{
+  "format": "brandkit.project/1",
+  "name": "artbitrage 閒",
+  "kind": "hand-made",
+  "owner": "not recorded: the brand work was committed as YOU <alpha@ai-love.cc> (the household Mac's git identity) and by Nuance, and an 'artbitrage cycle' commits the collection every few hours; no record names the lane that owns this folder",
+  "decided": [
+    {
+      "part": "the mark",
+      "status": "not-recorded",
+      "what": "閒 the gap: an arched door in two leaves whose slit opens into a full round moon (門 + 月); forest #17271f tile, gold #dbcca7 door",
+      "record": "kit/recipe.sh calls it 'the winning mark' (master in marks/gap/) without naming its maker or who judged; no record of Yu's word on the mark was found"
+    },
+    {
+      "part": "the icon kit",
+      "by": "agents (sessions not recorded), committed as YOU <alpha@ai-love.cc> in e54c10fc0",
+      "under": "not recorded",
+      "date": "2026-10-09",
+      "what": "the 閒 icons, web manifest and bare mark, cut from the winning mark by kit/recipe.sh",
+      "record": "tools/brand/README.md; tools/brand/kit/recipe.sh header; commit e54c10fc0"
+    }
+  ],
+  "kit": "kit",
+  "site": {
+    "urls": ["https://artbitrage.io", "https://artbitrage.pages.dev"],
+    "framework": "static",
+    "snippet": "head.py",
+    "html": [
+      { "page": "../../index.html", "theme_color": "#121018" },
+      { "page": "../../visit.html", "theme_color": "#17271f" },
+      { "page": "../../elements.html", "theme_color": "#1e2922" },
+      { "page": "../../noticing.html", "theme_color": "#eeece3" },
+      { "page": "../../unsigned.html", "theme_color": "#1c211d" },
+      { "page": "../../behind-the-work.html", "theme_color": "#242d27" },
+      { "page": "../../trip.html", "theme_color": "#19231e" },
+      { "page": "../../psyche.html", "theme_color": "#100f10" },
+      "../../map.html",
+      "../../explore.html",
+      "../../studio.html",
+      "../../catalog.html",
+      "../../pigments.html",
+      "../../404.html",
+      "../../api-explorer.html",
+      "../../logos.html",
+      "../../nen-combat.html",
+      "../../nen-tuner.html",
+      "../../whitehack.html"
+    ]
+  },
+  "serve": {
+    "from": "../..",
+    "to": "../../dist",
+    "files": [
+      "favicon.ico",
+      "favicon.svg",
+      "favicon-16.png",
+      "favicon-32.png",
+      "apple-touch-icon.png",
+      "icon-192.png",
+      "icon-512.png",
+      "icon-maskable-512.png",
+      "site.webmanifest",
+      "assets/brand/mark.svg"
+    ]
+  },
+  "build": {
+    "command": "bash tools/brand/kit/recipe.sh",
+    "cwd": "../..",
+    "fonts": [],
+    "tools": [
+      { "name": "vectorcraft-cli", "version": "0.7.0" },
+      { "name": "photocraft-cli", "version": "0.5.0" }
+    ]
+  },
+  "guards": [
+    {
+      "path": "/tests/e2e-brand.mjs",
+      "wired": false
+    },
+    {
+      "path": "check.mjs",
+      "wired": false
+    }
+  ],
+  "deploy": {
+    "on_merge": "Nothing deploys on merge or push. artbitrage.io is the Cloudflare Pages project artbitrage, deployed by hand: git fetch and rebase, node tools/build-dist.mjs, the test suite, node tools/live-compare.mjs --ref origin/main, then wrangler pages deploy dist --project-name=artbitrage --branch=main (README, Publish)",
+    "after_deploy": "node tools/live-compare.mjs: live should equal this dist/ (README, Publish). The repository sets no cache headers for the icons or cards",
+    "rules": "not recorded in the repository: /README.md's Publish steps are the procedure, and no file says whose word a release needs. Under the shared ground a deploy is an outward act that needs Yu's or the owner's word"
+  },
+  "media": [
+    {
+      "name": "the room share cards: through the door (14)",
+      "recipe": "gen_card.py",
+      "outputs": ["../../assets/og/credits.json", "../../assets/og/*.jpg"],
+      "source": "rooms.json (each room's card spec) and the museum works each card hangs, recorded per card in assets/og/credits.json (title, maker, licence, museum record)",
+      "goes_to": "og:image and twitter:image of each room page; gen_card.py writes the root copy and the dist/ mirror, and a hand deploy of dist/ puts them live. still-we-meet's card is made, but no page points at it until the owner decides that room should carry the shared head",
+      "fonts": [
+        { "family": "Iowan Old Style (Roman, Italic)", "file": "Iowan Old Style.ttc", "licence": "Apple system font, under the macOS licence; the repository records none", "source": "ships with macOS" },
+        { "family": "Avenir Next (Medium)", "file": "Avenir Next.ttc", "licence": "Apple system font, under the macOS licence; the repository records none", "source": "ships with macOS" },
+        { "family": "Songti TC (Regular, Light)", "file": "Songti.ttc", "licence": "Apple system font, under the macOS licence; the repository records none", "source": "ships with macOS" }
+      ],
+      "tools": [
+        { "name": "vectorcraft-cli", "version": "0.7.0" },
+        { "name": "photocraft-cli", "version": "0.5.0" }
+      ]
+    },
+    {
+      "name": "the room art of 系統 /system and 卡書 /greed-island",
+      "recipe": "../craft/render.py",
+      "outputs": ["../../assets/system/*", "../../assets/greed-island/*", "../../docs/craft/*-mockup.jpg"],
+      "goes_to": "the /system and /greed-island rooms (assets/<room>/, mirrored in dist/). The DesignCraft mockups in docs/craft/ are design references and aren't served. Each room's crafting.json records the tool, the recipe's hash and each file's hash",
+      "tools": [
+        { "name": "vectorcraft-cli", "version": "0.21.0" },
+        { "name": "photocraft-cli", "version": "0.20.1" },
+        { "name": "designcraft-cli", "version": "0.17.0" }
+      ]
+    }
+  ],
+  "notes": [
+    "The kit's outputs are git-ignored (kit/.gitignore: out/). recipe.sh writes them to kit/out/, and the committed copies are the installed ones at the repository root, so serve.from names the root and the check holds the dist/ mirror (what deploys) to it byte for byte. Nothing compares the root with kit/out/, which a clean checkout doesn't have.",
+    "recipe.sh refuses to run unless vectorcraft-cli is exactly 0.7.0 and photocraft-cli 0.5.0. Neither is installed on any known machine (review 2026-11-02 §2.2; on 2026-11-05 the Studio has 0.17.0 and 0.16.0). This is a hand-made kit: never rebuild it with other versions or overwrite it with a generated kit (review §8).",
+    "tools/craft/render.py runs its pinned CLIs from ~/craft-apps/<app>-v<version>/… (or VECTORCRAFT_CLI, PHOTOCRAFT_CLI and DESIGNCRAFT_CLI), not from PATH, and records each release's zip sha256.",
+    "/manifest.json is the site's philosophy document, not a web-app manifest. The icon uses /site.webmanifest; never create or overwrite manifest.json (the recipe refuses to run if one sits in its output folder).",
+    "The icon's head block lives in head.py (ICON_LINKS), which the page generators import, so site.snippet names it; the hand-written pages carry the same lines. theme-color isn't part of the shared block: each room keeps its own, pinned by tests/e2e-brand.mjs, and site.html carries those per page. The web manifest's #17271f and the home page's #121018 disagree (review 2026-11-02, A1).",
+    "/still-we-meet carries neither the icon block nor share tags: its own test holds it to zero <link> tags. /nen keeps its own 念 icon. Neither is listed under site.html.",
+    "tests/e2e-brand.mjs runs by hand, in the README's verify list. No CI runs it: the repository has no test script, and its two workflows only ping the live API on a schedule.",
+    "The README names a GitHub Pages mirror at cambridgetcg.github.io/artbitrage/, but the repository has no Pages site (the API answered 404) and /artbitrage/favicon.svg there answered 404 on 2026-11-05.",
+    "The icon kit itself sets no type, so build.fonts is empty."
+  ]
+}
