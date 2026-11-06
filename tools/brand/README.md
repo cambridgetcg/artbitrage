@@ -94,3 +94,18 @@ After changing a card's alt text or adding a room, regenerate the pages that car
 `python3 tools/build-elements.py`, `tools/build-noticing.py` and `tools/build-unsigned.py`
 read `assets/og/credits.json`; the hand-written pages are edited by hand.
 `node tests/e2e-brand.mjs` checks icons, cards, credits, head tags and dist mirrors.
+
+## The brand folder
+
+This folder follows the shared brand-folder format (`brandkit.project/1`). `brandkit.json` records the kit, the files
+artbitrage.io serves from it, the guards, how a deploy happens and the media beyond the kit; `CREDITS.md` records who
+made each asset, the fonts and the works the cards hang; `check.mjs` (copied from the brandkit toolkit, never edited
+here) checks them with no dependencies:
+
+```bash
+node tools/brand/check.mjs
+```
+
+Who chose 閒 is not recorded: the recipe calls it "the winning mark" without naming the judge, and agents made and
+committed the kit on 2026-10-09 (`e54c10fc0`). No record of Yu's word on the mark was found. It is a hand-made kit:
+never overwrite it with a generated one.
