@@ -45,8 +45,9 @@ to run if one sits in its output folder). `assets/brand/mark.svg` is the bare do
 
 The `<head>` tags live in `head.py` (`ICON_LINKS`). The generated pages import it; the
 hand-written pages carry the same lines. `theme-color` is not part of the shared block:
-each room keeps its own, and only `/` and `/visit` (which had none) use the forest
-`#17271f`.
+each room keeps its own. `/visit` (which had none) uses the forest `#17271f`; `/` uses
+`#121018`, its fixed header's colour, and the manifest's `theme_color` follows it (its
+`background_color` stays forest).
 
 `/still-we-meet` carries neither the icon block nor share tags: its own test holds the room to
 zero outbound links and zero `<link>` tags. Its card is still made (`assets/og/still-we-meet.jpg`)

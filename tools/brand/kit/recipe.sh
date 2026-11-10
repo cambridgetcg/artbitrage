@@ -245,7 +245,7 @@ cat > site.webmanifest <<'JSON'
   "short_name": "Artbitrage",
   "start_url": "/",
   "display": "browser",
-  "theme_color": "#17271f",
+  "theme_color": "#121018",
   "background_color": "#17271f",
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
@@ -262,7 +262,7 @@ cat > head-snippet.html <<'HTML'
 <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#17271f">
+<meta name="theme-color" content="#121018">
 HTML
 
 # ── 6. prove it ───────────────────────────────────────────────────────────────────────────────
@@ -383,7 +383,7 @@ assert mk.count('<path') == 1 and mk.count('fill="currentColor"') == 1 and 'view
 # 7. manifest, ico, head snippet
 m = json.load(open(f'{K}/site.webmanifest', encoding='utf-8'))
 assert m['name'] == 'Artbitrage — a place to meet art' and m['short_name'] == 'Artbitrage' and m['start_url'] == '/'
-assert m['display'] == 'browser' and m['theme_color'] == m['background_color'] == '#17271f'
+assert m['display'] == 'browser' and (m['theme_color'], m['background_color']) == ('#121018', '#17271f')
 for ic in m['icons']:
     w, h, mode, _ = IMG[ic['src'].lstrip('/')]
     assert ic['sizes'] == f'{w}x{h}' and ic['type'] == 'image/png' and ic['purpose'] in ('any', 'maskable'), ic
@@ -398,7 +398,7 @@ head = open(f'{K}/head-snippet.html', encoding='utf-8').read()
 hrefs = re.findall(r'href="/([^"]+)"', head)
 import os
 assert all(os.path.isfile(f'{K}/{h}') for h in hrefs) and 'manifest.json' not in hrefs, hrefs
-assert 'content="#17271f"' in head
+assert 'content="#121018"' in head
 print(f'  head-snippet.html        {len(hrefs)} links, every href is a file in this kit')
 PY
 for f in favicon-16.png favicon-32.png apple-touch-icon.png icon-192.png icon-512.png icon-maskable-512.png; do

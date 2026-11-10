@@ -25,7 +25,7 @@
     "framework": "static",
     "snippet": "head.py",
     "html": [
-      { "page": "../../index.html", "theme_color": "#121018" },
+      { "page": "../../index.html", "theme_color": "#121018", "color_scheme": "only light" },
       { "page": "../../visit.html", "theme_color": "#17271f" },
       { "page": "../../elements.html", "theme_color": "#1e2922" },
       { "page": "../../noticing.html", "theme_color": "#eeece3" },
@@ -120,7 +120,7 @@
     "recipe.sh refuses to run unless vectorcraft-cli is exactly 0.7.0 and photocraft-cli 0.5.0. Neither is installed on any known machine (review 2026-11-02 §2.2; on 2026-11-05 the Studio has 0.17.0 and 0.16.0). This is a hand-made kit: never rebuild it with other versions or overwrite it with a generated kit (review §8).",
     "tools/craft/render.py runs its pinned CLIs from ~/craft-apps/<app>-v<version>/… (or VECTORCRAFT_CLI, PHOTOCRAFT_CLI and DESIGNCRAFT_CLI), not from PATH, and records each release's zip sha256.",
     "/manifest.json is the site's philosophy document, not a web-app manifest. The icon uses /site.webmanifest; never create or overwrite manifest.json (the recipe refuses to run if one sits in its output folder).",
-    "The icon's head block lives in head.py (ICON_LINKS), which the page generators import, so site.snippet names it; the hand-written pages carry the same lines. theme-color isn't part of the shared block: each room keeps its own, pinned by tests/e2e-brand.mjs, and site.html carries those per page. The web manifest's #17271f and the home page's #121018 disagree (review 2026-11-02, A1).",
+    "The icon's head block lives in head.py (ICON_LINKS), which the page generators import, so site.snippet names it; the hand-written pages carry the same lines. theme-color isn't part of the shared block: each room keeps its own, pinned by tests/e2e-brand.mjs, and site.html carries those per page. The web manifest's theme_color is the home page's #121018, the colour of its fixed header, which is always what the browser bar meets. The header is 91% opaque, so the rendered edge reads #111017 to #1a191f over the dark bands and about #25242a over the light gesso bands (rendered 2026-11-10 at 1440 and 390 px, every 5% of scroll); the body paints gesso #f1ede5 beneath. Its background_color stays the icon tile's forest #17271f. Until 2026-11-10 the manifest said #17271f (review 2026-11-02, A1). The home page declares color-scheme 'only light': welcome.css has one scheme (light gesso and dark ink, no prefers-color-scheme rule); the other rooms declare none yet.",
     "/still-we-meet carries neither the icon block nor share tags: its own test holds it to zero <link> tags. /nen keeps its own 念 icon. Neither is listed under site.html.",
     "tests/e2e-brand.mjs runs by hand, in the README's verify list. No CI runs it: the repository has no test script, and its two workflows only ping the live API on a schedule.",
     "The README names a GitHub Pages mirror at cambridgetcg.github.io/artbitrage/, but the repository has no Pages site (the API answered 404) and /artbitrage/favicon.svg there answered 404 on 2026-11-05.",
