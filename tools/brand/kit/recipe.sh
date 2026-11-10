@@ -262,7 +262,7 @@ cat > head-snippet.html <<'HTML'
 <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#17271f">
+<meta name="theme-color" content="#121018">
 HTML
 
 # ── 6. prove it ───────────────────────────────────────────────────────────────────────────────
@@ -398,7 +398,7 @@ head = open(f'{K}/head-snippet.html', encoding='utf-8').read()
 hrefs = re.findall(r'href="/([^"]+)"', head)
 import os
 assert all(os.path.isfile(f'{K}/{h}') for h in hrefs) and 'manifest.json' not in hrefs, hrefs
-assert 'content="#17271f"' in head
+assert 'content="#121018"' in head
 print(f'  head-snippet.html        {len(hrefs)} links, every href is a file in this kit')
 PY
 for f in favicon-16.png favicon-32.png apple-touch-icon.png icon-192.png icon-512.png icon-maskable-512.png; do
