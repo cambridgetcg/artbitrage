@@ -245,7 +245,7 @@ cat > site.webmanifest <<'JSON'
   "short_name": "Artbitrage",
   "start_url": "/",
   "display": "browser",
-  "theme_color": "#17271f",
+  "theme_color": "#121018",
   "background_color": "#17271f",
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
@@ -383,7 +383,7 @@ assert mk.count('<path') == 1 and mk.count('fill="currentColor"') == 1 and 'view
 # 7. manifest, ico, head snippet
 m = json.load(open(f'{K}/site.webmanifest', encoding='utf-8'))
 assert m['name'] == 'Artbitrage — a place to meet art' and m['short_name'] == 'Artbitrage' and m['start_url'] == '/'
-assert m['display'] == 'browser' and m['theme_color'] == m['background_color'] == '#17271f'
+assert m['display'] == 'browser' and (m['theme_color'], m['background_color']) == ('#121018', '#17271f')
 for ic in m['icons']:
     w, h, mode, _ = IMG[ic['src'].lstrip('/')]
     assert ic['sizes'] == f'{w}x{h}' and ic['type'] == 'image/png' and ic['purpose'] in ('any', 'maskable'), ic

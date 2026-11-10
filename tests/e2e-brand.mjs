@@ -21,7 +21,7 @@ const ico = read('favicon.ico');
 assert.equal(ico.readUInt16LE(2), 1, 'favicon.ico is an icon'); assert.equal(ico[6], 32, 'favicon.ico holds a 32px frame');
 const webmanifest = JSON.parse(text('site.webmanifest'));
 assert.equal(webmanifest.short_name, 'Artbitrage');
-assert.equal(webmanifest.theme_color, '#17271f');
+assert.equal(webmanifest.theme_color, '#121018');
 for (const icon of webmanifest.icons) {
   assert.deepEqual(pngSize(read(icon.src.slice(1))), icon.sizes.split('x').map(Number), `${icon.src} matches its declared size`);
 }
